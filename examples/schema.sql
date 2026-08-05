@@ -1,180 +1,167 @@
+-- #############################################################################
+-- ## Google Cloud Spanner Schema for Fintech Compliance Ontology
+-- ##
+-- ## This schema translates the provided OWL ontology into a physical relational
+-- ## model and a property graph model for use with Google Cloud Spanner.
+-- #############################################################################
+
+
 -- =============================================================================
--- RELATIONAL SCHEMA (Physical Tables)
+-- == 1. Relational Schema (Physical DDL)
 -- =============================================================================
+-- This section defines the physical tables based on a "Table-Per-Class"
+-- pattern for concrete leaf classes from the ontology.
 
 -- Node Tables for Party Hierarchy
--- Represents ex:Person, a subclass of ex:Party
 CREATE TABLE Persons (
     PersonId STRING(36) NOT NULL,
-    FullName STRING(256),
-    DateOfBirth DATE,
+    Name STRING(MAX),
+    -- Other person-specific attributes
 ) PRIMARY KEY (PersonId);
 
--- Represents ex:Organization, a subclass of ex:Party
 CREATE TABLE Organizations (
     OrganizationId STRING(36) NOT NULL,
-    LegalName STRING(256),
-    TaxId STRING(100),
+    LegalName STRING(MAX),
+    -- Other organization-specific attributes
 ) PRIMARY KEY (OrganizationId);
 
--- Node Tables for Account Hierarchy (Table-Per-Class)
--- Represents ex:PersonalAccount, a subclass of ex:Account
+-- Node Tables for Account Hierarchy
 CREATE TABLE PersonalAccounts (
     AccountId STRING(36) NOT NULL,
-    AccountBalance NUMERIC NOT NULL,
-    -- Implements the ex:HighRiskAccount equivalentClass rule
+    AccountBalance NUMERIC,
     IsHighRisk BOOL AS (AccountBalance > 100000.0) STORED,
 ) PRIMARY KEY (AccountId);
 
--- Represents ex:CorporateAccount, a subclass of ex:Account
 CREATE TABLE CorporateAccounts (
     AccountId STRING(36) NOT NULL,
-    AccountBalance NUMERIC NOT NULL,
-    -- Implements the ex:HighRiskAccount equivalentClass rule
+    AccountBalance NUMERIC,
     IsHighRisk BOOL AS (AccountBalance > 100000.0) STORED,
 ) PRIMARY KEY (AccountId);
 
 
--- Edge Tables for Relationships
-
--- Implements ex:hasOwner for PersonalAccounts (range: ex:Person)
-CREATE TABLE PersonalAccountOwners (
+-- Edge Tables for Object Properties
+CREATE TABLE PersonalAccount_Owners (
     AccountId STRING(36) NOT NULL,
     PersonId STRING(36) NOT NULL,
-    CONSTRAINT FK_PersonalAccountOwners_Account FOREIGN KEY (AccountId) REFERENCES PersonalAccounts (AccountId),
-    CONSTRAINT FK_PersonalAccountOwners_Person FOREIGN KEY (PersonId) REFERENCES Persons (PersonId),
+    CONSTRAINT FK_PersonalAccountOwner_Account FOREIGN KEY (AccountId) REFERENCES PersonalAccounts (AccountId),
+    CONSTRAINT FK_PersonalAccountOwner_Person FOREIGN KEY (PersonId) REFERENCES Persons (PersonId),
 ) PRIMARY KEY (AccountId, PersonId);
 
--- Implements ex:hasOwner for CorporateAccounts (range: ex:Organization)
-CREATE TABLE CorporateAccountOwners (
+CREATE TABLE CorporateAccount_Owners (
     AccountId STRING(36) NOT NULL,
     OrganizationId STRING(36) NOT NULL,
-    CONSTRAINT FK_CorporateAccountOwners_Account FOREIGN KEY (AccountId) REFERENCES CorporateAccounts (AccountId),
-    CONSTRAINT FK_CorporateAccountOwners_Organization FOREIGN KEY (OrganizationId) REFERENCES Organizations (OrganizationId),
+    CONSTRAINT FK_CorporateAccountOwner_Account FOREIGN KEY (AccountId) REFERENCES CorporateAccounts (AccountId),
+    CONSTRAINT FK_CorporateAccountOwner_Organization FOREIGN KEY (OrganizationId) REFERENCES Organizations (OrganizationId),
 ) PRIMARY KEY (AccountId, OrganizationId);
 
--- Implements ex:hasSignatory for PersonalAccounts (range: ex:Person)
-CREATE TABLE PersonalAccountSignatories (
+CREATE TABLE PersonalAccount_Signatories (
     AccountId STRING(36) NOT NULL,
     PersonId STRING(36) NOT NULL,
-    CONSTRAINT FK_PersonalAccountSignatories_Account FOREIGN KEY (AccountId) REFERENCES PersonalAccounts (AccountId),
-    CONSTRAINT FK_PersonalAccountSignatories_Person FOREIGN KEY (PersonId) REFERENCES Persons (PersonId),
+    CONSTRAINT FK_PersonalAccountSignatory_Account FOREIGN KEY (AccountId) REFERENCES PersonalAccounts (AccountId),
+    CONSTRAINT FK_PersonalAccountSignatory_Person FOREIGN KEY (PersonId) REFERENCES Persons (PersonId),
 ) PRIMARY KEY (AccountId, PersonId);
 
--- Implements symmetric ex:isPartnerOf between Organizations
-CREATE TABLE OrganizationPartners (
+CREATE TABLE Organization_Partnerships (
     OrganizationId1 STRING(36) NOT NULL,
     OrganizationId2 STRING(36) NOT NULL,
-    -- Enforces single-direction storage for the symmetric relationship
-    CONSTRAINT Chk_OrgPartners_Order CHECK (OrganizationId1 < OrganizationId2),
-    CONSTRAINT FK_OrgPartners_Org1 FOREIGN KEY (OrganizationId1) REFERENCES Organizations (OrganizationId),
-    CONSTRAINT FK_OrgPartners_Org2 FOREIGN KEY (OrganizationId2) REFERENCES Organizations (OrganizationId),
+    CONSTRAINT FK_OrgPartner_Org1 FOREIGN KEY (OrganizationId1) REFERENCES Organizations (OrganizationId),
+    CONSTRAINT FK_OrgPartner_Org2 FOREIGN KEY (OrganizationId2) REFERENCES Organizations (OrganizationId),
+    -- CHECK constraint enforces storing one direction (A,B) for a symmetric pair
+    -- to prevent storing a duplicate (B,A).
+    CHECK (OrganizationId1 < OrganizationId2),
 ) PRIMARY KEY (OrganizationId1, OrganizationId2);
 
--- Implements transitive ex:subAccountOf relationship using INTERLEAVED tables.
--- This physically co-locates child accounts with their parents.
-
--- Child (Personal) interleaved in Parent (Personal)
-CREATE TABLE PersToPersSubAccounts (
-    AccountId STRING(36) NOT NULL, -- Parent's AccountId
+CREATE TABLE AccountHierarchy (
+    ParentAccountId STRING(36) NOT NULL,
     ChildAccountId STRING(36) NOT NULL,
-    CONSTRAINT FK_P2P_Child FOREIGN KEY (ChildAccountId) REFERENCES PersonalAccounts (AccountId),
-) PRIMARY KEY (AccountId, ChildAccountId),
-INTERLEAVE IN PARENT PersonalAccounts ON DELETE CASCADE;
-
--- Child (Corporate) interleaved in Parent (Personal)
-CREATE TABLE PersToCorpSubAccounts (
-    AccountId STRING(36) NOT NULL, -- Parent's AccountId
-    ChildCorporateAccountId STRING(36) NOT NULL,
-    CONSTRAINT FK_P2C_Child FOREIGN KEY (ChildCorporateAccountId) REFERENCES CorporateAccounts (AccountId),
-) PRIMARY KEY (AccountId, ChildCorporateAccountId),
-INTERLEAVE IN PARENT PersonalAccounts ON DELETE CASCADE;
-
--- Child (Personal) interleaved in Parent (Corporate)
-CREATE TABLE CorpToPersSubAccounts (
-    AccountId STRING(36) NOT NULL, -- Parent's AccountId
-    ChildPersonalAccountId STRING(36) NOT NULL,
-    CONSTRAINT FK_C2P_Child FOREIGN KEY (ChildPersonalAccountId) REFERENCES PersonalAccounts (AccountId),
-) PRIMARY KEY (AccountId, ChildPersonalAccountId),
-INTERLEAVE IN PARENT CorporateAccounts ON DELETE CASCADE;
-
--- Child (Corporate) interleaved in Parent (Corporate)
-CREATE TABLE CorpToCorpSubAccounts (
-    AccountId STRING(36) NOT NULL, -- Parent's AccountId
-    ChildAccountId STRING(36) NOT NULL,
-    CONSTRAINT FK_C2C_Child FOREIGN KEY (ChildAccountId) REFERENCES CorporateAccounts (AccountId),
-) PRIMARY KEY (AccountId, ChildAccountId),
-INTERLEAVE IN PARENT CorporateAccounts ON DELETE CASCADE;
+    -- NOTE: Foreign keys cannot be used here because the referenced account
+    -- could be in either PersonalAccounts or CorporateAccounts. This referential
+    -- integrity is managed at the graph layer definition below.
+) PRIMARY KEY (ParentAccountId, ChildAccountId);
 
 
 -- =============================================================================
--- PROPERTY GRAPH SCHEMA (GQL-Compliant)
+-- == 2. Property Graph Schema (GQL DDL)
 -- =============================================================================
+-- This statement maps the physical tables to a GQL-compliant property graph,
+-- enabling graph-based queries over the relational data.
 
-CREATE PROPERTY GRAPH FintechGraph
-    -- Node table definitions with multi-label hierarchy
+CREATE PROPERTY GRAPH FintechComplianceGraph
+    -- NODE TABLES define the vertices of the graph.
+    -- Multi-label inheritance (e.g., Person -> Party) is modeled here.
     NODE TABLE Persons
         KEY (PersonId)
-        LABEL Person PROPERTIES (FullName, DateOfBirth)
-        LABEL Party PROPERTIES (PersonId AS PartyId, FullName AS PartyName)
+        -- Aliasing PersonId to PartyId for the 'Party' label ensures a uniform
+        -- property signature across all tables sharing that label.
+        LABEL Person PROPERTIES (PersonId, Name)
+        LABEL Party PROPERTIES (PersonId AS PartyId, Name)
 
     NODE TABLE Organizations
         KEY (OrganizationId)
-        LABEL Organization PROPERTIES (LegalName, TaxId)
-        LABEL Party PROPERTIES (OrganizationId AS PartyId, LegalName AS PartyName)
+        LABEL Organization PROPERTIES (OrganizationId, LegalName)
+        LABEL Party PROPERTIES (OrganizationId AS PartyId, LegalName)
 
     NODE TABLE PersonalAccounts
         KEY (AccountId)
-        LABEL PersonalAccount PROPERTIES (AccountBalance, IsHighRisk)
-        LABEL Account PROPERTIES (AccountBalance, IsHighRisk)
+        LABEL PersonalAccount PROPERTIES (AccountId, AccountBalance, IsHighRisk)
+        LABEL Account PROPERTIES (AccountId, AccountBalance, IsHighRisk)
+        -- The 'HighRiskAccount' label is conditionally applied based on the
+        -- generated column, implementing the owl:equivalentClass rule.
+        LABEL HighRiskAccount WHERE IsHighRisk = TRUE PROPERTIES (AccountId, AccountBalance)
 
     NODE TABLE CorporateAccounts
         KEY (AccountId)
-        LABEL CorporateAccount PROPERTIES (AccountBalance, IsHighRisk)
-        LABEL Account PROPERTIES (AccountBalance, IsHighRisk)
+        LABEL CorporateAccount PROPERTIES (AccountId, AccountBalance, IsHighRisk)
+        LABEL Account PROPERTIES (AccountId, AccountBalance, IsHighRisk)
+        LABEL HighRiskAccount WHERE IsHighRisk = TRUE PROPERTIES (AccountId, AccountBalance)
 
-    -- Edge table definitions
-    EDGE TABLE PersonalAccountOwners
-        SOURCE KEY (AccountId) REFERENCES PersonalAccounts (AccountId)
-        DESTINATION KEY (PersonId) REFERENCES Persons (PersonId)
-        LABEL HAS_OWNER PROPERTIES (PersonId AS OwnerPartyId)
+    -- EDGE TABLES define the relationships (edges) between nodes.
+    EDGE TABLE PersonalAccount_Owners
+        SOURCE KEY (AccountId) REFERENCES PersonalAccounts
+        DESTINATION KEY (PersonId) REFERENCES Persons
+        -- Aliasing PersonId to OwnerId ensures the 'hasOwner' label has a
+        -- consistent property signature across all its defining tables.
+        LABEL hasOwner PROPERTIES (AccountId, PersonId AS OwnerId)
 
-    EDGE TABLE CorporateAccountOwners
-        SOURCE KEY (AccountId) REFERENCES CorporateAccounts (AccountId)
-        DESTINATION KEY (OrganizationId) REFERENCES Organizations (OrganizationId)
-        LABEL HAS_OWNER PROPERTIES (OrganizationId AS OwnerPartyId)
+    EDGE TABLE CorporateAccount_Owners
+        SOURCE KEY (AccountId) REFERENCES CorporateAccounts
+        DESTINATION KEY (OrganizationId) REFERENCES Organizations
+        LABEL hasOwner PROPERTIES (AccountId, OrganizationId AS OwnerId)
 
-    EDGE TABLE PersonalAccountSignatories
-        SOURCE KEY (AccountId) REFERENCES PersonalAccounts (AccountId)
-        DESTINATION KEY (PersonId) REFERENCES Persons (PersonId)
-        LABEL HAS_SIGNATORY PROPERTIES ()
+    EDGE TABLE PersonalAccount_Signatories
+        SOURCE KEY (AccountId) REFERENCES PersonalAccounts
+        DESTINATION KEY (PersonId) REFERENCES Persons
+        LABEL hasSignatory PROPERTIES (AccountId, PersonId)
 
-    EDGE TABLE OrganizationPartners
-        SOURCE KEY (OrganizationId1) REFERENCES Organizations (OrganizationId)
-        DESTINATION KEY (OrganizationId2) REFERENCES Organizations (OrganizationId)
-        LABEL IS_PARTNER_OF PROPERTIES ()
+    EDGE TABLE Organization_Partnerships
+        SOURCE KEY (OrganizationId1) REFERENCES Organizations
+        DESTINATION KEY (OrganizationId2) REFERENCES Organizations
+        -- isPartnerOf is symmetric; it can be queried in either direction.
+        LABEL isPartnerOf PROPERTIES (OrganizationId1, OrganizationId2)
 
-    -- FIX: Edges for the transitive 'subAccountOf' relationship.
-    -- The explicit 'PROPERTIES ()' clause ensures a uniform signature for the
-    -- 'SUB_ACCOUNT_OF' label across all four tables where it is used.
-    -- The direction is (Child)-[SUB_ACCOUNT_OF]->(Parent).
-    EDGE TABLE PersToPersSubAccounts
-        SOURCE KEY (ChildAccountId) REFERENCES PersonalAccounts (AccountId)
-        DESTINATION KEY (AccountId) REFERENCES PersonalAccounts (AccountId)
-        LABEL SUB_ACCOUNT_OF PROPERTIES ()
-
-    EDGE TABLE PersToCorpSubAccounts
-        SOURCE KEY (ChildCorporateAccountId) REFERENCES CorporateAccounts (AccountId)
-        DESTINATION KEY (AccountId) REFERENCES PersonalAccounts (AccountId)
-        LABEL SUB_ACCOUNT_OF PROPERTIES ()
-
-    EDGE TABLE CorpToPersSubAccounts
-        SOURCE KEY (ChildPersonalAccountId) REFERENCES PersonalAccounts (AccountId)
-        DESTINATION KEY (AccountId) REFERENCES CorporateAccounts (AccountId)
-        LABEL SUB_ACCOUNT_OF PROPERTIES ()
-
-    EDGE TABLE CorpToCorpSubAccounts
-        SOURCE KEY (ChildAccountId) REFERENCES CorporateAccounts (AccountId)
-        DESTINATION KEY (AccountId) REFERENCES CorporateAccounts (AccountId)
-        LABEL SUB_ACCOUNT_OF PROPERTIES ()
+    EDGE TABLE AccountHierarchy
+        -- The source of a 'subAccountOf' edge is the child account.
+        SOURCE KEY (ChildAccountId) REFERENCES PersonalAccounts, CorporateAccounts
+        -- The destination is the parent account.
+        DESTINATION KEY (ParentAccountId) REFERENCES PersonalAccounts, CorporateAccounts
+        -- subAccountOf is transitive; path queries (e.g., `->*`) can find all ancestors/descendants.
+        LABEL subAccountOf PROPERTIES (ParentAccountId, ChildAccountId)
 ;
+
+
+-- =============================================================================
+-- == 3. Non-Translatable OWL Capabilities (System Gaps)
+-- =============================================================================
+-- The following OWL constructs from the source ontology cannot be declaratively
+-- enforced by the Spanner DDL and must be handled at the application layer,
+-- via database triggers (if supported/desired), or in specific queries.
+
+-- * owl:cardinality "1" (on CorporateAccount -> hasOwner):
+--   Spanner does not have a native DDL constraint to enforce an exact
+--   cardinality of 1 for a relationship defined in a separate edge table.
+--   Application logic must ensure each CorporateAccount has exactly one owner.
+
+-- * owl:maxCardinality "3" (on PersonalAccount -> hasSignatory):
+--   Spanner cannot enforce a maximum number of related entities in this model.
+--   Application logic must validate that a PersonalAccount does not exceed
+--   three signatories before inserting into the PersonalAccount_Signatories table.
