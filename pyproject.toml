@@ -1,20 +1,25 @@
+# Build system configuration for packaging the Python project
 [build-system]
 requires = ["setuptools>=61.0.0"]
 build-backend = "setuptools.build_meta"
 
+# Project metadata and package dependencies
 [project]
 name = "rdf-spanner-translator"
 version = "0.1.0"
 description = "Gemini CLI extension to translate RDF/SHACL to Cloud Spanner Graph DDL"
 readme = "README.md"
 requires-python = ">=3.10"
+
+# List of third-party libraries required by the extension
 dependencies = [
-    "google-genai",
-    "mcp",
-    "rdflib",
-    "click",
-    "rich"
+    "google-genai",   # Google GenAI SDK for Gemini API integration
+    "mcp",            # Model Context Protocol SDK for Spanner DDL validation
+    "rdflib",         # RDF/Turtle format parsing and local validation
+    "click",          # Click framework for defining command line interfaces
+    "rich"            # Rich formatting library for stylized console outputs
 ]
 
+# Command-line entry points mapped to Python functions
 [project.scripts]
 rdf-spanner-translator = "rdf_spanner_translator.cli:main"

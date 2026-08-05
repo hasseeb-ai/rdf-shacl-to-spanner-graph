@@ -82,12 +82,3 @@ rdf-spanner-translator run \
   --output examples/schema.sql \
   --mcp-cmd "python3 tests/mock_spanner_mcp.py"
 ```
-
----
-
-## Releasing the Extension
-
-To list this extension in the public gallery:
-1. Ensure this repository is public on GitHub.
-2. Add the `gemini-cli-extension` topic to the repository's About section.
-3. Make sure `gemini-extension.json` is located at the root of the repository.
