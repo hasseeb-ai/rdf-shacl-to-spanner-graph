@@ -50,13 +50,13 @@ def translate(input, output, model):
 
 @main.command()
 @click.option("--ddl", "-d", type=click.Path(exists=True), required=True, help="Path to Spanner DDL SQL file.")
-@click.option("--mcp-url", "-u", help="SSE URL of Remote MCP Server.")
-@click.option("--mcp-cmd", "-c", help="Stdio command to run Remote MCP Server.")
-@click.option("--mcp-tool", "-t", help="Name of tool on MCP server.")
+@click.option("--mcp-url", "-u", envvar="SPANNER_REMOTE_MCP_URL", help="SSE URL of Remote MCP Server.")
+@click.option("--mcp-cmd", "-c", envvar="SPANNER_LOCAL_MCP_CMD", help="Stdio command to run Remote MCP Server.")
+@click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
 def validate(ddl, mcp_url, mcp_cmd, mcp_tool):
     """Validate Spanner DDL syntax using Remote MCP."""
     if not mcp_url and not mcp_cmd:
-        console.print("[bold red]Error:[/bold red] You must specify either --mcp-url or --mcp-cmd")
+        console.print("[bold red]Error:[/bold red] You must specify either --mcp-url or --mcp-cmd (or set SPANNER_REMOTE_MCP_URL/SPANNER_LOCAL_MCP_CMD environment variables)")
         raise click.Abort()
         
     console.print(Panel.fit(f"[bold purple]Validating DDL Schema[/bold purple]\nFile: {ddl}", title="MCP Validator"))
@@ -81,9 +81,9 @@ def validate(ddl, mcp_url, mcp_cmd, mcp_tool):
 @main.command()
 @click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
 @click.option("--output", "-o", type=click.Path(), default="schema.sql", help="Path to output SQL file.")
-@click.option("--mcp-url", "-u", help="SSE URL of Remote MCP Server.")
-@click.option("--mcp-cmd", "-c", help="Stdio command to run Remote MCP Server.")
-@click.option("--mcp-tool", "-t", help="Name of tool on MCP server.")
+@click.option("--mcp-url", "-u", envvar="SPANNER_REMOTE_MCP_URL", help="SSE URL of Remote MCP Server.")
+@click.option("--mcp-cmd", "-c", envvar="SPANNER_LOCAL_MCP_CMD", help="Stdio command to run Remote MCP Server.")
+@click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
 @click.option("--self-correct/--no-self-correct", "-s", default=True, help="Enable self-correction loop.")
 @click.option("--model", "-m", default="gemini-2.5-pro", help="Gemini model to use.")
 def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):

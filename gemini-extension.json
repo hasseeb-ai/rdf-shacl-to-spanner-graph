@@ -2,6 +2,44 @@
   "name": "rdf-shacl-to-spanner-graph",
   "version": "0.1.0",
   "description": "Gemini CLI extension to translate RDF/SHACL to Cloud Spanner Graph DDL",
+  "settings": [
+    {
+      "name": "Spanner Project ID",
+      "description": "The Google Cloud Project ID to target.",
+      "envVar": "SPANNER_PROJECT_ID",
+      "sensitive": false
+    },
+    {
+      "name": "Spanner Instance ID",
+      "description": "The Cloud Spanner Instance ID.",
+      "envVar": "SPANNER_INSTANCE_ID",
+      "sensitive": false
+    },
+    {
+      "name": "Spanner Database ID",
+      "description": "The Cloud Spanner Database ID.",
+      "envVar": "SPANNER_DATABASE_ID",
+      "sensitive": false
+    },
+    {
+      "name": "Remote Spanner MCP Server URL",
+      "description": "SSE URL of the remote Spanner MCP Server (e.g. http://localhost:8000/sse).",
+      "envVar": "SPANNER_REMOTE_MCP_URL",
+      "sensitive": false
+    },
+    {
+      "name": "Local Spanner MCP Command",
+      "description": "Local stdio command to run a Spanner MCP Server (e.g. python3 path/to/server.py).",
+      "envVar": "SPANNER_LOCAL_MCP_CMD",
+      "sensitive": false
+    },
+    {
+      "name": "Spanner MCP Tool Name",
+      "description": "The specific tool name to execute DDL on Spanner. Leave blank for auto-discovery.",
+      "envVar": "SPANNER_MCP_TOOL_NAME",
+      "sensitive": false
+    }
+  ],
   "mcpServers": {
     "rdf-spanner-translator": {
       "command": "python3",

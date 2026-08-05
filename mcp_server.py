@@ -58,9 +58,14 @@ async def validate_spanner_graph_ddl(
         mcp_tool: Explicit name of the tool to call.
     """
     try:
+        # Fallback to extension settings/env vars if parameters are not provided
+        url = mcp_url or os.environ.get("SPANNER_REMOTE_MCP_URL")
+        cmd = mcp_cmd or os.environ.get("SPANNER_LOCAL_MCP_CMD")
+        tool = mcp_tool or os.environ.get("SPANNER_MCP_TOOL_NAME")
+        
         # Call the validation harness which establishes a connection to the 
         # Remote Spanner MCP server and runs the DDL statements.
-        success, msg = validate_ddl(ddl, mcp_url, mcp_cmd, mcp_tool)
+        success, msg = validate_ddl(ddl, url, cmd, tool)
         if success:
             return f"DDL validation successful: {msg}"
         else:
