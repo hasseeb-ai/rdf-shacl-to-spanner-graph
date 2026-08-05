@@ -26,9 +26,9 @@ To install this as a native extension in your local **Gemini CLI** installation:
    gemini extensions link .
    ```
 
-4. Restart your `gemini` CLI session. The extension will automatically register the following tools with the model:
-   - `translate_rdf_to_spanner_graph_ddl`: Translates Turtle OWL ontologies to Spanner Graph DDL.
-   - `validate_spanner_graph_ddl`: Validates Spanner DDL syntax using a Remote Spanner MCP server.
+4. Restart your `gemini` CLI session. The extension will automatically configure:
+   - **Native Agent Skill**: The translation skill (`skills/owl-to-spanner-property-graph-translator/SKILL.md`) is automatically loaded. This teaches the Gemini CLI model the ontology-to-spanner mapping rules and critical Graph DDL constraints dynamically when a relevant translation task is active.
+   - **Custom Tools**: Registers `translate_rdf_to_spanner_graph_ddl` (translates Turtle OWL ontologies to Spanner Graph DDL) and `validate_spanner_graph_ddl` (validates Spanner DDL syntax using a Remote Spanner MCP server) as tools available to the model.
 
 ---
 

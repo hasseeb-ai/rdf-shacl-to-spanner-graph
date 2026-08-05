@@ -1,75 +1,38 @@
+import os
 import re
 from google import genai
 from google.genai import types
 
-SYSTEM_INSTRUCTION = """You are a Cloud Spanner Graph DDL architect. Your task is to translate OWL Ontologies (in Turtle .ttl format) into a production-grade Google Cloud Spanner database schema consisting of:
-1. Physical Relational DDL (CREATE TABLE statements) implementing a Table-Per-Class design pattern.
-2. Logical Labeled Property Graph DDL (CREATE PROPERTY GRAPH statement) implementing a GQL-compliant property graph schema.
-
-Follow these strict mapping strategies and constraints:
-
-### 1. Mapping Strategy
-
-- **Class Taxonomy to Spanner Table Mapping:**
-  - **Table-Per-Class Design:** Map each concrete leaf owl:Class to a dedicated physical Spanner table. Superclass properties (rdfs:subClassOf) are flattened into child tables as physical columns.
-  - **Disjointness (owl:disjointWith):** Enforced via physical separation into distinct SQL tables with independent primary key spaces, guaranteeing non-overlap.
-  - **Equivalent Classes (owl:equivalentClass):** Represent dynamic class rules or threshold expressions as STORED Generated Columns in SQL (e.g., ColumnName AS (Expression) STORED).
-  - **Multi-Label Class Hierarchies:** Model class inheritance in the Property Graph by attaching multiple LABEL declarations to a NODE TABLE (e.g., LABEL PersonalAccount LABEL Account).
-
-- **Property Mapping & Hierarchy:**
-  - **Localized Property Ranges (owl:allValuesFrom):** Enforce range restrictions using explicit foreign key constraints targeting dedicated physical child tables (e.g., CONSTRAINT FK_Name FOREIGN KEY (...) REFERENCES ChildTable(...)).
-  - **Transitive Properties (owl:TransitiveProperty):** Map parent-child hierarchy edges to physical Interleaved Tables (INTERLEAVE IN PARENT ParentTable ON DELETE CASCADE). Evaluate paths via GQL variable-length path matching.
-  - **Symmetric Properties (owl:SymmetricProperty):** Store single directional rows in relational storage; traverse bidirectionally in GQL queries.
-  - **Inverse Properties (owl:inverseOf):** Store physically in one direction; query in reverse using GQL directed pattern matching.
-
-### 2. Critical Spanner Graph DDL Rules
-
-To avoid Spanner DDL parser failures, observe the following rules:
-
-- **Rule 1: Individual Label Binding (Multi-Label Rule):**
-  Google Cloud Spanner's DDL parser evaluates property scope clauses strictly per label declaration. A PROPERTIES (...) block binds EXCLUSIVELY to the single LABEL statement immediately preceding it. Unattached preceding labels silently default to PROPERTIES ALL COLUMNS, leading to signature mismatch errors.
-  *Incorrect:*
-  ```sql
-  LABEL HAS_LEGAL_OWNER 
-  LABEL HAS_OWNER 
-  LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, PartyId)
-  ```
-  *Correct:*
-  ```sql
-  LABEL HAS_LEGAL_OWNER PROPERTIES (AccountId, Balance, OwnerId) 
-  LABEL HAS_OWNER PROPERTIES (AccountId, Balance, OwnerId) 
-  LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, PartyId)
-  ```
-
-- **Rule 2: Shared Label Uniformity Across Tables:**
-  If a LABEL name is declared across multiple edge or node tables, EVERY instance of that label MUST expose an identical property signature (identical property names and compatible types).
-  *Incorrect:*
-  ```sql
-  -- Table A
-  LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, OwnerPersonId AS PartyId) 
-  -- Table B
-  LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, SignatoryPersonId)
-  ```
-  *Correct:*
-  ```sql
-  -- Table A
-  LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, OwnerPersonId AS PartyId) 
-  -- Table B
-  LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, SignatoryPersonId AS PartyId)
-  ```
-
-- **Rule 3: Primary Key Alignment in Interleaved Tables:**
-  The primary key of an interleaved child table MUST begin with the exact column name(s) of the parent table's primary key.
-  *Incorrect:* Parent PK is EntityId, Child PK is (ParentEntityId, ChildEntityId).
-  *Correct:* Parent PK is EntityId, Child PK is (EntityId, ChildEntityId).
-
-### 3. Non-Translatable OWL Capabilities (System Gaps)
-Document any non-translatable constructs as SQL comments at the top of the generated schema. These must be handled in application logic:
-- Cardinality Constraints (owl:maxCardinality, owl:cardinality)
-- Disjoint Properties (owl:propertyDisjointWith)
-- Property Chain Axioms (owl:propertyChainAxiom)
-- Property Characteristics (owl:IrreflexiveProperty, owl:AsymmetricProperty)
-"""
+def load_system_instruction() -> str:
+    """Loads translation system instructions dynamically from SKILL.md.
+    
+    This ensures that the rules and constraints declared in the Agent Skill are
+    reused as the single source of truth for both Gemini CLI and python API.
+    """
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    skill_path = os.path.join(
+        project_root, 
+        "skills", 
+        "owl-to-spanner-property-graph-translator", 
+        "SKILL.md"
+    )
+    
+    if os.path.exists(skill_path):
+        try:
+            with open(skill_path, "r") as f:
+                content = f.read()
+            # Strip YAML frontmatter block (starts and ends with ---)
+            content_clean = re.sub(r"^---.*?---", "", content, flags=re.DOTALL)
+            return content_clean.strip()
+        except Exception:
+            pass
+            
+    # Standard translation prompt fallback if file is not readable or missing
+    return (
+        "You are a Cloud Spanner Graph DDL architect. Your task is to translate OWL Ontologies "
+        "(in Turtle .ttl format) into a production-grade Google Cloud Spanner database schema consisting of "
+        "Physical Relational DDL (CREATE TABLE statements) and Logical Labeled Property Graph DDL (CREATE PROPERTY GRAPH)."
+    )
 
 def _get_client() -> genai.Client:
     """Initializes the GenAI client.
@@ -110,7 +73,7 @@ Ensure you follow the Spanner Graph DDL rules and output a single unified SQL co
         model=model_name,
         contents=prompt,
         config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_INSTRUCTION,
+            system_instruction=load_system_instruction(),
             temperature=0.1,
         )
     )
@@ -141,7 +104,7 @@ Analyze the error, fix the root cause, and output the corrected DDL containing B
         model=model_name,
         contents=prompt,
         config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_INSTRUCTION,
+            system_instruction=load_system_instruction(),
             temperature=0.1,
         )
     )
