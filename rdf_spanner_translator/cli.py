@@ -1,3 +1,11 @@
+"""Command-Line Interface (CLI) for the RDF-to-Spanner Graph DDL Translator.
+
+This module uses the Click framework to expose command-line utilities for:
+1. Translating OWL Ontologies (in Turtle format) into Spanner SQL schemas (Relational + Graph DDL).
+2. Validating Spanner Graph DDL syntax against a database or emulator via a Remote MCP server.
+3. Running the end-to-end self-correcting translation pipeline.
+"""
+
 import os
 import click
 from rich.console import Console
@@ -8,6 +16,7 @@ from rdf_spanner_translator.parser import validate_rdf_file
 from rdf_spanner_translator.translator import translate_ontology, self_correct_ddl
 from rdf_spanner_translator.validator import validate_ddl
 
+# Initialize Rich console for stylized and formatted terminal outputs
 console = Console()
 
 @click.group()
@@ -24,21 +33,21 @@ def translate(input, output, model):
     console.print(Panel.fit(f"[bold blue]Translating Ontology[/bold blue]\nInput: {input}\nOutput: {output}", title="Gemini Translator"))
     
     try:
-        # Pre-validate with rdflib
+        # Step 1: Pre-validate Turtle file locally using rdflib
         with console.status("[green]Parsing & pre-validating Turtle file locally..."):
             stats = validate_rdf_file(input)
             
         console.print(f"[green]✓ Local validation successful![/green] (Found {stats['triples']} triples, {stats['classes_count']} classes, {stats['properties_count']} properties)")
         
-        # Read content
+        # Read the file contents
         with open(input, "r") as f:
             ttl_content = f.read()
             
-        # Call Gemini translation
+        # Step 2: Request translation from the Gemini model
         with console.status(f"[yellow]Calling Gemini API ({model}) for translation..."):
             ddl = translate_ontology(ttl_content, model_name=model)
             
-        # Write to file
+        # Step 3: Write the generated DDL output to the SQL target file
         with open(output, "w") as f:
             f.write(ddl)
             
@@ -55,6 +64,7 @@ def translate(input, output, model):
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
 def validate(ddl, mcp_url, mcp_cmd, mcp_tool):
     """Validate Spanner DDL syntax using Remote MCP."""
+    # Ensure at least one connection transport is defined
     if not mcp_url and not mcp_cmd:
         console.print("[bold red]Error:[/bold red] You must specify either --mcp-url or --mcp-cmd (or set SPANNER_REMOTE_MCP_URL/SPANNER_LOCAL_MCP_CMD environment variables)")
         raise click.Abort()
@@ -62,12 +72,15 @@ def validate(ddl, mcp_url, mcp_cmd, mcp_tool):
     console.print(Panel.fit(f"[bold purple]Validating DDL Schema[/bold purple]\nFile: {ddl}", title="MCP Validator"))
     
     try:
+        # Read SQL DDL file
         with open(ddl, "r") as f:
             ddl_content = f.read()
             
+        # Connect to MCP server and invoke the DDL execution tool
         with console.status("[cyan]Connecting to MCP server and executing DDL..."):
             success, msg = validate_ddl(ddl_content, mcp_url, mcp_cmd, mcp_tool)
             
+        # Report results
         if success:
             console.print(f"[bold green]✓ DDL validation successful![/bold green]\n[dim]{msg}[/dim]")
         else:
@@ -90,7 +103,7 @@ def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
     """End-to-End: Translate OWL ontology, validate syntax via MCP, and self-correct if needed."""
     console.print(Panel.fit(f"[bold green]Running End-to-End Pipeline[/bold green]\nInput: {input}\nOutput: {output}\nSelf-correct: {self_correct}", title="RDF to Spanner Graph DDL Pipeline"))
     
-    # 1. Parsing
+    # 1. Parsing and local RDF Turtle pre-validation
     try:
         with console.status("[green]Parsing & pre-validating Turtle file locally..."):
             stats = validate_rdf_file(input)
@@ -99,11 +112,10 @@ def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
         console.print(f"[bold red]Error during parsing:[/bold red] {e}")
         raise click.Abort()
         
-    # Read Turtle file
     with open(input, "r") as f:
         ttl_content = f.read()
         
-    # 2. Translation
+    # 2. Translate Turtle Ontology into Cloud Spanner DDL using Gemini
     try:
         with console.status(f"[yellow]Calling Gemini API ({model}) for translation..."):
             ddl = translate_ontology(ttl_content, model_name=model)
@@ -111,14 +123,16 @@ def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
         console.print(f"[bold red]Error during translation:[/bold red] {e}")
         raise click.Abort()
         
-    # 3. Validation and correction
+    # 3. Validation execution via the MCP Server
     if not mcp_url and not mcp_cmd:
+        # If no validation harness environment is defined, write translation and return
         with open(output, "w") as f:
             f.write(ddl)
         console.print(f"[yellow]! Validation skipped (no MCP configuration provided). Saved DDL to {output}[/yellow]")
         return
         
     try:
+        # Run first validation pass
         with console.status("[cyan]Connecting to MCP server and executing DDL..."):
             success, msg = validate_ddl(ddl, mcp_url, mcp_cmd, mcp_tool)
             
@@ -128,6 +142,7 @@ def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
             console.print(f"[bold green]✓ DDL validation successful![/bold green] Saved verified DDL to {output}")
             return
             
+        # If validation fails, proceed to error logging and self-correction
         console.print(f"[bold red]✗ Initial DDL validation failed![/bold red]")
         console.print(f"[red]Error Message:[/red]\n{msg}")
         
@@ -137,7 +152,7 @@ def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
             console.print(f"[yellow]Self-correction disabled. Saved invalid DDL to {output}[/yellow]")
             raise click.Abort()
             
-        # 4. Self-correction loop
+        # 4. Self-correction loop: prompt Gemini with compiler/parser errors to rewrite DDL
         max_attempts = 3
         attempt = 1
         current_ddl = ddl
@@ -146,25 +161,29 @@ def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
         while attempt <= max_attempts:
             console.print(f"\n[bold yellow]Starting Self-Correction Attempt {attempt}/{max_attempts}...[/bold yellow]")
             
+            # Send invalid DDL + compiler error + original Turtle file to Gemini to repair
             with console.status(f"[yellow]Requesting correction from Gemini..."):
                 current_ddl = self_correct_ddl(ttl_content, current_ddl, current_error, model_name=model)
                 
+            # Re-execute the corrected schema against Spanner via MCP
             console.print(f"[yellow]Executing corrected DDL...[/yellow]")
             with console.status("[cyan]Re-validating corrected DDL..."):
                 success, msg = validate_ddl(current_ddl, mcp_url, mcp_cmd, mcp_tool)
                 
             if success:
+                # If correction was successful, save the new DDL and exit
                 with open(output, "w") as f:
                     f.write(current_ddl)
                 console.print(f"[bold green]✓ Self-correction successful! DDL is now valid.[/bold green] Saved verified DDL to {output}")
                 return
                 
+            # Log failure and loop again if attempts remain
             console.print(f"[bold red]✗ Corrected DDL validation failed![/bold red]")
             console.print(f"[red]Error Message:[/red]\n{msg}")
             current_error = msg
             attempt += 1
             
-        # If all attempts failed
+        # If the self-correction loop exhausted all attempts without finding a valid DDL schema
         with open(output, "w") as f:
             f.write(current_ddl)
         console.print(f"[bold red]✗ Failed to generate a valid schema after {max_attempts} correction attempts.[/bold red] Saved last attempt to {output}")
