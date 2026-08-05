@@ -1,2 +1,93 @@
 # rdf-shacl-to-spanner-graph
-This repository is Gemini CLI extension to do RDF and SHACL to Spanner Graph translation.
+
+A **Gemini CLI extension** and standalone CLI tool that translates RDF/OWL ontologies (in Turtle `.ttl` syntax) and SHACL shapes into Google Cloud Spanner schemas (Relational SQL DDL and Logical Property Graph DDL) and validates their syntax using a Spanner Remote MCP server.
+
+---
+
+## Extension Installation (Gemini CLI)
+
+To install this as a native extension in your local **Gemini CLI** installation:
+
+1. Clone this repository and navigate to the directory:
+   ```bash
+   git clone <repo-url> rdf-shacl-to-spanner-graph
+   cd rdf-shacl-to-spanner-graph
+   ```
+
+2. Set up a virtual environment and install the dependencies:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+3. Link the extension to your `gemini` installation:
+   ```bash
+   gemini extensions link .
+   ```
+
+4. Restart your `gemini` CLI session. The extension will automatically register the following tools with the model:
+   - `translate_rdf_to_spanner_graph_ddl`: Translates Turtle OWL ontologies to Spanner Graph DDL.
+   - `validate_spanner_graph_ddl`: Validates Spanner DDL syntax using a Remote Spanner MCP server.
+
+---
+
+## Authentication & Configuration
+
+The extension requires access to the Gemini API. You can configure authentication using one of two methods:
+
+### 1. Google AI Studio (API Key)
+```bash
+export GEMINI_API_KEY="your-api-key-here"
+```
+
+### 2. Vertex AI (Google Cloud ADC)
+If `GEMINI_API_KEY` is not set, the tool falls back to Vertex AI. Authenticate using Application Default Credentials:
+```bash
+gcloud auth application-default login
+```
+
+---
+
+## Standalone CLI Usage
+
+You can also run the translator and validator directly as a standalone CLI tool without launching the full `gemini` shell.
+
+### Installation for Standalone CLI
+With the virtual environment active, install the package in editable mode:
+```bash
+pip install -e . --no-build-isolation
+```
+
+### CLI Commands
+
+#### 1. Translate (AI Translation Only)
+```bash
+rdf-spanner-translator translate --input examples/fintech.ttl --output examples/schema.sql
+```
+
+#### 2. Validate (Syntax Verification Only)
+```bash
+# Via Stdio command
+rdf-spanner-translator validate --ddl examples/schema.sql --mcp-cmd "python3 tests/mock_spanner_mcp.py"
+
+# Via Server-Sent Events (SSE) URL
+rdf-spanner-translator validate --ddl examples/schema.sql --mcp-url "http://localhost:8000/sse"
+```
+
+#### 3. Run (End-to-End with Self-Correction)
+```bash
+rdf-spanner-translator run \
+  --input examples/fintech.ttl \
+  --output examples/schema.sql \
+  --mcp-cmd "python3 tests/mock_spanner_mcp.py"
+```
+
+---
+
+## Releasing the Extension
+
+To list this extension in the public gallery:
+1. Ensure this repository is public on GitHub.
+2. Add the `gemini-cli-extension` topic to the repository's About section.
+3. Make sure `gemini-extension.json` is located at the root of the repository.

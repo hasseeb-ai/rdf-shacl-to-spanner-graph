@@ -1,0 +1,12 @@
+{
+  "name": "rdf-shacl-to-spanner-graph",
+  "version": "0.1.0",
+  "description": "Gemini CLI extension to translate RDF/SHACL to Cloud Spanner Graph DDL",
+  "mcpServers": {
+    "rdf-spanner-translator": {
+      "command": "python3",
+      "args": ["${extensionPath}/mcp_server.py"],
+      "cwd": "${extensionPath}"
+    }
+  }
+}
