@@ -1,6 +1,6 @@
-"""Model Context Protocol (MCP) Server for the Gemini CLI Extension.
+"""Model Context Protocol (MCP) Server for the Antigravity CLI Plugin.
 
-This file acts as the local MCP server launched by the Gemini CLI. It registers
+This file acts as the local MCP server launched by the Antigravity CLI. It registers
 and exposes custom tools to the underlying AI model, enabling it to perform
 automated RDF translation and Spanner DDL validation.
 """
@@ -10,7 +10,7 @@ import os
 import sys
 
 # Ensure local package folder is in python path to resolve imports correctly
-# when spawned by the Gemini CLI from another working directory.
+# when spawned by the Antigravity CLI from another working directory.
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from mcp.server.mcpserver import MCPServer

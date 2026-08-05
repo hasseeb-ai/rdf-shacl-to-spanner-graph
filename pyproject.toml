@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "rdf-spanner-translator"
 version = "0.1.0"
-description = "Gemini CLI extension to translate RDF/SHACL to Cloud Spanner Graph DDL"
+description = "Antigravity CLI plugin and standalone tool to translate RDF/SHACL to Cloud Spanner Graph DDL"
 readme = "README.md"
 requires-python = ">=3.10"
 

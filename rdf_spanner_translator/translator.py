@@ -7,7 +7,7 @@ def load_system_instruction() -> str:
     """Loads translation system instructions dynamically from SKILL.md.
     
     This ensures that the rules and constraints declared in the Agent Skill are
-    reused as the single source of truth for both Gemini CLI and python API.
+    reused as the single source of truth for both Antigravity CLI and python API.
     """
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     skill_path = os.path.join(

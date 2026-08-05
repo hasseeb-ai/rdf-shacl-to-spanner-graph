@@ -21,7 +21,7 @@ console = Console()
 
 @click.group()
 def main():
-    """Gemini CLI Extension: RDF/SHACL to Cloud Spanner Graph DDL."""
+    """Antigravity CLI Plugin and Standalone CLI: RDF/SHACL to Cloud Spanner Graph DDL."""
     pass
 
 @main.command()
