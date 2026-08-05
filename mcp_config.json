@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "rdf-spanner-translator": {
+      "command": "python3",
+      "args": ["${pluginPath}/mcp_server.py"],
+      "cwd": "${pluginPath}"
+    }
+  }
+}

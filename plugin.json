@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "rdf-shacl-to-spanner-graph",
+  "description": "Antigravity CLI plugin to translate RDF/SHACL to Cloud Spanner Graph DDL"
+}
