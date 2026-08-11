@@ -23,3 +23,7 @@ dependencies = [
 # Command-line entry points mapped to Python functions
 [project.scripts]
 rdf-spanner-translator = "rdf_spanner_translator.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["rdf_spanner_translator*"]
+
