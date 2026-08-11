@@ -27,7 +27,7 @@ def main():
 @main.command()
 @click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
 @click.option("--output", "-o", type=click.Path(), default="schema.sql", help="Path to output SQL file.")
-@click.option("--model", "-m", default="gemini-2.5-pro", help="Gemini model to use.")
+@click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
 def translate(input, output, model):
     """Translate OWL ontology (Turtle) to Spanner Graph DDL."""
     console.print(Panel.fit(f"[bold blue]Translating Ontology[/bold blue]\nInput: {input}\nOutput: {output}", title="Gemini Translator"))
@@ -98,7 +98,7 @@ def validate(ddl, mcp_url, mcp_cmd, mcp_tool):
 @click.option("--mcp-cmd", "-c", envvar="SPANNER_LOCAL_MCP_CMD", help="Stdio command to run Remote MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
 @click.option("--self-correct/--no-self-correct", "-s", default=True, help="Enable self-correction loop.")
-@click.option("--model", "-m", default="gemini-2.5-pro", help="Gemini model to use.")
+@click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
 def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
     """End-to-End: Translate OWL ontology, validate syntax via MCP, and self-correct if needed."""
     console.print(Panel.fit(f"[bold green]Running End-to-End Pipeline[/bold green]\nInput: {input}\nOutput: {output}\nSelf-correct: {self_correct}", title="RDF to Spanner Graph DDL Pipeline"))

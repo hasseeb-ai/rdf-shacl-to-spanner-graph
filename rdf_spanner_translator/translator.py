@@ -56,7 +56,7 @@ def _get_client() -> genai.Client:
             "Default Credentials (ADC) for Vertex AI."
         ) from e
 
-def translate_ontology(ttl_content: str, model_name: str = "gemini-2.5-pro") -> str:
+def translate_ontology(ttl_content: str, model_name: str = "gemini-3.5-flash") -> str:
     """Translates OWL ontology to Spanner Graph DDL using Gemini."""
     client = _get_client()
     
@@ -80,7 +80,7 @@ Ensure you follow the Spanner Graph DDL rules and output a single unified SQL co
     
     return clean_ddl_response(response.text)
 
-def self_correct_ddl(ttl_content: str, invalid_ddl: str, error_message: str, model_name: str = "gemini-2.5-pro") -> str:
+def self_correct_ddl(ttl_content: str, invalid_ddl: str, error_message: str, model_name: str = "gemini-3.5-flash") -> str:
     """Uses Gemini to correct DDL that failed validation."""
     client = _get_client()
     
