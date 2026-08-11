@@ -1,7 +1,5 @@
 # Official Google GenAI SDK for calling Gemini API
 google-genai
-# Model Context Protocol (MCP) SDK for Spanner client validation
-mcp
 # Parser and syntax validator for RDF/Turtle files
 rdflib
 # Command-line interface creation framework

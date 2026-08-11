@@ -61,24 +61,39 @@ pip install -e . --no-build-isolation
 
 ### CLI Commands
 
-#### 1. Translate (AI Translation Only)
+The CLI supports three primary invocation patterns. Note that `GEMINI_API_KEY` (or Vertex AI Cloud credentials) must be set in your environment prior to running translation commands.
+
+#### Pattern 1: Pure Translation (Offline)
+Translates your RDF/OWL Turtle ontology directly to Spanner DDL without running any syntax validation.
 ```bash
-rdf-spanner-translator translate --input examples/fintech.ttl --output examples/schema.sql
+rdf-spanner-translator translate \
+  --input examples/fintech.ttl \
+  --output examples/schema.sql
 ```
 
-#### 2. Validate (Syntax Verification Only)
-```bash
-# Via Stdio command
-rdf-spanner-translator validate --ddl examples/schema.sql --mcp-cmd "python3 tests/mock_spanner_mcp.py"
+#### Pattern 2: DDL Validation Only Using Official Google Spanner MCP
+Validates an existing Spanner DDL file syntax using the official Cloud Spanner MCP server.
 
-# Via Server-Sent Events (SSE) URL
-rdf-spanner-translator validate --ddl examples/schema.sql --mcp-url "http://localhost:8000/sse"
+```bash
+# Set your target database path
+export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
+
+# Validate by updating schema on an existing DB
+rdf-spanner-translator validate \
+  --ddl examples/schema.sql \
+  --mcp-tool "update_database_schema"
 ```
 
-#### 3. Run (End-to-End with Self-Correction)
+#### Pattern 3: End-to-End Pipeline (With Self-Correction Loop)
+Translates the ontology, validates the output, and automatically corrects the SQL schema if Spanner reports compilation errors.
+
 ```bash
+# Set your target database path
+export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
+
+# Translate, validate database creation, and self-correct
 rdf-spanner-translator run \
   --input examples/fintech.ttl \
   --output examples/schema.sql \
-  --mcp-cmd "python3 tests/mock_spanner_mcp.py"
+  --mcp-tool "create_database"
 ```

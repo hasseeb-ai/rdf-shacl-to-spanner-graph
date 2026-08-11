@@ -14,7 +14,7 @@ from rich.syntax import Syntax
 
 from rdf_spanner_translator.parser import validate_rdf_file
 from rdf_spanner_translator.translator import translate_ontology, self_correct_ddl
-from rdf_spanner_translator.validator import validate_ddl
+from rdf_spanner_translator.validator import validate_ddl, check_database_existence
 
 # Initialize Rich console for stylized and formatted terminal outputs
 console = Console()
@@ -59,18 +59,27 @@ def translate(input, output, model):
 
 @main.command()
 @click.option("--ddl", "-d", type=click.Path(exists=True), required=True, help="Path to Spanner DDL SQL file.")
-@click.option("--mcp-url", "-u", envvar="SPANNER_REMOTE_MCP_URL", help="SSE URL of Remote MCP Server.")
-@click.option("--mcp-cmd", "-c", envvar="SPANNER_LOCAL_MCP_CMD", help="Stdio command to run Remote MCP Server.")
+@click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
-def validate(ddl, mcp_url, mcp_cmd, mcp_tool):
+@click.option("--database", "--db", envvar="SPANNER_DATABASE", help="Full Cloud Spanner database resource path (e.g., projects/<project>/instances/<instance>/databases/<database>).")
+def validate(ddl, mcp_url, mcp_tool, database):
     """Validate Spanner DDL syntax using Remote MCP."""
-    # Ensure at least one connection transport is defined
-    if not mcp_url and not mcp_cmd:
-        console.print("[bold red]Error:[/bold red] You must specify either --mcp-url or --mcp-cmd (or set SPANNER_REMOTE_MCP_URL/SPANNER_LOCAL_MCP_CMD environment variables)")
-        raise click.Abort()
-        
-    console.print(Panel.fit(f"[bold purple]Validating DDL Schema[/bold purple]\nFile: {ddl}", title="MCP Validator"))
+    console.print(Panel.fit(f"[bold purple]Validating DDL Schema[/bold purple]\nFile: {ddl}\nDatabase: {database}", title="MCP Validator"))
     
+    # Run database pre-validation check (existence vs expected tool state)
+    if database and mcp_url:
+        with console.status("[cyan]Verifying target database state..."):
+            exists, err = check_database_existence(mcp_url, mcp_tool, database)
+            if err:
+                console.print(f"[yellow]Pre-validation warning: Could not verify database state ({err}). Proceeding...[/yellow]")
+            elif exists is not None:
+                if mcp_tool == "create_database" and exists:
+                    console.print(f"[bold red]Error:[/bold red] Database already exists: {database}.\nChoose a new database ID or use the 'update_database_schema' tool.")
+                    raise click.Abort()
+                elif mcp_tool == "update_database_schema" and not exists:
+                    console.print(f"[bold red]Error:[/bold red] Database does not exist: {database}.\nCreate the database first or use the 'create_database' tool.")
+                    raise click.Abort()
+
     try:
         # Read SQL DDL file
         with open(ddl, "r") as f:
@@ -78,7 +87,7 @@ def validate(ddl, mcp_url, mcp_cmd, mcp_tool):
             
         # Connect to MCP server and invoke the DDL execution tool
         with console.status("[cyan]Connecting to MCP server and executing DDL..."):
-            success, msg = validate_ddl(ddl_content, mcp_url, mcp_cmd, mcp_tool)
+            success, msg = validate_ddl(ddl_content, mcp_url, mcp_tool, database)
             
         # Report results
         if success:
@@ -94,12 +103,12 @@ def validate(ddl, mcp_url, mcp_cmd, mcp_tool):
 @main.command()
 @click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
 @click.option("--output", "-o", type=click.Path(), default="schema.sql", help="Path to output SQL file.")
-@click.option("--mcp-url", "-u", envvar="SPANNER_REMOTE_MCP_URL", help="SSE URL of Remote MCP Server.")
-@click.option("--mcp-cmd", "-c", envvar="SPANNER_LOCAL_MCP_CMD", help="Stdio command to run Remote MCP Server.")
+@click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
 @click.option("--self-correct/--no-self-correct", "-s", default=True, help="Enable self-correction loop.")
 @click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
-def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
+@click.option("--database", "--db", envvar="SPANNER_DATABASE", help="Full Cloud Spanner database resource path (e.g., projects/<project>/instances/<instance>/databases/<database>).")
+def run(input, output, mcp_url, mcp_tool, self_correct, model, database):
     """End-to-End: Translate OWL ontology, validate syntax via MCP, and self-correct if needed."""
     console.print(Panel.fit(f"[bold green]Running End-to-End Pipeline[/bold green]\nInput: {input}\nOutput: {output}\nSelf-correct: {self_correct}", title="RDF to Spanner Graph DDL Pipeline"))
     
@@ -115,6 +124,20 @@ def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
     with open(input, "r") as f:
         ttl_content = f.read()
         
+    # Pre-validation: Verify database state via MCP before translating to avoid unnecessary API cost
+    if database and mcp_url:
+        with console.status("[cyan]Verifying target database state..."):
+            exists, err = check_database_existence(mcp_url, mcp_tool, database)
+            if err:
+                console.print(f"[yellow]Pre-validation warning: Could not verify database state ({err}). Proceeding...[/yellow]")
+            elif exists is not None:
+                if mcp_tool == "create_database" and exists:
+                    console.print(f"[bold red]Error:[/bold red] Database already exists: {database}.\nChoose a new database ID or use the 'update_database_schema' tool.")
+                    raise click.Abort()
+                elif mcp_tool == "update_database_schema" and not exists:
+                    console.print(f"[bold red]Error:[/bold red] Database does not exist: {database}.\nCreate the database first or use the 'create_database' tool.")
+                    raise click.Abort()
+        
     # 2. Translate Turtle Ontology into Cloud Spanner DDL using Gemini
     try:
         with console.status(f"[yellow]Calling Gemini API ({model}) for translation..."):
@@ -124,7 +147,7 @@ def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
         raise click.Abort()
         
     # 3. Validation execution via the MCP Server
-    if not mcp_url and not mcp_cmd:
+    if not mcp_url:
         # If no validation harness environment is defined, write translation and return
         with open(output, "w") as f:
             f.write(ddl)
@@ -134,7 +157,7 @@ def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
     try:
         # Run first validation pass
         with console.status("[cyan]Connecting to MCP server and executing DDL..."):
-            success, msg = validate_ddl(ddl, mcp_url, mcp_cmd, mcp_tool)
+            success, msg = validate_ddl(ddl, mcp_url, mcp_tool, database)
             
         if success:
             with open(output, "w") as f:
@@ -168,7 +191,13 @@ def run(input, output, mcp_url, mcp_cmd, mcp_tool, self_correct, model):
             # Re-execute the corrected schema against Spanner via MCP
             console.print(f"[yellow]Executing corrected DDL...[/yellow]")
             with console.status("[cyan]Re-validating corrected DDL..."):
-                success, msg = validate_ddl(current_ddl, mcp_url, mcp_cmd, mcp_tool)
+                # Dynamically choose between create_database and update_database_schema
+                if mcp_tool == "create_database" and database and mcp_url:
+                    exists, _ = check_database_existence(mcp_url, mcp_tool, database)
+                    active_tool = "update_database_schema" if exists else "create_database"
+                else:
+                    active_tool = mcp_tool
+                success, msg = validate_ddl(current_ddl, mcp_url, active_tool, database)
                 
             if success:
                 # If correction was successful, save the new DDL and exit
