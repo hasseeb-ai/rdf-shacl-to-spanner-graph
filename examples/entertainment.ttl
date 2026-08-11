@@ -1,0 +1,72 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/entertainment/> .
+
+ex:EntertainmentOntology a owl:Ontology ;
+    rdfs:label "Entertainment Media Ontology (IMDb)" ;
+    rdfs:comment "An OWL ontology for modeling movies, TV series, actors, directors, and their roles." .
+
+# Classes
+ex:CreativeWork a owl:Class .
+
+ex:Movie a owl:Class ;
+    rdfs:subClassOf ex:CreativeWork ;
+    owl:disjointWith ex:TVSeries .
+
+ex:TVSeries a owl:Class ;
+    rdfs:subClassOf ex:CreativeWork .
+
+ex:RolePlayer a owl:Class .
+
+ex:Actor a owl:Class ;
+    rdfs:subClassOf ex:RolePlayer .
+
+ex:Director a owl:Class ;
+    rdfs:subClassOf ex:RolePlayer .
+
+# Restrictions
+ex:Actor rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:actedIn ;
+        owl:someValuesFrom ex:CreativeWork
+    ] .
+
+ex:Director rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:directed ;
+        owl:someValuesFrom ex:CreativeWork
+    ] .
+
+# Object Properties
+ex:actedIn a owl:ObjectProperty ;
+    rdfs:domain ex:Actor ;
+    rdfs:range ex:CreativeWork .
+
+ex:directed a owl:ObjectProperty ;
+    rdfs:domain ex:Director ;
+    rdfs:range ex:CreativeWork .
+
+# Datatype Properties
+ex:title a owl:DatatypeProperty ;
+    rdfs:domain ex:CreativeWork ;
+    rdfs:range xsd:string .
+
+ex:releaseDate a owl:DatatypeProperty ;
+    rdfs:domain ex:CreativeWork ;
+    rdfs:range xsd:date .
+
+ex:name a owl:DatatypeProperty ;
+    rdfs:domain ex:RolePlayer ;
+    rdfs:range xsd:string .
+
+ex:characterName a owl:DatatypeProperty ;
+    rdfs:domain ex:actedIn ;
+    rdfs:range xsd:string .
+
+ex:billingOrder a owl:DatatypeProperty ;
+    rdfs:domain ex:actedIn ;
+    rdfs:range xsd:integer .

@@ -1,0 +1,105 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/social/> .
+
+ex:SocialFraudOntology a owl:Ontology ;
+    rdfs:label "Social Network and Fraud Ring Detection Ontology" ;
+    rdfs:comment "An OWL ontology for modeling account interactions, device sharing, IP subnets, and transaction flows." .
+
+# Classes
+ex:Entity a owl:Class .
+
+ex:Account a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Device a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:IPAddress a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:PhoneNumber a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+# Restrictions
+ex:Account rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:usedDevice ;
+        owl:someValuesFrom ex:Device
+    ] ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:usedIP ;
+        owl:someValuesFrom ex:IPAddress
+    ] ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:usedPhone ;
+        owl:someValuesFrom ex:PhoneNumber
+    ] .
+
+# Object Properties
+ex:transferredTo a owl:ObjectProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range ex:Account .
+
+ex:usedDevice a owl:ObjectProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range ex:Device .
+
+ex:usedIP a owl:ObjectProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range ex:IPAddress .
+
+ex:usedPhone a owl:ObjectProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range ex:PhoneNumber .
+
+ex:linkedToIP a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:IPAddress ;
+    rdfs:range ex:IPAddress .
+
+# Datatype Properties
+ex:accountId a owl:DatatypeProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range xsd:string .
+
+ex:accountStatus a owl:DatatypeProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range xsd:string .
+
+ex:deviceId a owl:DatatypeProperty ;
+    rdfs:domain ex:Device ;
+    rdfs:range xsd:string .
+
+ex:deviceType a owl:DatatypeProperty ;
+    rdfs:domain ex:Device ;
+    rdfs:range xsd:string .
+
+ex:ipValue a owl:DatatypeProperty ;
+    rdfs:domain ex:IPAddress ;
+    rdfs:range xsd:string .
+
+ex:phoneValue a owl:DatatypeProperty ;
+    rdfs:domain ex:PhoneNumber ;
+    rdfs:range xsd:string .
+
+# Edge attributes
+ex:amount a owl:DatatypeProperty ;
+    rdfs:domain ex:transferredTo ;
+    rdfs:range xsd:decimal .
+
+ex:timestamp a owl:DatatypeProperty ;
+    rdfs:domain ex:transferredTo ;
+    rdfs:range xsd:dateTime .
+
+ex:firstUsed a owl:DatatypeProperty ;
+    rdfs:domain ex:usedDevice ;
+    rdfs:range xsd:dateTime .
+
+ex:lastUsed a owl:DatatypeProperty ;
+    rdfs:domain ex:usedDevice ;
+    rdfs:range xsd:dateTime .

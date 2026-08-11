@@ -1,0 +1,64 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/pharma/> .
+
+ex:PharmaOntology a owl:Ontology ;
+    rdfs:label "Pharma Drug Discovery Ontology" ;
+    rdfs:comment "An OWL ontology for modeling compounds, drug indications, biological targets, and diseases." .
+
+# Classes
+ex:Compound a owl:Class .
+
+ex:Drug a owl:Class ;
+    rdfs:subClassOf ex:Compound .
+
+ex:Target a owl:Class .
+
+ex:Disease a owl:Class .
+
+# Restrictions
+ex:Drug rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:indicatedFor ;
+        owl:someValuesFrom ex:Disease
+    ] .
+
+ex:Compound rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:bindsTo ;
+        owl:allValuesFrom ex:Target
+    ] .
+
+# Object Properties
+ex:bindsTo a owl:ObjectProperty ;
+    rdfs:domain ex:Compound ;
+    rdfs:range ex:Target .
+
+ex:indicatedFor a owl:ObjectProperty ;
+    rdfs:domain ex:Drug ;
+    rdfs:range ex:Disease .
+
+ex:associatedWith a owl:ObjectProperty ;
+    rdfs:domain ex:Target ;
+    rdfs:range ex:Disease .
+
+# Datatype Properties
+ex:molecularWeight a owl:DatatypeProperty ;
+    rdfs:domain ex:Compound ;
+    rdfs:range xsd:double .
+
+ex:chemicalFormula a owl:DatatypeProperty ;
+    rdfs:domain ex:Compound ;
+    rdfs:range xsd:string .
+
+ex:approvalYear a owl:DatatypeProperty ;
+    rdfs:domain ex:Drug ;
+    rdfs:range xsd:integer .
+
+ex:affinityKi a owl:DatatypeProperty ;
+    rdfs:domain ex:bindsTo ;
+    rdfs:range xsd:double .

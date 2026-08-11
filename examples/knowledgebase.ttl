@@ -1,0 +1,72 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/knowledgebase/> .
+
+ex:KnowledgebaseOntology a owl:Ontology ;
+    rdfs:label "Wiki Knowledgebase Category & Link Ontology" ;
+    rdfs:comment "An OWL ontology for modeling articles, category hierarchies, linkages, and authors." .
+
+# Classes
+ex:Entity a owl:Class .
+
+ex:Article a owl:Class ;
+    rdfs:subClassOf ex:Entity ;
+    owl:disjointWith ex:Category .
+
+ex:Category a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Author a owl:Class .
+
+# Restrictions
+ex:Article rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:hasAuthor ;
+        owl:someValuesFrom ex:Author
+    ] ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:categorizedUnder ;
+        owl:someValuesFrom ex:Category
+    ] .
+
+# Object Properties
+ex:hasAuthor a owl:ObjectProperty ;
+    rdfs:domain ex:Article ;
+    rdfs:range ex:Author .
+
+ex:categorizedUnder a owl:ObjectProperty ;
+    rdfs:domain ex:Article ;
+    rdfs:range ex:Category .
+
+ex:references a owl:ObjectProperty ;
+    rdfs:domain ex:Article ;
+    rdfs:range ex:Article .
+
+ex:subCategoryOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:Category ;
+    rdfs:range ex:Category .
+
+ex:linkedWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:Article ;
+    rdfs:range ex:Article .
+
+# Datatype Properties
+ex:title a owl:DatatypeProperty ;
+    rdfs:domain ex:Article ;
+    rdfs:range xsd:string .
+
+ex:wordCount a owl:DatatypeProperty ;
+    rdfs:domain ex:Article ;
+    rdfs:range xsd:integer .
+
+ex:username a owl:DatatypeProperty ;
+    rdfs:domain ex:Author ;
+    rdfs:range xsd:string .
+
+ex:categoryName a owl:DatatypeProperty ;
+    rdfs:domain ex:Category ;
+    rdfs:range xsd:string .
