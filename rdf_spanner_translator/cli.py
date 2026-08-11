@@ -15,9 +15,22 @@ from rich.syntax import Syntax
 from rdf_spanner_translator.parser import validate_rdf_file
 from rdf_spanner_translator.translator import translate_ontology, self_correct_ddl
 from rdf_spanner_translator.validator import validate_ddl, check_database_existence
+import json
 
 # Initialize Rich console for stylized and formatted terminal outputs
 console = Console()
+
+def save_telemetry(input_path: str, telemetry: dict):
+    """Saves a JSON trace of a failed validation and its self-correction history."""
+    try:
+        os.makedirs("failures", exist_ok=True)
+        file_name = os.path.basename(input_path)
+        file_stem = os.path.splitext(file_name)[0]
+        failures_path = os.path.join("failures", f"{file_stem}_repair.json")
+        with open(failures_path, "w") as f:
+            json.dump(telemetry, f, indent=2)
+    except Exception as e:
+        console.print(f"[yellow]Warning: Could not save repair telemetry to failures folder ({e})[/yellow]")
 
 @click.group()
 def main():
@@ -177,6 +190,16 @@ def run(input, output, mcp_url, mcp_tool, self_correct, model, database):
         console.print(f"[bold red]✗ Initial DDL validation failed![/bold red]")
         console.print(f"[red]Error Message:[/red]\n{msg}")
         
+        telemetry = {
+            "ontology_file": input,
+            "ontology_content": ttl_content,
+            "initial_ddl": ddl,
+            "initial_error": msg,
+            "correction_attempts": [],
+            "final_status": "FAILURE",
+            "final_ddl": ddl
+        }
+        
         if not self_correct:
             with open(output, "w") as f:
                 f.write(ddl)
@@ -207,11 +230,22 @@ def run(input, output, mcp_url, mcp_tool, self_correct, model, database):
                     active_tool = mcp_tool
                 success, msg = validate_ddl(current_ddl, mcp_url, active_tool, database)
                 
+            attempt_info = {
+                "attempt": attempt,
+                "corrected_ddl": current_ddl,
+                "error": msg if not success else None
+            }
+            telemetry["correction_attempts"].append(attempt_info)
+                
             if success:
                 # If correction was successful, save the new DDL and exit
                 with open(output, "w") as f:
                     f.write(current_ddl)
                 console.print(f"[bold green]✓ Self-correction successful! DDL is now valid.[/bold green] Saved verified DDL to {output}")
+                
+                telemetry["final_status"] = "SUCCESS"
+                telemetry["final_ddl"] = current_ddl
+                save_telemetry(input, telemetry)
                 return
                 
             # Log failure and loop again if attempts remain
@@ -224,6 +258,10 @@ def run(input, output, mcp_url, mcp_tool, self_correct, model, database):
         with open(output, "w") as f:
             f.write(current_ddl)
         console.print(f"[bold red]✗ Failed to generate a valid schema after {max_attempts} correction attempts.[/bold red] Saved last attempt to {output}")
+        
+        telemetry["final_status"] = "FAILURE"
+        telemetry["final_ddl"] = current_ddl
+        save_telemetry(input, telemetry)
         raise click.Abort()
         
     except Exception as e:
