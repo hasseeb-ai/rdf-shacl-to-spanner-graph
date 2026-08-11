@@ -41,31 +41,30 @@ async def translate_rdf_to_spanner_graph_ddl(ttl_content: str) -> str:
 
 @server.tool(
     name="validate_spanner_graph_ddl",
-    description="Validates Google Cloud Spanner DDL statements by executing them against a database/emulator via a Remote Spanner MCP server."
+    description="Validates Google Cloud Spanner DDL statements by executing them against a database/emulator via the official Spanner MCP server."
 )
 async def validate_spanner_graph_ddl(
     ddl: str,
     mcp_url: str | None = None,
-    mcp_cmd: str | None = None,
-    mcp_tool: str | None = None
+    mcp_tool: str | None = None,
+    database: str | None = None
 ) -> str:
-    """Validates Spanner DDL syntax using a Remote Spanner MCP server.
+    """Validates Spanner DDL syntax using the official Spanner MCP server.
     
     Args:
         ddl: The DDL statements to validate.
-        mcp_url: SSE URL of the Remote Spanner MCP Server.
-        mcp_cmd: Stdio command to spawn the Remote Spanner MCP Server.
-        mcp_tool: Explicit name of the tool to call.
+        mcp_url: URL of the Remote Spanner MCP Server.
+        mcp_tool: Explicit name of the tool to call (e.g. update_database_schema).
+        database: Full Spanner database resource path.
     """
     try:
         # Fallback to extension settings/env vars if parameters are not provided
-        url = mcp_url or os.environ.get("SPANNER_REMOTE_MCP_URL")
-        cmd = mcp_cmd or os.environ.get("SPANNER_LOCAL_MCP_CMD")
-        tool = mcp_tool or os.environ.get("SPANNER_MCP_TOOL_NAME")
+        url = mcp_url or os.environ.get("SPANNER_REMOTE_MCP_URL") or "https://spanner.googleapis.com/mcp"
+        tool = mcp_tool or os.environ.get("SPANNER_MCP_TOOL_NAME") or "update_database_schema"
+        db = database or os.environ.get("SPANNER_DATABASE")
         
-        # Call the validation harness which establishes a connection to the 
-        # Remote Spanner MCP server and runs the DDL statements.
-        success, msg = validate_ddl(ddl, url, cmd, tool)
+        # Call the validation harness
+        success, msg = validate_ddl(ddl, url, tool, db)
         if success:
             return f"DDL validation successful: {msg}"
         else:

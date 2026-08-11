@@ -1,5 +1,7 @@
 # Official Google GenAI SDK for calling Gemini API
 google-genai
+# Model Context Protocol (MCP) SDK (required when running as an Antigravity plugin)
+mcp
 # Parser and syntax validator for RDF/Turtle files
 rdflib
 # Command-line interface creation framework
