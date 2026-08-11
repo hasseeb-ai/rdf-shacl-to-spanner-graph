@@ -72,28 +72,42 @@ rdf-spanner-translator translate \
 ```
 
 #### Pattern 2: DDL Validation Only Using Official Google Spanner MCP
-Validates an existing Spanner DDL file syntax using the official Cloud Spanner MCP server.
+Validates the syntax of an existing Spanner DDL SQL file against the official Cloud Spanner MCP server.
 
 ```bash
 # Set your target database path
 export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
 
-# Validate by updating schema on an existing DB
+# A. Validate by updating schema on an existing database:
 rdf-spanner-translator validate \
   --ddl examples/schema.sql \
   --mcp-tool "update_database_schema"
+
+# B. Validate by simulating creation of a new database:
+rdf-spanner-translator validate \
+  --ddl examples/schema.sql \
+  --mcp-tool "create_database"
 ```
 
 #### Pattern 3: End-to-End Pipeline (With Self-Correction Loop)
-Translates the ontology, validates the output, and automatically corrects the SQL schema if Spanner reports compilation errors.
+Translates the RDF/OWL ontology, runs the validation against Spanner, and automatically engages the self-correction loop if any syntax compilation errors are found.
 
 ```bash
 # Set your target database path
 export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
 
-# Translate, validate database creation, and self-correct
+# A. Translate, test new database creation, and self-correct:
 rdf-spanner-translator run \
   --input examples/fintech.ttl \
   --output examples/schema.sql \
   --mcp-tool "create_database"
+
+# B. Translate, test schema updates on existing database, and self-correct:
+rdf-spanner-translator run \
+  --input examples/fintech.ttl \
+  --output examples/schema.sql \
+  --mcp-tool "update_database_schema"
 ```
+
+### Self-Correction Loop
+When using the `run` command, the translator incorporates an automated self-correction flow. If Spanner's DDL validator returns compilation errors (such as naming collisions, key alignment mismatch, or foreign key syntax errors), the CLI captures the error diagnostics and sends them back to Gemini alongside the original OWL/Turtle file. The AI model analyzes the compiler errors, corrects the generated DDL schema, and submits it back to the Spanner MCP server for validation. This loop automatically continues for up to 3 attempts until a valid schema is produced.
