@@ -48,6 +48,9 @@ def translate(input, output, model):
             ddl = translate_ontology(ttl_content, model_name=model)
             
         # Step 3: Write the generated DDL output to the SQL target file
+        output_dir = os.path.dirname(os.path.abspath(output))
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
         with open(output, "w") as f:
             f.write(ddl)
             
@@ -112,6 +115,11 @@ def run(input, output, mcp_url, mcp_tool, self_correct, model, database):
     """End-to-End: Translate OWL ontology, validate syntax via MCP, and self-correct if needed."""
     console.print(Panel.fit(f"[bold green]Running End-to-End Pipeline[/bold green]\nInput: {input}\nOutput: {output}\nSelf-correct: {self_correct}", title="RDF to Spanner Graph DDL Pipeline"))
     
+    # Ensure output parent directory exists
+    output_dir = os.path.dirname(os.path.abspath(output))
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+
     # 1. Parsing and local RDF Turtle pre-validation
     try:
         with console.status("[green]Parsing & pre-validating Turtle file locally..."):

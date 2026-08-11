@@ -68,7 +68,7 @@ Translates your RDF/OWL Turtle ontology directly to Spanner DDL without running 
 ```bash
 rdf-spanner-translator translate \
   --input examples/fintech.ttl \
-  --output examples/schema.sql
+  --output output/schema.sql
 ```
 
 #### Pattern 2: DDL Validation Only Using Official Google Spanner MCP
@@ -80,12 +80,12 @@ export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases
 
 # A. Validate by updating schema on an existing database:
 rdf-spanner-translator validate \
-  --ddl examples/schema.sql \
+  --ddl output/schema.sql \
   --mcp-tool "update_database_schema"
 
 # B. Validate by simulating creation of a new database:
 rdf-spanner-translator validate \
-  --ddl examples/schema.sql \
+  --ddl output/schema.sql \
   --mcp-tool "create_database"
 ```
 
@@ -99,13 +99,13 @@ export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases
 # A. Translate, test new database creation, and self-correct:
 rdf-spanner-translator run \
   --input examples/fintech.ttl \
-  --output examples/schema.sql \
+  --output output/schema.sql \
   --mcp-tool "create_database"
 
 # B. Translate, test schema updates on existing database, and self-correct:
 rdf-spanner-translator run \
   --input examples/fintech.ttl \
-  --output examples/schema.sql \
+  --output output/schema.sql \
   --mcp-tool "update_database_schema"
 ```
 

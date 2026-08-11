@@ -1,102 +1,77 @@
 -- =========================================================================
--- 1. PHYSICAL RELATIONAL SCHEMA (TABLES & CONSTRAINTS)
+-- 1. PHYSICAL RELATIONAL SCHEMA (DDL)
 -- =========================================================================
 
--- Concrete implementation of ex:Person (Subclass of ex:Party)
+-- Leaf Class: Person (Subclass of Party)
 CREATE TABLE Person (
-    PersonId STRING(36) NOT NULL,
-    FirstName STRING(256),
-    LastName STRING(256)
+  PersonId STRING(36) NOT NULL,
+  FirstName STRING(100),
+  LastName STRING(100),
 ) PRIMARY KEY (PersonId);
 
--- Concrete implementation of ex:Organization (Subclass of ex:Party)
+-- Leaf Class: Organization (Subclass of Party)
 CREATE TABLE Organization (
-    OrgId STRING(36) NOT NULL,
-    OrgName STRING(256)
-) PRIMARY KEY (OrgId);
+  OrganizationId STRING(36) NOT NULL,
+  OrganizationName STRING(200) NOT NULL,
+) PRIMARY KEY (OrganizationId);
 
--- Concrete implementation of ex:PersonalAccount (Subclass of ex:Account)
--- Flattens ex:accountBalance and implements ex:HighRiskAccount as a STORED column.
+-- Leaf Class: PersonalAccount (Subclass of Account)
 CREATE TABLE PersonalAccount (
-    AccountId STRING(36) NOT NULL,
-    AccountBalance NUMERIC NOT NULL,
-    OwnerPersonId STRING(36) NOT NULL,
-    IsHighRisk BOOL AS (AccountBalance > 100000.00) STORED,
-    CONSTRAINT FK_PersonalAccount_Owner FOREIGN KEY (OwnerPersonId) REFERENCES Person (PersonId)
+  AccountId STRING(36) NOT NULL,
+  AccountBalance NUMERIC NOT NULL,
+  OwnerPersonId STRING(36) NOT NULL,
+  -- Equivalent Class: HighRiskAccount (Materialized via STORED Generated Column)
+  IsHighRisk BOOL AS (AccountBalance > 100000.00) STORED,
+  CONSTRAINT FK_PersonalAccount_Owner FOREIGN KEY (OwnerPersonId) REFERENCES Person (PersonId)
 ) PRIMARY KEY (AccountId);
 
--- Concrete implementation of ex:CorporateAccount (Subclass of ex:Account)
--- Flattens ex:accountBalance and implements ex:HighRiskAccount as a STORED column.
+-- Leaf Class: CorporateAccount (Subclass of Account)
 CREATE TABLE CorporateAccount (
-    AccountId STRING(36) NOT NULL,
-    AccountBalance NUMERIC NOT NULL,
-    OwnerOrgId STRING(36) NOT NULL,
-    IsHighRisk BOOL AS (AccountBalance > 100000.00) STORED,
-    CONSTRAINT FK_CorporateAccount_Owner FOREIGN KEY (OwnerOrgId) REFERENCES Organization (OrgId)
+  AccountId STRING(36) NOT NULL,
+  AccountBalance NUMERIC NOT NULL,
+  OwnerOrganizationId STRING(36) NOT NULL,
+  -- Equivalent Class: HighRiskAccount (Materialized via STORED Generated Column)
+  IsHighRisk BOOL AS (AccountBalance > 100000.00) STORED,
+  -- Enforces owl:cardinality "1" for hasOwner on CorporateAccount
+  CONSTRAINT FK_CorporateAccount_Owner FOREIGN KEY (OwnerOrganizationId) REFERENCES Organization (OrganizationId)
 ) PRIMARY KEY (AccountId);
 
--- Interleaved Table for ex:hasSignatory (PersonalAccount -> Person)
--- Enforces Rule 3: Primary Key Alignment
-CREATE TABLE PersonalAccountSignatories (
-    AccountId STRING(36) NOT NULL,
-    SignatoryPersonId STRING(36) NOT NULL,
-    CONSTRAINT FK_Signatory_Person FOREIGN KEY (SignatoryPersonId) REFERENCES Person (PersonId)
-) PRIMARY KEY (AccountId, SignatoryPersonId),
-  INTERLEAVE IN PARENT PersonalAccount ON DELETE CASCADE;
+-- ObjectProperty: hasSignatory (Interleaved for Rule 3 PK Alignment)
+CREATE TABLE PersonalAccountSignatory (
+  AccountId STRING(36) NOT NULL,
+  PersonId STRING(36) NOT NULL,
+  CONSTRAINT FK_Signatory_Person FOREIGN KEY (PersonId) REFERENCES Person (PersonId)
+) PRIMARY KEY (AccountId, PersonId),
+INTERLEAVE IN PARENT PersonalAccount ON DELETE CASCADE;
 
--- Junction Table for ex:isPartnerOf (Symmetric Organization -> Organization)
-CREATE TABLE OrganizationPartners (
-    OrgId STRING(36) NOT NULL,
-    PartnerOrgId STRING(36) NOT NULL,
-    CONSTRAINT FK_OrgPartners_Org FOREIGN KEY (OrgId) REFERENCES Organization (OrgId),
-    CONSTRAINT FK_OrgPartners_Partner FOREIGN KEY (PartnerOrgId) REFERENCES Organization (OrgId)
-) PRIMARY KEY (OrgId, PartnerOrgId);
+-- ObjectProperty: isPartnerOf (Symmetric relationship between Organizations)
+CREATE TABLE OrganizationPartner (
+  OrganizationId STRING(36) NOT NULL,
+  PartnerOrganizationId STRING(36) NOT NULL,
+  CONSTRAINT FK_Partner_Org FOREIGN KEY (OrganizationId) REFERENCES Organization (OrganizationId),
+  CONSTRAINT FK_Partner_PartnerOrg FOREIGN KEY (PartnerOrganizationId) REFERENCES Organization (OrganizationId)
+) PRIMARY KEY (OrganizationId, PartnerOrganizationId);
 
--- Concrete Edge Tables for ex:subAccountOf (Transitive Account -> Account)
--- Four tables are required to maintain strict physical referential integrity across concrete tables.
-
-CREATE TABLE PersonalSubAccountOfPersonal (
-    ParentAccountId STRING(36) NOT NULL,
-    ChildAccountId STRING(36) NOT NULL,
-    CONSTRAINT FK_PSP_Parent FOREIGN KEY (ParentAccountId) REFERENCES PersonalAccount (AccountId),
-    CONSTRAINT FK_PSP_Child FOREIGN KEY (ChildAccountId) REFERENCES PersonalAccount (AccountId)
-) PRIMARY KEY (ParentAccountId, ChildAccountId);
-
-CREATE TABLE PersonalSubAccountOfCorporate (
-    ParentAccountId STRING(36) NOT NULL,
-    ChildAccountId STRING(36) NOT NULL,
-    CONSTRAINT FK_PSC_Parent FOREIGN KEY (ParentAccountId) REFERENCES CorporateAccount (AccountId),
-    CONSTRAINT FK_PSC_Child FOREIGN KEY (ChildAccountId) REFERENCES PersonalAccount (AccountId)
-) PRIMARY KEY (ParentAccountId, ChildAccountId);
-
-CREATE TABLE CorporateSubAccountOfPersonal (
-    ParentAccountId STRING(36) NOT NULL,
-    ChildAccountId STRING(36) NOT NULL,
-    CONSTRAINT FK_CSP_Parent FOREIGN KEY (ParentAccountId) REFERENCES PersonalAccount (AccountId),
-    CONSTRAINT FK_CSP_Child FOREIGN KEY (ChildAccountId) REFERENCES CorporateAccount (AccountId)
-) PRIMARY KEY (ParentAccountId, ChildAccountId);
-
-CREATE TABLE CorporateSubAccountOfCorporate (
-    ParentAccountId STRING(36) NOT NULL,
-    ChildAccountId STRING(36) NOT NULL,
-    CONSTRAINT FK_CSC_Parent FOREIGN KEY (ParentAccountId) REFERENCES CorporateAccount (AccountId),
-    CONSTRAINT FK_CSC_Child FOREIGN KEY (ChildAccountId) REFERENCES CorporateAccount (AccountId)
+-- ObjectProperty: subAccountOf (Transitive relationship between Accounts)
+CREATE TABLE AccountHierarchy (
+  ParentAccountId STRING(36) NOT NULL,
+  ChildAccountId STRING(36) NOT NULL,
 ) PRIMARY KEY (ParentAccountId, ChildAccountId);
 
 
 -- =========================================================================
--- 2. PROPERTY GRAPH SCHEMA
+-- 2. PROPERTY GRAPH SCHEMA (GQL DDL)
 -- =========================================================================
 
-CREATE PROPERTY GRAPH FintechComplianceGraph
+CREATE OR REPLACE PROPERTY GRAPH FintechComplianceGraph
   NODE TABLES (
     Person
       LABEL Person PROPERTIES (PersonId, FirstName, LastName)
       LABEL Party PROPERTIES (PersonId AS PartyId),
     
     Organization
-      LABEL Organization PROPERTIES (OrgId, OrgName)
-      LABEL Party PROPERTIES (OrgId AS PartyId),
+      LABEL Organization PROPERTIES (OrganizationId, OrganizationName)
+      LABEL Party PROPERTIES (OrganizationId AS PartyId),
     
     PersonalAccount
       LABEL PersonalAccount PROPERTIES (AccountId, AccountBalance, IsHighRisk)
@@ -107,57 +82,57 @@ CREATE PROPERTY GRAPH FintechComplianceGraph
       LABEL Account PROPERTIES (AccountId, AccountBalance, IsHighRisk)
   )
   EDGE TABLES (
-    -- ex:hasOwner (Account -> Party)
-    PersonalAccount AS PersonalAccountOwnerEdge
+    -- ObjectProperty: hasOwner / ownsAccount (PersonalAccount -> Person)
+    PersonalAccount AS PersonalAccountOwner
+      KEY (AccountId)
       SOURCE KEY (AccountId) REFERENCES PersonalAccount (AccountId)
       DESTINATION KEY (OwnerPersonId) REFERENCES Person (PersonId)
-      LABEL HAS_OWNER PROPERTIES (AccountId, OwnerPersonId AS OwnerId),
-      
-    CorporateAccount AS CorporateAccountOwnerEdge
-      SOURCE KEY (AccountId) REFERENCES CorporateAccount (AccountId)
-      DESTINATION KEY (OwnerOrgId) REFERENCES Organization (OrgId)
-      LABEL HAS_OWNER PROPERTIES (AccountId, OwnerOrgId AS OwnerId),
-
-    -- ex:ownsAccount (Party -> Account) - Inverse of ex:hasOwner
-    PersonalAccount AS PersonOwnsAccountEdge
-      SOURCE KEY (OwnerPersonId) REFERENCES Person (PersonId)
-      DESTINATION KEY (AccountId) REFERENCES PersonalAccount (AccountId)
+      LABEL HAS_OWNER PROPERTIES (AccountId, OwnerPersonId AS OwnerId)
       LABEL OWNS_ACCOUNT PROPERTIES (AccountId, OwnerPersonId AS OwnerId),
-      
-    CorporateAccount AS OrgOwnsAccountEdge
-      SOURCE KEY (OwnerOrgId) REFERENCES Organization (OrgId)
-      DESTINATION KEY (AccountId) REFERENCES CorporateAccount (AccountId)
-      LABEL OWNS_ACCOUNT PROPERTIES (AccountId, OwnerOrgId AS OwnerId),
 
-    -- ex:hasSignatory (PersonalAccount -> Person)
-    PersonalAccountSignatories
+    -- ObjectProperty: hasOwner / ownsAccount (CorporateAccount -> Organization)
+    CorporateAccount AS CorporateAccountOwner
+      KEY (AccountId)
+      SOURCE KEY (AccountId) REFERENCES CorporateAccount (AccountId)
+      DESTINATION KEY (OwnerOrganizationId) REFERENCES Organization (OrganizationId)
+      LABEL HAS_OWNER PROPERTIES (AccountId, OwnerOrganizationId AS OwnerId)
+      LABEL OWNS_ACCOUNT PROPERTIES (AccountId, OwnerOrganizationId AS OwnerId),
+
+    -- ObjectProperty: hasSignatory (PersonalAccount -> Person)
+    PersonalAccountSignatory
+      KEY (AccountId, PersonId)
       SOURCE KEY (AccountId) REFERENCES PersonalAccount (AccountId)
-      DESTINATION KEY (SignatoryPersonId) REFERENCES Person (PersonId)
-      LABEL HAS_SIGNATORY PROPERTIES (AccountId, SignatoryPersonId),
+      DESTINATION KEY (PersonId) REFERENCES Person (PersonId)
+      LABEL HAS_SIGNATORY PROPERTIES (AccountId, PersonId),
 
-    -- ex:isPartnerOf (Organization -> Organization)
-    OrganizationPartners
-      SOURCE KEY (OrgId) REFERENCES Organization (OrgId)
-      DESTINATION KEY (PartnerOrgId) REFERENCES Organization (OrgId)
-      LABEL IS_PARTNER_OF PROPERTIES (OrgId, PartnerOrgId),
+    -- ObjectProperty: isPartnerOf (Organization -> Organization)
+    OrganizationPartner
+      KEY (OrganizationId, PartnerOrganizationId)
+      SOURCE KEY (OrganizationId) REFERENCES Organization (OrganizationId)
+      DESTINATION KEY (PartnerOrganizationId) REFERENCES Organization (OrganizationId)
+      LABEL IS_PARTNER_OF PROPERTIES (OrganizationId, PartnerOrganizationId),
 
-    -- ex:subAccountOf (Account -> Account)
-    PersonalSubAccountOfPersonal
+    -- ObjectProperty: subAccountOf (Polymorphic Edge Mappings)
+    AccountHierarchy AS PersonalToPersonalSubAccount
+      KEY (ParentAccountId, ChildAccountId)
       SOURCE KEY (ChildAccountId) REFERENCES PersonalAccount (AccountId)
       DESTINATION KEY (ParentAccountId) REFERENCES PersonalAccount (AccountId)
       LABEL SUB_ACCOUNT_OF PROPERTIES (ParentAccountId, ChildAccountId),
-      
-    PersonalSubAccountOfCorporate
+
+    AccountHierarchy AS PersonalToCorporateSubAccount
+      KEY (ParentAccountId, ChildAccountId)
       SOURCE KEY (ChildAccountId) REFERENCES PersonalAccount (AccountId)
       DESTINATION KEY (ParentAccountId) REFERENCES CorporateAccount (AccountId)
       LABEL SUB_ACCOUNT_OF PROPERTIES (ParentAccountId, ChildAccountId),
-      
-    CorporateSubAccountOfPersonal
+
+    AccountHierarchy AS CorporateToPersonalSubAccount
+      KEY (ParentAccountId, ChildAccountId)
       SOURCE KEY (ChildAccountId) REFERENCES CorporateAccount (AccountId)
       DESTINATION KEY (ParentAccountId) REFERENCES PersonalAccount (AccountId)
       LABEL SUB_ACCOUNT_OF PROPERTIES (ParentAccountId, ChildAccountId),
-      
-    CorporateSubAccountOfCorporate
+
+    AccountHierarchy AS CorporateToCorporateSubAccount
+      KEY (ParentAccountId, ChildAccountId)
       SOURCE KEY (ChildAccountId) REFERENCES CorporateAccount (AccountId)
       DESTINATION KEY (ParentAccountId) REFERENCES CorporateAccount (AccountId)
       LABEL SUB_ACCOUNT_OF PROPERTIES (ParentAccountId, ChildAccountId)
