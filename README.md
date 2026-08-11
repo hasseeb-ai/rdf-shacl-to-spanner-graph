@@ -111,3 +111,28 @@ rdf-spanner-translator run \
 
 ### Self-Correction Loop
 When using the `run` command, the translator incorporates an automated self-correction flow. If Spanner's DDL validator returns compilation errors (such as naming collisions, key alignment mismatch, or foreign key syntax errors), the CLI captures the error diagnostics and sends them back to Gemini alongside the original OWL/Turtle file. The AI model analyzes the compiler errors, corrects the generated DDL schema, and submits it back to the Spanner MCP server for validation. This loop automatically continues for up to 3 attempts until a valid schema is produced.
+
+---
+
+## Running the Integration Test Suite
+
+The repository includes a test runner script [`run_tests.py`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/run_tests.py) to automate translation and validation of all example ontologies (`examples/*.ttl`) against a real Spanner instance. It tracks verification outcomes and outputs easy copy-paste commands to delete test databases afterwards.
+
+### Execution Guide
+
+```bash
+# 1. Create and activate a python virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 2. Install dependencies & translator CLI package
+pip install -r requirements.txt
+pip install -e . --no-build-isolation
+
+# 3. Configure credentials & target Spanner instance
+export GEMINI_API_KEY="your-gemini-api-key"
+export SPANNER_INSTANCE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>"
+
+# 4. Run the suite
+./run_tests.py
+```
