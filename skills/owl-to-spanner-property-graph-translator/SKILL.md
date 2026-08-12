@@ -243,6 +243,67 @@ To avoid Spanner DDL parser failures, observe the following rules:
         ...
       ```
 
+## SHACL Shapes DDL Translation Rules (Optional Input)
+
+When an optional SHACL shapes file (`shacl.ttl`) is provided alongside the OWL ontology, use the SHACL shapes as structural constraints to refine the physical relational columns, datatypes, and database validations:
+
+1. **Table Names & Node Labels (`sh:targetClass`):**
+   - A `sh:NodeShape` targeting a class (`sh:targetClass <ClassURI>`) corresponds directly to the physical relational table and property graph node representing that class.
+
+2. **Column Names & Mappings (`sh:path`):**
+   - Property shapes inside `sh:property` define attributes (`sh:path <PropertyURI>`). Map `<PropertyURI>` to the column name of the target table.
+
+3. **Data Type Mapping (`sh:datatype`):**
+   - Translate SHACL XSD datatypes to Spanner GoogleSQL types:
+     * `xsd:string` -> `STRING(MAX)` (or specific limit)
+     * `xsd:integer` / `xsd:int` -> `INT64`
+     * `xsd:decimal` -> `NUMERIC`
+     * `xsd:double` / `xsd:float` -> `FLOAT64`
+     * `xsd:boolean` -> `BOOL`
+     * `xsd:dateTime` -> `TIMESTAMP`
+     * `xsd:date` -> `DATE`
+
+4. **Nullability / Required Columns (`sh:minCount`):**
+   - If a property shape has `sh:minCount 1` or greater, the column in the physical table DDL must be marked as `NOT NULL`.
+   - *Example:*
+     ```ttl
+     [ sh:path ex:name ; sh:datatype xsd:string ; sh:minCount 1 ]
+     ```
+     translates to:
+     ```sql
+     Name STRING(MAX) NOT NULL
+     ```
+
+5. **Column Cardinality (`sh:maxCount`):**
+   - If `sh:maxCount 1` is specified, the property is a single-valued scalar column directly in the table.
+   - If `sh:maxCount` is omitted or greater than 1, and it is a datatype property, it represents a multi-valued field. In Spanner, implement this as an interleaved child table or an array column (`ARRAY<T>`), preferring interleaved tables for complex relationships.
+
+6. **Relational Constraints & Foreign Keys (`sh:class`):**
+   - If a property shape on an object property specifies `sh:class <TargetClass>`, it defines a relationship pointing to `<TargetClass>`. 
+   - Relational: Map this as a foreign key column referencing the primary key of the `<TargetClass>` table.
+   - Property Graph: Map this as an edge mapping in `EDGE TABLES` with `SOURCE KEY` pointing to the domain table and `DESTINATION KEY` pointing to the `<TargetClass>` table.
+   - *Example:*
+     ```ttl
+     [ sh:path ex:hasOwner ; sh:class ex:Person ]
+     ```
+     translates to:
+     ```sql
+     OwnerId STRING(36) NOT NULL,
+     CONSTRAINT FK_Owner FOREIGN KEY (OwnerId) REFERENCES People (PersonId)
+     ```
+
+7. **Domain Check Constraints (`sh:in` / `sh:hasValue`):**
+   - If a property has `sh:in` with a list of values, enforce this domain check physically using a Spanner `CHECK` constraint.
+   - *Example:*
+     ```ttl
+     [ sh:path ex:accountStatus ; sh:in ( "Active" "Suspended" "Closed" ) ]
+     ```
+     translates to:
+     ```sql
+     AccountStatus STRING(50) NOT NULL,
+     CONSTRAINT CK_AccountStatus CHECK (AccountStatus IN ('Active', 'Suspended', 'Closed'))
+     ```
+
 ## Non-Translatable OWL Capabilities (System Gaps)
 
 Flag the following constructs as requiring application logic, database triggers, or query-time execution:
