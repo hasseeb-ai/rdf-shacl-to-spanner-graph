@@ -31,7 +31,7 @@ The ontologies test the translation logic against key OWL semantics:
 
 1. **Class Inheritance & Hierarchies:**
    - Account/Subclass mappings (Table-Per-Class pattern), with inheritance preserved dynamically via `LABEL` declarations in the logical property graph.
-2. **Symmetric Relationships:**
+ 2. **Symmetric Relationships:**
    - The relationship `isPartnerOf` (Organization) and `linkedWith` (Article) are symmetric. The generated SQL uses constraints to store only one direction, while GQL pattern queries traverse it bidirectionally.
 3. **Transitive Relationships:**
    - `subCategoryOf` (Wikipedia Category) and `subAccountOf` (Fintech Account) are transitive.
@@ -99,7 +99,7 @@ classDiagram
   class Disease
 
   Compound <|-- Drug
-  Compound --> Target : "bindsTo (affinityKi: DOUBLE)"
+  Compound --> Target : "bindsTo (affinityKi DOUBLE)"
   Drug --> Disease : indicatedFor
   Target --> Disease : associatedWith
 ```
@@ -126,7 +126,7 @@ classDiagram
   CreativeWork <|-- Movie
   CreativeWork <|-- TVSeries
 
-  Actor --> CreativeWork : "actedIn (characterName: STRING, billingOrder: INTEGER)"
+  Actor --> CreativeWork : "actedIn (characterName STRING & billingOrder INTEGER)"
   Director --> CreativeWork : directed
 ```
 
@@ -183,8 +183,8 @@ classDiagram
   Entity <|-- IPAddress
   Entity <|-- PhoneNumber
 
-  Account --> Account : "transferredTo (amount: DECIMAL, timestamp: DATETIME)"
-  Account --> Device : "usedDevice (firstUsed: DATETIME, lastUsed: DATETIME)"
+  Account --> Account : "transferredTo (amount DECIMAL & timestamp DATETIME)"
+  Account --> Device : "usedDevice (firstUsed DATETIME & lastUsed DATETIME)"
   Account --> IPAddress : usedIP
   Account --> PhoneNumber : usedPhone
   IPAddress --> IPAddress : "linkedToIP (Symmetric)"
