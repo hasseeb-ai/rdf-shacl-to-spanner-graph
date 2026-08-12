@@ -83,7 +83,7 @@ Ensure you follow the Spanner Graph DDL rules and output a single unified SQL co
         contents=prompt,
         config=types.GenerateContentConfig(
             system_instruction=load_system_instruction(),
-            temperature=0.1,
+            temperature=0.0,
         )
     )
     
@@ -122,7 +122,7 @@ Analyze the error, fix the root cause, and output the corrected DDL containing B
         contents=prompt,
         config=types.GenerateContentConfig(
             system_instruction=load_system_instruction(),
-            temperature=0.1,
+            temperature=0.0,
         )
     )
     
