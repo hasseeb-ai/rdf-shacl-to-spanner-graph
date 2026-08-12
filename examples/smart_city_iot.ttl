@@ -1,0 +1,140 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/smartcity/> .
+
+ex:SmartCityOntology a owl:Ontology ;
+    rdfs:label "Smart City Infrastructure and IoT Sensor Network Ontology" ;
+    rdfs:comment "An OWL ontology representing spatial structures, smart buildings, IoT gateways, various telemetry sensors, and active service logs." .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+ex:SpatialEntity a owl:Class .
+
+# Spatial Taxonomy
+ex:CityZone a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    owl:disjointWith ex:SmartBuilding .
+
+ex:SmartBuilding a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity .
+
+# IoT Hardware Taxonomy
+ex:IotDevice a owl:Class .
+
+ex:GatewayNode a owl:Class ;
+    rdfs:subClassOf ex:IotDevice ;
+    owl:disjointWith ex:Sensor .
+
+ex:Sensor a owl:Class ;
+    rdfs:subClassOf ex:IotDevice .
+
+ex:TemperatureSensor a owl:Class ;
+    rdfs:subClassOf ex:Sensor ;
+    owl:disjointWith ex:EnergySensor .
+
+ex:EnergySensor a owl:Class ;
+    rdfs:subClassOf ex:Sensor .
+
+# Observations & Operations
+ex:TelemetryObservation a owl:Class .
+ex:MaintenanceJob a owl:Class .
+
+# Equivalent Class: AnomalousReading
+ex:AnomalousReading a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:TelemetryObservation
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:readingValue ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:decimal ;
+                    owl:withRestrictions ( [ xsd:minExclusive 100.00 ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+# Transitive Property: Nested containment
+ex:containedIn a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range ex:SpatialEntity .
+
+ex:containsSpace owl:inverseOf ex:containedIn .
+
+ex:registeredToGateway a owl:ObjectProperty ;
+    rdfs:domain ex:Sensor ;
+    rdfs:range ex:GatewayNode .
+
+ex:installedInBuilding a owl:ObjectProperty ;
+    rdfs:domain ex:IotDevice ;
+    rdfs:range ex:SmartBuilding .
+
+ex:recordedObservation a owl:ObjectProperty ;
+    rdfs:domain ex:Sensor ;
+    rdfs:range ex:TelemetryObservation .
+
+ex:hasMaintenanceJob a owl:ObjectProperty ;
+    rdfs:domain ex:IotDevice ;
+    rdfs:range ex:MaintenanceJob .
+
+# Symmetric Property: Smart grid interconnections
+ex:sharesMicrogridWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:SmartBuilding ;
+    rdfs:range ex:SmartBuilding .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+ex:spatialName a owl:DatatypeProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range xsd:string .
+
+ex:macAddress a owl:DatatypeProperty ;
+    rdfs:domain ex:IotDevice ;
+    rdfs:range xsd:string .
+
+ex:readingValue a owl:DatatypeProperty ;
+    rdfs:domain ex:TelemetryObservation ;
+    rdfs:range xsd:decimal .
+
+ex:readingTimestamp a owl:DatatypeProperty ;
+    rdfs:domain ex:TelemetryObservation ;
+    rdfs:range xsd:dateTime .
+
+ex:jobId a owl:DatatypeProperty ;
+    rdfs:domain ex:MaintenanceJob ;
+    rdfs:range xsd:string .
+
+ex:jobStatus a owl:DatatypeProperty ;
+    rdfs:domain ex:MaintenanceJob ;
+    rdfs:range xsd:string .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+ex:IotDevice rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:macAddress ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+ex:Sensor rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:registeredToGateway ;
+        owl:someValuesFrom ex:GatewayNode
+    ] .

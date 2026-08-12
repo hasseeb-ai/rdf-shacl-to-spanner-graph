@@ -1,0 +1,151 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/ecommerce/> .
+
+ex:EcommerceOntology a owl:Ontology ;
+    rdfs:label "E-Commerce Customer Behavior and Product Recommendation Ontology" ;
+    rdfs:comment "An OWL ontology for representing e-commerce transactions, product hierarchies, user reviews, and recommendation patterns." .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+# User Taxonomy
+ex:User a owl:Class .
+
+ex:Customer a owl:Class ;
+    rdfs:subClassOf ex:User ;
+    owl:disjointWith ex:Merchant .
+
+ex:Merchant a owl:Class ;
+    rdfs:subClassOf ex:User .
+
+# Product Taxonomy
+ex:Product a owl:Class .
+
+ex:Book a owl:Class ;
+    rdfs:subClassOf ex:Product ;
+    owl:disjointWith ex:Electronics .
+
+ex:Electronics a owl:Class ;
+    rdfs:subClassOf ex:Product ;
+    owl:disjointWith ex:Clothing .
+
+ex:Clothing a owl:Class ;
+    rdfs:subClassOf ex:Product .
+
+# Transactional/Interactivity Classes
+ex:Order a owl:Class .
+ex:Review a owl:Class .
+ex:Category a owl:Class .
+
+# Equivalent Class: HighRatingReview
+ex:HighRatingReview a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:Review
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:ratingValue ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:integer ;
+                    owl:withRestrictions ( [ xsd:minInclusive 4 ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+ex:placedOrder a owl:ObjectProperty ;
+    rdfs:domain ex:Customer ;
+    rdfs:range ex:Order .
+
+ex:orderContains a owl:ObjectProperty ;
+    rdfs:domain ex:Order ;
+    rdfs:range ex:Product .
+
+ex:reviewedBy a owl:ObjectProperty ;
+    rdfs:domain ex:Review ;
+    rdfs:range ex:Customer .
+
+ex:reviewFor a owl:ObjectProperty ;
+    rdfs:domain ex:Review ;
+    rdfs:range ex:Product .
+
+ex:hasCategory a owl:ObjectProperty ;
+    rdfs:domain ex:Product ;
+    rdfs:range ex:Category .
+
+# Transitive Property: Category Hierarchy
+ex:subCategoryOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:Category ;
+    rdfs:range ex:Category .
+
+ex:parentCategoryOf a owl:ObjectProperty ;
+    owl:inverseOf ex:subCategoryOf .
+
+# Symmetric Property: Recommendations (Products frequently bought together)
+ex:frequentlyBoughtWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:Product ;
+    rdfs:range ex:Product .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+ex:userId a owl:DatatypeProperty ;
+    rdfs:domain ex:User ;
+    rdfs:range xsd:string .
+
+ex:userName a owl:DatatypeProperty ;
+    rdfs:domain ex:User ;
+    rdfs:range xsd:string .
+
+ex:productPrice a owl:DatatypeProperty ;
+    rdfs:domain ex:Product ;
+    rdfs:range xsd:decimal .
+
+ex:orderId a owl:DatatypeProperty ;
+    rdfs:domain ex:Order ;
+    rdfs:range xsd:string .
+
+ex:orderDate a owl:DatatypeProperty ;
+    rdfs:domain ex:Order ;
+    rdfs:range xsd:dateTime .
+
+ex:ratingValue a owl:DatatypeProperty ;
+    rdfs:domain ex:Review ;
+    rdfs:range xsd:integer .
+
+ex:reviewText a owl:DatatypeProperty ;
+    rdfs:domain ex:Review ;
+    rdfs:range xsd:string .
+
+ex:categoryName a owl:DatatypeProperty ;
+    rdfs:domain ex:Category ;
+    rdfs:range xsd:string .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+ex:Customer rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:placedOrder ;
+        owl:someValuesFrom ex:Order
+    ] .
+
+ex:Order rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:orderContains ;
+        owl:someValuesFrom ex:Product
+    ] .

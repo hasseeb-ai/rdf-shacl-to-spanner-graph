@@ -1,0 +1,154 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/cybersecurity/> .
+
+ex:CybersecurityOntology a owl:Ontology ;
+    rdfs:label "Cybersecurity Network Threat Intelligence and Vulnerability Ontology" ;
+    rdfs:comment "An OWL ontology modeling network topologies, host configurations, user sessions, vulnerabilities, and threat actors." .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+# Network Nodes
+ex:NetworkNode a owl:Class .
+
+ex:Endpoint a owl:Class ;
+    rdfs:subClassOf ex:NetworkNode ;
+    owl:disjointWith ex:Gateway .
+
+ex:Gateway a owl:Class ;
+    rdfs:subClassOf ex:NetworkNode .
+
+ex:Server a owl:Class ;
+    rdfs:subClassOf ex:Endpoint ;
+    owl:disjointWith ex:Workstation .
+
+ex:Workstation a owl:Class ;
+    rdfs:subClassOf ex:Endpoint .
+
+# Logical/Security Concepts
+ex:IPAddress a owl:Class .
+ex:Vulnerability a owl:Class .
+ex:ThreatActor a owl:Class .
+ex:SecurityAlert a owl:Class .
+ex:SystemProcess a owl:Class .
+ex:UserAccount a owl:Class .
+
+# Equivalent Class: CriticalSeverityAlert
+ex:CriticalSeverityAlert a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:SecurityAlert
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:severityScore ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:integer ;
+                    owl:withRestrictions ( [ xsd:minInclusive 9 ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+ex:hasIPAddress a owl:ObjectProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range ex:IPAddress .
+
+# Inverse Property: IP belongs to endpoint
+ex:ipBelongsTo owl:inverseOf ex:hasIPAddress .
+
+ex:hasVulnerability a owl:ObjectProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range ex:Vulnerability .
+
+ex:exploits a owl:ObjectProperty ;
+    rdfs:domain ex:ThreatActor ;
+    rdfs:range ex:Vulnerability .
+
+ex:compromisedBy a owl:ObjectProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range ex:ThreatActor .
+
+ex:loggedInFrom a owl:ObjectProperty ;
+    rdfs:domain ex:UserAccount ;
+    rdfs:range ex:Endpoint .
+
+ex:triggeredAlert a owl:ObjectProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range ex:SecurityAlert .
+
+# Symmetric Property: Network Connection
+ex:communicatedWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range ex:Endpoint .
+
+# Transitive Property: Process Trees
+ex:parentProcessOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:SystemProcess ;
+    rdfs:range ex:SystemProcess .
+
+ex:childProcessOf a owl:ObjectProperty ;
+    owl:inverseOf ex:parentProcessOf .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+ex:macAddress a owl:DatatypeProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range xsd:string .
+
+ex:ipString a owl:DatatypeProperty ;
+    rdfs:domain ex:IPAddress ;
+    rdfs:range xsd:string .
+
+ex:cveId a owl:DatatypeProperty ;
+    rdfs:domain ex:Vulnerability ;
+    rdfs:range xsd:string .
+
+ex:cvssScore a owl:DatatypeProperty ;
+    rdfs:domain ex:Vulnerability ;
+    rdfs:range xsd:decimal .
+
+ex:actorName a owl:DatatypeProperty ;
+    rdfs:domain ex:ThreatActor ;
+    rdfs:range xsd:string .
+
+ex:severityScore a owl:DatatypeProperty ;
+    rdfs:domain ex:SecurityAlert ;
+    rdfs:range xsd:integer .
+
+ex:processId a owl:DatatypeProperty ;
+    rdfs:domain ex:SystemProcess ;
+    rdfs:range xsd:integer .
+
+ex:username a owl:DatatypeProperty ;
+    rdfs:domain ex:UserAccount ;
+    rdfs:range xsd:string .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+ex:Server rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:hasIPAddress ;
+        owl:someValuesFrom ex:IPAddress
+    ] .
+
+ex:Endpoint rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:macAddress ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger
+    ] .

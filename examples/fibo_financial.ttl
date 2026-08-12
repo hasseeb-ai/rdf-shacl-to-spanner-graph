@@ -1,0 +1,149 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix fibo: <http://spec.edmcouncil.org/fibo/ontology/> .
+
+fibo:FiboOntology a owl:Ontology ;
+    rdfs:label "FIBO-Aligned Financial Instrument and Business Entity Ontology" ;
+    rdfs:comment "A simplified OWL ontology aligned with the Financial Industry Business Ontology (FIBO), covering legal entities, shares, loans, and corporate control chains." .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+fibo:AutonomousAgent a owl:Class .
+
+# Business Entity Taxonomy
+fibo:LegalEntity a owl:Class ;
+    rdfs:subClassOf fibo:AutonomousAgent .
+
+fibo:Corporation a owl:Class ;
+    rdfs:subClassOf fibo:LegalEntity ;
+    owl:disjointWith fibo:Partnership .
+
+fibo:Partnership a owl:Class ;
+    rdfs:subClassOf fibo:LegalEntity .
+
+# Contractual Roles
+fibo:ContractualParty a owl:Class ;
+    rdfs:subClassOf fibo:AutonomousAgent .
+
+# Financial Instrument Taxonomy
+fibo:FinancialInstrument a owl:Class .
+
+fibo:Security a owl:Class ;
+    rdfs:subClassOf fibo:FinancialInstrument .
+
+fibo:Share a owl:Class ;
+    rdfs:subClassOf fibo:Security ;
+    owl:disjointWith fibo:DebtInstrument .
+
+fibo:DebtInstrument a owl:Class ;
+    rdfs:subClassOf fibo:Security .
+
+fibo:Loan a owl:Class ;
+    rdfs:subClassOf fibo:FinancialInstrument .
+
+# Equivalent Class: SignificantCorporateLoan
+fibo:SignificantCorporateLoan a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            fibo:Loan
+            [
+                a owl:Restriction ;
+                owl:onProperty fibo:loanAmount ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:decimal ;
+                    owl:withRestrictions ( [ xsd:minExclusive 10000000.00 ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+fibo:hasLender a owl:ObjectProperty ;
+    rdfs:domain fibo:Loan ;
+    rdfs:range fibo:ContractualParty .
+
+fibo:hasBorrower a owl:ObjectProperty ;
+    rdfs:domain fibo:Loan ;
+    rdfs:range fibo:ContractualParty .
+
+fibo:issuedBy a owl:ObjectProperty ;
+    rdfs:domain fibo:Security ;
+    rdfs:range fibo:LegalEntity .
+
+# Inverse Property: LegalEntity issues Security
+fibo:isIssuerOf owl:inverseOf fibo:issuedBy .
+
+fibo:ownedBy a owl:ObjectProperty ;
+    rdfs:domain fibo:Share ;
+    rdfs:range fibo:LegalEntity .
+
+fibo:guaranteedBy a owl:ObjectProperty ;
+    rdfs:domain fibo:Loan ;
+    rdfs:range fibo:LegalEntity .
+
+# Symmetric Property: Co-guarantor alliances
+fibo:sharesGuarantorRiskWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain fibo:LegalEntity ;
+    rdfs:range fibo:LegalEntity .
+
+# Transitive Property: Corporate parent/subsidiary control chains
+fibo:controlledBy a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain fibo:LegalEntity ;
+    rdfs:range fibo:LegalEntity .
+
+fibo:controlsLegalEntity owl:inverseOf fibo:controlledBy .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+fibo:leiCode a owl:DatatypeProperty ;
+    rdfs:domain fibo:LegalEntity ;
+    rdfs:range xsd:string .
+
+fibo:legalName a owl:DatatypeProperty ;
+    rdfs:domain fibo:LegalEntity ;
+    rdfs:range xsd:string .
+
+fibo:isinCode a owl:DatatypeProperty ;
+    rdfs:domain fibo:Security ;
+    rdfs:range xsd:string .
+
+fibo:loanAmount a owl:DatatypeProperty ;
+    rdfs:domain fibo:Loan ;
+    rdfs:range xsd:decimal .
+
+fibo:interestRate a owl:DatatypeProperty ;
+    rdfs:domain fibo:Loan ;
+    rdfs:range xsd:decimal .
+
+fibo:sharesOutstanding a owl:DatatypeProperty ;
+    rdfs:domain fibo:Share ;
+    rdfs:range xsd:integer .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+fibo:LegalEntity rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty fibo:leiCode ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+fibo:Loan rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty fibo:hasLender ;
+        owl:someValuesFrom fibo:ContractualParty
+    ] .

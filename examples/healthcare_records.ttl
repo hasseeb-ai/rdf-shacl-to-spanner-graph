@@ -1,0 +1,147 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/healthcare/> .
+
+ex:HealthcareOntology a owl:Ontology ;
+    rdfs:label "Healthcare EHR and Clinical Operations Ontology" ;
+    rdfs:comment "An OWL ontology representing patient clinical records, doctor encounters, diagnoses, procedures, and prescriptions." .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+ex:Person a owl:Class .
+
+# Clinical Actors
+ex:Patient a owl:Class ;
+    rdfs:subClassOf ex:Person ;
+    owl:disjointWith ex:Practitioner .
+
+ex:Practitioner a owl:Class ;
+    rdfs:subClassOf ex:Person .
+
+# Clinical Entities
+ex:Encounter a owl:Class .
+ex:Diagnosis a owl:Class .
+ex:Medication a owl:Class .
+ex:Prescription a owl:Class .
+ex:Procedure a owl:Class .
+
+# Equivalent Class: ComplexCasePatient
+ex:ComplexCasePatient a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:Patient
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:activeConditionsCount ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:integer ;
+                    owl:withRestrictions ( [ xsd:minInclusive 5 ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+ex:participatedIn a owl:ObjectProperty ;
+    rdfs:domain ex:Patient ;
+    rdfs:range ex:Encounter .
+
+ex:attendedBy a owl:ObjectProperty ;
+    rdfs:domain ex:Encounter ;
+    rdfs:range ex:Practitioner .
+
+ex:encounterDiagnosis a owl:ObjectProperty ;
+    rdfs:domain ex:Encounter ;
+    rdfs:range ex:Diagnosis .
+
+ex:orderedPrescription a owl:ObjectProperty ;
+    rdfs:domain ex:Encounter ;
+    rdfs:range ex:Prescription .
+
+ex:hasMedication a owl:ObjectProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range ex:Medication .
+
+# Inverse Property: Medication has prescription details
+ex:prescribedIn owl:inverseOf ex:hasMedication .
+
+ex:performedProcedure a owl:ObjectProperty ;
+    rdfs:domain ex:Encounter ;
+    rdfs:range ex:Procedure .
+
+# Symmetric Property: Referral networks between practitioners
+ex:referredTo a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:Practitioner ;
+    rdfs:range ex:Practitioner .
+
+# Transitive Property: Disease causal/comorbidity progression
+ex:leadsToCondition a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:Diagnosis ;
+    rdfs:range ex:Diagnosis .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+ex:mrn a owl:DatatypeProperty ;
+    rdfs:domain ex:Patient ;
+    rdfs:range xsd:string .
+
+ex:activeConditionsCount a owl:DatatypeProperty ;
+    rdfs:domain ex:Patient ;
+    rdfs:range xsd:integer .
+
+ex:npi a owl:DatatypeProperty ;
+    rdfs:domain ex:Practitioner ;
+    rdfs:range xsd:string .
+
+ex:practitionerSpecialty a owl:DatatypeProperty ;
+    rdfs:domain ex:Practitioner ;
+    rdfs:range xsd:string .
+
+ex:encounterTimestamp a owl:DatatypeProperty ;
+    rdfs:domain ex:Encounter ;
+    rdfs:range xsd:dateTime .
+
+ex:icd10Code a owl:DatatypeProperty ;
+    rdfs:domain ex:Diagnosis ;
+    rdfs:range xsd:string .
+
+ex:cptCode a owl:DatatypeProperty ;
+    rdfs:domain ex:Procedure ;
+    rdfs:range xsd:string .
+
+ex:rxNormId a owl:DatatypeProperty ;
+    rdfs:domain ex:Medication ;
+    rdfs:range xsd:string .
+
+ex:dosageInstruction a owl:DatatypeProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:string .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+ex:Patient rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:mrn ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+ex:Encounter rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:attendedBy ;
+        owl:someValuesFrom ex:Practitioner
+    ] .

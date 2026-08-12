@@ -1,0 +1,154 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcsa: <http://dcsa.org/ontology/> .
+
+dcsa:DcsaOntology a owl:Ontology ;
+    rdfs:label "DCSA-Aligned Container Shipping and Tracking Ontology" ;
+    rdfs:comment "A simplified OWL ontology aligned with the Digital Container Shipping Association (DCSA) standards, modeling shipping bookings, equipment tracking, and transport calls." .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+# Core Entities
+dcsa:Booking a owl:Class .
+dcsa:BillOfLading a owl:Class .
+dcsa:Container a owl:Class .
+dcsa:Vessel a owl:Class .
+
+# Spatial/Location Context
+dcsa:Location a owl:Class .
+dcsa:Facility a owl:Class ;
+    rdfs:subClassOf dcsa:Location .
+
+# Logistics Port Activities
+dcsa:TransportCall a owl:Class .
+
+# Event Hierarchy (Tracking & Telemetry)
+dcsa:Event a owl:Class .
+
+dcsa:EquipmentEvent a owl:Class ;
+    rdfs:subClassOf dcsa:Event ;
+    owl:disjointWith dcsa:TransportEvent .
+
+dcsa:TransportEvent a owl:Class ;
+    rdfs:subClassOf dcsa:Event ;
+    owl:disjointWith dcsa:ShipmentEvent .
+
+dcsa:ShipmentEvent a owl:Class ;
+    rdfs:subClassOf dcsa:Event .
+
+# Equivalent Class: ActiveContainerEvent
+dcsa:ActiveContainerEvent a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            dcsa:EquipmentEvent
+            [
+                a owl:Restriction ;
+                owl:onProperty dcsa:eventClassifier ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:string ;
+                    owl:withRestrictions ( [ xsd:pattern "ACTUAL" ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+dcsa:associatedWithBL a owl:ObjectProperty ;
+    rdfs:domain dcsa:Booking ;
+    rdfs:range dcsa:BillOfLading .
+
+dcsa:bookingHasContainer a owl:ObjectProperty ;
+    rdfs:domain dcsa:Booking ;
+    rdfs:range dcsa:Container .
+
+# Inverse Property: Container linked to Booking
+dcsa:containerLinkedToBooking owl:inverseOf dcsa:bookingHasContainer .
+
+dcsa:eventAtLocation a owl:ObjectProperty ;
+    rdfs:domain dcsa:Event ;
+    rdfs:range dcsa:Location .
+
+dcsa:containerInEvent a owl:ObjectProperty ;
+    rdfs:domain dcsa:EquipmentEvent ;
+    rdfs:range dcsa:Container .
+
+dcsa:callLocation a owl:ObjectProperty ;
+    rdfs:domain dcsa:TransportCall ;
+    rdfs:range dcsa:Location .
+
+dcsa:callVessel a owl:ObjectProperty ;
+    rdfs:domain dcsa:TransportCall ;
+    rdfs:range dcsa:Vessel .
+
+# Symmetric Property: Vessel Alliances / Sharing Agreements
+dcsa:sharesAllianceWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain dcsa:Vessel ;
+    rdfs:range dcsa:Vessel .
+
+# Transitive Property: Voyage route sequence (port leg connections)
+dcsa:followedByLeg a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain dcsa:TransportCall ;
+    rdfs:range dcsa:TransportCall .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+dcsa:bookingReference a owl:DatatypeProperty ;
+    rdfs:domain dcsa:Booking ;
+    rdfs:range xsd:string .
+
+dcsa:bolNumber a owl:DatatypeProperty ;
+    rdfs:domain dcsa:BillOfLading ;
+    rdfs:range xsd:string .
+
+dcsa:containerNumber a owl:DatatypeProperty ;
+    rdfs:domain dcsa:Container ;
+    rdfs:range xsd:string .
+
+dcsa:vesselImo a owl:DatatypeProperty ;
+    rdfs:domain dcsa:Vessel ;
+    rdfs:range xsd:integer .
+
+dcsa:vesselName a owl:DatatypeProperty ;
+    rdfs:domain dcsa:Vessel ;
+    rdfs:range xsd:string .
+
+dcsa:unLocode a owl:DatatypeProperty ;
+    rdfs:domain dcsa:Location ;
+    rdfs:range xsd:string .
+
+dcsa:eventClassifier a owl:DatatypeProperty ;
+    rdfs:domain dcsa:Event ;
+    rdfs:range xsd:string . # E.g., "PLANNED", "ESTIMATED", "ACTUAL"
+
+dcsa:eventDateTime a owl:DatatypeProperty ;
+    rdfs:domain dcsa:Event ;
+    rdfs:range xsd:dateTime .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+dcsa:Container rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty dcsa:containerNumber ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+dcsa:TransportCall rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty dcsa:callVessel ;
+        owl:someValuesFrom dcsa:Vessel
+    ] .
