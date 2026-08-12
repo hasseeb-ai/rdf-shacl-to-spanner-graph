@@ -125,7 +125,11 @@ When using the `run` command, the translator incorporates an automated self-corr
 
 ## Running the Integration Test Suite
 
-The repository includes a test runner script [`run_tests.py`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/run_tests.py) to automate translation and validation of all example ontologies (`examples/*/*.ttl`) against a real Spanner instance. It tracks verification outcomes and outputs easy copy-paste commands to delete test databases afterwards.
+The repository includes a test runner script [`run_tests.py`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/run_tests.py) to automate translation and validation of the example ontologies. For each domain directory:
+- It runs a **No SHACL** test case (pure ontology translation).
+- If a `shacl.ttl` file exists in the directory, it also runs a **With SHACL** test case.
+
+It tracks verification outcomes and outputs easy copy-paste commands to delete test databases afterwards.
 
 ### Execution Guide
 
@@ -143,5 +147,12 @@ export GEMINI_API_KEY="your-gemini-api-key"
 export SPANNER_INSTANCE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>"
 
 # 4. Run the suite
+
+# A. Run tests for ALL domains in examples/ folder:
 ./run_tests.py
+
+# B. Run tests for specific domains only (separate via space or comma):
+./run_tests.py fintech pharma
+# OR
+./run_tests.py fintech,pharma
 ```
