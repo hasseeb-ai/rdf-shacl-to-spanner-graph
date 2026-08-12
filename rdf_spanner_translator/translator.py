@@ -56,8 +56,8 @@ def _get_client() -> genai.Client:
             "Default Credentials (ADC) for Vertex AI."
         ) from e
 
-def translate_ontology(ttl_content: str, model_name: str = "gemini-3.5-flash") -> str:
-    """Translates OWL ontology to Spanner Graph DDL using Gemini."""
+def translate_ontology(ttl_content: str, shacl_content: str = None, model_name: str = "gemini-3.5-flash") -> str:
+    """Translates OWL ontology to Spanner Graph DDL using Gemini, optionally guided by SHACL shapes."""
     client = _get_client()
     
     prompt = f"""Please translate the following OWL Ontology in Turtle syntax to Google Cloud Spanner DDL:
@@ -65,7 +65,16 @@ def translate_ontology(ttl_content: str, model_name: str = "gemini-3.5-flash") -
 ```turtle
 {ttl_content}
 ```
+"""
+    if shacl_content:
+        prompt += f"""
+Additionally, apply constraints from the following SHACL Shapes (in Turtle syntax) to define physical column types (e.g. datatypes, nullability, cardinalities) and property graph elements:
 
+```turtle
+{shacl_content}
+```
+"""
+    prompt += """
 Ensure you follow the Spanner Graph DDL rules and output a single unified SQL code block.
 """
     
@@ -80,8 +89,8 @@ Ensure you follow the Spanner Graph DDL rules and output a single unified SQL co
     
     return clean_ddl_response(response.text)
 
-def self_correct_ddl(ttl_content: str, invalid_ddl: str, error_message: str, model_name: str = "gemini-3.5-flash") -> str:
-    """Uses Gemini to correct DDL that failed validation."""
+def self_correct_ddl(ttl_content: str, invalid_ddl: str, error_message: str, shacl_content: str = None, model_name: str = "gemini-3.5-flash") -> str:
+    """Uses Gemini to correct DDL that failed validation, optionally guided by SHACL shapes."""
     client = _get_client()
     
     prompt = f"""The generated Cloud Spanner DDL failed validation with the following error:
@@ -91,7 +100,15 @@ Here is the original OWL Ontology:
 ```turtle
 {ttl_content}
 ```
-
+"""
+    if shacl_content:
+        prompt += f"""
+Here are the SHACL Shapes:
+```turtle
+{shacl_content}
+```
+"""
+    prompt += f"""
 Here is the invalid DDL that was generated:
 ```sql
 {invalid_ddl}

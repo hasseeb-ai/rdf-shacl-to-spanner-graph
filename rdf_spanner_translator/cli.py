@@ -82,11 +82,12 @@ def main():
 
 @main.command()
 @click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
+@click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
 @click.option("--output", "-o", type=click.Path(), default="schema.sql", help="Path to output SQL file.")
 @click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
-def translate(input, output, model):
-    """Translate OWL ontology (Turtle) to Spanner Graph DDL."""
-    console.print(Panel.fit(f"[bold blue]Translating Ontology[/bold blue]\nInput: {input}\nOutput: {output}", title="Gemini Translator"))
+def translate(input, shacl, output, model):
+    """Translate OWL ontology (Turtle) to Spanner Graph DDL, optionally guided by SHACL shapes."""
+    console.print(Panel.fit(f"[bold blue]Translating Ontology[/bold blue]\nInput: {input}\nSHACL: {shacl}\nOutput: {output}", title="Gemini Translator"))
     
     try:
         # Step 1: Pre-validate Turtle file locally using rdflib
@@ -95,13 +96,22 @@ def translate(input, output, model):
             
         console.print(f"[green]✓ Local validation successful![/green] (Found {stats['triples']} triples, {stats['classes_count']} classes, {stats['properties_count']} properties)")
         
+        shacl_content = None
+        if shacl:
+            with console.status("[green]Parsing & pre-validating SHACL file locally..."):
+                shacl_stats = validate_rdf_file(shacl)
+            console.print(f"[green]✓ SHACL validation successful![/green] (Found {shacl_stats['triples']} triples)")
+            
+            with open(shacl, "r") as f:
+                shacl_content = f.read()
+        
         # Read the file contents
         with open(input, "r") as f:
             ttl_content = f.read()
             
         # Step 2: Request translation from the Gemini model
         with console.status(f"[yellow]Calling Gemini API ({model}) for translation..."):
-            ddl = translate_ontology(ttl_content, model_name=model)
+            ddl = translate_ontology(ttl_content, shacl_content=shacl_content, model_name=model)
             
         # Step 3: Write the generated DDL output to the SQL target file
         output_dir = os.path.dirname(os.path.abspath(output))
@@ -161,15 +171,16 @@ def validate(ddl, mcp_url, mcp_tool, database):
 
 @main.command()
 @click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
+@click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
 @click.option("--output", "-o", type=click.Path(), default="schema.sql", help="Path to output SQL file.")
 @click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
 @click.option("--self-correct/--no-self-correct", "-s", default=True, help="Enable self-correction loop.")
 @click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
 @click.option("--database", "--db", envvar="SPANNER_DATABASE", help="Full Cloud Spanner database resource path (e.g., projects/<project>/instances/<instance>/databases/<database>).")
-def run(input, output, mcp_url, mcp_tool, self_correct, model, database):
+def run(input, shacl, output, mcp_url, mcp_tool, self_correct, model, database):
     """End-to-End: Translate OWL ontology, validate syntax via MCP, and self-correct if needed."""
-    console.print(Panel.fit(f"[bold green]Running End-to-End Pipeline[/bold green]\nInput: {input}\nOutput: {output}\nSelf-correct: {self_correct}", title="RDF to Spanner Graph DDL Pipeline"))
+    console.print(Panel.fit(f"[bold green]Running End-to-End Pipeline[/bold green]\nInput: {input}\nSHACL: {shacl}\nOutput: {output}\nSelf-correct: {self_correct}", title="RDF to Spanner Graph DDL Pipeline"))
     
     # Ensure output parent directory exists
     output_dir = os.path.dirname(os.path.abspath(output))
@@ -185,6 +196,19 @@ def run(input, output, mcp_url, mcp_tool, self_correct, model, database):
         console.print(f"[bold red]Error during parsing:[/bold red] {e}")
         raise click.Abort()
         
+    shacl_content = None
+    if shacl:
+        try:
+            with console.status("[green]Parsing & pre-validating SHACL file locally..."):
+                shacl_stats = validate_rdf_file(shacl)
+            console.print(f"[green]✓ SHACL validation successful![/green] (Found {shacl_stats['triples']} triples)")
+            
+            with open(shacl, "r") as f:
+                shacl_content = f.read()
+        except Exception as e:
+            console.print(f"[bold red]Error during SHACL parsing:[/bold red] {e}")
+            raise click.Abort()
+
     with open(input, "r") as f:
         ttl_content = f.read()
         
@@ -205,7 +229,7 @@ def run(input, output, mcp_url, mcp_tool, self_correct, model, database):
     # 2. Translate Turtle Ontology into Cloud Spanner DDL using Gemini
     try:
         with console.status(f"[yellow]Calling Gemini API ({model}) for translation..."):
-            ddl = translate_ontology(ttl_content, model_name=model)
+            ddl = translate_ontology(ttl_content, shacl_content=shacl_content, model_name=model)
     except Exception as e:
         console.print(f"[bold red]Error during translation:[/bold red] {e}")
         raise click.Abort()
@@ -242,6 +266,9 @@ def run(input, output, mcp_url, mcp_tool, self_correct, model, database):
             "final_status": "FAILURE",
             "final_ddl": ddl
         }
+        if shacl:
+            telemetry["shacl_file"] = shacl
+            telemetry["shacl_content"] = shacl_content
         
         if not self_correct:
             with open(output, "w") as f:
@@ -260,7 +287,7 @@ def run(input, output, mcp_url, mcp_tool, self_correct, model, database):
             
             # Send invalid DDL + compiler error + original Turtle file to Gemini to repair
             with console.status(f"[yellow]Requesting correction from Gemini..."):
-                current_ddl = self_correct_ddl(ttl_content, current_ddl, current_error, model_name=model)
+                current_ddl = self_correct_ddl(ttl_content, current_ddl, current_error, shacl_content=shacl_content, model_name=model)
                 
             # Re-execute the corrected schema against Spanner via MCP
             console.print(f"[yellow]Executing corrected DDL...[/yellow]")

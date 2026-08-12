@@ -615,19 +615,21 @@ classDiagram
 
 ## Running Tests with Examples
 
-### 1. Run AI Translation Only
+### 1. Run AI Translation (Guided by SHACL Shapes)
 ```bash
 rdf-spanner-translator translate \
   -i examples/pharma/pharma.ttl \
+  -s examples/pharma/shacl.ttl \
   -o output/pharma_schema.sql
 ```
 
-### 2. Run Pipeline with Validation & Self-Correction
+### 2. Run Pipeline with Validation, SHACL Constraints, & Self-Correction
 ```bash
 export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
 
 rdf-spanner-translator run \
   -i examples/entertainment/entertainment.ttl \
+  -s examples/entertainment/shacl.ttl \
   -o output/entertainment_schema.sql \
   --mcp-tool "create_database"
 ```

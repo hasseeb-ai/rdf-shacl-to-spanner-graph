@@ -85,6 +85,10 @@ def run_integration_tests():
             "--mcp-tool", "create_database"
         ]
         
+        shacl_path = os.path.join(os.path.dirname(ttl_path), "shacl.ttl")
+        if os.path.exists(shacl_path):
+            cmd.extend(["--shacl", shacl_path])
+        
         result = subprocess.run(cmd, capture_output=True, text=True, env=env)
         
         # Parse attempts and results

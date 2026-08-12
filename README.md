@@ -64,10 +64,17 @@ pip install -e . --no-build-isolation
 The CLI supports three primary invocation patterns. Note that `GEMINI_API_KEY` (or Vertex AI Cloud credentials) must be set in your environment prior to running translation commands.
 
 #### Pattern 1: Pure Translation (Offline)
-Translates your RDF/OWL Turtle ontology directly to Spanner DDL without running any syntax validation.
+Translates your RDF/OWL Turtle ontology (and optional SHACL shapes) directly to Spanner DDL without running syntax validation.
 ```bash
+# A. Translate ontology only:
 rdf-spanner-translator translate \
   --input examples/fintech/fintech.ttl \
+  --output output/schema.sql
+
+# B. Translate ontology guided by SHACL shapes:
+rdf-spanner-translator translate \
+  --input examples/fintech/fintech.ttl \
+  --shacl examples/fintech/shacl.ttl \
   --output output/schema.sql
 ```
 
@@ -90,21 +97,23 @@ rdf-spanner-translator validate \
 ```
 
 #### Pattern 3: End-to-End Pipeline (With Self-Correction Loop)
-Translates the RDF/OWL ontology, runs the validation against Spanner, and automatically engages the self-correction loop if any syntax compilation errors are found.
+Translates the RDF/OWL ontology (and optional SHACL shapes), runs the validation against Spanner, and automatically engages the self-correction loop if any syntax compilation errors are found.
 
 ```bash
 # Set your target database path
 export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
 
-# A. Translate, test new database creation, and self-correct:
+# A. Translate with SHACL shapes, test new database creation, and self-correct:
 rdf-spanner-translator run \
   --input examples/fintech/fintech.ttl \
+  --shacl examples/fintech/shacl.ttl \
   --output output/schema.sql \
   --mcp-tool "create_database"
 
-# B. Translate, test schema updates on existing database, and self-correct:
+# B. Translate with SHACL shapes, test schema updates on existing database, and self-correct:
 rdf-spanner-translator run \
   --input examples/fintech/fintech.ttl \
+  --shacl examples/fintech/shacl.ttl \
   --output output/schema.sql \
   --mcp-tool "update_database_schema"
 ```
