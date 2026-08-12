@@ -79,8 +79,8 @@ classDiagram
   PersonalAccount --> Person : hasOwner
   CorporateAccount --> Organization : hasOwner
   PersonalAccount --> Person : hasSignatory (0..3)
-  Organization --> Organization : isPartnerOf (Symmetric)
-  Account --> Account : subAccountOf (Transitive)
+  Organization --> Organization : "isPartnerOf (Symmetric)"
+  Account --> Account : "subAccountOf (Transitive)"
 ```
 
 ### 2. Pharma Ontology
@@ -99,7 +99,7 @@ classDiagram
   class Disease
 
   Compound <|-- Drug
-  Compound --> Target : bindsTo (affinityKi: DOUBLE)
+  Compound --> Target : "bindsTo (affinityKi: DOUBLE)"
   Drug --> Disease : indicatedFor
   Target --> Disease : associatedWith
 ```
@@ -126,7 +126,7 @@ classDiagram
   CreativeWork <|-- Movie
   CreativeWork <|-- TVSeries
 
-  Actor --> CreativeWork : actedIn (characterName: STRING, billingOrder: INTEGER)
+  Actor --> CreativeWork : "actedIn (characterName: STRING, billingOrder: INTEGER)"
   Director --> CreativeWork : directed
 ```
 
@@ -153,8 +153,8 @@ classDiagram
   Article --> Author : hasAuthor
   Article --> Category : categorizedUnder
   Article --> Article : references
-  Article --> Article : linkedWith (Symmetric)
-  Category --> Category : subCategoryOf (Transitive)
+  Article --> Article : "linkedWith (Symmetric)"
+  Category --> Category : "subCategoryOf (Transitive)"
 ```
 
 ### 5. Social Fraud Ontology
@@ -183,11 +183,11 @@ classDiagram
   Entity <|-- IPAddress
   Entity <|-- PhoneNumber
 
-  Account --> Account : transferredTo (amount: DECIMAL, timestamp: DATETIME)
-  Account --> Device : usedDevice (firstUsed: DATETIME, lastUsed: DATETIME)
+  Account --> Account : "transferredTo (amount: DECIMAL, timestamp: DATETIME)"
+  Account --> Device : "usedDevice (firstUsed: DATETIME, lastUsed: DATETIME)"
   Account --> IPAddress : usedIP
   Account --> PhoneNumber : usedPhone
-  IPAddress --> IPAddress : linkedToIP (Symmetric)
+  IPAddress --> IPAddress : "linkedToIP (Symmetric)"
 ```
 
 ### 6. Supply Chain Ontology
@@ -221,14 +221,14 @@ classDiagram
   Item <|-- SubAssembly
   Item <|-- FinishedProduct
 
-  Item --> Item : partOf (Transitive)
+  Item --> Item : "partOf (Transitive)"
   RawMaterial --> SupplierFacility : suppliedBy
   FinishedProduct --> ManufacturingPlant : manufacturedAt
   Item --> Warehouse : storedIn
   Shipment --> Carrier : shippedVia
   Shipment --> Location : origin
   Shipment --> Location : destination
-  Location --> Location : connectedTo (Symmetric)
+  Location --> Location : "connectedTo (Symmetric)"
 ```
 
 ### 7. E-Commerce & Recommendations Ontology
@@ -260,8 +260,8 @@ classDiagram
   Review --> Customer : reviewedBy
   Review --> Product : reviewFor
   Product --> Category : hasCategory
-  Category --> Category : subCategoryOf (Transitive)
-  Product --> Product : frequentlyBoughtWith (Symmetric)
+  Category --> Category : "subCategoryOf (Transitive)"
+  Product --> Product : "frequentlyBoughtWith (Symmetric)"
 ```
 
 ### 8. Cybersecurity Threat Ontology
@@ -307,8 +307,8 @@ classDiagram
   Endpoint --> ThreatActor : compromisedBy
   UserAccount --> Endpoint : loggedInFrom
   Endpoint --> SecurityAlert : triggeredAlert
-  Endpoint --> Endpoint : communicatedWith (Symmetric)
-  SystemProcess --> SystemProcess : parentProcessOf (Transitive)
+  Endpoint --> Endpoint : "communicatedWith (Symmetric)"
+  SystemProcess --> SystemProcess : "parentProcessOf (Transitive)"
 ```
 
 ### 9. Healthcare Records Ontology
@@ -350,8 +350,8 @@ classDiagram
   Encounter --> Prescription : orderedPrescription
   Prescription --> Medication : hasMedication
   Encounter --> Procedure : performedProcedure
-  Practitioner --> Practitioner : referredTo (Symmetric)
-  Diagnosis --> Diagnosis : leadsToCondition (Transitive)
+  Practitioner --> Practitioner : "referredTo (Symmetric)"
+  Diagnosis --> Diagnosis : "leadsToCondition (Transitive)"
 ```
 
 ### 10. Smart City IoT Ontology
@@ -385,12 +385,12 @@ classDiagram
   Sensor <|-- TemperatureSensor
   Sensor <|-- EnergySensor
 
-  SpatialEntity --> SpatialEntity : containedIn (Transitive)
+  SpatialEntity --> SpatialEntity : "containedIn (Transitive)"
   Sensor --> GatewayNode : registeredToGateway
   IotDevice --> SmartBuilding : installedInBuilding
   Sensor --> TelemetryObservation : recordedObservation
   IotDevice --> MaintenanceJob : hasMaintenanceJob
-  SmartBuilding --> SmartBuilding : sharesMicrogridWith (Symmetric)
+  SmartBuilding --> SmartBuilding : "sharesMicrogridWith (Symmetric)"
 ```
 
 ### 11. DCSA Shipping Ontology
@@ -427,8 +427,8 @@ classDiagram
   EquipmentEvent --> Container : containerInEvent
   TransportCall --> Location : callLocation
   TransportCall --> Vessel : callVessel
-  Vessel --> Vessel : sharesAllianceWith (Symmetric)
-  TransportCall --> TransportCall : followedByLeg (Transitive)
+  Vessel --> Vessel : "sharesAllianceWith (Symmetric)"
+  TransportCall --> TransportCall : "followedByLeg (Transitive)"
 ```
 
 ### 12. FIBO Financial Ontology
@@ -471,8 +471,8 @@ classDiagram
   Security --> LegalEntity : issuedBy
   Share --> LegalEntity : ownedBy
   Loan --> LegalEntity : guaranteedBy
-  LegalEntity --> LegalEntity : sharesGuarantorRiskWith (Symmetric)
-  LegalEntity --> LegalEntity : controlledBy (Transitive)
+  LegalEntity --> LegalEntity : "sharesGuarantorRiskWith (Symmetric)"
+  LegalEntity --> LegalEntity : "controlledBy (Transitive)"
 ```
 
 ---
