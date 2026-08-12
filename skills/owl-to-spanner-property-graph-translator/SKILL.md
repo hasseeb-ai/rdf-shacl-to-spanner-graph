@@ -104,6 +104,80 @@ To avoid Spanner DDL parser failures, observe the following rules:
        );
      ```
 
+5. **Rule 5: Edge Table Name Uniqueness (Aliasing):**
+   If a physical relational table is used to define multiple edge tables in `EDGE TABLES` block of a `CREATE PROPERTY GRAPH` statement, each mapping must be named uniquely. Use the `AS` keyword to alias them uniquely.
+
+   - **Incorrect:**
+     ```sql
+     EDGE TABLES (
+       PersonalAccountOwners
+         SOURCE KEY (AccountId) REFERENCES PersonalAccounts (AccountId)
+         DESTINATION KEY (PersonId) REFERENCES People (PersonId)
+         LABEL HAS_OWNER,
+       PersonalAccountOwners
+         SOURCE KEY (AccountId) REFERENCES PersonalAccounts (AccountId)
+         DESTINATION KEY (SignatoryId) REFERENCES People (PersonId)
+         LABEL HAS_SIGNATORY
+     )
+     ```
+   - **Correct:**
+     ```sql
+     EDGE TABLES (
+       PersonalAccountOwners
+         SOURCE KEY (AccountId) REFERENCES PersonalAccounts (AccountId)
+         DESTINATION KEY (PersonId) REFERENCES People (PersonId)
+         LABEL HAS_OWNER,
+       PersonalAccountOwners AS PersonalAccountSignatories
+         SOURCE KEY (AccountId) REFERENCES PersonalAccounts (AccountId)
+         DESTINATION KEY (SignatoryId) REFERENCES People (PersonId)
+         LABEL HAS_SIGNATORY
+     )
+     ```
+
+6. **Rule 6: Strict Name Resolution in SQL Views:**
+   Google Cloud Spanner uses a strict name resolution mode. When referencing columns inside a SQL view's `SELECT`, `JOIN`, or `WHERE` clauses, always qualify the columns with their table name or table alias. Do not reference bare select-list aliases inside a `WHERE` clause of the same query block.
+
+   - **Incorrect:**
+     ```sql
+     CREATE VIEW HighValueLoans SQL SECURITY INVOKER AS
+     SELECT 
+       LoanId,
+       loanAmount AS amount,
+       interestRate
+     FROM Loans
+     WHERE amount > 1000000;
+     ```
+   - **Correct:**
+     ```sql
+     CREATE VIEW HighValueLoans SQL SECURITY INVOKER AS
+     SELECT 
+       l.LoanId,
+       l.loanAmount AS amount,
+       l.interestRate
+     FROM Loans l
+     WHERE l.loanAmount > 1000000;
+     ```
+
+7. **Rule 7: Spanner Generated Column Syntax:**
+   Always declare Spanner generated columns using the syntax: `<ColumnName> <DataType> AS (<Expression>) STORED`. Do NOT use standard SQL's `GENERATED ALWAYS AS` syntax, which is not supported in GoogleSQL.
+
+   - **Incorrect:**
+     ```sql
+     CREATE TABLE Loans (
+       LoanId STRING(36) NOT NULL,
+       LoanAmount NUMERIC,
+       IsSignificant BOOL GENERATED ALWAYS AS (LoanAmount > 10000000) STORED
+     ) PRIMARY KEY (LoanId);
+     ```
+   - **Correct:**
+     ```sql
+     CREATE TABLE Loans (
+       LoanId STRING(36) NOT NULL,
+       LoanAmount NUMERIC,
+       IsSignificant BOOL AS (LoanAmount > 10000000) STORED
+     ) PRIMARY KEY (LoanId);
+     ```
+
 ## Non-Translatable OWL Capabilities (System Gaps)
 
 Flag the following constructs as requiring application logic, database triggers, or query-time execution:
