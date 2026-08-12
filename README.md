@@ -129,7 +129,7 @@ The repository includes a test runner script [`run_tests.py`](file:///Users/hass
 - It runs a **No SHACL** test case (pure ontology translation).
 - If a `shacl.ttl` file exists in the directory, it also runs a **With SHACL** test case.
 
-It tracks verification outcomes and outputs easy copy-paste commands to delete test databases afterwards.
+It tracks verification outcomes and automatically cleans up and deletes all created test databases at the end of the run.
 
 ### Execution Guide
 

@@ -184,14 +184,19 @@ def run_integration_tests():
     console.print(table)
     console.print("\n" + "="*80 + "\n")
     
-    # Output gcloud cleanup instructions
+    # Automatically delete all created databases
     if created_databases:
-        console.print("[bold yellow]CLEANUP INSTRUCTIONS:[/bold yellow]")
-        console.print("Please copy-paste and execute the following commands to delete the created databases:")
-        console.print("```bash")
+        console.print("[bold yellow]Cleaning up created test databases...[/bold yellow]")
         for db in created_databases:
-            console.print(f"gcloud spanner databases delete {db} --instance={instance_id} --project={project_id} --quiet")
-        console.print("```")
+            console.print(f"Deleting database [cyan]{db}[/cyan]...")
+            cmd = [
+                "gcloud", "spanner", "databases", "delete", db,
+                "--instance", instance_id,
+                "--project", project_id,
+                "--quiet"
+            ]
+            subprocess.run(cmd, capture_output=True)
+        console.print("[bold green]✓ Database cleanup complete![/bold green]")
         
 if __name__ == "__main__":
     run_integration_tests()
