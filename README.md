@@ -67,7 +67,7 @@ The CLI supports three primary invocation patterns. Note that `GEMINI_API_KEY` (
 Translates your RDF/OWL Turtle ontology directly to Spanner DDL without running any syntax validation.
 ```bash
 rdf-spanner-translator translate \
-  --input examples/fintech.ttl \
+  --input examples/fintech/fintech.ttl \
   --output output/schema.sql
 ```
 
@@ -98,13 +98,13 @@ export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases
 
 # A. Translate, test new database creation, and self-correct:
 rdf-spanner-translator run \
-  --input examples/fintech.ttl \
+  --input examples/fintech/fintech.ttl \
   --output output/schema.sql \
   --mcp-tool "create_database"
 
 # B. Translate, test schema updates on existing database, and self-correct:
 rdf-spanner-translator run \
-  --input examples/fintech.ttl \
+  --input examples/fintech/fintech.ttl \
   --output output/schema.sql \
   --mcp-tool "update_database_schema"
 ```
@@ -116,7 +116,7 @@ When using the `run` command, the translator incorporates an automated self-corr
 
 ## Running the Integration Test Suite
 
-The repository includes a test runner script [`run_tests.py`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/run_tests.py) to automate translation and validation of all example ontologies (`examples/*.ttl`) against a real Spanner instance. It tracks verification outcomes and outputs easy copy-paste commands to delete test databases afterwards.
+The repository includes a test runner script [`run_tests.py`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/run_tests.py) to automate translation and validation of all example ontologies (`examples/*/*.ttl`) against a real Spanner instance. It tracks verification outcomes and outputs easy copy-paste commands to delete test databases afterwards.
 
 ### Execution Guide
 

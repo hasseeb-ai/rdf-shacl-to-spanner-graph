@@ -42,10 +42,18 @@ def run_integration_tests():
     project_id = parts[1]
     instance_id = parts[3]
         
-    # Discover example ontologies
-    ttl_files = glob.glob("examples/*.ttl")
+    # Discover example ontologies (specifically examples/<domain>/<domain>.ttl)
+    ttl_files = []
+    if os.path.exists("examples"):
+        for d in sorted(os.listdir("examples")):
+            dir_path = os.path.join("examples", d)
+            if os.path.isdir(dir_path):
+                ont_file = os.path.join(dir_path, f"{d}.ttl")
+                if os.path.exists(ont_file):
+                    ttl_files.append(ont_file)
+                    
     if not ttl_files:
-        console.print("[bold yellow]No Turtle (.ttl) files found in examples/ directory.[/bold yellow]")
+        console.print("[bold yellow]No Turtle (.ttl) ontology files found in examples/ subdirectories.[/bold yellow]")
         sys.exit(0)
         
     console.print(f"[bold green]Starting integration tests for {len(ttl_files)} ontologies...[/bold green]\n")
