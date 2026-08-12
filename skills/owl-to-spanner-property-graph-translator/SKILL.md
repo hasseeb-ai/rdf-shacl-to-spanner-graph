@@ -72,6 +72,38 @@ To avoid Spanner DDL parser failures, observe the following rules:
    - **Incorrect:** Parent PK is `EntityId`, Child PK is `(ParentEntityId, ChildEntityId)`.
    - **Correct:** Parent PK is `EntityId`, Child PK is `(EntityId, ChildEntityId)`.
 
+4. **Rule 4: Google Cloud Spanner Property Graph Syntax:**
+   Google Cloud Spanner Property Graph DDL has a specific syntax. Node definitions inside `NODE TABLES` must **NOT** specify keys (like `KEY (Id)`), and edges inside `EDGE TABLES` must use `SOURCE KEY (...) REFERENCES ...` and `DESTINATION KEY (...) REFERENCES ...` clauses (do **NOT** use `FROM ... TO ...` syntax).
+
+   - **Incorrect:**
+     ```sql
+     CREATE PROPERTY GRAPH FintechGraph
+       NODE TABLES (
+         People KEY (PersonId)
+           LABEL Person PROPERTIES (PersonId, Name)
+       )
+       EDGE TABLES (
+         PersonalAccountOwners
+           FROM PersonalAccounts KEY (AccountId)
+           TO People KEY (PersonId)
+           LABEL HAS_OWNER
+       );
+     ```
+   - **Correct:**
+     ```sql
+     CREATE PROPERTY GRAPH FintechGraph
+       NODE TABLES (
+         People
+           LABEL Person PROPERTIES (PersonId, Name)
+       )
+       EDGE TABLES (
+         PersonalAccountOwners
+           SOURCE KEY (AccountId) REFERENCES PersonalAccounts (AccountId)
+           DESTINATION KEY (PersonId) REFERENCES People (PersonId)
+           LABEL HAS_OWNER
+       );
+     ```
+
 ## Non-Translatable OWL Capabilities (System Gaps)
 
 Flag the following constructs as requiring application logic, database triggers, or query-time execution:
