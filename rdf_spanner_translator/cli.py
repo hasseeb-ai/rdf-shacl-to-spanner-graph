@@ -16,9 +16,11 @@ from rdf_spanner_translator.parser import validate_rdf_file
 from rdf_spanner_translator.translator import translate_ontology, self_correct_ddl
 from rdf_spanner_translator.validator import validate_ddl, check_database_existence
 import json
+from datetime import datetime, timezone
 
 # Initialize Rich console for stylized and formatted terminal outputs
 console = Console()
+
 
 def save_telemetry(input_path: str, telemetry: dict):
     """Saves a JSON trace of a failed validation and its self-correction history in a single runlogs.json file."""
@@ -48,8 +50,10 @@ def save_telemetry(input_path: str, telemetry: dict):
                         console.print(f"[yellow]Warning: Could not migrate {entry} ({e})[/yellow]")
 
         new_run = telemetry.copy()
+        new_run["timestamp"] = datetime.now(timezone.utc).isoformat()
         if "captured_in_skill" not in new_run:
             new_run["captured_in_skill"] = False
+
 
         # Match entry by ontology_file and initial_ddl
         updated = False
