@@ -13,6 +13,14 @@ This directory contains test ontologies (in Turtle `.ttl` syntax) and generated/
 | **`entertainment.ttl`** | Input RDF Ontology | An IMDb-like ontology modeling creative works, movies, actors, and directors, designed to test attributes/properties on edge relations (e.g. character name/billing order). |
 | **`knowledgebase.ttl`** | Input RDF Ontology | A Wikipedia-style ontology modeling articles, category hierarchies, and linkage networks, testing transitive category relations and symmetric linkages. |
 | **`social_fraud.ttl`** | Input RDF Ontology | A social network and fraud detection ontology modeling transactions, device sharing, and phone/IP linking, ideal for testing complex GQL patterns. |
+| **`supply_chain.ttl`** | Input RDF Ontology | A manufacturing inventory ontology tracking raw materials, sub-assemblies, and finished products, featuring transitive part hierarchies and symmetric transit routes. |
+| **`ecommerce_recommendations.ttl`** | Input RDF Ontology | An e-commerce purchase and behavior ontology modeling customer shopping patterns, symmetric co-purchasing, and transitive category hierarchies. |
+| **`cybersecurity_threat.ttl`** | Input RDF Ontology | A network threat intelligence ontology tracking servers, vulnerabilities, threat actors, symmetric network communication, and transitive process trees. |
+| **`healthcare_records.ttl`** | Input RDF Ontology | A clinical EHR ontology modeling patient encounters, practitioners, procedures, prescriptions, symmetric referral networks, and transitive etiology paths. |
+| **`smart_city_iot.ttl`** | Input RDF Ontology | A smart building and IoT sensor network ontology featuring transitive spatial containment, symmetric power grids, and telemetry threshold equivalent classes. |
+| **`dcsa_shipping.ttl`** | Input RDF Ontology | A DCSA industry standard-aligned logistics ontology modeling bookings, bills of lading, transport calls, containers, transitive voyage legs, and symmetric alliance vessel sharing. |
+| **`fibo_financial.ttl`** | Input RDF Ontology | A FIBO industry standard-aligned financial ontology modeling legal entities, corporations, loans, shares, debt instruments, and transitive parent corporate control chains. |
+
 
 ---
 
