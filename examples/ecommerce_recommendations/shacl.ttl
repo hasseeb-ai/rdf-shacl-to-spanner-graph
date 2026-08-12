@@ -1,0 +1,102 @@
+@prefix ex: <http://example.org/ecommerce/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BookShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Book .
+
+ex:CategoryShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Category ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:subCategoryOf ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:categoryName ] ;
+    sh:targetClass ex:Category .
+
+ex:ClothingShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Clothing .
+
+ex:CustomerShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Order ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:placedOrder ] ;
+    sh:targetClass ex:Customer .
+
+ex:ElectronicsShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Electronics .
+
+ex:HighRatingReviewShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:HighRatingReview .
+
+ex:MerchantShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Merchant .
+
+ex:OrderShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:orderId ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:path ex:orderDate ],
+        [ sh:class ex:Product ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:orderContains ] ;
+    sh:targetClass ex:Order .
+
+ex:ProductShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Category ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:hasCategory ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path ex:productPrice ],
+        [ sh:class ex:Product ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:frequentlyBoughtWith ] ;
+    sh:targetClass ex:Product .
+
+ex:ReviewShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path ex:ratingValue ],
+        [ sh:class ex:Customer ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:reviewedBy ],
+        [ sh:class ex:Product ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:reviewFor ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:reviewText ] ;
+    sh:targetClass ex:Review .
+
+ex:UserShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:userId ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:userName ] ;
+    sh:targetClass ex:User .
+

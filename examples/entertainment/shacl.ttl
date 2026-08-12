@@ -1,0 +1,47 @@
+@prefix ex: <http://example.org/entertainment/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:ActorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:CreativeWork ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:actedIn ] ;
+    sh:targetClass ex:Actor .
+
+ex:CreativeWorkShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:title ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:path ex:releaseDate ] ;
+    sh:targetClass ex:CreativeWork .
+
+ex:DirectorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:CreativeWork ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:directed ] ;
+    sh:targetClass ex:Director .
+
+ex:MovieShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Movie .
+
+ex:RolePlayerShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:name ] ;
+    sh:targetClass ex:RolePlayer .
+
+ex:TVSeriesShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:TVSeries .
+

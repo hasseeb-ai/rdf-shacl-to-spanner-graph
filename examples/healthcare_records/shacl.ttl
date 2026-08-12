@@ -1,0 +1,101 @@
+@prefix ex: <http://example.org/healthcare/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:ComplexCasePatientShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:ComplexCasePatient .
+
+ex:DiagnosisShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Diagnosis ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:leadsToCondition ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:icd10Code ] ;
+    sh:targetClass ex:Diagnosis .
+
+ex:EncounterShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Diagnosis ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:encounterDiagnosis ],
+        [ sh:class ex:Procedure ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:performedProcedure ],
+        [ sh:class ex:Practitioner ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:attendedBy ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:path ex:encounterTimestamp ],
+        [ sh:class ex:Prescription ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:orderedPrescription ] ;
+    sh:targetClass ex:Encounter .
+
+ex:MedicationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:rxNormId ] ;
+    sh:targetClass ex:Medication .
+
+ex:PatientShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Encounter ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:participatedIn ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path ex:activeConditionsCount ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:mrn ] ;
+    sh:targetClass ex:Patient .
+
+ex:PersonShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Person .
+
+ex:PractitionerShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:practitionerSpecialty ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:npi ],
+        [ sh:class ex:Practitioner ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:referredTo ] ;
+    sh:targetClass ex:Practitioner .
+
+ex:PrescriptionShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Medication ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:hasMedication ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:dosageInstruction ] ;
+    sh:targetClass ex:Prescription .
+
+ex:ProcedureShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:cptCode ] ;
+    sh:targetClass ex:Procedure .
+

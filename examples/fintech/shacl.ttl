@@ -1,0 +1,51 @@
+@prefix ex: <http://example.org/fintech/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AccountShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path ex:accountBalance ],
+        [ sh:class ex:Account ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:subAccountOf ] ;
+    sh:targetClass ex:Account .
+
+ex:CorporateAccountShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:hasOwner ] ;
+    sh:targetClass ex:CorporateAccount .
+
+ex:HighRiskAccountShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:HighRiskAccount .
+
+ex:OrganizationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Organization ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:isPartnerOf ] ;
+    sh:targetClass ex:Organization .
+
+ex:PartyShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Party .
+
+ex:PersonShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Person .
+
+ex:PersonalAccountShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:path ex:hasOwner ],
+        [ sh:class ex:Person ;
+            sh:datatype xsd:string ;
+            sh:maxCount 3 ;
+            sh:path ex:hasSignatory ] ;
+    sh:targetClass ex:PersonalAccount .
+

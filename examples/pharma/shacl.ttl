@@ -1,0 +1,42 @@
+@prefix ex: <http://example.org/pharma/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:CompoundShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Target ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:bindsTo ],
+        [ sh:datatype xsd:double ;
+            sh:maxCount 1 ;
+            sh:path ex:molecularWeight ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:chemicalFormula ] ;
+    sh:targetClass ex:Compound .
+
+ex:DiseaseShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Disease .
+
+ex:DrugShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Disease ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:indicatedFor ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path ex:approvalYear ] ;
+    sh:targetClass ex:Drug .
+
+ex:TargetShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Disease ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:associatedWith ] ;
+    sh:targetClass ex:Target .
+

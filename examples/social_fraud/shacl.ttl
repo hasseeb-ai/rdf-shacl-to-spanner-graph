@@ -1,0 +1,65 @@
+@prefix ex: <http://example.org/social/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AccountShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:IPAddress ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:usedIP ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:accountId ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:accountStatus ],
+        [ sh:class ex:PhoneNumber ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:usedPhone ],
+        [ sh:class ex:Device ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:usedDevice ],
+        [ sh:class ex:Account ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:transferredTo ] ;
+    sh:targetClass ex:Account .
+
+ex:DeviceShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:deviceType ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:deviceId ] ;
+    sh:targetClass ex:Device .
+
+ex:EntityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Entity .
+
+ex:IPAddressShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:IPAddress ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:linkedToIP ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:ipValue ] ;
+    sh:targetClass ex:IPAddress .
+
+ex:PhoneNumberShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:phoneValue ] ;
+    sh:targetClass ex:PhoneNumber .
+

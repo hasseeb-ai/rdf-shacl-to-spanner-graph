@@ -1,0 +1,96 @@
+@prefix fibo: <http://spec.edmcouncil.org/fibo/ontology/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fibo:AutonomousAgentShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:AutonomousAgent .
+
+fibo:ContractualPartyShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:ContractualParty .
+
+fibo:CorporationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:Corporation .
+
+fibo:DebtInstrumentShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:DebtInstrument .
+
+fibo:FinancialInstrumentShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:FinancialInstrument .
+
+fibo:LegalEntityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class fibo:LegalEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:sharesGuarantorRiskWith ],
+        [ sh:class fibo:LegalEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:controlledBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:legalName ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path fibo:leiCode ] ;
+    sh:targetClass fibo:LegalEntity .
+
+fibo:LoanShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path fibo:loanAmount ],
+        [ sh:class fibo:ContractualParty ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:hasBorrower ],
+        [ sh:class fibo:ContractualParty ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path fibo:hasLender ],
+        [ sh:class fibo:LegalEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:guaranteedBy ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path fibo:interestRate ] ;
+    sh:targetClass fibo:Loan .
+
+fibo:PartnershipShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:Partnership .
+
+fibo:SecurityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:isinCode ],
+        [ sh:class fibo:LegalEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:issuedBy ] ;
+    sh:targetClass fibo:Security .
+
+fibo:ShareShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class fibo:LegalEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:ownedBy ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path fibo:sharesOutstanding ] ;
+    sh:targetClass fibo:Share .
+
+fibo:SignificantCorporateLoanShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:SignificantCorporateLoan .
+

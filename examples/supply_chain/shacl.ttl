@@ -1,0 +1,107 @@
+@prefix ex: <http://example.org/supplychain/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AssetShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Asset .
+
+ex:CarrierShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:carrierName ] ;
+    sh:targetClass ex:Carrier .
+
+ex:FinishedProductShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:ManufacturingPlant ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:manufacturedAt ] ;
+    sh:targetClass ex:FinishedProduct .
+
+ex:HighValueItemShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:HighValueItem .
+
+ex:ItemShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Warehouse ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:storedIn ],
+        [ sh:class ex:Item ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:partOf ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path ex:unitCost ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path ex:quantityInStock ] ;
+    sh:targetClass ex:Item .
+
+ex:LocationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Location ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:connectedTo ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:locationCode ] ;
+    sh:targetClass ex:Location .
+
+ex:ManufacturingPlantShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:ManufacturingPlant .
+
+ex:RawMaterialShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:SupplierFacility ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:suppliedBy ] ;
+    sh:targetClass ex:RawMaterial .
+
+ex:ShipmentShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Carrier ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:shippedVia ],
+        [ sh:class ex:Location ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:destination ],
+        [ sh:class ex:Location ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:origin ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:path ex:shipmentDate ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:shipmentTrackingNumber ] ;
+    sh:targetClass ex:Shipment .
+
+ex:SubAssemblyShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:SubAssembly .
+
+ex:SupplierFacilityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:SupplierFacility .
+
+ex:WarehouseShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:locationCode ] ;
+    sh:targetClass ex:Warehouse .
+

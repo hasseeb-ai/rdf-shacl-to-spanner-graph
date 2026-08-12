@@ -1,0 +1,114 @@
+@prefix ex: <http://example.org/cybersecurity/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:CriticalSeverityAlertShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:CriticalSeverityAlert .
+
+ex:EndpointShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:macAddress ],
+        [ sh:class ex:Vulnerability ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:hasVulnerability ],
+        [ sh:class ex:ThreatActor ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:compromisedBy ],
+        [ sh:class ex:SecurityAlert ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:triggeredAlert ],
+        [ sh:class ex:IPAddress ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:hasIPAddress ],
+        [ sh:class ex:Endpoint ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:communicatedWith ] ;
+    sh:targetClass ex:Endpoint .
+
+ex:GatewayShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Gateway .
+
+ex:IPAddressShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:ipString ] ;
+    sh:targetClass ex:IPAddress .
+
+ex:NetworkNodeShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:NetworkNode .
+
+ex:SecurityAlertShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path ex:severityScore ] ;
+    sh:targetClass ex:SecurityAlert .
+
+ex:ServerShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:IPAddress ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:hasIPAddress ] ;
+    sh:targetClass ex:Server .
+
+ex:SystemProcessShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path ex:processId ],
+        [ sh:class ex:SystemProcess ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:parentProcessOf ] ;
+    sh:targetClass ex:SystemProcess .
+
+ex:ThreatActorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Vulnerability ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:exploits ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:actorName ] ;
+    sh:targetClass ex:ThreatActor .
+
+ex:UserAccountShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Endpoint ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:loggedInFrom ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:username ] ;
+    sh:targetClass ex:UserAccount .
+
+ex:VulnerabilityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path ex:cvssScore ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:cveId ] ;
+    sh:targetClass ex:Vulnerability .
+
+ex:WorkstationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Workstation .
+

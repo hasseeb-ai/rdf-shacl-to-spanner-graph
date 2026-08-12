@@ -1,0 +1,92 @@
+@prefix ex: <http://example.org/smartcity/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AnomalousReadingShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:AnomalousReading .
+
+ex:CityZoneShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:CityZone .
+
+ex:EnergySensorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:EnergySensor .
+
+ex:GatewayNodeShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:GatewayNode .
+
+ex:IotDeviceShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:macAddress ],
+        [ sh:class ex:MaintenanceJob ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:hasMaintenanceJob ],
+        [ sh:class ex:SmartBuilding ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:installedInBuilding ] ;
+    sh:targetClass ex:IotDevice .
+
+ex:MaintenanceJobShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:jobId ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:jobStatus ] ;
+    sh:targetClass ex:MaintenanceJob .
+
+ex:SensorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:GatewayNode ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:registeredToGateway ],
+        [ sh:class ex:TelemetryObservation ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:recordedObservation ] ;
+    sh:targetClass ex:Sensor .
+
+ex:SmartBuildingShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:SmartBuilding ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:sharesMicrogridWith ] ;
+    sh:targetClass ex:SmartBuilding .
+
+ex:SpatialEntityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:SpatialEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:containedIn ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:spatialName ] ;
+    sh:targetClass ex:SpatialEntity .
+
+ex:TelemetryObservationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path ex:readingValue ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:path ex:readingTimestamp ] ;
+    sh:targetClass ex:TelemetryObservation .
+
+ex:TemperatureSensorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:TemperatureSensor .
+

@@ -1,0 +1,110 @@
+@prefix dcsa: <http://dcsa.org/ontology/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcsa:ActiveContainerEventShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass dcsa:ActiveContainerEvent .
+
+dcsa:BillOfLadingShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:bolNumber ] ;
+    sh:targetClass dcsa:BillOfLading .
+
+dcsa:BookingShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:bookingReference ],
+        [ sh:class dcsa:BillOfLading ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:associatedWithBL ],
+        [ sh:class dcsa:Container ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:bookingHasContainer ] ;
+    sh:targetClass dcsa:Booking .
+
+dcsa:ContainerShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path dcsa:containerNumber ] ;
+    sh:targetClass dcsa:Container .
+
+dcsa:EquipmentEventShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class dcsa:Container ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:containerInEvent ] ;
+    sh:targetClass dcsa:EquipmentEvent .
+
+dcsa:EventShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class dcsa:Location ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:eventAtLocation ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:eventClassifier ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:path dcsa:eventDateTime ] ;
+    sh:targetClass dcsa:Event .
+
+dcsa:FacilityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass dcsa:Facility .
+
+dcsa:LocationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:unLocode ] ;
+    sh:targetClass dcsa:Location .
+
+dcsa:ShipmentEventShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass dcsa:ShipmentEvent .
+
+dcsa:TransportCallShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class dcsa:TransportCall ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:followedByLeg ],
+        [ sh:class dcsa:Vessel ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path dcsa:callVessel ],
+        [ sh:class dcsa:Location ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:callLocation ] ;
+    sh:targetClass dcsa:TransportCall .
+
+dcsa:TransportEventShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass dcsa:TransportEvent .
+
+dcsa:VesselShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:vesselName ],
+        [ sh:class dcsa:Vessel ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path dcsa:sharesAllianceWith ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path dcsa:vesselImo ] ;
+    sh:targetClass dcsa:Vessel .
+
