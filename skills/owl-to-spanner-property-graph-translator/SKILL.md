@@ -178,6 +178,71 @@ To avoid Spanner DDL parser failures, observe the following rules:
      ) PRIMARY KEY (LoanId);
      ```
 
+8. **Rule 8: Table-Per-Concrete-Class Pattern (Flattening Superclasses):**
+   Do not generate physical relational tables for abstract or non-leaf superclasses. All inherited properties must be flattened directly as physical columns into the concrete leaf class tables. This ensures every node table maps directly to a physical table with a native `PRIMARY KEY`, avoiding complex SQL `JOIN` views.
+
+   - **Incorrect (Normalized / Parent-Child tables):**
+     ```sql
+     CREATE TABLE Users (
+       UserId STRING(36) NOT NULL,
+       UserName STRING(MAX)
+     ) PRIMARY KEY (UserId);
+
+     CREATE TABLE Customers (
+       UserId STRING(36) NOT NULL, -- Superclass property 'UserName' is missing!
+     ) PRIMARY KEY (UserId),
+       INTERLEAVE IN PARENT Users ON DELETE CASCADE;
+     ```
+   - **Correct (Flattened Concrete class):**
+     ```sql
+     CREATE TABLE Customers (
+       UserId STRING(36) NOT NULL,
+       UserName STRING(MAX) -- Flattened directly into the concrete subclass table
+     ) PRIMARY KEY (UserId);
+     ```
+
+9. **Rule 9: View-Based Node Table Keys:**
+   If a node table is mapped to a SQL View rather than a physical table, you **must** explicitly specify the `KEY (<column>)` clause. To ensure Spanner can verify key uniqueness:
+   1. Avoid complex `JOIN` operations on the key column inside the view.
+   2. Ensure the key column corresponds directly to the `PRIMARY KEY` of a single underlying physical table.
+
+   - **Incorrect:**
+     ```sql
+     NODE TABLES (
+       v_Facilities -- Error: views do not have primary keys in database schema
+         LABEL Facility PROPERTIES (LocationId, FacilityName)
+     )
+     ```
+   - **Correct:**
+     ```sql
+     NODE TABLES (
+       v_Facilities KEY (LocationId) -- Declares the verifiable unique key column
+         LABEL Facility PROPERTIES (LocationId, FacilityName)
+     )
+     ```
+
+10. **Rule 10: Property Graph Table and Label Separation:**
+    In `NODE TABLES` and `EDGE TABLES` blocks:
+    1. Separate different table mappings using commas.
+    2. Do **not** use commas to separate multiple `LABEL` declarations within the exact same table mapping.
+
+    - **Incorrect:**
+      ```sql
+      Customers
+        LABEL Customer PROPERTIES (UserId), -- Error: Comma here is invalid
+        LABEL User PROPERTIES (UserId),
+      Merchants
+        ...
+      ```
+    - **Correct:**
+      ```sql
+      Customers
+        LABEL Customer PROPERTIES (UserId)  -- No comma here
+        LABEL User PROPERTIES (UserId),     -- Comma separates different tables (Customers -> Merchants)
+      Merchants
+        ...
+      ```
+
 ## Non-Translatable OWL Capabilities (System Gaps)
 
 Flag the following constructs as requiring application logic, database triggers, or query-time execution:
