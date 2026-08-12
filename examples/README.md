@@ -39,7 +39,124 @@ The ontologies test the translation logic against key OWL semantics:
 
 ---
 
+## Ontology Visualizations
+
+These diagrams show the logical entities, properties, and relationships (symmetric and transitive) modeled by representative ontologies in this directory.
+
+### 1. Fintech Ontology (`fintech.ttl`)
+
+```mermaid
+classDiagram
+  direction TD
+  class Party {
+    PartyId: INT64
+    PartyType: STRING
+  }
+  class Person {
+    Name: STRING
+  }
+  class Organization {
+    Name: STRING
+  }
+  class Account {
+    AccountId: INT64
+    Balance: NUMERIC
+    IsHighRisk: BOOL
+  }
+  class PersonalAccount {
+    OwnerPersonId: INT64
+  }
+  class CorporateAccount {
+    OwnerOrganizationId: INT64
+  }
+
+  Party <|-- Person
+  Party <|-- Organization
+  Account <|-- PersonalAccount
+  Account <|-- CorporateAccount
+
+  PersonalAccount --> Person : hasOwner
+  CorporateAccount --> Organization : hasOwner
+  PersonalAccount --> Person : hasSignatory (0..3)
+  Organization --> Organization : isPartnerOf (Symmetric)
+  Account --> Account : subAccountOf (Transitive)
+```
+
+### 2. E-Commerce & Recommendations Ontology (`ecommerce_recommendations.ttl`)
+
+```mermaid
+classDiagram
+  direction TD
+  class Customer {
+    userId: STRING
+    userName: STRING
+  }
+  class Order {
+    orderId: STRING
+    orderDate: DATETIME
+  }
+  class Product {
+    productPrice: DECIMAL
+  }
+  class Review {
+    ratingValue: INTEGER
+    reviewText: STRING
+  }
+  class Category {
+    categoryName: STRING
+  }
+
+  Customer --> Order : placedOrder
+  Order --> Product : orderContains
+  Review --> Customer : reviewedBy
+  Review --> Product : reviewFor
+  Product --> Category : hasCategory
+  Category --> Category : subCategoryOf (Transitive)
+  Product --> Product : frequentlyBoughtWith (Symmetric)
+```
+
+### 3. DCSA Shipping Ontology (`dcsa_shipping.ttl`)
+
+```mermaid
+classDiagram
+  direction TD
+  class Booking {
+    bookingReference: STRING
+  }
+  class BillOfLading {
+    bolNumber: STRING
+  }
+  class Container {
+    containerNumber: STRING
+  }
+  class Vessel {
+    vesselImo: INTEGER
+    vesselName: STRING
+  }
+  class Location {
+    unLocode: STRING
+  }
+  class TransportCall
+  class Event {
+    eventClassifier: STRING
+    eventDateTime: DATETIME
+  }
+
+  Booking --> BillOfLading : associatedWithBL
+  Booking --> Container : bookingHasContainer
+  Event --> Location : eventAtLocation
+  EquipmentEvent --|> Event
+  EquipmentEvent --> Container : containerInEvent
+  TransportCall --> Location : callLocation
+  TransportCall --> Vessel : callVessel
+  Vessel --> Vessel : sharesAllianceWith (Symmetric)
+  TransportCall --> TransportCall : followedByLeg (Transitive)
+```
+
+---
+
 ## Running Tests with Examples
+
 
 ### 1. Run AI Translation Only
 ```bash
