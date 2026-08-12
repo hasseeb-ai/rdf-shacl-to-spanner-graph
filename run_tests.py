@@ -42,10 +42,19 @@ def run_integration_tests():
     project_id = parts[1]
     instance_id = parts[3]
         
-    # Parse target domains if passed as command line arguments
+    # Parse CLI flags and target domains
+    cleanup = True
+    args = sys.argv[1:]
+    if "--no-cleanup" in args:
+        cleanup = False
+        args.remove("--no-cleanup")
+    if "--keep-databases" in args:
+        cleanup = False
+        args.remove("--keep-databases")
+
     targets = []
-    if len(sys.argv) > 1:
-        for arg in sys.argv[1:]:
+    if args:
+        for arg in args:
             targets.extend([t.strip() for t in arg.split(",") if t.strip()])
             
     # Discover example ontologies (specifically examples/<domain>/<domain>.ttl)
@@ -184,19 +193,27 @@ def run_integration_tests():
     console.print(table)
     console.print("\n" + "="*80 + "\n")
     
-    # Automatically delete all created databases
+    # Automatically delete all created databases (unless disabled by flag)
     if created_databases:
-        console.print("[bold yellow]Cleaning up created test databases...[/bold yellow]")
-        for db in created_databases:
-            console.print(f"Deleting database [cyan]{db}[/cyan]...")
-            cmd = [
-                "gcloud", "spanner", "databases", "delete", db,
-                "--instance", instance_id,
-                "--project", project_id,
-                "--quiet"
-            ]
-            subprocess.run(cmd, capture_output=True)
-        console.print("[bold green]✓ Database cleanup complete![/bold green]")
+        if cleanup:
+            console.print("[bold yellow]Cleaning up created test databases...[/bold yellow]")
+            for db in created_databases:
+                console.print(f"Deleting database [cyan]{db}[/cyan]...")
+                cmd = [
+                    "gcloud", "spanner", "databases", "delete", db,
+                    "--instance", instance_id,
+                    "--project", project_id,
+                    "--quiet"
+                ]
+                subprocess.run(cmd, capture_output=True)
+            console.print("[bold green]✓ Database cleanup complete![/bold green]")
+        else:
+            console.print("[bold yellow]CLEANUP INSTRUCTIONS (Database Deletion Skipped):[/bold yellow]")
+            console.print("Please copy-paste and execute the following commands to delete the created databases:")
+            console.print("```bash")
+            for db in created_databases:
+                console.print(f"gcloud spanner databases delete {db} --instance={instance_id} --project={project_id} --quiet")
+            console.print("```")
         
 if __name__ == "__main__":
     run_integration_tests()

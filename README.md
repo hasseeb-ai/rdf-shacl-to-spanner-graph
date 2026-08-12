@@ -148,11 +148,14 @@ export SPANNER_INSTANCE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>"
 
 # 4. Run the suite
 
-# A. Run tests for ALL domains in examples/ folder:
+# A. Run tests for ALL domains in examples/ folder (automatic database deletion at the end):
 ./run_tests.py
 
 # B. Run tests for specific domains only (separate via space or comma):
-./run_tests.py fintech pharma
-# OR
 ./run_tests.py fintech,pharma
+
+# C. Keep created test databases on Spanner for manual inspection (skips auto-cleanup):
+./run_tests.py fintech --no-cleanup
+# OR
+./run_tests.py --keep-databases
 ```
