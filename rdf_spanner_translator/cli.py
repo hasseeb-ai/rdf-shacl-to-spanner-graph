@@ -21,16 +21,55 @@ import json
 console = Console()
 
 def save_telemetry(input_path: str, telemetry: dict):
-    """Saves a JSON trace of a failed validation and its self-correction history."""
+    """Saves a JSON trace of a failed validation and its self-correction history in a single runlogs.json file."""
     try:
         os.makedirs("failures", exist_ok=True)
-        file_name = os.path.basename(input_path)
-        file_stem = os.path.splitext(file_name)[0]
-        failures_path = os.path.join("failures", f"{file_stem}_repair.json")
-        with open(failures_path, "w") as f:
-            json.dump(telemetry, f, indent=2)
+        runlogs_path = os.path.join("failures", "runlogs.json")
+        
+        runlogs = []
+        if os.path.exists(runlogs_path):
+            try:
+                with open(runlogs_path, "r") as f:
+                    runlogs = json.load(f)
+            except Exception as e:
+                console.print(f"[yellow]Warning: Could not parse existing runlogs.json ({e}). Starting fresh.[/yellow]")
+        else:
+            # Migrate legacy individual repair files
+            for entry in os.listdir("failures"):
+                if entry.endswith("_repair.json") and entry != "runlogs.json":
+                    old_path = os.path.join("failures", entry)
+                    try:
+                        with open(old_path, "r") as f:
+                            old_telemetry = json.load(f)
+                            old_telemetry["captured_in_skill"] = False
+                            runlogs.append(old_telemetry)
+                        os.remove(old_path)
+                    except Exception as e:
+                        console.print(f"[yellow]Warning: Could not migrate {entry} ({e})[/yellow]")
+
+        new_run = telemetry.copy()
+        if "captured_in_skill" not in new_run:
+            new_run["captured_in_skill"] = False
+
+        # Match entry by ontology_file and initial_ddl
+        updated = False
+        for idx, existing_run in enumerate(runlogs):
+            if (existing_run.get("ontology_file") == new_run.get("ontology_file") and
+                existing_run.get("initial_ddl") == new_run.get("initial_ddl")):
+                # Update run details but preserve captured_in_skill flag if it was True
+                new_run["captured_in_skill"] = existing_run.get("captured_in_skill", False)
+                runlogs[idx] = new_run
+                updated = True
+                break
+        
+        if not updated:
+            runlogs.append(new_run)
+            
+        with open(runlogs_path, "w") as f:
+            json.dump(runlogs, f, indent=2)
     except Exception as e:
         console.print(f"[yellow]Warning: Could not save repair telemetry to failures folder ({e})[/yellow]")
+
 
 @click.group()
 def main():
