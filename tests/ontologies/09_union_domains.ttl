@@ -1,0 +1,88 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/union_domains/> .
+
+ex:UnionDomainsOntology a owl:Ontology ;
+    rdfs:label "Union Domains & Multi-Target Propagation Test Ontology" ;
+    rdfs:comment "Tests owl:unionOf domain declarations and ensures properties propagate top-down to concrete leaf tables of all union members (Rule 1)." .
+
+# =============================================================================
+# Class Taxonomy:
+# LegalSubject (Abstract)
+#   ├── Individual (Abstract)
+#   │     └── NaturalPerson (Concrete Leaf)
+#   └── Organization (Abstract)
+#         ├── Corporation (Concrete Leaf)
+#         └── NonProfit (Concrete Leaf)
+# =============================================================================
+
+ex:LegalSubject a owl:Class ;
+    rdfs:label "Legal Subject" .
+
+ex:Individual a owl:Class ;
+    rdfs:subClassOf ex:LegalSubject ;
+    rdfs:label "Individual" .
+
+ex:NaturalPerson a owl:Class ;
+    rdfs:subClassOf ex:Individual ;
+    rdfs:label "Natural Person" ;
+    rdfs:comment "Concrete table 'NaturalPersons'." .
+
+ex:Organization a owl:Class ;
+    rdfs:subClassOf ex:LegalSubject ;
+    rdfs:label "Organization" .
+
+ex:Corporation a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    rdfs:label "Corporation" ;
+    rdfs:comment "Concrete table 'Corporations'." .
+
+ex:NonProfit a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    rdfs:label "Non-Profit" ;
+    rdfs:comment "Concrete table 'NonProfits'." .
+
+# =============================================================================
+# Union Domain Properties:
+# - taxIdentifier: Domain = (Individual UNION Organization) -> propagates to NaturalPersons, Corporations, and NonProfits
+# - contactEmail: Domain = (NaturalPerson UNION Corporation) -> propagates to NaturalPersons and Corporations
+# =============================================================================
+
+ex:taxIdentifier a owl:DatatypeProperty ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf ( ex:Individual ex:Organization )
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "Tax Identifier" ;
+    rdfs:comment "Union domain rule: Must flatten into NaturalPersons, Corporations, AND NonProfits tables." .
+
+ex:contactEmail a owl:DatatypeProperty ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf ( ex:NaturalPerson ex:Corporation )
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "Contact Email" ;
+    rdfs:comment "Must flatten into NaturalPersons and Corporations, but NOT NonProfits." .
+
+# =============================================================================
+# Class-Specific Datatype Properties
+# =============================================================================
+
+ex:birthDate a owl:DatatypeProperty ;
+    rdfs:domain ex:NaturalPerson ;
+    rdfs:range xsd:date ;
+    rdfs:label "Birth Date" .
+
+ex:incorporationNumber a owl:DatatypeProperty ;
+    rdfs:domain ex:Corporation ;
+    rdfs:range xsd:string ;
+    rdfs:label "Incorporation Number" .
+
+ex:charityRegistrationId a owl:DatatypeProperty ;
+    rdfs:domain ex:NonProfit ;
+    rdfs:range xsd:string ;
+    rdfs:label "Charity Registration ID" .

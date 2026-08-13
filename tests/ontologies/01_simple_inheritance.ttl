@@ -1,0 +1,92 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/simple_inheritance/> .
+
+ex:SimpleInheritanceOntology a owl:Ontology ;
+    rdfs:label "Simple Inheritance & Top-Down Propagation Test Ontology" ;
+    rdfs:comment "Tests single class hierarchy, table-per-concrete-class flattening, top-down datatype property propagation, bottom-up property isolation, and multi-label node mappings." .
+
+# =============================================================================
+# Class Taxonomy:
+# Vehicle (Abstract Superclass)
+#   └── MotorVehicle (Intermediate Class)
+#         ├── Car (Concrete Leaf Class)
+#         └── Truck (Concrete Leaf Class)
+# =============================================================================
+
+ex:Vehicle a owl:Class ;
+    rdfs:label "Vehicle" ;
+    rdfs:comment "Root abstract superclass. Should NOT generate a physical table." .
+
+ex:MotorVehicle a owl:Class ;
+    rdfs:subClassOf ex:Vehicle ;
+    rdfs:label "Motor Vehicle" ;
+    rdfs:comment "Intermediate class. Properties must propagate down to Car and Truck." .
+
+ex:Car a owl:Class ;
+    rdfs:subClassOf ex:MotorVehicle ;
+    rdfs:label "Car" ;
+    rdfs:comment "Concrete leaf class. Must map to physical table 'Cars' and NODE TABLE with labels (Car, MotorVehicle, Vehicle)." .
+
+ex:Truck a owl:Class ;
+    rdfs:subClassOf ex:MotorVehicle ;
+    rdfs:label "Truck" ;
+    rdfs:comment "Concrete leaf class. Must map to physical table 'Trucks' and NODE TABLE with labels (Truck, MotorVehicle, Vehicle)." .
+
+# =============================================================================
+# Datatype Properties with Top-Down Inheritance:
+# - Defined on Vehicle (Root) -> Must flatten into both Cars and Trucks
+# - Defined on MotorVehicle -> Must flatten into both Cars and Trucks
+# - Defined on Car -> Must stay strictly in Cars (bottom-up isolation)
+# - Defined on Truck -> Must stay strictly in Trucks (bottom-up isolation)
+# =============================================================================
+
+ex:vin a owl:DatatypeProperty ;
+    rdfs:domain ex:Vehicle ;
+    rdfs:range xsd:string ;
+    rdfs:label "Vehicle Identification Number" ;
+    rdfs:comment "Top-down: Propagates to all leaf classes (Cars, Trucks)." .
+
+ex:manufacturer a owl:DatatypeProperty ;
+    rdfs:domain ex:Vehicle ;
+    rdfs:range xsd:string ;
+    rdfs:label "Manufacturer" ;
+    rdfs:comment "Top-down: Propagates to all leaf classes (Cars, Trucks)." .
+
+ex:engineDisplacementCc a owl:DatatypeProperty ;
+    rdfs:domain ex:MotorVehicle ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Engine Displacement (cc)" ;
+    rdfs:comment "Top-down: Propagates to Car and Truck tables." .
+
+ex:fuelType a owl:DatatypeProperty ;
+    rdfs:domain ex:MotorVehicle ;
+    rdfs:range xsd:string ;
+    rdfs:label "Fuel Type" ;
+    rdfs:comment "Top-down: Propagates to Car and Truck tables." .
+
+ex:seatingCapacity a owl:DatatypeProperty ;
+    rdfs:domain ex:Car ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Seating Capacity" ;
+    rdfs:comment "Bottom-up isolation: Belongs ONLY to Cars table, not Trucks or Vehicle." .
+
+ex:hasSunroof a owl:DatatypeProperty ;
+    rdfs:domain ex:Car ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Has Sunroof" ;
+    rdfs:comment "Bottom-up isolation: Belongs ONLY to Cars table." .
+
+ex:payloadCapacityKg a owl:DatatypeProperty ;
+    rdfs:domain ex:Truck ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Payload Capacity (kg)" ;
+    rdfs:comment "Bottom-up isolation: Belongs ONLY to Trucks table, not Cars or Vehicle." .
+
+ex:axleCount a owl:DatatypeProperty ;
+    rdfs:domain ex:Truck ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Axle Count" ;
+    rdfs:comment "Bottom-up isolation: Belongs ONLY to Trucks table." .

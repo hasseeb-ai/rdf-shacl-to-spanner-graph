@@ -1,0 +1,110 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/cardinality_datatypes/> .
+
+ex:CardinalityAndDatatypesOntology a owl:Ontology ;
+    rdfs:label "Cardinality & Datatypes Test Ontology" ;
+    rdfs:comment "Tests OWL functional properties, cardinality restrictions, and all standard Spanner datatypes (INT64, NUMERIC, FLOAT64, BOOL, TIMESTAMP, DATE, STRING)." .
+
+# =============================================================================
+# Classes
+# =============================================================================
+
+ex:FinancialTransaction a owl:Class ;
+    rdfs:label "Financial Transaction" ;
+    rdfs:comment "Entity demonstrating various scalar and array attributes with strict datatypes." ;
+    rdfs:subClassOf
+        [
+            a owl:Restriction ;
+            owl:onProperty ex:transactionId ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty ex:amount ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty ex:transactionTimestamp ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty ex:riskScore ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+        ] .
+
+ex:UserProfile a owl:Class ;
+    rdfs:label "User Profile" ;
+    rdfs:comment "Entity testing strings, dates, booleans, and multi-valued tags." .
+
+# =============================================================================
+# Functional Properties (Exactly One / At Most One)
+# =============================================================================
+
+ex:transactionId a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:string ;
+    rdfs:label "Transaction UUID" .
+
+ex:amount a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Transaction Amount (NUMERIC)" .
+
+ex:exchangeRate a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:double ;
+    rdfs:label "Exchange Rate (FLOAT64)" .
+
+ex:isSettled a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Is Settled (BOOL)" .
+
+ex:transactionTimestamp a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Transaction Timestamp (TIMESTAMP)" .
+
+ex:settlementDate a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:date ;
+    rdfs:label "Settlement Date (DATE)" .
+
+ex:retryCount a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Retry Count (INT64)" .
+
+ex:riskScore a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:double ;
+    rdfs:label "Risk Score" .
+
+# =============================================================================
+# Multi-Valued Datatype Properties (Repeated / ARRAY fields)
+# =============================================================================
+
+ex:auditTag a owl:DatatypeProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:string ;
+    rdfs:label "Audit Tags (ARRAY<STRING(MAX)>)" .
+
+ex:verificationCode a owl:DatatypeProperty ;
+    rdfs:domain ex:UserProfile ;
+    rdfs:range xsd:string ;
+    rdfs:label "Verification Codes (ARRAY<STRING(MAX)>)" .
+
+ex:emailAddress a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:UserProfile ;
+    rdfs:range xsd:string ;
+    rdfs:label "Primary Email Address" .
+
+ex:isActive a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:UserProfile ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Account Active Status" .

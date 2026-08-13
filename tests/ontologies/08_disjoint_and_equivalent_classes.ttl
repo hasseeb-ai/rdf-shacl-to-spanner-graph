@@ -1,0 +1,78 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/disjoint_equivalent/> .
+
+ex:DisjointAndEquivalentClassesOntology a owl:Ontology ;
+    rdfs:label "Disjoint Classes & Stored Generated Column Test Ontology" ;
+    rdfs:comment "Tests owl:disjointWith table separation and owl:equivalentClass mapping to GoogleSQL STORED generated columns (Rule 7 syntax: <Col> <Type> AS (<Expr>) STORED)." .
+
+# =============================================================================
+# Classes & Disjointness:
+# Customer (Abstract)
+#   ├── IndividualCustomer (Concrete Leaf)
+#   └── CorporateCustomer (Concrete Leaf, disjoint with IndividualCustomer)
+# =============================================================================
+
+ex:Customer a owl:Class ;
+    rdfs:label "Customer" .
+
+ex:IndividualCustomer a owl:Class ;
+    rdfs:subClassOf ex:Customer ;
+    owl:disjointWith ex:CorporateCustomer ;
+    rdfs:label "Individual Customer" ;
+    rdfs:comment "Concrete table 'IndividualCustomers'." .
+
+ex:CorporateCustomer a owl:Class ;
+    rdfs:subClassOf ex:Customer ;
+    rdfs:label "Corporate Customer" ;
+    rdfs:comment "Concrete table 'CorporateCustomers'. Enforces disjoint PK space from IndividualCustomer." .
+
+# =============================================================================
+# Equivalent Class (Maps to STORED Generated Column)
+# =============================================================================
+
+ex:HighValueAccount a owl:Class ;
+    rdfs:label "High Value Account" ;
+    rdfs:comment "Equivalent class representing accounts with balance > 500000. Translates to: IsHighValue BOOL AS (Balance > 500000.00) STORED" ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:IndividualCustomer
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:accountBalance ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:decimal ;
+                    owl:withRestrictions ( [ xsd:minExclusive 500000.00 ] )
+                ]
+            ]
+        )
+    ] .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:accountBalance a owl:DatatypeProperty ;
+    rdfs:domain ex:Customer ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Account Balance" ;
+    rdfs:comment "Top-down propagation to IndividualCustomer and CorporateCustomer." .
+
+ex:customerSince a owl:DatatypeProperty ;
+    rdfs:domain ex:Customer ;
+    rdfs:range xsd:date ;
+    rdfs:label "Customer Since Date" .
+
+ex:ssn a owl:DatatypeProperty ;
+    rdfs:domain ex:IndividualCustomer ;
+    rdfs:range xsd:string ;
+    rdfs:label "Social Security Number" .
+
+ex:taxRegistrationNumber a owl:DatatypeProperty ;
+    rdfs:domain ex:CorporateCustomer ;
+    rdfs:range xsd:string ;
+    rdfs:label "Tax Registration Number" .

@@ -1,0 +1,119 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/object_property_hierarchy/> .
+
+ex:ObjectPropertyHierarchyOntology a owl:Ontology ;
+    rdfs:label "Object Property Domain & Range Hierarchy Test Ontology" ;
+    rdfs:comment "Tests top-down and bottom-up domain/range propagation rules for object properties, and localized property range restrictions (owl:allValuesFrom)." .
+
+# =============================================================================
+# Class Taxonomy:
+# Organization (Abstract)
+#   ├── Supplier (Concrete Leaf Class)
+#   └── Distributor (Concrete Leaf Class)
+#
+# Facility (Abstract)
+#   ├── Warehouse (Concrete Leaf Class)
+#   └── RetailHub (Concrete Leaf Class)
+#
+# Cargo (Abstract)
+#   ├── PerishableCargo (Concrete Leaf Class)
+#   └── DryCargo (Concrete Leaf Class)
+# =============================================================================
+
+ex:Organization a owl:Class ;
+    rdfs:label "Organization" .
+
+ex:Supplier a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    rdfs:label "Supplier" .
+
+ex:Distributor a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    rdfs:label "Distributor" .
+
+ex:Facility a owl:Class ;
+    rdfs:label "Facility" .
+
+ex:Warehouse a owl:Class ;
+    rdfs:subClassOf ex:Facility ;
+    rdfs:label "Warehouse" .
+
+ex:RetailHub a owl:Class ;
+    rdfs:subClassOf ex:Facility ;
+    rdfs:label "Retail Hub" .
+
+ex:Cargo a owl:Class ;
+    rdfs:label "Cargo" .
+
+ex:PerishableCargo a owl:Class ;
+    rdfs:subClassOf ex:Cargo ;
+    rdfs:label "Perishable Cargo" .
+
+ex:DryCargo a owl:Class ;
+    rdfs:subClassOf ex:Cargo ;
+    rdfs:label "Dry Cargo" .
+
+# =============================================================================
+# Localized Property Range Restriction (owl:allValuesFrom):
+# A Supplier only ships to Warehouses, while a Distributor ships to RetailHubs.
+# =============================================================================
+
+ex:Supplier rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:operatesAt ;
+        owl:allValuesFrom ex:Warehouse
+    ] .
+
+ex:Distributor rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:operatesAt ;
+        owl:allValuesFrom ex:RetailHub
+    ] .
+
+# =============================================================================
+# Object Properties:
+# - operatesAt: Domain=Organization (inherits to Supplier, Distributor), Range=Facility (targets Warehouse, RetailHub)
+# - suppliesTo: Domain=Supplier (bottom-up: only Supplier has this, not Distributor), Range=Distributor
+# - storesCargo: Domain=Facility, Range=Cargo
+# =============================================================================
+
+ex:operatesAt a owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Facility ;
+    rdfs:label "Operates At" ;
+    rdfs:comment "Top-down domain (Supplier, Distributor) and top-down range (Warehouse, RetailHub)." .
+
+ex:suppliesTo a owl:ObjectProperty ;
+    rdfs:domain ex:Supplier ;
+    rdfs:range ex:Distributor ;
+    rdfs:label "Supplies To" ;
+    rdfs:comment "Bottom-up domain & range: restricted to concrete Supplier and Distributor tables." .
+
+ex:storesCargo a owl:ObjectProperty ;
+    rdfs:domain ex:Facility ;
+    rdfs:range ex:Cargo ;
+    rdfs:label "Stores Cargo" .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:orgName a owl:DatatypeProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range xsd:string ;
+    rdfs:label "Organization Name" .
+
+ex:facilityCode a owl:DatatypeProperty ;
+    rdfs:domain ex:Facility ;
+    rdfs:range xsd:string ;
+    rdfs:label "Facility Code" .
+
+ex:cargoDescription a owl:DatatypeProperty ;
+    rdfs:domain ex:Cargo ;
+    rdfs:range xsd:string ;
+    rdfs:label "Cargo Description" .

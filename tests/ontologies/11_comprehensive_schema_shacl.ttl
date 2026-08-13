@@ -1,0 +1,70 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:    <http://example.org/test/comprehensive/> .
+
+# =============================================================================
+# SHACL Shapes for Comprehensive Test Schema
+# =============================================================================
+
+ex:ManagerShape a sh:NodeShape ;
+    sh:targetClass ex:Manager ;
+    sh:property [
+        sh:path ex:entityIdentifier ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 36 ;
+    ] ,
+    [
+        sh:path ex:legalName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 100 ;
+    ] ,
+    [
+        sh:path ex:badgeNumber ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 20 ;
+    ] ,
+    [
+        sh:path ex:specialtyDomain ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:managementLevel ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:CorporationShape a sh:NodeShape ;
+    sh:targetClass ex:Corporation ;
+    sh:property [
+        sh:path ex:entityIdentifier ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 36 ;
+    ] ,
+    [
+        sh:path ex:legalName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:DigitalAssetShape a sh:NodeShape ;
+    sh:targetClass ex:DigitalAsset ;
+    sh:property [
+        sh:path ex:appraisalValue ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .

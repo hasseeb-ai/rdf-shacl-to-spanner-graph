@@ -1,0 +1,85 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:    <http://example.org/test/shacl_constraints/> .
+
+# =============================================================================
+# SHACL Shapes with Enums (sh:in), Defaults (sh:hasValue),
+# Nested Shapes (sh:node), and Polymorphic Foreign Keys (sh:class -> Abstract)
+# =============================================================================
+
+ex:PostalAddressShape a sh:NodeShape ;
+    rdfs:label "Nested Postal Address Shape" ;
+    sh:property [
+        sh:path ex:streetLine ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 120 ;
+    ] ,
+    [
+        sh:path ex:cityName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 80 ;
+    ] ,
+    [
+        sh:path ex:postalCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 20 ;
+    ] ,
+    [
+        sh:path ex:countryIso ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 2 ;
+    ] .
+
+ex:PaymentAccountShape a sh:NodeShape ;
+    sh:targetClass ex:PaymentAccount ;
+    sh:property [
+        sh:path ex:accountNumber ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 34 ;
+    ] ,
+    [
+        # Check constraint: sh:in ('ACTIVE', 'SUSPENDED', 'CLOSED')
+        # Translates to: CONSTRAINT CK_AccountStatus CHECK (AccountStatus IN ('ACTIVE', 'SUSPENDED', 'CLOSED'))
+        sh:path ex:accountStatus ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ( "ACTIVE" "SUSPENDED" "CLOSED" ) ;
+    ] ,
+    [
+        # Default value: sh:hasValue "STANDARD"
+        sh:path ex:tierLevel ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue "STANDARD" ;
+    ] ,
+    [
+        # Nested shape: sh:node
+        # Translates to embedded columns: BillingAddress_StreetLine, BillingAddress_CityName, etc.
+        sh:path ex:billingAddress ;
+        sh:node ex:PostalAddressShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        # Polymorphic target: sh:class targets abstract ex:Party
+        # Translates to Property Graph EDGE TABLES (one for IndividualParty, one for CorporateParty)
+        # while omitting SQL foreign key constraint
+        sh:path ex:hasOwnerParty ;
+        sh:class ex:Party ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .

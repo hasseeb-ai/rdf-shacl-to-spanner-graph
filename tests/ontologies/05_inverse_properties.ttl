@@ -1,0 +1,75 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/inverse_properties/> .
+
+ex:InversePropertiesOntology a owl:Ontology ;
+    rdfs:label "Inverse Properties & Edge Aliasing Test Ontology" ;
+    rdfs:comment "Tests owl:inverseOf deduplication in physical relational storage and bidirectional edge aliasing (AS keyword) in Property Graph DDL." .
+
+# =============================================================================
+# Classes
+# =============================================================================
+
+ex:Enterprise a owl:Class ;
+    rdfs:label "Enterprise" ;
+    rdfs:comment "Concrete leaf class mapped to physical table 'Enterprises'." .
+
+ex:Contractor a owl:Class ;
+    rdfs:label "Contractor" ;
+    rdfs:comment "Concrete leaf class mapped to physical table 'Contractors'." .
+
+ex:Project a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:comment "Concrete leaf class mapped to physical table 'Projects'." .
+
+# =============================================================================
+# Inverse Object Properties:
+# 1. ex:contractsWith owl:inverseOf ex:contractedBy
+# 2. ex:assignedToProject owl:inverseOf ex:hasAssignedContractor
+# =============================================================================
+
+ex:contractsWith a owl:ObjectProperty ;
+    rdfs:domain ex:Enterprise ;
+    rdfs:range ex:Contractor ;
+    owl:inverseOf ex:contractedBy ;
+    rdfs:label "Contracts With" ;
+    rdfs:comment "Forward edge. Stored in single relational table/FK; dual-mapped in property graph." .
+
+ex:contractedBy a owl:ObjectProperty ;
+    rdfs:domain ex:Contractor ;
+    rdfs:range ex:Enterprise ;
+    rdfs:label "Contracted By" ;
+    rdfs:comment "Inverse edge. Must map to the same physical table with inverted SOURCE/DESTINATION keys using 'AS EnterpriseContractors'." .
+
+ex:assignedToProject a owl:ObjectProperty ;
+    rdfs:domain ex:Contractor ;
+    rdfs:range ex:Project ;
+    owl:inverseOf ex:hasAssignedContractor ;
+    rdfs:label "Assigned To Project" .
+
+ex:hasAssignedContractor a owl:ObjectProperty ;
+    rdfs:domain ex:Project ;
+    rdfs:range ex:Contractor ;
+    rdfs:label "Has Assigned Contractor" .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:enterpriseName a owl:DatatypeProperty ;
+    rdfs:domain ex:Enterprise ;
+    rdfs:range xsd:string .
+
+ex:contractorName a owl:DatatypeProperty ;
+    rdfs:domain ex:Contractor ;
+    rdfs:range xsd:string .
+
+ex:projectName a owl:DatatypeProperty ;
+    rdfs:domain ex:Project ;
+    rdfs:range xsd:string .
+
+ex:hourlyRate a owl:DatatypeProperty ;
+    rdfs:domain ex:Contractor ;
+    rdfs:range xsd:decimal .

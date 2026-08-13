@@ -1,0 +1,60 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/shacl_constraints/> .
+
+ex:ShaclAdvancedConstraintsOntology a owl:Ontology ;
+    rdfs:label "SHACL Advanced Constraints & Nested Shapes Test Ontology" ;
+    rdfs:comment "Tests SHACL-driven DDL generation including sh:in check constraints, sh:hasValue defaults, sh:node nested shape flattening, and polymorphic foreign key edge mappings." .
+
+# =============================================================================
+# Classes
+# =============================================================================
+
+ex:PaymentAccount a owl:Class ;
+    rdfs:label "Payment Account" ;
+    rdfs:comment "Mapped to physical table 'PaymentAccounts'." .
+
+ex:Party a owl:Class ;
+    rdfs:label "Party (Abstract Superclass)" .
+
+ex:IndividualParty a owl:Class ;
+    rdfs:subClassOf ex:Party ;
+    rdfs:label "Individual Party" ;
+    rdfs:comment "Concrete table 'IndividualParties'." .
+
+ex:CorporateParty a owl:Class ;
+    rdfs:subClassOf ex:Party ;
+    rdfs:label "Corporate Party" ;
+    rdfs:comment "Concrete table 'CorporateParties'." .
+
+# =============================================================================
+# Object Properties
+# =============================================================================
+
+ex:hasOwnerParty a owl:ObjectProperty ;
+    rdfs:domain ex:PaymentAccount ;
+    rdfs:range ex:Party ;
+    rdfs:label "Has Owner Party" ;
+    rdfs:comment "Polymorphic target: Range is abstract Party (with leaf subclasses IndividualParty and CorporateParty). Omit SQL FK, map multi-target EDGE TABLES in property graph." .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:accountNumber a owl:DatatypeProperty ;
+    rdfs:domain ex:PaymentAccount ;
+    rdfs:range xsd:string .
+
+ex:accountStatus a owl:DatatypeProperty ;
+    rdfs:domain ex:PaymentAccount ;
+    rdfs:range xsd:string .
+
+ex:tierLevel a owl:DatatypeProperty ;
+    rdfs:domain ex:PaymentAccount ;
+    rdfs:range xsd:string .
+
+ex:billingAddress a owl:DatatypeProperty ;
+    rdfs:domain ex:PaymentAccount ;
+    rdfs:comment "Nested shape target (sh:node)." .

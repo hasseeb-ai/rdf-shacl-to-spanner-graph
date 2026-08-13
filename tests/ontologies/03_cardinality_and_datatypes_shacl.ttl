@@ -1,0 +1,87 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:    <http://example.org/test/cardinality_datatypes/> .
+
+# =============================================================================
+# SHACL Shapes for Cardinality & Datatypes Validation:
+# - Tests sh:minCount 1 -> NOT NULL
+# - Tests sh:maxCount 1 -> Scalar column
+# - Tests omitted maxCount -> ARRAY column
+# - Tests sh:maxLength -> STRING(N)
+# =============================================================================
+
+ex:FinancialTransactionShape a sh:NodeShape ;
+    sh:targetClass ex:FinancialTransaction ;
+    sh:property [
+        sh:path ex:transactionId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 36 ;
+    ] ,
+    [
+        sh:path ex:amount ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:exchangeRate ;
+        sh:datatype xsd:double ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:isSettled ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:transactionTimestamp ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:settlementDate ;
+        sh:datatype xsd:date ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:retryCount ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:auditTag ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        # Multi-valued: maps to ARRAY<STRING(MAX)>
+    ] .
+
+ex:UserProfileShape a sh:NodeShape ;
+    sh:targetClass ex:UserProfile ;
+    sh:property [
+        sh:path ex:emailAddress ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 255 ;
+    ] ,
+    [
+        sh:path ex:isActive ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:verificationCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        # Multi-valued: maps to ARRAY<STRING(MAX)>
+    ] .

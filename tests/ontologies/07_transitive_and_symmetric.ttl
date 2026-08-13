@@ -1,0 +1,67 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/transitive_symmetric/> .
+
+ex:TransitiveAndSymmetricOntology a owl:Ontology ;
+    rdfs:label "Transitive & Symmetric Properties Test Ontology" ;
+    rdfs:comment "Tests owl:TransitiveProperty (interleaved table hierarchies & primary key alignment rule) and owl:SymmetricProperty (single physical direction, GQL bidirectional traversal)." .
+
+# =============================================================================
+# Classes
+# =============================================================================
+
+ex:Department a owl:Class ;
+    rdfs:label "Department" ;
+    rdfs:comment "Represents hierarchical departmental structure." .
+
+ex:Division a owl:Class ;
+    rdfs:subClassOf ex:Department ;
+    rdfs:label "Division" ;
+    rdfs:comment "Interleaved child entity of Department." .
+
+ex:Researcher a owl:Class ;
+    rdfs:label "Researcher" ;
+    rdfs:comment "Entity participating in symmetric collaboration networks." .
+
+# =============================================================================
+# Transitive & Symmetric Properties
+# =============================================================================
+
+ex:subDepartmentOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:Department ;
+    rdfs:range ex:Department ;
+    rdfs:label "Sub-Department Of" ;
+    rdfs:comment "Transitive parent-child link. Maps to Interleaved table with aligned primary keys (ParentDepartmentId, ChildDepartmentId) or GQL recursive path matching." .
+
+ex:collaboratesWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:Researcher ;
+    rdfs:range ex:Researcher ;
+    rdfs:label "Collaborates With" ;
+    rdfs:comment "Symmetric relationship. Physical storage stores single row; GQL queries traverse bidirectionally." .
+
+ex:memberOfDepartment a owl:ObjectProperty ;
+    rdfs:domain ex:Researcher ;
+    rdfs:range ex:Department ;
+    rdfs:label "Member Of Department" .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:departmentName a owl:DatatypeProperty ;
+    rdfs:domain ex:Department ;
+    rdfs:range xsd:string .
+
+ex:budgetCode a owl:DatatypeProperty ;
+    rdfs:domain ex:Department ;
+    rdfs:range xsd:string .
+
+ex:researcherName a owl:DatatypeProperty ;
+    rdfs:domain ex:Researcher ;
+    rdfs:range xsd:string .
+
+ex:orcidId a owl:DatatypeProperty ;
+    rdfs:domain ex:Researcher ;
+    rdfs:range xsd:string .

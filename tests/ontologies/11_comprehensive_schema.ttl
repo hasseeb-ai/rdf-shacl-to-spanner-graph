@@ -1,0 +1,187 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/comprehensive/> .
+
+ex:ComprehensiveTestOntology a owl:Ontology ;
+    rdfs:label "Comprehensive Multi-Feature Test Ontology" ;
+    rdfs:comment "Combines single and multiple inheritance, top-down property propagation, inverse properties, subproperties, transitive hierarchies, symmetric edges, disjointness, and stored generated columns." .
+
+# =============================================================================
+# 1. Class Taxonomy:
+# LegalEntity (Abstract)
+#   ├── Individual (Abstract)
+#   │     ├── Employee (Subclass of Individual)
+#   │     │     └── Manager (Subclass of Employee and LeadSpecialist)
+#   │     └── LeadSpecialist (Subclass of Individual)
+#   │           └── Manager (Multiple Inheritance)
+#   └── Organization (Abstract)
+#         ├── Corporation (Concrete Leaf, disjointWith NonGovernmentalOrg)
+#         └── NonGovernmentalOrg (Concrete Leaf)
+#
+# Asset (Abstract)
+#   └── DigitalAsset (Concrete Leaf)
+#
+# Department (Concrete with Transitive Hierarchy)
+# =============================================================================
+
+ex:LegalEntity a owl:Class ;
+    rdfs:label "Legal Entity" .
+
+ex:Individual a owl:Class ;
+    rdfs:subClassOf ex:LegalEntity ;
+    rdfs:label "Individual" .
+
+ex:Employee a owl:Class ;
+    rdfs:subClassOf ex:Individual ;
+    rdfs:label "Employee" .
+
+ex:LeadSpecialist a owl:Class ;
+    rdfs:subClassOf ex:Individual ;
+    rdfs:label "Lead Specialist" .
+
+ex:Manager a owl:Class ;
+    rdfs:subClassOf ex:Employee , ex:LeadSpecialist ;
+    rdfs:label "Manager" ;
+    rdfs:comment "Diamond multiple inheritance concrete class." .
+
+ex:RegularStaff a owl:Class ;
+    rdfs:subClassOf ex:Employee ;
+    rdfs:label "Regular Staff" ;
+    rdfs:comment "Concrete leaf class." .
+
+ex:Organization a owl:Class ;
+    rdfs:subClassOf ex:LegalEntity ;
+    rdfs:label "Organization" .
+
+ex:Corporation a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    owl:disjointWith ex:NonGovernmentalOrg ;
+    rdfs:label "Corporation" ;
+    rdfs:comment "Concrete leaf class." .
+
+ex:NonGovernmentalOrg a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    rdfs:label "Non-Governmental Organization" ;
+    rdfs:comment "Concrete leaf class." .
+
+ex:Asset a owl:Class ;
+    rdfs:label "Asset" .
+
+ex:DigitalAsset a owl:Class ;
+    rdfs:subClassOf ex:Asset ;
+    rdfs:label "Digital Asset" ;
+    rdfs:comment "Concrete leaf class." .
+
+ex:Department a owl:Class ;
+    rdfs:label "Department" ;
+    rdfs:comment "Self-referencing transitive hierarchy." .
+
+# =============================================================================
+# 2. Equivalent Class (Stored Generated Column)
+# =============================================================================
+
+ex:HighValueAsset a owl:Class ;
+    rdfs:label "High Value Asset" ;
+    rdfs:comment "Translates to: IsHighValue BOOL AS (AppraisalValue > 100000.00) STORED" ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:DigitalAsset
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:appraisalValue ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:decimal ;
+                    owl:withRestrictions ( [ xsd:minExclusive 100000.00 ] )
+                ]
+            ]
+        )
+    ] .
+
+# =============================================================================
+# 3. Inverse Properties & Aliasing
+# =============================================================================
+
+ex:employsWorker a owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Employee ;
+    owl:inverseOf ex:worksForOrganization ;
+    rdfs:label "Employs Worker" .
+
+ex:worksForOrganization a owl:ObjectProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range ex:Organization ;
+    rdfs:label "Works For Organization" .
+
+# =============================================================================
+# 4. Subproperty Hierarchy & Label Accumulation
+# =============================================================================
+
+ex:interactsWith a owl:ObjectProperty ;
+    rdfs:domain ex:Individual ;
+    rdfs:range ex:Individual ;
+    rdfs:label "Interacts With" .
+
+ex:collaboratesOnProject a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:subPropertyOf ex:interactsWith ;
+    rdfs:domain ex:Employee ;
+    rdfs:range ex:Employee ;
+    rdfs:label "Collaborates On Project" .
+
+ex:supervisesStaff a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:interactsWith ;
+    rdfs:domain ex:Manager ;
+    rdfs:range ex:RegularStaff ;
+    rdfs:label "Supervises Staff" .
+
+# =============================================================================
+# 5. Transitive Self-Referencing Property
+# =============================================================================
+
+ex:parentDepartmentOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:Department ;
+    rdfs:range ex:Department ;
+    rdfs:label "Parent Department Of" .
+
+# =============================================================================
+# 6. Datatype Properties (Top-Down Propagation & Disambiguation)
+# =============================================================================
+
+ex:entityIdentifier a owl:DatatypeProperty ;
+    rdfs:domain ex:LegalEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label "Entity Identifier" ;
+    rdfs:comment "Propagates to all concrete subclasses." .
+
+ex:legalName a owl:DatatypeProperty ;
+    rdfs:domain ex:LegalEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label "Legal Name" .
+
+ex:badgeNumber a owl:DatatypeProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range xsd:string ;
+    rdfs:label "Employee Badge Number" .
+
+ex:specialtyDomain a owl:DatatypeProperty ;
+    rdfs:domain ex:LeadSpecialist ;
+    rdfs:range xsd:string ;
+    rdfs:label "Specialty Domain" .
+
+ex:managementLevel a owl:DatatypeProperty ;
+    rdfs:domain ex:Manager ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Management Level" .
+
+ex:appraisalValue a owl:DatatypeProperty ;
+    rdfs:domain ex:DigitalAsset ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Appraisal Value" .
+
+ex:departmentName a owl:DatatypeProperty ;
+    rdfs:domain ex:Department ;
+    rdfs:range xsd:string ;
+    rdfs:label "Department Name" .

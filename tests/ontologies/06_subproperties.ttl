@@ -1,0 +1,78 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/subproperties/> .
+
+ex:SubpropertiesOntology a owl:Ontology ;
+    rdfs:label "Subproperty Hierarchy & Label Accumulation Test Ontology" ;
+    rdfs:comment "Tests rdfs:subPropertyOf inheritance, edge label accumulation in Property Graph DDL, and strict broad-to-narrow exclusion rules." .
+
+# =============================================================================
+# Classes
+# =============================================================================
+
+ex:Professional a owl:Class ;
+    rdfs:label "Professional" .
+
+ex:SoftwareEngineer a owl:Class ;
+    rdfs:subClassOf ex:Professional ;
+    rdfs:label "Software Engineer" .
+
+ex:Initiative a owl:Class ;
+    rdfs:label "Initiative" .
+
+ex:TechnicalProject a owl:Class ;
+    rdfs:subClassOf ex:Initiative ;
+    rdfs:label "Technical Project" .
+
+# =============================================================================
+# Subproperty Taxonomy:
+# associatedWithInitiative (Root Property)
+#   └── contributesToInitiative (Subproperty)
+#         ├── writesCodeFor (Subproperty - Leaf)
+#         └── architectFor (Subproperty - Leaf)
+# =============================================================================
+
+ex:associatedWithInitiative a owl:ObjectProperty ;
+    rdfs:domain ex:Professional ;
+    rdfs:range ex:Initiative ;
+    rdfs:label "Associated With Initiative" ;
+    rdfs:comment "Broadest property in the hierarchy." .
+
+ex:contributesToInitiative a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:associatedWithInitiative ;
+    rdfs:domain ex:Professional ;
+    rdfs:range ex:Initiative ;
+    rdfs:label "Contributes To Initiative" ;
+    rdfs:comment "Subproperty. Edge table mapping must declare LABEL CONTRIBUTES_TO_INITIATIVE LABEL ASSOCIATED_WITH_INITIATIVE." .
+
+ex:writesCodeFor a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:contributesToInitiative ;
+    rdfs:domain ex:SoftwareEngineer ;
+    rdfs:range ex:TechnicalProject ;
+    rdfs:label "Writes Code For" ;
+    rdfs:comment "Leaf subproperty. Edge table must accumulate: LABEL WRITES_CODE_FOR LABEL CONTRIBUTES_TO_INITIATIVE LABEL ASSOCIATED_WITH_INITIATIVE." .
+
+ex:architectFor a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:contributesToInitiative ;
+    rdfs:domain ex:SoftwareEngineer ;
+    rdfs:range ex:TechnicalProject ;
+    rdfs:label "Architect For" ;
+    rdfs:comment "Leaf subproperty. Edge table must accumulate: LABEL ARCHITECT_FOR LABEL CONTRIBUTES_TO_INITIATIVE LABEL ASSOCIATED_WITH_INITIATIVE." .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:professionalName a owl:DatatypeProperty ;
+    rdfs:domain ex:Professional ;
+    rdfs:range xsd:string .
+
+ex:initiativeTitle a owl:DatatypeProperty ;
+    rdfs:domain ex:Initiative ;
+    rdfs:range xsd:string .
+
+ex:gitHandle a owl:DatatypeProperty ;
+    rdfs:domain ex:SoftwareEngineer ;
+    rdfs:range xsd:string .
