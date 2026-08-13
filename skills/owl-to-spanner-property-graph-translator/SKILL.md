@@ -1,7 +1,7 @@
 ---
 name: owl-to-spanner-property-graph-translator
 description: >-
-  Translates OWL Ontologies (Turtle .ttl syntax) into Google Cloud Spanner schemas comprising Physical Relational DDL (CREATE TABLE) and Logical Labeled Property Graph DDL (CREATE PROPERTY GRAPH), strictly enforcing OWL inheritance rules and property domain/range propagation.
+  Translates OWL Ontologies (Turtle .ttl syntax) into Google Cloud Spanner schemas comprising Physical Relational DDL (CREATE TABLE) and Logical Labeled Property Graph DDL (CREATE PROPERTY GRAPH), strictly enforcing OWL inheritance rules, inverse properties, and property domain/range propagation.
 ---
 
 # OWL to Google Cloud Spanner Schema Translator
@@ -28,6 +28,7 @@ Before generating any DDL, evaluate all OWL class hierarchies, properties, and c
 | **Object Property** | **Top-Down (Range)** *(Parent -> Subclass)* | Foreign keys / edges can point to any subclass table of the target range. | **YES** | Allow FK/Edge constraints targeting concrete subclass tables of the range. |
 | **Object Property** | **Bottom-Up (Domain)** *(Subclass -> Parent)* | Do **NOT** allow parent classes or sibling classes to inherit sub-domain relationships. | **NO** | Restrict FK columns / Edges strictly to the designated subclass tables. |
 | **Object Property** | **Bottom-Up (Range)** *(Subclass -> Parent)* | Do **NOT** expand the target range of a specific relationship to generic parent classes. | **NO** | Enforce FK / Edge target strictness to the specified subclass table(s). |
+| **Inverse Property** | **`owl:inverseOf`** | Swaps Domain and Range (`Domain(P1) = Range(P2)`). Reversible semantic link between entities. | **YES** | Store physically in ONE relational table/FK; map bidirectional GQL edge patterns in Property Graph DDL. |
 | **Subproperty** | **Narrow -> Broad** | If `P_sub subPropertyOf P_parent`, asserting `P_sub` implies `P_parent`. | **YES** | Map `P_sub` physically. Expose both `LABEL P_sub` and `LABEL P_parent` on the edge in Property Graph DDL. |
 | **Subproperty** | **Broad -> Narrow** | Asserting a parent property does **NOT** imply child subproperties. | **NO** | Do NOT attach child subproperty labels to generic parent property edges. |
 
@@ -40,6 +41,9 @@ Before generating any DDL, evaluate all OWL class hierarchies, properties, and c
    - When an `EDGE TABLE` represents a subproperty (e.g., `ex:ownsHome rdfs:subPropertyOf ex:livesIn`), it **MUST** declare `LABEL` clauses for the subproperty AND all parent properties up the subproperty hierarchy (e.g., `LABEL OWNS_HOME ... LABEL LIVES_IN ... LABEL ASSOCIATED_WITH_BUILDING ...`).
 3. **Strict Domain/Range Boundary Validation:**
    - Never place a column in a physical table unless the table's corresponding class is equal to or a subclass of the property's `rdfs:domain`.
+4. **Inverse Property Deduplication (`owl:inverseOf`):**
+   - When encountering `P1 owl:inverseOf P2`, generate a single physical relational foreign key column or relational edge table for `P1`.
+   - In Property Graph DDL, define `P1` with `SOURCE KEY` pointing to `Domain(P1)` and `DESTINATION KEY` pointing to `Range(P1)`. Optionally define a mirrored edge mapping for `P2` using the SAME physical table with inverted `SOURCE KEY` and `DESTINATION KEY` clauses, or handle query traversal via GQL directional matching `(a)<-[:P1]-(b)`.
 
 ---
 
@@ -55,7 +59,30 @@ Before generating any DDL, evaluate all OWL class hierarchies, properties, and c
    - **Localized Property Ranges (`owl:allValuesFrom`):** Enforce range restrictions using explicit foreign key constraints targeting dedicated physical child tables (e.g., `CONSTRAINT FK_Name FOREIGN KEY (...) REFERENCES ChildTable(...)`).
    - **Transitive Properties (`owl:TransitiveProperty`):** Map parent-child hierarchy edges to physical Interleaved Tables (`INTERLEAVE IN PARENT ParentTable ON DELETE CASCADE`). Evaluate paths via GQL variable-length path matching.
    - **Symmetric Properties (`owl:SymmetricProperty`):** Store single directional rows in relational storage; traverse bidirectionally in GQL queries.
-   - **Inverse Properties (`owl:inverseOf`):** Store physically in one direction; query in reverse using GQL directed pattern matching.
+   - **Inverse Properties (`owl:inverseOf`):** Store physically in one direction; map both directional edges in `EDGE TABLES` using reversed source/destination key mappings on the same physical table:
+     ```sql
+     -- Physical Table (Single Storage Direction)
+     CREATE TABLE PersonHomes (
+       PersonId STRING(36) NOT NULL,
+       BuildingId STRING(36) NOT NULL,
+       CONSTRAINT FK_Person FOREIGN KEY (PersonId) REFERENCES Persons (PersonId),
+       CONSTRAINT FK_Building FOREIGN KEY (BuildingId) REFERENCES SingleFamilyHomes (BuildingId)
+     ) PRIMARY KEY (PersonId, BuildingId);
+
+     -- Property Graph (Inverse Edge Declarations)
+     EDGE TABLES (
+       -- Forward Edge: Person -> livesIn -> SingleFamilyHome
+       PersonHomes
+         SOURCE KEY (PersonId) REFERENCES Persons (PersonId)
+         DESTINATION KEY (BuildingId) REFERENCES SingleFamilyHomes (BuildingId)
+         LABEL LIVES_IN,
+       -- Inverse Edge: SingleFamilyHome -> isHomeTo -> Person
+       PersonHomes AS HomeOccupants
+         SOURCE KEY (BuildingId) REFERENCES SingleFamilyHomes (BuildingId)
+         DESTINATION KEY (PersonId) REFERENCES Persons (PersonId)
+         LABEL IS_HOME_TO
+     )
+     ```
 
 ---
 
@@ -324,7 +351,7 @@ When an optional SHACL shapes file (`shacl.ttl`) is provided alongside the OWL o
      ```
 
 7. **Domain Check Constraints (`sh:in` / `sh:hasValue`):**
-   - Enforce domain lists using Spanner `CHECK` constraints.
+   - If a property has `sh:in` with a list of values, enforce this domain check physically using a Spanner `CHECK` constraint.
    - *Example:*
      ```ttl
      [ sh:path ex:accountStatus ; sh:in ( "Active" "Suspended" "Closed" ) ]
@@ -333,3 +360,14 @@ When an optional SHACL shapes file (`shacl.ttl`) is provided alongside the OWL o
      ```sql
      AccountStatus STRING(50) NOT NULL,
      CONSTRAINT CK_AccountStatus CHECK (AccountStatus IN ('Active', 'Suspended', 'Closed'))
+     ```
+
+---
+
+## Non-Translatable OWL Capabilities (System Gaps)
+
+Flag the following constructs as requiring application logic, database triggers, or query-time execution:
+- **Cardinality Constraints (`owl:maxCardinality`, `owl:cardinality`):** Cannot be enforced natively in Spanner DDL; requires application-level validation or triggers.
+- **Disjoint Properties (`owl:propertyDisjointWith`):** Spanner cannot natively prevent identical entity pairs from existing across two edge tables simultaneously.
+- **Property Chain Axioms (`owl:propertyChainAxiom`):** Multi-hop inferences are not automatically materialized; evaluate dynamically via GQL path pattern matching.
+- **Property Characteristics (`owl:IrreflexiveProperty`, `owl:AsymmetricProperty`):** Must be enforced via SQL `CHECK` constraints or query-time filters.
