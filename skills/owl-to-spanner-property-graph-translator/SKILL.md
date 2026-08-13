@@ -307,60 +307,36 @@ To avoid Spanner DDL parser failures, observe the following rules:
 
 When an optional SHACL shapes file (`shacl.ttl`) is provided alongside the OWL ontology, use the SHACL shapes as structural constraints to refine the physical relational columns, datatypes, and database validations:
 
-1. **Table Names & Node Labels (`sh:targetClass`):**
-   - A `sh:NodeShape` targeting a class (`sh:targetClass <ClassURI>`) corresponds directly to the physical relational table and property graph node representing that class.
+1. **Table Names & Node Labels (`sh:targetClass` / `sh:targetSubjectsOf`):**
+   - `sh:targetClass <ClassURI>`: Maps directly to the physical relational table and property graph node representing that concrete class.
+   - `sh:targetSubjectsOf <PropertyURI>`: Maps to the physical table corresponding to the domain class of `<PropertyURI>`.
 
 2. **Column Names & Mappings (`sh:path`):**
    - Property shapes inside `sh:property` define attributes (`sh:path <PropertyURI>`). Map `<PropertyURI>` to the column name of the target table.
 
-3. **Data Type Mapping (`sh:datatype`):**
-   - Translate SHACL XSD datatypes to Spanner GoogleSQL types:
-     * `xsd:string` -> `STRING(MAX)` (or specific limit)
-     * `xsd:integer` / `xsd:int` -> `INT64`
-     * `xsd:decimal` -> `NUMERIC`
-     * `xsd:double` / `xsd:float` -> `FLOAT64`
-     * `xsd:boolean` -> `BOOL`
-     * `xsd:dateTime` -> `TIMESTAMP`
-     * `xsd:date` -> `DATE`
+3. **Data Type & Length Mapping (`sh:datatype` / `sh:maxLength`):**
+   - `xsd:string` -> `STRING(MAX)` (or `STRING(N)` if `sh:maxLength N` is specified).
+   - `xsd:integer` / `xsd:int` -> `INT64`
+   - `xsd:decimal` -> `NUMERIC`
+   - `xsd:double` / `xsd:float` -> `FLOAT64`
+   - `xsd:boolean` -> `BOOL`
+   - `xsd:dateTime` -> `TIMESTAMP`
+   - `xsd:date` -> `DATE`
 
 4. **Nullability / Required Columns (`sh:minCount`):**
-   - If a property shape has `sh:minCount 1` or greater, the column in the physical table DDL must be marked as `NOT NULL`.
-   - *Example:*
-     ```ttl
-     [ sh:path ex:name ; sh:datatype xsd:string ; sh:minCount 1 ]
-     ```
-     translates to:
-     ```sql
-     Name STRING(MAX) NOT NULL
-     ```
+   - If `sh:minCount` >= 1, mark the physical column as `NOT NULL`.
 
 5. **Column Cardinality (`sh:maxCount`):**
-   - If `sh:maxCount 1` is specified, the property is a single-valued scalar column directly in the table.
-   - If `sh:maxCount` is omitted or greater than 1, and it is a datatype property, implement this as an interleaved child table or an array column (`ARRAY<T>`).
+   - If `sh:maxCount 1`, render a scalar column in the table.
+   - If `sh:maxCount` > 1 or omitted for a datatype property, implement as an array column (`ARRAY<T>`) or an interleaved child table.
 
-6. **Relational Constraints & Foreign Keys (`sh:class`):**
-   - If a property shape on an object property specifies `sh:class <TargetClass>`, map this as a foreign key column referencing the primary key of the `<TargetClass>` table, and map an edge mapping in `EDGE TABLES`.
-   - *Example:*
-     ```ttl
-     [ sh:path ex:hasOwner ; sh:class ex:Person ]
-     ```
-     translates to:
-     ```sql
-     OwnerId STRING(36) NOT NULL,
-     CONSTRAINT FK_Owner FOREIGN KEY (OwnerId) REFERENCES People (PersonId)
-     ```
+6. **Relational Constraints & Polymorphic Foreign Keys (`sh:class`):**
+   - **Single Concrete Target:** Map as a standard `FOREIGN KEY` constraint referencing the primary key of the concrete target table.
+   - **Polymorphic / Abstract Target:** If `<TargetClass>` is an abstract superclass with multiple concrete leaf tables, **OMIT** the physical SQL `FOREIGN KEY` constraint (Spanner cannot reference multiple tables in one FK). Instead, enforce target integrity by declaring multiple `EDGE TABLES` mappings in the Property Graph (one per concrete target subclass).
 
 7. **Domain Check Constraints (`sh:in` / `sh:hasValue`):**
-   - If a property has `sh:in` with a list of values, enforce this domain check physically using a Spanner `CHECK` constraint.
-   - *Example:*
-     ```ttl
-     [ sh:path ex:accountStatus ; sh:in ( "Active" "Suspended" "Closed" ) ]
-     ```
-     translates to:
-     ```sql
-     AccountStatus STRING(50) NOT NULL,
-     CONSTRAINT CK_AccountStatus CHECK (AccountStatus IN ('Active', 'Suspended', 'Closed'))
-     ```
+   - `sh:in (... list ...)` -> `CONSTRAINT CK_Name CHECK (Column IN ('val1', 'val2'))`
+   - `sh:hasValue "val"` -> `DEFAULT 'val'` or `CONSTRAINT CK_Name CHECK (Column = 'val')`
 
 ---
 
