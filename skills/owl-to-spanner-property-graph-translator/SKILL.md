@@ -1,16 +1,17 @@
 ---
 name: owl-to-spanner-property-graph-translator
 description: >-
-  Translates OWL Ontologies (Turtle .ttl syntax) into Google Cloud Spanner schemas comprising Physical Relational DDL (CREATE TABLE) and Logical Labeled Property Graph DDL (CREATE PROPERTY GRAPH), strictly enforcing OWL inheritance rules, inverse properties, and property domain/range propagation.
+  Translates OWL Ontologies (Turtle .ttl syntax) and SHACL shapes into Google Cloud Spanner schemas comprising Physical Relational DDL (CREATE TABLE) and Logical Labeled Property Graph DDL (CREATE PROPERTY GRAPH), strictly enforcing OWL inheritance rules, inverse properties, and property domain/range propagation.
 ---
 
 # OWL to Google Cloud Spanner Schema Translator
 
-Guides the translation of OWL Ontologies (Turtle `.ttl` format) into a production-grade Google Cloud Spanner schema, including physical relational SQL DDL and a GQL-compliant property graph schema.
+Guides the translation of OWL Ontologies (Turtle `.ttl` format) and optional SHACL shapes into a production-grade Google Cloud Spanner schema, including physical relational SQL DDL and a GQL-compliant property graph schema.
 
 ## Expected Input
 
 - **OWL Ontology Definition:** An OWL ontology written in Turtle (`.ttl`) syntax containing classes, class hierarchies, restrictions, and properties.
+- **SHACL Shapes Definition (Optional):** A SHACL file (`shacl.ttl`) defining structural constraints, cardinalities, targets, and property paths.
 - **Relational Schema (Generated):** Physical GoogleSQL `CREATE TABLE` statements implementing a Table-Per-Concrete-Class pattern.
 - **Property Graph Schema (Generated):** A GoogleSQL `CREATE PROPERTY GRAPH` statement mapping nodes and edges with multi-label hierarchies.
 
@@ -37,13 +38,16 @@ Before generating any DDL, evaluate all OWL class hierarchies, properties, and c
 1. **Top-Down Propagation (Crucial for Flattened Table-Per-Concrete-Class):**
    - For every concrete leaf class table, compute the transitive closure of all its superclasses (`rdfs:subClassOf+`).
    - Every `owl:DatatypeProperty` whose `rdfs:domain` matches any superclass in that chain **MUST** be included as a physical column in that subclass table.
+   - **Union Domains (`owl:unionOf`):** When `rdfs:domain` is defined as an `owl:unionOf`, apply top-down property propagation to the descendant leaf tables of **every** class member in the union.
 2. **Subproperty Label Accumulation (Property Graph):**
    - When an `EDGE TABLE` represents a subproperty (e.g., `ex:ownsHome rdfs:subPropertyOf ex:livesIn`), it **MUST** declare `LABEL` clauses for the subproperty AND all parent properties up the subproperty hierarchy (e.g., `LABEL OWNS_HOME ... LABEL LIVES_IN ... LABEL ASSOCIATED_WITH_BUILDING ...`).
 3. **Strict Domain/Range Boundary Validation:**
    - Never place a column in a physical table unless the table's corresponding class is equal to or a subclass of the property's `rdfs:domain`.
 4. **Inverse Property Deduplication (`owl:inverseOf`):**
    - When encountering `P1 owl:inverseOf P2`, generate a single physical relational foreign key column or relational edge table for `P1`.
-   - In Property Graph DDL, define `P1` with `SOURCE KEY` pointing to `Domain(P1)` and `DESTINATION KEY` pointing to `Range(P1)`. Optionally define a mirrored edge mapping for `P2` using the SAME physical table with inverted `SOURCE KEY` and `DESTINATION KEY` clauses, or handle query traversal via GQL directional matching `(a)<-[:P1]-(b)`.
+   - In Property Graph DDL, define `P1` with `SOURCE KEY` pointing to `Domain(P1)` and `DESTINATION KEY` pointing to `Range(P1)`. Define a mirrored edge mapping for `P2` using the SAME physical table with inverted `SOURCE KEY` and `DESTINATION KEY` clauses (`PersonHomes AS HomeOccupants`).
+5. **Multiple Inheritance Disambiguation:**
+   - If a subclass inherits from multiple superclasses that introduce properties with identical local names (e.g., `ex:value`), qualify physical column names using the defining class prefix (e.g., `Asset_Value`, `Assessment_Value`) to prevent column collisions during superclass flattening.
 
 ---
 
@@ -51,6 +55,7 @@ Before generating any DDL, evaluate all OWL class hierarchies, properties, and c
 
 1. **Class Taxonomy to Spanner Table Mapping:**
    - **Table-Per-Concrete-Class Design:** Map each concrete leaf `owl:Class` to a dedicated physical Spanner table. Superclass properties (`rdfs:subClassOf`) are flattened directly into child tables as physical columns (per the Top-Down Propagation Rule).
+   - **Primary Key Generation Fallback:** If an explicit primary key property is not defined in the ontology or SHACL shape, automatically generate a surrogate primary key column named `<TableName>Id STRING(36) NOT NULL` (UUID format) for every concrete table.
    - **Disjointness (`owl:disjointWith`):** Enforced via physical separation into distinct SQL tables with independent primary key spaces, guaranteeing non-overlap.
    - **Equivalent Classes (`owl:equivalentClass`):** Represent dynamic class rules or threshold expressions as `STORED` Generated Columns in SQL (e.g., `ColumnName AS (Expression) STORED`).
    - **Multi-Label Class Hierarchies:** Model class inheritance in the Property Graph by attaching multiple `LABEL` declarations to a `NODE TABLE` representing the full class hierarchy chain (e.g., `LABEL SingleFamilyHome LABEL ResidentialBuilding LABEL Building`).
@@ -325,6 +330,14 @@ When an optional SHACL shapes file (`shacl.ttl`) is provided alongside the OWL o
 
 4. **Nullability / Required Columns (`sh:minCount`):**
    - If `sh:minCount` >= 1, mark the physical column as `NOT NULL`.
+   - *Example:*
+     ```ttl
+     [ sh:path ex:name ; sh:datatype xsd:string ; sh:minCount 1 ]
+     ```
+     translates to:
+     ```sql
+     Name STRING(MAX) NOT NULL
+     ```
 
 5. **Column Cardinality (`sh:maxCount`):**
    - If `sh:maxCount 1`, render a scalar column in the table.
@@ -333,10 +346,31 @@ When an optional SHACL shapes file (`shacl.ttl`) is provided alongside the OWL o
 6. **Relational Constraints & Polymorphic Foreign Keys (`sh:class`):**
    - **Single Concrete Target:** Map as a standard `FOREIGN KEY` constraint referencing the primary key of the concrete target table.
    - **Polymorphic / Abstract Target:** If `<TargetClass>` is an abstract superclass with multiple concrete leaf tables, **OMIT** the physical SQL `FOREIGN KEY` constraint (Spanner cannot reference multiple tables in one FK). Instead, enforce target integrity by declaring multiple `EDGE TABLES` mappings in the Property Graph (one per concrete target subclass).
+   - *Example:*
+     ```ttl
+     [ sh:path ex:hasOwner ; sh:class ex:Person ]
+     ```
+     translates to:
+     ```sql
+     OwnerId STRING(36) NOT NULL,
+     CONSTRAINT FK_Owner FOREIGN KEY (OwnerId) REFERENCES People (PersonId)
+     ```
 
 7. **Domain Check Constraints (`sh:in` / `sh:hasValue`):**
    - `sh:in (... list ...)` -> `CONSTRAINT CK_Name CHECK (Column IN ('val1', 'val2'))`
    - `sh:hasValue "val"` -> `DEFAULT 'val'` or `CONSTRAINT CK_Name CHECK (Column = 'val')`
+   - *Example:*
+     ```ttl
+     [ sh:path ex:accountStatus ; sh:in ( "Active" "Suspended" "Closed" ) ]
+     ```
+     translates to:
+     ```sql
+     AccountStatus STRING(50) NOT NULL,
+     CONSTRAINT CK_AccountStatus CHECK (AccountStatus IN ('Active', 'Suspended', 'Closed'))
+     ```
+
+8. **Nested Shapes (`sh:node`):**
+   - When `sh:node` references a nested shape without a distinct target class, flatten the nested shape's properties as embedded columns with prefixed names (e.g., `Address_Street`, `Address_ZipCode`) or map them as a GoogleSQL `JSON` column in the parent table.
 
 ---
 
