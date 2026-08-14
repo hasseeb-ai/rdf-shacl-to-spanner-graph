@@ -61,9 +61,10 @@ Formulate exactly **4 GQL queries** adhering to GoogleSQL Graph syntax:
   ```sql
   GRAPH <GraphName>
   MATCH (n:<SuperClassLabel>)
-  RETURN n.<KeyProp>, n.<InheritedProp>, LABELS(n) AS node_labels
+  RETURN n.<KeyProp>, n.<InheritedProp>
   ORDER BY n.<KeyProp>;
   ```
+  *(Note: Do NOT use `LABELS(n)` as it is not a valid GoogleSQL GQL function. Cloud Spanner uses standard property projection).*
 
 ### Archetype 2: Multi-Hop Pattern Matching (Edge Traversal)
 * **Intent:** Navigate across at least two consecutive edge tables via foreign keys.
@@ -114,7 +115,7 @@ When generating synthetic fixtures and queries, output a single JSON code block:
       "archetype": "polymorphic_inheritance",
       "title": "Polymorphic Superclass Label Matching",
       "intent": "Retrieves all entities implementing the superclass label.",
-      "gql": "GRAPH MyGraph MATCH (n:SuperClass) RETURN n.Id, LABELS(n) AS labels;",
+      "gql": "GRAPH MyGraph MATCH (n:SuperClass) RETURN n.Id, n.Prop1;",
       "expected_behavior": "Should return rows from both TableA and TableB."
     },
     {

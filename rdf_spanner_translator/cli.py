@@ -247,7 +247,11 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
             else:
                 console.print("[yellow]Skipping Tier 3: --input or --database not provided.[/yellow]")
         else:
-            query_report_file = output if active_mode == "queries" else f"output/{os.path.basename(input)[:-4] if input.endswith('.ttl') else 'schema'}_query_report.md"
+            stem = os.path.basename(input)[:-4] if (input and input.endswith('.ttl')) else 'schema'
+            out_dir = os.path.dirname(ddl) if ddl else "output"
+            if not out_dir:
+                out_dir = "output"
+            query_report_file = output if active_mode == "queries" else os.path.join(out_dir, f"{stem}_query_report.md")
             with console.status("[yellow]Synthesizing mock data, executing DML, and running 4 GQL queries..."):
                 all_passed, report_md = run_query_verification(
                     ttl_path=input,
@@ -539,12 +543,20 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
     # Single File Pipeline Execution Mode
     # ---------------------------------------------------------
     target_output = output or "schema.sql"
+    temp_db_created = False
+    temp_db_id = None
+    target_database = database
+    if not target_database and instance:
+        temp_db_id = f"t_{uuid.uuid4().hex[:8]}"
+        target_database = f"{instance.rstrip('/')}/databases/{temp_db_id}"
+        temp_db_created = True
+
     console.print(Panel.fit(
         f"[bold green]Running End-to-End Spanner Graph Pipeline[/bold green]\n"
         f"Input: {input}\n"
         f"SHACL: {shacl or 'None'}\n"
         f"Output: {target_output}\n"
-        f"Database: {database or 'N/A'}\n"
+        f"Database: {target_database or 'N/A'}\n"
         f"Self-Correct: {self_correct}\n"
         f"Verify Queries: {verify_queries}",
         title="Spanner Graph Pipeline"
@@ -581,17 +593,17 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         ttl_content = f.read()
         
     # Pre-validation: Verify database state via MCP before translating
-    if database and mcp_url:
+    if target_database and mcp_url and not temp_db_created:
         with console.status("[cyan]Verifying target database state..."):
-            exists, err = check_database_existence(mcp_url, mcp_tool, database)
+            exists, err = check_database_existence(mcp_url, mcp_tool, target_database)
             if err:
                 console.print(f"[yellow]Pre-validation warning: Could not verify database state ({err}). Proceeding...[/yellow]")
             elif exists is not None:
                 if mcp_tool == "create_database" and exists:
-                    console.print(f"[bold red]Error:[/bold red] Database already exists: {database}.\nChoose a new database ID or use the 'update_database_schema' tool.")
+                    console.print(f"[bold red]Error:[/bold red] Database already exists: {target_database}.\nChoose a new database ID or use the 'update_database_schema' tool.")
                     raise click.Abort()
                 elif mcp_tool == "update_database_schema" and not exists:
-                    console.print(f"[bold red]Error:[/bold red] Database does not exist: {database}.\nCreate the database first or use the 'create_database' tool.")
+                    console.print(f"[bold red]Error:[/bold red] Database does not exist: {target_database}.\nCreate the database first or use the 'create_database' tool.")
                     raise click.Abort()
         
     # 2. Translate Turtle Ontology into Cloud Spanner DDL using Gemini
@@ -627,7 +639,11 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 
         if verify_queries and database:
             try:
-                q_out = query_report or f"output/{os.path.basename(input)[:-4] if input.endswith('.ttl') else 'schema'}_query_report.md"
+                stem = os.path.basename(input)[:-4] if input.endswith('.ttl') else 'schema'
+                out_dir = os.path.dirname(report) if report else (os.path.dirname(target_output) if target_output else "output")
+                if not out_dir:
+                    out_dir = "output"
+                q_out = query_report or os.path.join(out_dir, f"{stem}_query_report.md")
                 with console.status("[yellow]Executing dynamic mock data ingestion & GQL queries..."):
                     all_passed, _ = run_query_verification(
                         ttl_path=input,
