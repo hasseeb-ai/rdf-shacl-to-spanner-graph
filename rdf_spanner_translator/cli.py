@@ -542,7 +542,18 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
     # ---------------------------------------------------------
     # Single File Pipeline Execution Mode
     # ---------------------------------------------------------
-    target_output = output or "schema.sql"
+    stem = os.path.splitext(os.path.basename(input))[0] if input.endswith('.ttl') else 'schema'
+    if "test" in input.lower():
+        default_dir = "output/unit_tests"
+    elif "example" in input.lower():
+        default_dir = "output/examples"
+    else:
+        default_dir = "output"
+        
+    target_output = output or os.path.join(default_dir, f"{stem}_schema.sql")
+    target_report = report or os.path.join(default_dir, f"{stem}_validation_report.md")
+    target_query_report = query_report or os.path.join(default_dir, f"{stem}_query_report.md")
+
     temp_db_created = False
     temp_db_id = None
     target_database = database
@@ -556,6 +567,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         f"Input: {input}\n"
         f"SHACL: {shacl or 'None'}\n"
         f"Output: {target_output}\n"
+        f"Report: {target_report}\n"
         f"Database: {target_database or 'N/A'}\n"
         f"Self-Correct: {self_correct}\n"
         f"Verify Queries: {verify_queries}",
@@ -622,28 +634,26 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         return
         
     def _generate_reports(target_ddl):
-        if report:
+        if target_report:
             try:
                 with console.status("[yellow]Auditing schema & generating semantic validation report..."):
                     rep = audit_spanner_schema(ttl_content, target_ddl, shacl_content, model_name=model)
-                rep_dir = os.path.dirname(os.path.abspath(report))
+                rep_dir = os.path.dirname(os.path.abspath(target_report))
                 if rep_dir:
                     os.makedirs(rep_dir, exist_ok=True)
-                with open(report, "w") as f:
+                with open(target_report, "w") as f:
                     f.write(rep)
                 status, score = extract_validation_score(rep)
                 status_color = "green" if status == "PASS" else ("yellow" if status == "WARN" else "red")
-                console.print(f"[{status_color}]✓ Semantic Validation Report generated: {status} ({score}) -> {report}[/{status_color}]")
+                console.print(f"[{status_color}]✓ Semantic Validation Report generated: {status} ({score}) -> {target_report}[/{status_color}]")
             except Exception as ex:
                 console.print(f"[yellow]Warning: Could not generate semantic report: {ex}[/yellow]")
                 
         if verify_queries and target_database:
             try:
-                stem = os.path.basename(input)[:-4] if input.endswith('.ttl') else 'schema'
-                out_dir = os.path.dirname(report) if report else (os.path.dirname(target_output) if target_output else "output")
-                if not out_dir:
-                    out_dir = "output"
-                q_out = query_report or os.path.join(out_dir, f"{stem}_query_report.md")
+                rep_dir = os.path.dirname(os.path.abspath(target_query_report))
+                if rep_dir:
+                    os.makedirs(rep_dir, exist_ok=True)
                 with console.status("[yellow]Executing dynamic mock data ingestion & GQL queries..."):
                     all_passed, _ = run_query_verification(
                         ttl_path=input,
@@ -652,11 +662,11 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                         shacl_path=shacl,
                         mcp_url=mcp_url,
                         model_name=model,
-                        output_report=q_out
+                        output_report=target_query_report
                     )
                 status_str = "SUCCESS" if all_passed else "WARNING (Some queries failed)"
                 status_color = "green" if all_passed else "yellow"
-                console.print(f"[{status_color}]✓ Dynamic GQL Query Verification Complete: {status_str} -> {q_out}[/{status_color}]")
+                console.print(f"[{status_color}]✓ Dynamic GQL Query Verification Complete: {status_str} -> {target_query_report}[/{status_color}]")
             except Exception as ex:
                 console.print(f"[yellow]Warning: Could not execute query verification: {ex}[/yellow]")
 

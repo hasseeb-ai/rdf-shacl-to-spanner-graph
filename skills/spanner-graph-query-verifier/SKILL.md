@@ -53,45 +53,61 @@ Format the complete report adhering to Section 4.
 
 ## 2. Rules for the 4 GQL Query Archetypes
 
-Formulate exactly **4 GQL queries** adhering to GoogleSQL Graph syntax:
+Formulate exactly **4 GQL queries** using Cloud Spanner's standard **`GRAPH_TABLE`** SQL integration syntax:
+
+```sql
+SELECT * FROM GRAPH_TABLE(
+  <GraphName>
+  MATCH (pattern)
+  [WHERE filter]
+  COLUMNS (projection [AS alias], ...)
+);
+```
 
 ### Archetype 1: Polymorphic Superclass Matching (Multi-Label Traversal)
 * **Intent:** Query an abstract parent label (e.g. `Vehicle`, `LegalEntity`, `Event`) and return rows across different concrete leaf tables.
 * **Syntax Pattern:**
   ```sql
-  GRAPH <GraphName>
-  MATCH (n:<SuperClassLabel>)
-  RETURN n.<KeyProp>, n.<InheritedProp>
-  ORDER BY n.<KeyProp>;
+  SELECT * FROM GRAPH_TABLE(
+    <GraphName>
+    MATCH (n:<SuperClassLabel>)
+    COLUMNS (n.<KeyProp> AS <KeyProp>, n.<InheritedProp> AS <InheritedProp>)
+  )
+  ORDER BY <KeyProp>;
   ```
-  *(Note: Do NOT use `LABELS(n)` as it is not a valid GoogleSQL GQL function. Cloud Spanner uses standard property projection).*
 
 ### Archetype 2: Multi-Hop Pattern Matching (Edge Traversal)
-* **Intent:** Navigate across at least two consecutive edge tables via foreign keys.
+* **Intent:** Navigate across at least two consecutive edge tables via foreign keys (or sequential `MATCH` clauses if no edges).
 * **Syntax Pattern:**
   ```sql
-  GRAPH <GraphName>
-  MATCH (a:LabelA)-[:REL1]->(b:LabelB)-[:REL2]->(c:LabelC)
-  RETURN a.<PropA>, b.<PropB>, c.<PropC>;
+  SELECT * FROM GRAPH_TABLE(
+    <GraphName>
+    MATCH (a:LabelA)-[:REL1]->(b:LabelB)-[:REL2]->(c:LabelC)
+    COLUMNS (a.<PropA> AS <PropA>, b.<PropB> AS <PropB>, c.<PropC> AS <PropC>)
+  );
   ```
 
 ### Archetype 3: Inverse or Symmetric Relationship Traversal
 * **Intent:** Traverse an edge using its aliased inverse label (`AS <InverseEdgeName>`) or symmetric property.
 * **Syntax Pattern:**
   ```sql
-  GRAPH <GraphName>
-  MATCH (dst:RangeLabel)-[:INVERSE_LABEL]->(src:DomainLabel)
-  RETURN dst.<Prop>, src.<Prop>;
+  SELECT * FROM GRAPH_TABLE(
+    <GraphName>
+    MATCH (dst:RangeLabel)-[:INVERSE_LABEL]->(src:DomainLabel)
+    COLUMNS (dst.<Prop> AS DstProp, src.<Prop> AS SrcProp)
+  );
   ```
 
 ### Archetype 4: Property Filter, Projection & Path Traversal
 * **Intent:** Filter on propagated/native properties, or evaluate transitive variable-length paths (`-[*1..3]->`).
 * **Syntax Pattern:**
   ```sql
-  GRAPH <GraphName>
-  MATCH (a:LabelA)-[:REL]->(b:LabelB)
-  WHERE a.<Prop> > <Value>
-  RETURN a.<Prop>, b.<Prop>;
+  SELECT * FROM GRAPH_TABLE(
+    <GraphName>
+    MATCH (a:LabelA)
+    WHERE a.<Prop> > <Value>
+    COLUMNS (a.<Prop> AS Prop, a.<Col1> AS Col1)
+  );
   ```
 
 ---
@@ -115,7 +131,7 @@ When generating synthetic fixtures and queries, output a single JSON code block:
       "archetype": "polymorphic_inheritance",
       "title": "Polymorphic Superclass Label Matching",
       "intent": "Retrieves all entities implementing the superclass label.",
-      "gql": "GRAPH MyGraph MATCH (n:SuperClass) RETURN n.Id, n.Prop1;",
+      "gql": "SELECT * FROM GRAPH_TABLE(MyGraph MATCH (n:SuperClass) COLUMNS (n.Id AS Id, n.Prop1 AS Prop1)) ORDER BY Id;",
       "expected_behavior": "Should return rows from both TableA and TableB."
     },
     {
@@ -123,7 +139,7 @@ When generating synthetic fixtures and queries, output a single JSON code block:
       "archetype": "multi_hop_traversal",
       "title": "Multi-Hop Relationship Traversal",
       "intent": "Navigates two hops across the property graph.",
-      "gql": "GRAPH MyGraph MATCH (a:LabelA)-[:REL1]->(b:LabelB)-[:REL2]->(c:LabelC) RETURN a.Id, b.Id, c.Id;",
+      "gql": "SELECT * FROM GRAPH_TABLE(MyGraph MATCH (a:LabelA)-[:REL1]->(b:LabelB)-[:REL2]->(c:LabelC) COLUMNS (a.Id AS IdA, b.Id AS IdB, c.Id AS IdC));",
       "expected_behavior": "Returns joined paths linking A to B to C."
     },
     {
@@ -131,7 +147,7 @@ When generating synthetic fixtures and queries, output a single JSON code block:
       "archetype": "inverse_traversal",
       "title": "Inverse Edge Traversal",
       "intent": "Traverses relationship in reverse using aliased edge.",
-      "gql": "GRAPH MyGraph MATCH (b:LabelB)-[:INV_REL]->(a:LabelA) RETURN b.Id, a.Id;",
+      "gql": "SELECT * FROM GRAPH_TABLE(MyGraph MATCH (b:LabelB)-[:INV_REL]->(a:LabelA) COLUMNS (b.Id AS IdB, a.Id AS IdA));",
       "expected_behavior": "Reverses direction without duplicating physical storage."
     },
     {
@@ -139,7 +155,7 @@ When generating synthetic fixtures and queries, output a single JSON code block:
       "archetype": "filter_and_path",
       "title": "Property Filtering & Path Projection",
       "intent": "Filters on specific attributes in the property graph.",
-      "gql": "GRAPH MyGraph MATCH (a:LabelA) WHERE a.Col2 > 50 RETURN a.Id, a.Col1;",
+      "gql": "SELECT * FROM GRAPH_TABLE(MyGraph MATCH (a:LabelA) WHERE a.Col2 > 50 COLUMNS (a.Id AS Id, a.Col1 AS Col1));",
       "expected_behavior": "Returns filtered entities."
     }
   ]
