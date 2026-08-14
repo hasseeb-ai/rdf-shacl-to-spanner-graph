@@ -3,34 +3,17 @@ import re
 import json
 import httpx
 from google.genai import types
-from rdf_spanner_translator.translator import _get_client
+from rdf_spanner_translator.translator import _get_client, load_skill_instructions
 from rdf_spanner_translator.validator import get_google_access_token
 
 
 def load_query_verifier_system_instruction() -> str:
     """Loads query verifier system instructions dynamically from SKILL.md."""
-    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    skill_path = os.path.join(
-        project_root, 
-        "skills", 
-        "spanner-graph-query-verifier", 
-        "SKILL.md"
-    )
-    
-    if os.path.exists(skill_path):
-        try:
-            with open(skill_path, "r") as f:
-                content = f.read()
-            # Strip YAML frontmatter
-            content_clean = re.sub(r"^---.*?---", "", content, flags=re.DOTALL)
-            return content_clean.strip()
-        except Exception:
-            pass
-            
-    return (
+    fallback = (
         "You are a Cloud Spanner Graph Data & Query Architect. Synthesize coherent mock SQL INSERTs "
         "and 4 representative GQL queries verifying multi-label inheritance, edge navigation, and property filters."
     )
+    return load_skill_instructions("spanner-graph-query-verifier", fallback)
 
 
 def extract_json_payload(text: str) -> dict:

@@ -3,36 +3,35 @@ import re
 from google import genai
 from google.genai import types
 
-def load_system_instruction() -> str:
-    """Loads translation system instructions dynamically from SKILL.md.
+def load_skill_instructions(skill_name: str, fallback_prompt: str = "") -> str:
+    """Dynamically loads and cleans any skill instruction from skills/<skill_name>/SKILL.md.
     
-    This ensures that the rules and constraints declared in the Agent Skill are
-    reused as the single source of truth for both Antigravity CLI and python API.
+    Strips YAML frontmatter block (starts and ends with ---) to extract clean Markdown instructions.
     """
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    skill_path = os.path.join(
-        project_root, 
-        "skills", 
-        "owl-to-spanner-property-graph-translator", 
-        "SKILL.md"
-    )
+    skill_path = os.path.join(project_root, "skills", skill_name, "SKILL.md")
     
     if os.path.exists(skill_path):
         try:
             with open(skill_path, "r") as f:
                 content = f.read()
-            # Strip YAML frontmatter block (starts and ends with ---)
+            # Strip YAML frontmatter block
             content_clean = re.sub(r"^---.*?---", "", content, flags=re.DOTALL)
             return content_clean.strip()
         except Exception:
             pass
             
-    # Standard translation prompt fallback if file is not readable or missing
-    return (
+    return fallback_prompt.strip()
+
+
+def load_system_instruction() -> str:
+    """Loads translation system instructions dynamically from SKILL.md."""
+    fallback = (
         "You are a Cloud Spanner Graph DDL architect. Your task is to translate OWL Ontologies "
         "(in Turtle .ttl format) into a production-grade Google Cloud Spanner database schema consisting of "
         "Physical Relational DDL (CREATE TABLE statements) and Logical Labeled Property Graph DDL (CREATE PROPERTY GRAPH)."
     )
+    return load_skill_instructions("owl-to-spanner-property-graph-translator", fallback)
 
 def _get_client() -> genai.Client:
     """Initializes the GenAI client.
@@ -140,32 +139,12 @@ def clean_ddl_response(text: str) -> str:
 
 
 def load_validation_system_instruction() -> str:
-    """Loads semantic validation system instructions dynamically from SKILL.md.
-    
-    Reuses skills/spanner-graph-semantic-validator/SKILL.md as the source of truth.
-    """
-    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    skill_path = os.path.join(
-        project_root, 
-        "skills", 
-        "spanner-graph-semantic-validator", 
-        "SKILL.md"
-    )
-    
-    if os.path.exists(skill_path):
-        try:
-            with open(skill_path, "r") as f:
-                content = f.read()
-            # Strip YAML frontmatter block (starts and ends with ---)
-            content_clean = re.sub(r"^---.*?---", "", content, flags=re.DOTALL)
-            return content_clean.strip()
-        except Exception:
-            pass
-            
-    return (
+    """Loads semantic validation system instructions dynamically from SKILL.md."""
+    fallback = (
         "You are a Cloud Spanner Graph Semantic Auditor. Evaluate the generated Spanner DDL "
         "against the source OWL ontology and SHACL shapes, producing an executive one-pager validation report."
     )
+    return load_skill_instructions("spanner-graph-semantic-validator", fallback)
 
 
 def audit_spanner_schema(
