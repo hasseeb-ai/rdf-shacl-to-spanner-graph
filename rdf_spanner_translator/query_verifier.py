@@ -4,7 +4,7 @@ import json
 import httpx
 from google.genai import types
 from rdf_spanner_translator.translator import _get_client, load_skill_instructions
-from rdf_spanner_translator.validator import get_google_access_token
+from rdf_spanner_translator.validator import get_google_access_token, call_spanner_mcp_tool
 
 
 def load_query_verifier_system_instruction() -> str:
@@ -138,51 +138,20 @@ def execute_spanner_statement(
     statement: str,
     database: str,
     mcp_url: str = "https://spanner.googleapis.com/mcp"
-) -> tuple[bool, str | list[dict]]:
+) -> tuple[bool, str]:
     """Executes a SQL/GQL statement via Spanner MCP execute_sql tool."""
     if not mcp_url or not database:
         return False, "Database path and MCP URL are required"
         
-    try:
-        token = get_google_access_token()
-        headers = {"content-type": "application/json"}
-        if token:
-            headers["Authorization"] = f"Bearer {token}"
-            
-        payload = {
-            "jsonrpc": "2.0",
-            "id": 20,
-            "method": "tools/call",
-            "params": {
-                "name": "execute_sql",
-                "arguments": {
-                    "database": database,
-                    "sql": statement
-                }
-            }
-        }
-        
-        response = httpx.post(mcp_url, json=payload, headers=headers, timeout=60.0)
-        if response.status_code != 200:
-            return False, f"HTTP {response.status_code}: {response.text}"
-            
-        res_json = response.json()
-        if "error" in res_json:
-            return False, res_json["error"].get("message", "Unknown error")
-            
-        result = res_json.get("result", {})
-        is_error = result.get("isError", False) or result.get("is_error", False)
-        content = result.get("content", [])
-        text_outputs = [item.get("text", "") for item in content if "text" in item]
-        full_text = "\n".join(text_outputs)
-        
-        if is_error:
-            return False, full_text or "Execution error"
-            
-        return True, full_text or "Success"
-        
-    except Exception as e:
-        return False, str(e)
+    return call_spanner_mcp_tool(
+        mcp_url=mcp_url,
+        tool_name="execute_sql",
+        arguments={
+            "database": database,
+            "sql": statement
+        },
+        timeout=60.0
+    )
 
 
 def format_markdown_table_from_output(raw_text: str) -> str:
