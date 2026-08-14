@@ -86,14 +86,15 @@ def main():
     """Antigravity CLI Plugin and Standalone CLI: RDF/SHACL to Cloud Spanner Graph DDL."""
     pass
 
+
 @main.command()
 @click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
 @click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
 @click.option("--output", "-o", type=click.Path(), default="schema.sql", help="Path to output SQL file.")
 @click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
 def translate(input, shacl, output, model):
-    """Translate OWL ontology (Turtle) to Spanner Graph DDL, optionally guided by SHACL shapes."""
-    console.print(Panel.fit(f"[bold blue]Translating Ontology[/bold blue]\nInput: {input}\nSHACL: {shacl}\nOutput: {output}", title="Gemini Translator"))
+    """Translate OWL ontology (Turtle) to Spanner Graph DDL offline."""
+    console.print(Panel.fit(f"[bold blue]Translating Ontology (Offline)[/bold blue]\nInput: {input}\nSHACL: {shacl}\nOutput: {output}", title="Gemini Translator"))
     
     try:
         # Step 1: Pre-validate Turtle file locally using rdflib
@@ -111,7 +112,6 @@ def translate(input, shacl, output, model):
             with open(shacl, "r") as f:
                 shacl_content = f.read()
         
-        # Read the file contents
         with open(input, "r") as f:
             ttl_content = f.read()
             
@@ -132,79 +132,83 @@ def translate(input, shacl, output, model):
         console.print(f"[bold red]Error:[/bold red] {e}")
         raise click.Abort()
 
+
 @main.command()
-@click.option("--ddl", "-d", type=click.Path(exists=True), required=True, help="Path to Spanner DDL SQL file.")
+@click.option("--input", "-i", type=click.Path(exists=True), default=None, help="Path to input OWL/Turtle file (required for semantic and query validation).")
+@click.option("--ddl", "-d", type=click.Path(exists=True), required=True, help="Path to generated Spanner SQL DDL file.")
+@click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
+@click.option("--database", "--db", envvar="SPANNER_DATABASE", default=None, help="Full Cloud Spanner database resource path.")
+@click.option("--output", "-o", type=click.Path(), default=None, help="Path to output markdown report file.")
+@click.option("--mode", type=click.Choice(["all", "syntax", "semantic", "queries"], case_sensitive=False), default="all", help="Validation mode/tier to run.")
+@click.option("--syntax-only", is_flag=True, help="Shortcut for --mode syntax.")
+@click.option("--semantic-only", is_flag=True, help="Shortcut for --mode semantic.")
+@click.option("--queries-only", is_flag=True, help="Shortcut for --mode queries.")
 @click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
-@click.option("--database", "--db", envvar="SPANNER_DATABASE", help="Full Cloud Spanner database resource path (e.g., projects/<project>/instances/<instance>/databases/<database>).")
-def validate(ddl, mcp_url, mcp_tool, database):
-    """Validate Spanner DDL syntax using Remote MCP."""
-    console.print(Panel.fit(f"[bold purple]Validating DDL Schema[/bold purple]\nFile: {ddl}\nDatabase: {database}", title="MCP Validator"))
-    
-    # Run database pre-validation check (existence vs expected tool state)
-    if database and mcp_url:
-        with console.status("[cyan]Verifying target database state..."):
-            exists, err = check_database_existence(mcp_url, mcp_tool, database)
-            if err:
-                console.print(f"[yellow]Pre-validation warning: Could not verify database state ({err}). Proceeding...[/yellow]")
-            elif exists is not None:
-                if mcp_tool == "create_database" and exists:
-                    console.print(f"[bold red]Error:[/bold red] Database already exists: {database}.\nChoose a new database ID or use the 'update_database_schema' tool.")
-                    raise click.Abort()
-                elif mcp_tool == "update_database_schema" and not exists:
-                    console.print(f"[bold red]Error:[/bold red] Database does not exist: {database}.\nCreate the database first or use the 'create_database' tool.")
-                    raise click.Abort()
-
-    try:
-        # Read SQL DDL file
-        with open(ddl, "r") as f:
-            ddl_content = f.read()
-            
-        # Connect to MCP server and invoke the DDL execution tool
-        with console.status("[cyan]Connecting to MCP server and executing DDL..."):
-            success, msg = validate_ddl(ddl_content, mcp_url, mcp_tool, database)
-            
-        # Report results
-        if success:
-            console.print(f"[bold green]✓ DDL validation successful![/bold green]\n[dim]{msg}[/dim]")
-        else:
-            console.print(f"[bold red]✗ DDL validation failed![/bold red]\n[red]{msg}[/red]")
-            raise click.Abort()
-            
-    except Exception as e:
-        console.print(f"[bold red]Error during validation:[/bold red] {e}")
-        raise click.Abort()
-
-@main.command("validate-semantic")
-@click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
-@click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
-@click.option("--ddl", "-d", type=click.Path(exists=True), required=True, help="Path to generated Spanner SQL DDL file.")
-@click.option("--output", "-o", type=click.Path(), default="validation_report.md", help="Path to output markdown report.")
-@click.option("--model", "-m", default="gemini-2.5-pro", help="Gemini model to use for semantic audit.")
-def validate_semantic_command(input, shacl, ddl, output, model):
-    """Perform rigorous semantic validation of generated Spanner DDL against source OWL/SHACL using the Validation Skill."""
+@click.option("--model", "-m", default="gemini-2.5-pro", help="Gemini model to use for audits.")
+def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_only, queries_only, mcp_url, mcp_tool, model):
+    """Validate Spanner Graph DDL across Syntax, Semantic Scorecard, and Dynamic Queries."""
+    # Resolve active validation mode
+    if syntax_only:
+        active_mode = "syntax"
+    elif semantic_only:
+        active_mode = "semantic"
+    elif queries_only:
+        active_mode = "queries"
+    else:
+        active_mode = mode.lower()
+        
     console.print(Panel.fit(
-        f"[bold cyan]Running Semantic Validation Audit[/bold cyan]\n"
-        f"Source Ontology: {input}\n"
-        f"SHACL Shapes: {shacl or 'None'}\n"
-        f"Target DDL: {ddl}\n"
-        f"Report Output: {output}\n"
-        f"Model: {model}",
-        title="Spanner Graph Semantic Auditor"
+        f"[bold purple]Spanner Graph Schema Validator[/bold purple]\n"
+        f"Mode: [bold]{active_mode.upper()}[/bold]\n"
+        f"DDL File: {ddl}\n"
+        f"Source Ontology: {input or 'N/A'}\n"
+        f"Database: {database or 'N/A'}",
+        title="Spanner Validator"
     ))
     
-    try:
+    # ----------------------------------------------------
+    # Tier 1: Syntactic DDL Validation on Spanner MCP
+    # ----------------------------------------------------
+    if active_mode in ("all", "syntax"):
+        console.print("\n[bold cyan]─── Tier 1: Dialect & Syntactic Validation ───[/bold cyan]")
+        if not database:
+            if active_mode == "syntax":
+                console.print("[bold red]Error:[/bold red] --database is required for syntax validation.")
+                raise click.Abort()
+            else:
+                console.print("[yellow]Skipping Tier 1: No --database provided.[/yellow]")
+        else:
+            with open(ddl, "r") as f:
+                ddl_content = f.read()
+            with console.status("[cyan]Validating DDL syntax on Cloud Spanner..."):
+                success, msg = validate_ddl(ddl_content, mcp_url, mcp_tool, database)
+            if success:
+                console.print(f"[bold green]✓ Tier 1 Passed:[/bold green] DDL syntax compiles cleanly on Spanner.\n[dim]{msg}[/dim]")
+            else:
+                console.print(f"[bold red]✗ Tier 1 Failed:[/bold red]\n[red]{msg}[/red]")
+                if active_mode == "syntax":
+                    raise click.Abort()
+
+    # ----------------------------------------------------
+    # Tier 2: Static Semantic Validation Scorecard
+    # ----------------------------------------------------
+    if active_mode in ("all", "semantic"):
+        console.print("\n[bold cyan]─── Tier 2: Semantic Validation & Scorecard ───[/bold cyan]")
+        if not input:
+            console.print("[bold red]Error:[/bold red] --input (source ontology .ttl) is required for semantic validation.")
+            raise click.Abort()
+            
         with open(input, "r") as f:
             ttl_content = f.read()
+        with open(ddl, "r") as f:
+            ddl_content = f.read()
             
         shacl_content = None
         if shacl:
             with open(shacl, "r") as f:
                 shacl_content = f.read()
                 
-        with open(ddl, "r") as f:
-            ddl_content = f.read()
-            
         with console.status("[yellow]Auditing schema against 7 semantic validation dimensions..."):
             report = audit_spanner_schema(
                 ttl_content=ttl_content,
@@ -213,80 +217,71 @@ def validate_semantic_command(input, shacl, ddl, output, model):
                 model_name=model
             )
             
-        # Ensure output dir exists
-        output_dir = os.path.dirname(os.path.abspath(output))
-        if output_dir:
-            os.makedirs(output_dir, exist_ok=True)
-            
-        with open(output, "w") as f:
+        report_file = output or f"output/{os.path.basename(input)[:-4] if input.endswith('.ttl') else 'schema'}_validation_report.md"
+        rep_dir = os.path.dirname(os.path.abspath(report_file))
+        if rep_dir:
+            os.makedirs(rep_dir, exist_ok=True)
+        with open(report_file, "w") as f:
             f.write(report)
             
         status, score = extract_validation_score(report)
         status_color = "green" if status == "PASS" else ("yellow" if status == "WARN" else "red")
-        
-        console.print(f"[{status_color}]✓ Semantic Validation Audit Complete: {status} ({score})[/{status_color}]")
-        console.print(f"Executive one-pager report saved to [bold cyan]{output}[/bold cyan]")
-        
-    except Exception as e:
-        console.print(f"[bold red]Error during semantic validation:[/bold red] {e}")
-        raise click.Abort()
+        console.print(f"[{status_color}]✓ Tier 2 Passed: Semantic Audit {status} ({score})[/{status_color}]")
+        console.print(f"Executive scorecard saved to [bold cyan]{report_file}[/bold cyan]")
 
-@main.command("test-queries")
-@click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
-@click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
-@click.option("--ddl", "-d", type=click.Path(exists=True), required=True, help="Path to generated Spanner SQL DDL file.")
-@click.option("--database", "--db", envvar="SPANNER_DATABASE", required=True, help="Full Cloud Spanner database resource path.")
-@click.option("--output", "-o", type=click.Path(), default="query_report.md", help="Path to output markdown query report.")
-@click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
-@click.option("--model", "-m", default="gemini-2.5-pro", help="Gemini model to use.")
-def test_queries_command(input, shacl, ddl, database, output, mcp_url, model):
-    """Synthesize coherent relational mock data, ingest into Spanner, and execute 4 GQL queries."""
-    console.print(Panel.fit(
-        f"[bold cyan]Running Dynamic Data & GQL Query Verification[/bold cyan]\n"
-        f"Source Ontology: {input}\n"
-        f"SHACL Shapes: {shacl or 'None'}\n"
-        f"Target DDL: {ddl}\n"
-        f"Spanner Database: {database}\n"
-        f"Report Output: {output}\n"
-        f"Model: {model}",
-        title="Spanner Graph Query Verifier"
-    ))
-    
-    try:
-        with console.status("[yellow]Synthesizing data, executing DML, and running 4 GQL query archetypes..."):
-            all_passed, report_md = run_query_verification(
-                ttl_path=input,
-                ddl_path=ddl,
-                database=database,
-                shacl_path=shacl,
-                mcp_url=mcp_url,
-                model_name=model,
-                output_report=output
-            )
-            
-        status_str = "SUCCESS" if all_passed else "WARNING (Some queries failed)"
-        status_color = "green" if all_passed else "yellow"
-        
-        console.print(f"[{status_color}]✓ Dynamic GQL Query Verification Complete: {status_str}[/{status_color}]")
-        console.print(f"Executive query report saved to [bold cyan]{output}[/bold cyan]")
-        
-    except Exception as e:
-        console.print(f"[bold red]Error during query verification:[/bold red] {e}")
-        raise click.Abort()
+    # ----------------------------------------------------
+    # Tier 3: Dynamic Mock Data & Live GQL Query Execution
+    # ----------------------------------------------------
+    if active_mode in ("all", "queries"):
+        console.print("\n[bold cyan]─── Tier 3: Dynamic Data & GQL Query Verification ───[/bold cyan]")
+        if not input or not database:
+            if active_mode == "queries":
+                console.print("[bold red]Error:[/bold red] Both --input and --database are required for query verification.")
+                raise click.Abort()
+            else:
+                console.print("[yellow]Skipping Tier 3: --input or --database not provided.[/yellow]")
+        else:
+            query_report_file = output if active_mode == "queries" else f"output/{os.path.basename(input)[:-4] if input.endswith('.ttl') else 'schema'}_query_report.md"
+            with console.status("[yellow]Synthesizing mock data, executing DML, and running 4 GQL queries..."):
+                all_passed, report_md = run_query_verification(
+                    ttl_path=input,
+                    ddl_path=ddl,
+                    database=database,
+                    shacl_path=shacl,
+                    mcp_url=mcp_url,
+                    model_name=model,
+                    output_report=query_report_file
+                )
+            status_str = "SUCCESS (4/4 Queries Passed)" if all_passed else "WARNING (Some queries encountered issues)"
+            status_color = "green" if all_passed else "yellow"
+            console.print(f"[{status_color}]✓ Tier 3 Complete: {status_str}[/{status_color}]")
+            console.print(f"Executive query report saved to [bold cyan]{query_report_file}[/bold cyan]")
+
 
 @main.command()
 @click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
 @click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
 @click.option("--output", "-o", type=click.Path(), default="schema.sql", help="Path to output SQL file.")
-@click.option("--report", "-r", type=click.Path(), default=None, help="Optional path to output executive semantic validation report markdown file.")
+@click.option("--report", "-r", type=click.Path(), default=None, help="Optional path to output executive semantic validation report.")
+@click.option("--verify-queries/--no-verify-queries", default=False, help="Enable live data ingestion and GQL query verification.")
+@click.option("--query-report", type=click.Path(), default=None, help="Optional path to output dynamic query execution report.")
+@click.option("--database", "--db", envvar="SPANNER_DATABASE", help="Full Cloud Spanner database resource path.")
 @click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
-@click.option("--self-correct/--no-self-correct", "-s", default=True, help="Enable self-correction loop.")
+@click.option("--self-correct/--no-self-correct", default=True, help="Enable self-correction loop.")
 @click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
-@click.option("--database", "--db", envvar="SPANNER_DATABASE", help="Full Cloud Spanner database resource path (e.g., projects/<project>/instances/<instance>/databases/<database>).")
-def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, database):
-    """End-to-End: Translate OWL ontology, validate syntax via MCP, and self-correct if needed."""
-    console.print(Panel.fit(f"[bold green]Running End-to-End Pipeline[/bold green]\nInput: {input}\nSHACL: {shacl}\nOutput: {output}\nSelf-correct: {self_correct}", title="RDF to Spanner Graph DDL Pipeline"))
+def pipeline(input, shacl, output, report, verify_queries, query_report, database, mcp_url, mcp_tool, self_correct, model):
+    """End-to-End: Translate OWL ontology, validate syntax via MCP, self-correct if needed, and generate reports."""
+    console.print(Panel.fit(
+        f"[bold green]Running End-to-End Spanner Graph Pipeline[/bold green]\n"
+        f"Input: {input}\n"
+        f"SHACL: {shacl or 'None'}\n"
+        f"Output: {output}\n"
+        f"Database: {database or 'N/A'}\n"
+        f"Self-Correct: {self_correct}\n"
+        f"Verify Queries: {verify_queries}",
+        title="Spanner Graph Pipeline"
+    ))
     
     # Ensure output parent directory exists
     output_dir = os.path.dirname(os.path.abspath(output))
@@ -318,7 +313,7 @@ def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, da
     with open(input, "r") as f:
         ttl_content = f.read()
         
-    # Pre-validation: Verify database state via MCP before translating to avoid unnecessary API cost
+    # Pre-validation: Verify database state via MCP before translating
     if database and mcp_url:
         with console.status("[cyan]Verifying target database state..."):
             exists, err = check_database_existence(mcp_url, mcp_tool, database)
@@ -342,16 +337,15 @@ def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, da
         
     # 3. Validation execution via the MCP Server
     if not mcp_url:
-        # If no validation harness environment is defined, write translation and return
         with open(output, "w") as f:
             f.write(ddl)
         console.print(f"[yellow]! Validation skipped (no MCP configuration provided). Saved DDL to {output}[/yellow]")
         return
         
-    def _generate_report_if_requested(target_ddl):
+    def _generate_reports(target_ddl):
         if report:
             try:
-                with console.status("[yellow]Auditing schema & generating executive semantic validation report..."):
+                with console.status("[yellow]Auditing schema & generating semantic validation report..."):
                     rep = audit_spanner_schema(ttl_content, target_ddl, shacl_content)
                 rep_dir = os.path.dirname(os.path.abspath(report))
                 if rep_dir:
@@ -360,9 +354,27 @@ def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, da
                     f.write(rep)
                 status, score = extract_validation_score(rep)
                 status_color = "green" if status == "PASS" else ("yellow" if status == "WARN" else "red")
-                console.print(f"[{status_color}]✓ Executive Semantic Validation Report generated: {status} ({score}) -> {report}[/{status_color}]")
+                console.print(f"[{status_color}]✓ Semantic Validation Report generated: {status} ({score}) -> {report}[/{status_color}]")
             except Exception as ex:
                 console.print(f"[yellow]Warning: Could not generate semantic report: {ex}[/yellow]")
+                
+        if verify_queries and database:
+            try:
+                q_out = query_report or f"output/{os.path.basename(input)[:-4] if input.endswith('.ttl') else 'schema'}_query_report.md"
+                with console.status("[yellow]Executing dynamic mock data ingestion & GQL queries..."):
+                    all_passed, _ = run_query_verification(
+                        ttl_path=input,
+                        ddl_path=output,
+                        database=database,
+                        shacl_path=shacl,
+                        mcp_url=mcp_url,
+                        output_report=q_out
+                    )
+                status_str = "SUCCESS" if all_passed else "WARNING (Some queries failed)"
+                status_color = "green" if all_passed else "yellow"
+                console.print(f"[{status_color}]✓ Dynamic GQL Query Verification Complete: {status_str} -> {q_out}[/{status_color}]")
+            except Exception as ex:
+                console.print(f"[yellow]Warning: Could not execute query verification: {ex}[/yellow]")
 
     try:
         # Run first validation pass
@@ -373,7 +385,7 @@ def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, da
             with open(output, "w") as f:
                 f.write(ddl)
             console.print(f"[bold green]✓ DDL validation successful![/bold green] Saved verified DDL to {output}")
-            _generate_report_if_requested(ddl)
+            _generate_reports(ddl)
             return
             
         # If validation fails, proceed to error logging and self-correction
@@ -399,7 +411,7 @@ def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, da
             console.print(f"[yellow]Self-correction disabled. Saved invalid DDL to {output}[/yellow]")
             raise click.Abort()
             
-        # 4. Self-correction loop: prompt Gemini with compiler/parser errors to rewrite DDL
+        # 4. Self-correction loop
         max_attempts = 3
         attempt = 1
         current_ddl = ddl
@@ -408,14 +420,11 @@ def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, da
         while attempt <= max_attempts:
             console.print(f"\n[bold yellow]Starting Self-Correction Attempt {attempt}/{max_attempts}...[/bold yellow]")
             
-            # Send invalid DDL + compiler error + original Turtle file to Gemini to repair
             with console.status(f"[yellow]Requesting correction from Gemini..."):
                 current_ddl = self_correct_ddl(ttl_content, current_ddl, current_error, shacl_content=shacl_content, model_name=model)
                 
-            # Re-execute the corrected schema against Spanner via MCP
             console.print(f"[yellow]Executing corrected DDL...[/yellow]")
             with console.status("[cyan]Re-validating corrected DDL..."):
-                # Dynamically choose between create_database and update_database_schema
                 if mcp_tool == "create_database" and database and mcp_url:
                     exists, _ = check_database_existence(mcp_url, mcp_tool, database)
                     active_tool = "update_database_schema" if exists else "create_database"
@@ -431,7 +440,6 @@ def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, da
             telemetry["correction_attempts"].append(attempt_info)
                 
             if success:
-                # If correction was successful, save the new DDL and exit
                 with open(output, "w") as f:
                     f.write(current_ddl)
                 console.print(f"[bold green]✓ Self-correction successful! DDL is now valid.[/bold green] Saved verified DDL to {output}")
@@ -439,16 +447,14 @@ def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, da
                 telemetry["final_status"] = "SUCCESS"
                 telemetry["final_ddl"] = current_ddl
                 save_telemetry(input, telemetry)
-                _generate_report_if_requested(current_ddl)
+                _generate_reports(current_ddl)
                 return
                 
-            # Log failure and loop again if attempts remain
             console.print(f"[bold red]✗ Corrected DDL validation failed![/bold red]")
             console.print(f"[red]Error Message:[/red]\n{msg}")
             current_error = msg
             attempt += 1
             
-        # If the self-correction loop exhausted all attempts without finding a valid DDL schema
         with open(output, "w") as f:
             f.write(current_ddl)
         console.print(f"[bold red]✗ Failed to generate a valid schema after {max_attempts} correction attempts.[/bold red] Saved last attempt to {output}")
@@ -461,6 +467,7 @@ def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, da
     except Exception as e:
         console.print(f"[bold red]Error during pipeline execution:[/bold red] {e}")
         raise click.Abort()
+
 
 if __name__ == "__main__":
     main()

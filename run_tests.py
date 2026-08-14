@@ -173,7 +173,7 @@ def run_integration_tests():
         env["SPANNER_DATABASE"] = db_path
         
         cmd = [
-            sys.executable, "-m", "rdf_spanner_translator.cli", "run",
+            sys.executable, "-m", "rdf_spanner_translator.cli", "pipeline",
             "--input", ttl_path,
             "--output", out_schema,
             "--mcp-url", "https://spanner.googleapis.com/mcp",
@@ -197,7 +197,8 @@ def run_integration_tests():
         if success and verify_queries:
             console.print(f"[cyan]Executing dynamic data ingestion & GQL query verification for {stem}...[/cyan]")
             q_cmd = [
-                sys.executable, "-m", "rdf_spanner_translator.cli", "test-queries",
+                sys.executable, "-m", "rdf_spanner_translator.cli", "validate",
+                "--mode", "queries",
                 "--input", ttl_path,
                 "--ddl", out_schema,
                 "--database", db_path,

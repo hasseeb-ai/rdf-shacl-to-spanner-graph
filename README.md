@@ -63,75 +63,75 @@ pip install -e . --no-build-isolation
 
 ### CLI Commands
 
-The CLI supports five primary invocation patterns:
+The CLI is organized into **3 core commands** (`translate`, `validate`, and `pipeline`):
 
-#### Pattern 1: Pure Translation (Offline)
-Translates your RDF/OWL Turtle ontology (and optional SHACL shapes) directly to Spanner DDL without running syntax validation.
+| Command | Operational Usage | Key Parameters & Flags | Description |
+| :--- | :--- | :--- | :--- |
+| **`translate`** | **Offline Translation** | `-i, --input <ont.ttl>`<br>`-s, --shacl <shacl.ttl>`<br>`-o, --output <schema.sql>`<br>`-m, --model <gemini-3.5-flash>` | Translates OWL Turtle ontologies and companion SHACL shapes into GoogleSQL & Spanner Property Graph DDL offline. |
+| **`validate`** | **Tier 1: Syntax Check** | `-d, --ddl <schema.sql>`<br>`--syntax-only` (or `--mode syntax`)<br>`--database <db_path>`<br>`-t, --mcp-tool <tool_name>` | Validates that physical and logical DDL compiles cleanly against Cloud Spanner via the Remote Spanner MCP server. |
+| | **Tier 2: Semantic Scorecard** | `-i, --input <ont.ttl>`<br>`-d, --ddl <schema.sql>`<br>`-s, --shacl <shacl.ttl>`<br>`--semantic-only` (or `--mode semantic`)<br>`-o, --output <report.md>` | Audits generated DDL against 7 semantic dimensions (completeness, inheritance, edge connections, invariants) producing an executive scorecard. |
+| | **Tier 3: Dynamic GQL Queries** | `-i, --input <ont.ttl>`<br>`-d, --ddl <schema.sql>`<br>`--database <db_path>`<br>`--queries-only` (or `--mode queries`)<br>`-o, --output <report.md>` | Synthesizes linked test fixtures (DML), ingests them into Spanner, executes 4 GQL queries live, and synthesizes an executive execution report. |
+| | **Full 3-Tier Validation** | `-i, --input <ont.ttl>`<br>`-d, --ddl <schema.sql>`<br>`--database <db_path>`<br>`--mode all` (Default) | Runs all 3 validation tiers sequentially (Syntax Check $\to$ Semantic Scorecard $\to$ Dynamic GQL Queries). |
+| **`pipeline`** | **Automated End-to-End** | `-i, --input <ont.ttl>`<br>`-s, --shacl <shacl.ttl>`<br>`-o, --output <schema.sql>`<br>`--database <db_path>`<br>`-r, --report <report.md>`<br>`--verify-queries` | Complete automated workflow: Translates ontology, validates syntax on Spanner, auto-corrects compiler errors (up to 3x), audits semantics, and tests queries. |
+
+---
+
+### Command Examples
+
+#### 1. `translate` (Offline Generation)
 ```bash
-# A. Translate ontology only:
-rdf-spanner-translator translate \
-  --input examples/fintech/fintech.ttl \
-  --output output/schema.sql
-
-# B. Translate ontology guided by SHACL shapes:
+# Translate ontology and SHACL shapes to Spanner DDL:
 rdf-spanner-translator translate \
   --input examples/fintech/fintech.ttl \
   --shacl examples/fintech/shacl.ttl \
-  --output output/schema.sql
+  --output output/examples/fintech_schema.sql
 ```
 
-#### Pattern 2: DDL Syntactic Validation (Spanner Remote MCP)
-Validates the syntax of an existing Spanner DDL SQL file against the official Cloud Spanner MCP server.
-
+#### 2. `validate` (Targeted or Full Multi-Tier Validation)
 ```bash
-# Set your target database path
-export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
+export SPANNER_DATABASE="projects/<PROJECT>/instances/<INSTANCE>/databases/<DATABASE>"
 
-# A. Validate by updating schema on an existing database:
+# A. Tier 1: Syntax compilation check only
 rdf-spanner-translator validate \
-  --ddl output/schema.sql \
-  --mcp-tool "update_database_schema"
-
-# B. Validate by simulating creation of a new database:
-rdf-spanner-translator validate \
-  --ddl output/schema.sql \
-  --mcp-tool "create_database"
-```
-
-#### Pattern 3: Semantic Validation Audit (Validation Skill)
-Audits a generated schema against the source OWL ontology and SHACL shapes, producing an executive **One-Pager Semantic Validation Report & Scorecard** (`.md`) with renaming matrices, inheritance breakdowns, and visual Mermaid diagrams.
-
-```bash
-rdf-spanner-translator validate-semantic \
-  --input tests/ontologies/01_simple_inheritance.ttl \
-  --ddl output/01_simple_inheritance_schema.sql \
-  --output output/01_simple_inheritance_validation_report.md
-```
-
-#### Pattern 4: Dynamic Data Ingestion & GQL Query Verification (Query Verifier Skill)
-Synthesizes coherent mock relational data (SQL `INSERT`s) and executes 4 representative GQL queries live on Spanner to verify multi-label polymorphism, multi-hop traversal, and property filtering.
-
-```bash
-rdf-spanner-translator test-queries \
-  --input tests/ontologies/01_simple_inheritance.ttl \
-  --ddl output/01_simple_inheritance_schema.sql \
+  --ddl output/examples/fintech_schema.sql \
   --database $SPANNER_DATABASE \
-  --output output/01_simple_inheritance_query_report.md
+  --syntax-only
+
+# B. Tier 2: Static semantic audit scorecard
+rdf-spanner-translator validate \
+  --input examples/fintech/fintech.ttl \
+  --ddl output/examples/fintech_schema.sql \
+  --output output/examples/fintech_validation_report.md \
+  --semantic-only
+
+# C. Tier 3: Dynamic data ingestion & live GQL query testing
+rdf-spanner-translator validate \
+  --input examples/fintech/fintech.ttl \
+  --ddl output/examples/fintech_schema.sql \
+  --database $SPANNER_DATABASE \
+  --output output/examples/fintech_query_report.md \
+  --queries-only
+
+# D. Full 3-Tier Validation in one command:
+rdf-spanner-translator validate \
+  --input examples/fintech/fintech.ttl \
+  --ddl output/examples/fintech_schema.sql \
+  --database $SPANNER_DATABASE \
+  --mode all
 ```
 
-#### Pattern 5: End-to-End Pipeline (With Self-Correction & Semantic Reporting)
-Translates the RDF/OWL ontology, executes syntactic validation on Spanner, self-corrects if compiler errors occur, and optionally generates an executive semantic validation report.
-
+#### 3. `pipeline` (End-to-End Automated Pipeline)
 ```bash
-export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
+export SPANNER_DATABASE="projects/<PROJECT>/instances/<INSTANCE>/databases/<DATABASE>"
 
-# Translate, validate against Spanner, self-correct, and generate validation report:
-rdf-spanner-translator run \
+# Translate, validate live on Spanner, auto-correct if needed, and generate reports:
+rdf-spanner-translator pipeline \
   --input examples/fintech/fintech.ttl \
   --shacl examples/fintech/shacl.ttl \
-  --output output/fintech_schema.sql \
-  --report output/fintech_validation_report.md \
-  --mcp-tool "create_database"
+  --output output/examples/fintech_schema.sql \
+  --report output/examples/fintech_validation_report.md \
+  --database $SPANNER_DATABASE \
+  --verify-queries
 ```
 
 ---
