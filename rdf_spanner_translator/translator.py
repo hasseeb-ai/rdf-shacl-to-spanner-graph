@@ -137,3 +137,112 @@ def clean_ddl_response(text: str) -> str:
     if match_any:
         return match_any.group(1).strip()
     return text.strip()
+
+
+def load_validation_system_instruction() -> str:
+    """Loads semantic validation system instructions dynamically from SKILL.md.
+    
+    Reuses skills/spanner-graph-semantic-validator/SKILL.md as the source of truth.
+    """
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    skill_path = os.path.join(
+        project_root, 
+        "skills", 
+        "spanner-graph-semantic-validator", 
+        "SKILL.md"
+    )
+    
+    if os.path.exists(skill_path):
+        try:
+            with open(skill_path, "r") as f:
+                content = f.read()
+            # Strip YAML frontmatter block (starts and ends with ---)
+            content_clean = re.sub(r"^---.*?---", "", content, flags=re.DOTALL)
+            return content_clean.strip()
+        except Exception:
+            pass
+            
+    return (
+        "You are a Cloud Spanner Graph Semantic Auditor. Evaluate the generated Spanner DDL "
+        "against the source OWL ontology and SHACL shapes, producing an executive one-pager validation report."
+    )
+
+
+def audit_spanner_schema(
+    ttl_content: str, 
+    ddl_content: str, 
+    shacl_content: str = None, 
+    model_name: str = "gemini-2.5-pro"
+) -> str:
+    """Evaluates generated Spanner DDL against source OWL/SHACL using the validation skill."""
+    client = _get_client()
+    
+    prompt = f"""Please perform a rigorous semantic validation of the following generated Cloud Spanner DDL against the source OWL Ontology and SHACL shapes.
+
+### Source OWL Ontology (Turtle .ttl):
+```turtle
+{ttl_content}
+```
+"""
+    if shacl_content:
+        prompt += f"""
+### Companion SHACL Shapes (Turtle syntax):
+```turtle
+{shacl_content}
+```
+"""
+    prompt += f"""
+### Generated Cloud Spanner Schema DDL (Relational + Graph):
+```sql
+{ddl_content}
+```
+
+Produce the complete Executive One-Pager Semantic Validation Report & Scorecard adhering strictly to the rubric and markdown format specified in the system instruction.
+"""
+    
+    response = client.models.generate_content(
+        model=model_name,
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            system_instruction=load_validation_system_instruction(),
+            temperature=0.0,
+        )
+    )
+    
+    return response.text.strip()
+
+
+def extract_validation_score(report_text: str) -> tuple[str, str]:
+    """Extracts the validation status and score from the generated markdown report.
+    
+    Returns:
+        (status, score_str) e.g. ("PASS", "100%") or ("WARN", "92%") or ("FAIL", "75%")
+    """
+    status = "UNKNOWN"
+    score = "N/A"
+    
+    # Check overall status
+    if "PASS" in report_text:
+        status = "PASS"
+    if "WARN" in report_text:
+        status = "WARN"
+    if "FAIL" in report_text and "0 Failed" not in report_text:
+        # Check if actually failed
+        fail_match = re.search(r"\|\s*Total[^\n]+\|\s*([0-9]+)\s*\|\s*([0-9]+%)\s*\|\s*([^\n]+)", report_text, re.IGNORECASE)
+        if fail_match:
+            failed_count = int(fail_match.group(1)) if fail_match.group(1).isdigit() else 0
+            if failed_count > 0:
+                status = "FAIL"
+    
+    # Extract percentage score
+    score_match = re.search(r"(\d{1,3}%)\s*Score", report_text, re.IGNORECASE)
+    if not score_match:
+        score_match = re.search(r"\|\s*Total[^\n]+\|\s*(\d{1,3}%)\s*\|", report_text, re.IGNORECASE)
+    if not score_match:
+        score_match = re.search(r"(\d{1,3}%)\s*(?:PASS|WARN|FAIL)", report_text, re.IGNORECASE)
+        
+    if score_match:
+        score = score_match.group(1)
+        
+    return status, score
+

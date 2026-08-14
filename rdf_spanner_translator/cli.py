@@ -13,7 +13,12 @@ from rich.panel import Panel
 from rich.syntax import Syntax
 
 from rdf_spanner_translator.parser import validate_rdf_file
-from rdf_spanner_translator.translator import translate_ontology, self_correct_ddl
+from rdf_spanner_translator.translator import (
+    translate_ontology, 
+    self_correct_ddl, 
+    audit_spanner_schema, 
+    extract_validation_score
+)
 from rdf_spanner_translator.validator import validate_ddl, check_database_existence
 import json
 from datetime import datetime, timezone
@@ -169,16 +174,73 @@ def validate(ddl, mcp_url, mcp_tool, database):
         console.print(f"[bold red]Error during validation:[/bold red] {e}")
         raise click.Abort()
 
+@main.command("validate-semantic")
+@click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
+@click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
+@click.option("--ddl", "-d", type=click.Path(exists=True), required=True, help="Path to generated Spanner SQL DDL file.")
+@click.option("--output", "-o", type=click.Path(), default="validation_report.md", help="Path to output markdown report.")
+@click.option("--model", "-m", default="gemini-2.5-pro", help="Gemini model to use for semantic audit.")
+def validate_semantic_command(input, shacl, ddl, output, model):
+    """Perform rigorous semantic validation of generated Spanner DDL against source OWL/SHACL using the Validation Skill."""
+    console.print(Panel.fit(
+        f"[bold cyan]Running Semantic Validation Audit[/bold cyan]\n"
+        f"Source Ontology: {input}\n"
+        f"SHACL Shapes: {shacl or 'None'}\n"
+        f"Target DDL: {ddl}\n"
+        f"Report Output: {output}\n"
+        f"Model: {model}",
+        title="Spanner Graph Semantic Auditor"
+    ))
+    
+    try:
+        with open(input, "r") as f:
+            ttl_content = f.read()
+            
+        shacl_content = None
+        if shacl:
+            with open(shacl, "r") as f:
+                shacl_content = f.read()
+                
+        with open(ddl, "r") as f:
+            ddl_content = f.read()
+            
+        with console.status("[yellow]Auditing schema against 7 semantic validation dimensions..."):
+            report = audit_spanner_schema(
+                ttl_content=ttl_content,
+                ddl_content=ddl_content,
+                shacl_content=shacl_content,
+                model_name=model
+            )
+            
+        # Ensure output dir exists
+        output_dir = os.path.dirname(os.path.abspath(output))
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
+            
+        with open(output, "w") as f:
+            f.write(report)
+            
+        status, score = extract_validation_score(report)
+        status_color = "green" if status == "PASS" else ("yellow" if status == "WARN" else "red")
+        
+        console.print(f"[{status_color}]✓ Semantic Validation Audit Complete: {status} ({score})[/{status_color}]")
+        console.print(f"Executive one-pager report saved to [bold cyan]{output}[/bold cyan]")
+        
+    except Exception as e:
+        console.print(f"[bold red]Error during semantic validation:[/bold red] {e}")
+        raise click.Abort()
+
 @main.command()
 @click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
 @click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
 @click.option("--output", "-o", type=click.Path(), default="schema.sql", help="Path to output SQL file.")
+@click.option("--report", "-r", type=click.Path(), default=None, help="Optional path to output executive semantic validation report markdown file.")
 @click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
 @click.option("--self-correct/--no-self-correct", "-s", default=True, help="Enable self-correction loop.")
 @click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
 @click.option("--database", "--db", envvar="SPANNER_DATABASE", help="Full Cloud Spanner database resource path (e.g., projects/<project>/instances/<instance>/databases/<database>).")
-def run(input, shacl, output, mcp_url, mcp_tool, self_correct, model, database):
+def run(input, shacl, output, report, mcp_url, mcp_tool, self_correct, model, database):
     """End-to-End: Translate OWL ontology, validate syntax via MCP, and self-correct if needed."""
     console.print(Panel.fit(f"[bold green]Running End-to-End Pipeline[/bold green]\nInput: {input}\nSHACL: {shacl}\nOutput: {output}\nSelf-correct: {self_correct}", title="RDF to Spanner Graph DDL Pipeline"))
     
@@ -242,6 +304,22 @@ def run(input, shacl, output, mcp_url, mcp_tool, self_correct, model, database):
         console.print(f"[yellow]! Validation skipped (no MCP configuration provided). Saved DDL to {output}[/yellow]")
         return
         
+    def _generate_report_if_requested(target_ddl):
+        if report:
+            try:
+                with console.status("[yellow]Auditing schema & generating executive semantic validation report..."):
+                    rep = audit_spanner_schema(ttl_content, target_ddl, shacl_content)
+                rep_dir = os.path.dirname(os.path.abspath(report))
+                if rep_dir:
+                    os.makedirs(rep_dir, exist_ok=True)
+                with open(report, "w") as f:
+                    f.write(rep)
+                status, score = extract_validation_score(rep)
+                status_color = "green" if status == "PASS" else ("yellow" if status == "WARN" else "red")
+                console.print(f"[{status_color}]✓ Executive Semantic Validation Report generated: {status} ({score}) -> {report}[/{status_color}]")
+            except Exception as ex:
+                console.print(f"[yellow]Warning: Could not generate semantic report: {ex}[/yellow]")
+
     try:
         # Run first validation pass
         with console.status("[cyan]Connecting to MCP server and executing DDL..."):
@@ -251,6 +329,7 @@ def run(input, shacl, output, mcp_url, mcp_tool, self_correct, model, database):
             with open(output, "w") as f:
                 f.write(ddl)
             console.print(f"[bold green]✓ DDL validation successful![/bold green] Saved verified DDL to {output}")
+            _generate_report_if_requested(ddl)
             return
             
         # If validation fails, proceed to error logging and self-correction
@@ -316,6 +395,7 @@ def run(input, shacl, output, mcp_url, mcp_tool, self_correct, model, database):
                 telemetry["final_status"] = "SUCCESS"
                 telemetry["final_ddl"] = current_ddl
                 save_telemetry(input, telemetry)
+                _generate_report_if_requested(current_ddl)
                 return
                 
             # Log failure and loop again if attempts remain

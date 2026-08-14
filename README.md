@@ -27,8 +27,9 @@ To install this as a native plugin in your local **Antigravity CLI** installatio
    ```
 
 4. Restart your `agy` session. The plugin will automatically configure:
-   - **Native Agent Skill**: The translation skill (`skills/owl-to-spanner-property-graph-translator/SKILL.md`) is automatically loaded. This teaches the model the ontology-to-spanner mapping rules and critical Graph DDL constraints dynamically when a relevant translation task is active.
-   - **Custom Tools**: Registers `translate_rdf_to_spanner_graph_ddl` (translates Turtle OWL ontologies to Spanner Graph DDL) and `validate_spanner_graph_ddl` (validates Spanner DDL syntax using a Remote Spanner MCP server) as tools available to the model via the MCP server.
+   - **Native Translation Skill**: The translation skill ([`skills/owl-to-spanner-property-graph-translator/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/owl-to-spanner-property-graph-translator/SKILL.md)) teaches the model ontology-to-Spanner mapping rules, inheritance flattening, and property graph DDL constraints dynamically.
+   - **Native Semantic Validation Skill**: The validation skill ([`skills/spanner-graph-semantic-validator/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/spanner-graph-semantic-validator/SKILL.md)) audits generated schemas across 7 semantic dimensions and generates executive one-pager scorecards.
+   - **Custom Tools**: Registers `translate_rdf_to_spanner_graph_ddl` and `validate_spanner_graph_ddl` as tools available to the model via the MCP server.
 
 ---
 
@@ -61,7 +62,7 @@ pip install -e . --no-build-isolation
 
 ### CLI Commands
 
-The CLI supports three primary invocation patterns. Note that `GEMINI_API_KEY` (or Vertex AI Cloud credentials) must be set in your environment prior to running translation commands.
+The CLI supports four primary invocation patterns:
 
 #### Pattern 1: Pure Translation (Offline)
 Translates your RDF/OWL Turtle ontology (and optional SHACL shapes) directly to Spanner DDL without running syntax validation.
@@ -78,7 +79,7 @@ rdf-spanner-translator translate \
   --output output/schema.sql
 ```
 
-#### Pattern 2: DDL Validation Only Using Official Google Spanner MCP
+#### Pattern 2: DDL Syntactic Validation (Spanner Remote MCP)
 Validates the syntax of an existing Spanner DDL SQL file against the official Cloud Spanner MCP server.
 
 ```bash
@@ -96,40 +97,36 @@ rdf-spanner-translator validate \
   --mcp-tool "create_database"
 ```
 
-#### Pattern 3: End-to-End Pipeline (With Self-Correction Loop)
-Translates the RDF/OWL ontology (and optional SHACL shapes), runs the validation against Spanner, and automatically engages the self-correction loop if any syntax compilation errors are found.
+#### Pattern 3: Semantic Validation Audit (Validation Skill)
+Audits a generated schema against the source OWL ontology and SHACL shapes, producing an executive **One-Pager Semantic Validation Report & Scorecard** (`.md`) with renaming matrices, inheritance breakdowns, and visual Mermaid diagrams.
 
 ```bash
-# Set your target database path
-export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
-
-# A. Translate with SHACL shapes, test new database creation, and self-correct:
-rdf-spanner-translator run \
-  --input examples/fintech/fintech.ttl \
-  --shacl examples/fintech/shacl.ttl \
-  --output output/schema.sql \
-  --mcp-tool "create_database"
-
-# B. Translate with SHACL shapes, test schema updates on existing database, and self-correct:
-rdf-spanner-translator run \
-  --input examples/fintech/fintech.ttl \
-  --shacl examples/fintech/shacl.ttl \
-  --output output/schema.sql \
-  --mcp-tool "update_database_schema"
+rdf-spanner-translator validate-semantic \
+  --input tests/ontologies/01_simple_inheritance.ttl \
+  --ddl output/01_simple_inheritance_schema.sql \
+  --output output/01_simple_inheritance_validation_report.md
 ```
 
-### Self-Correction Loop
-When using the `run` command, the translator incorporates an automated self-correction flow. If Spanner's DDL validator returns compilation errors (such as naming collisions, key alignment mismatch, or foreign key syntax errors), the CLI captures the error diagnostics and sends them back to Gemini alongside the original OWL/Turtle file. The AI model analyzes the compiler errors, corrects the generated DDL schema, and submits it back to the Spanner MCP server for validation. This loop automatically continues for up to 3 attempts until a valid schema is produced.
+#### Pattern 4: End-to-End Pipeline (With Self-Correction & Semantic Reporting)
+Translates the RDF/OWL ontology, executes syntactic validation on Spanner, self-corrects if compiler errors occur, and optionally generates an executive semantic validation report.
+
+```bash
+export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
+
+# Translate, validate against Spanner, self-correct, and generate validation report:
+rdf-spanner-translator run \
+  --input examples/fintech/fintech.ttl \
+  --shacl examples/fintech/shacl.ttl \
+  --output output/fintech_schema.sql \
+  --report output/fintech_validation_report.md \
+  --mcp-tool "create_database"
+```
 
 ---
 
-## Running the Integration Test Suite
+## Running the Test Suite
 
-The repository includes a test runner script [`run_tests.py`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/run_tests.py) to automate translation and validation of the example ontologies. For each domain directory:
-- It runs a **No SHACL** test case (pure ontology translation).
-- If a `shacl.ttl` file exists in the directory, it also runs a **With SHACL** test case.
-
-It tracks verification outcomes and automatically cleans up and deletes all created test databases at the end of the run.
+The repository includes a test runner script [`run_tests.py`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/run_tests.py) to automate translation, syntactic DDL validation on Spanner, and semantic scorecard audits across both unit tests ([`tests/ontologies/`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/tests/ontologies/)) and domain examples ([`examples/`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/examples/)).
 
 ### Execution Guide
 
@@ -148,14 +145,15 @@ export SPANNER_INSTANCE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>"
 
 # 4. Run the suite
 
-# A. Run tests for ALL domains in examples/ folder (automatic database deletion at the end):
-./run_tests.py
+# A. Run all unit tests in tests/ontologies/ with Spanner syntax validation & semantic reports:
+python run_tests.py --unit-only
 
-# B. Run tests for specific domains only (separate via space or comma):
-./run_tests.py fintech,pharma
+# B. Run all domain examples in examples/:
+python run_tests.py --examples-only
 
-# C. Keep created test databases on Spanner for manual inspection (skips auto-cleanup):
-./run_tests.py fintech --no-cleanup
-# OR
-./run_tests.py --keep-databases
+# C. Run a specific test case:
+python run_tests.py 01_simple_inheritance
+
+# D. Keep created test databases on Spanner (skip auto-cleanup):
+python run_tests.py 01_simple_inheritance --no-cleanup
 ```

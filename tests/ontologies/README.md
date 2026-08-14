@@ -1,6 +1,18 @@
 # Unit Test Ontologies for Cloud Spanner Graph DDL Translator
 
-This directory contains modular test ontologies and companion SHACL shape definitions. Each test case isolates and verifies specific translation rules and semantic constraints specified in [`SKILL.md`](../../skills/owl-to-spanner-property-graph-translator/SKILL.md).
+This directory contains modular test ontologies and companion SHACL shape definitions. Each test case isolates and verifies specific translation rules and semantic constraints specified in [`owl-to-spanner-property-graph-translator`](../../skills/owl-to-spanner-property-graph-translator/SKILL.md) and is audited by [`spanner-graph-semantic-validator`](../../skills/spanner-graph-semantic-validator/SKILL.md).
+
+## Validation Strategy
+
+Validation operates across two complementary tiers:
+1. **Dialect & Syntactic Compliance:** Ensures the physical GoogleSQL DDL (`CREATE TABLE`) and Property Graph DDL (`CREATE PROPERTY GRAPH`) compile and execute cleanly on a Google Cloud Spanner instance via the official Spanner MCP server.
+2. **Semantic Validation & Audit Skill:** Generates an executive One-Pager Semantic Validation Report & Scorecard evaluating:
+   - **Schema Completeness:** Concrete vs. abstract class table mappings.
+   - **Inheritance & Propagation:** Top-down property flattening, bottom-up isolation, and multi-label hierarchy accumulation.
+   - **Property & Datatype Fidelity:** XSD datatypes, nullability (`NOT NULL` via `sh:minCount`), and cardinalities (`ARRAY<T>` via `sh:maxCount > 1`).
+   - **Relationship & Edge Fidelity:** Edge table connections, source/destination keys, inverse properties (`owl:inverseOf`), symmetric/transitive properties, and subproperty label inheritance.
+   - **Spanner Engine Semantics:** Label property signature uniformity, interleaved table primary key alignment, and stored generated columns.
+   - **Renaming Traceability & Visual Graph:** Complete mapping matrix from RDF URIs to SQL identifiers, accompanied by a Mermaid Property Graph diagram.
 
 ## Test Ontology Matrix
 
@@ -17,3 +29,20 @@ This directory contains modular test ontologies and companion SHACL shape defini
 | **`09_union_domains.ttl`** | Union Domains | Union Domain Propagation (Golden Execution Rule 1) | • `rdfs:domain` with `owl:unionOf (Individual Organization)`.<br>• Top-down propagation ensures every concrete leaf table of each union member receives the property column. |
 | **`10_shacl_advanced_constraints.ttl`<br>`10_shacl_advanced_constraints_shacl.ttl`** | SHACL Constraints & Polymorphism | SHACL Enums, Defaults, Nested Shapes & Polymorphic FKs (SHACL Rules 6, 7, 8) | • `sh:in` -> `CONSTRAINT CK_... CHECK (Column IN (...))`.<br>• `sh:hasValue` -> `DEFAULT` / `CHECK`.<br>• `sh:node` -> Flattened embedded attributes.<br>• Polymorphic `sh:class` referencing abstract class -> Omit SQL FK, map multi-target `EDGE TABLES`. |
 | **`11_comprehensive_schema.ttl`<br>`11_comprehensive_schema_shacl.ttl`** | Comprehensive Multi-Feature Schema | End-to-End Schema Translation & Full Feature Set | • Multi-tier inheritance, stored columns, inverse properties, subproperties, transitive hierarchies, symmetric edges, and SHACL shapes. |
+
+## Running Unit Tests & Semantic Audits
+
+```bash
+# Run all unit tests with live Spanner MCP verification and semantic reports:
+python run_tests.py --unit-only
+
+# Run a specific unit test ontology:
+python run_tests.py 01_simple_inheritance
+
+# Run standalone semantic validation on an existing schema:
+rdf-spanner-translator validate-semantic \
+  --input tests/ontologies/01_simple_inheritance.ttl \
+  --ddl output/01_simple_inheritance_schema.sql \
+  --output output/01_simple_inheritance_validation_report.md
+```
+
