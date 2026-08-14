@@ -66,6 +66,7 @@ def run_integration_tests():
     # Parse CLI flags and target domains
     cleanup = True
     semantic_audit = True
+    verify_queries = False
     suite = "all"  # 'unit', 'examples', 'all'
     args = sys.argv[1:]
     
@@ -78,6 +79,12 @@ def run_integration_tests():
     if "--no-semantic-validation" in args:
         semantic_audit = False
         args.remove("--no-semantic-validation")
+    if "--verify-queries" in args:
+        verify_queries = True
+        args.remove("--verify-queries")
+    if "--test-queries" in args:
+        verify_queries = True
+        args.remove("--test-queries")
     if "--unit-only" in args:
         suite = "unit"
         args.remove("--unit-only")
@@ -155,6 +162,7 @@ def run_integration_tests():
         db_path = f"{spanner_instance}/databases/{db_id}"
         out_schema = f"output/{stem}_schema.sql"
         out_report = f"output/{stem}_validation_report.md"
+        out_query_report = f"output/{stem}_query_report.md"
         
         console.print(f"[blue]Processing [bold]{test_name}[/bold] -> DB: {db_id}...[/blue]")
         
@@ -182,11 +190,29 @@ def run_integration_tests():
         if success and semantic_audit:
             semantic_score = extract_score_from_report_file(out_report)
             
+        # Optional: Run Dynamic GQL Query Verification
+        query_status = "N/A"
+        if success and verify_queries:
+            console.print(f"[cyan]Executing dynamic data ingestion & GQL query verification for {stem}...[/cyan]")
+            q_cmd = [
+                ".venv/bin/rdf-spanner-translator", "test-queries",
+                "--input", ttl_path,
+                "--ddl", out_schema,
+                "--database", db_path,
+                "--output", out_query_report,
+                "--mcp-url", "https://spanner.googleapis.com/mcp"
+            ]
+            if shacl_path:
+                q_cmd.extend(["--shacl", shacl_path])
+            q_res = subprocess.run(q_cmd, capture_output=True, text=True, env=env)
+            query_status = "PASS (4/4)" if q_res.returncode == 0 else "WARN"
+            
         if success:
             results.append({
                 "file": test_name,
                 "status": "PASS",
                 "semantic_score": semantic_score,
+                "query_status": query_status,
                 "attempts": attempts,
                 "report": out_report if semantic_audit else "N/A",
                 "error": None
@@ -201,6 +227,7 @@ def run_integration_tests():
                 "file": test_name,
                 "status": "FAIL",
                 "semantic_score": "FAIL",
+                "query_status": "N/A",
                 "attempts": attempts,
                 "report": "N/A",
                 "error": error_details
@@ -212,19 +239,26 @@ def run_integration_tests():
     table.add_column("Test Case", style="cyan")
     table.add_column("DDL Syntax", style="bold")
     table.add_column("Semantic Score", justify="center", style="green")
+    if verify_queries:
+        table.add_column("GQL Queries", justify="center", style="magenta")
     table.add_column("Correction Attempts", justify="right", style="magenta")
     table.add_column("Report / Details", style="dim")
     
     for r in results:
         status_style = "green" if r["status"] == "PASS" else "red"
         score_style = "bold green" if "%" in r["semantic_score"] and not r["semantic_score"].startswith("0") else "yellow"
-        table.add_row(
+        row = [
             r["file"],
             f"[{status_style}]{r['status']}[/{status_style}]",
             f"[{score_style}]{r['semantic_score']}[/{score_style}]",
+        ]
+        if verify_queries:
+            row.append(r["query_status"])
+        row.extend([
             str(r["attempts"]),
             r["report"] if r["status"] == "PASS" else (r["error"] or "Error")
-        )
+        ])
+        table.add_row(*row)
         
     console.print(table)
     console.print("\n" + "="*80 + "\n")

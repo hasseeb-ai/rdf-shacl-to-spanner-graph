@@ -29,6 +29,7 @@ To install this as a native plugin in your local **Antigravity CLI** installatio
 4. Restart your `agy` session. The plugin will automatically configure:
    - **Native Translation Skill**: The translation skill ([`skills/owl-to-spanner-property-graph-translator/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/owl-to-spanner-property-graph-translator/SKILL.md)) teaches the model ontology-to-Spanner mapping rules, inheritance flattening, and property graph DDL constraints dynamically.
    - **Native Semantic Validation Skill**: The validation skill ([`skills/spanner-graph-semantic-validator/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/spanner-graph-semantic-validator/SKILL.md)) audits generated schemas across 7 semantic dimensions and generates executive one-pager scorecards.
+   - **Native Query Verification Skill**: The query verification skill ([`skills/spanner-graph-query-verifier/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/spanner-graph-query-verifier/SKILL.md)) synthesizes coherent test data (SQL `INSERT`s) and 4 GQL query archetypes.
    - **Custom Tools**: Registers `translate_rdf_to_spanner_graph_ddl` and `validate_spanner_graph_ddl` as tools available to the model via the MCP server.
 
 ---
@@ -62,7 +63,7 @@ pip install -e . --no-build-isolation
 
 ### CLI Commands
 
-The CLI supports four primary invocation patterns:
+The CLI supports five primary invocation patterns:
 
 #### Pattern 1: Pure Translation (Offline)
 Translates your RDF/OWL Turtle ontology (and optional SHACL shapes) directly to Spanner DDL without running syntax validation.
@@ -107,7 +108,18 @@ rdf-spanner-translator validate-semantic \
   --output output/01_simple_inheritance_validation_report.md
 ```
 
-#### Pattern 4: End-to-End Pipeline (With Self-Correction & Semantic Reporting)
+#### Pattern 4: Dynamic Data Ingestion & GQL Query Verification (Query Verifier Skill)
+Synthesizes coherent mock relational data (SQL `INSERT`s) and executes 4 representative GQL queries live on Spanner to verify multi-label polymorphism, multi-hop traversal, and property filtering.
+
+```bash
+rdf-spanner-translator test-queries \
+  --input tests/ontologies/01_simple_inheritance.ttl \
+  --ddl output/01_simple_inheritance_schema.sql \
+  --database $SPANNER_DATABASE \
+  --output output/01_simple_inheritance_query_report.md
+```
+
+#### Pattern 5: End-to-End Pipeline (With Self-Correction & Semantic Reporting)
 Translates the RDF/OWL ontology, executes syntactic validation on Spanner, self-corrects if compiler errors occur, and optionally generates an executive semantic validation report.
 
 ```bash
@@ -126,7 +138,7 @@ rdf-spanner-translator run \
 
 ## Running the Test Suite
 
-The repository includes a test runner script [`run_tests.py`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/run_tests.py) to automate translation, syntactic DDL validation on Spanner, and semantic scorecard audits across both unit tests ([`tests/ontologies/`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/tests/ontologies/)) and domain examples ([`examples/`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/examples/)).
+The repository includes a test runner script [`run_tests.py`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/run_tests.py) to automate translation, syntactic DDL validation on Spanner, semantic scorecard audits, and dynamic GQL query verification across both unit tests ([`tests/ontologies/`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/tests/ontologies/)) and domain examples ([`examples/`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/examples/)).
 
 ### Execution Guide
 
@@ -145,15 +157,18 @@ export SPANNER_INSTANCE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>"
 
 # 4. Run the suite
 
-# A. Run all unit tests in tests/ontologies/ with Spanner syntax validation & semantic reports:
+# A. Run all unit tests with live Spanner validation & semantic reports:
 python run_tests.py --unit-only
 
-# B. Run all domain examples in examples/:
+# B. Run all unit tests including dynamic data ingestion & live GQL query execution:
+python run_tests.py --unit-only --verify-queries
+
+# C. Run all domain examples in examples/:
 python run_tests.py --examples-only
 
-# C. Run a specific test case:
-python run_tests.py 01_simple_inheritance
+# D. Run a specific test case:
+python run_tests.py 01_simple_inheritance --verify-queries
 
-# D. Keep created test databases on Spanner (skip auto-cleanup):
+# E. Keep created test databases on Spanner (skip auto-cleanup):
 python run_tests.py 01_simple_inheritance --no-cleanup
 ```

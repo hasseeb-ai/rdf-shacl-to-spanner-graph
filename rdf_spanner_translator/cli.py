@@ -20,6 +20,7 @@ from rdf_spanner_translator.translator import (
     extract_validation_score
 )
 from rdf_spanner_translator.validator import validate_ddl, check_database_existence
+from rdf_spanner_translator.query_verifier import run_query_verification
 import json
 from datetime import datetime, timezone
 
@@ -228,6 +229,49 @@ def validate_semantic_command(input, shacl, ddl, output, model):
         
     except Exception as e:
         console.print(f"[bold red]Error during semantic validation:[/bold red] {e}")
+        raise click.Abort()
+
+@main.command("test-queries")
+@click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
+@click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
+@click.option("--ddl", "-d", type=click.Path(exists=True), required=True, help="Path to generated Spanner SQL DDL file.")
+@click.option("--database", "--db", envvar="SPANNER_DATABASE", required=True, help="Full Cloud Spanner database resource path.")
+@click.option("--output", "-o", type=click.Path(), default="query_report.md", help="Path to output markdown query report.")
+@click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
+@click.option("--model", "-m", default="gemini-2.5-pro", help="Gemini model to use.")
+def test_queries_command(input, shacl, ddl, database, output, mcp_url, model):
+    """Synthesize coherent relational mock data, ingest into Spanner, and execute 4 GQL queries."""
+    console.print(Panel.fit(
+        f"[bold cyan]Running Dynamic Data & GQL Query Verification[/bold cyan]\n"
+        f"Source Ontology: {input}\n"
+        f"SHACL Shapes: {shacl or 'None'}\n"
+        f"Target DDL: {ddl}\n"
+        f"Spanner Database: {database}\n"
+        f"Report Output: {output}\n"
+        f"Model: {model}",
+        title="Spanner Graph Query Verifier"
+    ))
+    
+    try:
+        with console.status("[yellow]Synthesizing data, executing DML, and running 4 GQL query archetypes..."):
+            all_passed, report_md = run_query_verification(
+                ttl_path=input,
+                ddl_path=ddl,
+                database=database,
+                shacl_path=shacl,
+                mcp_url=mcp_url,
+                model_name=model,
+                output_report=output
+            )
+            
+        status_str = "SUCCESS" if all_passed else "WARNING (Some queries failed)"
+        status_color = "green" if all_passed else "yellow"
+        
+        console.print(f"[{status_color}]✓ Dynamic GQL Query Verification Complete: {status_str}[/{status_color}]")
+        console.print(f"Executive query report saved to [bold cyan]{output}[/bold cyan]")
+        
+    except Exception as e:
+        console.print(f"[bold red]Error during query verification:[/bold red] {e}")
         raise click.Abort()
 
 @main.command()
