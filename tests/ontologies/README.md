@@ -40,9 +40,9 @@ python run_tests.py 01_simple_inheritance --verify-queries
 # 4. Standalone dynamic query testing on an existing database:
 rdf-spanner-translator test-queries \
   --input tests/ontologies/01_simple_inheritance.ttl \
-  --ddl output/01_simple_inheritance_schema.sql \
+  --ddl output/unit_tests/01_simple_inheritance_schema.sql \
   --database $SPANNER_DATABASE \
-  --output output/01_simple_inheritance_query_report.md
+  --output output/unit_tests/01_simple_inheritance_query_report.md
 ```
 
 

@@ -143,26 +143,29 @@ def run_integration_tests():
                     })
                     
     if not test_items:
-        console.print("[bold yellow]No matching Turtle (.ttl) test ontology files found.[/bold yellow]")
+        console.print("[yellow]No test cases or domain examples matched the filter.[/yellow]")
         sys.exit(0)
         
-    console.print(f"[bold green]Starting translation & validation suite for {len(test_items)} ontologies...[/bold green]\n")
+    console.print(f"[bold green]Starting validation suite ({len(test_items)} test target(s))...[/bold green]\n")
     
     results = []
     created_databases = []
     
-    # Run test loop
     for item in test_items:
         stem = item["stem"]
         ttl_path = item["ttl"]
         shacl_path = item["shacl"]
         test_name = item["name"]
+        is_unit = item["is_unit"]
+        
+        category_dir = "unit_tests" if is_unit else "examples"
+        os.makedirs(f"output/{category_dir}", exist_ok=True)
         
         db_id = f"t_{uuid.uuid4().hex[:8]}"
         db_path = f"{spanner_instance}/databases/{db_id}"
-        out_schema = f"output/{stem}_schema.sql"
-        out_report = f"output/{stem}_validation_report.md"
-        out_query_report = f"output/{stem}_query_report.md"
+        out_schema = f"output/{category_dir}/{stem}_schema.sql"
+        out_report = f"output/{category_dir}/{stem}_validation_report.md"
+        out_query_report = f"output/{category_dir}/{stem}_query_report.md"
         
         console.print(f"[blue]Processing [bold]{test_name}[/bold] -> DB: {db_id}...[/blue]")
         
@@ -190,7 +193,6 @@ def run_integration_tests():
         if success and semantic_audit:
             semantic_score = extract_score_from_report_file(out_report)
             
-        # Optional: Run Dynamic GQL Query Verification
         query_status = "N/A"
         if success and verify_queries:
             console.print(f"[cyan]Executing dynamic data ingestion & GQL query verification for {stem}...[/cyan]")
@@ -206,6 +208,17 @@ def run_integration_tests():
                 q_cmd.extend(["--shacl", shacl_path])
             q_res = subprocess.run(q_cmd, capture_output=True, text=True, env=env)
             query_status = "PASS (4/4)" if q_res.returncode == 0 else "WARN"
+            
+        # Optional: Bundle artifacts directly into examples/<domain>/ folder
+        if success and bundle_examples and not is_unit:
+            domain_dir = os.path.dirname(ttl_path)
+            import shutil
+            if os.path.exists(out_schema):
+                shutil.copyfile(out_schema, os.path.join(domain_dir, "schema.sql"))
+            if os.path.exists(out_report):
+                shutil.copyfile(out_report, os.path.join(domain_dir, "validation_report.md"))
+            if os.path.exists(out_query_report):
+                shutil.copyfile(out_query_report, os.path.join(domain_dir, "query_report.md"))
             
         if success:
             results.append({

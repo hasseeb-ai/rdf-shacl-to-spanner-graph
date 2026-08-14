@@ -155,7 +155,7 @@ pip install -e . --no-build-isolation
 export GEMINI_API_KEY="your-gemini-api-key"
 export SPANNER_INSTANCE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>"
 
-# 4. Run the suite
+# 4. Run the suite (Outputs generated into output/unit_tests/ or output/examples/)
 
 # A. Run all unit tests with live Spanner validation & semantic reports:
 python run_tests.py --unit-only
@@ -163,8 +163,8 @@ python run_tests.py --unit-only
 # B. Run all unit tests including dynamic data ingestion & live GQL query execution:
 python run_tests.py --unit-only --verify-queries
 
-# C. Run all domain examples in examples/:
-python run_tests.py --examples-only
+# C. Run all domain examples and bundle verified schemas/reports directly into examples/<domain>/:
+python run_tests.py --examples-only --bundle-examples
 
 # D. Run a specific test case:
 python run_tests.py 01_simple_inheritance --verify-queries
