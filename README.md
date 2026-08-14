@@ -8,29 +8,29 @@ A **Antigravity CLI plugin** and standalone CLI tool that translates RDF/OWL ont
 
 To install this as a native plugin in your local **Antigravity CLI** installation:
 
-1. Clone this repository and navigate to the directory:
-   ```bash
-   git clone <repo-url> rdf-shacl-to-spanner-graph
-   cd rdf-shacl-to-spanner-graph
-   ```
+- Clone this repository and navigate to the directory:
+  ```bash
+  git clone <repo-url> rdf-shacl-to-spanner-graph
+  cd rdf-shacl-to-spanner-graph
+  ```
 
-2. Set up a virtual environment and install the dependencies:
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   pip install -r requirements.txt
-   ```
+- Set up a virtual environment and install the dependencies:
+  ```bash
+  python3 -m venv .venv
+  source .venv/bin/activate
+  pip install -r requirements.txt
+  ```
 
-3. Install the plugin using the `agy` CLI:
-   ```bash
-   agy plugin install .
-   ```
+- Install the plugin using the `agy` CLI:
+  ```bash
+  agy plugin install .
+  ```
 
-4. Restart your `agy` session. The plugin will automatically configure:
-   - **Native Translation Skill**: The translation skill ([`skills/owl-to-spanner-property-graph-translator/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/owl-to-spanner-property-graph-translator/SKILL.md)) teaches the model ontology-to-Spanner mapping rules, inheritance flattening, and property graph DDL constraints dynamically.
-   - **Native Semantic Validation Skill**: The validation skill ([`skills/spanner-graph-semantic-validator/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/spanner-graph-semantic-validator/SKILL.md)) audits generated schemas across 7 semantic dimensions and generates executive one-pager scorecards.
-   - **Native Query Verification Skill**: The query verification skill ([`skills/spanner-graph-query-verifier/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/spanner-graph-query-verifier/SKILL.md)) synthesizes coherent test data (SQL `INSERT`s) and 4 GQL query archetypes.
-   - **Custom Tools**: Registers `translate_rdf_to_spanner_graph_ddl` and `validate_spanner_graph_ddl` as tools available to the model via the MCP server.
+- Restart your `agy` session. The plugin will automatically configure:
+  - **Native Translation Skill**: The translation skill ([`skills/owl-to-spanner-property-graph-translator/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/owl-to-spanner-property-graph-translator/SKILL.md)) teaches the model ontology-to-Spanner mapping rules, inheritance flattening, and property graph DDL constraints dynamically.
+  - **Native Semantic Validation Skill**: The validation skill ([`skills/spanner-graph-semantic-validator/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/spanner-graph-semantic-validator/SKILL.md)) audits generated schemas across 7 semantic dimensions and generates executive one-pager scorecards.
+  - **Native Query Verification Skill**: The query verification skill ([`skills/spanner-graph-query-verifier/SKILL.md`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/skills/spanner-graph-query-verifier/SKILL.md)) synthesizes coherent test data (SQL `INSERT`s) and 4 GQL query archetypes.
+  - **Custom Tools**: Registers `translate_rdf_to_spanner_graph_ddl` and `validate_spanner_graph_ddl` as tools available to the model via the MCP server.
 
 ---
 
@@ -38,12 +38,12 @@ To install this as a native plugin in your local **Antigravity CLI** installatio
 
 The plugin and standalone CLI require access to the Gemini API. You can configure authentication using one of two methods:
 
-### 1. Google AI Studio (API Key)
+### Google AI Studio (API Key)
 ```bash
 export GEMINI_API_KEY="your-api-key-here"
 ```
 
-### 2. Vertex AI (Google Cloud ADC)
+### Vertex AI (Google Cloud ADC)
 If `GEMINI_API_KEY` is not set, the tool falls back to Vertex AI. Authenticate using Application Default Credentials:
 ```bash
 gcloud auth application-default login
@@ -68,17 +68,17 @@ The CLI is organized into **3 core commands** (`translate`, `validate`, and `pip
 | Command | Operational Usage | Key Parameters & Flags | Description |
 | :--- | :--- | :--- | :--- |
 | **`translate`** | **Offline Translation** | `-i, --input <ont.ttl>`<br>`-s, --shacl <shacl.ttl>`<br>`-o, --output <schema.sql>`<br>`-m, --model <gemini-3.5-flash>` | Translates OWL Turtle ontologies and companion SHACL shapes into GoogleSQL & Spanner Property Graph DDL offline. |
-| **`validate`** | **Tier 1: Syntax Check** | `-d, --ddl <schema.sql>`<br>`--syntax-only` (or `--mode syntax`)<br>`--database <db_path>`<br>`-t, --mcp-tool <tool_name>` | Validates that physical and logical DDL compiles cleanly against Cloud Spanner via the Remote Spanner MCP server. |
-| | **Tier 2: Semantic Scorecard** | `-i, --input <ont.ttl>`<br>`-d, --ddl <schema.sql>`<br>`-s, --shacl <shacl.ttl>`<br>`--semantic-only` (or `--mode semantic`)<br>`-o, --output <report.md>` | Audits generated DDL against 7 semantic dimensions (completeness, inheritance, edge connections, invariants) producing an executive scorecard. |
-| | **Tier 3: Dynamic GQL Queries** | `-i, --input <ont.ttl>`<br>`-d, --ddl <schema.sql>`<br>`--database <db_path>`<br>`--queries-only` (or `--mode queries`)<br>`-o, --output <report.md>` | Synthesizes linked test fixtures (DML), ingests them into Spanner, executes 4 GQL queries live, and synthesizes an executive execution report. |
-| | **Full 3-Tier Validation** | `-i, --input <ont.ttl>`<br>`-d, --ddl <schema.sql>`<br>`--database <db_path>`<br>`--mode all` (Default) | Runs all 3 validation tiers sequentially (Syntax Check $\to$ Semantic Scorecard $\to$ Dynamic GQL Queries). |
+| **`validate`** | **Syntax Compilation Check** | `-d, --ddl <schema.sql>`<br>`--syntax-only` (or `--mode syntax`)<br>`--database <db_path>`<br>`-t, --mcp-tool <tool_name>` | Validates that physical and logical DDL compiles cleanly against Cloud Spanner via the Remote Spanner MCP server. |
+| | **Semantic Audit Scorecard** | `-i, --input <ont.ttl>`<br>`-d, --ddl <schema.sql>`<br>`-s, --shacl <shacl.ttl>`<br>`--semantic-only` (or `--mode semantic`)<br>`-o, --output <report.md>` | Audits generated DDL against 7 semantic dimensions (completeness, inheritance, edge connections, invariants) producing an executive scorecard. |
+| | **Dynamic GQL Query Verification** | `-i, --input <ont.ttl>`<br>`-d, --ddl <schema.sql>`<br>`--database <db_path>`<br>`--queries-only` (or `--mode queries`)<br>`-o, --output <report.md>` | Synthesizes linked test fixtures (DML), ingests them into Spanner, executes 4 GQL queries live, and synthesizes an executive execution report. |
+| | **Full Multi-Level Validation** | `-i, --input <ont.ttl>`<br>`-d, --ddl <schema.sql>`<br>`--database <db_path>`<br>`--mode all` (Default) | Runs all validation stages sequentially (Syntax Check $\to$ Semantic Scorecard $\to$ Dynamic GQL Queries). |
 | **`pipeline`** | **Automated End-to-End** | `-i, --input <ont.ttl>`<br>`-s, --shacl <shacl.ttl>`<br>`-o, --output <schema.sql>`<br>`--database <db_path>`<br>`-r, --report <report.md>`<br>`--verify-queries` | Complete automated workflow: Translates ontology, validates syntax on Spanner, auto-corrects compiler errors (up to 3x), audits semantics, and tests queries. |
 
 ---
 
 ### Command Examples
 
-#### 1. `translate` (Offline Generation)
+#### `translate` (Offline Generation)
 ```bash
 # Translate ontology and SHACL shapes to Spanner DDL:
 rdf-spanner-translator translate \
@@ -87,24 +87,24 @@ rdf-spanner-translator translate \
   --output output/examples/fintech_schema.sql
 ```
 
-#### 2. `validate` (Targeted or Full Multi-Tier Validation)
+#### `validate` (Targeted or Comprehensive Validation)
 ```bash
 export SPANNER_DATABASE="projects/<PROJECT>/instances/<INSTANCE>/databases/<DATABASE>"
 
-# A. Tier 1: Syntax compilation check only
+# Syntax compilation check only
 rdf-spanner-translator validate \
   --ddl output/examples/fintech_schema.sql \
   --database $SPANNER_DATABASE \
   --syntax-only
 
-# B. Tier 2: Static semantic audit scorecard
+# Static semantic audit scorecard
 rdf-spanner-translator validate \
   --input examples/fintech/fintech.ttl \
   --ddl output/examples/fintech_schema.sql \
   --output output/examples/fintech_validation_report.md \
   --semantic-only
 
-# C. Tier 3: Dynamic data ingestion & live GQL query testing
+# Dynamic data ingestion & live GQL query testing
 rdf-spanner-translator validate \
   --input examples/fintech/fintech.ttl \
   --ddl output/examples/fintech_schema.sql \
@@ -112,7 +112,7 @@ rdf-spanner-translator validate \
   --output output/examples/fintech_query_report.md \
   --queries-only
 
-# D. Full 3-Tier Validation in one command:
+# Full validation in one command:
 rdf-spanner-translator validate \
   --input examples/fintech/fintech.ttl \
   --ddl output/examples/fintech_schema.sql \
@@ -120,7 +120,7 @@ rdf-spanner-translator validate \
   --mode all
 ```
 
-#### 3. `pipeline` (End-to-End Automated Pipeline)
+#### `pipeline` (End-to-End Automated Pipeline)
 ```bash
 export SPANNER_DATABASE="projects/<PROJECT>/instances/<INSTANCE>/databases/<DATABASE>"
 
@@ -143,32 +143,30 @@ The repository includes a test runner script [`run_tests.py`](file:///Users/hass
 ### Execution Guide
 
 ```bash
-# 1. Create and activate a python virtual environment
+# Create and activate a python virtual environment
 python3 -m venv .venv
 source .venv/bin/activate
 
-# 2. Install dependencies & translator CLI package
+# Install dependencies & translator CLI package
 pip install -r requirements.txt
 pip install -e . --no-build-isolation
 
-# 3. Configure credentials & target Spanner instance
+# Configure credentials & target Spanner instance
 export GEMINI_API_KEY="your-gemini-api-key"
 export SPANNER_INSTANCE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>"
 
-# 4. Run the suite (Outputs generated into output/unit_tests/ or output/examples/)
-
-# A. Run all unit tests with live Spanner validation & semantic reports:
+# Run all unit tests with live Spanner validation & semantic reports:
 python run_tests.py --unit-only
 
-# B. Run all unit tests including dynamic data ingestion & live GQL query execution:
+# Run all unit tests with dynamic data ingestion & live GQL query execution:
 python run_tests.py --unit-only --verify-queries
 
-# C. Run all domain examples and bundle verified schemas/reports directly into examples/<domain>/:
+# Run all domain examples and bundle verified schemas/reports directly into examples/<domain>/:
 python run_tests.py --examples-only --bundle-examples
 
-# D. Run a specific test case:
+# Run a specific test case:
 python run_tests.py 01_simple_inheritance --verify-queries
 
-# E. Keep created test databases on Spanner (skip auto-cleanup):
+# Keep created test databases on Spanner (skip auto-cleanup):
 python run_tests.py 01_simple_inheritance --no-cleanup
 ```

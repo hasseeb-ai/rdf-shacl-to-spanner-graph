@@ -2,12 +2,12 @@
 
 This directory contains modular test ontologies and companion SHACL shape definitions. Each test case isolates and verifies specific translation rules and semantic constraints specified in [`owl-to-spanner-property-graph-translator`](../../skills/owl-to-spanner-property-graph-translator/SKILL.md), audited by [`spanner-graph-semantic-validator`](../../skills/spanner-graph-semantic-validator/SKILL.md), and verified dynamically by [`spanner-graph-query-verifier`](../../skills/spanner-graph-query-verifier/SKILL.md).
 
-## Validation Strategy (3-Tier Verification)
+## Validation Strategy
 
-Validation operates across three comprehensive tiers:
-1. **Tier 1: Dialect & Syntactic Compliance:** Ensures the physical GoogleSQL DDL (`CREATE TABLE`) and Property Graph DDL (`CREATE PROPERTY GRAPH`) compile and execute cleanly on a Google Cloud Spanner instance via the official Spanner MCP server.
-2. **Tier 2: Semantic Validation & Scorecard:** Audits the schema across 7 semantic dimensions (completeness, renaming traceability, inheritance flattening, property isolation, XSD types, edge connectivity, and Spanner engine invariants), producing an executive one-pager report (`output/<test>_validation_report.md`).
-3. **Tier 3: Dynamic Data Ingestion & GQL Query Verification:** Generates coherent, connected mock fixtures (SQL `INSERT`s) and executes 4 representative GQL queries live against Cloud Spanner to verify multi-label polymorphism, multi-hop traversal, inverse aliasing, and property filtering, generating `output/<test>_query_report.md`.
+Validation operates across three comprehensive stages:
+- **Dialect & Syntactic Compliance:** Ensures the physical GoogleSQL DDL (`CREATE TABLE`) and Property Graph DDL (`CREATE PROPERTY GRAPH`) compile and execute cleanly on a Google Cloud Spanner instance via the official Spanner MCP server.
+- **Semantic Validation & Scorecard:** Audits the schema across 7 semantic dimensions (completeness, renaming traceability, inheritance flattening, property isolation, XSD types, edge connectivity, and Spanner engine invariants), producing an executive one-pager report (`output/unit_tests/<test>_validation_report.md`).
+- **Dynamic Data Ingestion & GQL Query Verification:** Generates coherent, connected mock fixtures (SQL `INSERT`s) and executes 4 representative GQL queries live against Cloud Spanner to verify multi-label polymorphism, multi-hop traversal, inverse aliasing, and property filtering, generating `output/unit_tests/<test>_query_report.md`.
 
 ## Test Ontology Matrix
 
@@ -28,16 +28,16 @@ Validation operates across three comprehensive tiers:
 ## Running Unit Tests & Dynamic Query Verification
 
 ```bash
-# 1. Run all unit tests with live Spanner MCP verification and semantic reports:
+# Run all unit tests with live Spanner MCP verification and semantic reports:
 python run_tests.py --unit-only
 
-# 2. Run all unit tests including dynamic data ingestion & GQL query verification:
+# Run all unit tests including dynamic data ingestion & GQL query verification:
 python run_tests.py --unit-only --verify-queries
 
-# 3. Run a specific unit test ontology:
+# Run a specific unit test ontology:
 python run_tests.py 01_simple_inheritance --verify-queries
 
-# 4. Standalone dynamic query testing on an existing database:
+# Standalone dynamic query testing on an existing database:
 rdf-spanner-translator validate \
   --input tests/ontologies/01_simple_inheritance.ttl \
   --ddl output/unit_tests/01_simple_inheritance_schema.sql \
