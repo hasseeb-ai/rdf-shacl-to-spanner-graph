@@ -72,7 +72,7 @@ The CLI is organized into **3 core commands** (`translate`, `validate`, and `pip
 | | **Semantic Audit Scorecard** | `--input <ont.ttl>`<br>`--ddl <schema.sql>`<br>`--shacl <shacl.ttl>`<br>`--output <report.md>`<br>`--semantic-only` | Audits generated DDL against 7 semantic dimensions (completeness, inheritance, edge connections, invariants) producing an executive scorecard. |
 | | **Dynamic GQL Query Verification** | `--input <ont.ttl>`<br>`--ddl <schema.sql>`<br>`--database <db_path>`<br>`--output <report.md>`<br>`--queries-only` | Synthesizes linked test fixtures (DML), ingests them into Spanner, executes 4 GQL queries live, and synthesizes an executive execution report. |
 | | **Full Multi-Level Validation** | `--input <ont.ttl>`<br>`--ddl <schema.sql>`<br>`--database <db_path>`<br>`--mode all` (Default) | Runs all validation stages sequentially (Syntax Check $\to$ Semantic Scorecard $\to$ Dynamic GQL Queries). |
-| **`pipeline`** | **Automated End-to-End** | `--input <ont.ttl>`<br>`--shacl <shacl.ttl>`<br>`--output <schema.sql>`<br>`--database <db_path>`<br>`--report <report.md>`<br>`--verify-queries` | Complete automated workflow: Translates ontology, validates syntax on Spanner, auto-corrects compiler errors (up to 3x), audits semantics, and tests queries. |
+| **`pipeline`** | **Automated End-to-End** | `--input <ont.ttl \| dir>`<br>`--instance <instance_path>`<br>`--database <db_path>`<br>`--shacl <shacl.ttl>`<br>`--output <schema.sql>`<br>`--report <report.md>`<br>`--verify-queries`<br>`--cleanup / --no-cleanup` | Complete automated workflow: Translates ontology (or entire directory in batch mode), validates syntax on Spanner, auto-corrects compiler errors, audits semantics, tests queries, and cleans up test databases. |
 
 ---
 
@@ -123,8 +123,9 @@ rdf-spanner-translator validate \
 #### `pipeline` (End-to-End Automated Pipeline)
 ```bash
 export SPANNER_DATABASE="projects/<PROJECT>/instances/<INSTANCE>/databases/<DATABASE>"
+export SPANNER_INSTANCE="projects/<PROJECT>/instances/<INSTANCE>"
 
-# Translate, validate live on Spanner, auto-correct if needed, and generate reports:
+# Single ontology end-to-end pipeline:
 rdf-spanner-translator pipeline \
   --input examples/fintech/fintech.ttl \
   --shacl examples/fintech/shacl.ttl \
@@ -132,41 +133,16 @@ rdf-spanner-translator pipeline \
   --report output/examples/fintech_validation_report.md \
   --database $SPANNER_DATABASE \
   --verify-queries
-```
 
----
+# Batch pipeline for all unit test ontologies (with summary scorecard & cleanup):
+rdf-spanner-translator pipeline \
+  --input tests/ontologies/ \
+  --instance $SPANNER_INSTANCE \
+  --verify-queries
 
-## Running the Test Suite
-
-The repository includes a test runner script [`run_tests.py`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/run_tests.py) to automate translation, syntactic DDL validation on Spanner, semantic scorecard audits, and dynamic GQL query verification across both unit tests ([`tests/ontologies/`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/tests/ontologies/)) and domain examples ([`examples/`](file:///Users/hasseeb/rdf-shacl-to-spanner-graph/examples/)).
-
-### Execution Guide
-
-```bash
-# Create and activate a python virtual environment
-python3 -m venv .venv
-source .venv/bin/activate
-
-# Install dependencies & translator CLI package
-pip install -r requirements.txt
-pip install -e . --no-build-isolation
-
-# Configure credentials & target Spanner instance
-export GEMINI_API_KEY="your-gemini-api-key"
-export SPANNER_INSTANCE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>"
-
-# Run all unit tests with live Spanner validation & semantic reports:
-python run_tests.py --unit-only
-
-# Run all unit tests with dynamic data ingestion & live GQL query execution:
-python run_tests.py --unit-only --verify-queries
-
-# Run all domain examples and bundle verified schemas/reports directly into examples/<domain>/:
-python run_tests.py --examples-only --bundle-examples
-
-# Run a specific test case:
-python run_tests.py 01_simple_inheritance --verify-queries
-
-# Keep created test databases on Spanner (skip auto-cleanup):
-python run_tests.py 01_simple_inheritance --no-cleanup
+# Batch pipeline for all domain examples with self-contained bundling:
+rdf-spanner-translator pipeline \
+  --input examples/ \
+  --instance $SPANNER_INSTANCE \
+  --bundle-examples
 ```

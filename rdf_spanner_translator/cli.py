@@ -7,9 +7,17 @@ This module uses the Click framework to expose command-line utilities for:
 """
 
 import os
+import sys
+import glob
+import json
+import uuid
+import shutil
+import subprocess
+from datetime import datetime, timezone
 import click
 from rich.console import Console
 from rich.panel import Panel
+from rich.table import Table
 from rich.syntax import Syntax
 
 from rdf_spanner_translator.parser import validate_rdf_file
@@ -21,8 +29,6 @@ from rdf_spanner_translator.translator import (
 )
 from rdf_spanner_translator.validator import validate_ddl, check_database_existence
 from rdf_spanner_translator.query_verifier import run_query_verification
-import json
-from datetime import datetime, timezone
 
 # Initialize Rich console for stylized and formatted terminal outputs
 console = Console()
@@ -254,29 +260,289 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
                 )
             status_str = "SUCCESS (4/4 Queries Passed)" if all_passed else "WARNING (Some queries encountered issues)"
             status_color = "green" if all_passed else "yellow"
-            console.print(f"[{status_color}]✓ Tier 3 Complete: {status_str}[/{status_color}]")
+            console.print(f"[{status_color}]✓ Verification Complete: {status_str}[/{status_color}]")
             console.print(f"Executive query report saved to [bold cyan]{query_report_file}[/bold cyan]")
 
 
+def discover_ontologies(dir_path: str) -> list[dict]:
+    """Discovers all Turtle ontologies and companion SHACL shapes in a directory or directory tree."""
+    items = []
+    
+    # Check if direct flat directory (like tests/ontologies/)
+    flat_ttls = sorted(glob.glob(os.path.join(dir_path, "*.ttl")))
+    if flat_ttls:
+        for uttl in flat_ttls:
+            base_name = os.path.basename(uttl)
+            if base_name.endswith("_shacl.ttl") or base_name == "shacl.ttl":
+                continue
+            stem = base_name[:-4]
+            companion_shacl = os.path.join(dir_path, f"{stem}_shacl.ttl")
+            if not os.path.exists(companion_shacl):
+                companion_shacl = None
+            items.append({
+                "name": stem,
+                "stem": stem,
+                "ttl": uttl,
+                "shacl": companion_shacl,
+                "is_unit": "test" in dir_path.lower()
+            })
+        return items
+
+    # Check for domain subdirectories (like examples/<domain>/)
+    for entry in sorted(os.listdir(dir_path)):
+        sub_dir = os.path.join(dir_path, entry)
+        if os.path.isdir(sub_dir):
+            ont_file = os.path.join(sub_dir, f"{entry}.ttl")
+            if os.path.exists(ont_file):
+                shacl_file = os.path.join(sub_dir, "shacl.ttl")
+                items.append({
+                    "name": f"Example: {entry}",
+                    "stem": entry,
+                    "ttl": ont_file,
+                    "shacl": shacl_file if os.path.exists(shacl_file) else None,
+                    "is_unit": False
+                })
+    return items
+
+
+def cleanup_spanner_databases(databases: list[str], instance_path: str, auto_delete: bool = True):
+    """Deletes temporary Spanner databases created during testing, or prints cleanup commands."""
+    if not databases or not instance_path:
+        return
+        
+    parts = instance_path.split("/")
+    if len(parts) >= 4 and parts[0] == "projects" and parts[2] == "instances":
+        project_id = parts[1]
+        instance_id = parts[3]
+    else:
+        return
+        
+    if auto_delete:
+        console.print("\n[bold yellow]Cleaning up created test databases...[/bold yellow]")
+        for db in databases:
+            console.print(f"Deleting database [cyan]{db}[/cyan]...")
+            cmd = [
+                "gcloud", "spanner", "databases", "delete", db,
+                "--instance", instance_id,
+                "--project", project_id,
+                "--quiet"
+            ]
+            subprocess.run(cmd, capture_output=True)
+        console.print("[bold green]✓ Database cleanup complete![/bold green]")
+    else:
+        console.print("\n[bold yellow]CLEANUP INSTRUCTIONS (Database Deletion Skipped):[/bold yellow]")
+        console.print("Execute the following to delete created test databases:")
+        console.print("```bash")
+        for db in databases:
+            console.print(f"gcloud spanner databases delete {db} --instance={instance_id} --project={project_id} --quiet")
+        console.print("```")
+
+
 @main.command()
-@click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
+@click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file or directory of ontologies.")
 @click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
-@click.option("--output", "-o", type=click.Path(), default="schema.sql", help="Path to output SQL file.")
+@click.option("--output", "-o", type=click.Path(), default=None, help="Path to output SQL file (or output directory in batch mode).")
 @click.option("--report", "-r", type=click.Path(), default=None, help="Optional path to output executive semantic validation report.")
 @click.option("--verify-queries/--no-verify-queries", default=False, help="Enable live data ingestion and GQL query verification.")
 @click.option("--query-report", type=click.Path(), default=None, help="Optional path to output dynamic query execution report.")
+@click.option("--instance", envvar="SPANNER_INSTANCE", help="Cloud Spanner instance path (projects/<project>/instances/<instance>).")
 @click.option("--database", "--db", envvar="SPANNER_DATABASE", help="Full Cloud Spanner database resource path.")
+@click.option("--cleanup/--no-cleanup", default=True, help="Automatically delete temporary test databases created during batch execution.")
+@click.option("--bundle-examples/--no-bundle-examples", default=False, help="Bundle verified schemas & reports into examples/<domain>/.")
 @click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
-@click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
+@click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", default="create_database", help="Name of tool on MCP server.")
 @click.option("--self-correct/--no-self-correct", default=True, help="Enable self-correction loop.")
 @click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
-def pipeline(input, shacl, output, report, verify_queries, query_report, database, mcp_url, mcp_tool, self_correct, model):
+def pipeline(input, shacl, output, report, verify_queries, query_report, instance, database, cleanup, bundle_examples, mcp_url, mcp_tool, self_correct, model):
     """End-to-End: Translate OWL ontology, validate syntax via MCP, self-correct if needed, and generate reports."""
+    
+    # ---------------------------------------------------------
+    # Batch Execution Mode (When --input is a directory)
+    # ---------------------------------------------------------
+    if os.path.isdir(input):
+        discovered = discover_ontologies(input)
+        if not discovered:
+            console.print(f"[yellow]No Turtle (.ttl) ontologies found in directory: {input}[/yellow]")
+            return
+            
+        target_instance = instance
+        if not target_instance and database:
+            parts = database.split("/")
+            if len(parts) >= 4:
+                target_instance = "/".join(parts[:4])
+                
+        console.print(Panel.fit(
+            f"[bold green]Running Batch Spanner Graph Pipeline[/bold green]\n"
+            f"Directory: {input}\n"
+            f"Ontologies Discovered: {len(discovered)}\n"
+            f"Spanner Instance: {target_instance or 'N/A'}\n"
+            f"Verify Queries: {verify_queries}\n"
+            f"Cleanup Databases: {cleanup}",
+            title="Batch Spanner Pipeline"
+        ))
+        
+        results = []
+        created_databases = []
+        
+        for item in discovered:
+            stem = item["stem"]
+            ttl_path = item["ttl"]
+            shacl_path = item["shacl"]
+            is_unit = item["is_unit"]
+            name = item["name"]
+            
+            category_dir = "unit_tests" if is_unit else "examples"
+            os.makedirs(f"output/{category_dir}", exist_ok=True)
+            
+            out_schema = f"output/{category_dir}/{stem}_schema.sql"
+            out_report = f"output/{category_dir}/{stem}_validation_report.md"
+            out_query_report = f"output/{category_dir}/{stem}_query_report.md"
+            
+            db_id = f"t_{uuid.uuid4().hex[:8]}"
+            db_path = f"{target_instance}/databases/{db_id}" if target_instance else database
+            if target_instance:
+                created_databases.append(db_id)
+                
+            console.print(f"[blue]Processing [bold]{name}[/bold] -> DB: {db_id}...[/blue]")
+            
+            # Read TTL & SHACL
+            with open(ttl_path, "r") as f:
+                ttl_content = f.read()
+            shacl_content = None
+            if shacl_path and os.path.exists(shacl_path):
+                with open(shacl_path, "r") as f:
+                    shacl_content = f.read()
+                    
+            # 1. Translate
+            with console.status(f"[yellow]Translating {stem}..."):
+                current_ddl = translate_ontology(ttl_content, shacl_content=shacl_content, model_name=model)
+                
+            # 2. Validate & Self-Correct
+            success = False
+            attempts = 0
+            err_msg = ""
+            
+            if db_path and mcp_url:
+                success, msg = validate_ddl(current_ddl, mcp_url, "create_database", db_path)
+                if not success and self_correct:
+                    max_attempts = 3
+                    attempt = 1
+                    current_error = msg
+                    while attempt <= max_attempts and not success:
+                        attempts = attempt
+                        with console.status(f"[yellow]Self-correction attempt {attempt}/{max_attempts} for {stem}..."):
+                            current_ddl = self_correct_ddl(ttl_content, current_ddl, current_error, shacl_content=shacl_content, model_name=model)
+                            exists, _ = check_database_existence(mcp_url, "create_database", db_path)
+                            active_tool = "update_database_schema" if exists else "create_database"
+                            success, msg = validate_ddl(current_ddl, mcp_url, active_tool, db_path)
+                        if not success:
+                            current_error = msg
+                            attempt += 1
+                if not success:
+                    err_msg = msg
+            else:
+                success = True
+                
+            # Save DDL
+            with open(out_schema, "w") as f:
+                f.write(current_ddl)
+                
+            # 3. Semantic Audit
+            sem_score = "N/A"
+            if success:
+                try:
+                    with console.status(f"[yellow]Auditing semantics for {stem}..."):
+                        rep = audit_spanner_schema(ttl_content, current_ddl, shacl_content)
+                    with open(out_report, "w") as f:
+                        f.write(rep)
+                    status, score = extract_validation_score(rep)
+                    sem_score = score
+                except Exception:
+                    sem_score = "Reviewed"
+                    
+            # 4. Dynamic Query Verification
+            query_status = "N/A"
+            if success and verify_queries and db_path:
+                try:
+                    with console.status(f"[cyan]Executing dynamic GQL queries for {stem}..."):
+                        q_pass, _ = run_query_verification(
+                            ttl_path=ttl_path,
+                            ddl_path=out_schema,
+                            database=db_path,
+                            shacl_path=shacl_path,
+                            mcp_url=mcp_url,
+                            output_report=out_query_report
+                        )
+                    query_status = "PASS (4/4)" if q_pass else "WARN"
+                except Exception:
+                    query_status = "ERROR"
+                    
+            # Bundle into examples/<domain>/ if requested
+            if success and bundle_examples and not is_unit:
+                domain_dir = os.path.dirname(ttl_path)
+                shutil.copyfile(out_schema, os.path.join(domain_dir, "schema.sql"))
+                if os.path.exists(out_report):
+                    shutil.copyfile(out_report, os.path.join(domain_dir, "validation_report.md"))
+                if os.path.exists(out_query_report):
+                    shutil.copyfile(out_query_report, os.path.join(domain_dir, "query_report.md"))
+                    
+            status_str = "PASS" if success else "FAIL"
+            results.append({
+                "name": name,
+                "status": status_str,
+                "semantic_score": sem_score,
+                "query_status": query_status,
+                "attempts": attempts,
+                "report": out_report if success else err_msg
+            })
+            
+            if success:
+                console.print(f"[green]✓ {name} passed (Syntax: PASS, Semantics: {sem_score})[/green]\n")
+            else:
+                console.print(f"[red]✗ {name} failed: {err_msg}[/red]\n")
+                
+        # Print Summary Table
+        table = Table(title="Batch Spanner Graph Pipeline Summary")
+        table.add_column("Ontology Target", style="cyan")
+        table.add_column("DDL Syntax", style="bold")
+        table.add_column("Semantic Score", justify="center", style="green")
+        if verify_queries:
+            table.add_column("GQL Queries", justify="center", style="magenta")
+        table.add_column("Correction Attempts", justify="right", style="magenta")
+        table.add_column("Report / Details", style="dim")
+        
+        for r in results:
+            status_style = "green" if r["status"] == "PASS" else "red"
+            score_style = "bold green" if "%" in r["semantic_score"] and not r["semantic_score"].startswith("0") else "yellow"
+            row = [
+                r["name"],
+                f"[{status_style}]{r['status']}[/{status_style}]",
+                f"[{score_style}]{r['semantic_score']}[/{score_style}]",
+            ]
+            if verify_queries:
+                row.append(r["query_status"])
+            row.extend([
+                str(r["attempts"]),
+                r["report"]
+            ])
+            table.add_row(*row)
+            
+        console.print(table)
+        
+        # Cleanup databases
+        if target_instance and created_databases:
+            cleanup_spanner_databases(created_databases, target_instance, auto_delete=cleanup)
+        return
+
+    # ---------------------------------------------------------
+    # Single File Pipeline Execution Mode
+    # ---------------------------------------------------------
+    target_output = output or "schema.sql"
     console.print(Panel.fit(
         f"[bold green]Running End-to-End Spanner Graph Pipeline[/bold green]\n"
         f"Input: {input}\n"
         f"SHACL: {shacl or 'None'}\n"
-        f"Output: {output}\n"
+        f"Output: {target_output}\n"
         f"Database: {database or 'N/A'}\n"
         f"Self-Correct: {self_correct}\n"
         f"Verify Queries: {verify_queries}",
@@ -284,7 +550,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, databas
     ))
     
     # Ensure output parent directory exists
-    output_dir = os.path.dirname(os.path.abspath(output))
+    output_dir = os.path.dirname(os.path.abspath(target_output))
     if output_dir:
         os.makedirs(output_dir, exist_ok=True)
 
@@ -337,9 +603,9 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, databas
         
     # 3. Validation execution via the MCP Server
     if not mcp_url:
-        with open(output, "w") as f:
+        with open(target_output, "w") as f:
             f.write(ddl)
-        console.print(f"[yellow]! Validation skipped (no MCP configuration provided). Saved DDL to {output}[/yellow]")
+        console.print(f"[yellow]! Validation skipped (no MCP configuration provided). Saved DDL to {target_output}[/yellow]")
         return
         
     def _generate_reports(target_ddl):
@@ -364,7 +630,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, databas
                 with console.status("[yellow]Executing dynamic mock data ingestion & GQL queries..."):
                     all_passed, _ = run_query_verification(
                         ttl_path=input,
-                        ddl_path=output,
+                        ddl_path=target_output,
                         database=database,
                         shacl_path=shacl,
                         mcp_url=mcp_url,
@@ -382,9 +648,9 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, databas
             success, msg = validate_ddl(ddl, mcp_url, mcp_tool, database)
             
         if success:
-            with open(output, "w") as f:
+            with open(target_output, "w") as f:
                 f.write(ddl)
-            console.print(f"[bold green]✓ DDL validation successful![/bold green] Saved verified DDL to {output}")
+            console.print(f"[bold green]✓ DDL validation successful![/bold green] Saved verified DDL to {target_output}")
             _generate_reports(ddl)
             return
             
@@ -406,9 +672,9 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, databas
             telemetry["shacl_content"] = shacl_content
         
         if not self_correct:
-            with open(output, "w") as f:
+            with open(target_output, "w") as f:
                 f.write(ddl)
-            console.print(f"[yellow]Self-correction disabled. Saved invalid DDL to {output}[/yellow]")
+            console.print(f"[yellow]Self-correction disabled. Saved invalid DDL to {target_output}[/yellow]")
             raise click.Abort()
             
         # 4. Self-correction loop
@@ -440,9 +706,9 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, databas
             telemetry["correction_attempts"].append(attempt_info)
                 
             if success:
-                with open(output, "w") as f:
+                with open(target_output, "w") as f:
                     f.write(current_ddl)
-                console.print(f"[bold green]✓ Self-correction successful! DDL is now valid.[/bold green] Saved verified DDL to {output}")
+                console.print(f"[bold green]✓ Self-correction successful! DDL is now valid.[/bold green] Saved verified DDL to {target_output}")
                 
                 telemetry["final_status"] = "SUCCESS"
                 telemetry["final_ddl"] = current_ddl
@@ -455,9 +721,9 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, databas
             current_error = msg
             attempt += 1
             
-        with open(output, "w") as f:
+        with open(target_output, "w") as f:
             f.write(current_ddl)
-        console.print(f"[bold red]✗ Failed to generate a valid schema after {max_attempts} correction attempts.[/bold red] Saved last attempt to {output}")
+        console.print(f"[bold red]✗ Failed to generate a valid schema after {max_attempts} correction attempts.[/bold red] Saved last attempt to {target_output}")
         
         telemetry["final_status"] = "FAILURE"
         telemetry["final_ddl"] = current_ddl

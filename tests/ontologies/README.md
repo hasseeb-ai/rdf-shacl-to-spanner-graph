@@ -28,14 +28,26 @@ Validation operates across three comprehensive stages:
 ## Running Unit Tests & Dynamic Query Verification
 
 ```bash
-# Run all unit tests with live Spanner MCP verification and semantic reports:
-python run_tests.py --unit-only
+export SPANNER_INSTANCE="projects/<PROJECT>/instances/<INSTANCE>"
+export SPANNER_DATABASE="projects/<PROJECT>/instances/<INSTANCE>/databases/<DATABASE>"
+
+# Run all unit tests with live Spanner MCP verification, semantic reports, and cleanup:
+rdf-spanner-translator pipeline \
+  --input tests/ontologies/ \
+  --instance $SPANNER_INSTANCE
 
 # Run all unit tests including dynamic data ingestion & GQL query verification:
-python run_tests.py --unit-only --verify-queries
+rdf-spanner-translator pipeline \
+  --input tests/ontologies/ \
+  --instance $SPANNER_INSTANCE \
+  --verify-queries
 
 # Run a specific unit test ontology:
-python run_tests.py 01_simple_inheritance --verify-queries
+rdf-spanner-translator pipeline \
+  --input tests/ontologies/01_simple_inheritance.ttl \
+  --shacl tests/ontologies/01_simple_inheritance_shacl.ttl \
+  --database $SPANNER_DATABASE \
+  --verify-queries
 
 # Standalone dynamic query testing on an existing database:
 rdf-spanner-translator validate \
