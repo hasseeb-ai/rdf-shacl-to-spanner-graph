@@ -637,7 +637,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             except Exception as ex:
                 console.print(f"[yellow]Warning: Could not generate semantic report: {ex}[/yellow]")
                 
-        if verify_queries and database:
+        if verify_queries and target_database:
             try:
                 stem = os.path.basename(input)[:-4] if input.endswith('.ttl') else 'schema'
                 out_dir = os.path.dirname(report) if report else (os.path.dirname(target_output) if target_output else "output")
@@ -648,7 +648,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                     all_passed, _ = run_query_verification(
                         ttl_path=input,
                         ddl_path=target_output,
-                        database=database,
+                        database=target_database,
                         shacl_path=shacl,
                         mcp_url=mcp_url,
                         model_name=model,
@@ -663,13 +663,15 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
     try:
         # Run first validation pass
         with console.status("[cyan]Connecting to MCP server and executing DDL..."):
-            success, msg = validate_ddl(ddl, mcp_url, mcp_tool, database)
+            success, msg = validate_ddl(ddl, mcp_url, mcp_tool, target_database)
             
         if success:
             with open(target_output, "w") as f:
                 f.write(ddl)
             console.print(f"[bold green]✓ DDL validation successful![/bold green] Saved verified DDL to {target_output}")
             _generate_reports(ddl)
+            if temp_db_created and instance:
+                cleanup_spanner_databases([temp_db_id], instance, auto_delete=cleanup)
             return
             
         # If validation fails, proceed to error logging and self-correction
@@ -693,6 +695,8 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             with open(target_output, "w") as f:
                 f.write(ddl)
             console.print(f"[yellow]Self-correction disabled. Saved invalid DDL to {target_output}[/yellow]")
+            if temp_db_created and instance:
+                cleanup_spanner_databases([temp_db_id], instance, auto_delete=cleanup)
             raise click.Abort()
             
         # 4. Self-correction loop
@@ -709,12 +713,12 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 
             console.print(f"[yellow]Executing corrected DDL...[/yellow]")
             with console.status("[cyan]Re-validating corrected DDL..."):
-                if mcp_tool == "create_database" and database and mcp_url:
-                    exists, _ = check_database_existence(mcp_url, mcp_tool, database)
+                if mcp_tool == "create_database" and target_database and mcp_url:
+                    exists, _ = check_database_existence(mcp_url, mcp_tool, target_database)
                     active_tool = "update_database_schema" if exists else "create_database"
                 else:
                     active_tool = mcp_tool
-                success, msg = validate_ddl(current_ddl, mcp_url, active_tool, database)
+                success, msg = validate_ddl(current_ddl, mcp_url, active_tool, target_database)
                 
             attempt_info = {
                 "attempt": attempt,
@@ -732,6 +736,8 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 telemetry["final_ddl"] = current_ddl
                 save_telemetry(input, telemetry)
                 _generate_reports(current_ddl)
+                if temp_db_created and instance:
+                    cleanup_spanner_databases([temp_db_id], instance, auto_delete=cleanup)
                 return
                 
             console.print(f"[bold red]✗ Corrected DDL validation failed![/bold red]")
@@ -746,10 +752,14 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         telemetry["final_status"] = "FAILURE"
         telemetry["final_ddl"] = current_ddl
         save_telemetry(input, telemetry)
+        if temp_db_created and instance:
+            cleanup_spanner_databases([temp_db_id], instance, auto_delete=cleanup)
         raise click.Abort()
         
     except Exception as e:
         console.print(f"[bold red]Error during pipeline execution:[/bold red] {e}")
+        if temp_db_created and instance:
+            cleanup_spanner_databases([temp_db_id], instance, auto_delete=cleanup)
         raise click.Abort()
 
 
