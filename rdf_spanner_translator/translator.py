@@ -151,7 +151,7 @@ def audit_spanner_schema(
     ttl_content: str, 
     ddl_content: str, 
     shacl_content: str = None, 
-    model_name: str = "gemini-2.5-pro"
+    model_name: str = "gemini-3.5-flash"
 ) -> str:
     """Evaluates generated Spanner DDL against source OWL/SHACL using the validation skill."""
     client = _get_client()

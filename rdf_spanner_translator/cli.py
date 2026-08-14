@@ -151,7 +151,7 @@ def translate(input, shacl, output, model):
 @click.option("--queries-only", is_flag=True, help="Shortcut for --mode queries.")
 @click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
-@click.option("--model", "-m", default="gemini-2.5-pro", help="Gemini model to use for audits.")
+@click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use for audits.")
 def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_only, queries_only, mcp_url, mcp_tool, model):
     """Validate Spanner Graph DDL across Syntax, Semantic Scorecard, and Dynamic Queries."""
     # Resolve active validation mode
@@ -452,7 +452,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             if success:
                 try:
                     with console.status(f"[yellow]Auditing semantics for {stem}..."):
-                        rep = audit_spanner_schema(ttl_content, current_ddl, shacl_content)
+                        rep = audit_spanner_schema(ttl_content, current_ddl, shacl_content, model_name=model)
                     with open(out_report, "w") as f:
                         f.write(rep)
                     status, score = extract_validation_score(rep)
@@ -471,6 +471,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                             database=db_path,
                             shacl_path=shacl_path,
                             mcp_url=mcp_url,
+                            model_name=model,
                             output_report=out_query_report
                         )
                     query_status = "PASS (4/4)" if q_pass else "WARN"
@@ -612,7 +613,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         if report:
             try:
                 with console.status("[yellow]Auditing schema & generating semantic validation report..."):
-                    rep = audit_spanner_schema(ttl_content, target_ddl, shacl_content)
+                    rep = audit_spanner_schema(ttl_content, target_ddl, shacl_content, model_name=model)
                 rep_dir = os.path.dirname(os.path.abspath(report))
                 if rep_dir:
                     os.makedirs(rep_dir, exist_ok=True)
@@ -634,6 +635,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                         database=database,
                         shacl_path=shacl,
                         mcp_url=mcp_url,
+                        model_name=model,
                         output_report=q_out
                     )
                 status_str = "SUCCESS" if all_passed else "WARNING (Some queries failed)"
