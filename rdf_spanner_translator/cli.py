@@ -20,6 +20,7 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.syntax import Syntax
 
+from rdf_spanner_translator.config import DEFAULT_GEMINI_MODEL, DEFAULT_MCP_URL
 from rdf_spanner_translator.parser import validate_rdf_file
 from rdf_spanner_translator.translator import (
     translate_ontology, 
@@ -97,7 +98,7 @@ def main():
 @click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file.")
 @click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
 @click.option("--output", "-o", type=click.Path(), default="schema.sql", help="Path to output SQL file.")
-@click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
+@click.option("--model", "-m", default=DEFAULT_GEMINI_MODEL, envvar="GEMINI_MODEL", help=f"Gemini model to use (default: {DEFAULT_GEMINI_MODEL}).")
 def translate(input, shacl, output, model):
     """Translate OWL ontology (Turtle) to Spanner Graph DDL offline."""
     console.print(Panel.fit(f"[bold blue]Translating Ontology (Offline)[/bold blue]\nInput: {input}\nSHACL: {shacl}\nOutput: {output}", title="Gemini Translator"))
@@ -149,9 +150,9 @@ def translate(input, shacl, output, model):
 @click.option("--syntax-only", is_flag=True, help="Shortcut for --mode syntax.")
 @click.option("--semantic-only", is_flag=True, help="Shortcut for --mode semantic.")
 @click.option("--queries-only", is_flag=True, help="Shortcut for --mode queries.")
-@click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
+@click.option("--mcp-url", "-u", default=DEFAULT_MCP_URL, envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
-@click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use for audits.")
+@click.option("--model", "-m", default=DEFAULT_GEMINI_MODEL, envvar="GEMINI_MODEL", help=f"Gemini model to use for audits (default: {DEFAULT_GEMINI_MODEL}).")
 def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_only, queries_only, mcp_url, mcp_tool, model):
     """Validate Spanner Graph DDL across Syntax, Semantic Scorecard, and Dynamic Queries."""
     # Resolve active validation mode
@@ -353,10 +354,10 @@ def cleanup_spanner_databases(databases: list[str], instance_path: str, auto_del
 @click.option("--database", "--db", envvar="SPANNER_DATABASE", help="Full Cloud Spanner database resource path.")
 @click.option("--cleanup/--no-cleanup", default=True, help="Automatically delete temporary test databases created during batch execution.")
 @click.option("--bundle-examples/--no-bundle-examples", default=False, help="Bundle verified schemas & reports into examples/<domain>/.")
-@click.option("--mcp-url", "-u", default="https://spanner.googleapis.com/mcp", envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
+@click.option("--mcp-url", "-u", default=DEFAULT_MCP_URL, envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", default="create_database", help="Name of tool on MCP server.")
 @click.option("--self-correct/--no-self-correct", default=True, help="Enable self-correction loop.")
-@click.option("--model", "-m", default="gemini-3.5-flash", help="Gemini model to use.")
+@click.option("--model", "-m", default=DEFAULT_GEMINI_MODEL, envvar="GEMINI_MODEL", help=f"Gemini model to use (default: {DEFAULT_GEMINI_MODEL}).")
 def pipeline(input, shacl, output, report, verify_queries, query_report, instance, database, cleanup, bundle_examples, mcp_url, mcp_tool, self_correct, model):
     """End-to-End: Translate OWL ontology, validate syntax via MCP, self-correct if needed, and generate reports."""
     

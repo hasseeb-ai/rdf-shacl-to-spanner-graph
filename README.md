@@ -67,7 +67,7 @@ The CLI is organized into **3 core commands** (`translate`, `validate`, and `pip
 
 | Command | Operational Usage | Key Parameters & Flags | Description |
 | :--- | :--- | :--- | :--- |
-| **`translate`** | **Offline Translation** | `--input <ont.ttl>`<br>`--shacl <shacl.ttl>`<br>`--output <schema.sql>`<br>`--model <gemini-3.5-flash>` | Translates OWL Turtle ontologies and companion SHACL shapes into GoogleSQL & Spanner Property Graph DDL offline. |
+| **`translate`** | **Offline Translation** | `--input <ont.ttl>`<br>`--shacl <shacl.ttl>`<br>`--output <schema.sql>`<br>`--model <model>` | Translates OWL Turtle ontologies and companion SHACL shapes into GoogleSQL & Spanner Property Graph DDL offline. |
 | **`validate`** | **Syntax Compilation Check** | `--ddl <schema.sql>`<br>`--database <db_path>`<br>`--syntax-only`<br>`--mcp-tool <tool_name>` | Validates that physical and logical DDL compiles cleanly against Cloud Spanner via the Remote Spanner MCP server. |
 | | **Semantic Audit Scorecard** | `--input <ont.ttl>`<br>`--ddl <schema.sql>`<br>`--shacl <shacl.ttl>`<br>`--output <report.md>`<br>`--semantic-only` | Audits generated DDL against 7 semantic dimensions (completeness, inheritance, edge connections, invariants) producing an executive scorecard. |
 | | **Dynamic GQL Query Verification** | `--input <ont.ttl>`<br>`--ddl <schema.sql>`<br>`--database <db_path>`<br>`--output <report.md>`<br>`--queries-only` | Synthesizes linked test fixtures (DML), ingests them into Spanner, executes 4 GQL queries live, and synthesizes an executive execution report. |

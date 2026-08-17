@@ -3,6 +3,7 @@ import re
 import json
 import httpx
 from google.genai import types
+from rdf_spanner_translator.config import DEFAULT_GEMINI_MODEL
 from rdf_spanner_translator.translator import _get_client, load_skill_instructions
 from rdf_spanner_translator.validator import get_google_access_token, call_spanner_mcp_tool
 
@@ -50,7 +51,7 @@ def generate_fixtures_and_queries(
     ttl_content: str, 
     ddl_content: str, 
     shacl_content: str = None, 
-    model_name: str = "gemini-3.5-flash"
+    model_name: str = DEFAULT_GEMINI_MODEL
 ) -> dict:
     """Generates synthetic relational SQL INSERTs and 4 GQL queries using Gemini."""
     client = _get_client()
@@ -95,7 +96,7 @@ def self_correct_gql_query(
     ddl_content: str,
     invalid_gql: str,
     error_message: str,
-    model_name: str = "gemini-3.5-flash"
+    model_name: str = DEFAULT_GEMINI_MODEL
 ) -> str:
     """Self-corrects a GQL query that failed syntax execution on Spanner."""
     client = _get_client()
@@ -269,7 +270,7 @@ def synthesize_executive_report_with_skill(
     dml_statements: list[str],
     query_results: list[dict],
     shacl_content: str = None,
-    model_name: str = "gemini-3.5-flash"
+    model_name: str = DEFAULT_GEMINI_MODEL
 ) -> str:
     """Uses Phase 2 of the Query Verifier Skill to analyze real Spanner results and produce executive insights."""
     client = _get_client()
@@ -327,7 +328,7 @@ def run_query_verification(
     database: str,
     shacl_path: str = None,
     mcp_url: str = "https://spanner.googleapis.com/mcp",
-    model_name: str = "gemini-3.5-flash",
+    model_name: str = DEFAULT_GEMINI_MODEL,
     output_report: str = None
 ) -> tuple[bool, str]:
     """Runs the full dynamic data ingestion and GQL query verification workflow."""

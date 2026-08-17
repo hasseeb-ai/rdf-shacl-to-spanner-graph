@@ -3,6 +3,8 @@ import re
 from google import genai
 from google.genai import types
 
+from .config import DEFAULT_GEMINI_MODEL
+
 def load_skill_instructions(skill_name: str, fallback_prompt: str = "") -> str:
     """Dynamically loads and cleans any skill instruction from skills/<skill_name>/SKILL.md.
     
@@ -55,7 +57,7 @@ def _get_client() -> genai.Client:
             "Default Credentials (ADC) for Vertex AI."
         ) from e
 
-def translate_ontology(ttl_content: str, shacl_content: str = None, model_name: str = "gemini-3.5-flash") -> str:
+def translate_ontology(ttl_content: str, shacl_content: str = None, model_name: str = DEFAULT_GEMINI_MODEL) -> str:
     """Translates OWL ontology to Spanner Graph DDL using Gemini, optionally guided by SHACL shapes."""
     client = _get_client()
     
@@ -88,7 +90,7 @@ Ensure you follow the Spanner Graph DDL rules and output a single unified SQL co
     
     return clean_ddl_response(response.text)
 
-def self_correct_ddl(ttl_content: str, invalid_ddl: str, error_message: str, shacl_content: str = None, model_name: str = "gemini-3.5-flash") -> str:
+def self_correct_ddl(ttl_content: str, invalid_ddl: str, error_message: str, shacl_content: str = None, model_name: str = DEFAULT_GEMINI_MODEL) -> str:
     """Uses Gemini to correct DDL that failed validation, optionally guided by SHACL shapes."""
     client = _get_client()
     
@@ -151,7 +153,7 @@ def audit_spanner_schema(
     ttl_content: str, 
     ddl_content: str, 
     shacl_content: str = None, 
-    model_name: str = "gemini-3.5-flash"
+    model_name: str = DEFAULT_GEMINI_MODEL
 ) -> str:
     """Evaluates generated Spanner DDL against source OWL/SHACL using the validation skill."""
     client = _get_client()
