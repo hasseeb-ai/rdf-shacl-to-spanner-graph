@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Comprehensive Multi-Feature Architecture</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .code-details {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .code-details summary {
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: #e2e8f0;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+    .code-details summary:hover {
+      background: #cbd5e1;
+    }
+    .code-details .code-container {
+      padding: 16px;
+      background: #0f172a;
+      color: #f8fafc;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+    .code-details pre {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>ex:ComprehensiveTestOntology</code></div>
+          <div>SHACL: <code>Manager, Corporation, DigitalAsset Shapes</code></div>
+          <div>Target DDL: <code>ComprehensiveGraph</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">6</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">5</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">7</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology (Diagram First!) -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    LegalEntity["<b>LegalEntity</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ EntityIdentifier: STRING(36)<br>+ LegalName: STRING"]:::abstract
+    Individual["<b>Individual</b><br><i>&laquo;Abstract Class&raquo;</i>"]:::abstract
+    Employee["<b>Employee</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ BadgeNumber: STRING"]:::abstract
+    LeadSpecialist["<b>LeadSpecialist</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ SpecialtyDomain: STRING"]:::abstract
+    Organization["<b>Organization</b><br><i>&laquo;Abstract Class&raquo;</i>"]:::abstract
+    Asset["<b>Asset</b><br><i>&laquo;Abstract Class&raquo;</i>"]:::abstract
+
+    Managers["<b>Managers</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ EntityIdentifier [PK]<br>+ ManagementLevel: INT64"]:::concrete
+    RegularStaff["<b>RegularStaff</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ EntityIdentifier [PK]"]:::concrete
+    Corporations["<b>Corporations</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ EntityIdentifier [PK]"]:::concrete
+    NonGovernmentalOrgs["<b>NonGovernmentalOrgs</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ EntityIdentifier [PK]"]:::concrete
+    DigitalAssets["<b>DigitalAssets</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ AssetId [PK]<br>+ AppraisalValue: NUMERIC<br>+ IsHighValue: BOOL (STORED)"]:::concrete
+    Departments["<b>Departments</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ DepartmentId [PK]<br>+ DepartmentName: STRING"]:::concrete
+
+    LegalEntity -->|rdfs:subClassOf| Individual
+    LegalEntity -->|rdfs:subClassOf| Organization
+    Individual -->|rdfs:subClassOf| Employee
+    Individual -->|rdfs:subClassOf| LeadSpecialist
+    Asset -->|rdfs:subClassOf| DigitalAssets
+
+    Employee -.->|Table-Per-Concrete| Managers
+    LeadSpecialist -.->|Table-Per-Concrete| Managers
+    Employee -.->|Table-Per-Concrete| RegularStaff
+    Organization -.->|Table-Per-Concrete| Corporations
+    Organization -.->|Table-Per-Concrete| NonGovernmentalOrgs
+
+    Managers -->|SUPERVISES_STAFF<br/>INTERACTS_WITH| RegularStaff
+    RegularStaff -->|COLLABORATES_ON_PROJECT<br/>INTERACTS_WITH| RegularStaff
+    Corporations -->|EMPLOYS_WORKER| RegularStaff
+    RegularStaff -->|WORKS_FOR_ORGANIZATION| Corporations
+    Departments -->|PARENT_DEPARTMENT_OF| Departments
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Suppressed)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping (Unified Class -> Node Mapping) -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Manager</code><br><code>ex:ManagerShape</code></td>
+          <td><code>Managers</code></td>
+          <td>
+            <span class="label-pill">:Manager</span>
+            <span class="label-pill">:LeadSpecialist</span>
+            <span class="label-pill">:Employee</span>
+            <span class="label-pill">:Individual</span>
+            <span class="label-pill">:LegalEntity</span>
+          </td>
+          <td>
+            <code>EntityIdentifier STRING(36) [PK]</code><br>
+            <code>LegalName STRING(100) NOT NULL</code><br>
+            <code>BadgeNumber STRING(20) NOT NULL</code><br>
+            <code>SpecialtyDomain STRING(MAX) NOT NULL</code><br>
+            <code>ManagementLevel INT64 NOT NULL</code>
+          </td>
+          <td><strong>Diamond Multiple Inheritance Resolution:</strong> Inherits top-down properties from <code>LegalEntity</code>, <code>Individual</code>, <code>Employee</code>, and <code>LeadSpecialist</code>. SHACL constraints enforce non-nullness and max string lengths.</td>
+        </tr>
+        <tr>
+          <td><code>ex:RegularStaff</code></td>
+          <td><code>RegularStaff</code></td>
+          <td>
+            <span class="label-pill">:RegularStaff</span>
+            <span class="label-pill">:Employee</span>
+            <span class="label-pill">:Individual</span>
+            <span class="label-pill">:LegalEntity</span>
+          </td>
+          <td>
+            <code>EntityIdentifier STRING(36) [PK]</code><br>
+            <code>LegalName STRING(MAX)</code><br>
+            <code>BadgeNumber STRING(MAX)</code>
+          </td>
+          <td><strong>Single Inheritance Flattening:</strong> Flattens <code>Employee &rarr; Individual &rarr; LegalEntity</code> hierarchy. Isolates manager-specific properties (<code>SpecialtyDomain</code>, <code>ManagementLevel</code>).</td>
+        </tr>
+        <tr>
+          <td><code>ex:Corporation</code><br><code>ex:CorporationShape</code></td>
+          <td><code>Corporations</code></td>
+          <td>
+            <span class="label-pill">:Corporation</span>
+            <span class="label-pill">:Organization</span>
+            <span class="label-pill">:LegalEntity</span>
+          </td>
+          <td>
+            <code>EntityIdentifier STRING(36) [PK]</code><br>
+            <code>LegalName STRING(MAX) NOT NULL</code>
+          </td>
+          <td><strong>Disjoint Leaf Flattening:</strong> Disjoint sibling of <code>NonGovernmentalOrg</code>; inherits <code>LegalEntity</code> root attributes with SHACL non-null validation.</td>
+        </tr>
+        <tr>
+          <td><code>ex:NonGovernmentalOrg</code></td>
+          <td><code>NonGovernmentalOrgs</code></td>
+          <td>
+            <span class="label-pill">:NonGovernmentalOrg</span>
+            <span class="label-pill">:Organization</span>
+            <span class="label-pill">:LegalEntity</span>
+          </td>
+          <td>
+            <code>EntityIdentifier STRING(36) [PK]</code><br>
+            <code>LegalName STRING(MAX)</code>
+          </td>
+          <td><strong>Abstract Class Flattening:</strong> Realizes <code>Organization &rarr; LegalEntity</code> with independent physical lifecycle.</td>
+        </tr>
+        <tr>
+          <td><code>ex:DigitalAsset</code><br><code>ex:HighValueAsset</code><br><code>ex:DigitalAssetShape</code></td>
+          <td><code>DigitalAssets</code></td>
+          <td>
+            <span class="label-pill">:DigitalAsset</span>
+            <span class="label-pill">:Asset</span>
+          </td>
+          <td>
+            <code>AssetId STRING(36) [PK]</code><br>
+            <code>AppraisalValue NUMERIC NOT NULL</code><br>
+            <code>IsHighValue BOOL AS (...) STORED</code>
+          </td>
+          <td><strong>Stored Generated Column:</strong> Evaluates the equivalent class restriction (<code>AppraisalValue &gt; 100000.00</code>) at the relational layer without table fragmentation.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Department</code></td>
+          <td><code>Departments</code></td>
+          <td>
+            <span class="label-pill">:Department</span>
+          </td>
+          <td>
+            <code>DepartmentId STRING(36) [PK]</code><br>
+            <code>DepartmentName STRING(MAX)</code>
+          </td>
+          <td><strong>Autonomous Entity:</strong> Base table for recursive and transitive organizational structures.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:supervisesStaff</code><br>
+            <small style="color:var(--muted)">rdfs:subPropertyOf ex:interactsWith</small>
+          </td>
+          <td><code>Managers</code> &rarr; <code>RegularStaff</code></td>
+          <td><code>StaffSupervisions</code></td>
+          <td>
+            <span class="label-pill">:SUPERVISES_STAFF</span>
+            <span class="label-pill">:INTERACTS_WITH</span>
+          </td>
+          <td><strong>Subproperty Label Accumulation:</strong> Exposes both specific edge type and parent generalization label <code>:INTERACTS_WITH</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:collaboratesOnProject</code><br>
+            <small style="color:var(--muted)">owl:SymmetricProperty, rdfs:subPropertyOf ex:interactsWith</small>
+          </td>
+          <td><code>RegularStaff</code> &rarr; <code>RegularStaff</code></td>
+          <td><code>StaffCollaborations</code></td>
+          <td>
+            <span class="label-pill">:COLLABORATES_ON_PROJECT</span>
+            <span class="label-pill">:INTERACTS_WITH</span>
+          </td>
+          <td><strong>Symmetric Edge with Subproperty Labeling:</strong> Connects peer employees with compound label signatures.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:employsWorker</code><br>
+            <small style="color:var(--muted)">owl:inverseOf ex:worksForOrganization</small>
+          </td>
+          <td><code>Corporations</code> &rarr; <code>RegularStaff</code></td>
+          <td><code>CorporationStaffEmployments</code></td>
+          <td>
+            <span class="label-pill">:EMPLOYS_WORKER</span>
+          </td>
+          <td><strong>Inverse Pair Primary Storage:</strong> Materializes the forward organization-to-worker employment relationship.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:worksForOrganization</code><br>
+            <small style="color:var(--muted)">owl:inverseOf ex:employsWorker</small>
+          </td>
+          <td><code>RegularStaff</code> &rarr; <code>Corporations</code></td>
+          <td><code>CorporationStaffEmployments AS StaffCorporationEmployments</code></td>
+          <td>
+            <span class="label-pill">:WORKS_FOR_ORGANIZATION</span>
+          </td>
+          <td><strong>Inverse Alias Reuse:</strong> Inverts <code>SOURCE KEY</code> and <code>DESTINATION KEY</code> over the same physical table without duplicating storage.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:parentDepartmentOf</code><br>
+            <small style="color:var(--muted)">owl:TransitiveProperty</small>
+          </td>
+          <td><code>Departments</code> &rarr; <code>Departments</code></td>
+          <td><code>DepartmentHierarchies</code></td>
+          <td>
+            <span class="label-pill">:PARENT_DEPARTMENT_OF</span>
+          </td>
+          <td><strong>Self-Referencing Transitive Edge:</strong> Realizes adjacency list structure allowing variable-length GQL path queries.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Superclass Query:</strong><br>Retrieve all legal entities and names</td>
+          <td>
+            <div class="query-box">
+GRAPH ComprehensiveGraph
+MATCH (e:LegalEntity)
+RETURN e.EntityIdentifier, e.LegalName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Subproperty Generalized Traversal:</strong><br>Find all individual interactions regardless of specific relation</td>
+          <td>
+            <div class="query-box">
+GRAPH ComprehensiveGraph
+MATCH (src:Individual)-[:INTERACTS_WITH]->(dst:Individual)
+RETURN src.LegalName, dst.LegalName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Bidirectional Inverse Traversal:</strong><br>Navigate from employee to employer using inverse label</td>
+          <td>
+            <div class="query-box">
+GRAPH ComprehensiveGraph
+MATCH (emp:Employee)-[:WORKS_FOR_ORGANIZATION]->(org:Organization)
+RETURN emp.LegalName, org.LegalName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Transitive Variable-Length Path:</strong><br>Query department sub-hierarchies up to 5 levels deep</td>
+          <td>
+            <div class="query-box">
+GRAPH ComprehensiveGraph
+MATCH (root:Department {DepartmentName: 'Engineering'})-[:PARENT_DEPARTMENT_OF*1..5]->(sub:Department)
+RETURN sub.DepartmentName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Equivalent Class Filter Query:</strong><br>Query high-value assets identified by stored generated column</td>
+          <td>
+            <div class="query-box">
+GRAPH ComprehensiveGraph
+MATCH (a:DigitalAsset)
+WHERE a.IsHighValue = TRUE
+RETURN a.AssetId, a.AppraisalValue;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Property Signatures:</strong> Verified that shared labels (<code>LegalEntity</code>, <code>Individual</code>, <code>Employee</code>, <code>Organization</code>, and <code>INTERACTS_WITH</code>) expose identical property names and data types across all physical tables.</li>
+        <li><strong>Stored Generated Columns:</strong> Verified that <code>IsHighValue</code> uses native Spanner SQL syntax (<code>AS (AppraisalValue > 100000.00) STORED</code>).</li>
+        <li><strong>Referential Integrity:</strong> Verified all foreign key constraints strictly reference valid primary keys across relational source and destination endpoints.</li>
+        <li><strong>Zero Redundant Physical Superclass Tables:</strong> Pure abstract classes (<code>LegalEntity</code>, <code>Individual</code>, <code>Employee</code>, <code>LeadSpecialist</code>, <code>Organization</code>, <code>Asset</code>) correctly omitted from relational DDL.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/test/comprehensive/&gt; .
+
+ex:ComprehensiveTestOntology a owl:Ontology ;
+    rdfs:label &quot;Comprehensive Multi-Feature Test Ontology&quot; ;
+    rdfs:comment &quot;Combines single and multiple inheritance, top-down property propagation, inverse properties, subproperties, transitive hierarchies, symmetric edges, disjointness, and stored generated columns.&quot; .
+
+# =============================================================================
+# 1. Class Taxonomy:
+# LegalEntity (Abstract)
+#   ├── Individual (Abstract)
+#   │     ├── Employee (Subclass of Individual)
+#   │     │     └── Manager (Subclass of Employee and LeadSpecialist)
+#   │     └── LeadSpecialist (Subclass of Individual)
+#   │           └── Manager (Multiple Inheritance)
+#   └── Organization (Abstract)
+#         ├── Corporation (Concrete Leaf, disjointWith NonGovernmentalOrg)
+#         └── NonGovernmentalOrg (Concrete Leaf)
+#
+# Asset (Abstract)
+#   └── DigitalAsset (Concrete Leaf)
+#
+# Department (Concrete with Transitive Hierarchy)
+# =============================================================================
+
+ex:LegalEntity a owl:Class ;
+    rdfs:label &quot;Legal Entity&quot; .
+
+ex:Individual a owl:Class ;
+    rdfs:subClassOf ex:LegalEntity ;
+    rdfs:label &quot;Individual&quot; .
+
+ex:Employee a owl:Class ;
+    rdfs:subClassOf ex:Individual ;
+    rdfs:label &quot;Employee&quot; .
+
+ex:LeadSpecialist a owl:Class ;
+    rdfs:subClassOf ex:Individual ;
+    rdfs:label &quot;Lead Specialist&quot; .
+
+ex:Manager a owl:Class ;
+    rdfs:subClassOf ex:Employee , ex:LeadSpecialist ;
+    rdfs:label &quot;Manager&quot; ;
+    rdfs:comment &quot;Diamond multiple inheritance concrete class.&quot; .
+
+ex:RegularStaff a owl:Class ;
+    rdfs:subClassOf ex:Employee ;
+    rdfs:label &quot;Regular Staff&quot; ;
+    rdfs:comment &quot;Concrete leaf class.&quot; .
+
+ex:Organization a owl:Class ;
+    rdfs:subClassOf ex:LegalEntity ;
+    rdfs:label &quot;Organization&quot; .
+
+ex:Corporation a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    owl:disjointWith ex:NonGovernmentalOrg ;
+    rdfs:label &quot;Corporation&quot; ;
+    rdfs:comment &quot;Concrete leaf class.&quot; .
+
+ex:NonGovernmentalOrg a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    rdfs:label &quot;Non-Governmental Organization&quot; ;
+    rdfs:comment &quot;Concrete leaf class.&quot; .
+
+ex:Asset a owl:Class ;
+    rdfs:label &quot;Asset&quot; .
+
+ex:DigitalAsset a owl:Class ;
+    rdfs:subClassOf ex:Asset ;
+    rdfs:label &quot;Digital Asset&quot; ;
+    rdfs:comment &quot;Concrete leaf class.&quot; .
+
+ex:Department a owl:Class ;
+    rdfs:label &quot;Department&quot; ;
+    rdfs:comment &quot;Self-referencing transitive hierarchy.&quot; .
+
+# =============================================================================
+# 2. Equivalent Class (Stored Generated Column)
+# =============================================================================
+
+ex:HighValueAsset a owl:Class ;
+    rdfs:label &quot;High Value Asset&quot; ;
+    rdfs:comment &quot;Translates to: IsHighValue BOOL AS (AppraisalValue &gt; 100000.00) STORED&quot; ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:DigitalAsset
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:appraisalValue ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:decimal ;
+                    owl:withRestrictions ( [ xsd:minExclusive 100000.00 ] )
+                ]
+            ]
+        )
+    ] .
+
+# =============================================================================
+# 3. Inverse Properties &amp; Aliasing
+# =============================================================================
+
+ex:employsWorker a owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Employee ;
+    owl:inverseOf ex:worksForOrganization ;
+    rdfs:label &quot;Employs Worker&quot; .
+
+ex:worksForOrganization a owl:ObjectProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range ex:Organization ;
+    rdfs:label &quot;Works For Organization&quot; .
+
+# =============================================================================
+# 4. Subproperty Hierarchy &amp; Label Accumulation
+# =============================================================================
+
+ex:interactsWith a owl:ObjectProperty ;
+    rdfs:domain ex:Individual ;
+    rdfs:range ex:Individual ;
+    rdfs:label &quot;Interacts With&quot; .
+
+ex:collaboratesOnProject a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:subPropertyOf ex:interactsWith ;
+    rdfs:domain ex:Employee ;
+    rdfs:range ex:Employee ;
+    rdfs:label &quot;Collaborates On Project&quot; .
+
+ex:supervisesStaff a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:interactsWith ;
+    rdfs:domain ex:Manager ;
+    rdfs:range ex:RegularStaff ;
+    rdfs:label &quot;Supervises Staff&quot; .
+
+# =============================================================================
+# 5. Transitive Self-Referencing Property
+# =============================================================================
+
+ex:parentDepartmentOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:Department ;
+    rdfs:range ex:Department ;
+    rdfs:label &quot;Parent Department Of&quot; .
+
+# =============================================================================
+# 6. Datatype Properties (Top-Down Propagation &amp; Disambiguation)
+# =============================================================================
+
+ex:entityIdentifier a owl:DatatypeProperty ;
+    rdfs:domain ex:LegalEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Entity Identifier&quot; ;
+    rdfs:comment &quot;Propagates to all concrete subclasses.&quot; .
+
+ex:legalName a owl:DatatypeProperty ;
+    rdfs:domain ex:LegalEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Legal Name&quot; .
+
+ex:badgeNumber a owl:DatatypeProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Employee Badge Number&quot; .
+
+ex:specialtyDomain a owl:DatatypeProperty ;
+    rdfs:domain ex:LeadSpecialist ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Specialty Domain&quot; .
+
+ex:managementLevel a owl:DatatypeProperty ;
+    rdfs:domain ex:Manager ;
+    rdfs:range xsd:integer ;
+    rdfs:label &quot;Management Level&quot; .
+
+ex:appraisalValue a owl:DatatypeProperty ;
+    rdfs:domain ex:DigitalAsset ;
+    rdfs:range xsd:decimal ;
+    rdfs:label &quot;Appraisal Value&quot; .
+
+ex:departmentName a owl:DatatypeProperty ;
+    rdfs:domain ex:Department ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Department Name&quot; .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:   &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix sh:    &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd:   &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:    &lt;http://example.org/test/comprehensive/&gt; .
+
+# =============================================================================
+# SHACL Shapes for Comprehensive Test Schema
+# =============================================================================
+
+ex:ManagerShape a sh:NodeShape ;
+    sh:targetClass ex:Manager ;
+    sh:property [
+        sh:path ex:entityIdentifier ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 36 ;
+    ] ,
+    [
+        sh:path ex:legalName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 100 ;
+    ] ,
+    [
+        sh:path ex:badgeNumber ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 20 ;
+    ] ,
+    [
+        sh:path ex:specialtyDomain ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:managementLevel ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:CorporationShape a sh:NodeShape ;
+    sh:targetClass ex:Corporation ;
+    sh:property [
+        sh:path ex:entityIdentifier ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 36 ;
+    ] ,
+    [
+        sh:path ex:legalName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:DigitalAssetShape a sh:NodeShape ;
+    sh:targetClass ex:DigitalAsset ;
+    sh:property [
+        sh:path ex:appraisalValue ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- GOOGLE CLOUD SPANNER PHYSICAL RELATIONAL SCHEMA
+-- Architecture: Table-Per-Concrete-Class with Flattened Superclass Hierarchies
+-- =============================================================================
+
+-- Concrete Subclass: Manager (Diamond Multiple Inheritance: Employee + LeadSpecialist -&gt; Individual -&gt; LegalEntity)
+CREATE TABLE Managers (
+  EntityIdentifier STRING(36) NOT NULL,
+  LegalName STRING(100) NOT NULL,
+  BadgeNumber STRING(20) NOT NULL,
+  SpecialtyDomain STRING(MAX) NOT NULL,
+  ManagementLevel INT64 NOT NULL
+) PRIMARY KEY (EntityIdentifier);
+
+-- Concrete Subclass: RegularStaff (Employee -&gt; Individual -&gt; LegalEntity)
+CREATE TABLE RegularStaff (
+  EntityIdentifier STRING(36) NOT NULL,
+  LegalName STRING(MAX),
+  BadgeNumber STRING(MAX)
+) PRIMARY KEY (EntityIdentifier);
+
+-- Concrete Subclass: Corporation (Organization -&gt; LegalEntity, Disjoint with NonGovernmentalOrg)
+CREATE TABLE Corporations (
+  EntityIdentifier STRING(36) NOT NULL,
+  LegalName STRING(MAX) NOT NULL
+) PRIMARY KEY (EntityIdentifier);
+
+-- Concrete Subclass: NonGovernmentalOrg (Organization -&gt; LegalEntity, Disjoint with Corporation)
+CREATE TABLE NonGovernmentalOrgs (
+  EntityIdentifier STRING(36) NOT NULL,
+  LegalName STRING(MAX)
+) PRIMARY KEY (EntityIdentifier);
+
+-- Concrete Subclass: DigitalAsset (Asset) with Equivalent Class Stored Generated Column
+CREATE TABLE DigitalAssets (
+  AssetId STRING(36) NOT NULL,
+  AppraisalValue NUMERIC NOT NULL,
+  IsHighValue BOOL AS (AppraisalValue &gt; 100000.00) STORED
+) PRIMARY KEY (AssetId);
+
+-- Concrete Class: Department (Self-Referencing Transitive Hierarchy)
+CREATE TABLE Departments (
+  DepartmentId STRING(36) NOT NULL,
+  DepartmentName STRING(MAX)
+) PRIMARY KEY (DepartmentId);
+
+-- Edge Table: Transitive Hierarchy for Departments
+CREATE TABLE DepartmentHierarchies (
+  ParentDepartmentId STRING(36) NOT NULL,
+  ChildDepartmentId STRING(36) NOT NULL,
+  CONSTRAINT FK_Dept_Parent FOREIGN KEY (ParentDepartmentId) REFERENCES Departments (DepartmentId),
+  CONSTRAINT FK_Dept_Child FOREIGN KEY (ChildDepartmentId) REFERENCES Departments (DepartmentId)
+) PRIMARY KEY (ParentDepartmentId, ChildDepartmentId);
+
+-- Edge Table: Subproperty Hierarchy (supervisesStaff rdfs:subPropertyOf interactsWith)
+CREATE TABLE StaffSupervisions (
+  ManagerId STRING(36) NOT NULL,
+  StaffId STRING(36) NOT NULL,
+  CONSTRAINT FK_Supervision_Manager FOREIGN KEY (ManagerId) REFERENCES Managers (EntityIdentifier),
+  CONSTRAINT FK_Supervision_Staff FOREIGN KEY (StaffId) REFERENCES RegularStaff (EntityIdentifier)
+) PRIMARY KEY (ManagerId, StaffId);
+
+-- Edge Table: Symmetric Subproperty (collaboratesOnProject rdfs:subPropertyOf interactsWith)
+CREATE TABLE StaffCollaborations (
+  Staff1Id STRING(36) NOT NULL,
+  Staff2Id STRING(36) NOT NULL,
+  CONSTRAINT FK_Collab_Staff1 FOREIGN KEY (Staff1Id) REFERENCES RegularStaff (EntityIdentifier),
+  CONSTRAINT FK_Collab_Staff2 FOREIGN KEY (Staff2Id) REFERENCES RegularStaff (EntityIdentifier)
+) PRIMARY KEY (Staff1Id, Staff2Id);
+
+-- Edge Table: Inverse Properties (employsWorker owl:inverseOf worksForOrganization)
+CREATE TABLE CorporationStaffEmployments (
+  OrganizationId STRING(36) NOT NULL,
+  EmployeeId STRING(36) NOT NULL,
+  CONSTRAINT FK_Corp_Employment_Org FOREIGN KEY (OrganizationId) REFERENCES Corporations (EntityIdentifier),
+  CONSTRAINT FK_Corp_Employment_Staff FOREIGN KEY (EmployeeId) REFERENCES RegularStaff (EntityIdentifier)
+) PRIMARY KEY (OrganizationId, EmployeeId);
+
+-- =============================================================================
+-- GOOGLE CLOUD SPANNER PROPERTY GRAPH SCHEMA
+-- =============================================================================
+
+CREATE PROPERTY GRAPH ComprehensiveGraph
+  NODE TABLES (
+    -- Multi-label hierarchy: Manager -&gt; LeadSpecialist/Employee -&gt; Individual -&gt; LegalEntity
+    Managers
+      LABEL Manager PROPERTIES (EntityIdentifier, LegalName, BadgeNumber, SpecialtyDomain, ManagementLevel)
+      LABEL LeadSpecialist PROPERTIES (EntityIdentifier, LegalName, SpecialtyDomain)
+      LABEL Employee PROPERTIES (EntityIdentifier, LegalName, BadgeNumber)
+      LABEL Individual PROPERTIES (EntityIdentifier, LegalName)
+      LABEL LegalEntity PROPERTIES (EntityIdentifier, LegalName),
+
+    -- Multi-label hierarchy: RegularStaff -&gt; Employee -&gt; Individual -&gt; LegalEntity
+    RegularStaff
+      LABEL RegularStaff PROPERTIES (EntityIdentifier, LegalName, BadgeNumber)
+      LABEL Employee PROPERTIES (EntityIdentifier, LegalName, BadgeNumber)
+      LABEL Individual PROPERTIES (EntityIdentifier, LegalName)
+      LABEL LegalEntity PROPERTIES (EntityIdentifier, LegalName),
+
+    -- Multi-label hierarchy: Corporation -&gt; Organization -&gt; LegalEntity
+    Corporations
+      LABEL Corporation PROPERTIES (EntityIdentifier, LegalName)
+      LABEL Organization PROPERTIES (EntityIdentifier, LegalName)
+      LABEL LegalEntity PROPERTIES (EntityIdentifier, LegalName),
+
+    -- Multi-label hierarchy: NonGovernmentalOrg -&gt; Organization -&gt; LegalEntity
+    NonGovernmentalOrgs
+      LABEL NonGovernmentalOrg PROPERTIES (EntityIdentifier, LegalName)
+      LABEL Organization PROPERTIES (EntityIdentifier, LegalName)
+      LABEL LegalEntity PROPERTIES (EntityIdentifier, LegalName),
+
+    -- Multi-label hierarchy: DigitalAsset -&gt; Asset
+    DigitalAssets
+      LABEL DigitalAsset PROPERTIES (AssetId, AppraisalValue, IsHighValue)
+      LABEL Asset PROPERTIES (AssetId),
+
+    -- Concrete Class: Department
+    Departments
+      LABEL Department PROPERTIES (DepartmentId, DepartmentName)
+  )
+  EDGE TABLES (
+    -- Transitive Edge: Department -&gt; Department
+    DepartmentHierarchies
+      SOURCE KEY (ParentDepartmentId) REFERENCES Departments (DepartmentId)
+      DESTINATION KEY (ChildDepartmentId) REFERENCES Departments (DepartmentId)
+      LABEL PARENT_DEPARTMENT_OF NO PROPERTIES,
+
+    -- Subproperty Label Accumulation: supervisesStaff -&gt; interactsWith
+    StaffSupervisions
+      SOURCE KEY (ManagerId) REFERENCES Managers (EntityIdentifier)
+      DESTINATION KEY (StaffId) REFERENCES RegularStaff (EntityIdentifier)
+      LABEL SUPERVISES_STAFF NO PROPERTIES
+      LABEL INTERACTS_WITH NO PROPERTIES,
+
+    -- Symmetric Subproperty Label Accumulation: collaboratesOnProject -&gt; interactsWith
+    StaffCollaborations
+      SOURCE KEY (Staff1Id) REFERENCES RegularStaff (EntityIdentifier)
+      DESTINATION KEY (Staff2Id) REFERENCES RegularStaff (EntityIdentifier)
+      LABEL COLLABORATES_ON_PROJECT NO PROPERTIES
+      LABEL INTERACTS_WITH NO PROPERTIES,
+
+    -- Inverse Property Pair 1: employsWorker (Organization -&gt; Employee)
+    CorporationStaffEmployments
+      SOURCE KEY (OrganizationId) REFERENCES Corporations (EntityIdentifier)
+      DESTINATION KEY (EmployeeId) REFERENCES RegularStaff (EntityIdentifier)
+      LABEL EMPLOYS_WORKER NO PROPERTIES,
+
+    -- Inverse Property Pair 2: worksForOrganization (Employee -&gt; Organization)
+    CorporationStaffEmployments AS StaffCorporationEmployments
+      SOURCE KEY (EmployeeId) REFERENCES RegularStaff (EntityIdentifier)
+      DESTINATION KEY (OrganizationId) REFERENCES Corporations (EntityIdentifier)
+      LABEL WORKS_FOR_ORGANIZATION NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

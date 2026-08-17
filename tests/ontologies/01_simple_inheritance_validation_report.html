@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Simple Inheritance</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .code-details {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .code-details summary {
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: #e2e8f0;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+    .code-details summary:hover {
+      background: #cbd5e1;
+    }
+    .code-details .code-container {
+      padding: 16px;
+      background: #0f172a;
+      color: #f8fafc;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+    .code-details pre {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>simple_inheritance.ttl</code></div>
+          <div>SHACL: <code>None (Ontology-Driven)</code></div>
+          <div>Target DDL: <code>spanner_schema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Edge Tables (Pure Node Hierarchy)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">4</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology (Diagram First) -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    Vehicle["<b>Vehicle</b><br><i>&laquo;Abstract Root Class&raquo;</i><br>+ Vin: STRING(MAX)<br>+ Manufacturer: STRING(MAX)"]:::abstract
+    MotorVehicle["<b>MotorVehicle</b><br><i>&laquo;Abstract Intermediate Class&raquo;</i><br>+ EngineDisplacementCc: INT64<br>+ FuelType: STRING(MAX)"]:::abstract
+    
+    Cars["<b>Cars</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br><b>Labels:</b> :Car, :MotorVehicle, :Vehicle<br>+ CarId: STRING(36) [PK]<br>+ Vin: STRING(MAX)<br>+ Manufacturer: STRING(MAX)<br>+ EngineDisplacementCc: INT64<br>+ FuelType: STRING(MAX)<br>+ SeatingCapacity: INT64<br>+ HasSunroof: BOOL"]:::concrete
+    
+    Trucks["<b>Trucks</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br><b>Labels:</b> :Truck, :MotorVehicle, :Vehicle<br>+ TruckId: STRING(36) [PK]<br>+ Vin: STRING(MAX)<br>+ Manufacturer: STRING(MAX)<br>+ EngineDisplacementCc: INT64<br>+ FuelType: STRING(MAX)<br>+ PayloadCapacityKg: NUMERIC<br>+ AxleCount: INT64"]:::concrete
+
+    MotorVehicle -->|rdfs:subClassOf| Vehicle
+    Vehicle -.->|Table-Per-Concrete Flattening| Cars
+    Vehicle -.->|Table-Per-Concrete Flattening| Trucks
+    MotorVehicle -.->|Top-Down Property Propagation| Cars
+    MotorVehicle -.->|Top-Down Property Propagation| Trucks
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Suppressed)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping (Unified Class -> Node Mapping) -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Car</code></td>
+          <td><code>Cars</code></td>
+          <td>
+            <span class="label-pill">:Car</span>
+            <span class="label-pill">:MotorVehicle</span>
+            <span class="label-pill">:Vehicle</span>
+          </td>
+          <td>
+            <code>CarId STRING(36) [PK]</code><br>
+            <code>Vin STRING(MAX)</code> <i>(from Vehicle)</i><br>
+            <code>Manufacturer STRING(MAX)</code> <i>(from Vehicle)</i><br>
+            <code>EngineDisplacementCc INT64</code> <i>(from MotorVehicle)</i><br>
+            <code>FuelType STRING(MAX)</code> <i>(from MotorVehicle)</i><br>
+            <code>SeatingCapacity INT64</code> <i>(direct)</i><br>
+            <code>HasSunroof BOOL</code> <i>(direct)</i>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherited ancestor properties (<code>ex:Vehicle</code>, <code>ex:MotorVehicle</code>) are flattened into the physical table. Direct properties (<code>seatingCapacity</code>, <code>hasSunroof</code>) are strictly isolated. Multi-label node exposure enables polymorphic querying.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Truck</code></td>
+          <td><code>Trucks</code></td>
+          <td>
+            <span class="label-pill">:Truck</span>
+            <span class="label-pill">:MotorVehicle</span>
+            <span class="label-pill">:Vehicle</span>
+          </td>
+          <td>
+            <code>TruckId STRING(36) [PK]</code><br>
+            <code>Vin STRING(MAX)</code> <i>(from Vehicle)</i><br>
+            <code>Manufacturer STRING(MAX)</code> <i>(from Vehicle)</i><br>
+            <code>EngineDisplacementCc INT64</code> <i>(from MotorVehicle)</i><br>
+            <code>FuelType STRING(MAX)</code> <i>(from MotorVehicle)</i><br>
+            <code>PayloadCapacityKg NUMERIC</code> <i>(direct)</i><br>
+            <code>AxleCount INT64</code> <i>(direct)</i>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Top-down property inheritance flattened into <code>Trucks</code>. Sibling isolation preserved (no Car properties leaked). Decimal mapped to Spanner <code>NUMERIC</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:Vehicle</code><br>
+            <code>ex:MotorVehicle</code>
+          </td>
+          <td><em>None (Abstract)</em></td>
+          <td>
+            <span class="label-pill">:Vehicle</span>
+            <span class="label-pill">:MotorVehicle</span>
+          </td>
+          <td><em>Inherited across all concrete child tables</em></td>
+          <td><strong>Physical Table Suppression:</strong> Abstract superclasses produce no physical tables. They exist logically in the graph via multi-label declarations on concrete node tables with unified property signatures.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5" style="text-align: center; color: var(--muted); padding: 18px;">
+            <em>No OWL Object Properties declared in source ontology. Class hierarchy and polymorphic queries are handled entirely via multi-label node mappings.</em>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Root Polymorphic Query:</strong><br>Query all vehicles (Cars and Trucks) using the root superclass label</td>
+          <td>
+            <div class="query-box">
+GRAPH SimpleInheritanceGraph
+MATCH (v:Vehicle)
+RETURN v.Vin, v.Manufacturer;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Intermediate Polymorphic Query:</strong><br>Query all motorized vehicles and their engine specs across all subclasses</td>
+          <td>
+            <div class="query-box">
+GRAPH SimpleInheritanceGraph
+MATCH (mv:MotorVehicle)
+WHERE mv.EngineDisplacementCc > 2000
+RETURN mv.Vin, mv.Manufacturer, mv.FuelType, mv.EngineDisplacementCc;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Concrete Leaf Query:</strong><br>Query Car-specific or Truck-specific attributes</td>
+          <td>
+            <div class="query-box">
+GRAPH SimpleInheritanceGraph
+MATCH (c:Car)
+WHERE c.HasSunroof = TRUE
+RETURN c.CarId, c.Vin, c.SeatingCapacity;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Label Property Signature Uniformity:</strong> The shared <code>LABEL Vehicle</code> exposes <code>(Vin STRING(MAX), Manufacturer STRING(MAX))</code> identically on both <code>Cars</code> and <code>Trucks</code>.</li>
+        <li><strong>Intermediate Uniformity:</strong> The shared <code>LABEL MotorVehicle</code> exposes <code>(Vin, Manufacturer, EngineDisplacementCc, FuelType)</code> with matching types (<code>STRING(MAX)</code>, <code>STRING(MAX)</code>, <code>INT64</code>, <code>STRING(MAX)</code>) on both node tables.</li>
+        <li><strong>Bottom-Up Isolation:</strong> <code>SeatingCapacity</code> and <code>HasSunroof</code> exist only in <code>Cars</code>; <code>PayloadCapacityKg</code> and <code>AxleCount</code> exist only in <code>Trucks</code>.</li>
+        <li><strong>Type Fidelity:</strong> <code>xsd:decimal</code> correctly translated to Spanner <code>NUMERIC</code>; <code>xsd:integer</code> to <code>INT64</code>; <code>xsd:boolean</code> to <code>BOOL</code>.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Raw Artifacts Inspector Header -->
+
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/test/simple_inheritance/&gt; .
+
+ex:SimpleInheritanceOntology a owl:Ontology ;
+    rdfs:label &quot;Simple Inheritance &amp; Top-Down Propagation Test Ontology&quot; ;
+    rdfs:comment &quot;Tests single class hierarchy, table-per-concrete-class flattening, top-down datatype property propagation, bottom-up property isolation, and multi-label node mappings.&quot; .
+
+# =============================================================================
+# Class Taxonomy:
+# Vehicle (Abstract Superclass)
+#   └── MotorVehicle (Intermediate Class)
+#         ├── Car (Concrete Leaf Class)
+#         └── Truck (Concrete Leaf Class)
+# =============================================================================
+
+ex:Vehicle a owl:Class ;
+    rdfs:label &quot;Vehicle&quot; ;
+    rdfs:comment &quot;Root abstract superclass. Should NOT generate a physical table.&quot; .
+
+ex:MotorVehicle a owl:Class ;
+    rdfs:subClassOf ex:Vehicle ;
+    rdfs:label &quot;Motor Vehicle&quot; ;
+    rdfs:comment &quot;Intermediate class. Properties must propagate down to Car and Truck.&quot; .
+
+ex:Car a owl:Class ;
+    rdfs:subClassOf ex:MotorVehicle ;
+    rdfs:label &quot;Car&quot; ;
+    rdfs:comment &quot;Concrete leaf class. Must map to physical table &#x27;Cars&#x27; and NODE TABLE with labels (Car, MotorVehicle, Vehicle).&quot; .
+
+ex:Truck a owl:Class ;
+    rdfs:subClassOf ex:MotorVehicle ;
+    rdfs:label &quot;Truck&quot; ;
+    rdfs:comment &quot;Concrete leaf class. Must map to physical table &#x27;Trucks&#x27; and NODE TABLE with labels (Truck, MotorVehicle, Vehicle).&quot; .
+
+# =============================================================================
+# Datatype Properties with Top-Down Inheritance:
+# - Defined on Vehicle (Root) -&gt; Must flatten into both Cars and Trucks
+# - Defined on MotorVehicle -&gt; Must flatten into both Cars and Trucks
+# - Defined on Car -&gt; Must stay strictly in Cars (bottom-up isolation)
+# - Defined on Truck -&gt; Must stay strictly in Trucks (bottom-up isolation)
+# =============================================================================
+
+ex:vin a owl:DatatypeProperty ;
+    rdfs:domain ex:Vehicle ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Vehicle Identification Number&quot; ;
+    rdfs:comment &quot;Top-down: Propagates to all leaf classes (Cars, Trucks).&quot; .
+
+ex:manufacturer a owl:DatatypeProperty ;
+    rdfs:domain ex:Vehicle ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Manufacturer&quot; ;
+    rdfs:comment &quot;Top-down: Propagates to all leaf classes (Cars, Trucks).&quot; .
+
+ex:engineDisplacementCc a owl:DatatypeProperty ;
+    rdfs:domain ex:MotorVehicle ;
+    rdfs:range xsd:integer ;
+    rdfs:label &quot;Engine Displacement (cc)&quot; ;
+    rdfs:comment &quot;Top-down: Propagates to Car and Truck tables.&quot; .
+
+ex:fuelType a owl:DatatypeProperty ;
+    rdfs:domain ex:MotorVehicle ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Fuel Type&quot; ;
+    rdfs:comment &quot;Top-down: Propagates to Car and Truck tables.&quot; .
+
+ex:seatingCapacity a owl:DatatypeProperty ;
+    rdfs:domain ex:Car ;
+    rdfs:range xsd:integer ;
+    rdfs:label &quot;Seating Capacity&quot; ;
+    rdfs:comment &quot;Bottom-up isolation: Belongs ONLY to Cars table, not Trucks or Vehicle.&quot; .
+
+ex:hasSunroof a owl:DatatypeProperty ;
+    rdfs:domain ex:Car ;
+    rdfs:range xsd:boolean ;
+    rdfs:label &quot;Has Sunroof&quot; ;
+    rdfs:comment &quot;Bottom-up isolation: Belongs ONLY to Cars table.&quot; .
+
+ex:payloadCapacityKg a owl:DatatypeProperty ;
+    rdfs:domain ex:Truck ;
+    rdfs:range xsd:decimal ;
+    rdfs:label &quot;Payload Capacity (kg)&quot; ;
+    rdfs:comment &quot;Bottom-up isolation: Belongs ONLY to Trucks table, not Cars or Vehicle.&quot; .
+
+ex:axleCount a owl:DatatypeProperty ;
+    rdfs:domain ex:Truck ;
+    rdfs:range xsd:integer ;
+    rdfs:label &quot;Axle Count&quot; ;
+    rdfs:comment &quot;Bottom-up isolation: Belongs ONLY to Trucks table.&quot; .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>No companion SHACL shapes defined (Unconstrained OWL translation).</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- Google Cloud Spanner Relational DDL
+-- Table-Per-Concrete-Class Inheritance Mapping
+-- =============================================================================
+
+CREATE TABLE Cars (
+  CarId STRING(36) NOT NULL,
+  Vin STRING(MAX),
+  Manufacturer STRING(MAX),
+  EngineDisplacementCc INT64,
+  FuelType STRING(MAX),
+  SeatingCapacity INT64,
+  HasSunroof BOOL
+) PRIMARY KEY (CarId);
+
+CREATE TABLE Trucks (
+  TruckId STRING(36) NOT NULL,
+  Vin STRING(MAX),
+  Manufacturer STRING(MAX),
+  EngineDisplacementCc INT64,
+  FuelType STRING(MAX),
+  PayloadCapacityKg NUMERIC,
+  AxleCount INT64
+) PRIMARY KEY (TruckId);
+
+-- =============================================================================
+-- Google Cloud Spanner Property Graph DDL
+-- Multi-Label Node Mapping for Class Hierarchy
+-- =============================================================================
+
+CREATE PROPERTY GRAPH SimpleInheritanceGraph
+  NODE TABLES (
+    Cars
+      LABEL Car PROPERTIES (CarId, Vin, Manufacturer, EngineDisplacementCc, FuelType, SeatingCapacity, HasSunroof)
+      LABEL MotorVehicle PROPERTIES (Vin, Manufacturer, EngineDisplacementCc, FuelType)
+      LABEL Vehicle PROPERTIES (Vin, Manufacturer),
+    Trucks
+      LABEL Truck PROPERTIES (TruckId, Vin, Manufacturer, EngineDisplacementCc, FuelType, PayloadCapacityKg, AxleCount)
+      LABEL MotorVehicle PROPERTIES (Vin, Manufacturer, EngineDisplacementCc, FuelType)
+      LABEL Vehicle PROPERTIES (Vin, Manufacturer)
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

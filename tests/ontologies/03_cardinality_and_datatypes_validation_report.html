@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Cardinality &amp; Datatypes</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>ex:CardinalityAndDatatypesOntology</code></div>
+          <div>SHACL: <code>FinancialTransactionShape, UserProfileShape</code></div>
+          <div>Target DDL: <code>CardinalityAndDatatypesGraph</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">12</div>
+        <div class="label">Datatype Fields</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+
+    FinancialTransactions["<b>FinancialTransactions</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ TransactionId: STRING(36) [PK]<br>+ Amount: NUMERIC<br>+ ExchangeRate: FLOAT64<br>+ IsSettled: BOOL<br>+ TransactionTimestamp: TIMESTAMP<br>+ SettlementDate: DATE<br>+ RetryCount: INT64<br>+ RiskScore: FLOAT64<br>+ AuditTags: ARRAY&lt;STRING(MAX)&gt;"]:::concrete
+
+    UserProfiles["<b>UserProfiles</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ UserProfileId: STRING(36) [PK]<br>+ EmailAddress: STRING(255)<br>+ IsActive: BOOL<br>+ VerificationCodes: ARRAY&lt;STRING(MAX)&gt;"]:::concrete
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node Table)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / SHACL Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Mapped Physical Columns &amp; Datatypes</th>
+          <th>Cardinality &amp; Constraint Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:FinancialTransaction</code><br>
+            <small style="color:var(--muted)"><code>ex:FinancialTransactionShape</code></small>
+          </td>
+          <td><code>FinancialTransactions</code></td>
+          <td>
+            <span class="label-pill">:FinancialTransaction</span>
+          </td>
+          <td>
+            <code>TransactionId STRING(36) NOT NULL [PK]</code><br>
+            <code>Amount NUMERIC NOT NULL</code><br>
+            <code>ExchangeRate FLOAT64</code><br>
+            <code>IsSettled BOOL NOT NULL</code><br>
+            <code>TransactionTimestamp TIMESTAMP NOT NULL</code><br>
+            <code>SettlementDate DATE</code><br>
+            <code>RetryCount INT64 NOT NULL</code><br>
+            <code>RiskScore FLOAT64</code><br>
+            <code>AuditTags ARRAY&lt;STRING(MAX)&gt;</code>
+          </td>
+          <td>
+            <strong>Complete Fidelity:</strong><br>
+            • <code>sh:minCount 1</code> mapped to <code>NOT NULL</code> for required fields (<code>TransactionId</code>, <code>Amount</code>, <code>IsSettled</code>, <code>TransactionTimestamp</code>, <code>RetryCount</code>).<br>
+            • Optional fields (<code>ExchangeRate</code>, <code>SettlementDate</code>, <code>RiskScore</code>) mapped as nullable scalar columns.<br>
+            • Multi-valued property <code>ex:auditTag</code> mapped to <code>ARRAY&lt;STRING(MAX)&gt;</code>.<br>
+            • Length constraint <code>sh:maxLength 36</code> mapped to <code>STRING(36)</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:UserProfile</code><br>
+            <small style="color:var(--muted)"><code>ex:UserProfileShape</code></small>
+          </td>
+          <td><code>UserProfiles</code></td>
+          <td>
+            <span class="label-pill">:UserProfile</span>
+          </td>
+          <td>
+            <code>UserProfileId STRING(36) NOT NULL [PK]</code><br>
+            <code>EmailAddress STRING(255) NOT NULL</code><br>
+            <code>IsActive BOOL NOT NULL</code><br>
+            <code>VerificationCodes ARRAY&lt;STRING(MAX)&gt;</code>
+          </td>
+          <td>
+            <strong>Surrogate Key &amp; Array Mapping:</strong><br>
+            • Generated surrogate primary key <code>UserProfileId STRING(36) NOT NULL</code>.<br>
+            • <code>ex:emailAddress</code> (<code>sh:maxLength 255</code>, <code>sh:minCount 1</code>) mapped to <code>STRING(255) NOT NULL</code>.<br>
+            • Multi-valued <code>ex:verificationCode</code> mapped to <code>ARRAY&lt;STRING(MAX)&gt;</code>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5" style="text-align: center; color: var(--muted); padding: 18px;">
+            <em>No OWL Object Properties defined in source ontology. Pure Entity &amp; Datatype model.</em>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Query Pattern / Capability</th>
+          <th>Cloud Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Scalar &amp; Temporal Filtering:</strong><br>Query transactions by date range and settlement status</td>
+          <td>
+            <div class="query-box">
+GRAPH CardinalityAndDatatypesGraph
+MATCH (tx:FinancialTransaction)
+WHERE tx.IsSettled = TRUE 
+  AND tx.TransactionTimestamp >= TIMESTAMP '2025-01-01T00:00:00Z'
+RETURN tx.TransactionId, tx.Amount, tx.SettlementDate;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Array / Multi-Valued Unnesting:</strong><br>Match user profiles containing specific verification codes</td>
+          <td>
+            <div class="query-box">
+GRAPH CardinalityAndDatatypesGraph
+MATCH (u:UserProfile)
+WHERE 'MFA-SMS' IN UNNEST(u.VerificationCodes)
+RETURN u.UserProfileId, u.EmailAddress, u.IsActive;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Numeric / Precision Aggregations:</strong><br>Query total financial amount across transaction entities</td>
+          <td>
+            <div class="query-box">
+GRAPH CardinalityAndDatatypesGraph
+MATCH (tx:FinancialTransaction)
+RETURN SUM(tx.Amount) AS TotalSettledVolume;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Full Type Coverage:</strong> Validated exact GoogleSQL mappings: <code>xsd:decimal &rarr; NUMERIC</code>, <code>xsd:double &rarr; FLOAT64</code>, <code>xsd:dateTime &rarr; TIMESTAMP</code>, <code>xsd:date &rarr; DATE</code>, <code>xsd:integer &rarr; INT64</code>, <code>xsd:boolean &rarr; BOOL</code>.</li>
+        <li><strong>Array Cardinality Semantics:</strong> Repeated datatype properties (<code>ex:auditTag</code>, <code>ex:verificationCode</code>) accurately modeled as GoogleSQL native <code>ARRAY&lt;STRING(MAX)&gt;</code> within node properties.</li>
+        <li><strong>Nullability Integrity:</strong> Mandatory properties governed by <code>sh:minCount 1</code> are enforced strictly as <code>NOT NULL</code>.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Raw Artifacts Inspector Placeholder -->
+
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/test/cardinality_datatypes/&gt; .
+
+ex:CardinalityAndDatatypesOntology a owl:Ontology ;
+    rdfs:label &quot;Cardinality &amp; Datatypes Test Ontology&quot; ;
+    rdfs:comment &quot;Tests OWL functional properties, cardinality restrictions, and all standard Spanner datatypes (INT64, NUMERIC, FLOAT64, BOOL, TIMESTAMP, DATE, STRING).&quot; .
+
+# =============================================================================
+# Classes
+# =============================================================================
+
+ex:FinancialTransaction a owl:Class ;
+    rdfs:label &quot;Financial Transaction&quot; ;
+    rdfs:comment &quot;Entity demonstrating various scalar and array attributes with strict datatypes.&quot; ;
+    rdfs:subClassOf
+        [
+            a owl:Restriction ;
+            owl:onProperty ex:transactionId ;
+            owl:cardinality &quot;1&quot;^^xsd:nonNegativeInteger
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty ex:amount ;
+            owl:cardinality &quot;1&quot;^^xsd:nonNegativeInteger
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty ex:transactionTimestamp ;
+            owl:cardinality &quot;1&quot;^^xsd:nonNegativeInteger
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty ex:riskScore ;
+            owl:maxCardinality &quot;1&quot;^^xsd:nonNegativeInteger
+        ] .
+
+ex:UserProfile a owl:Class ;
+    rdfs:label &quot;User Profile&quot; ;
+    rdfs:comment &quot;Entity testing strings, dates, booleans, and multi-valued tags.&quot; .
+
+# =============================================================================
+# Functional Properties (Exactly One / At Most One)
+# =============================================================================
+
+ex:transactionId a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Transaction UUID&quot; .
+
+ex:amount a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:decimal ;
+    rdfs:label &quot;Transaction Amount (NUMERIC)&quot; .
+
+ex:exchangeRate a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:double ;
+    rdfs:label &quot;Exchange Rate (FLOAT64)&quot; .
+
+ex:isSettled a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:boolean ;
+    rdfs:label &quot;Is Settled (BOOL)&quot; .
+
+ex:transactionTimestamp a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label &quot;Transaction Timestamp (TIMESTAMP)&quot; .
+
+ex:settlementDate a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:date ;
+    rdfs:label &quot;Settlement Date (DATE)&quot; .
+
+ex:retryCount a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:integer ;
+    rdfs:label &quot;Retry Count (INT64)&quot; .
+
+ex:riskScore a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:double ;
+    rdfs:label &quot;Risk Score&quot; .
+
+# =============================================================================
+# Multi-Valued Datatype Properties (Repeated / ARRAY fields)
+# =============================================================================
+
+ex:auditTag a owl:DatatypeProperty ;
+    rdfs:domain ex:FinancialTransaction ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Audit Tags (ARRAY&lt;STRING(MAX)&gt;)&quot; .
+
+ex:verificationCode a owl:DatatypeProperty ;
+    rdfs:domain ex:UserProfile ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Verification Codes (ARRAY&lt;STRING(MAX)&gt;)&quot; .
+
+ex:emailAddress a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:UserProfile ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Primary Email Address&quot; .
+
+ex:isActive a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain ex:UserProfile ;
+    rdfs:range xsd:boolean ;
+    rdfs:label &quot;Account Active Status&quot; .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:   &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix sh:    &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd:   &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:    &lt;http://example.org/test/cardinality_datatypes/&gt; .
+
+# =============================================================================
+# SHACL Shapes for Cardinality &amp; Datatypes Validation:
+# - Tests sh:minCount 1 -&gt; NOT NULL
+# - Tests sh:maxCount 1 -&gt; Scalar column
+# - Tests omitted maxCount -&gt; ARRAY column
+# - Tests sh:maxLength -&gt; STRING(N)
+# =============================================================================
+
+ex:FinancialTransactionShape a sh:NodeShape ;
+    sh:targetClass ex:FinancialTransaction ;
+    sh:property [
+        sh:path ex:transactionId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 36 ;
+    ] ,
+    [
+        sh:path ex:amount ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:exchangeRate ;
+        sh:datatype xsd:double ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:isSettled ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:transactionTimestamp ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:settlementDate ;
+        sh:datatype xsd:date ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:retryCount ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:auditTag ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        # Multi-valued: maps to ARRAY&lt;STRING(MAX)&gt;
+    ] .
+
+ex:UserProfileShape a sh:NodeShape ;
+    sh:targetClass ex:UserProfile ;
+    sh:property [
+        sh:path ex:emailAddress ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 255 ;
+    ] ,
+    [
+        sh:path ex:isActive ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path ex:verificationCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        # Multi-valued: maps to ARRAY&lt;STRING(MAX)&gt;
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- Google Cloud Spanner Relational DDL
+-- Generated from OWL Ontology and SHACL Shapes
+-- Pattern: Table-Per-Concrete-Class with Flattened Datatypes &amp; Scalar/Array Constraints
+-- =============================================================================
+
+CREATE TABLE FinancialTransactions (
+  TransactionId STRING(36) NOT NULL,
+  Amount NUMERIC NOT NULL,
+  ExchangeRate FLOAT64,
+  IsSettled BOOL NOT NULL,
+  TransactionTimestamp TIMESTAMP NOT NULL,
+  SettlementDate DATE,
+  RetryCount INT64 NOT NULL,
+  RiskScore FLOAT64,
+  AuditTags ARRAY&lt;STRING(MAX)&gt;
+) PRIMARY KEY (TransactionId);
+
+CREATE TABLE UserProfiles (
+  UserProfileId STRING(36) NOT NULL,
+  EmailAddress STRING(255) NOT NULL,
+  IsActive BOOL NOT NULL,
+  VerificationCodes ARRAY&lt;STRING(MAX)&gt;
+) PRIMARY KEY (UserProfileId);
+
+-- =============================================================================
+-- Google Cloud Spanner Property Graph DDL
+-- Schema: GQL-Compliant Property Graph definition
+-- =============================================================================
+
+CREATE PROPERTY GRAPH CardinalityAndDatatypesGraph
+  NODE TABLES (
+    FinancialTransactions
+      LABEL FinancialTransaction PROPERTIES (
+        TransactionId,
+        Amount,
+        ExchangeRate,
+        IsSettled,
+        TransactionTimestamp,
+        SettlementDate,
+        RetryCount,
+        RiskScore,
+        AuditTags
+      ),
+    UserProfiles
+      LABEL UserProfile PROPERTIES (
+        UserProfileId,
+        EmailAddress,
+        IsActive,
+        VerificationCodes
+      )
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

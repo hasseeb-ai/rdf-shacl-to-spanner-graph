@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Union Domains &amp; Multi-Target Propagation</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>ex:UnionDomainsOntology (union_domains.ttl)</code></div>
+          <div>SHACL: <code>None (Implicit Axioms)</code></div>
+          <div>Target DDL: <code>UnionDomainsGraph (schema.sql)</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">3</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">5</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology (Diagram First!) -->
+    <h2>1. Visual Graph Schema &amp; Propagation Hierarchy</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    LegalSubject["<b>LegalSubject</b><br><i>&laquo;Abstract Root Class&raquo;</i>"]:::abstract
+    Individual["<b>Individual</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ taxIdentifier (Union)"]:::abstract
+    Organization["<b>Organization</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ taxIdentifier (Union)"]:::abstract
+
+    NaturalPersons["<b>NaturalPersons</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ PersonId: STRING(36) [PK]<br>+ TaxIdentifier: STRING(MAX)<br>+ ContactEmail: STRING(MAX)<br>+ BirthDate: DATE"]:::concrete
+    Corporations["<b>Corporations</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ CorporationId: STRING(36) [PK]<br>+ TaxIdentifier: STRING(MAX)<br>+ ContactEmail: STRING(MAX)<br>+ IncorporationNumber: STRING(MAX)"]:::concrete
+    NonProfits["<b>NonProfits</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ NonProfitId: STRING(36) [PK]<br>+ TaxIdentifier: STRING(MAX)<br>+ CharityRegistrationId: STRING(MAX)"]:::concrete
+
+    LegalSubject -->|rdfs:subClassOf| Individual
+    LegalSubject -->|rdfs:subClassOf| Organization
+    Individual -->|rdfs:subClassOf| NaturalPersons
+    Organization -->|rdfs:subClassOf| Corporations
+    Organization -->|rdfs:subClassOf| NonProfits
+
+    Individual -.->|Flattened Realization| NaturalPersons
+    Organization -.->|Flattened Realization| Corporations
+    Organization -.->|Flattened Realization| NonProfits
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node Table)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Uninstantiated Taxonomy Superclass)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping (Unified Class -> Node Mapping) -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Concept</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:NaturalPerson</code><br>
+            <small style="color:var(--muted)">subClassOf ex:Individual &rarr; ex:LegalSubject</small>
+          </td>
+          <td><code>NaturalPersons</code></td>
+          <td>
+            <span class="label-pill">:NATURAL_PERSON</span>
+            <span class="label-pill">:INDIVIDUAL</span>
+            <span class="label-pill">:LEGAL_SUBJECT</span>
+          </td>
+          <td>
+            <code>PersonId STRING(36) [PK]</code><br>
+            <code>TaxIdentifier STRING(MAX)</code><br>
+            <code>ContactEmail STRING(MAX)</code><br>
+            <code>BirthDate DATE</code>
+          </td>
+          <td>
+            <strong>Table-Per-Concrete-Class:</strong> Inherits <code>taxIdentifier</code> via <code>ex:Individual</code> union member and <code>contactEmail</code> via direct union branch. Exposes alias <code>PersonId AS SubjectId</code> under label <code>:LEGAL_SUBJECT</code> for signature uniformity.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:Corporation</code><br>
+            <small style="color:var(--muted)">subClassOf ex:Organization &rarr; ex:LegalSubject</small>
+          </td>
+          <td><code>Corporations</code></td>
+          <td>
+            <span class="label-pill">:CORPORATION</span>
+            <span class="label-pill">:ORGANIZATION</span>
+            <span class="label-pill">:LEGAL_SUBJECT</span>
+          </td>
+          <td>
+            <code>CorporationId STRING(36) [PK]</code><br>
+            <code>TaxIdentifier STRING(MAX)</code><br>
+            <code>ContactEmail STRING(MAX)</code><br>
+            <code>IncorporationNumber STRING(MAX)</code>
+          </td>
+          <td>
+            <strong>Union Domain Realization:</strong> Correctly receives <code>taxIdentifier</code> via <code>ex:Organization</code> union branch and <code>contactEmail</code> via direct class union branch. Aliases <code>CorporationId AS OrganizationId</code> and <code>CorporationId AS SubjectId</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:NonProfit</code><br>
+            <small style="color:var(--muted)">subClassOf ex:Organization &rarr; ex:LegalSubject</small>
+          </td>
+          <td><code>NonProfits</code></td>
+          <td>
+            <span class="label-pill">:NON_PROFIT</span>
+            <span class="label-pill">:ORGANIZATION</span>
+            <span class="label-pill">:LEGAL_SUBJECT</span>
+          </td>
+          <td>
+            <code>NonProfitId STRING(36) [PK]</code><br>
+            <code>TaxIdentifier STRING(MAX)</code><br>
+            <code>CharityRegistrationId STRING(MAX)</code>
+          </td>
+          <td>
+            <strong>Selective Exclusion &amp; Isolation:</strong> Receives <code>taxIdentifier</code> via <code>ex:Organization</code>; correctly <strong>excludes</strong> <code>contactEmail</code> as <code>NonProfit</code> is not a member of that property's union domain.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5" style="text-align:center; color:var(--muted); padding: 16px;">
+            <em>No Object Properties defined in source ontology. This benchmark specifically targets Union Domain (<code>owl:unionOf</code>) datatype inheritance and polymorphic multi-label node signatures.</em>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Union Query (Legal Subjects):</strong><br>Scan all entities across the entire class hierarchy with uniform tax identifiers</td>
+          <td>
+            <div class="query-box">
+GRAPH UnionDomainsGraph
+MATCH (s:LEGAL_SUBJECT)
+RETURN s.SubjectId, s.TaxIdentifier;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Polymorphic Organization Query:</strong><br>Scan across Corporations and NonProfits via shared intermediate abstract label</td>
+          <td>
+            <div class="query-box">
+GRAPH UnionDomainsGraph
+MATCH (org:ORGANIZATION)
+RETURN org.OrganizationId, org.TaxIdentifier;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Selective Multi-Target Filter:</strong><br>Query entities possessing email contacts across distinct taxonomy subtrees</td>
+          <td>
+            <div class="query-box">
+GRAPH UnionDomainsGraph
+MATCH (e) WHERE e:NATURAL_PERSON OR e:CORPORATION
+RETURN e.ContactEmail, e.TaxIdentifier;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Label Property Signatures:</strong> <code>LABEL LEGAL_SUBJECT</code> exposes exactly <code>(SubjectId STRING(36), TaxIdentifier STRING(MAX))</code> across <code>NaturalPersons</code>, <code>Corporations</code>, and <code>NonProfits</code> tables.</li>
+        <li><strong>Intermediate Label Uniformity:</strong> <code>LABEL ORGANIZATION</code> exposes <code>(OrganizationId STRING(36), TaxIdentifier STRING(MAX))</code> across both <code>Corporations</code> and <code>NonProfits</code>.</li>
+        <li><strong>Top-Down Union Domain Flattening (Rule 1):</strong> Multi-target union domains (<code>owl:unionOf</code>) correctly distributed only to the designated concrete leaf tables without cross-contaminating sibling classes.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/test/union_domains/&gt; .
+
+ex:UnionDomainsOntology a owl:Ontology ;
+    rdfs:label &quot;Union Domains &amp; Multi-Target Propagation Test Ontology&quot; ;
+    rdfs:comment &quot;Tests owl:unionOf domain declarations and ensures properties propagate top-down to concrete leaf tables of all union members (Rule 1).&quot; .
+
+# =============================================================================
+# Class Taxonomy:
+# LegalSubject (Abstract)
+#   ├── Individual (Abstract)
+#   │     └── NaturalPerson (Concrete Leaf)
+#   └── Organization (Abstract)
+#         ├── Corporation (Concrete Leaf)
+#         └── NonProfit (Concrete Leaf)
+# =============================================================================
+
+ex:LegalSubject a owl:Class ;
+    rdfs:label &quot;Legal Subject&quot; .
+
+ex:Individual a owl:Class ;
+    rdfs:subClassOf ex:LegalSubject ;
+    rdfs:label &quot;Individual&quot; .
+
+ex:NaturalPerson a owl:Class ;
+    rdfs:subClassOf ex:Individual ;
+    rdfs:label &quot;Natural Person&quot; ;
+    rdfs:comment &quot;Concrete table &#x27;NaturalPersons&#x27;.&quot; .
+
+ex:Organization a owl:Class ;
+    rdfs:subClassOf ex:LegalSubject ;
+    rdfs:label &quot;Organization&quot; .
+
+ex:Corporation a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    rdfs:label &quot;Corporation&quot; ;
+    rdfs:comment &quot;Concrete table &#x27;Corporations&#x27;.&quot; .
+
+ex:NonProfit a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    rdfs:label &quot;Non-Profit&quot; ;
+    rdfs:comment &quot;Concrete table &#x27;NonProfits&#x27;.&quot; .
+
+# =============================================================================
+# Union Domain Properties:
+# - taxIdentifier: Domain = (Individual UNION Organization) -&gt; propagates to NaturalPersons, Corporations, and NonProfits
+# - contactEmail: Domain = (NaturalPerson UNION Corporation) -&gt; propagates to NaturalPersons and Corporations
+# =============================================================================
+
+ex:taxIdentifier a owl:DatatypeProperty ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf ( ex:Individual ex:Organization )
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Tax Identifier&quot; ;
+    rdfs:comment &quot;Union domain rule: Must flatten into NaturalPersons, Corporations, AND NonProfits tables.&quot; .
+
+ex:contactEmail a owl:DatatypeProperty ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf ( ex:NaturalPerson ex:Corporation )
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Contact Email&quot; ;
+    rdfs:comment &quot;Must flatten into NaturalPersons and Corporations, but NOT NonProfits.&quot; .
+
+# =============================================================================
+# Class-Specific Datatype Properties
+# =============================================================================
+
+ex:birthDate a owl:DatatypeProperty ;
+    rdfs:domain ex:NaturalPerson ;
+    rdfs:range xsd:date ;
+    rdfs:label &quot;Birth Date&quot; .
+
+ex:incorporationNumber a owl:DatatypeProperty ;
+    rdfs:domain ex:Corporation ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Incorporation Number&quot; .
+
+ex:charityRegistrationId a owl:DatatypeProperty ;
+    rdfs:domain ex:NonProfit ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Charity Registration ID&quot; .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>No companion SHACL shapes defined (Unconstrained OWL translation).</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- PHYSICAL RELATIONAL SCHEMA (Table-Per-Concrete-Class)
+-- =============================================================================
+
+-- Concrete Class: ex:NaturalPerson (subClassOf ex:Individual -&gt; ex:LegalSubject)
+-- Inherits: ex:taxIdentifier (Union of Individual &amp; Organization), ex:contactEmail (Union of NaturalPerson &amp; Corporation)
+CREATE TABLE NaturalPersons (
+  PersonId STRING(36) NOT NULL,
+  TaxIdentifier STRING(MAX),
+  ContactEmail STRING(MAX),
+  BirthDate DATE
+) PRIMARY KEY (PersonId);
+
+-- Concrete Class: ex:Corporation (subClassOf ex:Organization -&gt; ex:LegalSubject)
+-- Inherits: ex:taxIdentifier (Union of Individual &amp; Organization), ex:contactEmail (Union of NaturalPerson &amp; Corporation)
+CREATE TABLE Corporations (
+  CorporationId STRING(36) NOT NULL,
+  TaxIdentifier STRING(MAX),
+  ContactEmail STRING(MAX),
+  IncorporationNumber STRING(MAX)
+) PRIMARY KEY (CorporationId);
+
+-- Concrete Class: ex:NonProfit (subClassOf ex:Organization -&gt; ex:LegalSubject)
+-- Inherits: ex:taxIdentifier (Union of Individual &amp; Organization)
+-- Note: ex:contactEmail is NOT inherited (domain excludes NonProfit)
+CREATE TABLE NonProfits (
+  NonProfitId STRING(36) NOT NULL,
+  TaxIdentifier STRING(MAX),
+  CharityRegistrationId STRING(MAX)
+) PRIMARY KEY (NonProfitId);
+
+-- =============================================================================
+-- PROPERTY GRAPH SCHEMA
+-- =============================================================================
+
+CREATE PROPERTY GRAPH UnionDomainsGraph
+  NODE TABLES (
+    NaturalPersons
+      LABEL NATURAL_PERSON PROPERTIES (PersonId, TaxIdentifier, ContactEmail, BirthDate)
+      LABEL INDIVIDUAL PROPERTIES (PersonId, TaxIdentifier, ContactEmail)
+      LABEL LEGAL_SUBJECT PROPERTIES (PersonId AS SubjectId, TaxIdentifier),
+    Corporations
+      LABEL CORPORATION PROPERTIES (CorporationId, TaxIdentifier, ContactEmail, IncorporationNumber)
+      LABEL ORGANIZATION PROPERTIES (CorporationId AS OrganizationId, TaxIdentifier)
+      LABEL LEGAL_SUBJECT PROPERTIES (CorporationId AS SubjectId, TaxIdentifier),
+    NonProfits
+      LABEL NON_PROFIT PROPERTIES (NonProfitId, TaxIdentifier, CharityRegistrationId)
+      LABEL ORGANIZATION PROPERTIES (NonProfitId AS OrganizationId, TaxIdentifier)
+      LABEL LEGAL_SUBJECT PROPERTIES (NonProfitId AS SubjectId, TaxIdentifier)
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

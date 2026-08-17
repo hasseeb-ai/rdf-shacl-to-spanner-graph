@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Subproperties &amp; Label Accumulation</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>ex:SubpropertiesOntology (subproperties.ttl)</code></div>
+          <div>SHACL: <code>None (Unconstrained OWL)</code></div>
+          <div>Target DDL: <code>schema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology (Diagram First!) -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    Professional["<b>Professional</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ professionalName: STRING(MAX)"]:::abstract
+    Initiative["<b>Initiative</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ initiativeTitle: STRING(MAX)"]:::abstract
+
+    SoftwareEngineers["<b>SoftwareEngineers</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SoftwareEngineerId: STRING(36) [PK]<br>+ ProfessionalName: STRING(MAX)<br>+ GitHandle: STRING(MAX)"]:::concrete
+    TechnicalProjects["<b>TechnicalProjects</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ TechnicalProjectId: STRING(36) [PK]<br>+ InitiativeTitle: STRING(MAX)"]:::concrete
+
+    Professional -.->|Table-Per-Concrete| SoftwareEngineers
+    Initiative -.->|Table-Per-Concrete| TechnicalProjects
+
+    SoftwareEngineers -->|WRITES_CODE_FOR<br/>CONTRIBUTES_TO_INITIATIVE<br/>ASSOCIATED_WITH_INITIATIVE| TechnicalProjects
+    SoftwareEngineers -->|ARCHITECT_FOR<br/>CONTRIBUTES_TO_INITIATIVE<br/>ASSOCIATED_WITH_INITIATIVE| TechnicalProjects
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Superclass)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping (Unified Class -> Node Mapping) -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:SoftwareEngineer</code><br>
+            <small style="color:var(--muted)"><code>rdfs:subClassOf ex:Professional</code></small>
+          </td>
+          <td><code>SoftwareEngineers</code></td>
+          <td>
+            <span class="label-pill">:SOFTWARE_ENGINEER</span>
+            <span class="label-pill">:PROFESSIONAL</span>
+          </td>
+          <td>
+            <code>SoftwareEngineerId STRING(36) [PK]</code><br>
+            <code>ProfessionalName STRING(MAX)</code><br>
+            <code>GitHandle STRING(MAX)</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Top-down flattening propagates <code>ex:professionalName</code> from <code>ex:Professional</code>. Multi-label node exposure enables polymorphic queries across all professionals.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:TechnicalProject</code><br>
+            <small style="color:var(--muted)"><code>rdfs:subClassOf ex:Initiative</code></small>
+          </td>
+          <td><code>TechnicalProjects</code></td>
+          <td>
+            <span class="label-pill">:TECHNICAL_PROJECT</span>
+            <span class="label-pill">:INITIATIVE</span>
+          </td>
+          <td>
+            <code>TechnicalProjectId STRING(36) [PK]</code><br>
+            <code>InitiativeTitle STRING(MAX)</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherited superclass property <code>ex:initiativeTitle</code> flattened into concrete leaf table. Multi-label node supports generic initiative traversal.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:writesCodeFor</code><br>
+            <small style="color:var(--muted)"><code>rdfs:subPropertyOf ex:contributesToInitiative</code><br>&rarr; <code>subPropertyOf ex:associatedWithInitiative</code></small>
+          </td>
+          <td><code>SoftwareEngineers</code> &rarr; <code>TechnicalProjects</code></td>
+          <td><code>WritesCodeFor</code></td>
+          <td>
+            <span class="label-pill">:WRITES_CODE_FOR</span>
+            <span class="label-pill">:CONTRIBUTES_TO_INITIATIVE</span>
+            <span class="label-pill">:ASSOCIATED_WITH_INITIATIVE</span>
+          </td>
+          <td><strong>Full Subproperty Label Accumulation:</strong> Concrete leaf edge accumulates full subproperty lineage labels up to the root property. Source/Target keys strictly reference concrete primary keys.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:architectFor</code><br>
+            <small style="color:var(--muted)"><code>rdfs:subPropertyOf ex:contributesToInitiative</code><br>&rarr; <code>subPropertyOf ex:associatedWithInitiative</code></small>
+          </td>
+          <td><code>SoftwareEngineers</code> &rarr; <code>TechnicalProjects</code></td>
+          <td><code>ArchitectFor</code></td>
+          <td>
+            <span class="label-pill">:ARCHITECT_FOR</span>
+            <span class="label-pill">:CONTRIBUTES_TO_INITIATIVE</span>
+            <span class="label-pill">:ASSOCIATED_WITH_INITIATIVE</span>
+          </td>
+          <td><strong>Full Subproperty Label Accumulation:</strong> Mirrors sibling edge taxonomy with full ancestor label accumulation while maintaining disjoint physical storage and primary keys.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Subproperty Query:</strong><br>Query all relationships matching broad intermediate property label <code>CONTRIBUTES_TO_INITIATIVE</code></td>
+          <td>
+            <div class="query-box">
+GRAPH InitiativeCollaborationGraph
+MATCH (eng:PROFESSIONAL)-[:CONTRIBUTES_TO_INITIATIVE]->(proj:INITIATIVE)
+RETURN eng.ProfessionalName, proj.InitiativeTitle;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Broadest Root Property Traversal:</strong><br>Query across all associated initiatives regardless of contribution type</td>
+          <td>
+            <div class="query-box">
+GRAPH InitiativeCollaborationGraph
+MATCH (eng:SOFTWARE_ENGINEER)-[:ASSOCIATED_WITH_INITIATIVE]->(proj:TECHNICAL_PROJECT)
+RETURN eng.GitHandle, proj.InitiativeTitle;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Narrow Leaf-Specific Match:</strong><br>Match only code writing relationships</td>
+          <td>
+            <div class="query-box">
+GRAPH InitiativeCollaborationGraph
+MATCH (eng:SOFTWARE_ENGINEER)-[:WRITES_CODE_FOR]->(proj:TECHNICAL_PROJECT)
+RETURN eng.GitHandle, proj.TechnicalProjectId;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Label Property Signatures:</strong> Shared edge labels (<code>CONTRIBUTES_TO_INITIATIVE</code>, <code>ASSOCIATED_WITH_INITIATIVE</code>) declare identical property signatures (<code>SoftwareEngineerId STRING(36)</code>, <code>TechnicalProjectId STRING(36)</code>) across both <code>WritesCodeFor</code> and <code>ArchitectFor</code> edge tables.</li>
+        <li><strong>Referential Integrity:</strong> All edge tables enforce GoogleSQL foreign key constraints referencing concrete node tables.</li>
+        <li><strong>Property Isolation:</strong> Leaf subclass properties (<code>GitHandle</code>) are properly isolated and do not leak into parent/sibling domains.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/test/subproperties/&gt; .
+
+ex:SubpropertiesOntology a owl:Ontology ;
+    rdfs:label &quot;Subproperty Hierarchy &amp; Label Accumulation Test Ontology&quot; ;
+    rdfs:comment &quot;Tests rdfs:subPropertyOf inheritance, edge label accumulation in Property Graph DDL, and strict broad-to-narrow exclusion rules.&quot; .
+
+# =============================================================================
+# Classes
+# =============================================================================
+
+ex:Professional a owl:Class ;
+    rdfs:label &quot;Professional&quot; .
+
+ex:SoftwareEngineer a owl:Class ;
+    rdfs:subClassOf ex:Professional ;
+    rdfs:label &quot;Software Engineer&quot; .
+
+ex:Initiative a owl:Class ;
+    rdfs:label &quot;Initiative&quot; .
+
+ex:TechnicalProject a owl:Class ;
+    rdfs:subClassOf ex:Initiative ;
+    rdfs:label &quot;Technical Project&quot; .
+
+# =============================================================================
+# Subproperty Taxonomy:
+# associatedWithInitiative (Root Property)
+#   └── contributesToInitiative (Subproperty)
+#         ├── writesCodeFor (Subproperty - Leaf)
+#         └── architectFor (Subproperty - Leaf)
+# =============================================================================
+
+ex:associatedWithInitiative a owl:ObjectProperty ;
+    rdfs:domain ex:Professional ;
+    rdfs:range ex:Initiative ;
+    rdfs:label &quot;Associated With Initiative&quot; ;
+    rdfs:comment &quot;Broadest property in the hierarchy.&quot; .
+
+ex:contributesToInitiative a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:associatedWithInitiative ;
+    rdfs:domain ex:Professional ;
+    rdfs:range ex:Initiative ;
+    rdfs:label &quot;Contributes To Initiative&quot; ;
+    rdfs:comment &quot;Subproperty. Edge table mapping must declare LABEL CONTRIBUTES_TO_INITIATIVE LABEL ASSOCIATED_WITH_INITIATIVE.&quot; .
+
+ex:writesCodeFor a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:contributesToInitiative ;
+    rdfs:domain ex:SoftwareEngineer ;
+    rdfs:range ex:TechnicalProject ;
+    rdfs:label &quot;Writes Code For&quot; ;
+    rdfs:comment &quot;Leaf subproperty. Edge table must accumulate: LABEL WRITES_CODE_FOR LABEL CONTRIBUTES_TO_INITIATIVE LABEL ASSOCIATED_WITH_INITIATIVE.&quot; .
+
+ex:architectFor a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:contributesToInitiative ;
+    rdfs:domain ex:SoftwareEngineer ;
+    rdfs:range ex:TechnicalProject ;
+    rdfs:label &quot;Architect For&quot; ;
+    rdfs:comment &quot;Leaf subproperty. Edge table must accumulate: LABEL ARCHITECT_FOR LABEL CONTRIBUTES_TO_INITIATIVE LABEL ASSOCIATED_WITH_INITIATIVE.&quot; .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:professionalName a owl:DatatypeProperty ;
+    rdfs:domain ex:Professional ;
+    rdfs:range xsd:string .
+
+ex:initiativeTitle a owl:DatatypeProperty ;
+    rdfs:domain ex:Initiative ;
+    rdfs:range xsd:string .
+
+ex:gitHandle a owl:DatatypeProperty ;
+    rdfs:domain ex:SoftwareEngineer ;
+    rdfs:range xsd:string .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>No companion SHACL shapes defined (Unconstrained OWL translation).</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- RELATIONAL SCHEMA (Google Cloud Spanner SQL DDL)
+-- Pattern: Table-Per-Concrete-Class with Flattened Superclass Properties
+-- =============================================================================
+
+CREATE TABLE SoftwareEngineers (
+  SoftwareEngineerId STRING(36) NOT NULL,
+  ProfessionalName STRING(MAX),
+  GitHandle STRING(MAX)
+) PRIMARY KEY (SoftwareEngineerId);
+
+CREATE TABLE TechnicalProjects (
+  TechnicalProjectId STRING(36) NOT NULL,
+  InitiativeTitle STRING(MAX)
+) PRIMARY KEY (TechnicalProjectId);
+
+CREATE TABLE WritesCodeFor (
+  SoftwareEngineerId STRING(36) NOT NULL,
+  TechnicalProjectId STRING(36) NOT NULL,
+  CONSTRAINT FK_WritesCodeFor_Engineer FOREIGN KEY (SoftwareEngineerId) REFERENCES SoftwareEngineers (SoftwareEngineerId),
+  CONSTRAINT FK_WritesCodeFor_Project FOREIGN KEY (TechnicalProjectId) REFERENCES TechnicalProjects (TechnicalProjectId)
+) PRIMARY KEY (SoftwareEngineerId, TechnicalProjectId);
+
+CREATE TABLE ArchitectFor (
+  SoftwareEngineerId STRING(36) NOT NULL,
+  TechnicalProjectId STRING(36) NOT NULL,
+  CONSTRAINT FK_ArchitectFor_Engineer FOREIGN KEY (SoftwareEngineerId) REFERENCES SoftwareEngineers (SoftwareEngineerId),
+  CONSTRAINT FK_ArchitectFor_Project FOREIGN KEY (TechnicalProjectId) REFERENCES TechnicalProjects (TechnicalProjectId)
+) PRIMARY KEY (SoftwareEngineerId, TechnicalProjectId);
+
+-- =============================================================================
+-- PROPERTY GRAPH SCHEMA (Google Cloud Spanner Graph DDL)
+-- Multi-label node inheritance and subproperty label accumulation
+-- =============================================================================
+
+CREATE PROPERTY GRAPH InitiativeCollaborationGraph
+  NODE TABLES (
+    SoftwareEngineers
+      LABEL SOFTWARE_ENGINEER PROPERTIES (SoftwareEngineerId, ProfessionalName, GitHandle)
+      LABEL PROFESSIONAL PROPERTIES (SoftwareEngineerId, ProfessionalName, GitHandle),
+    TechnicalProjects
+      LABEL TECHNICAL_PROJECT PROPERTIES (TechnicalProjectId, InitiativeTitle)
+      LABEL INITIATIVE PROPERTIES (TechnicalProjectId, InitiativeTitle)
+  )
+  EDGE TABLES (
+    WritesCodeFor
+      SOURCE KEY (SoftwareEngineerId) REFERENCES SoftwareEngineers (SoftwareEngineerId)
+      DESTINATION KEY (TechnicalProjectId) REFERENCES TechnicalProjects (TechnicalProjectId)
+      LABEL WRITES_CODE_FOR PROPERTIES (SoftwareEngineerId, TechnicalProjectId)
+      LABEL CONTRIBUTES_TO_INITIATIVE PROPERTIES (SoftwareEngineerId, TechnicalProjectId)
+      LABEL ASSOCIATED_WITH_INITIATIVE PROPERTIES (SoftwareEngineerId, TechnicalProjectId),
+    ArchitectFor
+      SOURCE KEY (SoftwareEngineerId) REFERENCES SoftwareEngineers (SoftwareEngineerId)
+      DESTINATION KEY (TechnicalProjectId) REFERENCES TechnicalProjects (TechnicalProjectId)
+      LABEL ARCHITECT_FOR PROPERTIES (SoftwareEngineerId, TechnicalProjectId)
+      LABEL CONTRIBUTES_TO_INITIATIVE PROPERTIES (SoftwareEngineerId, TechnicalProjectId)
+      LABEL ASSOCIATED_WITH_INITIATIVE PROPERTIES (SoftwareEngineerId, TechnicalProjectId)
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

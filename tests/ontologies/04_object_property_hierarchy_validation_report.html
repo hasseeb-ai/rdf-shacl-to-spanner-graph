@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation - Object Property Domain & Range Hierarchy Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>object_property_hierarchy.ttl</code></div>
+          <div>SHACL: <i>None (Inherent Constraints)</i></div>
+          <div>Target DDL: <code>schema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">6</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">7</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">3</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 1. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    Organization["<b>Organization</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ orgName: STRING"]:::abstract
+    Facility["<b>Facility</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ facilityCode: STRING"]:::abstract
+    Cargo["<b>Cargo</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ cargoDescription: STRING"]:::abstract
+
+    Suppliers["<b>Suppliers</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SupplierId: STRING(36) [PK]<br>+ OrgName: STRING(MAX)"]:::concrete
+    Distributors["<b>Distributors</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ DistributorId: STRING(36) [PK]<br>+ OrgName: STRING(MAX)"]:::concrete
+
+    Warehouses["<b>Warehouses</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ WarehouseId: STRING(36) [PK]<br>+ FacilityCode: STRING(MAX)"]:::concrete
+    RetailHubs["<b>RetailHubs</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ RetailHubId: STRING(36) [PK]<br>+ FacilityCode: STRING(MAX)"]:::concrete
+
+    PerishableCargos["<b>PerishableCargos</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ CargoId: STRING(36) [PK]<br>+ CargoDescription: STRING(MAX)"]:::concrete
+    DryCargos["<b>DryCargos</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ CargoId: STRING(36) [PK]<br>+ CargoDescription: STRING(MAX)"]:::concrete
+
+    Organization -.->|Table-Per-Concrete| Suppliers
+    Organization -.->|Table-Per-Concrete| Distributors
+    Facility -.->|Table-Per-Concrete| Warehouses
+    Facility -.->|Table-Per-Concrete| RetailHubs
+    Cargo -.->|Table-Per-Concrete| DryCargos
+    Cargo -.->|Table-Per-Concrete| PerishableCargos
+
+    Suppliers -->|OPERATES_AT| Warehouses
+    Distributors -->|OPERATES_AT| RetailHubs
+    Suppliers -->|SUPPLIES_TO| Distributors
+    Warehouses -->|STORES_CARGO| PerishableCargos
+    Warehouses -->|STORES_CARGO| DryCargos
+    RetailHubs -->|STORES_CARGO| PerishableCargos
+    RetailHubs -->|STORES_CARGO| DryCargos
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened Superclass)</div>
+    </div>
+
+    <!-- 2. Node & Class Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Supplier</code><br><small style="color:var(--muted)">subClassOf ex:Organization</small></td>
+          <td><code>Suppliers</code></td>
+          <td>
+            <span class="label-pill">:Supplier</span>
+            <span class="label-pill">:Organization</span>
+          </td>
+          <td>
+            <code>SupplierId STRING(36) [PK]</code><br>
+            <code>OrgName STRING(MAX)</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits top-down datatype property <code>ex:orgName</code> from abstract <code>ex:Organization</code>. Declares dual GQL labels with consistent property alias mapping (<code>SupplierId AS OrgId</code>).</td>
+        </tr>
+        <tr>
+          <td><code>ex:Distributor</code><br><small style="color:var(--muted)">subClassOf ex:Organization</small></td>
+          <td><code>Distributors</code></td>
+          <td>
+            <span class="label-pill">:Distributor</span>
+            <span class="label-pill">:Organization</span>
+          </td>
+          <td>
+            <code>DistributorId STRING(36) [PK]</code><br>
+            <code>OrgName STRING(MAX)</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits top-down property <code>ex:orgName</code>. Maintains multi-label signature uniformity across <code>:Organization</code> declarations.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Warehouse</code><br><small style="color:var(--muted)">subClassOf ex:Facility</small></td>
+          <td><code>Warehouses</code></td>
+          <td>
+            <span class="label-pill">:Warehouse</span>
+            <span class="label-pill">:Facility</span>
+          </td>
+          <td>
+            <code>WarehouseId STRING(36) [PK]</code><br>
+            <code>FacilityCode STRING(MAX)</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits property <code>ex:facilityCode</code> from abstract superclass <code>ex:Facility</code>. Exposes <code>FacilityId</code> under abstract label for uniform querying.</td>
+        </tr>
+        <tr>
+          <td><code>ex:RetailHub</code><br><small style="color:var(--muted)">subClassOf ex:Facility</small></td>
+          <td><code>RetailHubs</code></td>
+          <td>
+            <span class="label-pill">:RetailHub</span>
+            <span class="label-pill">:Facility</span>
+          </td>
+          <td>
+            <code>RetailHubId STRING(36) [PK]</code><br>
+            <code>FacilityCode STRING(MAX)</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits property <code>ex:facilityCode</code>. Exposes <code>RetailHubId AS FacilityId</code> ensuring identical <code>:Facility</code> label property signature.</td>
+        </tr>
+        <tr>
+          <td><code>ex:PerishableCargo</code><br><small style="color:var(--muted)">subClassOf ex:Cargo</small></td>
+          <td><code>PerishableCargos</code></td>
+          <td>
+            <span class="label-pill">:PerishableCargo</span>
+            <span class="label-pill">:Cargo</span>
+          </td>
+          <td>
+            <code>CargoId STRING(36) [PK]</code><br>
+            <code>CargoDescription STRING(MAX)</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits property <code>ex:cargoDescription</code> from abstract superclass <code>ex:Cargo</code>. Shares identical label signature with sibling concrete classes.</td>
+        </tr>
+        <tr>
+          <td><code>ex:DryCargo</code><br><small style="color:var(--muted)">subClassOf ex:Cargo</small></td>
+          <td><code>DryCargos</code></td>
+          <td>
+            <span class="label-pill">:DryCargo</span>
+            <span class="label-pill">:Cargo</span>
+          </td>
+          <td>
+            <code>CargoId STRING(36) [PK]</code><br>
+            <code>CargoDescription STRING(MAX)</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits property <code>ex:cargoDescription</code>. Perfectly mirrors label signature of <code>:Cargo</code> across concrete entities.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 3. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:operatesAt</code><br>
+            <small style="color:var(--muted)">owl:allValuesFrom (Supplier &rarr; Warehouse)</small>
+          </td>
+          <td><code>Suppliers</code> &rarr; <code>Warehouses</code></td>
+          <td><code>SupplierOperatesAtWarehouses</code></td>
+          <td><span class="label-pill">:OPERATES_AT</span></td>
+          <td><strong>Localized Range Restriction Enforcement:</strong> Specialized physical edge table created to satisfy localized <code>owl:allValuesFrom ex:Warehouse</code> restriction placed on <code>Supplier</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:operatesAt</code><br>
+            <small style="color:var(--muted)">owl:allValuesFrom (Distributor &rarr; RetailHub)</small>
+          </td>
+          <td><code>Distributors</code> &rarr; <code>RetailHubs</code></td>
+          <td><code>DistributorOperatesAtRetailHubs</code></td>
+          <td><span class="label-pill">:OPERATES_AT</span></td>
+          <td><strong>Localized Range Restriction Enforcement:</strong> Specialized physical edge table created to satisfy localized <code>owl:allValuesFrom ex:RetailHub</code> restriction placed on <code>Distributor</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:suppliesTo</code><br>
+            <small style="color:var(--muted)">Domain: Supplier, Range: Distributor</small>
+          </td>
+          <td><code>Suppliers</code> &rarr; <code>Distributors</code></td>
+          <td><code>SupplierSuppliesToDistributors</code></td>
+          <td><span class="label-pill">:SUPPLIES_TO</span></td>
+          <td><strong>Bottom-Up Direct Pair:</strong> Restricted specifically to concrete domain <code>Supplier</code> and range <code>Distributor</code>. Foreign keys enforce strict referential integrity.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:storesCargo</code><br>
+            <small style="color:var(--muted)">Domain: Facility, Range: Cargo</small>
+          </td>
+          <td><code>Warehouses</code> &rarr; <code>PerishableCargos</code></td>
+          <td><code>WarehouseStoresPerishableCargos</code></td>
+          <td><span class="label-pill">:STORES_CARGO</span></td>
+          <td><strong>Top-Down Polymorphic Decomposition (1/4):</strong> Domain (2 concrete classes) &times; Range (2 concrete classes) yields 4 concrete edge tables sharing unified label <code>:STORES_CARGO</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:storesCargo</code><br>
+            <small style="color:var(--muted)">Domain: Facility, Range: Cargo</small>
+          </td>
+          <td><code>Warehouses</code> &rarr; <code>DryCargos</code></td>
+          <td><code>WarehouseStoresDryCargos</code></td>
+          <td><span class="label-pill">:STORES_CARGO</span></td>
+          <td><strong>Top-Down Polymorphic Decomposition (2/4):</strong> Decomposed edge table enabling seamless GQL graph traversal across concrete combinations.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:storesCargo</code><br>
+            <small style="color:var(--muted)">Domain: Facility, Range: Cargo</small>
+          </td>
+          <td><code>RetailHubs</code> &rarr; <code>PerishableCargos</code></td>
+          <td><code>RetailHubStoresPerishableCargos</code></td>
+          <td><span class="label-pill">:STORES_CARGO</span></td>
+          <td><strong>Top-Down Polymorphic Decomposition (3/4):</strong> Decomposed edge table enabling direct query capability without runtime unions or unmapped nodes.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:storesCargo</code><br>
+            <small style="color:var(--muted)">Domain: Facility, Range: Cargo</small>
+          </td>
+          <td><code>RetailHubs</code> &rarr; <code>DryCargos</code></td>
+          <td><code>RetailHubStoresDryCargos</code></td>
+          <td><span class="label-pill">:STORES_CARGO</span></td>
+          <td><strong>Top-Down Polymorphic Decomposition (4/4):</strong> Completes full Cartesian product coverage for top-down domain/range combination.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Class Query:</strong><br>Query all organizations regardless of concrete type</td>
+          <td>
+            <div class="query-box">
+GRAPH SupplyChainGraph
+MATCH (o:Organization)
+RETURN o.OrgId, o.OrgName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Localized Traversal:</strong><br>Query operating facilities for all organizations</td>
+          <td>
+            <div class="query-box">
+GRAPH SupplyChainGraph
+MATCH (org:Organization)-[:OPERATES_AT]->(fac:Facility)
+RETURN org.OrgName, fac.FacilityId, fac.FacilityCode;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Full Supply Chain Path:</strong><br>Query supplier to cargo delivery paths</td>
+          <td>
+            <div class="query-box">
+GRAPH SupplyChainGraph
+MATCH (s:Supplier)-[:OPERATES_AT]->(w:Warehouse)-[:STORES_CARGO]->(c:Cargo)
+RETURN s.OrgName, w.FacilityCode, c.CargoDescription;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Label Property Signature Uniformity:</strong> The label <code>:Organization</code> exposes <code>(OrgId STRING, OrgName STRING)</code> uniformly across <code>Suppliers</code> and <code>Distributors</code>. The label <code>:Facility</code> exposes <code>(FacilityId STRING, FacilityCode STRING)</code> uniformly across <code>Warehouses</code> and <code>RetailHubs</code>. The label <code>:Cargo</code> exposes <code>(CargoId STRING, CargoDescription STRING)</code> uniformly across <code>PerishableCargos</code> and <code>DryCargos</code>.</li>
+        <li><strong>Polymorphic Edge Signature Uniformity:</strong> All 4 decomposed edge tables for <code>:STORES_CARGO</code> and both edge tables for <code>:OPERATES_AT</code> consistently declare <code>NO PROPERTIES</code>.</li>
+        <li><strong>Referential Integrity:</strong> Primary key and foreign key constraints match across physical tables and GQL property graph <code>SOURCE KEY</code> / <code>DESTINATION KEY</code> declarations.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Raw Artifacts Inspector -->
+
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/test/object_property_hierarchy/&gt; .
+
+ex:ObjectPropertyHierarchyOntology a owl:Ontology ;
+    rdfs:label &quot;Object Property Domain &amp; Range Hierarchy Test Ontology&quot; ;
+    rdfs:comment &quot;Tests top-down and bottom-up domain/range propagation rules for object properties, and localized property range restrictions (owl:allValuesFrom).&quot; .
+
+# =============================================================================
+# Class Taxonomy:
+# Organization (Abstract)
+#   ├── Supplier (Concrete Leaf Class)
+#   └── Distributor (Concrete Leaf Class)
+#
+# Facility (Abstract)
+#   ├── Warehouse (Concrete Leaf Class)
+#   └── RetailHub (Concrete Leaf Class)
+#
+# Cargo (Abstract)
+#   ├── PerishableCargo (Concrete Leaf Class)
+#   └── DryCargo (Concrete Leaf Class)
+# =============================================================================
+
+ex:Organization a owl:Class ;
+    rdfs:label &quot;Organization&quot; .
+
+ex:Supplier a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    rdfs:label &quot;Supplier&quot; .
+
+ex:Distributor a owl:Class ;
+    rdfs:subClassOf ex:Organization ;
+    rdfs:label &quot;Distributor&quot; .
+
+ex:Facility a owl:Class ;
+    rdfs:label &quot;Facility&quot; .
+
+ex:Warehouse a owl:Class ;
+    rdfs:subClassOf ex:Facility ;
+    rdfs:label &quot;Warehouse&quot; .
+
+ex:RetailHub a owl:Class ;
+    rdfs:subClassOf ex:Facility ;
+    rdfs:label &quot;Retail Hub&quot; .
+
+ex:Cargo a owl:Class ;
+    rdfs:label &quot;Cargo&quot; .
+
+ex:PerishableCargo a owl:Class ;
+    rdfs:subClassOf ex:Cargo ;
+    rdfs:label &quot;Perishable Cargo&quot; .
+
+ex:DryCargo a owl:Class ;
+    rdfs:subClassOf ex:Cargo ;
+    rdfs:label &quot;Dry Cargo&quot; .
+
+# =============================================================================
+# Localized Property Range Restriction (owl:allValuesFrom):
+# A Supplier only ships to Warehouses, while a Distributor ships to RetailHubs.
+# =============================================================================
+
+ex:Supplier rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:operatesAt ;
+        owl:allValuesFrom ex:Warehouse
+    ] .
+
+ex:Distributor rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:operatesAt ;
+        owl:allValuesFrom ex:RetailHub
+    ] .
+
+# =============================================================================
+# Object Properties:
+# - operatesAt: Domain=Organization (inherits to Supplier, Distributor), Range=Facility (targets Warehouse, RetailHub)
+# - suppliesTo: Domain=Supplier (bottom-up: only Supplier has this, not Distributor), Range=Distributor
+# - storesCargo: Domain=Facility, Range=Cargo
+# =============================================================================
+
+ex:operatesAt a owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Facility ;
+    rdfs:label &quot;Operates At&quot; ;
+    rdfs:comment &quot;Top-down domain (Supplier, Distributor) and top-down range (Warehouse, RetailHub).&quot; .
+
+ex:suppliesTo a owl:ObjectProperty ;
+    rdfs:domain ex:Supplier ;
+    rdfs:range ex:Distributor ;
+    rdfs:label &quot;Supplies To&quot; ;
+    rdfs:comment &quot;Bottom-up domain &amp; range: restricted to concrete Supplier and Distributor tables.&quot; .
+
+ex:storesCargo a owl:ObjectProperty ;
+    rdfs:domain ex:Facility ;
+    rdfs:range ex:Cargo ;
+    rdfs:label &quot;Stores Cargo&quot; .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:orgName a owl:DatatypeProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Organization Name&quot; .
+
+ex:facilityCode a owl:DatatypeProperty ;
+    rdfs:domain ex:Facility ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Facility Code&quot; .
+
+ex:cargoDescription a owl:DatatypeProperty ;
+    rdfs:domain ex:Cargo ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Cargo Description&quot; .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>No companion SHACL shapes defined (Unconstrained OWL translation).</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- PHYSICAL RELATIONAL SCHEMA (Table-Per-Concrete-Class)
+-- =============================================================================
+
+-- Concrete Subclasses of Organization
+CREATE TABLE Suppliers (
+  SupplierId STRING(36) NOT NULL,
+  OrgName STRING(MAX)
+) PRIMARY KEY (SupplierId);
+
+CREATE TABLE Distributors (
+  DistributorId STRING(36) NOT NULL,
+  OrgName STRING(MAX)
+) PRIMARY KEY (DistributorId);
+
+-- Concrete Subclasses of Facility
+CREATE TABLE Warehouses (
+  WarehouseId STRING(36) NOT NULL,
+  FacilityCode STRING(MAX)
+) PRIMARY KEY (WarehouseId);
+
+CREATE TABLE RetailHubs (
+  RetailHubId STRING(36) NOT NULL,
+  FacilityCode STRING(MAX)
+) PRIMARY KEY (RetailHubId);
+
+-- Concrete Subclasses of Cargo
+CREATE TABLE PerishableCargos (
+  CargoId STRING(36) NOT NULL,
+  CargoDescription STRING(MAX)
+) PRIMARY KEY (CargoId);
+
+CREATE TABLE DryCargos (
+  CargoId STRING(36) NOT NULL,
+  CargoDescription STRING(MAX)
+) PRIMARY KEY (CargoId);
+
+-- =============================================================================
+-- RELATIONAL RELATIONSHIP TABLES &amp; LOCALIZED RESTRICTIONS
+-- =============================================================================
+
+-- Localized Range Restriction: Supplier operatesAt ONLY Warehouse
+CREATE TABLE SupplierOperatesAtWarehouses (
+  SupplierId STRING(36) NOT NULL,
+  WarehouseId STRING(36) NOT NULL,
+  CONSTRAINT FK_SupplierOperatesAt_Supplier FOREIGN KEY (SupplierId) REFERENCES Suppliers (SupplierId),
+  CONSTRAINT FK_SupplierOperatesAt_Warehouse FOREIGN KEY (WarehouseId) REFERENCES Warehouses (WarehouseId)
+) PRIMARY KEY (SupplierId, WarehouseId);
+
+-- Localized Range Restriction: Distributor operatesAt ONLY RetailHub
+CREATE TABLE DistributorOperatesAtRetailHubs (
+  DistributorId STRING(36) NOT NULL,
+  RetailHubId STRING(36) NOT NULL,
+  CONSTRAINT FK_DistributorOperatesAt_Distributor FOREIGN KEY (DistributorId) REFERENCES Distributors (DistributorId),
+  CONSTRAINT FK_DistributorOperatesAt_RetailHub FOREIGN KEY (RetailHubId) REFERENCES RetailHubs (RetailHubId)
+) PRIMARY KEY (DistributorId, RetailHubId);
+
+-- Bottom-Up Object Property: Supplier suppliesTo Distributor
+CREATE TABLE SupplierSuppliesToDistributors (
+  SupplierId STRING(36) NOT NULL,
+  DistributorId STRING(36) NOT NULL,
+  CONSTRAINT FK_SuppliesTo_Supplier FOREIGN KEY (SupplierId) REFERENCES Suppliers (SupplierId),
+  CONSTRAINT FK_SuppliesTo_Distributor FOREIGN KEY (DistributorId) REFERENCES Distributors (DistributorId)
+) PRIMARY KEY (SupplierId, DistributorId);
+
+-- Top-Down Object Property: Facility storesCargo Cargo (Decomposed across concrete leaf pairs)
+CREATE TABLE WarehouseStoresPerishableCargos (
+  WarehouseId STRING(36) NOT NULL,
+  CargoId STRING(36) NOT NULL,
+  CONSTRAINT FK_WarehouseStoresPerishable_Warehouse FOREIGN KEY (WarehouseId) REFERENCES Warehouses (WarehouseId),
+  CONSTRAINT FK_WarehouseStoresPerishable_Cargo FOREIGN KEY (CargoId) REFERENCES PerishableCargos (CargoId)
+) PRIMARY KEY (WarehouseId, CargoId);
+
+CREATE TABLE WarehouseStoresDryCargos (
+  WarehouseId STRING(36) NOT NULL,
+  CargoId STRING(36) NOT NULL,
+  CONSTRAINT FK_WarehouseStoresDry_Warehouse FOREIGN KEY (WarehouseId) REFERENCES Warehouses (WarehouseId),
+  CONSTRAINT FK_WarehouseStoresDry_Cargo FOREIGN KEY (CargoId) REFERENCES DryCargos (CargoId)
+) PRIMARY KEY (WarehouseId, CargoId);
+
+CREATE TABLE RetailHubStoresPerishableCargos (
+  RetailHubId STRING(36) NOT NULL,
+  CargoId STRING(36) NOT NULL,
+  CONSTRAINT FK_RetailHubStoresPerishable_RetailHub FOREIGN KEY (RetailHubId) REFERENCES RetailHubs (RetailHubId),
+  CONSTRAINT FK_RetailHubStoresPerishable_Cargo FOREIGN KEY (CargoId) REFERENCES PerishableCargos (CargoId)
+) PRIMARY KEY (RetailHubId, CargoId);
+
+CREATE TABLE RetailHubStoresDryCargos (
+  RetailHubId STRING(36) NOT NULL,
+  CargoId STRING(36) NOT NULL,
+  CONSTRAINT FK_RetailHubStoresDry_RetailHub FOREIGN KEY (RetailHubId) REFERENCES RetailHubs (RetailHubId),
+  CONSTRAINT FK_RetailHubStoresDry_Cargo FOREIGN KEY (CargoId) REFERENCES DryCargos (CargoId)
+) PRIMARY KEY (RetailHubId, CargoId);
+
+-- =============================================================================
+-- PROPERTY GRAPH SCHEMA DEFINITION
+-- =============================================================================
+
+CREATE PROPERTY GRAPH SupplyChainGraph
+  NODE TABLES (
+    -- Suppliers Node (Inherits Supplier &amp; Organization labels)
+    Suppliers
+      LABEL Supplier PROPERTIES (SupplierId, OrgName)
+      LABEL Organization PROPERTIES (SupplierId AS OrgId, OrgName),
+
+    -- Distributors Node (Inherits Distributor &amp; Organization labels)
+    Distributors
+      LABEL Distributor PROPERTIES (DistributorId, OrgName)
+      LABEL Organization PROPERTIES (DistributorId AS OrgId, OrgName),
+
+    -- Warehouses Node (Inherits Warehouse &amp; Facility labels)
+    Warehouses
+      LABEL Warehouse PROPERTIES (WarehouseId, FacilityCode)
+      LABEL Facility PROPERTIES (WarehouseId AS FacilityId, FacilityCode),
+
+    -- RetailHubs Node (Inherits RetailHub &amp; Facility labels)
+    RetailHubs
+      LABEL RetailHub PROPERTIES (RetailHubId, FacilityCode)
+      LABEL Facility PROPERTIES (RetailHubId AS FacilityId, FacilityCode),
+
+    -- PerishableCargos Node (Inherits PerishableCargo &amp; Cargo labels)
+    PerishableCargos
+      LABEL PerishableCargo PROPERTIES (CargoId, CargoDescription)
+      LABEL Cargo PROPERTIES (CargoId, CargoDescription),
+
+    -- DryCargos Node (Inherits DryCargo &amp; Cargo labels)
+    DryCargos
+      LABEL DryCargo PROPERTIES (CargoId, CargoDescription)
+      LABEL Cargo PROPERTIES (CargoId, CargoDescription)
+  )
+  EDGE TABLES (
+    -- operatesAt: Localized Range edges
+    SupplierOperatesAtWarehouses
+      SOURCE KEY (SupplierId) REFERENCES Suppliers (SupplierId)
+      DESTINATION KEY (WarehouseId) REFERENCES Warehouses (WarehouseId)
+      LABEL OPERATES_AT NO PROPERTIES,
+
+    DistributorOperatesAtRetailHubs
+      SOURCE KEY (DistributorId) REFERENCES Distributors (DistributorId)
+      DESTINATION KEY (RetailHubId) REFERENCES RetailHubs (RetailHubId)
+      LABEL OPERATES_AT NO PROPERTIES,
+
+    -- suppliesTo: Bottom-up edge
+    SupplierSuppliesToDistributors
+      SOURCE KEY (SupplierId) REFERENCES Suppliers (SupplierId)
+      DESTINATION KEY (DistributorId) REFERENCES Distributors (DistributorId)
+      LABEL SUPPLIES_TO NO PROPERTIES,
+
+    -- storesCargo: Top-down polymorphic edges
+    WarehouseStoresPerishableCargos
+      SOURCE KEY (WarehouseId) REFERENCES Warehouses (WarehouseId)
+      DESTINATION KEY (CargoId) REFERENCES PerishableCargos (CargoId)
+      LABEL STORES_CARGO NO PROPERTIES,
+
+    WarehouseStoresDryCargos
+      SOURCE KEY (WarehouseId) REFERENCES Warehouses (WarehouseId)
+      DESTINATION KEY (CargoId) REFERENCES DryCargos (CargoId)
+      LABEL STORES_CARGO NO PROPERTIES,
+
+    RetailHubStoresPerishableCargos
+      SOURCE KEY (RetailHubId) REFERENCES RetailHubs (RetailHubId)
+      DESTINATION KEY (CargoId) REFERENCES PerishableCargos (CargoId)
+      LABEL STORES_CARGO NO PROPERTIES,
+
+    RetailHubStoresDryCargos
+      SOURCE KEY (RetailHubId) REFERENCES RetailHubs (RetailHubId)
+      DESTINATION KEY (CargoId) REFERENCES DryCargos (CargoId)
+      LABEL STORES_CARGO NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

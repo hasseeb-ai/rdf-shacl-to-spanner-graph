@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Disjoint &amp; Equivalent Classes</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>disjoint_equivalent.ttl</code></div>
+          <div>SHACL: <code>None (Embedded OWL Axioms)</code></div>
+          <div>Target DDL: <code>schema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">4</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+    classDef equivalent fill:#fef3c7,stroke:#d97706,stroke-dasharray: 2 2,color:#92400e;
+
+    Customer["<b>Customer</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ AccountBalance: NUMERIC<br>+ CustomerSince: DATE"]:::abstract
+    HighValueAccount["<b>HighValueAccount</b><br><i>&laquo;Equivalent Class (Filter)&raquo;</i><br>AccountBalance &gt; 500000.00"]:::equivalent
+
+    IndividualCustomers["<b>IndividualCustomers</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ CustomerId: STRING(36) [PK]<br>+ AccountBalance: NUMERIC<br>+ CustomerSince: DATE<br>+ SSN: STRING(MAX)<br>+ IsHighValueAccount: BOOL [STORED]"]:::concrete
+    CorporateCustomers["<b>CorporateCustomers</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ CustomerId: STRING(36) [PK]<br>+ AccountBalance: NUMERIC<br>+ CustomerSince: DATE<br>+ TaxRegistrationNumber: STRING(MAX)"]:::concrete
+
+    Customer -.->|Table-Per-Concrete| IndividualCustomers
+    Customer -.->|Table-Per-Concrete| CorporateCustomers
+    HighValueAccount -.->|STORED Generated Column| IndividualCustomers
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Suppressed / Inherited)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#fef3c7; border:1px dashed #d97706; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Equivalent Class</strong> (Stored Generated Column)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:IndividualCustomer</code><br><code>ex:HighValueAccount</code></td>
+          <td><code>IndividualCustomers</code></td>
+          <td>
+            <span class="label-pill">:IndividualCustomer</span>
+            <span class="label-pill">:Customer</span>
+          </td>
+          <td>
+            <code>CustomerId STRING(36) [PK]</code><br>
+            <code>AccountBalance NUMERIC</code><br>
+            <code>CustomerSince DATE</code><br>
+            <code>SSN STRING(MAX)</code><br>
+            <code>IsHighValueAccount BOOL AS (AccountBalance &gt; 500000.00) STORED</code>
+          </td>
+          <td>
+            <strong>Table-Per-Concrete-Class &amp; Stored Column:</strong>
+            Superclass <code>ex:Customer</code> properties flattened. 
+            <code>ex:HighValueAccount</code> (equivalent class defined via restricted balance) is materialized as a deterministic GoogleSQL <code>STORED</code> generated column. 
+            Disjointness from <code>ex:CorporateCustomer</code> guaranteed by independent table storage.
+          </td>
+        </tr>
+        <tr>
+          <td><code>ex:CorporateCustomer</code></td>
+          <td><code>CorporateCustomers</code></td>
+          <td>
+            <span class="label-pill">:CorporateCustomer</span>
+            <span class="label-pill">:Customer</span>
+          </td>
+          <td>
+            <code>CustomerId STRING(36) [PK]</code><br>
+            <code>AccountBalance NUMERIC</code><br>
+            <code>CustomerSince DATE</code><br>
+            <code>TaxRegistrationNumber STRING(MAX)</code>
+          </td>
+          <td>
+            <strong>Table-Per-Concrete-Class:</strong>
+            Superclass properties flattened. Subclass-specific column <code>TaxRegistrationNumber</code> is isolated from <code>IndividualCustomers</code>.
+          </td>
+        </tr>
+        <tr>
+          <td><code>ex:Customer</code></td>
+          <td><em>None (Abstract Class)</em></td>
+          <td>
+            <span class="label-pill">:Customer</span>
+          </td>
+          <td>
+            <code>AccountBalance NUMERIC</code><br>
+            <code>CustomerSince DATE</code>
+          </td>
+          <td>
+            <strong>Polymorphic Label Realization:</strong>
+            Abstract superclass has no standalone relational table. Both concrete leaf tables declare <code>LABEL Customer</code> with uniform property signatures.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5" style="text-align:center; color:var(--muted); font-style:italic; padding:16px;">
+            No Object Properties defined in source ontology. The graph model focuses exclusively on taxonomic node hierarchy, disjointness, and equivalent class mapping.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Superclass Query:</strong><br>Query all customers across both concrete tables via <code>:Customer</code></td>
+          <td>
+            <div class="query-box">
+GRAPH CustomerGraph
+MATCH (c:Customer)
+RETURN c.CustomerId, c.AccountBalance, c.CustomerSince
+ORDER BY c.AccountBalance DESC;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Equivalent Class Query via Stored Flag:</strong><br>Filter for high value individual accounts</td>
+          <td>
+            <div class="query-box">
+GRAPH CustomerGraph
+MATCH (c:IndividualCustomer)
+WHERE c.IsHighValueAccount = TRUE
+RETURN c.CustomerId, c.AccountBalance, c.SSN;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Disjoint Leaf Query:</strong><br>Query only corporate customer accounts with specific tax identifiers</td>
+          <td>
+            <div class="query-box">
+GRAPH CustomerGraph
+MATCH (c:CorporateCustomer)
+WHERE c.TaxRegistrationNumber IS NOT NULL
+RETURN c.CustomerId, c.TaxRegistrationNumber, c.AccountBalance;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Label Property Signature Uniformity:</strong> The label <code>:Customer</code> across both <code>IndividualCustomers</code> and <code>CorporateCustomers</code> exposes exactly <code>CustomerId STRING(36)</code>, <code>AccountBalance NUMERIC</code>, and <code>CustomerSince DATE</code>.</li>
+        <li><strong>Generated Column Compliance:</strong> <code>IsHighValueAccount BOOL AS (AccountBalance &gt; 500000.00) STORED</code> satisfies standard GoogleSQL deterministic expression and stored storage rules.</li>
+        <li><strong>Subclass Isolation:</strong> Class-specific attributes (<code>SSN</code>, <code>TaxRegistrationNumber</code>) strictly reside in their respective leaf tables without leaking.</li>
+        <li><strong>Table-Per-Concrete Compliance:</strong> 100% concrete class mapping achieved with 0 physical tables generated for abstract entities.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/test/disjoint_equivalent/&gt; .
+
+ex:DisjointAndEquivalentClassesOntology a owl:Ontology ;
+    rdfs:label &quot;Disjoint Classes &amp; Stored Generated Column Test Ontology&quot; ;
+    rdfs:comment &quot;Tests owl:disjointWith table separation and owl:equivalentClass mapping to GoogleSQL STORED generated columns (Rule 7 syntax: &lt;Col&gt; &lt;Type&gt; AS (&lt;Expr&gt;) STORED).&quot; .
+
+# =============================================================================
+# Classes &amp; Disjointness:
+# Customer (Abstract)
+#   ├── IndividualCustomer (Concrete Leaf)
+#   └── CorporateCustomer (Concrete Leaf, disjoint with IndividualCustomer)
+# =============================================================================
+
+ex:Customer a owl:Class ;
+    rdfs:label &quot;Customer&quot; .
+
+ex:IndividualCustomer a owl:Class ;
+    rdfs:subClassOf ex:Customer ;
+    owl:disjointWith ex:CorporateCustomer ;
+    rdfs:label &quot;Individual Customer&quot; ;
+    rdfs:comment &quot;Concrete table &#x27;IndividualCustomers&#x27;.&quot; .
+
+ex:CorporateCustomer a owl:Class ;
+    rdfs:subClassOf ex:Customer ;
+    rdfs:label &quot;Corporate Customer&quot; ;
+    rdfs:comment &quot;Concrete table &#x27;CorporateCustomers&#x27;. Enforces disjoint PK space from IndividualCustomer.&quot; .
+
+# =============================================================================
+# Equivalent Class (Maps to STORED Generated Column)
+# =============================================================================
+
+ex:HighValueAccount a owl:Class ;
+    rdfs:label &quot;High Value Account&quot; ;
+    rdfs:comment &quot;Equivalent class representing accounts with balance &gt; 500000. Translates to: IsHighValue BOOL AS (Balance &gt; 500000.00) STORED&quot; ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:IndividualCustomer
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:accountBalance ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:decimal ;
+                    owl:withRestrictions ( [ xsd:minExclusive 500000.00 ] )
+                ]
+            ]
+        )
+    ] .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:accountBalance a owl:DatatypeProperty ;
+    rdfs:domain ex:Customer ;
+    rdfs:range xsd:decimal ;
+    rdfs:label &quot;Account Balance&quot; ;
+    rdfs:comment &quot;Top-down propagation to IndividualCustomer and CorporateCustomer.&quot; .
+
+ex:customerSince a owl:DatatypeProperty ;
+    rdfs:domain ex:Customer ;
+    rdfs:range xsd:date ;
+    rdfs:label &quot;Customer Since Date&quot; .
+
+ex:ssn a owl:DatatypeProperty ;
+    rdfs:domain ex:IndividualCustomer ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Social Security Number&quot; .
+
+ex:taxRegistrationNumber a owl:DatatypeProperty ;
+    rdfs:domain ex:CorporateCustomer ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Tax Registration Number&quot; .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>No companion SHACL shapes defined (Unconstrained OWL translation).</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- Google Cloud Spanner Physical Relational Schema
+-- Table-Per-Concrete-Class Pattern &amp; Stored Generated Columns
+-- =============================================================================
+
+CREATE TABLE IndividualCustomers (
+  CustomerId STRING(36) NOT NULL,
+  AccountBalance NUMERIC,
+  CustomerSince DATE,
+  SSN STRING(MAX),
+  IsHighValueAccount BOOL AS (AccountBalance &gt; 500000.00) STORED
+) PRIMARY KEY (CustomerId);
+
+CREATE TABLE CorporateCustomers (
+  CustomerId STRING(36) NOT NULL,
+  AccountBalance NUMERIC,
+  CustomerSince DATE,
+  TaxRegistrationNumber STRING(MAX)
+) PRIMARY KEY (CustomerId);
+
+-- =============================================================================
+-- Google Cloud Spanner Property Graph Schema
+-- Multi-Label Hierarchy &amp; Label Uniformity
+-- =============================================================================
+
+CREATE PROPERTY GRAPH CustomerGraph
+  NODE TABLES (
+    IndividualCustomers
+      LABEL IndividualCustomer PROPERTIES (CustomerId, AccountBalance, CustomerSince, SSN, IsHighValueAccount)
+      LABEL Customer PROPERTIES (CustomerId, AccountBalance, CustomerSince),
+    CorporateCustomers
+      LABEL CorporateCustomer PROPERTIES (CustomerId, AccountBalance, CustomerSince, TaxRegistrationNumber)
+      LABEL Customer PROPERTIES (CustomerId, AccountBalance, CustomerSince)
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

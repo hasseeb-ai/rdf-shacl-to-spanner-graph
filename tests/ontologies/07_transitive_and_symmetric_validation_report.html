@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Transitive &amp; Symmetric Properties Test Ontology</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>ex:TransitiveAndSymmetricOntology</code></div>
+          <div>SHACL: <code>N/A (Implicit in OWL Axioms)</code></div>
+          <div>Target Graph: <code>ResearchGraph</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">3</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">4</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    Department["<b>Departments</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ DepartmentId: STRING(36) [PK]<br>+ DepartmentName: STRING(MAX)<br>+ BudgetCode: STRING(MAX)"]:::concrete
+    Division["<b>Divisions</b><br><i>&laquo;Interleaved Table &amp; Node&raquo;</i><br>+ DepartmentId: STRING(36) [PK]<br>+ DivisionId: STRING(36) [PK]<br>+ DepartmentName: STRING(MAX)<br>+ BudgetCode: STRING(MAX)"]:::concrete
+    Researcher["<b>Researchers</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ ResearcherId: STRING(36) [PK]<br>+ ResearcherName: STRING(MAX)<br>+ OrcidId: STRING(MAX)"]:::concrete
+
+    Department -.->|Interleave Parent| Division
+    Department -->|SUB_DEPARTMENT_OF| Department
+    Researcher -->|MEMBER_OF_DEPARTMENT| Department
+    Researcher -->|COLLABORATES_WITH| Researcher
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Interleaved Hierarchical Relationship</strong></div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Department</code></td>
+          <td><code>Departments</code></td>
+          <td>
+            <span class="label-pill">:Department</span>
+          </td>
+          <td>
+            <code>DepartmentId STRING(36) [PK]</code><br>
+            <code>DepartmentName STRING(MAX)</code><br>
+            <code>BudgetCode STRING(MAX)</code>
+          </td>
+          <td>Root node table for departmental entity hierarchy. PK serves as prefix for interleaved child tables.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Division</code></td>
+          <td><code>Divisions</code></td>
+          <td>
+            <span class="label-pill">:Division</span>
+            <span class="label-pill">:Department</span>
+          </td>
+          <td>
+            <code>DepartmentId STRING(36) [PK]</code><br>
+            <code>DivisionId STRING(36) [PK]</code><br>
+            <code>DepartmentName STRING(MAX)</code><br>
+            <code>BudgetCode STRING(MAX)</code>
+          </td>
+          <td>Subclass flattened with superclass properties. Interleaved inside <code>Departments</code> table with primary key alignment (<code>DepartmentId</code> prefix) for physical co-location and ON DELETE CASCADE semantics. Exposed with multi-label signature.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Researcher</code></td>
+          <td><code>Researchers</code></td>
+          <td>
+            <span class="label-pill">:Researcher</span>
+          </td>
+          <td>
+            <code>ResearcherId STRING(36) [PK]</code><br>
+            <code>ResearcherName STRING(MAX)</code><br>
+            <code>OrcidId STRING(MAX)</code>
+          </td>
+          <td>Standalone concrete entity representing collaboration actors.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:subDepartmentOf</code><br>
+            <small style="color:var(--muted)">owl:TransitiveProperty</small>
+          </td>
+          <td><code>Departments</code> &rarr; <code>Departments</code></td>
+          <td><code>SubDepartments</code></td>
+          <td>
+            <span class="label-pill">:SUB_DEPARTMENT_OF</span>
+          </td>
+          <td>Mapped via interleaved direct parent-child table. Transitive closure evaluation is executed natively using Spanner GQL variable-length path patterns (e.g. <code>[:SUB_DEPARTMENT_OF*]</code>).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:collaboratesWith</code><br>
+            <small style="color:var(--muted)">owl:SymmetricProperty</small>
+          </td>
+          <td><code>Researchers</code> &rarr; <code>Researchers</code></td>
+          <td>
+            <code>ResearcherCollaborations</code><br>
+            <code>ResearcherCollaborations AS ResearcherCollaborationsInverse</code>
+          </td>
+          <td>
+            <span class="label-pill">:COLLABORATES_WITH</span>
+          </td>
+          <td>Single physical table stores unique edge direction to avoid storage duplication. Property Graph DDL declares both forward and inverse edge aliases pointing to the same table, permitting seamless bidirectional GQL pattern matching. Includes self-collaboration check constraint.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:memberOfDepartment</code><br>
+            <small style="color:var(--muted)">Standard ObjectProperty</small>
+          </td>
+          <td><code>Researchers</code> &rarr; <code>Departments</code></td>
+          <td><code>ResearcherDepartmentMemberships</code></td>
+          <td>
+            <span class="label-pill">:MEMBER_OF_DEPARTMENT</span>
+          </td>
+          <td>Standard junction edge table enforcing explicit relational Foreign Keys to source and target endpoints.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Transitive Traversal:</strong><br>Query arbitrary depth hierarchy via <code>owl:TransitiveProperty</code></td>
+          <td>
+            <div class="query-box">
+GRAPH ResearchGraph
+MATCH (sub:Department)-[:SUB_DEPARTMENT_OF+]->(parent:Department)
+WHERE sub.DepartmentId = 'DEPT-101'
+RETURN parent.DepartmentName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Symmetric Edge Traversal:</strong><br>Traverse bidirectional symmetric relationship regardless of stored direction</td>
+          <td>
+            <div class="query-box">
+GRAPH ResearchGraph
+MATCH (r:Researcher {ResearcherId: 'RES-001'})-[:COLLABORATES_WITH]-(c:Researcher)
+RETURN c.ResearcherName, c.OrcidId;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Polymorphic Multi-Label Query:</strong><br>Match all entities responding to the <code>Department</code> label (including <code>Divisions</code>)</td>
+          <td>
+            <div class="query-box">
+GRAPH ResearchGraph
+MATCH (d:Department)
+RETURN d.DepartmentId, d.DepartmentName, d.BudgetCode;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Label Property Signature Uniformity:</strong> The label <code>Department</code> exposed on both <code>Departments</code> and <code>Divisions</code> node tables declares an identical property signature: <code>(DepartmentId, DepartmentName, BudgetCode)</code>.</li>
+        <li><strong>Interleaved Primary Key Alignment:</strong> The child table <code>Divisions</code> starts with parent PK <code>DepartmentId</code> prior to defining its own key <code>DivisionId</code>, fully satisfying Spanner's interleaved table physical storage constraint.</li>
+        <li><strong>Symmetric Deduplication Integrity:</strong> <code>ResearcherCollaborations</code> utilizes dual-alias GQL edge mapping, allowing bidirectional pattern navigation without physical row duplicate insertion.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Raw Artifacts & DDL Inspector Header -->
+
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/test/transitive_symmetric/&gt; .
+
+ex:TransitiveAndSymmetricOntology a owl:Ontology ;
+    rdfs:label &quot;Transitive &amp; Symmetric Properties Test Ontology&quot; ;
+    rdfs:comment &quot;Tests owl:TransitiveProperty (interleaved table hierarchies &amp; primary key alignment rule) and owl:SymmetricProperty (single physical direction, GQL bidirectional traversal).&quot; .
+
+# =============================================================================
+# Classes
+# =============================================================================
+
+ex:Department a owl:Class ;
+    rdfs:label &quot;Department&quot; ;
+    rdfs:comment &quot;Represents hierarchical departmental structure.&quot; .
+
+ex:Division a owl:Class ;
+    rdfs:subClassOf ex:Department ;
+    rdfs:label &quot;Division&quot; ;
+    rdfs:comment &quot;Interleaved child entity of Department.&quot; .
+
+ex:Researcher a owl:Class ;
+    rdfs:label &quot;Researcher&quot; ;
+    rdfs:comment &quot;Entity participating in symmetric collaboration networks.&quot; .
+
+# =============================================================================
+# Transitive &amp; Symmetric Properties
+# =============================================================================
+
+ex:subDepartmentOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:Department ;
+    rdfs:range ex:Department ;
+    rdfs:label &quot;Sub-Department Of&quot; ;
+    rdfs:comment &quot;Transitive parent-child link. Maps to Interleaved table with aligned primary keys (ParentDepartmentId, ChildDepartmentId) or GQL recursive path matching.&quot; .
+
+ex:collaboratesWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:Researcher ;
+    rdfs:range ex:Researcher ;
+    rdfs:label &quot;Collaborates With&quot; ;
+    rdfs:comment &quot;Symmetric relationship. Physical storage stores single row; GQL queries traverse bidirectionally.&quot; .
+
+ex:memberOfDepartment a owl:ObjectProperty ;
+    rdfs:domain ex:Researcher ;
+    rdfs:range ex:Department ;
+    rdfs:label &quot;Member Of Department&quot; .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:departmentName a owl:DatatypeProperty ;
+    rdfs:domain ex:Department ;
+    rdfs:range xsd:string .
+
+ex:budgetCode a owl:DatatypeProperty ;
+    rdfs:domain ex:Department ;
+    rdfs:range xsd:string .
+
+ex:researcherName a owl:DatatypeProperty ;
+    rdfs:domain ex:Researcher ;
+    rdfs:range xsd:string .
+
+ex:orcidId a owl:DatatypeProperty ;
+    rdfs:domain ex:Researcher ;
+    rdfs:range xsd:string .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>No companion SHACL shapes defined (Unconstrained OWL translation).</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- GOOGLE CLOUD SPANNER RELATIONAL DDL
+-- Translating: Transitive &amp; Symmetric Properties Test Ontology
+-- Patterns Applied:
+--  - Table-Per-Concrete-Class with Flattened Superclass Properties
+--  - Interleaved Tables with Primary Key Alignment (owl:TransitiveProperty)
+--  - Single-row storage with dual-edge mapping (owl:SymmetricProperty)
+-- =============================================================================
+
+-- Base / Parent Class: ex:Department
+CREATE TABLE Departments (
+  DepartmentId STRING(36) NOT NULL,
+  DepartmentName STRING(MAX),
+  BudgetCode STRING(MAX)
+) PRIMARY KEY (DepartmentId);
+
+-- Subclass &amp; Interleaved Child: ex:Division (rdfs:subClassOf ex:Department)
+-- Inherits Department properties (DepartmentName, BudgetCode)
+-- Interleaved in Departments table with PK beginning with parent PK (DepartmentId)
+CREATE TABLE Divisions (
+  DepartmentId STRING(36) NOT NULL,
+  DivisionId STRING(36) NOT NULL,
+  DepartmentName STRING(MAX),
+  BudgetCode STRING(MAX)
+) PRIMARY KEY (DepartmentId, DivisionId),
+  INTERLEAVE IN PARENT Departments ON DELETE CASCADE;
+
+-- Transitive Hierarchy Link: ex:subDepartmentOf (owl:TransitiveProperty)
+-- Models transitive parent-child sub-department relationships
+CREATE TABLE SubDepartments (
+  DepartmentId STRING(36) NOT NULL,
+  SubDepartmentId STRING(36) NOT NULL,
+  CONSTRAINT FK_SubDept_Child FOREIGN KEY (SubDepartmentId) REFERENCES Departments (DepartmentId)
+) PRIMARY KEY (DepartmentId, SubDepartmentId),
+  INTERLEAVE IN PARENT Departments ON DELETE CASCADE;
+
+-- Concrete Class: ex:Researcher
+CREATE TABLE Researchers (
+  ResearcherId STRING(36) NOT NULL,
+  ResearcherName STRING(MAX),
+  OrcidId STRING(MAX)
+) PRIMARY KEY (ResearcherId);
+
+-- Symmetric Relationship: ex:collaboratesWith (owl:SymmetricProperty)
+-- Physically stored in a single direction to eliminate relational duplication.
+CREATE TABLE ResearcherCollaborations (
+  ResearcherId STRING(36) NOT NULL,
+  CollaboratorResearcherId STRING(36) NOT NULL,
+  CONSTRAINT CK_No_Self_Collab CHECK (ResearcherId != CollaboratorResearcherId),
+  CONSTRAINT FK_Collab_Researcher FOREIGN KEY (ResearcherId) REFERENCES Researchers (ResearcherId),
+  CONSTRAINT FK_Collab_Target FOREIGN KEY (CollaboratorResearcherId) REFERENCES Researchers (ResearcherId)
+) PRIMARY KEY (ResearcherId, CollaboratorResearcherId);
+
+-- Object Property: ex:memberOfDepartment (Researcher -&gt; Department)
+CREATE TABLE ResearcherDepartmentMemberships (
+  ResearcherId STRING(36) NOT NULL,
+  DepartmentId STRING(36) NOT NULL,
+  CONSTRAINT FK_Member_Researcher FOREIGN KEY (ResearcherId) REFERENCES Researchers (ResearcherId),
+  CONSTRAINT FK_Member_Department FOREIGN KEY (DepartmentId) REFERENCES Departments (DepartmentId)
+) PRIMARY KEY (ResearcherId, DepartmentId);
+
+-- =============================================================================
+-- GOOGLE CLOUD SPANNER PROPERTY GRAPH DDL
+-- =============================================================================
+
+CREATE PROPERTY GRAPH ResearchGraph
+  NODE TABLES (
+    -- Node: Departments
+    Departments
+      LABEL Department PROPERTIES (DepartmentId, DepartmentName, BudgetCode),
+
+    -- Node: Divisions (Multi-label with uniform Department property signature)
+    Divisions
+      LABEL Division PROPERTIES (DepartmentId, DivisionId, DepartmentName, BudgetCode)
+      LABEL Department PROPERTIES (DepartmentId, DepartmentName, BudgetCode),
+
+    -- Node: Researchers
+    Researchers
+      LABEL Researcher PROPERTIES (ResearcherId, ResearcherName, OrcidId)
+  )
+  EDGE TABLES (
+    -- Edge: Transitive Sub-Department Relationship (evaluate depth via GQL + / * paths)
+    SubDepartments
+      SOURCE KEY (DepartmentId) REFERENCES Departments (DepartmentId)
+      DESTINATION KEY (SubDepartmentId) REFERENCES Departments (DepartmentId)
+      LABEL SUB_DEPARTMENT_OF,
+
+    -- Edge: Symmetric Collaboration (Forward Mapping)
+    ResearcherCollaborations
+      SOURCE KEY (ResearcherId) REFERENCES Researchers (ResearcherId)
+      DESTINATION KEY (CollaboratorResearcherId) REFERENCES Researchers (ResearcherId)
+      LABEL COLLABORATES_WITH,
+
+    -- Edge: Symmetric Collaboration (Inverse Alias Mapping for Bidirectional Traversal)
+    ResearcherCollaborations AS ResearcherCollaborationsInverse
+      SOURCE KEY (CollaboratorResearcherId) REFERENCES Researchers (ResearcherId)
+      DESTINATION KEY (ResearcherId) REFERENCES Researchers (ResearcherId)
+      LABEL COLLABORATES_WITH,
+
+    -- Edge: Researcher Department Membership
+    ResearcherDepartmentMemberships
+      SOURCE KEY (ResearcherId) REFERENCES Researchers (ResearcherId)
+      DESTINATION KEY (DepartmentId) REFERENCES Departments (DepartmentId)
+      LABEL MEMBER_OF_DEPARTMENT
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

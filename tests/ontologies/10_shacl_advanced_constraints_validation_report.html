@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - SHACL Advanced Constraints</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>ex:ShaclAdvancedConstraintsOntology</code></div>
+          <div>SHACL: <code>ex:PaymentAccountShape, ex:PostalAddressShape</code></div>
+          <div>Target DDL: <code>PaymentAccountGraph</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">3</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">4</div>
+        <div class="label">Embedded Shape Cols</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology (Diagram First!) -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    Party["<b>Party</b><br><i>&laquo;Abstract Superclass&raquo;</i><br>+ PartyId: STRING(36)"]:::abstract
+    IndividualParties["<b>IndividualParties</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ IndividualPartyId: STRING(36) [PK]"]:::concrete
+    CorporateParties["<b>CorporateParties</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ CorporatePartyId: STRING(36) [PK]"]:::concrete
+    PaymentAccounts["<b>PaymentAccounts</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ PaymentAccountId: STRING(36) [PK]<br>+ AccountNumber: STRING(34)<br>+ AccountStatus: STRING(20)<br>+ TierLevel: STRING(50)<br>+ BillingAddress_StreetLine: STRING(120)<br>+ BillingAddress_CityName: STRING(80)<br>+ BillingAddress_PostalCode: STRING(20)<br>+ BillingAddress_CountryIso: STRING(2)"]:::concrete
+
+    Party -.->|Table-Per-Concrete| IndividualParties
+    Party -.->|Table-Per-Concrete| CorporateParties
+    PaymentAccounts -->|HAS_OWNER_PARTY| IndividualParties
+    PaymentAccounts -->|HAS_OWNER_PARTY| CorporateParties
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Suppressed from Physical Tables)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Constrained Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Party</code><br><small style="color:var(--muted)">Abstract Superclass</small></td>
+          <td><em>None (Suppressed)</em></td>
+          <td><span class="label-pill">:Party</span></td>
+          <td><code>PartyId STRING(36)</code></td>
+          <td><strong>Table-Per-Concrete:</strong> Pure abstract class. Projected virtually across leaf tables via uniform label property aliasing (<code>AS PartyId</code>).</td>
+        </tr>
+        <tr>
+          <td><code>ex:IndividualParty</code></td>
+          <td><code>IndividualParties</code></td>
+          <td>
+            <span class="label-pill">:IndividualParty</span>
+            <span class="label-pill">:Party</span>
+          </td>
+          <td><code>IndividualPartyId STRING(36) [PK]</code></td>
+          <td><strong>Concrete Leaf Table:</strong> Inherits abstract superclass label <code>:Party</code>. Aliases <code>IndividualPartyId AS PartyId</code> for uniform signature.</td>
+        </tr>
+        <tr>
+          <td><code>ex:CorporateParty</code></td>
+          <td><code>CorporateParties</code></td>
+          <td>
+            <span class="label-pill">:CorporateParty</span>
+            <span class="label-pill">:Party</span>
+          </td>
+          <td><code>CorporatePartyId STRING(36) [PK]</code></td>
+          <td><strong>Concrete Leaf Table:</strong> Inherits abstract superclass label <code>:Party</code>. Aliases <code>CorporatePartyId AS PartyId</code> for uniform signature.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:PaymentAccount</code><br>
+            <small style="color:var(--muted)">Target of <code>ex:PaymentAccountShape</code></small>
+          </td>
+          <td><code>PaymentAccounts</code></td>
+          <td><span class="label-pill">:PaymentAccount</span></td>
+          <td>
+            <code>PaymentAccountId STRING(36) [PK]</code><br>
+            <code>AccountNumber STRING(34) NOT NULL</code><br>
+            <code>AccountStatus STRING(20) NOT NULL</code><br>
+            <code>TierLevel STRING(50) DEFAULT ('STANDARD')</code><br>
+            <code>OwnerPartyId STRING(36) NOT NULL</code><br>
+            <code>BillingAddress_StreetLine STRING(120)</code><br>
+            <code>BillingAddress_CityName STRING(80)</code><br>
+            <code>BillingAddress_PostalCode STRING(20)</code><br>
+            <code>BillingAddress_CountryIso STRING(2)</code>
+          </td>
+          <td>
+            <strong>SHACL Advanced Translation:</strong>
+            <ul style="margin:4px 0 0; padding-left:16px;">
+              <li><code>sh:in</code> &rarr; <code>CHECK (AccountStatus IN ('ACTIVE', 'SUSPENDED', 'CLOSED'))</code></li>
+              <li><code>sh:hasValue</code> &rarr; <code>DEFAULT ('STANDARD')</code></li>
+              <li><code>sh:node</code> &rarr; Embedded column flattening for <code>ex:PostalAddressShape</code> with prefix <code>BillingAddress_</code></li>
+              <li><code>sh:maxLength</code> mapped to precise <code>STRING(N)</code> capacities.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">
+            <code>ex:hasOwnerParty</code><br>
+            <small style="color:var(--muted)">Domain: <code>ex:PaymentAccount</code><br>Range: <code>ex:Party</code> (Abstract)</small>
+          </td>
+          <td><code>PaymentAccounts</code> &rarr; <code>IndividualParties</code></td>
+          <td><code>PaymentAccounts AS PaymentAccountIndividualOwners</code></td>
+          <td><span class="label-pill">:HAS_OWNER_PARTY</span></td>
+          <td rowspan="2">
+            <strong>Polymorphic Edge Splitting:</strong>
+            <ul style="margin:4px 0 0; padding-left:16px;">
+              <li>SQL relational foreign key is omitted on <code>OwnerPartyId</code> to allow polymorphic referential targets.</li>
+              <li>Spanner Graph creates two distinct <code>EDGE TABLE</code> mappings bound to the same logical edge label <code>:HAS_OWNER_PARTY</code>.</li>
+              <li>Traversal seamlessly resolves either <code>IndividualParties</code> or <code>CorporateParties</code>.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code>PaymentAccounts</code> &rarr; <code>CorporateParties</code></td>
+          <td><code>PaymentAccounts AS PaymentAccountCorporateOwners</code></td>
+          <td><span class="label-pill">:HAS_OWNER_PARTY</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Edge Traversal:</strong><br>Retrieve accounts and their owner party regardless of concrete subtype</td>
+          <td>
+            <div class="query-box">
+GRAPH PaymentAccountGraph
+MATCH (acc:PaymentAccount)-[:HAS_OWNER_PARTY]->(owner:Party)
+RETURN acc.AccountNumber, acc.AccountStatus, owner.PartyId;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Subtype-Specific Target Query:</strong><br>Query accounts owned exclusively by Corporate Parties</td>
+          <td>
+            <div class="query-box">
+GRAPH PaymentAccountGraph
+MATCH (acc:PaymentAccount)-[:HAS_OWNER_PARTY]->(corp:CorporateParty)
+WHERE acc.AccountStatus = 'ACTIVE'
+RETURN acc.AccountNumber, corp.CorporatePartyId, acc.TierLevel;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Embedded Shape Property Access:</strong><br>Filter on flattened nested address attributes</td>
+          <td>
+            <div class="query-box">
+GRAPH PaymentAccountGraph
+MATCH (acc:PaymentAccount)
+WHERE acc.BillingAddress_CountryIso = 'US'
+RETURN acc.AccountNumber, acc.BillingAddress_CityName, acc.BillingAddress_PostalCode;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Label Property Signature:</strong> <code>LABEL Party</code> on both <code>IndividualParties</code> and <code>CorporateParties</code> exposes identical property signature <code>PartyId STRING(36)</code> via proper column aliasing.</li>
+        <li><strong>Polymorphic Foreign Key Safety:</strong> Physical SQL FK constraint omitted to prevent relational single-table foreign key violations while full graph integrity is preserved in the property graph definition.</li>
+        <li><strong>SHACL Constraint Fidelity:</strong> <code>sh:in</code> translated to GoogleSQL <code>CHECK (...)</code> constraint; <code>sh:hasValue</code> translated to column <code>DEFAULT</code>; <code>sh:maxLength</code> translated to bounded <code>STRING(N)</code>.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/test/shacl_constraints/&gt; .
+
+ex:ShaclAdvancedConstraintsOntology a owl:Ontology ;
+    rdfs:label &quot;SHACL Advanced Constraints &amp; Nested Shapes Test Ontology&quot; ;
+    rdfs:comment &quot;Tests SHACL-driven DDL generation including sh:in check constraints, sh:hasValue defaults, sh:node nested shape flattening, and polymorphic foreign key edge mappings.&quot; .
+
+# =============================================================================
+# Classes
+# =============================================================================
+
+ex:PaymentAccount a owl:Class ;
+    rdfs:label &quot;Payment Account&quot; ;
+    rdfs:comment &quot;Mapped to physical table &#x27;PaymentAccounts&#x27;.&quot; .
+
+ex:Party a owl:Class ;
+    rdfs:label &quot;Party (Abstract Superclass)&quot; .
+
+ex:IndividualParty a owl:Class ;
+    rdfs:subClassOf ex:Party ;
+    rdfs:label &quot;Individual Party&quot; ;
+    rdfs:comment &quot;Concrete table &#x27;IndividualParties&#x27;.&quot; .
+
+ex:CorporateParty a owl:Class ;
+    rdfs:subClassOf ex:Party ;
+    rdfs:label &quot;Corporate Party&quot; ;
+    rdfs:comment &quot;Concrete table &#x27;CorporateParties&#x27;.&quot; .
+
+# =============================================================================
+# Object Properties
+# =============================================================================
+
+ex:hasOwnerParty a owl:ObjectProperty ;
+    rdfs:domain ex:PaymentAccount ;
+    rdfs:range ex:Party ;
+    rdfs:label &quot;Has Owner Party&quot; ;
+    rdfs:comment &quot;Polymorphic target: Range is abstract Party (with leaf subclasses IndividualParty and CorporateParty). Omit SQL FK, map multi-target EDGE TABLES in property graph.&quot; .
+
+# =============================================================================
+# Datatype Properties
+# =============================================================================
+
+ex:accountNumber a owl:DatatypeProperty ;
+    rdfs:domain ex:PaymentAccount ;
+    rdfs:range xsd:string .
+
+ex:accountStatus a owl:DatatypeProperty ;
+    rdfs:domain ex:PaymentAccount ;
+    rdfs:range xsd:string .
+
+ex:tierLevel a owl:DatatypeProperty ;
+    rdfs:domain ex:PaymentAccount ;
+    rdfs:range xsd:string .
+
+ex:billingAddress a owl:DatatypeProperty ;
+    rdfs:domain ex:PaymentAccount ;
+    rdfs:comment &quot;Nested shape target (sh:node).&quot; .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:   &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix sh:    &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd:   &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:    &lt;http://example.org/test/shacl_constraints/&gt; .
+
+# =============================================================================
+# SHACL Shapes with Enums (sh:in), Defaults (sh:hasValue),
+# Nested Shapes (sh:node), and Polymorphic Foreign Keys (sh:class -&gt; Abstract)
+# =============================================================================
+
+ex:PostalAddressShape a sh:NodeShape ;
+    rdfs:label &quot;Nested Postal Address Shape&quot; ;
+    sh:property [
+        sh:path ex:streetLine ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 120 ;
+    ] ,
+    [
+        sh:path ex:cityName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 80 ;
+    ] ,
+    [
+        sh:path ex:postalCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 20 ;
+    ] ,
+    [
+        sh:path ex:countryIso ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 2 ;
+    ] .
+
+ex:PaymentAccountShape a sh:NodeShape ;
+    sh:targetClass ex:PaymentAccount ;
+    sh:property [
+        sh:path ex:accountNumber ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:maxLength 34 ;
+    ] ,
+    [
+        # Check constraint: sh:in (&#x27;ACTIVE&#x27;, &#x27;SUSPENDED&#x27;, &#x27;CLOSED&#x27;)
+        # Translates to: CONSTRAINT CK_AccountStatus CHECK (AccountStatus IN (&#x27;ACTIVE&#x27;, &#x27;SUSPENDED&#x27;, &#x27;CLOSED&#x27;))
+        sh:path ex:accountStatus ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ( &quot;ACTIVE&quot; &quot;SUSPENDED&quot; &quot;CLOSED&quot; ) ;
+    ] ,
+    [
+        # Default value: sh:hasValue &quot;STANDARD&quot;
+        sh:path ex:tierLevel ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue &quot;STANDARD&quot; ;
+    ] ,
+    [
+        # Nested shape: sh:node
+        # Translates to embedded columns: BillingAddress_StreetLine, BillingAddress_CityName, etc.
+        sh:path ex:billingAddress ;
+        sh:node ex:PostalAddressShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        # Polymorphic target: sh:class targets abstract ex:Party
+        # Translates to Property Graph EDGE TABLES (one for IndividualParty, one for CorporateParty)
+        # while omitting SQL foreign key constraint
+        sh:path ex:hasOwnerParty ;
+        sh:class ex:Party ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- Relational Schema Definitions (Table-Per-Concrete-Class)
+-- =============================================================================
+
+-- Concrete Subclass Table for Individual Parties
+CREATE TABLE IndividualParties (
+  IndividualPartyId STRING(36) NOT NULL
+) PRIMARY KEY (IndividualPartyId);
+
+-- Concrete Subclass Table for Corporate Parties
+CREATE TABLE CorporateParties (
+  CorporatePartyId STRING(36) NOT NULL
+) PRIMARY KEY (CorporatePartyId);
+
+-- Concrete Table for Payment Accounts
+CREATE TABLE PaymentAccounts (
+  PaymentAccountId STRING(36) NOT NULL,
+  AccountNumber STRING(34) NOT NULL,
+  AccountStatus STRING(20) NOT NULL,
+  TierLevel STRING(50) NOT NULL DEFAULT (&#x27;STANDARD&#x27;),
+  OwnerPartyId STRING(36) NOT NULL, -- Omitted physical FK due to polymorphic target (Party)
+  
+  -- Flattened embedded fields from ex:PostalAddressShape (sh:node ex:billingAddress)
+  BillingAddress_StreetLine STRING(120),
+  BillingAddress_CityName STRING(80),
+  BillingAddress_PostalCode STRING(20),
+  BillingAddress_CountryIso STRING(2),
+  
+  -- Enum validation constraint derived from SHACL sh:in
+  CONSTRAINT CK_AccountStatus CHECK (AccountStatus IN (&#x27;ACTIVE&#x27;, &#x27;SUSPENDED&#x27;, &#x27;CLOSED&#x27;))
+) PRIMARY KEY (PaymentAccountId);
+
+-- =============================================================================
+-- Property Graph Schema Definition
+-- =============================================================================
+
+CREATE PROPERTY GRAPH PaymentAccountGraph
+  NODE TABLES (
+    IndividualParties
+      LABEL IndividualParty PROPERTIES (IndividualPartyId)
+      LABEL Party PROPERTIES (IndividualPartyId AS PartyId),
+      
+    CorporateParties
+      LABEL CorporateParty PROPERTIES (CorporatePartyId)
+      LABEL Party PROPERTIES (CorporatePartyId AS PartyId),
+      
+    PaymentAccounts
+      LABEL PaymentAccount PROPERTIES (
+        PaymentAccountId,
+        AccountNumber,
+        AccountStatus,
+        TierLevel,
+        OwnerPartyId,
+        BillingAddress_StreetLine,
+        BillingAddress_CityName,
+        BillingAddress_PostalCode,
+        BillingAddress_CountryIso
+      )
+  )
+  EDGE TABLES (
+    -- Polymorphic Edge Target 1: Individual Parties
+    PaymentAccounts AS PaymentAccountIndividualOwners
+      SOURCE KEY (PaymentAccountId) REFERENCES PaymentAccounts (PaymentAccountId)
+      DESTINATION KEY (OwnerPartyId) REFERENCES IndividualParties (IndividualPartyId)
+      LABEL HAS_OWNER_PARTY PROPERTIES (PaymentAccountId, OwnerPartyId),
+      
+    -- Polymorphic Edge Target 2: Corporate Parties
+    PaymentAccounts AS PaymentAccountCorporateOwners
+      SOURCE KEY (PaymentAccountId) REFERENCES PaymentAccounts (PaymentAccountId)
+      DESTINATION KEY (OwnerPartyId) REFERENCES CorporateParties (CorporatePartyId)
+      LABEL HAS_OWNER_PARTY PROPERTIES (PaymentAccountId, OwnerPartyId)
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>
