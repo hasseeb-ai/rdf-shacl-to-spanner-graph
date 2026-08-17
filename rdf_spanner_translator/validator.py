@@ -132,3 +132,72 @@ def check_database_existence(
         return False, None
         
     return None, msg
+
+
+def drop_spanner_database(project_id: str, instance_id: str, db_id: str) -> tuple[bool, str]:
+    """Drops a Cloud Spanner database using Google Cloud Spanner REST API, with gcloud fallback."""
+    token = get_google_access_token()
+    if token:
+        url = f"https://spanner.googleapis.com/v1/projects/{project_id}/instances/{instance_id}/databases/{db_id}"
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json"
+        }
+        try:
+            resp = httpx.delete(url, headers=headers, timeout=30.0)
+            if resp.status_code in (200, 204):
+                return True, "Database deleted successfully"
+            elif resp.status_code == 404:
+                return True, "Database already deleted or not found"
+        except Exception:
+            pass
+
+    # Fallback to gcloud CLI
+    import subprocess
+    cmd = [
+        "gcloud", "spanner", "databases", "delete", db_id,
+        "--instance", instance_id,
+        "--project", project_id,
+        "--quiet"
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    if res.returncode == 0:
+        return True, "Database deleted successfully via gcloud"
+    return False, (res.stderr or res.stdout or "Failed to delete database via gcloud").strip()
+
+
+def list_spanner_databases(project_id: str, instance_id: str) -> tuple[list[str], str | None]:
+    """Lists all database IDs in a Cloud Spanner instance using REST API / gcloud."""
+    token = get_google_access_token()
+    if token:
+        url = f"https://spanner.googleapis.com/v1/projects/{project_id}/instances/{instance_id}/databases"
+        headers = {"Authorization": f"Bearer {token}"}
+        try:
+            resp = httpx.get(url, headers=headers, timeout=30.0)
+            if resp.status_code == 200:
+                data = resp.json()
+                databases = data.get("databases", [])
+                db_ids = [db["name"].split("/")[-1] for db in databases if "name" in db]
+                return db_ids, None
+        except Exception as ex:
+            pass
+
+    # Fallback to gcloud CLI
+    import subprocess
+    import json
+    cmd = [
+        "gcloud", "spanner", "databases", "list",
+        "--instance", instance_id,
+        "--project", project_id,
+        "--format=json"
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    if res.returncode == 0:
+        try:
+            data = json.loads(res.stdout)
+            db_ids = [db["name"].split("/")[-1] for db in data if "name" in db]
+            return db_ids, None
+        except Exception as ex:
+            pass
+    return [], (res.stderr or "Failed to list databases").strip()
+

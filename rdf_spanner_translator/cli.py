@@ -28,7 +28,12 @@ from rdf_spanner_translator.translator import (
     audit_spanner_schema, 
     extract_validation_score
 )
-from rdf_spanner_translator.validator import validate_ddl, check_database_existence
+from rdf_spanner_translator.validator import (
+    validate_ddl, 
+    check_database_existence, 
+    drop_spanner_database, 
+    list_spanner_databases
+)
 from rdf_spanner_translator.query_verifier import run_query_verification
 
 # Initialize Rich console for stylized and formatted terminal outputs
@@ -325,14 +330,12 @@ def cleanup_spanner_databases(databases: list[str], instance_path: str, auto_del
         console.print("\n[bold yellow]Cleaning up created test databases...[/bold yellow]")
         for db in databases:
             console.print(f"Deleting database [cyan]{db}[/cyan]...")
-            cmd = [
-                "gcloud", "spanner", "databases", "delete", db,
-                "--instance", instance_id,
-                "--project", project_id,
-                "--quiet"
-            ]
-            subprocess.run(cmd, capture_output=True)
-        console.print("[bold green]✓ Database cleanup complete![/bold green]")
+            success, msg = drop_spanner_database(project_id, instance_id, db)
+            if success:
+                console.print(f"  [green]✓ {db} deleted successfully.[/green]")
+            else:
+                console.print(f"  [red]✗ Failed to delete {db}: {msg}[/red]")
+        console.print("[bold green]✓ Database cleanup routine finished![/bold green]")
     else:
         console.print("\n[bold yellow]CLEANUP INSTRUCTIONS (Database Deletion Skipped):[/bold yellow]")
         console.print("Execute the following to delete created test databases:")
@@ -340,6 +343,55 @@ def cleanup_spanner_databases(databases: list[str], instance_path: str, auto_del
         for db in databases:
             console.print(f"gcloud spanner databases delete {db} --instance={instance_id} --project={project_id} --quiet")
         console.print("```")
+
+
+@main.command("cleanup-databases")
+@click.option("--instance", envvar="SPANNER_INSTANCE", required=True, help="Cloud Spanner instance path (projects/<project>/instances/<instance>).")
+@click.option("--prefix", default="t_", help="Prefix filter for temporary test databases (default: 't_').")
+@click.option("--all-temp/--no-all-temp", default=True, help="Automatically list and delete all temporary databases matching prefix.")
+def cleanup_databases_cli(instance, prefix, all_temp):
+    """Clean up all accumulated temporary test databases (e.g. t_*) from a Spanner instance."""
+    parts = instance.split("/")
+    if len(parts) >= 4 and parts[0] == "projects" and parts[2] == "instances":
+        project_id = parts[1]
+        instance_id = parts[3]
+    else:
+        console.print(f"[bold red]Error:[/bold red] Invalid instance path: {instance}. Expected projects/<project>/instances/<instance>")
+        raise click.Abort()
+        
+    console.print(Panel.fit(
+        f"[bold yellow]Spanner Temporary Database Pruner[/bold yellow]\n"
+        f"Instance: {instance}\n"
+        f"Prefix Filter: {prefix}",
+        title="Spanner Database Cleanup"
+    ))
+    
+    with console.status("[cyan]Listing databases in Spanner instance..."):
+        db_list, err = list_spanner_databases(project_id, instance_id)
+        
+    if err:
+        console.print(f"[bold red]Error listing databases:[/bold red] {err}")
+        raise click.Abort()
+        
+    matching_dbs = [d for d in db_list if d.startswith(prefix)]
+    if not matching_dbs:
+        console.print(f"[green]No temporary databases matching prefix '{prefix}' found. Total databases: {len(db_list)}/100.[/green]")
+        return
+        
+    console.print(f"[yellow]Found [bold]{len(matching_dbs)}[/bold] temporary databases matching '{prefix}' (Total on instance: {len(db_list)}/100).[/yellow]")
+    
+    if all_temp:
+        with console.status(f"[cyan]Deleting {len(matching_dbs)} temporary databases..."):
+            for i, db in enumerate(matching_dbs, 1):
+                console.print(f"[{i}/{len(matching_dbs)}] Deleting [cyan]{db}[/cyan]...")
+                success, msg = drop_spanner_database(project_id, instance_id, db)
+                if success:
+                    console.print(f"  [green]✓ {db} deleted.[/green]")
+                else:
+                    console.print(f"  [red]✗ Failed {db}: {msg}[/red]")
+        console.print(f"[bold green]✓ Cleanup complete! Deleted {len(matching_dbs)} temporary databases.[/bold green]")
+    else:
+        console.print("Run with `--all-temp` to execute deletions.")
 
 
 @main.command()
