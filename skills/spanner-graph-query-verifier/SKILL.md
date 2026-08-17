@@ -70,6 +70,7 @@ SELECT * FROM GRAPH_TABLE(
   MATCH (b:Truck)
   WHERE a.Manufacturer = b.Manufacturer
   ```
+* **Property Projection Rule:** You MUST ONLY project property columns in `COLUMNS (...)` that are explicitly listed in the corresponding `LABEL`'s `PROPERTIES (...)` list in the provided Cloud Spanner DDL. Never reference columns that were not exposed under that specific label definition (e.g. if `LABEL Vehicle` only exposes `Vin, Manufacturer`, do NOT query `v.VehicleId`).
 
 ### Archetype 1: Polymorphic Superclass Matching (Multi-Label Traversal)
 * **Intent:** Query an abstract parent label (e.g. `Vehicle`, `LegalEntity`, `Event`) and return rows across different concrete leaf tables.

@@ -253,16 +253,15 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
             if not out_dir:
                 out_dir = "output"
             query_report_file = output if active_mode == "queries" else os.path.join(out_dir, f"{stem}_query_report.md")
-            with console.status("[yellow]Synthesizing mock data, executing DML, and running 4 GQL queries..."):
-                all_passed, report_md = run_query_verification(
-                    ttl_path=input,
-                    ddl_path=ddl,
-                    database=database,
-                    shacl_path=shacl,
-                    mcp_url=mcp_url,
-                    model_name=model,
-                    output_report=query_report_file
-                )
+            all_passed, report_md = run_query_verification(
+                ttl_path=input,
+                ddl_path=ddl,
+                database=database,
+                shacl_path=shacl,
+                mcp_url=mcp_url,
+                model_name=model,
+                output_report=query_report_file
+            )
             status_str = "SUCCESS (4/4 Queries Passed)" if all_passed else "WARNING (Some queries encountered issues)"
             status_color = "green" if all_passed else "yellow"
             console.print(f"[{status_color}]✓ Verification Complete: {status_str}[/{status_color}]")
@@ -658,16 +657,15 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 rep_dir = os.path.dirname(os.path.abspath(target_query_report))
                 if rep_dir:
                     os.makedirs(rep_dir, exist_ok=True)
-                with console.status("[yellow]Executing dynamic mock data ingestion & GQL queries..."):
-                    all_passed, _ = run_query_verification(
-                        ttl_path=input,
-                        ddl_path=target_output,
-                        database=target_database,
-                        shacl_path=shacl,
-                        mcp_url=mcp_url,
-                        model_name=model,
-                        output_report=target_query_report
-                    )
+                all_passed, _ = run_query_verification(
+                    ttl_path=input,
+                    ddl_path=target_output,
+                    database=target_database,
+                    shacl_path=shacl,
+                    mcp_url=mcp_url,
+                    model_name=model,
+                    output_report=target_query_report
+                )
                 status_str = "SUCCESS" if all_passed else "WARNING (Some queries failed)"
                 status_color = "green" if all_passed else "yellow"
                 console.print(f"[{status_color}]✓ Dynamic GQL Query Verification Complete: {status_str} -> {target_query_report}[/{status_color}]")

@@ -325,6 +325,11 @@ Generate the complete Executive One-Pager Dynamic Query Verification Report in G
     return response.text.strip()
 
 
+from rich.console import Console
+
+console = Console()
+
+
 def run_query_verification(
     ttl_path: str,
     ddl_path: str,
@@ -346,42 +351,56 @@ def run_query_verification(
             shacl_content = f.read()
             
     # 1. Phase 1: Synthesize linked fixtures and 4 GQL queries
-    plan = generate_fixtures_and_queries(
-        ttl_content=ttl_content,
-        ddl_content=ddl_content,
-        shacl_content=shacl_content,
-        model_name=model_name
-    )
+    with console.status(f"[cyan]Synthesizing relational mock data & 4 GQL queries ({model_name})..."):
+        plan = generate_fixtures_and_queries(
+            ttl_content=ttl_content,
+            ddl_content=ddl_content,
+            shacl_content=shacl_content,
+            model_name=model_name
+        )
     
     domain_title = plan.get("domain_title", os.path.basename(ttl_path))
     graph_name = plan.get("graph_name", "SpannerPropertyGraph")
     dml_statements = plan.get("dml_statements", [])
     queries = plan.get("queries", [])
     
+    console.print(f"[cyan]• Ingesting {len(dml_statements)} mock relational fixtures into Spanner via DML...[/cyan]")
     # 2. Ingest DML fixtures into Spanner
-    for stmt in dml_statements:
-        execute_spanner_statement(stmt, database, mcp_url)
+    for idx, stmt in enumerate(dml_statements, 1):
+        success, dml_msg = execute_spanner_statement(stmt, database, mcp_url)
+        if not success:
+            console.print(f"  [yellow]Warning (DML {idx}/{len(dml_statements)}): {dml_msg}[/yellow]")
+    console.print(f"[green]✓ Ingested {len(dml_statements)} relational fixtures.[/green]")
         
     # 3. Execute each GQL query on Spanner with self-correction
     query_results = []
     all_passed = True
     
-    for q in queries:
+    for i, q in enumerate(queries, 1):
+        q_id = q.get("id", f"Q{i}")
+        q_title = q.get("title", f"Query {i}")
         current_gql = q.get("gql", "")
-        success, output = execute_spanner_statement(current_gql, database, mcp_url)
         
-        if not success:
-            # Self-correct GQL once
-            corrected_gql = self_correct_gql_query(
-                ttl_content=ttl_content,
-                ddl_content=ddl_content,
-                invalid_gql=current_gql,
-                error_message=str(output),
-                model_name=model_name
-            )
-            success, output = execute_spanner_statement(corrected_gql, database, mcp_url)
-            if success:
-                current_gql = corrected_gql
+        with console.status(f"[cyan]Executing Query {i}/{len(queries)}: {q_id} ({q_title})..."):
+            success, output = execute_spanner_statement(current_gql, database, mcp_url)
+            
+            if not success:
+                console.print(f"  [yellow]✗ Query {q_id} initial execution failed, attempting self-correction...[/yellow]")
+                corrected_gql = self_correct_gql_query(
+                    ttl_content=ttl_content,
+                    ddl_content=ddl_content,
+                    invalid_gql=current_gql,
+                    error_message=str(output),
+                    model_name=model_name
+                )
+                success, output = execute_spanner_statement(corrected_gql, database, mcp_url)
+                if success:
+                    current_gql = corrected_gql
+                    console.print(f"  [green]✓ Query {q_id} self-corrected successfully and PASSED.[/green]")
+                else:
+                    console.print(f"  [red]✗ Query {q_id} failed after self-correction.[/red]")
+            else:
+                console.print(f"  [green]✓ Query {q_id} PASSED: {q_title}[/green]")
                 
         if not success:
             all_passed = False
@@ -397,27 +416,27 @@ def run_query_verification(
         })
         
     # 4. Phase 2: Synthesize deep Executive Report using Gemini (with fallback)
-    try:
-        report_md = synthesize_executive_report_with_skill(
-            ttl_content=ttl_content,
-            ddl_content=ddl_content,
-            database_path=database,
-            domain_title=domain_title,
-            dml_statements=dml_statements,
-            query_results=query_results,
-            shacl_content=shacl_content,
-            model_name=model_name
-        )
-    except Exception:
-        # Fallback to local template formatter
-        report_md = format_query_report(
-            domain_title=domain_title,
-            graph_name=graph_name,
-            ttl_path=ttl_path,
-            database_path=database,
-            dml_statements=dml_statements,
-            query_results=query_results
-        )
+    with console.status(f"[cyan]Synthesizing Executive Dynamic Query Verification Report ({model_name})..."):
+        try:
+            report_md = synthesize_executive_report_with_skill(
+                ttl_content=ttl_content,
+                ddl_content=ddl_content,
+                database_path=database,
+                domain_title=domain_title,
+                dml_statements=dml_statements,
+                query_results=query_results,
+                shacl_content=shacl_content,
+                model_name=model_name
+            )
+        except Exception:
+            report_md = format_query_report(
+                domain_title=domain_title,
+                graph_name=graph_name,
+                ttl_path=ttl_path,
+                database_path=database,
+                dml_statements=dml_statements,
+                query_results=query_results
+            )
     
     if output_report:
         rep_dir = os.path.dirname(os.path.abspath(output_report))
