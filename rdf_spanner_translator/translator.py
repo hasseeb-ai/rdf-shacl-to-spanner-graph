@@ -251,19 +251,19 @@ def extract_validation_score(report_text: str) -> tuple[str, str]:
     score = "N/A"
     
     # Check overall status
-    if "PASS" in report_text:
+    if "PASS" in report_text or "VALIDATED" in report_text or "🟢" in report_text:
         status = "PASS"
-    if "WARN" in report_text:
+    if "WARN" in report_text or "🟡" in report_text:
         status = "WARN"
-    if "FAIL" in report_text and "0 Failed" not in report_text and "failed: 0" not in report_text.lower():
+    if "FAIL" in report_text and "0 Failed" not in report_text and "failed: 0" not in report_text.lower() and "0 schema warnings" not in report_text.lower():
         status = "FAIL"
     
     # Extract percentage score
-    score_match = re.search(r"(\d{1,3}%)\s*Score", report_text, re.IGNORECASE)
+    score_match = re.search(r"(\d{1,3}%)\s*(?:VALIDATED|Score|PASS|WARN|FAIL)", report_text, re.IGNORECASE)
+    if not score_match:
+        score_match = re.search(r"status-badge[^\n<]*?(\d{1,3}%)", report_text, re.IGNORECASE)
     if not score_match:
         score_match = re.search(r"\|\s*Total[^\n]+\|\s*(\d{1,3}%)\s*\|", report_text, re.IGNORECASE)
-    if not score_match:
-        score_match = re.search(r"(\d{1,3}%)\s*(?:PASS|WARN|FAIL)", report_text, re.IGNORECASE)
     if not score_match:
         score_match = re.search(r"(?:<td>|Score\s*:?\s*)(\d{1,3}%)", report_text, re.IGNORECASE)
     if not score_match:

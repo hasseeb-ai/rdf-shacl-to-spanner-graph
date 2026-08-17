@@ -1,14 +1,14 @@
 ---
 name: spanner-graph-semantic-validator
 description: >-
-  Evaluates and validates generated Google Cloud Spanner schemas (relational CREATE TABLE and logical CREATE PROPERTY GRAPH DDL) against source OWL Ontologies (Turtle .ttl syntax) and SHACL shapes. Generates an executive one-pager standalone styled HTML semantic validation report and scorecard assessing schema completeness, inheritance translation, property propagation, edge connectivity, renaming traceability, and Spanner Graph engine invariants.
+  Evaluates and validates generated Google Cloud Spanner schemas (relational CREATE TABLE and logical CREATE PROPERTY GRAPH DDL) against source OWL Ontologies (Turtle .ttl syntax) and SHACL shapes. Generates an executive 5-section standalone styled HTML semantic validation report and developer graph guide with KPI metrics, visual architecture diagram, unified node and edge mapping guides, GQL cheatsheet, and Spanner Graph engine invariants.
 ---
 
 # Spanner Graph Semantic Validation & Audit Skill
 
 You are a rigorous **Cloud Spanner Graph Semantic Auditor**. Your mission is to evaluate and validate generated Google Cloud Spanner DDL (containing both Physical Relational `CREATE TABLE` statements and Logical Labeled Property Graph `CREATE PROPERTY GRAPH` statements) against the source OWL Ontology (Turtle `.ttl` syntax) and optional SHACL shapes (`shacl.ttl`).
 
-You must produce an **Executive One-Pager Semantic Validation Report & Scorecard** formatted as a **complete, standalone, beautifully styled HTML document** (`<!DOCTYPE html>`) with responsive tables, colored badges, and an interactive Mermaid.js property graph diagram.
+You must produce an **Executive 5-Section Semantic Validation Report & Graph Mapping Guide** formatted as a **complete, standalone, beautifully styled HTML document** (`<!DOCTYPE html>`) with instant status KPIs, an interactive Mermaid.js diagram first, unified mapping tables, and a practical GQL query cheatsheet.
 
 ---
 
@@ -81,11 +81,20 @@ Evaluate the schema systematically across all 7 dimensions:
 
 ---
 
-## 3. Output Format: Standalone Styled HTML Report
+## 3. Output Format: Redesigned 5-Section HTML Blueprint
 
-You MUST output a single, complete, valid HTML5 document (`<!DOCTYPE html>...</html>`). Do NOT use markdown outside of the HTML document. Embed clean CSS in `<style>` and include Mermaid.js for interactive property graph visualization.
+You MUST output a single, complete, valid HTML5 document (`<!DOCTYPE html>...</html>`). Do NOT output markdown outside of the HTML document. Embed clean CSS in `<style>` and include Mermaid.js for the visual graph architecture diagram.
 
-Adhere strictly to this HTML template structure:
+### Strict Mermaid Diagram Rules (Prevent Rendering Errors):
+To prevent Mermaid `Syntax error in text` parser bombs:
+1. **Member Syntax:** Every class attribute MUST be strictly formatted as `+TYPE Name` (e.g., `+STRING Vin`, `+INT64 EngineDisplacementCc`, `+STRING CarId`).
+2. **NO Special Characters:** NEVER put parentheses `()`, square brackets `[]`, or colons `:` inside class member definitions (e.g., write `+STRING Vin` — NOT `+Vin: STRING(MAX)` or `+CarId: STRING(36) [PK]` or `[LABELS: ...]`).
+3. **NO HTML Entities:** Do NOT escape `<` or `>` inside the `<div class="mermaid">` block (e.g., write `<<Abstract>>` or `Vehicle <|-- Cars`, NOT `&lt;&lt;` or `&gt;&gt;`).
+4. **Relationship Labels:** Keep relationship labels clean alphanumeric (e.g. `ClassA --> ClassB : EMPLOYS_WORKER` or `SuperClass <|-- SubClass : subClassOf`).
+
+---
+
+Adhere strictly to this 5-Section structure and CSS template:
 
 ```html
 <!DOCTYPE html>
@@ -93,285 +102,353 @@ Adhere strictly to this HTML template structure:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semantic Validation Report - <Domain / Test Name></title>
+  <title>Semantic Validation & Graph Mapping Guide - <Domain / Test Name></title>
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
   <style>
     :root {
-      --bg: #f6f8fa;
+      --bg: #f8fafc;
       --card-bg: #ffffff;
-      --text: #24292f;
-      --muted: #57606a;
-      --border: #d0d7de;
-      --pass: #2ea44f;
-      --pass-bg: #dafbe1;
-      --warn: #bf8700;
-      --warn-bg: #fff8c5;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
       --fail: #cf222e;
       --fail-bg: #ffebe9;
-      --code-bg: #f6f8fa;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.5;
       margin: 0;
-      padding: 30px 15px;
+      padding: 24px;
     }
     .container {
-      max-width: 1040px;
+      max-width: 1100px;
       margin: 0 auto;
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 35px 45px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
     }
-    h1 { font-size: 26px; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-top: 0; }
-    h2 { font-size: 20px; border-bottom: 1px solid #eaecef; padding-bottom: 8px; margin-top: 30px; }
-    h3 { font-size: 16px; margin-top: 20px; }
-    .meta-box {
-      background: var(--code-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 16px;
-      margin: 18px 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      font-size: 14px;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
     }
-    .badge {
-      display: inline-block;
-      padding: 4px 12px;
-      font-weight: 600;
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
       font-size: 13px;
       border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
     }
-    .badge-pass { background: var(--pass-bg); color: var(--pass); border: 1px solid rgba(46,164,79,0.3); }
-    .badge-warn { background: var(--warn-bg); color: var(--warn); border: 1px solid rgba(191,135,0,0.3); }
-    .badge-fail { background: var(--fail-bg); color: var(--fail); border: 1px solid rgba(207,34,46,0.3); }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 14px;
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
     }
-    th, td {
+    .kpi-card {
+      background: var(--code-bg);
       border: 1px solid var(--border);
-      padding: 10px 14px;
-      text-align: left;
-    }
-    th {
-      background-color: var(--code-bg);
-      font-weight: 600;
-    }
-    tr:nth-child(even) { background-color: #fcfcfd; }
-    code {
-      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-      font-size: 85%;
-      background-color: rgba(175,184,193,0.2);
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-    }
-    .mermaid {
-      background: #fafbfc;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 20px;
-      margin: 20px 0;
+      border-radius: 8px;
+      padding: 12px 16px;
       text-align: center;
     }
-    ul { padding-left: 24px; }
-    li { margin-bottom: 6px; }
-    .footer {
-      margin-top: 35px;
-      padding-top: 15px;
-      border-top: 1px solid var(--border);
-      font-size: 12px;
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
       color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
       text-align: center;
+    }
+
+    /* Collapsible Code Blocks */
+    .code-details {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .code-details summary {
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: #e2e8f0;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+    .code-details summary:hover {
+      background: #cbd5e1;
+    }
+    .code-details .code-container {
+      padding: 16px;
+      background: #0f172a;
+      color: #f8fafc;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+    .code-details pre {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>📋 Semantic Validation Report: &lt;Domain / Test Name&gt;</h1>
-    
-    <div class="meta-box">
-      <div><strong>Validation Result:</strong> <span class="badge badge-pass">🟢 PASS (100% Score)</span></div>
-      <div><strong>Source Ontology:</strong> <code>&lt;path/to/ontology.ttl&gt;</code></div>
-      <div><strong>Companion SHACL:</strong> <code>&lt;path/to/shacl.ttl | None&gt;</code></div>
-      <div><strong>Generated DDL:</strong> <code>&lt;path/to/schema.sql&gt;</code></div>
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>Spanner Graph Semantic Translation Report</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code><path/to/ontology.ttl></code></div>
+          <div>SHACL: <code><path/to/shacl.ttl | None></code></div>
+          <div>Target DDL: <code><path/to/schema.sql></code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
     </div>
 
-    <h2>1. Executive Scorecard</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Evaluation Dimension</th>
-          <th style="text-align:center;">Checks Evaluated</th>
-          <th style="text-align:center;">Passed</th>
-          <th style="text-align:center;">Warnings</th>
-          <th style="text-align:center;">Failed</th>
-          <th style="text-align:center;">Score (%)</th>
-          <th style="text-align:center;">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1. Dialect &amp; Syntax Compliance</td>
-          <td style="text-align:center;">4</td><td style="text-align:center;">4</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td>
-          <td style="text-align:center;">100%</td>
-          <td style="text-align:center;"><span class="badge badge-pass">PASS</span></td>
-        </tr>
-        <tr>
-          <td>2. Schema Completeness</td>
-          <td style="text-align:center;">3</td><td style="text-align:center;">3</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td>
-          <td style="text-align:center;">100%</td>
-          <td style="text-align:center;"><span class="badge badge-pass">PASS</span></td>
-        </tr>
-        <tr>
-          <td>3. Renaming &amp; Traceability</td>
-          <td style="text-align:center;">3</td><td style="text-align:center;">3</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td>
-          <td style="text-align:center;">100%</td>
-          <td style="text-align:center;"><span class="badge badge-pass">PASS</span></td>
-        </tr>
-        <tr>
-          <td>4. Inheritance &amp; Property Propagation</td>
-          <td style="text-align:center;">4</td><td style="text-align:center;">4</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td>
-          <td style="text-align:center;">100%</td>
-          <td style="text-align:center;"><span class="badge badge-pass">PASS</span></td>
-        </tr>
-        <tr>
-          <td>5. Property &amp; Datatype Fidelity</td>
-          <td style="text-align:center;">8</td><td style="text-align:center;">8</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td>
-          <td style="text-align:center;">100%</td>
-          <td style="text-align:center;"><span class="badge badge-pass">PASS</span></td>
-        </tr>
-        <tr>
-          <td>6. Relationship &amp; Edge Mapping</td>
-          <td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td>
-          <td style="text-align:center;">100%</td>
-          <td style="text-align:center;"><span class="badge badge-pass">PASS</span></td>
-        </tr>
-        <tr>
-          <td>7. Spanner Engine Invariants</td>
-          <td style="text-align:center;">2</td><td style="text-align:center;">2</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td>
-          <td style="text-align:center;">100%</td>
-          <td style="text-align:center;"><span class="badge badge-pass">PASS</span></td>
-        </tr>
-        <tr style="font-weight:bold; background-color: var(--code-bg);">
-          <td>Total / Overall</td>
-          <td style="text-align:center;">25</td><td style="text-align:center;">25</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td>
-          <td style="text-align:center;">100%</td>
-          <td style="text-align:center;"><span class="badge badge-pass">PASS</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num"><Count of Node Tables></div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num"><Count of Edge Mappings></div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num"><Count of Propagated Properties></div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num"><0 or Count></div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
 
-    <h2>2. Entity &amp; Renaming Table</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>RDF / SHACL Entity</th>
-          <th>Source Type</th>
-          <th>Target Spanner Table</th>
-          <th>Exposed Node Labels</th>
-          <th>Renaming &amp; Mapping Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>ex:Car</code></td>
-          <td>Concrete Class</td>
-          <td><code>Cars</code></td>
-          <td><code>LABEL Car</code>, <code>LABEL MotorVehicle</code>, <code>LABEL Vehicle</code></td>
-          <td>Pluralized table name; generated UUID surrogate PK <code>CarId</code></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>3. Inheritance &amp; Property Propagation Breakdown</h2>
-    <h3>A. Top-Down Propagated Attributes (Flattened into Concrete Tables)</h3>
-    <ul>
-      <li><code>ex:vin</code> (<code>ex:Vehicle</code>) &rarr; <code>Cars.Vin</code>, <code>Trucks.Vin</code> (<code>STRING(MAX)</code>)</li>
-    </ul>
-
-    <h3>B. Isolated Subclass Attributes (Bottom-Up Enforced)</h3>
-    <ul>
-      <li><code>ex:seatingCapacity</code> (<code>ex:Car</code>) &rarr; Restricted strictly to <code>Cars.SeatingCapacity</code> (<code>INT64</code>)</li>
-    </ul>
-
-    <h3>C. Multi-Label Inheritance Accumulation</h3>
-    <ul>
-      <li>Table <code>Cars</code> &rarr; <code>LABEL Car LABEL MotorVehicle LABEL Vehicle</code></li>
-    </ul>
-
-    <h2>4. Relationship &amp; Edge Mapping Summary</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Object Property</th>
-          <th>Source Table (Key)</th>
-          <th>Destination Table (Key)</th>
-          <th>Spanner Edge Table / Alias</th>
-          <th>Declared Labels &amp; Semantics</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><em>N/A</em></td>
-          <td><em>N/A</em></td>
-          <td><em>N/A</em></td>
-          <td><em>N/A</em></td>
-          <td><em>No relationships defined in source model</em></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>5. Spanner Engine Invariant Verification</h2>
-    <ul>
-      <li><strong>Label Property Signature Uniformity:</strong> Verified. All occurrences of shared labels have matching property sets and types.</li>
-      <li><strong>Interleaved Tables:</strong> N/A (Root tables only).</li>
-      <li><strong>Computed / Generated Columns:</strong> N/A.</li>
-    </ul>
-
-    <h2>6. Visual Property Graph Schema</h2>
+    <!-- 2. Visual Topology (Diagram First!) -->
+    <h2>1. Visual Graph Schema</h2>
     <div class="mermaid">
-classDiagram
-    direction TB
-    class Cars {
-        [LABEL: Car, MotorVehicle, Vehicle]
-        +CarId: STRING(36) [PK]
-        +Vin: STRING(MAX)
-        +Manufacturer: STRING(MAX)
-        +EngineDisplacementCc: INT64
-        +FuelType: STRING(MAX)
-        +SeatingCapacity: INT64
-        +HasSunroof: BOOL
-    }
-    class Trucks {
-        [LABEL: Truck, MotorVehicle, Vehicle]
-        +TruckId: STRING(36) [PK]
-        +Vin: STRING(MAX)
-        +Manufacturer: STRING(MAX)
-        +EngineDisplacementCc: INT64
-        +FuelType: STRING(MAX)
-        +PayloadCapacityKg: NUMERIC
-        +AxleCount: INT64
-    }
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    SuperClass["<b>SuperClass</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ Prop1: STRING(MAX)"]:::abstract
+    ConcreteTableA["<b>ConcreteTableA</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ TableAId: STRING(36) [PK]<br>+ Prop1: STRING(MAX)"]:::concrete
+    ConcreteTableB["<b>ConcreteTableB</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ TableBId: STRING(36) [PK]<br>+ Prop2: INT64"]:::concrete
+
+    SuperClass -.->|Table-Per-Concrete| ConcreteTableA
+    SuperClass -.->|Table-Per-Concrete| ConcreteTableB
+    ConcreteTableA -->|REL_NAME| ConcreteTableB
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Suppressed)</div>
     </div>
 
-    <h2>7. Actionable Findings &amp; Recommendations</h2>
-    <ul>
-      <li>Zero semantic regressions detected. Schema is 100% semantically compliant with Google Cloud Spanner Graph specifications and the source OWL ontology.</li>
-    </ul>
+    <!-- 3. Node Table Mapping Guide (Unified Class -> Node Mapping) -->
+    <h2>2. Node &amp; Class Mapping Guide</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:ClassName</code></td>
+          <td><code>TableNames</code></td>
+          <td>
+            <span class="label-pill">:LEAF_LABEL</span>
+            <span class="label-pill">:PARENT_LABEL</span>
+          </td>
+          <td>
+            <code>TableId STRING(36) [PK]</code><br>
+            <code>PropName STRING(MAX)</code>
+          </td>
+          <td><Inheritance resolution, bottom-up isolation, or stored generated column strategy></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <div class="footer">
-      Generated by RDF &amp; SHACL to Cloud Spanner Property Graph Translator
+    <!-- 4. Relationship & Edge Mapping Guide -->
+    <h2>3. Relationship &amp; Edge Mapping Guide</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:propName</code><br>
+            <small style="color:var(--muted)"><rdfs:subPropertyOf, owl:inverseOf, or owl:SymmetricProperty note></small>
+          </td>
+          <td><code>SourceTable</code> &rarr; <code>TargetTable</code></td>
+          <td><code>EdgeTableName</code></td>
+          <td>
+            <span class="label-pill">:PRIMARY_LABEL</span>
+            <span class="label-pill">:PARENT_EDGE_LABEL</span>
+          </td>
+          <td><Multi-label subproperty hierarchy, inverse storage reuse, or polymorphic endpoints strategy></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Class Query:</strong><br>Query across abstract superclass labels</td>
+          <td>
+            <div class="query-box">
+GRAPH <GraphName>
+MATCH (n:<SuperClassLabel>)
+RETURN n.<Prop1>, n.<Prop2>;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Relationship Traversal:</strong><br>Query edge navigation</td>
+          <td>
+            <div class="query-box">
+GRAPH <GraphName>
+MATCH (src:<SourceLabel>)-[:<EdgeLabel>]->(dst:<TargetLabel>)
+RETURN src.<Prop>, dst.<Prop>;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>🛡️ Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li>All shared edge/node labels expose identical property names and data types (Uniform Signature Rule).</li>
+        <li>Stored Generated Columns use GoogleSQL compliant syntax (<code>AS (...) STORED</code>).</li>
+        <li>Referential integrity strictly enforced via primary and foreign key definitions.</li>
+      </ul>
     </div>
+
+    <!-- 6. Raw Artifacts & DDL Inspector (Hidden / Collapsed by Default) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code><Complete Source Turtle (.ttl) code here></code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code><Complete SHACL Turtle (.ttl) code here, or 'No companion SHACL shapes defined.'></code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code><Complete Generated Spanner SQL DDL here></code></pre>
+      </div>
+    </details>
   </div>
 </body>
 </html>
