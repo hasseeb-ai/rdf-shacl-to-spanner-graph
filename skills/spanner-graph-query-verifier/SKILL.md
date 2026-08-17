@@ -64,6 +64,13 @@ SELECT * FROM GRAPH_TABLE(
 );
 ```
 
+* **Dialect Rule: Disconnected Node Matching:** Spanner GQL does NOT support comma-separated disconnected patterns (e.g. `MATCH (a:Car), (b:Truck)`). When correlating multiple independent nodes, use separate sequential `MATCH` clauses:
+  ```sql
+  MATCH (a:Car)
+  MATCH (b:Truck)
+  WHERE a.Manufacturer = b.Manufacturer
+  ```
+
 ### Archetype 1: Polymorphic Superclass Matching (Multi-Label Traversal)
 * **Intent:** Query an abstract parent label (e.g. `Vehicle`, `LegalEntity`, `Event`) and return rows across different concrete leaf tables.
 * **Syntax Pattern:**
