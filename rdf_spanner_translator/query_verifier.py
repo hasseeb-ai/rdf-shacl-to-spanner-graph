@@ -4,7 +4,7 @@ import json
 import httpx
 from google.genai import types
 from rdf_spanner_translator.config import DEFAULT_GEMINI_MODEL
-from rdf_spanner_translator.translator import _get_client, load_skill_instructions
+from rdf_spanner_translator.translator import _get_client, load_skill_instructions, _generate_with_retry
 from rdf_spanner_translator.validator import get_google_access_token, call_spanner_mcp_tool
 
 
@@ -79,7 +79,8 @@ def generate_fixtures_and_queries(
 Generate the coherent, constraint-compliant SQL INSERT statements and the 4 GQL query archetypes as specified in the system instructions. Output the result strictly in JSON matching the schema.
 """
     
-    response = client.models.generate_content(
+    response = _generate_with_retry(
+        client=client,
         model=model_name,
         contents=prompt,
         config=types.GenerateContentConfig(
@@ -117,7 +118,8 @@ def self_correct_gql_query(
 Fix the root cause and output ONLY the corrected GQL query in a ```sql code block.
 """
     
-    response = client.models.generate_content(
+    response = _generate_with_retry(
+        client=client,
         model=model_name,
         contents=prompt,
         config=types.GenerateContentConfig(
@@ -310,7 +312,8 @@ def synthesize_executive_report_with_skill(
 Generate the complete Executive One-Pager Dynamic Query Verification Report in GitHub Markdown. Interpret the returned result sets and articulate clear verification insights for polymorphism, edge traversal, inverse navigation, and filter predicates.
 """
 
-    response = client.models.generate_content(
+    response = _generate_with_retry(
+        client=client,
         model=model_name,
         contents=prompt,
         config=types.GenerateContentConfig(

@@ -1,9 +1,11 @@
 import os
 import re
+import time
+import random
 from google import genai
 from google.genai import types
 
-from .config import DEFAULT_GEMINI_MODEL
+from .config import DEFAULT_GEMINI_MODEL, FALLBACK_GEMINI_MODEL
 
 def load_skill_instructions(skill_name: str, fallback_prompt: str = "") -> str:
     """Dynamically loads and cleans any skill instruction from skills/<skill_name>/SKILL.md.
@@ -57,6 +59,38 @@ def _get_client() -> genai.Client:
             "Default Credentials (ADC) for Vertex AI."
         ) from e
 
+def _generate_with_retry(client: genai.Client, model: str, contents, config: types.GenerateContentConfig, max_retries: int = 3):
+    """Executes client.models.generate_content with exponential backoff on transient 503/429 errors, falling back to FALLBACK_GEMINI_MODEL if needed."""
+    models_to_try = [model]
+    if FALLBACK_GEMINI_MODEL and FALLBACK_GEMINI_MODEL != model:
+        models_to_try.append(FALLBACK_GEMINI_MODEL)
+        
+    last_exception = None
+    for current_model in models_to_try:
+        delay = 1.5
+        for attempt in range(1, max_retries + 1):
+            try:
+                return client.models.generate_content(
+                    model=current_model,
+                    contents=contents,
+                    config=config,
+                )
+            except Exception as e:
+                last_exception = e
+                err_str = str(e)
+                is_transient = "503" in err_str or "429" in err_str or "UNAVAILABLE" in err_str or "RESOURCE_EXHAUSTED" in err_str
+                if is_transient and attempt < max_retries:
+                    sleep_time = delay + random.uniform(0.5, 1.5)
+                    time.sleep(sleep_time)
+                    delay *= 2
+                    continue
+                # Break to try fallback model if available
+                break
+                
+    if last_exception:
+        raise last_exception
+
+
 def translate_ontology(ttl_content: str, shacl_content: str = None, model_name: str = DEFAULT_GEMINI_MODEL) -> str:
     """Translates OWL ontology to Spanner Graph DDL using Gemini, optionally guided by SHACL shapes."""
     client = _get_client()
@@ -79,7 +113,8 @@ Additionally, apply constraints from the following SHACL Shapes (in Turtle synta
 Ensure you follow the Spanner Graph DDL rules and output a single unified SQL code block.
 """
     
-    response = client.models.generate_content(
+    response = _generate_with_retry(
+        client=client,
         model=model_name,
         contents=prompt,
         config=types.GenerateContentConfig(
@@ -118,7 +153,8 @@ Here is the invalid DDL that was generated:
 Analyze the error, fix the root cause, and output the corrected DDL containing BOTH the table definitions and the CREATE PROPERTY GRAPH statement.
 """
     
-    response = client.models.generate_content(
+    response = _generate_with_retry(
+        client=client,
         model=model_name,
         contents=prompt,
         config=types.GenerateContentConfig(
@@ -167,21 +203,22 @@ def audit_spanner_schema(
 """
     if shacl_content:
         prompt += f"""
-### Companion SHACL Shapes (Turtle syntax):
+### Companion SHACL Shapes:
 ```turtle
 {shacl_content}
 ```
 """
     prompt += f"""
-### Generated Cloud Spanner Schema DDL (Relational + Graph):
+### Generated Cloud Spanner DDL:
 ```sql
 {ddl_content}
 ```
 
-Produce the complete Executive One-Pager Semantic Validation Report & Scorecard adhering strictly to the rubric and markdown format specified in the system instruction.
+Evaluate the translation across all 7 dimensions specified in your instructions. Format your evaluation strictly as the Executive One-Pager Validation Report.
 """
     
-    response = client.models.generate_content(
+    response = _generate_with_retry(
+        client=client,
         model=model_name,
         contents=prompt,
         config=types.GenerateContentConfig(
