@@ -347,10 +347,10 @@ def cleanup_spanner_databases(databases: list[str], instance_path: str, auto_del
 
 @main.command("cleanup-databases")
 @click.option("--instance", envvar="SPANNER_INSTANCE", required=True, help="Cloud Spanner instance path (projects/<project>/instances/<instance>).")
-@click.option("--prefix", default="t_", help="Prefix filter for temporary test databases (default: 't_').")
+@click.option("--prefix", default="rdf2lpg_", help="Prefix filter for temporary test databases (default: 'rdf2lpg_').")
 @click.option("--all-temp/--no-all-temp", default=True, help="Automatically list and delete all temporary databases matching prefix.")
 def cleanup_databases_cli(instance, prefix, all_temp):
-    """Clean up all accumulated temporary test databases (e.g. t_*) from a Spanner instance."""
+    """Clean up all accumulated temporary test databases (e.g. rdf2lpg_* and t_*) from a Spanner instance."""
     parts = instance.split("/")
     if len(parts) >= 4 and parts[0] == "projects" and parts[2] == "instances":
         project_id = parts[1]
@@ -373,12 +373,12 @@ def cleanup_databases_cli(instance, prefix, all_temp):
         console.print(f"[bold red]Error listing databases:[/bold red] {err}")
         raise click.Abort()
         
-    matching_dbs = [d for d in db_list if d.startswith(prefix)]
+    matching_dbs = [d for d in db_list if d.startswith(prefix) or (prefix == "rdf2lpg_" and d.startswith("t_"))]
     if not matching_dbs:
-        console.print(f"[green]No temporary databases matching prefix '{prefix}' found. Total databases: {len(db_list)}/100.[/green]")
+        console.print(f"[green]No temporary databases matching prefix '{prefix}' (or legacy 't_') found. Total databases: {len(db_list)}/100.[/green]")
         return
         
-    console.print(f"[yellow]Found [bold]{len(matching_dbs)}[/bold] temporary databases matching '{prefix}' (Total on instance: {len(db_list)}/100).[/yellow]")
+    console.print(f"[yellow]Found [bold]{len(matching_dbs)}[/bold] temporary databases matching '{prefix}' or 't_' (Total on instance: {len(db_list)}/100).[/yellow]")
     
     if all_temp:
         with console.status(f"[cyan]Deleting {len(matching_dbs)} temporary databases..."):
@@ -454,7 +454,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             out_report = f"output/{category_dir}/{stem}_validation_report.html"
             out_query_report = f"output/{category_dir}/{stem}_query_report.md"
             
-            db_id = f"t_{uuid.uuid4().hex[:8]}"
+            db_id = f"rdf2lpg_{uuid.uuid4().hex[:8]}"
             db_path = f"{target_instance}/databases/{db_id}" if target_instance else database
             if target_instance:
                 created_databases.append(db_id)
@@ -613,7 +613,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
     temp_db_id = None
     target_database = database
     if instance and (not target_database or db_source != click.core.ParameterSource.COMMANDLINE):
-        temp_db_id = f"t_{uuid.uuid4().hex[:8]}"
+        temp_db_id = f"rdf2lpg_{uuid.uuid4().hex[:8]}"
         target_database = f"{instance.rstrip('/')}/databases/{temp_db_id}"
         temp_db_created = True
 

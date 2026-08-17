@@ -73,7 +73,7 @@ The CLI is organized into **4 core commands** (`translate`, `validate`, `pipelin
 | | **Dynamic GQL Query Verification** | `--input <ont.ttl>`<br>`--ddl <schema.sql>`<br>`--database <db_path>`<br>`--output <report.md>`<br>`--queries-only` | Synthesizes linked test fixtures (DML), ingests them into Spanner, executes 4 GQL queries live, and synthesizes an executive execution report. |
 | | **Full Multi-Level Validation** | `--input <ont.ttl>`<br>`--ddl <schema.sql>`<br>`--database <db_path>`<br>`--mode all` (Default) | Runs all validation stages sequentially (Syntax Check $\to$ Semantic HTML Report $\to$ Dynamic GQL Queries). |
 | **`pipeline`** | **Automated End-to-End** | `--input <ont.ttl \| dir>`<br>`--instance <instance_path>`<br>`--database <db_path>`<br>`--shacl <shacl.ttl>`<br>`--output <schema.sql>`<br>`--report <report.html>`<br>`--verify-queries`<br>`--cleanup / --no-cleanup` | Complete automated workflow: Translates ontology (or entire directory in batch mode), validates syntax on Spanner, auto-corrects compiler errors, audits semantics into HTML reports, tests queries, and cleans up test databases. |
-| **`cleanup-databases`** | **Instance Database Pruner** | `--instance <instance_path>`<br>`--prefix <prefix>` (default: `t_`)<br>`--all-temp / --no-all-temp` | Lists and batch-deletes accumulated temporary test databases from a Spanner instance via direct REST API to prevent hitting instance limits. |
+| **`cleanup-databases`** | **Instance Database Pruner** | `--instance <instance_path>`<br>`--prefix <prefix>` (default: `rdf2lpg_`)<br>`--all-temp / --no-all-temp` | Lists and batch-deletes accumulated temporary test databases from a Spanner instance via direct REST API to prevent hitting instance limits. |
 
 ---
 
@@ -152,6 +152,6 @@ rdf-spanner-translator pipeline \
 ```bash
 export SPANNER_INSTANCE="projects/<PROJECT>/instances/<INSTANCE>"
 
-# List and purge all temporary test databases (t_*) from the Spanner instance:
+# List and purge all temporary test databases (rdf2lpg_*) from the Spanner instance:
 rdf-spanner-translator cleanup-databases --instance $SPANNER_INSTANCE
 ```
