@@ -102,7 +102,7 @@ Adhere strictly to this 5-Section structure and CSS template:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semantic Validation & Graph Mapping Guide - <Domain / Test Name></title>
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - <Domain / Test Name></title>
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
   <style>
@@ -276,7 +276,7 @@ Adhere strictly to this 5-Section structure and CSS template:
     <!-- 1. Header Banner & Health Matrix -->
     <div class="header">
       <div>
-        <h1>Spanner Graph Semantic Translation Report</h1>
+        <h1>RDF/SHACL to Spanner LPG Translation & Validation</h1>
         <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
           <div>Ontology: <code><path/to/ontology.ttl></code></div>
           <div>SHACL: <code><path/to/shacl.ttl | None></code></div>
@@ -326,8 +326,8 @@ flowchart TD
       <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Suppressed)</div>
     </div>
 
-    <!-- 3. Node Table Mapping Guide (Unified Class -> Node Mapping) -->
-    <h2>2. Node &amp; Class Mapping Guide</h2>
+    <!-- 3. Node Table Mapping (Unified Class -> Node Mapping) -->
+    <h2>2. Node &amp; Class Mapping</h2>
     <table>
       <thead>
         <tr>
@@ -355,8 +355,8 @@ flowchart TD
       </tbody>
     </table>
 
-    <!-- 4. Relationship & Edge Mapping Guide -->
-    <h2>3. Relationship &amp; Edge Mapping Guide</h2>
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
     <table>
       <thead>
         <tr>
@@ -417,7 +417,7 @@ RETURN src.<Prop>, dst.<Prop>;</div>
 
     <!-- Invariants Checklist -->
     <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
-      <strong>🛡️ Spanner Engine Invariant Verifications:</strong>
+      <strong>Spanner Engine Invariant Verifications:</strong>
       <ul style="margin: 6px 0 0 0; padding-left: 20px;">
         <li>All shared edge/node labels expose identical property names and data types (Uniform Signature Rule).</li>
         <li>Stored Generated Columns use GoogleSQL compliant syntax (<code>AS (...) STORED</code>).</li>
