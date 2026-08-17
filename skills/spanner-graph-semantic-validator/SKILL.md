@@ -87,10 +87,14 @@ You MUST output a single, complete, valid HTML5 document (`<!DOCTYPE html>...</h
 
 ### Strict Mermaid Diagram Rules (Prevent Rendering Errors):
 To prevent Mermaid `Syntax error in text` parser bombs:
-1. **Member Syntax:** Every class attribute MUST be strictly formatted as `+TYPE Name` (e.g., `+STRING Vin`, `+INT64 EngineDisplacementCc`, `+STRING CarId`).
-2. **NO Special Characters:** NEVER put parentheses `()`, square brackets `[]`, or colons `:` inside class member definitions (e.g., write `+STRING Vin` — NOT `+Vin: STRING(MAX)` or `+CarId: STRING(36) [PK]` or `[LABELS: ...]`).
-3. **NO HTML Entities:** Do NOT escape `<` or `>` inside the `<div class="mermaid">` block (e.g., write `<<Abstract>>` or `Vehicle <|-- Cars`, NOT `&lt;&lt;` or `&gt;&gt;`).
-4. **Relationship Labels:** Keep relationship labels clean alphanumeric (e.g. `ClassA --> ClassB : EMPLOYS_WORKER` or `SuperClass <|-- SubClass : subClassOf`).
+1. **Diagram Type:** Always use `flowchart TD`.
+2. **Node Syntax:** Define nodes with quoted labels and class tags: `NodeName["<b>Name</b><br><i>&laquo;Role&raquo;</i><br>+TYPE Prop1<br>+TYPE Prop2"]:::concrete` (or `:::abstract`).
+3. **Arrow Syntax:**
+   - Use `-->|rdfs:subClassOf|` for solid taxonomy arrows.
+   - Use `-.->|Table-Per-Concrete|` for dashed table flattening/realization arrows.
+   - Use `-->|EDGE_LABEL|` for property graph edge connections.
+   - **CRITICAL:** NEVER use `classDiagram` arrows like `<|--` or `<|..` in `flowchart TD`!
+4. **Styling:** Include `classDef concrete` and `classDef abstract` at the top of the diagram block.
 
 ---
 

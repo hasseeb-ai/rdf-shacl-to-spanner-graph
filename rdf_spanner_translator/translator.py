@@ -241,6 +241,35 @@ def _inject_raw_artifacts_section(html_report: str, ttl_content: str, ddl_conten
         return html_report + section_5_html
 
 
+def _sanitize_mermaid_diagram(html_report: str) -> str:
+    """Sanitizes the Mermaid diagram block in the HTML report to guarantee valid syntax."""
+    match = re.search(r'(<div class=["\']mermaid["\']>)(.*?)(</div>)', html_report, re.DOTALL)
+    if not match:
+        return html_report
+        
+    prefix = match.group(1)
+    mermaid_code = match.group(2)
+    suffix = match.group(3)
+    
+    lines = mermaid_code.strip().splitlines()
+    cleaned_lines = []
+    
+    is_flowchart = any("flowchart" in l.lower() or "graph" in l.lower() for l in lines)
+    
+    for line in lines:
+        l = line
+        if is_flowchart:
+            # Fix classDiagram arrows mistakenly used in flowchart
+            l = re.sub(r'<\s*\|\s*--\s*', '-->|rdfs:subClassOf| ', l)
+            l = re.sub(r'<\s*\|\s*\.\.\s*', '-.->|Table-Per-Concrete| ', l)
+            l = re.sub(r'--\s*\|\s*>', '--> ', l)
+            l = re.sub(r'\.\.\s*\|\s*>', '-.-> ', l)
+        cleaned_lines.append(l)
+        
+    cleaned_mermaid = "\n".join(cleaned_lines)
+    return html_report[:match.start()] + prefix + "\n" + cleaned_mermaid + "\n    " + suffix + html_report[match.end():]
+
+
 def audit_spanner_schema(
     ttl_content: str, 
     ddl_content: str, 
@@ -284,7 +313,8 @@ Evaluate the translation across all 7 dimensions specified in your instructions.
     )
     
     cleaned_html = clean_html_response(response.text)
-    return _inject_raw_artifacts_section(cleaned_html, ttl_content, ddl_content, shacl_content)
+    sanitized_html = _sanitize_mermaid_diagram(cleaned_html)
+    return _inject_raw_artifacts_section(sanitized_html, ttl_content, ddl_content, shacl_content)
 
 
 def extract_validation_score(report_text: str) -> tuple[str, str]:
