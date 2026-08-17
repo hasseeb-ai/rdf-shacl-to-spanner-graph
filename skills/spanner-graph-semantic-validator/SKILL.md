@@ -271,7 +271,7 @@ Adhere strictly to this HTML template structure:
       </tbody>
     </table>
 
-    <h2>2. Entity &amp; Renaming Traceability Matrix</h2>
+    <h2>2. Entity &amp; Renaming Table</h2>
     <table>
       <thead>
         <tr>

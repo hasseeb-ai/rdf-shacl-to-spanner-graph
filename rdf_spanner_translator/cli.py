@@ -146,7 +146,7 @@ def translate(input, shacl, output, model):
 @click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
 @click.option("--database", "--db", envvar="SPANNER_DATABASE", default=None, help="Full Cloud Spanner database resource path.")
 @click.option("--output", "-o", type=click.Path(), default=None, help="Path to output markdown report file.")
-@click.option("--mode", type=click.Choice(["all", "syntax", "semantic", "queries"], case_sensitive=False), default="all", help="Validation mode/tier to run.")
+@click.option("--mode", type=click.Choice(["all", "syntax", "semantic", "queries"], case_sensitive=False), default="all", help="Validation mode to run.")
 @click.option("--syntax-only", is_flag=True, help="Shortcut for --mode syntax.")
 @click.option("--semantic-only", is_flag=True, help="Shortcut for --mode semantic.")
 @click.option("--queries-only", is_flag=True, help="Shortcut for --mode queries.")
@@ -175,33 +175,33 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
     ))
     
     # ----------------------------------------------------
-    # Tier 1: Syntactic DDL Validation on Spanner MCP
+    # Syntactic DDL Validation on Spanner MCP
     # ----------------------------------------------------
     if active_mode in ("all", "syntax"):
-        console.print("\n[bold cyan]─── Tier 1: Dialect & Syntactic Validation ───[/bold cyan]")
+        console.print("\n[bold cyan]─── Dialect & Syntactic Validation ───[/bold cyan]")
         if not database:
             if active_mode == "syntax":
                 console.print("[bold red]Error:[/bold red] --database is required for syntax validation.")
                 raise click.Abort()
             else:
-                console.print("[yellow]Skipping Tier 1: No --database provided.[/yellow]")
+                console.print("[yellow]Skipping: No --database provided.[/yellow]")
         else:
             with open(ddl, "r") as f:
                 ddl_content = f.read()
             with console.status("[cyan]Validating DDL syntax on Cloud Spanner..."):
                 success, msg = validate_ddl(ddl_content, mcp_url, mcp_tool, database)
             if success:
-                console.print(f"[bold green]✓ Tier 1 Passed:[/bold green] DDL syntax compiles cleanly on Spanner.\n[dim]{msg}[/dim]")
+                console.print(f"[bold green]✓ Passed:[/bold green] DDL syntax compiles cleanly on Spanner.\n[dim]{msg}[/dim]")
             else:
-                console.print(f"[bold red]✗ Tier 1 Failed:[/bold red]\n[red]{msg}[/red]")
+                console.print(f"[bold red]✗ Failed:[/bold red]\n[red]{msg}[/red]")
                 if active_mode == "syntax":
                     raise click.Abort()
 
     # ----------------------------------------------------
-    # Tier 2: Static Semantic Validation Scorecard
+    # Static Semantic Validation Scorecard
     # ----------------------------------------------------
     if active_mode in ("all", "semantic"):
-        console.print("\n[bold cyan]─── Tier 2: Semantic Validation & Scorecard ───[/bold cyan]")
+        console.print("\n[bold cyan]─── Semantic Validation & Scorecard ───[/bold cyan]")
         if not input:
             console.print("[bold red]Error:[/bold red] --input (source ontology .ttl) is required for semantic validation.")
             raise click.Abort()
@@ -233,20 +233,20 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
             
         status, score = extract_validation_score(report)
         status_color = "green" if status == "PASS" else ("yellow" if status == "WARN" else "red")
-        console.print(f"[{status_color}]✓ Tier 2 Passed: Semantic Audit {status} ({score})[/{status_color}]")
+        console.print(f"[{status_color}]✓ Passed: Semantic Audit {status} ({score})[/{status_color}]")
         console.print(f"Executive scorecard saved to [bold cyan]{report_file}[/bold cyan]")
 
     # ----------------------------------------------------
-    # Tier 3: Dynamic Mock Data & Live GQL Query Execution
+    # Dynamic Mock Data & Live GQL Query Execution
     # ----------------------------------------------------
     if active_mode in ("all", "queries"):
-        console.print("\n[bold cyan]─── Tier 3: Dynamic Data & GQL Query Verification ───[/bold cyan]")
+        console.print("\n[bold cyan]─── Dynamic Data & GQL Query Verification ───[/bold cyan]")
         if not input or not database:
             if active_mode == "queries":
                 console.print("[bold red]Error:[/bold red] Both --input and --database are required for query verification.")
                 raise click.Abort()
             else:
-                console.print("[yellow]Skipping Tier 3: --input or --database not provided.[/yellow]")
+                console.print("[yellow]Skipping: --input or --database not provided.[/yellow]")
         else:
             stem = os.path.basename(input)[:-4] if (input and input.endswith('.ttl')) else 'schema'
             out_dir = os.path.dirname(ddl) if ddl else "output"
@@ -376,13 +376,13 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 target_instance = "/".join(parts[:4])
                 
         console.print(Panel.fit(
-            f"[bold green]Running Batch Spanner Graph Pipeline[/bold green]\n"
+            f"[bold green]Validation Run for Directory[/bold green]\n"
             f"Directory: {input}\n"
             f"Ontologies Discovered: {len(discovered)}\n"
             f"Spanner Instance: {target_instance or 'N/A'}\n"
             f"Verify Queries: {verify_queries}\n"
             f"Cleanup Databases: {cleanup}",
-            title="Batch Spanner Pipeline"
+            title="Validation Run for Directory"
         ))
         
         results = []
