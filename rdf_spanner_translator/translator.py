@@ -1,5 +1,6 @@
 import os
 import re
+import html
 import time
 import random
 from google import genai
@@ -196,6 +197,50 @@ def load_validation_system_instruction() -> str:
     return load_skill_instructions("spanner-graph-semantic-validator", fallback)
 
 
+def _inject_raw_artifacts_section(html_report: str, ttl_content: str, ddl_content: str, shacl_content: str = None) -> str:
+    """Programmatically injects or ensures the collapsible Section 5 Raw Artifacts Inspector is present with exact code content."""
+    shacl_block = html.escape(shacl_content) if shacl_content else "No companion SHACL shapes defined (Unconstrained OWL translation)."
+    escaped_ttl = html.escape(ttl_content)
+    escaped_ddl = html.escape(ddl_content)
+    
+    section_5_html = f"""
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>{escaped_ttl}</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>{shacl_block}</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>{escaped_ddl}</code></pre>
+      </div>
+    </details>
+"""
+    # Replace existing section 5 or inject before closing tags
+    if "<h2>5. Raw Artifacts" in html_report:
+        prefix = html_report.split("<h2>5. Raw Artifacts")[0]
+        return prefix.rstrip() + "\n" + section_5_html + "\n  </div>\n</body>\n</html>"
+    elif "</div>\n</body>" in html_report:
+        return html_report.replace("</div>\n</body>", section_5_html + "\n  </div>\n</body>")
+    elif "</body>" in html_report:
+        return html_report.replace("</body>", section_5_html + "\n</body>")
+    else:
+        return html_report + section_5_html
+
+
 def audit_spanner_schema(
     ttl_content: str, 
     ddl_content: str, 
@@ -225,7 +270,7 @@ def audit_spanner_schema(
 {ddl_content}
 ```
 
-Evaluate the translation across all 7 dimensions specified in your instructions. Format your evaluation strictly as the Executive One-Pager Validation Report in standalone HTML.
+Evaluate the translation across all 7 dimensions specified in your instructions. Format your evaluation strictly as the 5-Section Validation Report & Graph Mapping Guide in standalone HTML. Note: Generate Sections 1 through 4 (Header/KPIs, Visual Diagram, Node Mapping, Relationship Mapping, GQL Cheatsheet & Invariants). Section 5 (Raw Artifacts Inspector) is automatically injected by the system.
 """
     
     response = _generate_with_retry(
@@ -238,7 +283,8 @@ Evaluate the translation across all 7 dimensions specified in your instructions.
         )
     )
     
-    return clean_html_response(response.text)
+    cleaned_html = clean_html_response(response.text)
+    return _inject_raw_artifacts_section(cleaned_html, ttl_content, ddl_content, shacl_content)
 
 
 def extract_validation_score(report_text: str) -> tuple[str, str]:

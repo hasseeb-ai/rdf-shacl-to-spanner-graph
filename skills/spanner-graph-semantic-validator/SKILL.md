@@ -425,30 +425,10 @@ RETURN src.<Prop>, dst.<Prop>;</div>
       </ul>
     </div>
 
-    <!-- 6. Raw Artifacts & DDL Inspector (Hidden / Collapsed by Default) -->
+    <!-- 5. Raw Artifacts & DDL Inspector (Automatically Injected) -->
     <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
     <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
-
-    <details class="code-details">
-      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
-      <div class="code-container">
-        <pre><code><Complete Source Turtle (.ttl) code here></code></pre>
-      </div>
-    </details>
-
-    <details class="code-details">
-      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
-      <div class="code-container">
-        <pre><code><Complete SHACL Turtle (.ttl) code here, or 'No companion SHACL shapes defined.'></code></pre>
-      </div>
-    </details>
-
-    <details class="code-details">
-      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
-      <div class="code-container">
-        <pre><code><Complete Generated Spanner SQL DDL here></code></pre>
-      </div>
-    </details>
+    <!-- Note: The system automatically injects the full raw .ttl, .shacl, and .sql code here with 100% exact fidelity -->
   </div>
 </body>
 </html>
