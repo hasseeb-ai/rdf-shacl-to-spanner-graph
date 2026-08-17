@@ -176,11 +176,22 @@ def clean_ddl_response(text: str) -> str:
     return text.strip()
 
 
+def clean_html_response(text: str) -> str:
+    """Extracts HTML code blocks if wrapped in markdown fences, otherwise returns text."""
+    match = re.search(r"```(?:html)?\s*(<!DOCTYPE\s+html.*?)```", text, re.DOTALL | re.IGNORECASE)
+    if match:
+        return match.group(1).strip()
+    match_html_tag = re.search(r"(<!DOCTYPE\s+html.*)", text, re.DOTALL | re.IGNORECASE)
+    if match_html_tag:
+        return match_html_tag.group(1).strip()
+    return text.strip()
+
+
 def load_validation_system_instruction() -> str:
     """Loads semantic validation system instructions dynamically from SKILL.md."""
     fallback = (
         "You are a Cloud Spanner Graph Semantic Auditor. Evaluate the generated Spanner DDL "
-        "against the source OWL ontology and SHACL shapes, producing an executive one-pager validation report."
+        "against the source OWL ontology and SHACL shapes, producing an executive one-pager validation report in HTML."
     )
     return load_skill_instructions("spanner-graph-semantic-validator", fallback)
 
@@ -214,7 +225,7 @@ def audit_spanner_schema(
 {ddl_content}
 ```
 
-Evaluate the translation across all 7 dimensions specified in your instructions. Format your evaluation strictly as the Executive One-Pager Validation Report.
+Evaluate the translation across all 7 dimensions specified in your instructions. Format your evaluation strictly as the Executive One-Pager Validation Report in standalone HTML.
 """
     
     response = _generate_with_retry(
@@ -227,11 +238,11 @@ Evaluate the translation across all 7 dimensions specified in your instructions.
         )
     )
     
-    return response.text.strip()
+    return clean_html_response(response.text)
 
 
 def extract_validation_score(report_text: str) -> tuple[str, str]:
-    """Extracts the validation status and score from the generated markdown report.
+    """Extracts the validation status and score from the generated report (HTML or Markdown).
     
     Returns:
         (status, score_str) e.g. ("PASS", "100%") or ("WARN", "92%") or ("FAIL", "75%")
@@ -244,13 +255,8 @@ def extract_validation_score(report_text: str) -> tuple[str, str]:
         status = "PASS"
     if "WARN" in report_text:
         status = "WARN"
-    if "FAIL" in report_text and "0 Failed" not in report_text:
-        # Check if actually failed
-        fail_match = re.search(r"\|\s*Total[^\n]+\|\s*([0-9]+)\s*\|\s*([0-9]+%)\s*\|\s*([^\n]+)", report_text, re.IGNORECASE)
-        if fail_match:
-            failed_count = int(fail_match.group(1)) if fail_match.group(1).isdigit() else 0
-            if failed_count > 0:
-                status = "FAIL"
+    if "FAIL" in report_text and "0 Failed" not in report_text and "failed: 0" not in report_text.lower():
+        status = "FAIL"
     
     # Extract percentage score
     score_match = re.search(r"(\d{1,3}%)\s*Score", report_text, re.IGNORECASE)
@@ -258,9 +264,12 @@ def extract_validation_score(report_text: str) -> tuple[str, str]:
         score_match = re.search(r"\|\s*Total[^\n]+\|\s*(\d{1,3}%)\s*\|", report_text, re.IGNORECASE)
     if not score_match:
         score_match = re.search(r"(\d{1,3}%)\s*(?:PASS|WARN|FAIL)", report_text, re.IGNORECASE)
+    if not score_match:
+        score_match = re.search(r"(?:<td>|Score\s*:?\s*)(\d{1,3}%)", report_text, re.IGNORECASE)
+    if not score_match:
+        score_match = re.search(r"(\d{1,3}%)", report_text)
         
     if score_match:
         score = score_match.group(1)
         
     return status, score
-

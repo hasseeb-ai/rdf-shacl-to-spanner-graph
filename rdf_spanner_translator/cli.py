@@ -224,7 +224,7 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
                 model_name=model
             )
             
-        report_file = output or f"output/{os.path.basename(input)[:-4] if input.endswith('.ttl') else 'schema'}_validation_report.md"
+        report_file = output or f"output/{os.path.basename(input)[:-4] if input.endswith('.ttl') else 'schema'}_validation_report.html"
         rep_dir = os.path.dirname(os.path.abspath(report_file))
         if rep_dir:
             os.makedirs(rep_dir, exist_ok=True)
@@ -399,7 +399,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             os.makedirs(f"output/{category_dir}", exist_ok=True)
             
             out_schema = f"output/{category_dir}/{stem}_schema.sql"
-            out_report = f"output/{category_dir}/{stem}_validation_report.md"
+            out_report = f"output/{category_dir}/{stem}_validation_report.html"
             out_query_report = f"output/{category_dir}/{stem}_query_report.md"
             
             db_id = f"t_{uuid.uuid4().hex[:8]}"
@@ -551,7 +551,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         default_dir = "output"
         
     target_output = output or os.path.join(default_dir, f"{stem}_schema.sql")
-    target_report = report or os.path.join(default_dir, f"{stem}_validation_report.md")
+    target_report = report or os.path.join(default_dir, f"{stem}_validation_report.html")
     target_query_report = query_report or os.path.join(default_dir, f"{stem}_query_report.md")
 
     ctx = click.get_current_context()
