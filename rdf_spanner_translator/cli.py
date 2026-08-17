@@ -555,10 +555,13 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
     target_report = report or os.path.join(default_dir, f"{stem}_validation_report.md")
     target_query_report = query_report or os.path.join(default_dir, f"{stem}_query_report.md")
 
+    ctx = click.get_current_context()
+    db_source = ctx.get_parameter_source('database') if ctx else None
+
     temp_db_created = False
     temp_db_id = None
     target_database = database
-    if not target_database and instance:
+    if instance and (not target_database or db_source != click.core.ParameterSource.COMMANDLINE):
         temp_db_id = f"t_{uuid.uuid4().hex[:8]}"
         target_database = f"{instance.rstrip('/')}/databases/{temp_db_id}"
         temp_db_created = True
