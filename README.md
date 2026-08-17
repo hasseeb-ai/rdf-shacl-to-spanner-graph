@@ -49,6 +49,31 @@ If `GEMINI_API_KEY` is not set, the tool falls back to Vertex AI. Authenticate u
 gcloud auth application-default login
 ```
 
+### Spanner Targets & Resolution Precedence
+
+You can target Spanner instances or specific databases using environment variables or CLI flags:
+
+```bash
+# Instance path (Used for automated ephemeral test databases & batch processing)
+export SPANNER_INSTANCE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>"
+
+# Specific database path (Used for targeted updates to a pre-existing persistent database)
+export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases/<DATABASE_ID>"
+```
+
+#### Flag & Target Precedence Matrix
+
+| Command / Workflow | Scope | Primary Target Parameter | Provisioning Behavior & Database Lifecycle |
+| :--- | :--- | :--- | :--- |
+| **`pipeline` (Ephemeral)** | Single File or Directory (`tests/ontologies/`) | `--instance` / `$SPANNER_INSTANCE` | **Automated Lifecycle**: Provisions isolated temporary test database (`rdf2lpg_<uuid>`), compiles schema, verifies queries, and **auto-deletes** upon completion. |
+| **`pipeline` (Persistent)** | Single File Only | `--database` / `$SPANNER_DATABASE` | **In-Place Update**: Applies DDL updates directly to your existing database. Database is **never deleted**. |
+| **`validate`** | Single Schema (`.sql`) | `--database` / `$SPANNER_DATABASE` | Compiles DDL or runs dynamic GQL query verification against the specified existing database. |
+| **`cleanup-databases`** | Instance Level | `--instance` / `$SPANNER_INSTANCE` | Scans the instance via REST API and batch-deletes all stale `rdf2lpg_*` (and legacy `t_*`) databases. |
+
+> [!TIP]
+> - **Use `SPANNER_INSTANCE`** for hands-off, automated testing where ephemeral databases are created and destroyed automatically (ideal for CI/CD and batch directory runs).
+> - **Use `SPANNER_DATABASE`** when targeting a specific persistent development or staging database that you maintain.
+
 ---
 
 ## Standalone CLI Usage
