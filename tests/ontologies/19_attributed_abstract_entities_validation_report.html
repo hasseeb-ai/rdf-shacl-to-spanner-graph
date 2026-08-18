@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Spatial Entity Model</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    /* Collapsible Code Blocks */
+    .code-details {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .code-details summary {
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: #e2e8f0;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+    .code-details summary:hover {
+      background: #cbd5e1;
+    }
+    .code-details .code-container {
+      padding: 16px;
+      background: #0f172a;
+      color: #f8fafc;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+    .code-details pre {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>spatial_ontology.ttl</code></div>
+          <div>SHACL: <code>spatial_shapes.ttl</code></div>
+          <div>Target DDL: <code>spatial_schema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">4</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">8</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 1. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    SpatialEntity["<b>SpatialEntity</b><br><i>&laquo;Abstract Superclass&raquo;</i><br>+ spatialEntityId: STRING(MAX)<br>+ displayName: STRING(MAX)"]:::abstract
+    Building["<b>Buildings</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SpatialEntityId: STRING(MAX) [PK]<br>+ DisplayName: STRING(MAX)<br>+ BuildingCode: STRING(MAX)"]:::concrete
+    Apartment["<b>Apartments</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SpatialEntityId: STRING(MAX) [PK]<br>+ DisplayName: STRING(MAX)<br>+ UnitNumber: STRING(MAX)<br>+ FloorNumber: INT64"]:::concrete
+    State["<b>States</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SpatialEntityId: STRING(MAX) [PK]<br>+ DisplayName: STRING(MAX)<br>+ StateCode: STRING(MAX)"]:::concrete
+    City["<b>Cities</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SpatialEntityId: STRING(MAX) [PK]<br>+ DisplayName: STRING(MAX)<br>+ PostalCode: STRING(MAX)<br>+ PopulationCount: INT64"]:::concrete
+
+    SpatialEntity -.->|Table-Per-Concrete| Building
+    SpatialEntity -.->|Table-Per-Concrete| Apartment
+    SpatialEntity -.->|Table-Per-Concrete| State
+    SpatialEntity -.->|Table-Per-Concrete| City
+
+    Building -->|BUILDING_CONTAINS_APARTMENT / CONTAINS| Apartment
+    State -->|STATE_CONTAINS_CITY / CONTAINS| City
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Suppressed)</div>
+    </div>
+
+    <!-- 2. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Building</code><br><small style="color:var(--muted)">subClassOf ex:SpatialEntity</small></td>
+          <td><code>Buildings</code></td>
+          <td>
+            <span class="label-pill">:Building</span>
+            <span class="label-pill">:SpatialEntity</span>
+          </td>
+          <td>
+            <code>SpatialEntityId STRING(MAX) NOT NULL [PK]</code><br>
+            <code>DisplayName STRING(MAX) NOT NULL</code><br>
+            <code>BuildingCode STRING(MAX) NOT NULL</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits top-down properties from abstract <code>SpatialEntity</code>. Subclass property <code>buildingCode</code> is isolated bottom-up.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Apartment</code><br><small style="color:var(--muted)">subClassOf ex:SpatialEntity</small></td>
+          <td><code>Apartments</code></td>
+          <td>
+            <span class="label-pill">:Apartment</span>
+            <span class="label-pill">:SpatialEntity</span>
+          </td>
+          <td>
+            <code>SpatialEntityId STRING(MAX) NOT NULL [PK]</code><br>
+            <code>DisplayName STRING(MAX) NOT NULL</code><br>
+            <code>UnitNumber STRING(MAX) NOT NULL</code><br>
+            <code>FloorNumber INT64 NOT NULL</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits universal spatial properties. <code>FloorNumber</code> correctly mapped from <code>xsd:integer</code> to <code>INT64 NOT NULL</code> via SHACL <code>sh:minCount 1</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:State</code><br><small style="color:var(--muted)">subClassOf ex:SpatialEntity</small></td>
+          <td><code>States</code></td>
+          <td>
+            <span class="label-pill">:State</span>
+            <span class="label-pill">:SpatialEntity</span>
+          </td>
+          <td>
+            <code>SpatialEntityId STRING(MAX) NOT NULL [PK]</code><br>
+            <code>DisplayName STRING(MAX) NOT NULL</code><br>
+            <code>StateCode STRING(MAX) NOT NULL</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits universal spatial properties. <code>StateCode</code> isolated strictly to <code>States</code> table.</td>
+        </tr>
+        <tr>
+          <td><code>ex:City</code><br><small style="color:var(--muted)">subClassOf ex:SpatialEntity</small></td>
+          <td><code>Cities</code></td>
+          <td>
+            <span class="label-pill">:City</span>
+            <span class="label-pill">:SpatialEntity</span>
+          </td>
+          <td>
+            <code>SpatialEntityId STRING(MAX) NOT NULL [PK]</code><br>
+            <code>DisplayName STRING(MAX) NOT NULL</code><br>
+            <code>PostalCode STRING(MAX) NOT NULL</code><br>
+            <code>PopulationCount INT64 [NULLABLE]</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits universal spatial properties. <code>PopulationCount</code> correctly declared nullable as SHACL specifies no <code>sh:minCount</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 3. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Foreign Keys</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:buildingContainsApartment</code><br>
+            <small style="color:var(--muted)">subPropertyOf ex:contains</small>
+          </td>
+          <td><code>Buildings</code> &rarr; <code>Apartments</code></td>
+          <td>
+            <code>BuildingApartments</code><br>
+            <small style="color:var(--muted)">FK_BuildingApartments_Building &rarr; Buildings(SpatialEntityId)</small><br>
+            <small style="color:var(--muted)">FK_BuildingApartments_Apartment &rarr; Apartments(SpatialEntityId)</small>
+          </td>
+          <td>
+            <span class="label-pill">:BUILDING_CONTAINS_APARTMENT</span>
+            <span class="label-pill">:`CONTAINS`</span>
+          </td>
+          <td><strong>Subproperty Multi-Labeling:</strong> Physical join table captures specific relation while declaring both leaf label and backticked parent label <code>`CONTAINS`</code> to enable polymorphic parent edge queries.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:stateContainsCity</code><br>
+            <small style="color:var(--muted)">subPropertyOf ex:contains</small>
+          </td>
+          <td><code>States</code> &rarr; <code>Cities</code></td>
+          <td>
+            <code>StateCities</code><br>
+            <small style="color:var(--muted)">FK_StateCities_State &rarr; States(SpatialEntityId)</small><br>
+            <small style="color:var(--muted)">FK_StateCities_City &rarr; Cities(SpatialEntityId)</small>
+          </td>
+          <td>
+            <span class="label-pill">:STATE_CONTAINS_CITY</span>
+            <span class="label-pill">:`CONTAINS`</span>
+          </td>
+          <td><strong>Subproperty Multi-Labeling:</strong> Physical join table captures specific relation while declaring both leaf label and backticked parent label <code>`CONTAINS`</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Class Query:</strong><br>Retrieve all spatial entities regardless of leaf type using inherited <code>SpatialEntity</code> label.</td>
+          <td>
+            <div class="query-box">
+GRAPH SpatialGraph
+MATCH (e:SpatialEntity)
+RETURN e.SpatialEntityId, e.DisplayName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Polymorphic Edge Traversal:</strong><br>Query across all containment relationships using the abstract superproperty label <code>`CONTAINS`</code>.</td>
+          <td>
+            <div class="query-box">
+GRAPH SpatialGraph
+MATCH (parent:SpatialEntity)-[:`CONTAINS`]->(child:SpatialEntity)
+RETURN parent.DisplayName AS Parent, child.DisplayName AS Child;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Leaf-Specific Edge &amp; Node Query:</strong><br>Query specific building-to-apartment hierarchy.</td>
+          <td>
+            <div class="query-box">
+GRAPH SpatialGraph
+MATCH (b:Building)-[:BUILDING_CONTAINS_APARTMENT]->(a:Apartment)
+WHERE b.BuildingCode = 'BLDG-A'
+RETURN b.DisplayName, a.UnitNumber, a.FloorNumber;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Signature Rule:</strong> The shared <code>SpatialEntity</code> label exposes identical properties (<code>SpatialEntityId STRING(MAX)</code>, <code>DisplayName STRING(MAX)</code>) across all 4 node tables (<code>Buildings</code>, <code>Apartments</code>, <code>States</code>, <code>Cities</code>).</li>
+        <li><strong>Reserved Keyword Escaping:</strong> The label <code>`CONTAINS`</code> corresponds to a GoogleSQL reserved keyword and is strictly enclosed in backticks in all DDL edge declarations.</li>
+        <li><strong>Subproperty Label Accumulation:</strong> Edge tables <code>BuildingApartments</code> and <code>StateCities</code> both expose <code>LABEL `CONTAINS` NO PROPERTIES</code>, allowing graph queries to seamlessly traverse parent edges across heterogeneous entity types.</li>
+        <li><strong>Constraint Integrity:</strong> Primary keys and Foreign Key constraints are explicitly declared across all physical relational tables.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/spatial#&gt; .
+
+&lt;http://example.org/spatial&gt; a owl:Ontology ;
+    rdfs:label &quot;Attributed Abstract Class Inheritance &amp; Containment Ontology&quot;@en ;
+    rdfs:comment &quot;Tests top-down inheritance of superclass properties (spatialEntityId, displayName) from abstract SpatialEntity into concrete subclasses (Building, Apartment, State, City) alongside subproperty containment hierarchies.&quot;@en .
+
+# =============================================================================
+# Class Taxonomy:
+# SpatialEntity (Abstract Superclass with Properties)
+#   ├── Building (Concrete Leaf Class)
+#   ├── Apartment (Concrete Leaf Class)
+#   ├── State (Concrete Leaf Class)
+#   └── City (Concrete Leaf Class)
+# =============================================================================
+
+ex:SpatialEntity a owl:Class ;
+    rdfs:label &quot;Spatial Entity (Abstract Superclass)&quot;@en ;
+    rdfs:comment &quot;Abstract root class defining universal spatial attributes.&quot;@en .
+
+ex:Building a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label &quot;Building&quot;@en .
+
+ex:Apartment a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label &quot;Apartment&quot;@en .
+
+ex:State a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label &quot;State / Province&quot;@en .
+
+ex:City a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label &quot;City&quot;@en .
+
+# =============================================================================
+# Relationship Hierarchy (Subproperties)
+# contains (Root Abstract Property)
+#   ├── buildingContainsApartment (Subproperty)
+#   └── stateContainsCity (Subproperty)
+# =============================================================================
+
+ex:contains a owl:ObjectProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range ex:SpatialEntity ;
+    rdfs:label &quot;contains (abstract universal relation)&quot;@en .
+
+ex:buildingContainsApartment a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:contains ;
+    rdfs:domain ex:Building ;
+    rdfs:range ex:Apartment ;
+    rdfs:label &quot;building contains apartment&quot;@en .
+
+ex:stateContainsCity a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:contains ;
+    rdfs:domain ex:State ;
+    rdfs:range ex:City ;
+    rdfs:label &quot;state contains city&quot;@en .
+
+# =============================================================================
+# Superclass Datatype Properties (Must Propagate Top-Down to All Leaves)
+# =============================================================================
+
+ex:spatialEntityId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;spatial entity identifier&quot;@en ;
+    rdfs:comment &quot;Universal primary identifier inherited by Building, Apartment, State, and City.&quot;@en .
+
+ex:displayName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;display name&quot;@en ;
+    rdfs:comment &quot;Universal human-readable name inherited by all concrete subclasses.&quot;@en .
+
+# =============================================================================
+# Subclass-Specific Datatype Properties (Must Remain Isolated Bottom-Up)
+# =============================================================================
+
+ex:buildingCode a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Building ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;building code&quot;@en .
+
+ex:unitNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Apartment ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;unit number&quot;@en .
+
+ex:floorNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Apartment ;
+    rdfs:range xsd:integer ;
+    rdfs:label &quot;floor number&quot;@en .
+
+ex:stateCode a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:State ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;state code&quot;@en .
+
+ex:postalCode a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:City ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;postal code&quot;@en .
+
+ex:populationCount a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:City ;
+    rdfs:range xsd:integer ;
+    rdfs:label &quot;population count&quot;@en .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix sh:  &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:  &lt;http://example.org/spatial#&gt; .
+
+ex:SpatialEntityShape a sh:NodeShape ;
+    sh:targetClass ex:SpatialEntity ;
+    sh:property [
+        sh:path ex:spatialEntityId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:displayName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:targetClass ex:Building ;
+    sh:property [
+        sh:path ex:buildingCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:ApartmentShape a sh:NodeShape ;
+    sh:targetClass ex:Apartment ;
+    sh:property [
+        sh:path ex:unitNumber ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:floorNumber ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:StateShape a sh:NodeShape ;
+    sh:targetClass ex:State ;
+    sh:property [
+        sh:path ex:stateCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:CityShape a sh:NodeShape ;
+    sh:targetClass ex:City ;
+    sh:property [
+        sh:path ex:postalCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:populationCount ;
+        sh:datatype xsd:integer ;
+        sh:maxCount 1 ;
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- Google Cloud Spanner Relational Schema DDL
+-- Design Pattern: Table-Per-Concrete-Class with Flattened Superclass Attributes
+-- =============================================================================
+
+-- Concrete Table 1: Buildings (Inherits from SpatialEntity)
+CREATE TABLE Buildings (
+  SpatialEntityId STRING(MAX) NOT NULL,
+  DisplayName STRING(MAX) NOT NULL,
+  BuildingCode STRING(MAX) NOT NULL
+) PRIMARY KEY (SpatialEntityId);
+
+-- Concrete Table 2: Apartments (Inherits from SpatialEntity)
+CREATE TABLE Apartments (
+  SpatialEntityId STRING(MAX) NOT NULL,
+  DisplayName STRING(MAX) NOT NULL,
+  UnitNumber STRING(MAX) NOT NULL,
+  FloorNumber INT64 NOT NULL
+) PRIMARY KEY (SpatialEntityId);
+
+-- Concrete Table 3: States (Inherits from SpatialEntity)
+CREATE TABLE States (
+  SpatialEntityId STRING(MAX) NOT NULL,
+  DisplayName STRING(MAX) NOT NULL,
+  StateCode STRING(MAX) NOT NULL
+) PRIMARY KEY (SpatialEntityId);
+
+-- Concrete Table 4: Cities (Inherits from SpatialEntity)
+CREATE TABLE Cities (
+  SpatialEntityId STRING(MAX) NOT NULL,
+  DisplayName STRING(MAX) NOT NULL,
+  PostalCode STRING(MAX) NOT NULL,
+  PopulationCount INT64
+) PRIMARY KEY (SpatialEntityId);
+
+-- Physical Edge Table: Building -&gt; Apartment (buildingContainsApartment)
+CREATE TABLE BuildingApartments (
+  BuildingId STRING(MAX) NOT NULL,
+  ApartmentId STRING(MAX) NOT NULL,
+  CONSTRAINT FK_BuildingApartments_Building FOREIGN KEY (BuildingId) REFERENCES Buildings (SpatialEntityId),
+  CONSTRAINT FK_BuildingApartments_Apartment FOREIGN KEY (ApartmentId) REFERENCES Apartments (SpatialEntityId)
+) PRIMARY KEY (BuildingId, ApartmentId);
+
+-- Physical Edge Table: State -&gt; City (stateContainsCity)
+CREATE TABLE StateCities (
+  StateId STRING(MAX) NOT NULL,
+  CityId STRING(MAX) NOT NULL,
+  CONSTRAINT FK_StateCities_State FOREIGN KEY (StateId) REFERENCES States (SpatialEntityId),
+  CONSTRAINT FK_StateCities_City FOREIGN KEY (CityId) REFERENCES Cities (SpatialEntityId)
+) PRIMARY KEY (StateId, CityId);
+
+-- =============================================================================
+-- Google Cloud Spanner Property Graph Schema DDL
+-- Enforces Multi-Label Hierarchies &amp; Subproperty Label Accumulation
+-- =============================================================================
+
+CREATE PROPERTY GRAPH SpatialGraph
+  NODE TABLES (
+    Buildings
+      LABEL Building PROPERTIES (SpatialEntityId, DisplayName, BuildingCode)
+      LABEL SpatialEntity PROPERTIES (SpatialEntityId, DisplayName),
+    Apartments
+      LABEL Apartment PROPERTIES (SpatialEntityId, DisplayName, UnitNumber, FloorNumber)
+      LABEL SpatialEntity PROPERTIES (SpatialEntityId, DisplayName),
+    States
+      LABEL State PROPERTIES (SpatialEntityId, DisplayName, StateCode)
+      LABEL SpatialEntity PROPERTIES (SpatialEntityId, DisplayName),
+    Cities
+      LABEL City PROPERTIES (SpatialEntityId, DisplayName, PostalCode, PopulationCount)
+      LABEL SpatialEntity PROPERTIES (SpatialEntityId, DisplayName)
+  )
+  EDGE TABLES (
+    BuildingApartments
+      SOURCE KEY (BuildingId) REFERENCES Buildings (SpatialEntityId)
+      DESTINATION KEY (ApartmentId) REFERENCES Apartments (SpatialEntityId)
+      LABEL BUILDING_CONTAINS_APARTMENT NO PROPERTIES
+      LABEL `CONTAINS` NO PROPERTIES,
+    StateCities
+      SOURCE KEY (StateId) REFERENCES States (SpatialEntityId)
+      DESTINATION KEY (CityId) REFERENCES Cities (SpatialEntityId)
+      LABEL STATE_CONTAINS_CITY NO PROPERTIES
+      LABEL `CONTAINS` NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

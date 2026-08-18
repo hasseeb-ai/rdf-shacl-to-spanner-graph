@@ -1,0 +1,65 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:  <http://example.org/spatial#> .
+
+ex:SpatialEntityShape a sh:NodeShape ;
+    sh:targetClass ex:SpatialEntity ;
+    sh:property [
+        sh:path ex:spatialEntityId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:displayName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:targetClass ex:Building ;
+    sh:property [
+        sh:path ex:buildingCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:ApartmentShape a sh:NodeShape ;
+    sh:targetClass ex:Apartment ;
+    sh:property [
+        sh:path ex:unitNumber ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:floorNumber ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:StateShape a sh:NodeShape ;
+    sh:targetClass ex:State ;
+    sh:property [
+        sh:path ex:stateCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:CityShape a sh:NodeShape ;
+    sh:targetClass ex:City ;
+    sh:property [
+        sh:path ex:postalCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:populationCount ;
+        sh:datatype xsd:integer ;
+        sh:maxCount 1 ;
+    ] .

@@ -1,0 +1,112 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/spatial#> .
+
+<http://example.org/spatial> a owl:Ontology ;
+    rdfs:label "Attributed Abstract Class Inheritance & Containment Ontology"@en ;
+    rdfs:comment "Tests top-down inheritance of superclass properties (spatialEntityId, displayName) from abstract SpatialEntity into concrete subclasses (Building, Apartment, State, City) alongside subproperty containment hierarchies."@en .
+
+# =============================================================================
+# Class Taxonomy:
+# SpatialEntity (Abstract Superclass with Properties)
+#   ├── Building (Concrete Leaf Class)
+#   ├── Apartment (Concrete Leaf Class)
+#   ├── State (Concrete Leaf Class)
+#   └── City (Concrete Leaf Class)
+# =============================================================================
+
+ex:SpatialEntity a owl:Class ;
+    rdfs:label "Spatial Entity (Abstract Superclass)"@en ;
+    rdfs:comment "Abstract root class defining universal spatial attributes."@en .
+
+ex:Building a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label "Building"@en .
+
+ex:Apartment a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label "Apartment"@en .
+
+ex:State a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label "State / Province"@en .
+
+ex:City a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label "City"@en .
+
+# =============================================================================
+# Relationship Hierarchy (Subproperties)
+# contains (Root Abstract Property)
+#   ├── buildingContainsApartment (Subproperty)
+#   └── stateContainsCity (Subproperty)
+# =============================================================================
+
+ex:contains a owl:ObjectProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range ex:SpatialEntity ;
+    rdfs:label "contains (abstract universal relation)"@en .
+
+ex:buildingContainsApartment a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:contains ;
+    rdfs:domain ex:Building ;
+    rdfs:range ex:Apartment ;
+    rdfs:label "building contains apartment"@en .
+
+ex:stateContainsCity a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:contains ;
+    rdfs:domain ex:State ;
+    rdfs:range ex:City ;
+    rdfs:label "state contains city"@en .
+
+# =============================================================================
+# Superclass Datatype Properties (Must Propagate Top-Down to All Leaves)
+# =============================================================================
+
+ex:spatialEntityId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label "spatial entity identifier"@en ;
+    rdfs:comment "Universal primary identifier inherited by Building, Apartment, State, and City."@en .
+
+ex:displayName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label "display name"@en ;
+    rdfs:comment "Universal human-readable name inherited by all concrete subclasses."@en .
+
+# =============================================================================
+# Subclass-Specific Datatype Properties (Must Remain Isolated Bottom-Up)
+# =============================================================================
+
+ex:buildingCode a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Building ;
+    rdfs:range xsd:string ;
+    rdfs:label "building code"@en .
+
+ex:unitNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Apartment ;
+    rdfs:range xsd:string ;
+    rdfs:label "unit number"@en .
+
+ex:floorNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Apartment ;
+    rdfs:range xsd:integer ;
+    rdfs:label "floor number"@en .
+
+ex:stateCode a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:State ;
+    rdfs:range xsd:string ;
+    rdfs:label "state code"@en .
+
+ex:postalCode a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:City ;
+    rdfs:range xsd:string ;
+    rdfs:label "postal code"@en .
+
+ex:populationCount a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:City ;
+    rdfs:range xsd:integer ;
+    rdfs:label "population count"@en .
