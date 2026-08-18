@@ -39,20 +39,22 @@ def load_system_instruction() -> str:
     return load_skill_instructions("owl-to-spanner-property-graph-translator", fallback)
 
 def _get_client() -> genai.Client:
-    """Initializes the GenAI client.
+    """Initializes the GenAI client with explicit HTTP timeout.
     
     Tries GEMINI_API_KEY first (AI Studio), then falls back to Vertex AI (ADC).
     """
     import os
+    # Timeout is in milliseconds (300,000 ms = 300 seconds / 5 minutes)
+    http_options = types.HttpOptions(timeout=300000)
     api_key = os.environ.get("GEMINI_API_KEY")
     if api_key:
-        return genai.Client(api_key=api_key)
+        return genai.Client(api_key=api_key, http_options=http_options)
         
     project = os.environ.get("GCP_PROJECT") or os.environ.get("GCLOUD_PROJECT")
     location = os.environ.get("GCP_LOCATION") or "us-central1"
     
     try:
-        return genai.Client(vertexai=True, project=project, location=location)
+        return genai.Client(vertexai=True, project=project, location=location, http_options=http_options)
     except Exception as e:
         raise ValueError(
             "Gemini Client initialization failed. Please set the GEMINI_API_KEY "
@@ -61,14 +63,14 @@ def _get_client() -> genai.Client:
         ) from e
 
 def _generate_with_retry(client: genai.Client, model: str, contents, config: types.GenerateContentConfig, max_retries: int = 3):
-    """Executes client.models.generate_content with exponential backoff on transient 503/429 errors, falling back to FALLBACK_GEMINI_MODEL if needed."""
+    """Executes client.models.generate_content with exponential backoff on transient errors, falling back to FALLBACK_GEMINI_MODEL if needed."""
     models_to_try = [model]
     if FALLBACK_GEMINI_MODEL and FALLBACK_GEMINI_MODEL != model:
         models_to_try.append(FALLBACK_GEMINI_MODEL)
         
     last_exception = None
     for current_model in models_to_try:
-        delay = 1.5
+        delay = 2.0
         for attempt in range(1, max_retries + 1):
             try:
                 return client.models.generate_content(
@@ -78,8 +80,18 @@ def _generate_with_retry(client: genai.Client, model: str, contents, config: typ
                 )
             except Exception as e:
                 last_exception = e
-                err_str = str(e)
-                is_transient = "503" in err_str or "429" in err_str or "UNAVAILABLE" in err_str or "RESOURCE_EXHAUSTED" in err_str
+                err_str = str(e).lower()
+                is_transient = (
+                    "503" in err_str or 
+                    "429" in err_str or 
+                    "unavailable" in err_str or 
+                    "resource_exhausted" in err_str or
+                    "timeout" in err_str or
+                    "timed out" in err_str or
+                    "readtimeout" in err_str or
+                    "connecterror" in err_str or
+                    "connection" in err_str
+                )
                 if is_transient and attempt < max_retries:
                     sleep_time = delay + random.uniform(0.5, 1.5)
                     time.sleep(sleep_time)
