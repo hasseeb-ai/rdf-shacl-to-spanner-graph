@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Healthcare Clinical Domain</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>HealthcareOntology.ttl</code></div>
+          <div>SHACL: <code>HealthcareShapes.shacl.ttl</code></div>
+          <div>Target DDL: <code>HealthcareSchema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">8</div>
+        <div class="label">Node Tables / Views</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">9</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">9</div>
+        <div class="label">Mapped Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+    classDef view fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e;
+
+    Person["<b>Person</b><br><i>&laquo;Abstract Class&raquo;</i>"]:::abstract
+    Patient["<b>Patients</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ PatientId: STRING(36) [PK]<br>+ Mrn: STRING(MAX) [NOT NULL]<br>+ ActiveConditionsCount: INT64<br>+ IsComplexCase: BOOL [STORED]"]:::concrete
+    Practitioner["<b>Practitioners</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ PractitionerId: STRING(36) [PK]<br>+ Npi: STRING(MAX)<br>+ PractitionerSpecialty: STRING(MAX)"]:::concrete
+    ComplexCaseView["<b>ComplexCasePatients</b><br><i>&laquo;SQL View &amp; Node&raquo;</i><br>+ PatientId: STRING(36) [KEY]<br>+ Mrn: STRING(MAX)<br>+ ActiveConditionsCount: INT64"]:::view
+    Encounter["<b>Encounters</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ EncounterId: STRING(36) [PK]<br>+ EncounterTimestamp: TIMESTAMP<br>+ PractitionerId: STRING(36) [FK, NOT NULL]"]:::concrete
+    Diagnosis["<b>Diagnoses</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ DiagnosisId: STRING(36) [PK]<br>+ Icd10Code: STRING(MAX)"]:::concrete
+    Medication["<b>Medications</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ MedicationId: STRING(36) [PK]<br>+ RxNormId: STRING(MAX)"]:::concrete
+    Prescription["<b>Prescriptions</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ PrescriptionId: STRING(36) [PK]<br>+ DosageInstruction: STRING(MAX)"]:::concrete
+    Procedure["<b>Procedures</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ ProcedureId: STRING(36) [PK]<br>+ CptCode: STRING(MAX)"]:::concrete
+
+    Person -.->|Table-Per-Concrete| Patient
+    Person -.->|Table-Per-Concrete| Practitioner
+    Patient -.->|owl:equivalentClass View| ComplexCaseView
+
+    Patient -->|PARTICIPATED_IN| Encounter
+    Encounter -->|ATTENDED_BY| Practitioner
+    Encounter -->|ENCOUNTER_DIAGNOSIS| Diagnosis
+    Encounter -->|ORDERED_PRESCRIPTION| Prescription
+    Encounter -->|PERFORMED_PROCEDURE| Procedure
+    Prescription -->|HAS_MEDICATION| Medication
+    Medication -.->|PRESCRIBED_IN (Inverse)| Prescription
+    Practitioner -->|REFERRED_TO (Symmetric)| Practitioner
+    Diagnosis -->|LEADS_TO_CONDITION (Transitive)| Diagnosis
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#fef3c7; border:2px solid #d97706; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Logical SQL View</strong> (Equivalent Class Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Multi-labeled)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Person</code></td>
+          <td><em>None (Abstract)</em></td>
+          <td><span class="label-pill">:Person</span></td>
+          <td><em>N/A (No properties)</em></td>
+          <td>Abstract superclass flattened via Table-Per-Concrete-Class pattern. Exposed as multi-label <code>LABEL Person NO PROPERTIES</code> on concrete child tables.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Patient</code></td>
+          <td><code>Patients</code></td>
+          <td>
+            <span class="label-pill">:Patient</span>
+            <span class="label-pill">:Person</span>
+          </td>
+          <td>
+            <code>PatientId STRING(36) [PK]</code><br>
+            <code>Mrn STRING(MAX) [NOT NULL]</code><br>
+            <code>ActiveConditionsCount INT64</code><br>
+            <code>IsComplexCase BOOL [STORED]</code>
+          </td>
+          <td>Concrete leaf table. Inherits <code>:Person</code> label. Enforces <code>sh:minCount 1</code> on <code>Mrn</code> with <code>NOT NULL</code>. Includes stored generated column for equivalent class evaluation.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Practitioner</code></td>
+          <td><code>Practitioners</code></td>
+          <td>
+            <span class="label-pill">:Practitioner</span>
+            <span class="label-pill">:Person</span>
+          </td>
+          <td>
+            <code>PractitionerId STRING(36) [PK]</code><br>
+            <code>Npi STRING(MAX)</code><br>
+            <code>PractitionerSpecialty STRING(MAX)</code><br>
+            <code>ReferredToPractitionerId STRING(36) [FK]</code>
+          </td>
+          <td>Concrete leaf table. Inherits <code>:Person</code> label. Foreign key represents self-referential practitioner referral network.</td>
+        </tr>
+        <tr>
+          <td><code>ex:ComplexCasePatient</code></td>
+          <td><code>ComplexCasePatients</code> <em>(View)</em></td>
+          <td>
+            <span class="label-pill">:ComplexCasePatient</span>
+            <span class="label-pill">:Patient</span>
+            <span class="label-pill">:Person</span>
+          </td>
+          <td>
+            <code>PatientId STRING(36) [KEY]</code><br>
+            <code>Mrn STRING(MAX)</code><br>
+            <code>ActiveConditionsCount INT64</code>
+          </td>
+          <td>Defined via <code>CREATE VIEW ... SQL SECURITY INVOKER</code> filtering <code>ActiveConditionsCount >= 5</code>. Exposes uniform property signature for <code>:Patient</code> and <code>:Person</code> labels.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Encounter</code></td>
+          <td><code>Encounters</code></td>
+          <td><span class="label-pill">:Encounter</span></td>
+          <td>
+            <code>EncounterId STRING(36) [PK]</code><br>
+            <code>EncounterTimestamp TIMESTAMP</code><br>
+            <code>PractitionerId STRING(36) [FK, NOT NULL]</code><br>
+            <code>DiagnosisId STRING(36) [FK]</code><br>
+            <code>ProcedureId STRING(36) [FK]</code><br>
+            <code>PrescriptionId STRING(36) [FK]</code>
+          </td>
+          <td>Concrete clinical interaction entity. Enforces mandatory doctor attendance (<code>attendedBy minCount 1</code>) via <code>PractitionerId NOT NULL</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Diagnosis</code></td>
+          <td><code>Diagnoses</code></td>
+          <td><span class="label-pill">:Diagnosis</span></td>
+          <td>
+            <code>DiagnosisId STRING(36) [PK]</code><br>
+            <code>Icd10Code STRING(MAX)</code><br>
+            <code>LeadsToDiagnosisId STRING(36) [FK]</code>
+          </td>
+          <td>Concrete leaf table. Contains self-referencing foreign key for disease comorbidity/progression pathways.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Medication</code></td>
+          <td><code>Medications</code></td>
+          <td><span class="label-pill">:Medication</span></td>
+          <td>
+            <code>MedicationId STRING(36) [PK]</code><br>
+            <code>RxNormId STRING(MAX)</code>
+          </td>
+          <td>Concrete pharmaceutical entity table.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Prescription</code></td>
+          <td><code>Prescriptions</code></td>
+          <td><span class="label-pill">:Prescription</span></td>
+          <td>
+            <code>PrescriptionId STRING(36) [PK]</code><br>
+            <code>DosageInstruction STRING(MAX)</code><br>
+            <code>MedicationId STRING(36) [FK]</code>
+          </td>
+          <td>Concrete order entity table. Connects encounters to referenced medications.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Procedure</code></td>
+          <td><code>Procedures</code></td>
+          <td><span class="label-pill">:Procedure</span></td>
+          <td>
+            <code>ProcedureId STRING(36) [PK]</code><br>
+            <code>CptCode STRING(MAX)</code>
+          </td>
+          <td>Concrete clinical procedure table.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:participatedIn</code></td>
+          <td><code>Patients</code> &rarr; <code>Encounters</code></td>
+          <td><code>Patients AS PatientParticipatedIn</code></td>
+          <td><span class="label-pill">:PARTICIPATED_IN</span></td>
+          <td>Direct foreign key navigation from Patient to Encounter.</td>
+        </tr>
+        <tr>
+          <td><code>ex:attendedBy</code></td>
+          <td><code>Encounters</code> &rarr; <code>Practitioners</code></td>
+          <td><code>Encounters AS EncounterAttendedBy</code></td>
+          <td><span class="label-pill">:ATTENDED_BY</span></td>
+          <td>Mandatory relational FK; mapped as standard forward edge.</td>
+        </tr>
+        <tr>
+          <td><code>ex:encounterDiagnosis</code></td>
+          <td><code>Encounters</code> &rarr; <code>Diagnoses</code></td>
+          <td><code>Encounters AS EncounterDiagnoses</code></td>
+          <td><span class="label-pill">:ENCOUNTER_DIAGNOSIS</span></td>
+          <td>Relational FK mapped to direct property graph edge.</td>
+        </tr>
+        <tr>
+          <td><code>ex:orderedPrescription</code></td>
+          <td><code>Encounters</code> &rarr; <code>Prescriptions</code></td>
+          <td><code>Encounters AS EncounterPrescriptions</code></td>
+          <td><span class="label-pill">:ORDERED_PRESCRIPTION</span></td>
+          <td>Relational FK connecting clinical encounter to prescription order.</td>
+        </tr>
+        <tr>
+          <td><code>ex:performedProcedure</code></td>
+          <td><code>Encounters</code> &rarr; <code>Procedures</code></td>
+          <td><code>Encounters AS EncounterProcedures</code></td>
+          <td><span class="label-pill">:PERFORMED_PROCEDURE</span></td>
+          <td>Relational FK connecting clinical encounter to performed procedure.</td>
+        </tr>
+        <tr>
+          <td><code>ex:hasMedication</code></td>
+          <td><code>Prescriptions</code> &rarr; <code>Medications</code></td>
+          <td><code>Prescriptions AS PrescriptionMedication</code></td>
+          <td><span class="label-pill">:HAS_MEDICATION</span></td>
+          <td>Direct edge referencing the dispensed pharmaceutical entity.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:prescribedIn</code><br>
+            <small style="color:var(--muted)">owl:inverseOf ex:hasMedication</small>
+          </td>
+          <td><code>Medications</code> &rarr; <code>Prescriptions</code></td>
+          <td><code>Prescriptions AS MedicationPrescriptions</code></td>
+          <td><span class="label-pill">:PRESCRIBED_IN</span></td>
+          <td><strong>Physical Storage Sharing:</strong> Utilizes physical <code>Prescriptions</code> table with inverted key mappings (<code>SOURCE KEY: MedicationId</code> &rarr; <code>DESTINATION KEY: PrescriptionId</code>).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:referredTo</code><br>
+            <small style="color:var(--muted)">owl:SymmetricProperty</small>
+          </td>
+          <td><code>Practitioners</code> &rarr; <code>Practitioners</code></td>
+          <td><code>Practitioners AS PractitionerReferrals</code></td>
+          <td><span class="label-pill">:REFERRED_TO</span></td>
+          <td>Self-referencing recursive edge on <code>Practitioners</code> enabling bidirectional consultation traversal.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:leadsToCondition</code><br>
+            <small style="color:var(--muted)">owl:TransitiveProperty</small>
+          </td>
+          <td><code>Diagnoses</code> &rarr; <code>Diagnoses</code></td>
+          <td><code>Diagnoses AS ConditionProgression</code></td>
+          <td><span class="label-pill">:LEADS_TO_CONDITION</span></td>
+          <td>Recursive edge enabling variable-length path search (<code>-[:LEADS_TO_CONDITION*]-></code>) in GQL.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Clinical Graph Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Person Query:</strong><br>Retrieve all individuals (Patients and Practitioners)</td>
+          <td>
+            <div class="query-box">
+GRAPH HealthcareGraph
+MATCH (p:Person)
+RETURN LABELS(p) AS Roles;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Transitive Comorbidity Chain:</strong><br>Find complete downstream condition progressions</td>
+          <td>
+            <div class="query-box">
+GRAPH HealthcareGraph
+MATCH (initial:Diagnosis {Icd10Code: 'E11.9'})-[:LEADS_TO_CONDITION*1..5]->(complication:Diagnosis)
+RETURN initial.Icd10Code, complication.Icd10Code;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Complex Patient 360&deg; Traversal:</strong><br>Query high-acuity patients, doctor encounters, and prescribed drugs</td>
+          <td>
+            <div class="query-box">
+GRAPH HealthcareGraph
+MATCH (pt:ComplexCasePatient)-[:PARTICIPATED_IN]->(enc:Encounter)
+      -[:ATTENDED_BY]->(doc:Practitioner),
+      (enc)-[:ORDERED_PRESCRIPTION]->(:Prescription)-[:HAS_MEDICATION]->(med:Medication)
+RETURN pt.Mrn, doc.Npi, med.RxNormId, enc.EncounterTimestamp
+ORDER BY enc.EncounterTimestamp DESC;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Inverse Traversal via Shared Storage:</strong><br>Find all prescriptions associated with a specific medication</td>
+          <td>
+            <div class="query-box">
+GRAPH HealthcareGraph
+MATCH (m:Medication {RxNormId: '860975'})-[:PRESCRIBED_IN]->(rx:Prescription)
+RETURN m.RxNormId, rx.PrescriptionId, rx.DosageInstruction;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Label Property Signatures:</strong> The <code>:Person</code> label exposes <code>NO PROPERTIES</code> identically across <code>Patients</code>, <code>Practitioners</code>, and <code>ComplexCasePatients</code>. The <code>:Patient</code> label exposes identical columns (<code>PatientId</code>, <code>Mrn</code>, <code>ActiveConditionsCount</code>) across <code>Patients</code> and <code>ComplexCasePatients</code>.</li>
+        <li><strong>View Key Specification:</strong> <code>ComplexCasePatients</code> SQL view includes an explicit <code>KEY (PatientId)</code> clause as required by Spanner LPG.</li>
+        <li><strong>Stored Generated Columns:</strong> Class restriction evaluation leverages GoogleSQL compliant syntax (<code>IsComplexCase BOOL AS (ActiveConditionsCount >= 5) STORED</code>).</li>
+        <li><strong>Nullability &amp; Cardinality Enforcement:</strong> SHACL <code>minCount 1</code> constraints on <code>mrn</code> and <code>attendedBy</code> are strictly enforced via physical relational <code>NOT NULL</code> constraints on <code>Patients.Mrn</code> and <code>Encounters.PractitionerId</code>.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/healthcare/&gt; .
+
+ex:HealthcareOntology a owl:Ontology ;
+    rdfs:label &quot;Healthcare EHR and Clinical Operations Ontology&quot; ;
+    rdfs:comment &quot;An OWL ontology representing patient clinical records, doctor encounters, diagnoses, procedures, and prescriptions.&quot; .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+ex:Person a owl:Class .
+
+# Clinical Actors
+ex:Patient a owl:Class ;
+    rdfs:subClassOf ex:Person ;
+    owl:disjointWith ex:Practitioner .
+
+ex:Practitioner a owl:Class ;
+    rdfs:subClassOf ex:Person .
+
+# Clinical Entities
+ex:Encounter a owl:Class .
+ex:Diagnosis a owl:Class .
+ex:Medication a owl:Class .
+ex:Prescription a owl:Class .
+ex:Procedure a owl:Class .
+
+# Equivalent Class: ComplexCasePatient
+ex:ComplexCasePatient a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:Patient
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:activeConditionsCount ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:integer ;
+                    owl:withRestrictions ( [ xsd:minInclusive 5 ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+ex:participatedIn a owl:ObjectProperty ;
+    rdfs:domain ex:Patient ;
+    rdfs:range ex:Encounter .
+
+ex:attendedBy a owl:ObjectProperty ;
+    rdfs:domain ex:Encounter ;
+    rdfs:range ex:Practitioner .
+
+ex:encounterDiagnosis a owl:ObjectProperty ;
+    rdfs:domain ex:Encounter ;
+    rdfs:range ex:Diagnosis .
+
+ex:orderedPrescription a owl:ObjectProperty ;
+    rdfs:domain ex:Encounter ;
+    rdfs:range ex:Prescription .
+
+ex:hasMedication a owl:ObjectProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range ex:Medication .
+
+# Inverse Property: Medication has prescription details
+ex:prescribedIn owl:inverseOf ex:hasMedication .
+
+ex:performedProcedure a owl:ObjectProperty ;
+    rdfs:domain ex:Encounter ;
+    rdfs:range ex:Procedure .
+
+# Symmetric Property: Referral networks between practitioners
+ex:referredTo a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:Practitioner ;
+    rdfs:range ex:Practitioner .
+
+# Transitive Property: Disease causal/comorbidity progression
+ex:leadsToCondition a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:Diagnosis ;
+    rdfs:range ex:Diagnosis .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+ex:mrn a owl:DatatypeProperty ;
+    rdfs:domain ex:Patient ;
+    rdfs:range xsd:string .
+
+ex:activeConditionsCount a owl:DatatypeProperty ;
+    rdfs:domain ex:Patient ;
+    rdfs:range xsd:integer .
+
+ex:npi a owl:DatatypeProperty ;
+    rdfs:domain ex:Practitioner ;
+    rdfs:range xsd:string .
+
+ex:practitionerSpecialty a owl:DatatypeProperty ;
+    rdfs:domain ex:Practitioner ;
+    rdfs:range xsd:string .
+
+ex:encounterTimestamp a owl:DatatypeProperty ;
+    rdfs:domain ex:Encounter ;
+    rdfs:range xsd:dateTime .
+
+ex:icd10Code a owl:DatatypeProperty ;
+    rdfs:domain ex:Diagnosis ;
+    rdfs:range xsd:string .
+
+ex:cptCode a owl:DatatypeProperty ;
+    rdfs:domain ex:Procedure ;
+    rdfs:range xsd:string .
+
+ex:rxNormId a owl:DatatypeProperty ;
+    rdfs:domain ex:Medication ;
+    rdfs:range xsd:string .
+
+ex:dosageInstruction a owl:DatatypeProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:string .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+ex:Patient rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:mrn ;
+        owl:cardinality &quot;1&quot;^^xsd:nonNegativeInteger
+    ] .
+
+ex:Encounter rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:attendedBy ;
+        owl:someValuesFrom ex:Practitioner
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix ex: &lt;http://example.org/healthcare/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+ex:ComplexCasePatientShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:ComplexCasePatient .
+
+ex:DiagnosisShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Diagnosis ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:leadsToCondition ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:icd10Code ] ;
+    sh:targetClass ex:Diagnosis .
+
+ex:EncounterShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Diagnosis ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:encounterDiagnosis ],
+        [ sh:class ex:Procedure ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:performedProcedure ],
+        [ sh:class ex:Practitioner ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:attendedBy ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:path ex:encounterTimestamp ],
+        [ sh:class ex:Prescription ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:orderedPrescription ] ;
+    sh:targetClass ex:Encounter .
+
+ex:MedicationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:rxNormId ] ;
+    sh:targetClass ex:Medication .
+
+ex:PatientShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Encounter ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:participatedIn ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path ex:activeConditionsCount ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:mrn ] ;
+    sh:targetClass ex:Patient .
+
+ex:PersonShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Person .
+
+ex:PractitionerShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:practitionerSpecialty ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:npi ],
+        [ sh:class ex:Practitioner ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:referredTo ] ;
+    sh:targetClass ex:Practitioner .
+
+ex:PrescriptionShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Medication ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:hasMedication ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:dosageInstruction ] ;
+    sh:targetClass ex:Prescription .
+
+ex:ProcedureShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:cptCode ] ;
+    sh:targetClass ex:Procedure .
+
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- GOOGLE CLOUD SPANNER SCHEMA TRANSLATION
+-- Source Ontology: Healthcare EHR and Clinical Operations Ontology
+-- Table Pattern: Table-Per-Concrete-Class with Flattened Inheritance
+-- =============================================================================
+
+-- -----------------------------------------------------------------------------
+-- 1. PHYSICAL RELATIONAL SCHEMA (GoogleSQL DDL)
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE Medications (
+  MedicationId STRING(36) NOT NULL,
+  RxNormId STRING(MAX)
+) PRIMARY KEY (MedicationId);
+
+CREATE TABLE Prescriptions (
+  PrescriptionId STRING(36) NOT NULL,
+  DosageInstruction STRING(MAX),
+  MedicationId STRING(36),
+  CONSTRAINT FK_Prescriptions_Medication FOREIGN KEY (MedicationId) REFERENCES Medications (MedicationId)
+) PRIMARY KEY (PrescriptionId);
+
+CREATE TABLE Diagnoses (
+  DiagnosisId STRING(36) NOT NULL,
+  Icd10Code STRING(MAX),
+  LeadsToDiagnosisId STRING(36),
+  CONSTRAINT FK_Diagnoses_LeadsTo FOREIGN KEY (LeadsToDiagnosisId) REFERENCES Diagnoses (DiagnosisId)
+) PRIMARY KEY (DiagnosisId);
+
+CREATE TABLE Procedures (
+  ProcedureId STRING(36) NOT NULL,
+  CptCode STRING(MAX)
+) PRIMARY KEY (ProcedureId);
+
+CREATE TABLE Practitioners (
+  PractitionerId STRING(36) NOT NULL,
+  Npi STRING(MAX),
+  PractitionerSpecialty STRING(MAX),
+  ReferredToPractitionerId STRING(36),
+  CONSTRAINT FK_Practitioners_ReferredTo FOREIGN KEY (ReferredToPractitionerId) REFERENCES Practitioners (PractitionerId)
+) PRIMARY KEY (PractitionerId);
+
+CREATE TABLE Encounters (
+  EncounterId STRING(36) NOT NULL,
+  EncounterTimestamp TIMESTAMP,
+  PractitionerId STRING(36) NOT NULL, -- Enforced by SHACL minCount 1 (ex:attendedBy)
+  DiagnosisId STRING(36),
+  ProcedureId STRING(36),
+  PrescriptionId STRING(36),
+  CONSTRAINT FK_Encounters_Practitioner FOREIGN KEY (PractitionerId) REFERENCES Practitioners (PractitionerId),
+  CONSTRAINT FK_Encounters_Diagnosis FOREIGN KEY (DiagnosisId) REFERENCES Diagnoses (DiagnosisId),
+  CONSTRAINT FK_Encounters_Procedure FOREIGN KEY (ProcedureId) REFERENCES Procedures (ProcedureId),
+  CONSTRAINT FK_Encounters_Prescription FOREIGN KEY (PrescriptionId) REFERENCES Prescriptions (PrescriptionId)
+) PRIMARY KEY (EncounterId);
+
+CREATE TABLE Patients (
+  PatientId STRING(36) NOT NULL,
+  Mrn STRING(MAX) NOT NULL, -- Enforced by SHACL minCount 1 / OWL cardinality 1
+  ActiveConditionsCount INT64,
+  EncounterId STRING(36),
+  IsComplexCase BOOL AS (ActiveConditionsCount &gt;= 5) STORED, -- Computed from owl:equivalentClass restriction
+  CONSTRAINT FK_Patients_Encounter FOREIGN KEY (EncounterId) REFERENCES Encounters (EncounterId)
+) PRIMARY KEY (PatientId);
+
+-- View representing the equivalent class ex:ComplexCasePatient
+CREATE VIEW ComplexCasePatients SQL SECURITY INVOKER AS
+SELECT 
+  p.PatientId,
+  p.Mrn,
+  p.ActiveConditionsCount
+FROM Patients p
+WHERE p.ActiveConditionsCount &gt;= 5;
+
+
+-- -----------------------------------------------------------------------------
+-- 2. PROPERTY GRAPH SCHEMA (GoogleSQL DDL)
+-- -----------------------------------------------------------------------------
+
+CREATE PROPERTY GRAPH HealthcareGraph
+  NODE TABLES (
+    Patients
+      LABEL Patient PROPERTIES (PatientId, Mrn, ActiveConditionsCount)
+      LABEL Person NO PROPERTIES,
+    Practitioners
+      LABEL Practitioner PROPERTIES (PractitionerId, Npi, PractitionerSpecialty)
+      LABEL Person NO PROPERTIES,
+    Encounters
+      LABEL Encounter PROPERTIES (EncounterId, EncounterTimestamp),
+    Diagnoses
+      LABEL Diagnosis PROPERTIES (DiagnosisId, Icd10Code),
+    Medications
+      LABEL Medication PROPERTIES (MedicationId, RxNormId),
+    Prescriptions
+      LABEL Prescription PROPERTIES (PrescriptionId, DosageInstruction),
+    Procedures
+      LABEL Procedure PROPERTIES (ProcedureId, CptCode),
+    ComplexCasePatients KEY (PatientId)
+      LABEL ComplexCasePatient PROPERTIES (PatientId, Mrn, ActiveConditionsCount)
+      LABEL Patient PROPERTIES (PatientId, Mrn, ActiveConditionsCount)
+      LABEL Person NO PROPERTIES
+  )
+  EDGE TABLES (
+    Patients AS PatientParticipatedIn
+      SOURCE KEY (PatientId) REFERENCES Patients (PatientId)
+      DESTINATION KEY (EncounterId) REFERENCES Encounters (EncounterId)
+      LABEL PARTICIPATED_IN NO PROPERTIES,
+    Encounters AS EncounterAttendedBy
+      SOURCE KEY (EncounterId) REFERENCES Encounters (EncounterId)
+      DESTINATION KEY (PractitionerId) REFERENCES Practitioners (PractitionerId)
+      LABEL ATTENDED_BY NO PROPERTIES,
+    Encounters AS EncounterDiagnoses
+      SOURCE KEY (EncounterId) REFERENCES Encounters (EncounterId)
+      DESTINATION KEY (DiagnosisId) REFERENCES Diagnoses (DiagnosisId)
+      LABEL ENCOUNTER_DIAGNOSIS NO PROPERTIES,
+    Encounters AS EncounterPrescriptions
+      SOURCE KEY (EncounterId) REFERENCES Encounters (EncounterId)
+      DESTINATION KEY (PrescriptionId) REFERENCES Prescriptions (PrescriptionId)
+      LABEL ORDERED_PRESCRIPTION NO PROPERTIES,
+    Encounters AS EncounterProcedures
+      SOURCE KEY (EncounterId) REFERENCES Encounters (EncounterId)
+      DESTINATION KEY (ProcedureId) REFERENCES Procedures (ProcedureId)
+      LABEL PERFORMED_PROCEDURE NO PROPERTIES,
+    Prescriptions AS PrescriptionMedication
+      SOURCE KEY (PrescriptionId) REFERENCES Prescriptions (PrescriptionId)
+      DESTINATION KEY (MedicationId) REFERENCES Medications (MedicationId)
+      LABEL HAS_MEDICATION NO PROPERTIES,
+    -- Inverse Edge: ex:prescribedIn owl:inverseOf ex:hasMedication (uses physical Prescriptions table)
+    Prescriptions AS MedicationPrescriptions
+      SOURCE KEY (MedicationId) REFERENCES Medications (MedicationId)
+      DESTINATION KEY (PrescriptionId) REFERENCES Prescriptions (PrescriptionId)
+      LABEL PRESCRIBED_IN NO PROPERTIES,
+    -- Symmetric Property: ex:referredTo
+    Practitioners AS PractitionerReferrals
+      SOURCE KEY (PractitionerId) REFERENCES Practitioners (PractitionerId)
+      DESTINATION KEY (ReferredToPractitionerId) REFERENCES Practitioners (PractitionerId)
+      LABEL REFERRED_TO NO PROPERTIES,
+    -- Transitive Property: ex:leadsToCondition
+    Diagnoses AS ConditionProgression
+      SOURCE KEY (DiagnosisId) REFERENCES Diagnoses (DiagnosisId)
+      DESTINATION KEY (LeadsToDiagnosisId) REFERENCES Diagnoses (DiagnosisId)
+      LABEL LEADS_TO_CONDITION NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

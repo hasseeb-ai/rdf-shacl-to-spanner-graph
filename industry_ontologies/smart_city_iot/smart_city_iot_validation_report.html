@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Smart City IoT Network</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    /* Collapsible Code Blocks */
+    .code-details {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .code-details summary {
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: #e2e8f0;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+    .code-details summary:hover {
+      background: #cbd5e1;
+    }
+    .code-details .code-container {
+      padding: 16px;
+      background: #0f172a;
+      color: #f8fafc;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+    .code-details pre {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>smartcity.ttl</code></div>
+          <div>SHACL: <code>smartcity_shacl.ttl</code></div>
+          <div>Target Graph: <code>SmartCityGraph</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">7</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">13</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">5</div>
+        <div class="label">Flattened Propagations</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology (Diagram First!) -->
+    <h2>1. Visual Graph Schema &amp; Inheritance Architecture</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    SpatialEntity["<b>SpatialEntity</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ spatialName: STRING(MAX)"]:::abstract
+    IotDevice["<b>IotDevice</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ macAddress: STRING(MAX) [1..1]"]:::abstract
+    Sensor["<b>Sensor</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ registeredToGateway: GatewayNode [1..1]"]:::abstract
+
+    CityZones["<b>CityZones</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ CityZoneId: STRING(36) [PK]<br>+ SpatialName: STRING(MAX)"]:::concrete
+    SmartBuildings["<b>SmartBuildings</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ BuildingId: STRING(36) [PK]<br>+ SpatialName: STRING(MAX)"]:::concrete
+    GatewayNodes["<b>GatewayNodes</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ GatewayNodeId: STRING(36) [PK]<br>+ MacAddress: STRING(MAX) [NN]"]:::concrete
+    TemperatureSensors["<b>TemperatureSensors</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SensorId: STRING(36) [PK]<br>+ MacAddress: STRING(MAX) [NN]<br>+ RegisteredToGatewayId: STRING(36) [NN]"]:::concrete
+    EnergySensors["<b>EnergySensors</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SensorId: STRING(36) [PK]<br>+ MacAddress: STRING(MAX) [NN]<br>+ RegisteredToGatewayId: STRING(36) [NN]"]:::concrete
+    TelemetryObservations["<b>TelemetryObservations</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ ObservationId: STRING(36) [PK]<br>+ ReadingValue: NUMERIC<br>+ ReadingTimestamp: TIMESTAMP<br>+ IsAnomalous: BOOL [STORED]"]:::concrete
+    MaintenanceJobs["<b>MaintenanceJobs</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ JobId: STRING(36) [PK]<br>+ JobStatus: STRING(MAX)"]:::concrete
+
+    SpatialEntity -.->|Table-Per-Concrete| CityZones
+    SpatialEntity -.->|Table-Per-Concrete| SmartBuildings
+    IotDevice -.->|Table-Per-Concrete| GatewayNodes
+    IotDevice -.->|Inherits| Sensor
+    Sensor -.->|Table-Per-Concrete| TemperatureSensors
+    Sensor -.->|Table-Per-Concrete| EnergySensors
+
+    CityZones -->|CONTAINS / CONTAINS_SPACE| SmartBuildings
+    SmartBuildings -->|CONTAINED_IN| CityZones
+    SmartBuildings -->|SHARES_MICROGRID_WITH| SmartBuildings
+    GatewayNodes -->|INSTALLED_IN_BUILDING| SmartBuildings
+    TemperatureSensors -->|REGISTERED_TO_GATEWAY| GatewayNodes
+    EnergySensors -->|REGISTERED_TO_GATEWAY| GatewayNodes
+    TemperatureSensors -->|INSTALLED_IN_BUILDING| SmartBuildings
+    EnergySensors -->|INSTALLED_IN_BUILDING| SmartBuildings
+    TemperatureSensors -->|RECORDED_OBSERVATION| TelemetryObservations
+    EnergySensors -->|RECORDED_OBSERVATION| TelemetryObservations
+    GatewayNodes -->|HAS_MAINTENANCE_JOB| MaintenanceJobs
+    TemperatureSensors -->|HAS_MAINTENANCE_JOB| MaintenanceJobs
+    EnergySensors -->|HAS_MAINTENANCE_JOB| MaintenanceJobs
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Superclass)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping (Unified Class -> Node Mapping) -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:CityZone</code><br>
+            <small style="color:var(--muted)">subClassOf ex:SpatialEntity</small>
+          </td>
+          <td><code>CityZones</code></td>
+          <td>
+            <span class="label-pill">:CityZone</span>
+            <span class="label-pill">:SpatialEntity</span>
+          </td>
+          <td>
+            <code>CityZoneId STRING(36) [PK]</code><br>
+            <code>SpatialName STRING(MAX)</code>
+          </td>
+          <td>Concrete leaf table. Inherits <code>ex:spatialName</code> from <code>ex:SpatialEntity</code>. Column aliased to <code>SpatialEntityId</code> for abstract signature compatibility.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:SmartBuilding</code><br>
+            <small style="color:var(--muted)">subClassOf ex:SpatialEntity</small>
+          </td>
+          <td><code>SmartBuildings</code></td>
+          <td>
+            <span class="label-pill">:SmartBuilding</span>
+            <span class="label-pill">:SpatialEntity</span>
+          </td>
+          <td>
+            <code>BuildingId STRING(36) [PK]</code><br>
+            <code>SpatialName STRING(MAX)</code>
+          </td>
+          <td>Concrete leaf table. Inherits <code>ex:spatialName</code> from <code>ex:SpatialEntity</code>. Column aliased to <code>SpatialEntityId</code> for abstract signature compatibility.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:GatewayNode</code><br>
+            <small style="color:var(--muted)">subClassOf ex:IotDevice</small>
+          </td>
+          <td><code>GatewayNodes</code></td>
+          <td>
+            <span class="label-pill">:GatewayNode</span>
+            <span class="label-pill">:IotDevice</span>
+          </td>
+          <td>
+            <code>GatewayNodeId STRING(36) [PK]</code><br>
+            <code>MacAddress STRING(MAX) [NOT NULL]</code><br>
+            <code>InstalledInBuildingId STRING(36)</code><br>
+            <code>MaintenanceJobId STRING(36)</code>
+          </td>
+          <td>Concrete leaf table. Inherits mandatory <code>ex:macAddress</code> (<code>NOT NULL</code> per SHACL minCount 1). Aliased to <code>DeviceId</code> under <code>:IotDevice</code> label.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:TemperatureSensor</code><br>
+            <small style="color:var(--muted)">subClassOf ex:Sensor &rarr; ex:IotDevice</small>
+          </td>
+          <td><code>TemperatureSensors</code></td>
+          <td>
+            <span class="label-pill">:TemperatureSensor</span>
+            <span class="label-pill">:Sensor</span>
+            <span class="label-pill">:IotDevice</span>
+          </td>
+          <td>
+            <code>SensorId STRING(36) [PK]</code><br>
+            <code>MacAddress STRING(MAX) [NOT NULL]</code><br>
+            <code>RegisteredToGatewayId STRING(36) [NOT NULL]</code><br>
+            <code>InstalledInBuildingId STRING(36)</code><br>
+            <code>MaintenanceJobId STRING(36)</code>
+          </td>
+          <td>Multi-tier inheritance. Inherits <code>MacAddress</code> from <code>IotDevice</code> and <code>RegisteredToGatewayId</code> from <code>Sensor</code> (both mandatory <code>NOT NULL</code>). Accumulates 3 labels.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:EnergySensor</code><br>
+            <small style="color:var(--muted)">subClassOf ex:Sensor &rarr; ex:IotDevice</small>
+          </td>
+          <td><code>EnergySensors</code></td>
+          <td>
+            <span class="label-pill">:EnergySensor</span>
+            <span class="label-pill">:Sensor</span>
+            <span class="label-pill">:IotDevice</span>
+          </td>
+          <td>
+            <code>SensorId STRING(36) [PK]</code><br>
+            <code>MacAddress STRING(MAX) [NOT NULL]</code><br>
+            <code>RegisteredToGatewayId STRING(36) [NOT NULL]</code><br>
+            <code>InstalledInBuildingId STRING(36)</code><br>
+            <code>MaintenanceJobId STRING(36)</code>
+          </td>
+          <td>Multi-tier inheritance. Identical structural shape to sibling leaf sensor; disjoint in OWL ontology. Multi-label accumulation ensures unified queryability.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:TelemetryObservation</code><br>
+            <small style="color:var(--muted)">Base class + owl:equivalentClass</small>
+          </td>
+          <td><code>TelemetryObservations</code></td>
+          <td>
+            <span class="label-pill">:TelemetryObservation</span>
+          </td>
+          <td>
+            <code>ObservationId STRING(36) [PK]</code><br>
+            <code>SensorId STRING(36) [NOT NULL]</code><br>
+            <code>ReadingValue NUMERIC</code><br>
+            <code>ReadingTimestamp TIMESTAMP</code><br>
+            <code>IsAnomalous BOOL [STORED]</code>
+          </td>
+          <td><code>ex:AnomalousReading</code> equivalent class mapped via GoogleSQL Stored Generated Column <code>AS (ReadingValue &gt; 100.00) STORED</code> and exposed companion SQL view <code>v_AnomalousReadings</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:MaintenanceJob</code>
+          </td>
+          <td><code>MaintenanceJobs</code></td>
+          <td>
+            <span class="label-pill">:MaintenanceJob</span>
+          </td>
+          <td>
+            <code>JobId STRING(36) [PK]</code><br>
+            <code>JobStatus STRING(MAX)</code>
+          </td>
+          <td>Direct physical mapping. Primary key surrogate aligns with <code>ex:jobId</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:containedIn</code><br>
+            <small style="color:var(--muted)">owl:TransitiveProperty</small>
+          </td>
+          <td><code>SmartBuildings</code> &rarr; <code>CityZones</code></td>
+          <td><code>SpatialEntityContainment AS ZoneContainsBuilding</code></td>
+          <td>
+            <span class="label-pill">:CONTAINED_IN</span>
+          </td>
+          <td>Physical join table represents many-to-many/transitive containment between polymorphic spatial entities.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:containsSpace</code><br>
+            <small style="color:var(--muted)">owl:inverseOf ex:containedIn</small>
+          </td>
+          <td><code>CityZones</code> &rarr; <code>SmartBuildings</code></td>
+          <td><code>SpatialEntityContainment AS BuildingInZone</code></td>
+          <td>
+            <span class="label-pill">:`CONTAINS`</span>
+            <span class="label-pill">:CONTAINS_SPACE</span>
+          </td>
+          <td>Inverse pair shares physical join table <code>SpatialEntityContainment</code> with reversed source/target keys. <code>CONTAINS</code> is backticked to prevent GoogleSQL keyword collisions.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:registeredToGateway</code><br>
+            <small style="color:var(--muted)">Domain: Sensor, Range: GatewayNode</small>
+          </td>
+          <td><code>TemperatureSensors</code> &rarr; <code>GatewayNodes</code><br><code>EnergySensors</code> &rarr; <code>GatewayNodes</code></td>
+          <td><code>TempSensorGateways</code><br><code>EnergySensorGateways</code></td>
+          <td>
+            <span class="label-pill">:REGISTERED_TO_GATEWAY</span>
+          </td>
+          <td>Polymorphic domain expansion across concrete leaf sensor tables referencing the physical foreign key <code>RegisteredToGatewayId</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:installedInBuilding</code><br>
+            <small style="color:var(--muted)">Domain: IotDevice, Range: SmartBuilding</small>
+          </td>
+          <td>
+            <code>GatewayNodes</code> &rarr; <code>SmartBuildings</code><br>
+            <code>TemperatureSensors</code> &rarr; <code>SmartBuildings</code><br>
+            <code>EnergySensors</code> &rarr; <code>SmartBuildings</code>
+          </td>
+          <td>
+            <code>GatewayBuildingInstallations</code><br>
+            <code>TempSensorBuildingInstallations</code><br>
+            <code>EnergySensorBuildingInstallations</code>
+          </td>
+          <td>
+            <span class="label-pill">:INSTALLED_IN_BUILDING</span>
+          </td>
+          <td>Polymorphic domain expansion across all concrete sub-tables of abstract superclass <code>IotDevice</code> using existing foreign key column <code>InstalledInBuildingId</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:recordedObservation</code><br>
+            <small style="color:var(--muted)">Domain: Sensor, Range: TelemetryObservation</small>
+          </td>
+          <td>
+            <code>TemperatureSensors</code> &rarr; <code>TelemetryObservations</code><br>
+            <code>EnergySensors</code> &rarr; <code>TelemetryObservations</code>
+          </td>
+          <td>
+            <code>TempSensorObservations</code><br>
+            <code>EnergySensorObservations</code>
+          </td>
+          <td>
+            <span class="label-pill">:RECORDED_OBSERVATION</span>
+          </td>
+          <td>Polymorphic edge declared using <code>TelemetryObservations</code> as the underlying edge table, referencing <code>SensorId</code> on domain sensors and <code>ObservationId</code> on destination.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:hasMaintenanceJob</code><br>
+            <small style="color:var(--muted)">Domain: IotDevice, Range: MaintenanceJob</small>
+          </td>
+          <td>
+            <code>GatewayNodes</code> &rarr; <code>MaintenanceJobs</code><br>
+            <code>TemperatureSensors</code> &rarr; <code>MaintenanceJobs</code><br>
+            <code>EnergySensors</code> &rarr; <code>MaintenanceJobs</code>
+          </td>
+          <td>
+            <code>GatewayMaintenance</code><br>
+            <code>TempSensorMaintenance</code><br>
+            <code>EnergySensorMaintenance</code>
+          </td>
+          <td>
+            <span class="label-pill">:HAS_MAINTENANCE_JOB</span>
+          </td>
+          <td>Polymorphic domain expansion across all concrete IoT device tables referencing <code>MaintenanceJobId</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:sharesMicrogridWith</code><br>
+            <small style="color:var(--muted)">owl:SymmetricProperty</small>
+          </td>
+          <td><code>SmartBuildings</code> &rarr; <code>SmartBuildings</code></td>
+          <td><code>BuildingMicrogridInterconnects</code></td>
+          <td>
+            <span class="label-pill">:SHARES_MICROGRID_WITH</span>
+          </td>
+          <td>Dedicated association table connecting buildings symmetrically within the local power microgrid.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Semantic Capability</th>
+          <th>Cloud Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Superclass Traversal:</strong><br>Query all IoT devices regardless of concrete leaf type</td>
+          <td>
+            <div class="query-box">
+GRAPH SmartCityGraph
+MATCH (d:IotDevice)-[:INSTALLED_IN_BUILDING]->(b:SmartBuilding)
+RETURN d.DeviceId, d.MacAddress, b.SpatialName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Multi-Hop Telemetry &amp; Anomaly Filter:</strong><br>Trace anomalous readings from gateway to sensors</td>
+          <td>
+            <div class="query-box">
+GRAPH SmartCityGraph
+MATCH (g:GatewayNode)&lt;-[:REGISTERED_TO_GATEWAY]-(s:Sensor)-[:RECORDED_OBSERVATION]->(obs:TelemetryObservation)
+WHERE obs.IsAnomalous = TRUE
+RETURN g.DeviceId AS GatewayId, s.DeviceId AS SensorId, obs.ReadingValue, obs.ReadingTimestamp;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Transitive Spatial Navigation:</strong><br>Traverse spatial containment and inverse space hierarchies</td>
+          <td>
+            <div class="query-box">
+GRAPH SmartCityGraph
+MATCH (z:CityZone)-[:`CONTAINS`]->(b:SmartBuilding)
+MATCH (b)-[:SHARES_MICROGRID_WITH]->(peer:SmartBuilding)
+RETURN z.SpatialName AS Zone, b.SpatialName AS BuildingA, peer.SpatialName AS BuildingB;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Label Signatures:</strong> The abstract label <code>:SpatialEntity</code> exposes <code>(SpatialEntityId, SpatialName)</code> identically across <code>CityZones</code> and <code>SmartBuildings</code>. The <code>:IotDevice</code> and <code>:Sensor</code> labels expose <code>(DeviceId, MacAddress)</code> uniformly across <code>GatewayNodes</code>, <code>TemperatureSensors</code>, and <code>EnergySensors</code>.</li>
+        <li><strong>Keyword Escaping:</strong> GoogleSQL reserved keyword <code>CONTAINS</code> is correctly escaped with backticks (<code>`CONTAINS`</code>) in edge declarations.</li>
+        <li><strong>Stored Generated Columns:</strong> Class equivalence for <code>ex:AnomalousReading</code> is properly materialized via <code>IsAnomalous BOOL AS (ReadingValue &gt; 100.00) STORED</code>.</li>
+        <li><strong>Referential Integrity:</strong> SHACL <code>minCount 1</code> requirements for <code>ex:macAddress</code> and <code>ex:registeredToGateway</code> are enforced with physical <code>NOT NULL</code> constraints and foreign keys.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/smartcity/&gt; .
+
+ex:SmartCityOntology a owl:Ontology ;
+    rdfs:label &quot;Smart City Infrastructure and IoT Sensor Network Ontology&quot; ;
+    rdfs:comment &quot;An OWL ontology representing spatial structures, smart buildings, IoT gateways, various telemetry sensors, and active service logs.&quot; .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+ex:SpatialEntity a owl:Class .
+
+# Spatial Taxonomy
+ex:CityZone a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    owl:disjointWith ex:SmartBuilding .
+
+ex:SmartBuilding a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity .
+
+# IoT Hardware Taxonomy
+ex:IotDevice a owl:Class .
+
+ex:GatewayNode a owl:Class ;
+    rdfs:subClassOf ex:IotDevice ;
+    owl:disjointWith ex:Sensor .
+
+ex:Sensor a owl:Class ;
+    rdfs:subClassOf ex:IotDevice .
+
+ex:TemperatureSensor a owl:Class ;
+    rdfs:subClassOf ex:Sensor ;
+    owl:disjointWith ex:EnergySensor .
+
+ex:EnergySensor a owl:Class ;
+    rdfs:subClassOf ex:Sensor .
+
+# Observations &amp; Operations
+ex:TelemetryObservation a owl:Class .
+ex:MaintenanceJob a owl:Class .
+
+# Equivalent Class: AnomalousReading
+ex:AnomalousReading a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:TelemetryObservation
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:readingValue ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:decimal ;
+                    owl:withRestrictions ( [ xsd:minExclusive 100.00 ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+# Transitive Property: Nested containment
+ex:containedIn a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range ex:SpatialEntity .
+
+ex:containsSpace owl:inverseOf ex:containedIn .
+
+ex:registeredToGateway a owl:ObjectProperty ;
+    rdfs:domain ex:Sensor ;
+    rdfs:range ex:GatewayNode .
+
+ex:installedInBuilding a owl:ObjectProperty ;
+    rdfs:domain ex:IotDevice ;
+    rdfs:range ex:SmartBuilding .
+
+ex:recordedObservation a owl:ObjectProperty ;
+    rdfs:domain ex:Sensor ;
+    rdfs:range ex:TelemetryObservation .
+
+ex:hasMaintenanceJob a owl:ObjectProperty ;
+    rdfs:domain ex:IotDevice ;
+    rdfs:range ex:MaintenanceJob .
+
+# Symmetric Property: Smart grid interconnections
+ex:sharesMicrogridWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:SmartBuilding ;
+    rdfs:range ex:SmartBuilding .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+ex:spatialName a owl:DatatypeProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range xsd:string .
+
+ex:macAddress a owl:DatatypeProperty ;
+    rdfs:domain ex:IotDevice ;
+    rdfs:range xsd:string .
+
+ex:readingValue a owl:DatatypeProperty ;
+    rdfs:domain ex:TelemetryObservation ;
+    rdfs:range xsd:decimal .
+
+ex:readingTimestamp a owl:DatatypeProperty ;
+    rdfs:domain ex:TelemetryObservation ;
+    rdfs:range xsd:dateTime .
+
+ex:jobId a owl:DatatypeProperty ;
+    rdfs:domain ex:MaintenanceJob ;
+    rdfs:range xsd:string .
+
+ex:jobStatus a owl:DatatypeProperty ;
+    rdfs:domain ex:MaintenanceJob ;
+    rdfs:range xsd:string .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+ex:IotDevice rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:macAddress ;
+        owl:cardinality &quot;1&quot;^^xsd:nonNegativeInteger
+    ] .
+
+ex:Sensor rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:registeredToGateway ;
+        owl:someValuesFrom ex:GatewayNode
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix ex: &lt;http://example.org/smartcity/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+ex:AnomalousReadingShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:AnomalousReading .
+
+ex:CityZoneShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:CityZone .
+
+ex:EnergySensorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:EnergySensor .
+
+ex:GatewayNodeShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:GatewayNode .
+
+ex:IotDeviceShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:macAddress ],
+        [ sh:class ex:MaintenanceJob ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:hasMaintenanceJob ],
+        [ sh:class ex:SmartBuilding ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:installedInBuilding ] ;
+    sh:targetClass ex:IotDevice .
+
+ex:MaintenanceJobShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:jobId ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:jobStatus ] ;
+    sh:targetClass ex:MaintenanceJob .
+
+ex:SensorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:GatewayNode ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:registeredToGateway ],
+        [ sh:class ex:TelemetryObservation ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:recordedObservation ] ;
+    sh:targetClass ex:Sensor .
+
+ex:SmartBuildingShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:SmartBuilding ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:sharesMicrogridWith ] ;
+    sh:targetClass ex:SmartBuilding .
+
+ex:SpatialEntityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:SpatialEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:containedIn ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:spatialName ] ;
+    sh:targetClass ex:SpatialEntity .
+
+ex:TelemetryObservationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path ex:readingValue ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:path ex:readingTimestamp ] ;
+    sh:targetClass ex:TelemetryObservation .
+
+ex:TemperatureSensorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:TemperatureSensor .
+
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- GOOGLE CLOUD SPANNER PHYSICAL RELATIONAL SCHEMA (DDL)
+-- =============================================================================
+-- Translation Pattern: Table-Per-Concrete-Class
+-- Superclasses (SpatialEntity, IotDevice, Sensor) are abstract and flattened 
+-- into concrete child tables following Top-Down Property Propagation rules.
+-- SHACL minCount 1 constraints are mapped to NOT NULL columns.
+-- =============================================================================
+
+-- Concrete Class: ex:CityZone (subClassOf ex:SpatialEntity)
+CREATE TABLE CityZones (
+  CityZoneId STRING(36) NOT NULL,
+  -- Flattened from ex:SpatialEntity (ex:spatialName)
+  SpatialName STRING(MAX)
+) PRIMARY KEY (CityZoneId);
+
+-- Concrete Class: ex:SmartBuilding (subClassOf ex:SpatialEntity)
+CREATE TABLE SmartBuildings (
+  BuildingId STRING(36) NOT NULL,
+  -- Flattened from ex:SpatialEntity (ex:spatialName)
+  SpatialName STRING(MAX)
+) PRIMARY KEY (BuildingId);
+
+-- Concrete Class: ex:MaintenanceJob
+CREATE TABLE MaintenanceJobs (
+  JobId STRING(36) NOT NULL,
+  JobStatus STRING(MAX)
+) PRIMARY KEY (JobId);
+
+-- Concrete Class: ex:GatewayNode (subClassOf ex:IotDevice)
+CREATE TABLE GatewayNodes (
+  GatewayNodeId STRING(36) NOT NULL,
+  -- Flattened from ex:IotDevice (ex:macAddress) - SHACL minCount 1 -&gt; NOT NULL
+  MacAddress STRING(MAX) NOT NULL,
+  InstalledInBuildingId STRING(36),
+  MaintenanceJobId STRING(36),
+  CONSTRAINT FK_Gateway_Building FOREIGN KEY (InstalledInBuildingId) REFERENCES SmartBuildings (BuildingId),
+  CONSTRAINT FK_Gateway_Job FOREIGN KEY (MaintenanceJobId) REFERENCES MaintenanceJobs (JobId)
+) PRIMARY KEY (GatewayNodeId);
+
+-- Concrete Class: ex:TemperatureSensor (subClassOf ex:Sensor -&gt; ex:IotDevice)
+CREATE TABLE TemperatureSensors (
+  SensorId STRING(36) NOT NULL,
+  -- Flattened from ex:IotDevice (ex:macAddress) - SHACL minCount 1 -&gt; NOT NULL
+  MacAddress STRING(MAX) NOT NULL,
+  -- Relationship ex:registeredToGateway - SHACL minCount 1 -&gt; NOT NULL
+  RegisteredToGatewayId STRING(36) NOT NULL,
+  InstalledInBuildingId STRING(36),
+  MaintenanceJobId STRING(36),
+  CONSTRAINT FK_TempSensor_Gateway FOREIGN KEY (RegisteredToGatewayId) REFERENCES GatewayNodes (GatewayNodeId),
+  CONSTRAINT FK_TempSensor_Building FOREIGN KEY (InstalledInBuildingId) REFERENCES SmartBuildings (BuildingId),
+  CONSTRAINT FK_TempSensor_Job FOREIGN KEY (MaintenanceJobId) REFERENCES MaintenanceJobs (JobId)
+) PRIMARY KEY (SensorId);
+
+-- Concrete Class: ex:EnergySensor (subClassOf ex:Sensor -&gt; ex:IotDevice)
+CREATE TABLE EnergySensors (
+  SensorId STRING(36) NOT NULL,
+  -- Flattened from ex:IotDevice (ex:macAddress) - SHACL minCount 1 -&gt; NOT NULL
+  MacAddress STRING(MAX) NOT NULL,
+  -- Relationship ex:registeredToGateway - SHACL minCount 1 -&gt; NOT NULL
+  RegisteredToGatewayId STRING(36) NOT NULL,
+  InstalledInBuildingId STRING(36),
+  MaintenanceJobId STRING(36),
+  CONSTRAINT FK_EnergySensor_Gateway FOREIGN KEY (RegisteredToGatewayId) REFERENCES GatewayNodes (GatewayNodeId),
+  CONSTRAINT FK_EnergySensor_Building FOREIGN KEY (InstalledInBuildingId) REFERENCES SmartBuildings (BuildingId),
+  CONSTRAINT FK_EnergySensor_Job FOREIGN KEY (MaintenanceJobId) REFERENCES MaintenanceJobs (JobId)
+) PRIMARY KEY (SensorId);
+
+-- Concrete Class: ex:TelemetryObservation
+CREATE TABLE TelemetryObservations (
+  ObservationId STRING(36) NOT NULL,
+  SensorId STRING(36) NOT NULL,
+  ReadingValue NUMERIC,
+  ReadingTimestamp TIMESTAMP,
+  -- Generated Column representing owl:equivalentClass ex:AnomalousReading
+  IsAnomalous BOOL AS (ReadingValue &gt; 100.00) STORED
+) PRIMARY KEY (ObservationId);
+
+-- Physical Join Table for Polymorphic/Transitive Property ex:containedIn
+CREATE TABLE SpatialEntityContainment (
+  ParentSpatialEntityId STRING(36) NOT NULL,
+  ChildSpatialEntityId STRING(36) NOT NULL
+) PRIMARY KEY (ParentSpatialEntityId, ChildSpatialEntityId);
+
+-- Physical Join Table for Symmetric Property ex:sharesMicrogridWith
+CREATE TABLE BuildingMicrogridInterconnects (
+  BuildingId STRING(36) NOT NULL,
+  ConnectedBuildingId STRING(36) NOT NULL,
+  CONSTRAINT FK_Microgrid_Building1 FOREIGN KEY (BuildingId) REFERENCES SmartBuildings (BuildingId),
+  CONSTRAINT FK_Microgrid_Building2 FOREIGN KEY (ConnectedBuildingId) REFERENCES SmartBuildings (BuildingId)
+) PRIMARY KEY (BuildingId, ConnectedBuildingId);
+
+-- =============================================================================
+-- SQL VIEWS FOR EQUIVALENT CLASSES &amp; FILTERED QUERIES
+-- =============================================================================
+
+-- View modeling owl:equivalentClass ex:AnomalousReading
+CREATE VIEW v_AnomalousReadings SQL SECURITY INVOKER AS
+SELECT
+  t.ObservationId,
+  t.SensorId,
+  t.ReadingValue,
+  t.ReadingTimestamp
+FROM TelemetryObservations t
+WHERE t.ReadingValue &gt; 100.00;
+
+-- =============================================================================
+-- GOOGLE CLOUD SPANNER PROPERTY GRAPH DDL
+-- =============================================================================
+-- Compliance Rules Enforced:
+-- 1. Multi-label individual binding (PROPERTIES block explicitly attached per LABEL).
+-- 2. Uniform label signature alignment across different concrete tables.
+-- 3. Backtick escaping for GoogleSQL reserved keywords (`CONTAINS`).
+-- 4. Unique edge table mapping aliases (AS) for multiple edge declarations.
+-- =============================================================================
+
+CREATE PROPERTY GRAPH SmartCityGraph
+  NODE TABLES (
+    CityZones
+      LABEL CityZone PROPERTIES (CityZoneId AS SpatialEntityId, SpatialName)
+      LABEL SpatialEntity PROPERTIES (CityZoneId AS SpatialEntityId, SpatialName),
+
+    SmartBuildings
+      LABEL SmartBuilding PROPERTIES (BuildingId AS SpatialEntityId, SpatialName)
+      LABEL SpatialEntity PROPERTIES (BuildingId AS SpatialEntityId, SpatialName),
+
+    GatewayNodes
+      LABEL GatewayNode PROPERTIES (GatewayNodeId AS DeviceId, MacAddress)
+      LABEL IotDevice PROPERTIES (GatewayNodeId AS DeviceId, MacAddress),
+
+    TemperatureSensors
+      LABEL TemperatureSensor PROPERTIES (SensorId AS DeviceId, MacAddress)
+      LABEL Sensor PROPERTIES (SensorId AS DeviceId, MacAddress)
+      LABEL IotDevice PROPERTIES (SensorId AS DeviceId, MacAddress),
+
+    EnergySensors
+      LABEL EnergySensor PROPERTIES (SensorId AS DeviceId, MacAddress)
+      LABEL Sensor PROPERTIES (SensorId AS DeviceId, MacAddress)
+      LABEL IotDevice PROPERTIES (SensorId AS DeviceId, MacAddress),
+
+    TelemetryObservations
+      LABEL TelemetryObservation PROPERTIES (ObservationId, ReadingValue, ReadingTimestamp, IsAnomalous),
+
+    MaintenanceJobs
+      LABEL MaintenanceJob PROPERTIES (JobId, JobStatus)
+  )
+  EDGE TABLES (
+    -- ex:containedIn (Transitive property on SpatialEntity -&gt; SpatialEntity)
+    SpatialEntityContainment AS ZoneContainsBuilding
+      SOURCE KEY (ChildSpatialEntityId) REFERENCES SmartBuildings (BuildingId)
+      DESTINATION KEY (ParentSpatialEntityId) REFERENCES CityZones (CityZoneId)
+      LABEL CONTAINED_IN NO PROPERTIES,
+
+    -- Inverse Property mapping for owl:inverseOf ex:containsSpace
+    SpatialEntityContainment AS BuildingInZone
+      SOURCE KEY (ParentSpatialEntityId) REFERENCES CityZones (CityZoneId)
+      DESTINATION KEY (ChildSpatialEntityId) REFERENCES SmartBuildings (BuildingId)
+      LABEL `CONTAINS` NO PROPERTIES
+      LABEL CONTAINS_SPACE NO PROPERTIES,
+
+    -- ex:registeredToGateway (Sensor -&gt; GatewayNode)
+    TemperatureSensors AS TempSensorGateways
+      SOURCE KEY (SensorId) REFERENCES TemperatureSensors (SensorId)
+      DESTINATION KEY (RegisteredToGatewayId) REFERENCES GatewayNodes (GatewayNodeId)
+      LABEL REGISTERED_TO_GATEWAY NO PROPERTIES,
+
+    EnergySensors AS EnergySensorGateways
+      SOURCE KEY (SensorId) REFERENCES EnergySensors (SensorId)
+      DESTINATION KEY (RegisteredToGatewayId) REFERENCES GatewayNodes (GatewayNodeId)
+      LABEL REGISTERED_TO_GATEWAY NO PROPERTIES,
+
+    -- ex:installedInBuilding (IotDevice -&gt; SmartBuilding)
+    GatewayNodes AS GatewayBuildingInstallations
+      SOURCE KEY (GatewayNodeId) REFERENCES GatewayNodes (GatewayNodeId)
+      DESTINATION KEY (InstalledInBuildingId) REFERENCES SmartBuildings (BuildingId)
+      LABEL INSTALLED_IN_BUILDING NO PROPERTIES,
+
+    TemperatureSensors AS TempSensorBuildingInstallations
+      SOURCE KEY (SensorId) REFERENCES TemperatureSensors (SensorId)
+      DESTINATION KEY (InstalledInBuildingId) REFERENCES SmartBuildings (BuildingId)
+      LABEL INSTALLED_IN_BUILDING NO PROPERTIES,
+
+    EnergySensors AS EnergySensorBuildingInstallations
+      SOURCE KEY (SensorId) REFERENCES EnergySensors (SensorId)
+      DESTINATION KEY (InstalledInBuildingId) REFERENCES SmartBuildings (BuildingId)
+      LABEL INSTALLED_IN_BUILDING NO PROPERTIES,
+
+    -- ex:recordedObservation (Sensor -&gt; TelemetryObservation)
+    TelemetryObservations AS TempSensorObservations
+      SOURCE KEY (SensorId) REFERENCES TemperatureSensors (SensorId)
+      DESTINATION KEY (ObservationId) REFERENCES TelemetryObservations (ObservationId)
+      LABEL RECORDED_OBSERVATION NO PROPERTIES,
+
+    TelemetryObservations AS EnergySensorObservations
+      SOURCE KEY (SensorId) REFERENCES EnergySensors (SensorId)
+      DESTINATION KEY (ObservationId) REFERENCES TelemetryObservations (ObservationId)
+      LABEL RECORDED_OBSERVATION NO PROPERTIES,
+
+    -- ex:hasMaintenanceJob (IotDevice -&gt; MaintenanceJob)
+    GatewayNodes AS GatewayMaintenance
+      SOURCE KEY (GatewayNodeId) REFERENCES GatewayNodes (GatewayNodeId)
+      DESTINATION KEY (MaintenanceJobId) REFERENCES MaintenanceJobs (JobId)
+      LABEL HAS_MAINTENANCE_JOB NO PROPERTIES,
+
+    TemperatureSensors AS TempSensorMaintenance
+      SOURCE KEY (SensorId) REFERENCES TemperatureSensors (SensorId)
+      DESTINATION KEY (MaintenanceJobId) REFERENCES MaintenanceJobs (JobId)
+      LABEL HAS_MAINTENANCE_JOB NO PROPERTIES,
+
+    EnergySensors AS EnergySensorMaintenance
+      SOURCE KEY (SensorId) REFERENCES EnergySensors (SensorId)
+      DESTINATION KEY (MaintenanceJobId) REFERENCES MaintenanceJobs (JobId)
+      LABEL HAS_MAINTENANCE_JOB NO PROPERTIES,
+
+    -- ex:sharesMicrogridWith (Symmetric Property)
+    BuildingMicrogridInterconnects
+      SOURCE KEY (BuildingId) REFERENCES SmartBuildings (BuildingId)
+      DESTINATION KEY (ConnectedBuildingId) REFERENCES SmartBuildings (BuildingId)
+      LABEL SHARES_MICROGRID_WITH NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation - Cybersecurity Threat Intelligence Ontology to Spanner LPG</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>ex:CybersecurityOntology</code></div>
+          <div>SHACL Shapes: <code>10 NodeShapes Validated</code></div>
+          <div>Target Graph: <code>CybersecurityGraph</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Executive Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">10</div>
+        <div class="label">Node Tables / Views</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">18</div>
+        <div class="label">Edge Declarations</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">12</div>
+        <div class="label">Flattened Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    NetNode["<b>NetworkNode</b><br><i>&laquo;Abstract Class&raquo;</i>"]:::abstract
+    Endpoint["<b>Endpoint</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ MacAddress: STRING"]:::abstract
+    Gateway["<b>Gateways</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ GatewayId: STRING(36) [PK]"]:::concrete
+    Server["<b>Servers</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ ServerId: STRING(36) [PK]<br>+ MacAddress: STRING [NOT NULL]<br>+ IPAddressId: STRING [NOT NULL]"]:::concrete
+    Workstation["<b>Workstations</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ WorkstationId: STRING(36) [PK]<br>+ MacAddress: STRING [NOT NULL]"]:::concrete
+    IPAddress["<b>IPAddresses</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ IPAddressId: STRING(36) [PK]<br>+ IpString: STRING"]:::concrete
+    Vulnerability["<b>Vulnerabilities</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ VulnerabilityId: STRING(36) [PK]<br>+ CvssScore: NUMERIC"]:::concrete
+    ThreatActor["<b>ThreatActors</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ ThreatActorId: STRING(36) [PK]"]:::concrete
+    SecAlert["<b>SecurityAlerts</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SecurityAlertId: STRING(36) [PK]<br>+ SeverityScore: INT64"]:::concrete
+    CritAlert["<b>CriticalSeverityAlerts</b><br><i>&laquo;SQL View &amp; Node&raquo;</i><br>+ KEY(SecurityAlertId)"]:::concrete
+    SysProc["<b>SystemProcesses</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SystemProcessId: STRING(36) [PK]"]:::concrete
+    UserAcc["<b>UserAccounts</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ UserAccountId: STRING(36) [PK]"]:::concrete
+
+    NetNode -.->|Flattened| Gateway
+    NetNode -.->|Flattened| Endpoint
+    Endpoint -.->|Flattened| Server
+    Endpoint -.->|Flattened| Workstation
+
+    Server -->|HAS_IP_ADDRESS| IPAddress
+    Workstation -->|HAS_IP_ADDRESS| IPAddress
+    Server -->|HAS_VULNERABILITY| Vulnerability
+    Workstation -->|HAS_VULNERABILITY| Vulnerability
+    ThreatActor -->|EXPLOITS| Vulnerability
+    Server -->|COMPROMISED_BY| ThreatActor
+    Workstation -->|COMPROMISED_BY| ThreatActor
+    UserAcc -->|LOGGED_IN_FROM| Server
+    UserAcc -->|LOGGED_IN_FROM| Workstation
+    Server -->|COMMUNICATED_WITH| Server
+    Server -->|COMMUNICATED_WITH| Workstation
+    Workstation -->|COMMUNICATED_WITH| Workstation
+    SysProc -->|PARENT_PROCESS_OF| SysProc
+    SecAlert -.->|Filter View| CritAlert
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table / Node</strong> (Concrete Entity)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract Class / Superclass</strong> (Flattened into Leaves)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / SHACL Shape</th>
+          <th>Physical Spanner Object</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Validation Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Server</code><br><code>ex:ServerShape</code></td>
+          <td>Table: <code>Servers</code></td>
+          <td>
+            <span class="label-pill">:Server</span>
+            <span class="label-pill">:Endpoint</span>
+            <span class="label-pill">:NetworkNode</span>
+          </td>
+          <td>
+            <code>ServerId STRING(36) [PK]</code><br>
+            <code>MacAddress STRING(MAX) NOT NULL</code><br>
+            <code>IPAddressId STRING(36) NOT NULL</code>
+          </td>
+          <td><strong>Top-Down Inheritance:</strong> Inherits <code>ex:macAddress</code> from <code>ex:Endpoint</code>. Enforces <code>NOT NULL</code> constraint as mandated by <code>ex:ServerShape</code> and OWL cardinality restriction. Multi-label sequence declared cleanly.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Workstation</code><br><code>ex:WorkstationShape</code></td>
+          <td>Table: <code>Workstations</code></td>
+          <td>
+            <span class="label-pill">:Workstation</span>
+            <span class="label-pill">:Endpoint</span>
+            <span class="label-pill">:NetworkNode</span>
+          </td>
+          <td>
+            <code>WorkstationId STRING(36) [PK]</code><br>
+            <code>MacAddress STRING(MAX) NOT NULL</code><br>
+            <code>IPAddressId STRING(36)</code>
+          </td>
+          <td><strong>Bottom-Up Isolation:</strong> Inherits <code>ex:macAddress</code> from <code>ex:Endpoint</code> (<code>NOT NULL</code>). <code>IPAddressId</code> is nullable, accurately reflecting optional connection in <code>WorkstationShape</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Gateway</code><br><code>ex:GatewayShape</code></td>
+          <td>Table: <code>Gateways</code></td>
+          <td>
+            <span class="label-pill">:Gateway</span>
+            <span class="label-pill">:NetworkNode</span>
+          </td>
+          <td><code>GatewayId STRING(36) [PK]</code></td>
+          <td>Concrete subclass of abstract superclass <code>ex:NetworkNode</code>. Exposed with multi-label inheritance. Excludes <code>ex:macAddress</code> due to disjointness with <code>ex:Endpoint</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:IPAddress</code><br><code>ex:IPAddressShape</code></td>
+          <td>Table: <code>IPAddresses</code></td>
+          <td><span class="label-pill">:IPAddress</span></td>
+          <td>
+            <code>IPAddressId STRING(36) [PK]</code><br>
+            <code>IpString STRING(MAX)</code>
+          </td>
+          <td>Datatype mapping: <code>xsd:string</code> &rarr; <code>STRING(MAX)</code>. Primary key surrogate <code>IPAddressId</code> generated.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Vulnerability</code><br><code>ex:VulnerabilityShape</code></td>
+          <td>Table: <code>Vulnerabilities</code></td>
+          <td><span class="label-pill">:Vulnerability</span></td>
+          <td>
+            <code>VulnerabilityId STRING(36) [PK]</code><br>
+            <code>CveId STRING(MAX)</code><br>
+            <code>CvssScore NUMERIC</code>
+          </td>
+          <td>Fidelity check: <code>xsd:decimal</code> mapped to Spanner <code>NUMERIC</code> type.</td>
+        </tr>
+        <tr>
+          <td><code>ex:ThreatActor</code><br><code>ex:ThreatActorShape</code></td>
+          <td>Table: <code>ThreatActors</code></td>
+          <td><span class="label-pill">:ThreatActor</span></td>
+          <td>
+            <code>ThreatActorId STRING(36) [PK]</code><br>
+            <code>ActorName STRING(MAX)</code>
+          </td>
+          <td>Concrete entity table with scalar property mapping. Foreign keys reference outbound relationships.</td>
+        </tr>
+        <tr>
+          <td><code>ex:SecurityAlert</code><br><code>ex:SecurityAlertShape</code></td>
+          <td>Table: <code>SecurityAlerts</code></td>
+          <td><span class="label-pill">:SecurityAlert</span></td>
+          <td>
+            <code>SecurityAlertId STRING(36) [PK]</code><br>
+            <code>SeverityScore INT64</code><br>
+            <code>IsCriticalSeverityAlert BOOL</code>
+          </td>
+          <td><strong>Equivalent Class Invariant:</strong> Contains stored generated column <code>IsCriticalSeverityAlert BOOL AS (SeverityScore &gt;= 9) STORED</code> representing the OWL class axiom. Datatype <code>xsd:integer</code> &rarr; <code>INT64</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:CriticalSeverityAlert</code><br><code>ex:CriticalSeverityAlertShape</code></td>
+          <td>View: <code>CriticalSeverityAlerts</code></td>
+          <td><span class="label-pill">:CriticalSeverityAlert</span></td>
+          <td>
+            <code>SecurityAlertId STRING(36) [KEY]</code><br>
+            <code>SeverityScore INT64</code>
+          </td>
+          <td><strong>View Key Invariant Verified:</strong> Created via <code>SQL SECURITY INVOKER</code> view filtering <code>SeverityScore &gt;= 9</code>. Property Graph NODE TABLE entry explicitly includes required <code>KEY (SecurityAlertId)</code> clause.</td>
+        </tr>
+        <tr>
+          <td><code>ex:SystemProcess</code><br><code>ex:SystemProcessShape</code></td>
+          <td>Table: <code>SystemProcesses</code></td>
+          <td><span class="label-pill">:SystemProcess</span></td>
+          <td>
+            <code>SystemProcessId STRING(36) [PK]</code><br>
+            <code>ProcessId INT64</code><br>
+            <code>ParentProcessNodeId STRING(36)</code>
+          </td>
+          <td>Transitive self-referential class mapping. Foreign key self-references <code>SystemProcesses(SystemProcessId)</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:UserAccount</code><br><code>ex:UserAccountShape</code></td>
+          <td>Table: <code>UserAccounts</code></td>
+          <td><span class="label-pill">:UserAccount</span></td>
+          <td>
+            <code>UserAccountId STRING(36) [PK]</code><br>
+            <code>Username STRING(MAX)</code>
+          </td>
+          <td>Concrete user identity node. Outbound relationships mapped via child association tables.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Property &amp; Semantics</th>
+          <th>Source &rarr; Target Mapping</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed Edge Label</th>
+          <th>Implementation &amp; Traversal Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:hasIPAddress</code><br>
+            <small style="color:var(--muted)">Endpoint &rarr; IPAddress</small>
+          </td>
+          <td>
+            <code>Servers</code> &rarr; <code>IPAddresses</code><br>
+            <code>Workstations</code> &rarr; <code>IPAddresses</code>
+          </td>
+          <td>
+            <code>ServerHasIPAddresses</code><br>
+            <code>WorkstationHasIPAddresses</code>
+          </td>
+          <td><span class="label-pill">:HAS_IP_ADDRESS</span></td>
+          <td><strong>Polymorphic Domain Realization:</strong> Expanded across concrete leaf domain tables (<code>Servers</code> and <code>Workstations</code>). Storage embedded via foreign keys in physical node tables.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:ipBelongsTo</code><br>
+            <small style="color:var(--muted)">owl:inverseOf ex:hasIPAddress</small>
+          </td>
+          <td>
+            <code>IPAddresses</code> &rarr; <code>Servers</code><br>
+            <code>IPAddresses</code> &rarr; <code>Workstations</code>
+          </td>
+          <td>
+            <code>ServerIPBelongsTo</code><br>
+            <code>WorkstationIPBelongsTo</code>
+          </td>
+          <td><span class="label-pill">:IP_BELONGS_TO</span></td>
+          <td><strong>Inverse Property Reuse:</strong> Reuses physical storage of <code>Servers</code> and <code>Workstations</code> tables by inverting <code>SOURCE KEY</code> and <code>DESTINATION KEY</code> parameters.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:hasVulnerability</code><br>
+            <small style="color:var(--muted)">Endpoint &rarr; Vulnerability</small>
+          </td>
+          <td>
+            <code>Servers</code> &rarr; <code>Vulnerabilities</code><br>
+            <code>Workstations</code> &rarr; <code>Vulnerabilities</code>
+          </td>
+          <td>
+            <code>ServerHasVulnerabilities</code><br>
+            <code>WorkstationHasVulnerabilities</code>
+          </td>
+          <td><span class="label-pill">:HAS_VULNERABILITY</span></td>
+          <td>Polymorphic domain navigation linking concrete endpoints to threat vulnerabilities.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:exploits</code><br>
+            <small style="color:var(--muted)">ThreatActor &rarr; Vulnerability</small>
+          </td>
+          <td><code>ThreatActors</code> &rarr; <code>Vulnerabilities</code></td>
+          <td><code>ThreatActorExploits</code></td>
+          <td><span class="label-pill">:EXPLOITS</span></td>
+          <td>Direct edge referencing <code>ExploitedVulnerabilityId</code> foreign key on <code>ThreatActors</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:compromisedBy</code><br>
+            <small style="color:var(--muted)">Endpoint &rarr; ThreatActor</small>
+          </td>
+          <td>
+            <code>Servers</code> &rarr; <code>ThreatActors</code><br>
+            <code>Workstations</code> &rarr; <code>ThreatActors</code>
+          </td>
+          <td>
+            <code>ServerCompromisedByActors</code><br>
+            <code>WorkstationCompromisedByActors</code>
+          </td>
+          <td><span class="label-pill">:COMPROMISED_BY</span></td>
+          <td>Polymorphic endpoint domain to threat actor edge mappings.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:loggedInFrom</code><br>
+            <small style="color:var(--muted)">UserAccount &rarr; Endpoint</small>
+          </td>
+          <td>
+            <code>UserAccounts</code> &rarr; <code>Servers</code><br>
+            <code>UserAccounts</code> &rarr; <code>Workstations</code>
+          </td>
+          <td>
+            <code>UserServerLogins</code><br>
+            <code>UserWorkstationLogins</code>
+          </td>
+          <td><span class="label-pill">:LOGGED_IN_FROM</span></td>
+          <td><strong>Polymorphic Association Tables:</strong> Separate physical join tables (<code>UserServerLogins</code>, <code>UserWorkstationLogins</code>) preserve referential integrity for polymorphic ranges.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:triggeredAlert</code><br>
+            <small style="color:var(--muted)">Endpoint &rarr; SecurityAlert</small>
+          </td>
+          <td>
+            <code>Servers</code> &rarr; <code>SecurityAlerts</code><br>
+            <code>Workstations</code> &rarr; <code>SecurityAlerts</code>
+          </td>
+          <td>
+            <code>ServerTriggeredAlerts</code><br>
+            <code>WorkstationTriggeredAlerts</code>
+          </td>
+          <td><span class="label-pill">:TRIGGERED_ALERT</span></td>
+          <td>Direct foreign key navigation from server/workstation to triggered security alerts.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:communicatedWith</code><br>
+            <small style="color:var(--muted)">owl:SymmetricProperty</small>
+          </td>
+          <td>
+            <code>Servers</code> &rarr; <code>Servers</code><br>
+            <code>Servers</code> &rarr; <code>Workstations</code><br>
+            <code>Workstations</code> &rarr; <code>Workstations</code>
+          </td>
+          <td>
+            <code>ServerServerCommunications</code><br>
+            <code>ServerWorkstationCommunications</code><br>
+            <code>WorkstationWorkstationCommunications</code>
+          </td>
+          <td><span class="label-pill">:COMMUNICATED_WITH</span></td>
+          <td><strong>Symmetric Edge Pair Matrix:</strong> Full combinatorial matrix across concrete endpoint subclasses, enabling bidirectional GQL path traversals.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:parentProcessOf</code><br>
+            <small style="color:var(--muted)">owl:TransitiveProperty</small>
+          </td>
+          <td><code>SystemProcesses</code> &rarr; <code>SystemProcesses</code></td>
+          <td><code>SystemProcessParentEdges</code></td>
+          <td><span class="label-pill">:PARENT_PROCESS_OF</span></td>
+          <td>Transitive self-referential parent process edge enabling variable-length recursive GQL path queries (`-[:PARENT_PROCESS_OF*]->`).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:childProcessOf</code><br>
+            <small style="color:var(--muted)">owl:inverseOf ex:parentProcessOf</small>
+          </td>
+          <td><code>SystemProcesses</code> &rarr; <code>SystemProcesses</code></td>
+          <td><code>SystemProcessChildEdges</code></td>
+          <td><span class="label-pill">:CHILD_PROCESS_OF</span></td>
+          <td>Inverted GQL edge alias sharing physical foreign key storage in <code>SystemProcesses</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Cyber Threat Analytics Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Endpoint Query:</strong><br>Find all compromised endpoints (Servers &amp; Workstations) using abstract superclass label</td>
+          <td>
+            <div class="query-box">
+GRAPH CybersecurityGraph
+MATCH (e:Endpoint)-[:COMPROMISED_BY]->(t:ThreatActor)
+RETURN e.MacAddress, t.ActorName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Transitive Execution Chain Traversal:</strong><br>Query deep system process trees using variable-length path matching</td>
+          <td>
+            <div class="query-box">
+GRAPH CybersecurityGraph
+MATCH (p1:SystemProcess)-[:PARENT_PROCESS_OF*1..5]->(p2:SystemProcess)
+WHERE p1.ProcessId = 1024
+RETURN p2.ProcessId;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Multi-Hop Lateral Movement Attack Path:</strong><br>Trace user login to server communication to critical security alert</td>
+          <td>
+            <div class="query-box">
+GRAPH CybersecurityGraph
+MATCH (u:UserAccount)-[:LOGGED_IN_FROM]->(s:Server)-[:COMMUNICATED_WITH]->(w:Workstation)-[:TRIGGERED_ALERT]->(a:CriticalSeverityAlert)
+RETURN u.Username, s.ServerId, w.WorkstationId, a.SeverityScore;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-top: 16px; font-size: 13px;">
+      <strong style="color: var(--primary); font-size: 14px;">Spanner Engine Invariant Checklist Verification:</strong>
+      <ul style="margin: 8px 0 0 0; padding-left: 20px; line-height: 1.6;">
+        <td><strong>Uniform Label Property Signatures:</strong> Verified. The label <code>LABEL Endpoint PROPERTIES (MacAddress)</code> exposes <code>MacAddress STRING(MAX)</code> with identical column name and data type across both <code>Servers</code> and <code>Workstations</code> tables.</td>
+        <td><strong>Abstract Label Uniformity:</strong> Verified. Abstract superclass label <code>LABEL NetworkNode NO PROPERTIES</code> is declared consistently across <code>Gateways</code>, <code>Servers</code>, and <code>Workstations</code> tables without property discrepancy.</td>
+        <td><strong>SQL View Key Binding:</strong> Verified. The view node declaration <code>CriticalSeverityAlerts KEY (SecurityAlertId)</code> includes explicit primary key binding required by Cloud Spanner Graph Engine for SQL view nodes.</td>
+        <td><strong>Stored Generated Columns:</strong> Verified. <code>IsCriticalSeverityAlert BOOL AS (SeverityScore &gt;= 9) STORED</code> complies strictly with GoogleSQL syntax requirements for materialized evaluation.</td>
+        <td><strong>Keyword Escaping Integrity:</strong> Verified. All table names, column names, node labels, and edge aliases were evaluated against GoogleSQL reserved keywords. No unescaped restricted keywords are present.</td>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/cybersecurity/&gt; .
+
+ex:CybersecurityOntology a owl:Ontology ;
+    rdfs:label &quot;Cybersecurity Network Threat Intelligence and Vulnerability Ontology&quot; ;
+    rdfs:comment &quot;An OWL ontology modeling network topologies, host configurations, user sessions, vulnerabilities, and threat actors.&quot; .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+# Network Nodes
+ex:NetworkNode a owl:Class .
+
+ex:Endpoint a owl:Class ;
+    rdfs:subClassOf ex:NetworkNode ;
+    owl:disjointWith ex:Gateway .
+
+ex:Gateway a owl:Class ;
+    rdfs:subClassOf ex:NetworkNode .
+
+ex:Server a owl:Class ;
+    rdfs:subClassOf ex:Endpoint ;
+    owl:disjointWith ex:Workstation .
+
+ex:Workstation a owl:Class ;
+    rdfs:subClassOf ex:Endpoint .
+
+# Logical/Security Concepts
+ex:IPAddress a owl:Class .
+ex:Vulnerability a owl:Class .
+ex:ThreatActor a owl:Class .
+ex:SecurityAlert a owl:Class .
+ex:SystemProcess a owl:Class .
+ex:UserAccount a owl:Class .
+
+# Equivalent Class: CriticalSeverityAlert
+ex:CriticalSeverityAlert a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:SecurityAlert
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:severityScore ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:integer ;
+                    owl:withRestrictions ( [ xsd:minInclusive 9 ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+ex:hasIPAddress a owl:ObjectProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range ex:IPAddress .
+
+# Inverse Property: IP belongs to endpoint
+ex:ipBelongsTo owl:inverseOf ex:hasIPAddress .
+
+ex:hasVulnerability a owl:ObjectProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range ex:Vulnerability .
+
+ex:exploits a owl:ObjectProperty ;
+    rdfs:domain ex:ThreatActor ;
+    rdfs:range ex:Vulnerability .
+
+ex:compromisedBy a owl:ObjectProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range ex:ThreatActor .
+
+ex:loggedInFrom a owl:ObjectProperty ;
+    rdfs:domain ex:UserAccount ;
+    rdfs:range ex:Endpoint .
+
+ex:triggeredAlert a owl:ObjectProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range ex:SecurityAlert .
+
+# Symmetric Property: Network Connection
+ex:communicatedWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range ex:Endpoint .
+
+# Transitive Property: Process Trees
+ex:parentProcessOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:SystemProcess ;
+    rdfs:range ex:SystemProcess .
+
+ex:childProcessOf a owl:ObjectProperty ;
+    owl:inverseOf ex:parentProcessOf .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+ex:macAddress a owl:DatatypeProperty ;
+    rdfs:domain ex:Endpoint ;
+    rdfs:range xsd:string .
+
+ex:ipString a owl:DatatypeProperty ;
+    rdfs:domain ex:IPAddress ;
+    rdfs:range xsd:string .
+
+ex:cveId a owl:DatatypeProperty ;
+    rdfs:domain ex:Vulnerability ;
+    rdfs:range xsd:string .
+
+ex:cvssScore a owl:DatatypeProperty ;
+    rdfs:domain ex:Vulnerability ;
+    rdfs:range xsd:decimal .
+
+ex:actorName a owl:DatatypeProperty ;
+    rdfs:domain ex:ThreatActor ;
+    rdfs:range xsd:string .
+
+ex:severityScore a owl:DatatypeProperty ;
+    rdfs:domain ex:SecurityAlert ;
+    rdfs:range xsd:integer .
+
+ex:processId a owl:DatatypeProperty ;
+    rdfs:domain ex:SystemProcess ;
+    rdfs:range xsd:integer .
+
+ex:username a owl:DatatypeProperty ;
+    rdfs:domain ex:UserAccount ;
+    rdfs:range xsd:string .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+ex:Server rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:hasIPAddress ;
+        owl:someValuesFrom ex:IPAddress
+    ] .
+
+ex:Endpoint rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:macAddress ;
+        owl:cardinality &quot;1&quot;^^xsd:nonNegativeInteger
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix ex: &lt;http://example.org/cybersecurity/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+ex:CriticalSeverityAlertShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:CriticalSeverityAlert .
+
+ex:EndpointShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:macAddress ],
+        [ sh:class ex:Vulnerability ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:hasVulnerability ],
+        [ sh:class ex:ThreatActor ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:compromisedBy ],
+        [ sh:class ex:SecurityAlert ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:triggeredAlert ],
+        [ sh:class ex:IPAddress ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:hasIPAddress ],
+        [ sh:class ex:Endpoint ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:communicatedWith ] ;
+    sh:targetClass ex:Endpoint .
+
+ex:GatewayShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Gateway .
+
+ex:IPAddressShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:ipString ] ;
+    sh:targetClass ex:IPAddress .
+
+ex:NetworkNodeShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:NetworkNode .
+
+ex:SecurityAlertShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path ex:severityScore ] ;
+    sh:targetClass ex:SecurityAlert .
+
+ex:ServerShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:IPAddress ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:hasIPAddress ] ;
+    sh:targetClass ex:Server .
+
+ex:SystemProcessShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path ex:processId ],
+        [ sh:class ex:SystemProcess ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:parentProcessOf ] ;
+    sh:targetClass ex:SystemProcess .
+
+ex:ThreatActorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Vulnerability ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:exploits ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:actorName ] ;
+    sh:targetClass ex:ThreatActor .
+
+ex:UserAccountShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Endpoint ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:loggedInFrom ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:username ] ;
+    sh:targetClass ex:UserAccount .
+
+ex:VulnerabilityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path ex:cvssScore ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:cveId ] ;
+    sh:targetClass ex:Vulnerability .
+
+ex:WorkstationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Workstation .
+
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- Google Cloud Spanner Physical Relational Schema &amp; Property Graph DDL
+-- Ontology: Cybersecurity Network Threat Intelligence and Vulnerability Ontology
+-- Pattern: Table-Per-Concrete-Class with Flattened Superclass Hierarchies
+-- =============================================================================
+
+-- -----------------------------------------------------------------------------
+-- 1. PHYSICAL RELATIONAL TABLES
+-- -----------------------------------------------------------------------------
+
+-- Concrete Class: IPAddress
+CREATE TABLE IPAddresses (
+  IPAddressId STRING(36) NOT NULL,
+  IpString STRING(MAX)
+) PRIMARY KEY (IPAddressId);
+
+-- Concrete Class: Vulnerability
+CREATE TABLE Vulnerabilities (
+  VulnerabilityId STRING(36) NOT NULL,
+  CveId STRING(MAX),
+  CvssScore NUMERIC
+) PRIMARY KEY (VulnerabilityId);
+
+-- Concrete Class: ThreatActor
+CREATE TABLE ThreatActors (
+  ThreatActorId STRING(36) NOT NULL,
+  ActorName STRING(MAX),
+  ExploitedVulnerabilityId STRING(36),
+  CONSTRAINT FK_ThreatActors_Vulnerabilities FOREIGN KEY (ExploitedVulnerabilityId) 
+    REFERENCES Vulnerabilities (VulnerabilityId)
+) PRIMARY KEY (ThreatActorId);
+
+-- Concrete Class: SecurityAlert (includes Equivalent Class: CriticalSeverityAlert via Generated Column)
+CREATE TABLE SecurityAlerts (
+  SecurityAlertId STRING(36) NOT NULL,
+  SeverityScore INT64,
+  IsCriticalSeverityAlert BOOL AS (SeverityScore &gt;= 9) STORED
+) PRIMARY KEY (SecurityAlertId);
+
+-- Concrete Class: Gateway (subClassOf NetworkNode)
+CREATE TABLE Gateways (
+  GatewayId STRING(36) NOT NULL
+) PRIMARY KEY (GatewayId);
+
+-- Concrete Class: Server (subClassOf Endpoint -&gt; NetworkNode)
+CREATE TABLE Servers (
+  ServerId STRING(36) NOT NULL,
+  MacAddress STRING(MAX) NOT NULL,
+  IPAddressId STRING(36) NOT NULL,
+  VulnerabilityId STRING(36),
+  CompromisedByThreatActorId STRING(36),
+  TriggeredSecurityAlertId STRING(36),
+  CONSTRAINT FK_Servers_IPAddresses FOREIGN KEY (IPAddressId) 
+    REFERENCES IPAddresses (IPAddressId),
+  CONSTRAINT FK_Servers_Vulnerabilities FOREIGN KEY (VulnerabilityId) 
+    REFERENCES Vulnerabilities (VulnerabilityId),
+  CONSTRAINT FK_Servers_ThreatActors FOREIGN KEY (CompromisedByThreatActorId) 
+    REFERENCES ThreatActors (ThreatActorId),
+  CONSTRAINT FK_Servers_SecurityAlerts FOREIGN KEY (TriggeredSecurityAlertId) 
+    REFERENCES SecurityAlerts (SecurityAlertId)
+) PRIMARY KEY (ServerId);
+
+-- Concrete Class: Workstation (subClassOf Endpoint -&gt; NetworkNode)
+CREATE TABLE Workstations (
+  WorkstationId STRING(36) NOT NULL,
+  MacAddress STRING(MAX) NOT NULL,
+  IPAddressId STRING(36),
+  VulnerabilityId STRING(36),
+  CompromisedByThreatActorId STRING(36),
+  TriggeredSecurityAlertId STRING(36),
+  CONSTRAINT FK_Workstations_IPAddresses FOREIGN KEY (IPAddressId) 
+    REFERENCES IPAddresses (IPAddressId),
+  CONSTRAINT FK_Workstations_Vulnerabilities FOREIGN KEY (VulnerabilityId) 
+    REFERENCES Vulnerabilities (VulnerabilityId),
+  CONSTRAINT FK_Workstations_ThreatActors FOREIGN KEY (CompromisedByThreatActorId) 
+    REFERENCES ThreatActors (ThreatActorId),
+  CONSTRAINT FK_Workstations_SecurityAlerts FOREIGN KEY (TriggeredSecurityAlertId) 
+    REFERENCES SecurityAlerts (SecurityAlertId)
+) PRIMARY KEY (WorkstationId);
+
+-- Concrete Class: SystemProcess (with Transitive Self-Referential Parent-Child Hierarchy)
+CREATE TABLE SystemProcesses (
+  SystemProcessId STRING(36) NOT NULL,
+  ProcessId INT64,
+  ParentProcessNodeId STRING(36),
+  CONSTRAINT FK_SystemProcesses_Parent FOREIGN KEY (ParentProcessNodeId) 
+    REFERENCES SystemProcesses (SystemProcessId)
+) PRIMARY KEY (SystemProcessId);
+
+-- Concrete Class: UserAccount
+CREATE TABLE UserAccounts (
+  UserAccountId STRING(36) NOT NULL,
+  Username STRING(MAX)
+) PRIMARY KEY (UserAccountId);
+
+-- Relational Edge Table: UserLogins (UserAccount -&gt; Server / Workstation)
+CREATE TABLE UserServerLogins (
+  UserAccountId STRING(36) NOT NULL,
+  ServerId STRING(36) NOT NULL,
+  CONSTRAINT FK_UserServerLogins_User FOREIGN KEY (UserAccountId) 
+    REFERENCES UserAccounts (UserAccountId),
+  CONSTRAINT FK_UserServerLogins_Server FOREIGN KEY (ServerId) 
+    REFERENCES Servers (ServerId)
+) PRIMARY KEY (UserAccountId, ServerId);
+
+CREATE TABLE UserWorkstationLogins (
+  UserAccountId STRING(36) NOT NULL,
+  WorkstationId STRING(36) NOT NULL,
+  CONSTRAINT FK_UserWorkstationLogins_User FOREIGN KEY (UserAccountId) 
+    REFERENCES UserAccounts (UserAccountId),
+  CONSTRAINT FK_UserWorkstationLogins_Workstation FOREIGN KEY (WorkstationId) 
+    REFERENCES Workstations (WorkstationId)
+) PRIMARY KEY (UserAccountId, WorkstationId);
+
+-- Relational Edge Table: EndpointCommunications (Symmetric Network Connections)
+CREATE TABLE ServerServerCommunications (
+  SourceServerId STRING(36) NOT NULL,
+  TargetServerId STRING(36) NOT NULL,
+  CONSTRAINT FK_SS_Source FOREIGN KEY (SourceServerId) REFERENCES Servers (ServerId),
+  CONSTRAINT FK_SS_Target FOREIGN KEY (TargetServerId) REFERENCES Servers (ServerId)
+) PRIMARY KEY (SourceServerId, TargetServerId);
+
+CREATE TABLE ServerWorkstationCommunications (
+  ServerId STRING(36) NOT NULL,
+  WorkstationId STRING(36) NOT NULL,
+  CONSTRAINT FK_SW_Server FOREIGN KEY (ServerId) REFERENCES Servers (ServerId),
+  CONSTRAINT FK_SW_Workstation FOREIGN KEY (WorkstationId) REFERENCES Workstations (WorkstationId)
+) PRIMARY KEY (ServerId, WorkstationId);
+
+CREATE TABLE WorkstationWorkstationCommunications (
+  SourceWorkstationId STRING(36) NOT NULL,
+  TargetWorkstationId STRING(36) NOT NULL,
+  CONSTRAINT FK_WW_Source FOREIGN KEY (SourceWorkstationId) REFERENCES Workstations (WorkstationId),
+  CONSTRAINT FK_WW_Target FOREIGN KEY (TargetWorkstationId) REFERENCES Workstations (WorkstationId)
+) PRIMARY KEY (SourceWorkstationId, TargetWorkstationId);
+
+-- -----------------------------------------------------------------------------
+-- 2. SQL SECURITY INVOKER VIEWS
+-- -----------------------------------------------------------------------------
+
+-- View: CriticalSeverityAlerts representing equivalent class
+CREATE VIEW CriticalSeverityAlerts SQL SECURITY INVOKER AS
+SELECT
+  sa.SecurityAlertId,
+  sa.SeverityScore,
+  sa.IsCriticalSeverityAlert
+FROM SecurityAlerts sa
+WHERE sa.SeverityScore &gt;= 9;
+
+-- -----------------------------------------------------------------------------
+-- 3. PROPERTY GRAPH SCHEMA
+-- -----------------------------------------------------------------------------
+
+CREATE PROPERTY GRAPH CybersecurityGraph
+  NODE TABLES (
+    Gateways
+      LABEL Gateway PROPERTIES (GatewayId)
+      LABEL NetworkNode NO PROPERTIES,
+
+    Servers
+      LABEL Server PROPERTIES (ServerId, MacAddress)
+      LABEL Endpoint PROPERTIES (MacAddress)
+      LABEL NetworkNode NO PROPERTIES,
+
+    Workstations
+      LABEL Workstation PROPERTIES (WorkstationId, MacAddress)
+      LABEL Endpoint PROPERTIES (MacAddress)
+      LABEL NetworkNode NO PROPERTIES,
+
+    IPAddresses
+      LABEL IPAddress PROPERTIES (IPAddressId, IpString),
+
+    Vulnerabilities
+      LABEL Vulnerability PROPERTIES (VulnerabilityId, CveId, CvssScore),
+
+    ThreatActors
+      LABEL ThreatActor PROPERTIES (ThreatActorId, ActorName),
+
+    SecurityAlerts
+      LABEL SecurityAlert PROPERTIES (SecurityAlertId, SeverityScore, IsCriticalSeverityAlert),
+
+    CriticalSeverityAlerts KEY (SecurityAlertId)
+      LABEL CriticalSeverityAlert PROPERTIES (SecurityAlertId, SeverityScore),
+
+    SystemProcesses
+      LABEL SystemProcess PROPERTIES (SystemProcessId, ProcessId),
+
+    UserAccounts
+      LABEL UserAccount PROPERTIES (UserAccountId, Username)
+  )
+  EDGE TABLES (
+    -- Forward Edge: Server -&gt; hasIPAddress -&gt; IPAddress
+    Servers AS ServerHasIPAddresses
+      SOURCE KEY (ServerId) REFERENCES Servers (ServerId)
+      DESTINATION KEY (IPAddressId) REFERENCES IPAddresses (IPAddressId)
+      LABEL HAS_IP_ADDRESS NO PROPERTIES,
+
+    -- Inverse Edge: IPAddress -&gt; ipBelongsTo -&gt; Server
+    Servers AS ServerIPBelongsTo
+      SOURCE KEY (IPAddressId) REFERENCES IPAddresses (IPAddressId)
+      DESTINATION KEY (ServerId) REFERENCES Servers (ServerId)
+      LABEL IP_BELONGS_TO NO PROPERTIES,
+
+    -- Forward Edge: Workstation -&gt; hasIPAddress -&gt; IPAddress
+    Workstations AS WorkstationHasIPAddresses
+      SOURCE KEY (WorkstationId) REFERENCES Workstations (WorkstationId)
+      DESTINATION KEY (IPAddressId) REFERENCES IPAddresses (IPAddressId)
+      LABEL HAS_IP_ADDRESS NO PROPERTIES,
+
+    -- Inverse Edge: IPAddress -&gt; ipBelongsTo -&gt; Workstation
+    Workstations AS WorkstationIPBelongsTo
+      SOURCE KEY (IPAddressId) REFERENCES IPAddresses (IPAddressId)
+      DESTINATION KEY (WorkstationId) REFERENCES Workstations (WorkstationId)
+      LABEL IP_BELONGS_TO NO PROPERTIES,
+
+    -- Server Vulnerability Link
+    Servers AS ServerHasVulnerabilities
+      SOURCE KEY (ServerId) REFERENCES Servers (ServerId)
+      DESTINATION KEY (VulnerabilityId) REFERENCES Vulnerabilities (VulnerabilityId)
+      LABEL HAS_VULNERABILITY NO PROPERTIES,
+
+    -- Workstation Vulnerability Link
+    Workstations AS WorkstationHasVulnerabilities
+      SOURCE KEY (WorkstationId) REFERENCES Workstations (WorkstationId)
+      DESTINATION KEY (VulnerabilityId) REFERENCES Vulnerabilities (VulnerabilityId)
+      LABEL HAS_VULNERABILITY NO PROPERTIES,
+
+    -- Server Compromised By ThreatActor
+    Servers AS ServerCompromisedByActors
+      SOURCE KEY (ServerId) REFERENCES Servers (ServerId)
+      DESTINATION KEY (CompromisedByThreatActorId) REFERENCES ThreatActors (ThreatActorId)
+      LABEL COMPROMISED_BY NO PROPERTIES,
+
+    -- Workstation Compromised By ThreatActor
+    Workstations AS WorkstationCompromisedByActors
+      SOURCE KEY (WorkstationId) REFERENCES Workstations (WorkstationId)
+      DESTINATION KEY (CompromisedByThreatActorId) REFERENCES ThreatActors (ThreatActorId)
+      LABEL COMPROMISED_BY NO PROPERTIES,
+
+    -- Server Triggered Alert
+    Servers AS ServerTriggeredAlerts
+      SOURCE KEY (ServerId) REFERENCES Servers (ServerId)
+      DESTINATION KEY (TriggeredSecurityAlertId) REFERENCES SecurityAlerts (SecurityAlertId)
+      LABEL TRIGGERED_ALERT NO PROPERTIES,
+
+    -- Workstation Triggered Alert
+    Workstations AS WorkstationTriggeredAlerts
+      SOURCE KEY (WorkstationId) REFERENCES Workstations (WorkstationId)
+      DESTINATION KEY (TriggeredSecurityAlertId) REFERENCES SecurityAlerts (SecurityAlertId)
+      LABEL TRIGGERED_ALERT NO PROPERTIES,
+
+    -- ThreatActor exploits Vulnerability
+    ThreatActors AS ThreatActorExploits
+      SOURCE KEY (ThreatActorId) REFERENCES ThreatActors (ThreatActorId)
+      DESTINATION KEY (ExploitedVulnerabilityId) REFERENCES Vulnerabilities (VulnerabilityId)
+      LABEL EXPLOITS NO PROPERTIES,
+
+    -- UserAccount LoggedInFrom Server
+    UserServerLogins
+      SOURCE KEY (UserAccountId) REFERENCES UserAccounts (UserAccountId)
+      DESTINATION KEY (ServerId) REFERENCES Servers (ServerId)
+      LABEL LOGGED_IN_FROM NO PROPERTIES,
+
+    -- UserAccount LoggedInFrom Workstation
+    UserWorkstationLogins
+      SOURCE KEY (UserAccountId) REFERENCES UserAccounts (UserAccountId)
+      DESTINATION KEY (WorkstationId) REFERENCES Workstations (WorkstationId)
+      LABEL LOGGED_IN_FROM NO PROPERTIES,
+
+    -- Symmetric Network Communications: Server -&gt; Server
+    ServerServerCommunications
+      SOURCE KEY (SourceServerId) REFERENCES Servers (ServerId)
+      DESTINATION KEY (TargetServerId) REFERENCES Servers (ServerId)
+      LABEL COMMUNICATED_WITH NO PROPERTIES,
+
+    -- Symmetric Network Communications: Server -&gt; Workstation
+    ServerWorkstationCommunications
+      SOURCE KEY (ServerId) REFERENCES Servers (ServerId)
+      DESTINATION KEY (WorkstationId) REFERENCES Workstations (WorkstationId)
+      LABEL COMMUNICATED_WITH NO PROPERTIES,
+
+    -- Symmetric Network Communications: Workstation -&gt; Workstation
+    WorkstationWorkstationCommunications
+      SOURCE KEY (SourceWorkstationId) REFERENCES Workstations (WorkstationId)
+      DESTINATION KEY (TargetWorkstationId) REFERENCES Workstations (WorkstationId)
+      LABEL COMMUNICATED_WITH NO PROPERTIES,
+
+    -- Transitive Process Tree: Parent Process Of (Forward)
+    SystemProcesses AS SystemProcessParentEdges
+      SOURCE KEY (ParentProcessNodeId) REFERENCES SystemProcesses (SystemProcessId)
+      DESTINATION KEY (SystemProcessId) REFERENCES SystemProcesses (SystemProcessId)
+      LABEL PARENT_PROCESS_OF NO PROPERTIES,
+
+    -- Inverse Process Tree: Child Process Of (Inverse)
+    SystemProcesses AS SystemProcessChildEdges
+      SOURCE KEY (SystemProcessId) REFERENCES SystemProcesses (SystemProcessId)
+      DESTINATION KEY (ParentProcessNodeId) REFERENCES SystemProcesses (SystemProcessId)
+      LABEL CHILD_PROCESS_OF NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

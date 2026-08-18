@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Entertainment Media Ontology</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>entertainment.ttl</code></div>
+          <div>SHACL: <code>entertainment-shapes.ttl</code></div>
+          <div>Target DDL: <code>entertainment-schema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">4</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">4</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">3</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    CreativeWork["<b>CreativeWork</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ Title: STRING(MAX)<br>+ ReleaseDate: DATE"]:::abstract
+    RolePlayer["<b>RolePlayer</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ Name: STRING(MAX)"]:::abstract
+
+    Movies["<b>Movies</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ MovieId: STRING(36) [PK]<br>+ Title: STRING(MAX)<br>+ ReleaseDate: DATE"]:::concrete
+    TVSeries["<b>TVSeries</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ TVSeriesId: STRING(36) [PK]<br>+ Title: STRING(MAX)<br>+ ReleaseDate: DATE"]:::concrete
+    Actors["<b>Actors</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ ActorId: STRING(36) [PK]<br>+ Name: STRING(MAX)"]:::concrete
+    Directors["<b>Directors</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ DirectorId: STRING(36) [PK]<br>+ Name: STRING(MAX)"]:::concrete
+
+    CreativeWork -.->|Table-Per-Concrete| Movies
+    CreativeWork -.->|Table-Per-Concrete| TVSeries
+    RolePlayer -.->|Table-Per-Concrete| Actors
+    RolePlayer -.->|Table-Per-Concrete| Directors
+
+    Actors -->|ACTED_IN<br>+ CharacterName<br>+ BillingOrder| Movies
+    Actors -->|ACTED_IN<br>+ CharacterName<br>+ BillingOrder| TVSeries
+    Directors -->|DIRECTED| Movies
+    Directors -->|DIRECTED| TVSeries
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Suppressed)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:Movie</code><br>
+            <small style="color:var(--muted)">subClassOf <code>ex:CreativeWork</code></small>
+          </td>
+          <td><code>Movies</code></td>
+          <td>
+            <span class="label-pill">:Movie</span>
+            <span class="label-pill">:CreativeWork</span>
+          </td>
+          <td>
+            <code>MovieId STRING(36) [PK]</code><br>
+            <code>Title STRING(MAX)</code><br>
+            <code>ReleaseDate DATE</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits <code>title</code> and <code>releaseDate</code> from <code>ex:CreativeWork</code>. Exposes uniform property aliasing <code>MovieId AS WorkId</code> for the polymorphic superclass label.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:TVSeries</code><br>
+            <small style="color:var(--muted)">subClassOf <code>ex:CreativeWork</code></small>
+          </td>
+          <td><code>TVSeries</code></td>
+          <td>
+            <span class="label-pill">:TVSeries</span>
+            <span class="label-pill">:CreativeWork</span>
+          </td>
+          <td>
+            <code>TVSeriesId STRING(36) [PK]</code><br>
+            <code>Title STRING(MAX)</code><br>
+            <code>ReleaseDate DATE</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits <code>title</code> and <code>releaseDate</code> from <code>ex:CreativeWork</code>. Exposes uniform property aliasing <code>TVSeriesId AS WorkId</code> matching the <code>CreativeWork</code> label signature.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:Actor</code><br>
+            <small style="color:var(--muted)">subClassOf <code>ex:RolePlayer</code></small>
+          </td>
+          <td><code>Actors</code></td>
+          <td>
+            <span class="label-pill">:Actor</span>
+            <span class="label-pill">:RolePlayer</span>
+          </td>
+          <td>
+            <code>ActorId STRING(36) [PK]</code><br>
+            <code>Name STRING(MAX)</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits <code>name</code> from <code>ex:RolePlayer</code>. Exposes uniform property aliasing <code>ActorId AS RolePlayerId</code> under <code>LABEL RolePlayer</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:Director</code><br>
+            <small style="color:var(--muted)">subClassOf <code>ex:RolePlayer</code></small>
+          </td>
+          <td><code>Directors</code></td>
+          <td>
+            <span class="label-pill">:Director</span>
+            <span class="label-pill">:RolePlayer</span>
+          </td>
+          <td>
+            <code>DirectorId STRING(36) [PK]</code><br>
+            <code>Name STRING(MAX)</code>
+          </td>
+          <td><strong>Table-Per-Concrete-Class:</strong> Inherits <code>name</code> from <code>ex:RolePlayer</code>. Exposes uniform property aliasing <code>DirectorId AS RolePlayerId</code> matching the <code>RolePlayer</code> label signature.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Physical Source</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:actedIn</code><br>
+            <small style="color:var(--muted)">Reified with characterName &amp; billingOrder</small>
+          </td>
+          <td><code>Actors</code> &rarr; <code>Movies</code></td>
+          <td><code>ActorActedInMovies</code></td>
+          <td>
+            <span class="label-pill">:ACTED_IN</span>
+          </td>
+          <td><strong>Polymorphic Range Disambiguation:</strong> Concrete realization connecting <code>ex:Actor</code> to <code>ex:Movie</code> with reified edge attributes (<code>CharacterName STRING(MAX)</code>, <code>BillingOrder INT64</code>).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:actedIn</code><br>
+            <small style="color:var(--muted)">Reified with characterName &amp; billingOrder</small>
+          </td>
+          <td><code>Actors</code> &rarr; <code>TVSeries</code></td>
+          <td><code>ActorActedInTVSeries</code></td>
+          <td>
+            <span class="label-pill">:ACTED_IN</span>
+          </td>
+          <td><strong>Polymorphic Range Disambiguation:</strong> Concrete realization connecting <code>ex:Actor</code> to <code>ex:TVSeries</code> maintaining uniform edge property types for label <code>:ACTED_IN</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:directed</code><br>
+            <small style="color:var(--muted)">Simple Object Property</small>
+          </td>
+          <td><code>Directors</code> &rarr; <code>Movies</code></td>
+          <td><code>DirectorDirectedMovies</code></td>
+          <td>
+            <span class="label-pill">:DIRECTED</span>
+          </td>
+          <td><strong>Polymorphic Range Disambiguation:</strong> Concrete realization connecting <code>ex:Director</code> to <code>ex:Movie</code> without edge properties (<code>NO PROPERTIES</code>).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:directed</code><br>
+            <small style="color:var(--muted)">Simple Object Property</small>
+          </td>
+          <td><code>Directors</code> &rarr; <code>TVSeries</code></td>
+          <td><code>DirectorDirectedTVSeries</code></td>
+          <td>
+            <span class="label-pill">:DIRECTED</span>
+          </td>
+          <td><strong>Polymorphic Range Disambiguation:</strong> Concrete realization connecting <code>ex:Director</code> to <code>ex:TVSeries</code> without edge properties (<code>NO PROPERTIES</code>).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic CreativeWork Traversal:</strong><br>Find all creative works (both Movies and TV Series) and their release dates</td>
+          <td>
+            <div class="query-box">
+GRAPH EntertainmentGraph
+MATCH (w:CreativeWork)
+RETURN w.WorkId, w.Title, w.ReleaseDate
+ORDER BY w.ReleaseDate DESC;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Reified Edge Traversal:</strong><br>Find actors with lead billing order across any creative work</td>
+          <td>
+            <div class="query-box">
+GRAPH EntertainmentGraph
+MATCH (a:Actor)-[e:ACTED_IN]->(w:CreativeWork)
+WHERE e.BillingOrder = 1
+RETURN a.Name AS LeadActor, e.CharacterName AS Character, w.Title AS WorkTitle;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Cross-Role Collaboration:</strong><br>Find individuals who both directed and acted in the same work</td>
+          <td>
+            <div class="query-box">
+GRAPH EntertainmentGraph
+MATCH (d:Director)-[:DIRECTED]->(w:CreativeWork)<-[:ACTED_IN]-(a:Actor)
+WHERE d.Name = a.Name
+RETURN d.Name AS Auteur, w.Title AS WorkTitle;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Label Property Signatures:</strong> Both <code>Movies</code> and <code>TVSeries</code> expose identical property signatures for <code>LABEL CreativeWork</code> (<code>WorkId STRING(36)</code>, <code>Title STRING(MAX)</code>, <code>ReleaseDate DATE</code>).</li>
+        <li><strong>Uniform Edge Property Signatures:</strong> Both <code>ActorActedInMovies</code> and <code>ActorActedInTVSeries</code> expose identical properties (<code>CharacterName STRING(MAX)</code>, <code>BillingOrder INT64</code>) under <code>LABEL ACTED_IN</code>.</li>
+        <li><strong>Relational &amp; Graph Key Integrity:</strong> All <code>SOURCE KEY</code> and <code>DESTINATION KEY</code> references align 1:1 with corresponding relational foreign keys.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/entertainment/&gt; .
+
+ex:EntertainmentOntology a owl:Ontology ;
+    rdfs:label &quot;Entertainment Media Ontology (IMDb)&quot; ;
+    rdfs:comment &quot;An OWL ontology for modeling movies, TV series, actors, directors, and their roles.&quot; .
+
+# Classes
+ex:CreativeWork a owl:Class .
+
+ex:Movie a owl:Class ;
+    rdfs:subClassOf ex:CreativeWork ;
+    owl:disjointWith ex:TVSeries .
+
+ex:TVSeries a owl:Class ;
+    rdfs:subClassOf ex:CreativeWork .
+
+ex:RolePlayer a owl:Class .
+
+ex:Actor a owl:Class ;
+    rdfs:subClassOf ex:RolePlayer .
+
+ex:Director a owl:Class ;
+    rdfs:subClassOf ex:RolePlayer .
+
+# Restrictions
+ex:Actor rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:actedIn ;
+        owl:someValuesFrom ex:CreativeWork
+    ] .
+
+ex:Director rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:directed ;
+        owl:someValuesFrom ex:CreativeWork
+    ] .
+
+# Object Properties
+ex:actedIn a owl:ObjectProperty ;
+    rdfs:domain ex:Actor ;
+    rdfs:range ex:CreativeWork .
+
+ex:directed a owl:ObjectProperty ;
+    rdfs:domain ex:Director ;
+    rdfs:range ex:CreativeWork .
+
+# Datatype Properties
+ex:title a owl:DatatypeProperty ;
+    rdfs:domain ex:CreativeWork ;
+    rdfs:range xsd:string .
+
+ex:releaseDate a owl:DatatypeProperty ;
+    rdfs:domain ex:CreativeWork ;
+    rdfs:range xsd:date .
+
+ex:name a owl:DatatypeProperty ;
+    rdfs:domain ex:RolePlayer ;
+    rdfs:range xsd:string .
+
+ex:characterName a owl:DatatypeProperty ;
+    rdfs:domain ex:actedIn ;
+    rdfs:range xsd:string .
+
+ex:billingOrder a owl:DatatypeProperty ;
+    rdfs:domain ex:actedIn ;
+    rdfs:range xsd:integer .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix ex: &lt;http://example.org/entertainment/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+ex:ActorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:CreativeWork ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:actedIn ] ;
+    sh:targetClass ex:Actor .
+
+ex:CreativeWorkShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:title ],
+        [ sh:datatype xsd:date ;
+            sh:maxCount 1 ;
+            sh:path ex:releaseDate ] ;
+    sh:targetClass ex:CreativeWork .
+
+ex:DirectorShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:CreativeWork ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:directed ] ;
+    sh:targetClass ex:Director .
+
+ex:MovieShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Movie .
+
+ex:RolePlayerShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:name ] ;
+    sh:targetClass ex:RolePlayer .
+
+ex:TVSeriesShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:TVSeries .
+
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- PHYSICAL RELATIONAL SCHEMA (Google Cloud Spanner)
+-- Pattern: Table-Per-Concrete-Class with Flattened Superclass Properties
+-- =============================================================================
+
+-- Concrete Class: ex:Movie (subclass of ex:CreativeWork)
+CREATE TABLE Movies (
+  MovieId STRING(36) NOT NULL,
+  Title STRING(MAX),
+  ReleaseDate DATE
+) PRIMARY KEY (MovieId);
+
+-- Concrete Class: ex:TVSeries (subclass of ex:CreativeWork)
+CREATE TABLE TVSeries (
+  TVSeriesId STRING(36) NOT NULL,
+  Title STRING(MAX),
+  ReleaseDate DATE
+) PRIMARY KEY (TVSeriesId);
+
+-- Concrete Class: ex:Actor (subclass of ex:RolePlayer)
+CREATE TABLE Actors (
+  ActorId STRING(36) NOT NULL,
+  Name STRING(MAX)
+) PRIMARY KEY (ActorId);
+
+-- Concrete Class: ex:Director (subclass of ex:RolePlayer)
+CREATE TABLE Directors (
+  DirectorId STRING(36) NOT NULL,
+  Name STRING(MAX)
+) PRIMARY KEY (DirectorId);
+
+-- Reified Object Property: ex:actedIn (Actor -&gt; Movie)
+CREATE TABLE ActorActedInMovies (
+  ActorId STRING(36) NOT NULL,
+  MovieId STRING(36) NOT NULL,
+  CharacterName STRING(MAX),
+  BillingOrder INT64,
+  CONSTRAINT FK_ActedIn_Actor_Movie FOREIGN KEY (ActorId) REFERENCES Actors (ActorId),
+  CONSTRAINT FK_ActedIn_Movie FOREIGN KEY (MovieId) REFERENCES Movies (MovieId)
+) PRIMARY KEY (ActorId, MovieId);
+
+-- Reified Object Property: ex:actedIn (Actor -&gt; TVSeries)
+CREATE TABLE ActorActedInTVSeries (
+  ActorId STRING(36) NOT NULL,
+  TVSeriesId STRING(36) NOT NULL,
+  CharacterName STRING(MAX),
+  BillingOrder INT64,
+  CONSTRAINT FK_ActedIn_Actor_TVSeries FOREIGN KEY (ActorId) REFERENCES Actors (ActorId),
+  CONSTRAINT FK_ActedIn_TVSeries FOREIGN KEY (TVSeriesId) REFERENCES TVSeries (TVSeriesId)
+) PRIMARY KEY (ActorId, TVSeriesId);
+
+-- Object Property: ex:directed (Director -&gt; Movie)
+CREATE TABLE DirectorDirectedMovies (
+  DirectorId STRING(36) NOT NULL,
+  MovieId STRING(36) NOT NULL,
+  CONSTRAINT FK_Directed_Director_Movie FOREIGN KEY (DirectorId) REFERENCES Directors (DirectorId),
+  CONSTRAINT FK_Directed_Movie FOREIGN KEY (MovieId) REFERENCES Movies (MovieId)
+) PRIMARY KEY (DirectorId, MovieId);
+
+-- Object Property: ex:directed (Director -&gt; TVSeries)
+CREATE TABLE DirectorDirectedTVSeries (
+  DirectorId STRING(36) NOT NULL,
+  TVSeriesId STRING(36) NOT NULL,
+  CONSTRAINT FK_Directed_Director_TVSeries FOREIGN KEY (DirectorId) REFERENCES Directors (DirectorId),
+  CONSTRAINT FK_Directed_TVSeries FOREIGN KEY (TVSeriesId) REFERENCES TVSeries (TVSeriesId)
+) PRIMARY KEY (DirectorId, TVSeriesId);
+
+-- =============================================================================
+-- PROPERTY GRAPH SCHEMA (GoogleSQL / GQL)
+-- =============================================================================
+
+CREATE PROPERTY GRAPH EntertainmentGraph
+  NODE TABLES (
+    -- Movie Node Table with Concrete and Superclass Labels
+    Movies
+      LABEL Movie PROPERTIES (MovieId, Title, ReleaseDate)
+      LABEL CreativeWork PROPERTIES (MovieId AS WorkId, Title, ReleaseDate),
+
+    -- TVSeries Node Table with Concrete and Superclass Labels
+    TVSeries
+      LABEL TVSeries PROPERTIES (TVSeriesId, Title, ReleaseDate)
+      LABEL CreativeWork PROPERTIES (TVSeriesId AS WorkId, Title, ReleaseDate),
+
+    -- Actor Node Table with Concrete and Superclass Labels
+    Actors
+      LABEL Actor PROPERTIES (ActorId, Name)
+      LABEL RolePlayer PROPERTIES (ActorId AS RolePlayerId, Name),
+
+    -- Director Node Table with Concrete and Superclass Labels
+    Directors
+      LABEL Director PROPERTIES (DirectorId, Name)
+      LABEL RolePlayer PROPERTIES (DirectorId AS RolePlayerId, Name)
+  )
+  EDGE TABLES (
+    -- Actor -&gt; Movie (actedIn)
+    ActorActedInMovies
+      SOURCE KEY (ActorId) REFERENCES Actors (ActorId)
+      DESTINATION KEY (MovieId) REFERENCES Movies (MovieId)
+      LABEL ACTED_IN PROPERTIES (CharacterName, BillingOrder),
+
+    -- Actor -&gt; TVSeries (actedIn)
+    ActorActedInTVSeries
+      SOURCE KEY (ActorId) REFERENCES Actors (ActorId)
+      DESTINATION KEY (TVSeriesId) REFERENCES TVSeries (TVSeriesId)
+      LABEL ACTED_IN PROPERTIES (CharacterName, BillingOrder),
+
+    -- Director -&gt; Movie (directed)
+    DirectorDirectedMovies
+      SOURCE KEY (DirectorId) REFERENCES Directors (DirectorId)
+      DESTINATION KEY (MovieId) REFERENCES Movies (MovieId)
+      LABEL DIRECTED NO PROPERTIES,
+
+    -- Director -&gt; TVSeries (directed)
+    DirectorDirectedTVSeries
+      SOURCE KEY (DirectorId) REFERENCES Directors (DirectorId)
+      DESTINATION KEY (TVSeriesId) REFERENCES TVSeries (TVSeriesId)
+      LABEL DIRECTED NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

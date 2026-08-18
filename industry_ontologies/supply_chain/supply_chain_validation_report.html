@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Supply Chain and Logistics Inventory</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>supplychain.ttl</code></div>
+          <div>SHACL: <code>supplychain_shapes.ttl</code></div>
+          <div>Target Graph: <code>SupplyChainGraph</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">8</div>
+        <div class="label">Node Tables (Concrete)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">29</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">12</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology (Diagram First) -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    Asset["<b>ex:Asset</b><br><i>&laquo;Abstract Root Class&raquo;</i>"]:::abstract
+    Location["<b>ex:Location</b><br><i>&laquo;Abstract Superclass&raquo;</i><br>+ LocationCode: STRING"]:::abstract
+    Item["<b>ex:Item</b><br><i>&laquo;Abstract Superclass&raquo;</i><br>+ UnitCost: NUMERIC<br>+ QuantityInStock: INT64"]:::abstract
+
+    Warehouses["<b>Warehouses</b><br><i>&laquo;Node &amp; Spanner Table&raquo;</i><br>+ WarehouseId: STRING(36) [PK]<br>+ LocationCode: STRING(MAX) [NOT NULL]"]:::concrete
+    ManufacturingPlants["<b>ManufacturingPlants</b><br><i>&laquo;Node &amp; Spanner Table&raquo;</i><br>+ ManufacturingPlantId: STRING(36) [PK]<br>+ LocationCode: STRING(MAX)"]:::concrete
+    SupplierFacilities["<b>SupplierFacilities</b><br><i>&laquo;Node &amp; Spanner Table&raquo;</i><br>+ SupplierFacilityId: STRING(36) [PK]<br>+ LocationCode: STRING(MAX)"]:::concrete
+
+    RawMaterials["<b>RawMaterials</b><br><i>&laquo;Node &amp; Spanner Table&raquo;</i><br>+ RawMaterialId: STRING(36) [PK]<br>+ UnitCost: NUMERIC<br>+ QuantityInStock: INT64<br>+ IsHighValueItem: BOOL [STORED]"]:::concrete
+    SubAssemblies["<b>SubAssemblies</b><br><i>&laquo;Node &amp; Spanner Table&raquo;</i><br>+ SubAssemblyId: STRING(36) [PK]<br>+ UnitCost: NUMERIC<br>+ QuantityInStock: INT64<br>+ IsHighValueItem: BOOL [STORED]"]:::concrete
+    FinishedProducts["<b>FinishedProducts</b><br><i>&laquo;Node &amp; Spanner Table&raquo;</i><br>+ FinishedProductId: STRING(36) [PK]<br>+ UnitCost: NUMERIC<br>+ QuantityInStock: INT64<br>+ IsHighValueItem: BOOL [STORED]<br>+ ManufacturedAtPlantId: STRING(36) [NOT NULL]"]:::concrete
+
+    Carriers["<b>Carriers</b><br><i>&laquo;Node &amp; Spanner Table&raquo;</i><br>+ CarrierId: STRING(36) [PK]<br>+ CarrierName: STRING(MAX)"]:::concrete
+    Shipments["<b>Shipments</b><br><i>&laquo;Node &amp; Spanner Table&raquo;</i><br>+ ShipmentId: STRING(36) [PK]<br>+ ShipmentTrackingNumber: STRING(MAX)<br>+ ShipmentDate: TIMESTAMP"]:::concrete
+
+    Asset -.->|Table-Per-Concrete| Location
+    Asset -.->|Table-Per-Concrete| Item
+    Location -.->|Table-Per-Concrete| Warehouses
+    Location -.->|Table-Per-Concrete| ManufacturingPlants
+    Location -.->|Table-Per-Concrete| SupplierFacilities
+    Item -.->|Table-Per-Concrete| RawMaterials
+    Item -.->|Table-Per-Concrete| SubAssemblies
+    Item -.->|Table-Per-Concrete| FinishedProducts
+
+    RawMaterials -->|STORED_IN| Warehouses
+    SubAssemblies -->|STORED_IN| Warehouses
+    FinishedProducts -->|STORED_IN| Warehouses
+    RawMaterials -->|SUPPLIED_BY| SupplierFacilities
+    FinishedProducts -->|MANUFACTURED_AT| ManufacturingPlants
+    Shipments -->|SHIPPED_VIA| Carriers
+    Shipments -->|ORIGIN / DESTINATION| Warehouses
+    Shipments -->|ORIGIN / DESTINATION| ManufacturingPlants
+    Shipments -->|ORIGIN / DESTINATION| SupplierFacilities
+    RawMaterials -->|PART_OF| SubAssemblies
+    SubAssemblies -->|PART_OF| FinishedProducts
+    Warehouses <-->|CONNECTED_TO| ManufacturingPlants
+    ManufacturingPlants <-->|CONNECTED_TO| SupplierFacilities
+    SupplierFacilities <-->|CONNECTED_TO| Warehouses
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Multi-Labeled)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Warehouse</code><br><small style="color:var(--muted)">subClassOf ex:Location, ex:Asset</small></td>
+          <td><code>Warehouses</code></td>
+          <td>
+            <span class="label-pill">:Warehouse</span>
+            <span class="label-pill">:Location</span>
+            <span class="label-pill">:Asset</span>
+          </td>
+          <td>
+            <code>WarehouseId STRING(36) [PK]</code><br>
+            <code>LocationCode STRING(MAX) NOT NULL</code>
+          </td>
+          <td>Inherits <code>locationCode</code> from <code>ex:Location</code>. Cardinality 1 restriction enforced via <code>NOT NULL</code> constraint as mandated by <code>ex:WarehouseShape</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:ManufacturingPlant</code><br><small style="color:var(--muted)">subClassOf ex:Location, ex:Asset</small></td>
+          <td><code>ManufacturingPlants</code></td>
+          <td>
+            <span class="label-pill">:ManufacturingPlant</span>
+            <span class="label-pill">:Location</span>
+            <span class="label-pill">:Asset</span>
+          </td>
+          <td>
+            <code>ManufacturingPlantId STRING(36) [PK]</code><br>
+            <code>LocationCode STRING(MAX)</code>
+          </td>
+          <td>Concrete leaf class table. Aliased in GQL property clause (<code>ManufacturingPlantId AS LocationId</code>) to provide uniform <code>Location</code> signature.</td>
+        </tr>
+        <tr>
+          <td><code>ex:SupplierFacility</code><br><small style="color:var(--muted)">subClassOf ex:Location, ex:Asset</small></td>
+          <td><code>SupplierFacilities</code></td>
+          <td>
+            <span class="label-pill">:SupplierFacility</span>
+            <span class="label-pill">:Location</span>
+            <span class="label-pill">:Asset</span>
+          </td>
+          <td>
+            <code>SupplierFacilityId STRING(36) [PK]</code><br>
+            <code>LocationCode STRING(MAX)</code>
+          </td>
+          <td>Concrete leaf class table. Implements uniform <code>LocationId</code> and <code>LocationCode</code> signature under the <code>:Location</code> label.</td>
+        </tr>
+        <tr>
+          <td><code>ex:RawMaterial</code><br><small style="color:var(--muted)">subClassOf ex:Item, ex:Asset</small></td>
+          <td><code>RawMaterials</code></td>
+          <td>
+            <span class="label-pill">:RawMaterial</span>
+            <span class="label-pill">:Item</span>
+            <span class="label-pill">:Asset</span>
+          </td>
+          <td>
+            <code>RawMaterialId STRING(36) [PK]</code><br>
+            <code>UnitCost NUMERIC</code><br>
+            <code>QuantityInStock INT64</code><br>
+            <code>IsHighValueItem BOOL [STORED]</code><br>
+            <code>StoredInWarehouseId STRING(36) [FK]</code><br>
+            <code>SuppliedByFacilityId STRING(36) [FK]</code>
+          </td>
+          <td>Inherits <code>unitCost</code> and <code>quantityInStock</code>. Equivalent class <code>ex:HighValueItem</code> realized via stored generated column (<code>UnitCost &gt; 5000.00</code>).</td>
+        </tr>
+        <tr>
+          <td><code>ex:SubAssembly</code><br><small style="color:var(--muted)">subClassOf ex:Item, ex:Asset</small></td>
+          <td><code>SubAssemblies</code></td>
+          <td>
+            <span class="label-pill">:SubAssembly</span>
+            <span class="label-pill">:Item</span>
+            <span class="label-pill">:Asset</span>
+          </td>
+          <td>
+            <code>SubAssemblyId STRING(36) [PK]</code><br>
+            <code>UnitCost NUMERIC</code><br>
+            <code>QuantityInStock INT64</code><br>
+            <code>IsHighValueItem BOOL [STORED]</code><br>
+            <code>StoredInWarehouseId STRING(36) [FK]</code>
+          </td>
+          <td>Concrete leaf realization. Realizes equivalent class filter column and implements uniform <code>ItemId</code> property aliasing for multi-label querying.</td>
+        </tr>
+        <tr>
+          <td><code>ex:FinishedProduct</code><br><small style="color:var(--muted)">subClassOf ex:Item, ex:Asset</small></td>
+          <td><code>FinishedProducts</code></td>
+          <td>
+            <span class="label-pill">:FinishedProduct</span>
+            <span class="label-pill">:Item</span>
+            <span class="label-pill">:Asset</span>
+          </td>
+          <td>
+            <code>FinishedProductId STRING(36) [PK]</code><br>
+            <code>UnitCost NUMERIC</code><br>
+            <code>QuantityInStock INT64</code><br>
+            <code>IsHighValueItem BOOL [STORED]</code><br>
+            <code>StoredInWarehouseId STRING(36) [FK]</code><br>
+            <code>ManufacturedAtPlantId STRING(36) [NOT NULL, FK]</code>
+          </td>
+          <td>Enforces SHACL <code>minCount 1</code> on <code>manufacturedAt</code> via <code>NOT NULL</code> on foreign key column <code>ManufacturedAtPlantId</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Carrier</code><br><small style="color:var(--muted)">Logistics Entity</small></td>
+          <td><code>Carriers</code></td>
+          <td>
+            <span class="label-pill">:Carrier</span>
+          </td>
+          <td>
+            <code>CarrierId STRING(36) [PK]</code><br>
+            <code>CarrierName STRING(MAX)</code>
+          </td>
+          <td>Stand-alone concrete entity table with direct 1-to-1 property mapping.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Shipment</code><br><small style="color:var(--muted)">Logistics Entity</small></td>
+          <td><code>Shipments</code></td>
+          <td>
+            <span class="label-pill">:Shipment</span>
+          </td>
+          <td>
+            <code>ShipmentId STRING(36) [PK]</code><br>
+            <code>ShipmentTrackingNumber STRING(MAX)</code><br>
+            <code>ShipmentDate TIMESTAMP</code><br>
+            <code>ShippedViaCarrierId STRING(36) [FK]</code><br>
+            <code>OriginLocationId STRING(36)</code><br>
+            <code>DestinationLocationId STRING(36)</code>
+          </td>
+          <td>Contains foreign keys supporting functional relationships to <code>Carrier</code> and polymorphic <code>OriginLocationId</code>/<code>DestinationLocationId</code> references.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:storedIn</code><br><small style="color:var(--muted)">Domain: Item &rarr; Range: Warehouse</small></td>
+          <td><code>RawMaterials</code>, <code>SubAssemblies</code>, <code>FinishedProducts</code> &rarr; <code>Warehouses</code></td>
+          <td><code>RawMaterials</code>, <code>SubAssemblies</code>, <code>FinishedProducts</code></td>
+          <td><span class="label-pill">:STORED_IN</span></td>
+          <td>Inlined foreign keys mapped directly across all concrete descendants of <code>ex:Item</code> pointing to <code>Warehouses</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:suppliedBy</code><br><small style="color:var(--muted)">Domain: RawMaterial &rarr; Range: SupplierFacility</small></td>
+          <td><code>RawMaterials</code> &rarr; <code>SupplierFacilities</code></td>
+          <td><code>RawMaterials</code></td>
+          <td><span class="label-pill">:SUPPLIED_BY</span></td>
+          <td>Direct FK edge from leaf table <code>RawMaterials</code> to <code>SupplierFacilities</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:manufacturedAt</code><br><small style="color:var(--muted)">Domain: FinishedProduct &rarr; Range: ManufacturingPlant</small></td>
+          <td><code>FinishedProducts</code> &rarr; <code>ManufacturingPlants</code></td>
+          <td><code>FinishedProducts</code></td>
+          <td><span class="label-pill">:MANUFACTURED_AT</span></td>
+          <td>Direct FK edge with <code>NOT NULL</code> enforcement on the physical column.</td>
+        </tr>
+        <tr>
+          <td><code>ex:shippedVia</code><br><small style="color:var(--muted)">Domain: Shipment &rarr; Range: Carrier</small></td>
+          <td><code>Shipments</code> &rarr; <code>Carriers</code></td>
+          <td><code>Shipments</code></td>
+          <td><span class="label-pill">:SHIPPED_VIA</span></td>
+          <td>Direct FK edge connecting shipment logistics to carrier records.</td>
+        </tr>
+        <tr>
+          <td><code>ex:origin</code> / <code>ex:destination</code><br><small style="color:var(--muted)">Domain: Shipment &rarr; Range: Location (Abstract)</small></td>
+          <td><code>Shipments</code> &rarr; <code>Warehouses</code>, <code>ManufacturingPlants</code>, <code>SupplierFacilities</code></td>
+          <td><code>Shipments</code> (Aliased per concrete endpoint)</td>
+          <td>
+            <span class="label-pill">:ORIGIN</span>
+            <span class="label-pill">:DESTINATION</span>
+          </td>
+          <td>Polymorphic endpoint fan-out: 3 edge table entries per property (6 total) referencing all concrete leaf implementations of <code>ex:Location</code>.</td>
+        </tr>
+        <tr>
+          <td><code>ex:partOf</code> &amp; <code>ex:hasPart</code><br><small style="color:var(--muted)">owl:TransitiveProperty &amp; owl:inverseOf</small></td>
+          <td><code>ItemParts</code> (Child &harr; Parent across Item concrete types)</td>
+          <td><code>ItemParts</code> (Aliased forward and inverted)</td>
+          <td>
+            <span class="label-pill">:PART_OF</span>
+            <span class="label-pill">:HAS_PART</span>
+          </td>
+          <td>Physical associative table <code>ItemParts</code> reused with inverted key mappings (<code>SOURCE KEY (ParentItemId) ... DESTINATION KEY (ChildItemId)</code>) for zero-redundancy inverse traversal.</td>
+        </tr>
+        <tr>
+          <td><code>ex:connectedTo</code><br><small style="color:var(--muted)">owl:SymmetricProperty</small></td>
+          <td><code>LocationConnections</code> (Location &harr; Location)</td>
+          <td><code>LocationConnections</code> (3&times;3 matrix)</td>
+          <td><span class="label-pill">:CONNECTED_TO</span></td>
+          <td>Complete 9-way Cartesian mapping across concrete location pairs (Warehouse, Plant, Supplier) allowing fully symmetric GQL path traversals.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Superclass Query:</strong><br>Retrieve all assets classified as High Value across all item leaf tables</td>
+          <td>
+            <div class="query-box">
+GRAPH SupplyChainGraph
+MATCH (item:Item)
+WHERE item.IsHighValueItem = TRUE
+RETURN item.ItemId, item.UnitCost, item.QuantityInStock;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Transitive Bill-of-Materials Traversal:</strong><br>Traverse recursive parts hierarchy via <code>:PART_OF</code></td>
+          <td>
+            <div class="query-box">
+GRAPH SupplyChainGraph
+MATCH (part:Item)-[:PART_OF]->{1,5}(parent:Item)
+WHERE parent.ItemId = 'PROD-9901'
+RETURN part.ItemId, parent.ItemId;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Polymorphic Logistics Route Navigation:</strong><br>Trace shipment origins and destinations across diverse facility types</td>
+          <td>
+            <div class="query-box">
+GRAPH SupplyChainGraph
+MATCH (s:Shipment)-[:ORIGIN]->(orig:Location),
+      (s)-[:DESTINATION]->(dest:Location),
+      (s)-[:SHIPPED_VIA]->(c:Carrier)
+RETURN s.ShipmentTrackingNumber, orig.LocationCode, dest.LocationCode, c.CarrierName;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Label Signatures:</strong> The <code>:Location</code> label uniformly exposes <code>(LocationId STRING(36), LocationCode STRING(MAX))</code> across <code>Warehouses</code>, <code>ManufacturingPlants</code>, and <code>SupplierFacilities</code>. The <code>:Item</code> label uniformly exposes <code>(ItemId STRING(36), UnitCost NUMERIC, QuantityInStock INT64, IsHighValueItem BOOL)</code>.</li>
+        <li><strong>Stored Generated Columns:</strong> Class equivalence for <code>HighValueItem</code> correctly compiled as <code>IsHighValueItem BOOL AS (UnitCost &gt; 5000.00) STORED</code> in all concrete item tables.</li>
+        <li><strong>Inverse Storage Optimization:</strong> <code>ex:hasPart</code> and <code>ex:partOf</code> share physical table <code>ItemParts</code> with transposed source/destination keys, avoiding redundant storage.</li>
+        <li><strong>Constraint Preservation:</strong> Cardinality restrictions from SHACL shapes (e.g. <code>minCount 1</code> on <code>Warehouse.locationCode</code> and <code>FinishedProduct.manufacturedAt</code>) are enforced with physical <code>NOT NULL</code> column constraints.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/supplychain/&gt; .
+
+ex:SupplyChainOntology a owl:Ontology ;
+    rdfs:label &quot;Supply Chain and Logistics Inventory Ontology&quot; ;
+    rdfs:comment &quot;An OWL ontology modeling global supply chain networks, warehouses, parts hierarchies, shipments, and carrier routes.&quot; .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+ex:Asset a owl:Class .
+
+# Location Taxonomy
+ex:Location a owl:Class ;
+    rdfs:subClassOf ex:Asset .
+
+ex:Warehouse a owl:Class ;
+    rdfs:subClassOf ex:Location ;
+    owl:disjointWith ex:ManufacturingPlant .
+
+ex:ManufacturingPlant a owl:Class ;
+    rdfs:subClassOf ex:Location .
+
+ex:SupplierFacility a owl:Class ;
+    rdfs:subClassOf ex:Location .
+
+# Item Taxonomy
+ex:Item a owl:Class ;
+    rdfs:subClassOf ex:Asset .
+
+ex:RawMaterial a owl:Class ;
+    rdfs:subClassOf ex:Item ;
+    owl:disjointWith ex:SubAssembly .
+
+ex:SubAssembly a owl:Class ;
+    rdfs:subClassOf ex:Item ;
+    owl:disjointWith ex:FinishedProduct .
+
+ex:FinishedProduct a owl:Class ;
+    rdfs:subClassOf ex:Item .
+
+# Logistics Entities
+ex:Shipment a owl:Class .
+ex:Carrier a owl:Class .
+
+# Equivalent Class: HighValueItem
+ex:HighValueItem a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            ex:Item
+            [
+                a owl:Restriction ;
+                owl:onProperty ex:unitCost ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:decimal ;
+                    owl:withRestrictions ( [ xsd:minExclusive 5000.00 ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+ex:partOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain ex:Item ;
+    rdfs:range ex:Item .
+
+ex:hasPart a owl:ObjectProperty ;
+    owl:inverseOf ex:partOf .
+
+ex:suppliedBy a owl:ObjectProperty ;
+    rdfs:domain ex:RawMaterial ;
+    rdfs:range ex:SupplierFacility .
+
+ex:manufacturedAt a owl:ObjectProperty ;
+    rdfs:domain ex:FinishedProduct ;
+    rdfs:range ex:ManufacturingPlant .
+
+ex:storedIn a owl:ObjectProperty ;
+    rdfs:domain ex:Item ;
+    rdfs:range ex:Warehouse .
+
+ex:shippedVia a owl:ObjectProperty ;
+    rdfs:domain ex:Shipment ;
+    rdfs:range ex:Carrier .
+
+ex:origin a owl:ObjectProperty ;
+    rdfs:domain ex:Shipment ;
+    rdfs:range ex:Location .
+
+ex:destination a owl:ObjectProperty ;
+    rdfs:domain ex:Shipment ;
+    rdfs:range ex:Location .
+
+# Symmetric Property: Route connection between locations
+ex:connectedTo a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:Location ;
+    rdfs:range ex:Location .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+ex:unitCost a owl:DatatypeProperty ;
+    rdfs:domain ex:Item ;
+    rdfs:range xsd:decimal .
+
+ex:quantityInStock a owl:DatatypeProperty ;
+    rdfs:domain ex:Item ;
+    rdfs:range xsd:integer .
+
+ex:locationCode a owl:DatatypeProperty ;
+    rdfs:domain ex:Location ;
+    rdfs:range xsd:string .
+
+ex:carrierName a owl:DatatypeProperty ;
+    rdfs:domain ex:Carrier ;
+    rdfs:range xsd:string .
+
+ex:shipmentTrackingNumber a owl:DatatypeProperty ;
+    rdfs:domain ex:Shipment ;
+    rdfs:range xsd:string .
+
+ex:shipmentDate a owl:DatatypeProperty ;
+    rdfs:domain ex:Shipment ;
+    rdfs:range xsd:dateTime .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+ex:FinishedProduct rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:manufacturedAt ;
+        owl:someValuesFrom ex:ManufacturingPlant
+    ] .
+
+ex:Warehouse rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:locationCode ;
+        owl:cardinality &quot;1&quot;^^xsd:nonNegativeInteger
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix ex: &lt;http://example.org/supplychain/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+ex:AssetShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Asset .
+
+ex:CarrierShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:carrierName ] ;
+    sh:targetClass ex:Carrier .
+
+ex:FinishedProductShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:ManufacturingPlant ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:manufacturedAt ] ;
+    sh:targetClass ex:FinishedProduct .
+
+ex:HighValueItemShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:HighValueItem .
+
+ex:ItemShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Warehouse ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:storedIn ],
+        [ sh:class ex:Item ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:partOf ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path ex:unitCost ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path ex:quantityInStock ] ;
+    sh:targetClass ex:Item .
+
+ex:LocationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Location ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:connectedTo ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:locationCode ] ;
+    sh:targetClass ex:Location .
+
+ex:ManufacturingPlantShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:ManufacturingPlant .
+
+ex:RawMaterialShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:SupplierFacility ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:suppliedBy ] ;
+    sh:targetClass ex:RawMaterial .
+
+ex:ShipmentShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:Carrier ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:shippedVia ],
+        [ sh:class ex:Location ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:destination ],
+        [ sh:class ex:Location ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:origin ],
+        [ sh:datatype xsd:dateTime ;
+            sh:maxCount 1 ;
+            sh:path ex:shipmentDate ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:shipmentTrackingNumber ] ;
+    sh:targetClass ex:Shipment .
+
+ex:SubAssemblyShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:SubAssembly .
+
+ex:SupplierFacilityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:SupplierFacility .
+
+ex:WarehouseShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:locationCode ] ;
+    sh:targetClass ex:Warehouse .
+
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- GOOGLE CLOUD SPANNER RELATIONAL DDL (TABLE-PER-CONCRETE-CLASS)
+-- =============================================================================
+
+-- -----------------------------------------------------------------------------
+-- 1. Locations (Concrete Subclasses of ex:Location / ex:Asset)
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE Warehouses (
+  WarehouseId STRING(36) NOT NULL,
+  LocationCode STRING(MAX) NOT NULL
+) PRIMARY KEY (WarehouseId);
+
+CREATE TABLE ManufacturingPlants (
+  ManufacturingPlantId STRING(36) NOT NULL,
+  LocationCode STRING(MAX)
+) PRIMARY KEY (ManufacturingPlantId);
+
+CREATE TABLE SupplierFacilities (
+  SupplierFacilityId STRING(36) NOT NULL,
+  LocationCode STRING(MAX)
+) PRIMARY KEY (SupplierFacilityId);
+
+-- -----------------------------------------------------------------------------
+-- 2. Items (Concrete Subclasses of ex:Item / ex:Asset)
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE RawMaterials (
+  RawMaterialId STRING(36) NOT NULL,
+  UnitCost NUMERIC,
+  QuantityInStock INT64,
+  IsHighValueItem BOOL AS (UnitCost &gt; 5000.00) STORED,
+  StoredInWarehouseId STRING(36),
+  SuppliedByFacilityId STRING(36),
+  CONSTRAINT FK_RawMaterials_Warehouse FOREIGN KEY (StoredInWarehouseId) REFERENCES Warehouses (WarehouseId),
+  CONSTRAINT FK_RawMaterials_Supplier FOREIGN KEY (SuppliedByFacilityId) REFERENCES SupplierFacilities (SupplierFacilityId)
+) PRIMARY KEY (RawMaterialId);
+
+CREATE TABLE SubAssemblies (
+  SubAssemblyId STRING(36) NOT NULL,
+  UnitCost NUMERIC,
+  QuantityInStock INT64,
+  IsHighValueItem BOOL AS (UnitCost &gt; 5000.00) STORED,
+  StoredInWarehouseId STRING(36),
+  CONSTRAINT FK_SubAssemblies_Warehouse FOREIGN KEY (StoredInWarehouseId) REFERENCES Warehouses (WarehouseId)
+) PRIMARY KEY (SubAssemblyId);
+
+CREATE TABLE FinishedProducts (
+  FinishedProductId STRING(36) NOT NULL,
+  UnitCost NUMERIC,
+  QuantityInStock INT64,
+  IsHighValueItem BOOL AS (UnitCost &gt; 5000.00) STORED,
+  StoredInWarehouseId STRING(36),
+  ManufacturedAtPlantId STRING(36) NOT NULL,
+  CONSTRAINT FK_FinishedProducts_Warehouse FOREIGN KEY (StoredInWarehouseId) REFERENCES Warehouses (WarehouseId),
+  CONSTRAINT FK_FinishedProducts_Plant FOREIGN KEY (ManufacturedAtPlantId) REFERENCES ManufacturingPlants (ManufacturingPlantId)
+) PRIMARY KEY (FinishedProductId);
+
+-- -----------------------------------------------------------------------------
+-- 3. Logistics &amp; Carriers
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE Carriers (
+  CarrierId STRING(36) NOT NULL,
+  CarrierName STRING(MAX)
+) PRIMARY KEY (CarrierId);
+
+CREATE TABLE Shipments (
+  ShipmentId STRING(36) NOT NULL,
+  ShipmentTrackingNumber STRING(MAX),
+  ShipmentDate TIMESTAMP,
+  ShippedViaCarrierId STRING(36),
+  OriginLocationId STRING(36),
+  DestinationLocationId STRING(36),
+  CONSTRAINT FK_Shipments_Carrier FOREIGN KEY (ShippedViaCarrierId) REFERENCES Carriers (CarrierId)
+) PRIMARY KEY (ShipmentId);
+
+-- -----------------------------------------------------------------------------
+-- 4. Associative Relationship Tables (Transitive &amp; Symmetric Properties)
+-- -----------------------------------------------------------------------------
+
+-- Transitive Bill-of-Materials Hierarchy (ex:partOf / ex:hasPart)
+CREATE TABLE ItemParts (
+  ParentItemId STRING(36) NOT NULL,
+  ChildItemId STRING(36) NOT NULL
+) PRIMARY KEY (ParentItemId, ChildItemId);
+
+-- Symmetric Route Network Connections (ex:connectedTo)
+CREATE TABLE LocationConnections (
+  LocationId STRING(36) NOT NULL,
+  ConnectedLocationId STRING(36) NOT NULL
+) PRIMARY KEY (LocationId, ConnectedLocationId);
+
+
+-- =============================================================================
+-- GOOGLE CLOUD SPANNER PROPERTY GRAPH DDL
+-- =============================================================================
+
+CREATE PROPERTY GRAPH SupplyChainGraph
+  NODE TABLES (
+    -- Location Taxonomy Nodes
+    Warehouses
+      LABEL Warehouse PROPERTIES (WarehouseId, LocationCode)
+      LABEL Location PROPERTIES (WarehouseId AS LocationId, LocationCode)
+      LABEL Asset NO PROPERTIES,
+    ManufacturingPlants
+      LABEL ManufacturingPlant PROPERTIES (ManufacturingPlantId, LocationCode)
+      LABEL Location PROPERTIES (ManufacturingPlantId AS LocationId, LocationCode)
+      LABEL Asset NO PROPERTIES,
+    SupplierFacilities
+      LABEL SupplierFacility PROPERTIES (SupplierFacilityId, LocationCode)
+      LABEL Location PROPERTIES (SupplierFacilityId AS LocationId, LocationCode)
+      LABEL Asset NO PROPERTIES,
+
+    -- Item Taxonomy Nodes
+    RawMaterials
+      LABEL RawMaterial PROPERTIES (RawMaterialId, UnitCost, QuantityInStock, IsHighValueItem)
+      LABEL Item PROPERTIES (RawMaterialId AS ItemId, UnitCost, QuantityInStock, IsHighValueItem)
+      LABEL Asset NO PROPERTIES,
+    SubAssemblies
+      LABEL SubAssembly PROPERTIES (SubAssemblyId, UnitCost, QuantityInStock, IsHighValueItem)
+      LABEL Item PROPERTIES (SubAssemblyId AS ItemId, UnitCost, QuantityInStock, IsHighValueItem)
+      LABEL Asset NO PROPERTIES,
+    FinishedProducts
+      LABEL FinishedProduct PROPERTIES (FinishedProductId, UnitCost, QuantityInStock, IsHighValueItem)
+      LABEL Item PROPERTIES (FinishedProductId AS ItemId, UnitCost, QuantityInStock, IsHighValueItem)
+      LABEL Asset NO PROPERTIES,
+
+    -- Logistics Nodes
+    Carriers
+      LABEL Carrier PROPERTIES (CarrierId, CarrierName),
+    Shipments
+      LABEL Shipment PROPERTIES (ShipmentId, ShipmentTrackingNumber, ShipmentDate)
+  )
+  EDGE TABLES (
+    -- ex:storedIn
+    RawMaterials AS RawMaterialStoredInWarehouse
+      SOURCE KEY (RawMaterialId) REFERENCES RawMaterials (RawMaterialId)
+      DESTINATION KEY (StoredInWarehouseId) REFERENCES Warehouses (WarehouseId)
+      LABEL STORED_IN NO PROPERTIES,
+    SubAssemblies AS SubAssemblyStoredInWarehouse
+      SOURCE KEY (SubAssemblyId) REFERENCES SubAssemblies (SubAssemblyId)
+      DESTINATION KEY (StoredInWarehouseId) REFERENCES Warehouses (WarehouseId)
+      LABEL STORED_IN NO PROPERTIES,
+    FinishedProducts AS FinishedProductStoredInWarehouse
+      SOURCE KEY (FinishedProductId) REFERENCES FinishedProducts (FinishedProductId)
+      DESTINATION KEY (StoredInWarehouseId) REFERENCES Warehouses (WarehouseId)
+      LABEL STORED_IN NO PROPERTIES,
+
+    -- ex:suppliedBy
+    RawMaterials AS RawMaterialSuppliedByFacility
+      SOURCE KEY (RawMaterialId) REFERENCES RawMaterials (RawMaterialId)
+      DESTINATION KEY (SuppliedByFacilityId) REFERENCES SupplierFacilities (SupplierFacilityId)
+      LABEL SUPPLIED_BY NO PROPERTIES,
+
+    -- ex:manufacturedAt
+    FinishedProducts AS FinishedProductManufacturedAtPlant
+      SOURCE KEY (FinishedProductId) REFERENCES FinishedProducts (FinishedProductId)
+      DESTINATION KEY (ManufacturedAtPlantId) REFERENCES ManufacturingPlants (ManufacturingPlantId)
+      LABEL MANUFACTURED_AT NO PROPERTIES,
+
+    -- ex:shippedVia
+    Shipments AS ShipmentShippedViaCarrier
+      SOURCE KEY (ShipmentId) REFERENCES Shipments (ShipmentId)
+      DESTINATION KEY (ShippedViaCarrierId) REFERENCES Carriers (CarrierId)
+      LABEL SHIPPED_VIA NO PROPERTIES,
+
+    -- ex:origin (Polymorphic Location Target)
+    Shipments AS ShipmentOriginWarehouse
+      SOURCE KEY (ShipmentId) REFERENCES Shipments (ShipmentId)
+      DESTINATION KEY (OriginLocationId) REFERENCES Warehouses (WarehouseId)
+      LABEL ORIGIN NO PROPERTIES,
+    Shipments AS ShipmentOriginPlant
+      SOURCE KEY (ShipmentId) REFERENCES Shipments (ShipmentId)
+      DESTINATION KEY (OriginLocationId) REFERENCES ManufacturingPlants (ManufacturingPlantId)
+      LABEL ORIGIN NO PROPERTIES,
+    Shipments AS ShipmentOriginFacility
+      SOURCE KEY (ShipmentId) REFERENCES Shipments (ShipmentId)
+      DESTINATION KEY (OriginLocationId) REFERENCES SupplierFacilities (SupplierFacilityId)
+      LABEL ORIGIN NO PROPERTIES,
+
+    -- ex:destination (Polymorphic Location Target)
+    Shipments AS ShipmentDestinationWarehouse
+      SOURCE KEY (ShipmentId) REFERENCES Shipments (ShipmentId)
+      DESTINATION KEY (DestinationLocationId) REFERENCES Warehouses (WarehouseId)
+      LABEL DESTINATION NO PROPERTIES,
+    Shipments AS ShipmentDestinationPlant
+      SOURCE KEY (ShipmentId) REFERENCES Shipments (ShipmentId)
+      DESTINATION KEY (DestinationLocationId) REFERENCES ManufacturingPlants (ManufacturingPlantId)
+      LABEL DESTINATION NO PROPERTIES,
+    Shipments AS ShipmentDestinationFacility
+      SOURCE KEY (ShipmentId) REFERENCES Shipments (ShipmentId)
+      DESTINATION KEY (DestinationLocationId) REFERENCES SupplierFacilities (SupplierFacilityId)
+      LABEL DESTINATION NO PROPERTIES,
+
+    -- ex:partOf (Forward Edge)
+    ItemParts AS RawMaterialPartOfSubAssembly
+      SOURCE KEY (ChildItemId) REFERENCES RawMaterials (RawMaterialId)
+      DESTINATION KEY (ParentItemId) REFERENCES SubAssemblies (SubAssemblyId)
+      LABEL PART_OF NO PROPERTIES,
+    ItemParts AS SubAssemblyPartOfFinishedProduct
+      SOURCE KEY (ChildItemId) REFERENCES SubAssemblies (SubAssemblyId)
+      DESTINATION KEY (ParentItemId) REFERENCES FinishedProducts (FinishedProductId)
+      LABEL PART_OF NO PROPERTIES,
+    ItemParts AS RawMaterialPartOfFinishedProduct
+      SOURCE KEY (ChildItemId) REFERENCES RawMaterials (RawMaterialId)
+      DESTINATION KEY (ParentItemId) REFERENCES FinishedProducts (FinishedProductId)
+      LABEL PART_OF NO PROPERTIES,
+    ItemParts AS SubAssemblyPartOfSubAssembly
+      SOURCE KEY (ChildItemId) REFERENCES SubAssemblies (SubAssemblyId)
+      DESTINATION KEY (ParentItemId) REFERENCES SubAssemblies (SubAssemblyId)
+      LABEL PART_OF NO PROPERTIES,
+
+    -- ex:hasPart (Inverse Edge: owl:inverseOf ex:partOf)
+    ItemParts AS SubAssemblyHasRawMaterial
+      SOURCE KEY (ParentItemId) REFERENCES SubAssemblies (SubAssemblyId)
+      DESTINATION KEY (ChildItemId) REFERENCES RawMaterials (RawMaterialId)
+      LABEL HAS_PART NO PROPERTIES,
+    ItemParts AS FinishedProductHasSubAssembly
+      SOURCE KEY (ParentItemId) REFERENCES FinishedProducts (FinishedProductId)
+      DESTINATION KEY (ChildItemId) REFERENCES SubAssemblies (SubAssemblyId)
+      LABEL HAS_PART NO PROPERTIES,
+    ItemParts AS FinishedProductHasRawMaterial
+      SOURCE KEY (ParentItemId) REFERENCES FinishedProducts (FinishedProductId)
+      DESTINATION KEY (ChildItemId) REFERENCES RawMaterials (RawMaterialId)
+      LABEL HAS_PART NO PROPERTIES,
+    ItemParts AS SubAssemblyHasSubAssembly
+      SOURCE KEY (ParentItemId) REFERENCES SubAssemblies (SubAssemblyId)
+      DESTINATION KEY (ChildItemId) REFERENCES SubAssemblies (SubAssemblyId)
+      LABEL HAS_PART NO PROPERTIES,
+
+    -- ex:connectedTo (Symmetric Property between Locations)
+    LocationConnections AS WarehouseToWarehouse
+      SOURCE KEY (LocationId) REFERENCES Warehouses (WarehouseId)
+      DESTINATION KEY (ConnectedLocationId) REFERENCES Warehouses (WarehouseId)
+      LABEL CONNECTED_TO NO PROPERTIES,
+    LocationConnections AS WarehouseToPlant
+      SOURCE KEY (LocationId) REFERENCES Warehouses (WarehouseId)
+      DESTINATION KEY (ConnectedLocationId) REFERENCES ManufacturingPlants (ManufacturingPlantId)
+      LABEL CONNECTED_TO NO PROPERTIES,
+    LocationConnections AS WarehouseToSupplier
+      SOURCE KEY (LocationId) REFERENCES Warehouses (WarehouseId)
+      DESTINATION KEY (ConnectedLocationId) REFERENCES SupplierFacilities (SupplierFacilityId)
+      LABEL CONNECTED_TO NO PROPERTIES,
+    LocationConnections AS PlantToWarehouse
+      SOURCE KEY (LocationId) REFERENCES ManufacturingPlants (ManufacturingPlantId)
+      DESTINATION KEY (ConnectedLocationId) REFERENCES Warehouses (WarehouseId)
+      LABEL CONNECTED_TO NO PROPERTIES,
+    LocationConnections AS PlantToPlant
+      SOURCE KEY (LocationId) REFERENCES ManufacturingPlants (ManufacturingPlantId)
+      DESTINATION KEY (ConnectedLocationId) REFERENCES ManufacturingPlants (ManufacturingPlantId)
+      LABEL CONNECTED_TO NO PROPERTIES,
+    LocationConnections AS PlantToSupplier
+      SOURCE KEY (LocationId) REFERENCES ManufacturingPlants (ManufacturingPlantId)
+      DESTINATION KEY (ConnectedLocationId) REFERENCES SupplierFacilities (SupplierFacilityId)
+      LABEL CONNECTED_TO NO PROPERTIES,
+    LocationConnections AS SupplierToWarehouse
+      SOURCE KEY (LocationId) REFERENCES SupplierFacilities (SupplierFacilityId)
+      DESTINATION KEY (ConnectedLocationId) REFERENCES Warehouses (WarehouseId)
+      LABEL CONNECTED_TO NO PROPERTIES,
+    LocationConnections AS SupplierToPlant
+      SOURCE KEY (LocationId) REFERENCES SupplierFacilities (SupplierFacilityId)
+      DESTINATION KEY (ConnectedLocationId) REFERENCES ManufacturingPlants (ManufacturingPlantId)
+      LABEL CONNECTED_TO NO PROPERTIES,
+    LocationConnections AS SupplierToSupplier
+      SOURCE KEY (LocationId) REFERENCES SupplierFacilities (SupplierFacilityId)
+      DESTINATION KEY (ConnectedLocationId) REFERENCES SupplierFacilities (SupplierFacilityId)
+      LABEL CONNECTED_TO NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

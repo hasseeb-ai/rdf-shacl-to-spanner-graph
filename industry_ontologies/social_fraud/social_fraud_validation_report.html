@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Social Fraud Ontology</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>social-fraud.ttl</code></div>
+          <div>SHACL: <code>social-fraud-shapes.ttl</code></div>
+          <div>Target DDL: <code>social-fraud-schema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">4</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">5</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">10</div>
+        <div class="label">Mapped Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology (Diagram First!) -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    Entity["<b>Entity</b><br><i>&laquo;Abstract Class&raquo;</i>"]:::abstract
+    Accounts["<b>Accounts</b><br><i>&laquo;Spanner Node &amp; Table&raquo;</i><br>+ AccountId: STRING(MAX) [PK]<br>+ AccountStatus: STRING(MAX)"]:::concrete
+    Devices["<b>Devices</b><br><i>&laquo;Spanner Node &amp; Table&raquo;</i><br>+ DeviceId: STRING(MAX) [PK]<br>+ DeviceType: STRING(MAX)"]:::concrete
+    IPAddresses["<b>IPAddresses</b><br><i>&laquo;Spanner Node &amp; Table&raquo;</i><br>+ IPAddressId: STRING(MAX) [PK]<br>+ IPValue: STRING(MAX)"]:::concrete
+    PhoneNumbers["<b>PhoneNumbers</b><br><i>&laquo;Spanner Node &amp; Table&raquo;</i><br>+ PhoneNumberId: STRING(MAX) [PK]<br>+ PhoneValue: STRING(MAX)"]:::concrete
+
+    Entity -.->|Table-Per-Concrete| Accounts
+    Entity -.->|Table-Per-Concrete| Devices
+    Entity -.->|Table-Per-Concrete| IPAddresses
+    Entity -.->|Table-Per-Concrete| PhoneNumbers
+
+    Accounts -->|TRANSFERRED_TO| Accounts
+    Accounts -->|USED_DEVICE| Devices
+    Accounts -->|USED_IP| IPAddresses
+    Accounts -->|USED_PHONE| PhoneNumbers
+    IPAddresses -->|LINKED_TO_IP| IPAddresses
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Superclass</strong> (Flattened / Multi-labeled)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping (Unified Class -> Node Mapping) -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:Entity</code><br>
+            <small style="color:var(--muted)">Abstract Root Class</small>
+          </td>
+          <td><em>Suppressed</em></td>
+          <td><span class="label-pill">:Entity</span></td>
+          <td><em>None (No attributes on root class)</em></td>
+          <td><strong>Table-Per-Concrete:</strong> Pure category superclass. Flattened across concrete descendant node tables; exposed uniformly as <code>LABEL Entity NO PROPERTIES</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:Account</code><br>
+            <code>ex:AccountShape</code>
+          </td>
+          <td><code>Accounts</code></td>
+          <td>
+            <span class="label-pill">:Account</span>
+            <span class="label-pill">:Entity</span>
+          </td>
+          <td>
+            <code>AccountId STRING(MAX) [PK]</code><br>
+            <code>AccountStatus STRING(MAX)</code><br>
+            <code>DeviceId STRING(MAX) [FK]</code><br>
+            <code>DeviceFirstUsed TIMESTAMP</code><br>
+            <code>DeviceLastUsed TIMESTAMP</code><br>
+            <code>IPAddressId STRING(MAX) [FK]</code><br>
+            <code>PhoneNumberId STRING(MAX) [FK]</code>
+          </td>
+          <td><strong>Embedded Foreign Key &amp; Edge Inlining:</strong> Cardinality <code>sh:maxCount 1</code> relationships (<code>usedDevice</code>, <code>usedIP</code>, <code>usedPhone</code>) inlined directly as FK columns with edge attributes (<code>firstUsed</code>, <code>lastUsed</code>).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:Device</code><br>
+            <code>ex:DeviceShape</code>
+          </td>
+          <td><code>Devices</code></td>
+          <td>
+            <span class="label-pill">:Device</span>
+            <span class="label-pill">:Entity</span>
+          </td>
+          <td>
+            <code>DeviceId STRING(MAX) [PK]</code><br>
+            <code>DeviceType STRING(MAX)</code>
+          </td>
+          <td><strong>Concrete Leaf Mapping:</strong> Primary key surrogate matched to <code>ex:deviceId</code>. Exposes <code>LABEL Device</code> with properties and abstract <code>LABEL Entity NO PROPERTIES</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:IPAddress</code><br>
+            <code>ex:IPAddressShape</code>
+          </td>
+          <td><code>IPAddresses</code></td>
+          <td>
+            <span class="label-pill">:IPAddress</span>
+            <span class="label-pill">:Entity</span>
+          </td>
+          <td>
+            <code>IPAddressId STRING(MAX) [PK]</code><br>
+            <code>IPValue STRING(MAX)</code>
+          </td>
+          <td><strong>Concrete Leaf Mapping:</strong> Mapped to physical table with <code>IPValue</code> literal property and polymorphic <code>LABEL Entity</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:PhoneNumber</code><br>
+            <code>ex:PhoneNumberShape</code>
+          </td>
+          <td><code>PhoneNumbers</code></td>
+          <td>
+            <span class="label-pill">:PhoneNumber</span>
+            <span class="label-pill">:Entity</span>
+          </td>
+          <td>
+            <code>PhoneNumberId STRING(MAX) [PK]</code><br>
+            <code>PhoneValue STRING(MAX)</code>
+          </td>
+          <td><strong>Concrete Leaf Mapping:</strong> Mapped to physical table with <code>PhoneValue</code> literal property and polymorphic <code>LABEL Entity</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:transferredTo</code><br>
+            <small style="color:var(--muted)">N:M Financial Flow</small>
+          </td>
+          <td><code>Accounts</code> &rarr; <code>Accounts</code></td>
+          <td><code>AccountTransfers</code></td>
+          <td><span class="label-pill">:TRANSFERRED_TO</span></td>
+          <td><strong>Dedicated Association Table:</strong> Physical join table supporting edge attributes (<code>Amount NUMERIC</code>, <code>TransferTimestamp TIMESTAMP</code>).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:usedDevice</code><br>
+            <small style="color:var(--muted)">N:1 Device Usage</small>
+          </td>
+          <td><code>Accounts</code> &rarr; <code>Devices</code></td>
+          <td><code>Accounts AS AccountDevices</code></td>
+          <td><span class="label-pill">:USED_DEVICE</span></td>
+          <td><strong>Inlined Edge Table Alias:</strong> Projected from physical <code>Accounts</code> table using Spanner LPG aliasing. Edge properties aliased to PascalCase (<code>DeviceFirstUsed AS FirstUsed</code>, <code>DeviceLastUsed AS LastUsed</code>).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:usedIP</code><br>
+            <small style="color:var(--muted)">N:1 IP Session</small>
+          </td>
+          <td><code>Accounts</code> &rarr; <code>IPAddresses</code></td>
+          <td><code>Accounts AS AccountIPs</code></td>
+          <td><span class="label-pill">:USED_IP</span></td>
+          <td><strong>Inlined Edge Table Alias:</strong> Projected directly from <code>Accounts.IPAddressId</code> foreign key reference. Declared with <code>NO PROPERTIES</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:usedPhone</code><br>
+            <small style="color:var(--muted)">N:1 Contact Association</small>
+          </td>
+          <td><code>Accounts</code> &rarr; <code>PhoneNumbers</code></td>
+          <td><code>Accounts AS AccountPhones</code></td>
+          <td><span class="label-pill">:USED_PHONE</span></td>
+          <td><strong>Inlined Edge Table Alias:</strong> Projected directly from <code>Accounts.PhoneNumberId</code> foreign key reference. Declared with <code>NO PROPERTIES</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:linkedToIP</code><br>
+            <small style="color:var(--muted)">owl:SymmetricProperty</small>
+          </td>
+          <td><code>IPAddresses</code> &rarr; <code>IPAddresses</code></td>
+          <td><code>IPAddressLinks</code></td>
+          <td><span class="label-pill">:LINKED_TO_IP</span></td>
+          <td><strong>Symmetric Physical Table:</strong> Composite primary key <code>(IPAddressId, LinkedIPAddressId)</code> supporting peer-to-peer subnet co-location.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Superclass Traversal:</strong><br>Query all graph entities regardless of concrete type</td>
+          <td>
+            <div class="query-box">
+GRAPH SocialFraudGraph
+MATCH (e:Entity)
+RETURN e;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Fraud Ring Identification (Shared Device &amp; IP):</strong><br>Find accounts sharing devices or IP infrastructure</td>
+          <td>
+            <div class="query-box">
+GRAPH SocialFraudGraph
+MATCH (a1:Account)-[:USED_DEVICE]->(d:Device)&lt;-[:USED_DEVICE]-(a2:Account)
+WHERE a1.AccountId != a2.AccountId
+RETURN a1.AccountId AS AccountA, a2.AccountId AS AccountB, d.DeviceId AS SharedDeviceId;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Multi-Hop Transaction Flow Tracking:</strong><br>Traverse money transfer chains with edge property filters</td>
+          <td>
+            <div class="query-box">
+GRAPH SocialFraudGraph
+MATCH (src:Account)-[t1:TRANSFERRED_TO]->(mid:Account)-[t2:TRANSFERRED_TO]->(dst:Account)
+WHERE t1.Amount > 5000 AND t2.Amount > 5000
+RETURN src.AccountId AS Sender, mid.AccountId AS Intermediary, dst.AccountId AS Receiver, t1.Amount, t2.Amount;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Symmetric IP Co-Location Analysis:</strong><br>Discover interconnected IP subnets</td>
+          <td>
+            <div class="query-box">
+GRAPH SocialFraudGraph
+MATCH (ip1:IPAddress)-[:LINKED_TO_IP]-(ip2:IPAddress)
+RETURN ip1.IPValue, ip2.IPValue;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Label Signatures:</strong> The polymorphic <code>LABEL Entity</code> is declared consistently with <code>NO PROPERTIES</code> across all 4 node tables (<code>Accounts</code>, <code>Devices</code>, <code>IPAddresses</code>, <code>PhoneNumbers</code>), satisfying Spanner's strict label signature homogeneity rule.</li>
+        <li><strong>Edge Table Alias Isolation:</strong> The <code>Accounts</code> physical table is aliased distinctly as <code>AccountDevices</code>, <code>AccountIPs</code>, and <code>AccountPhones</code> under <code>EDGE TABLES</code>, preventing name collisions with the <code>Accounts</code> node table declaration.</li>
+        <li><strong>Referential Consistency:</strong> All foreign keys backing physical edges reference existing valid primary keys (<code>DeviceId</code>, <code>IPAddressId</code>, <code>PhoneNumberId</code>, <code>AccountId</code>).</li>
+        <li><strong>Property Fidelity:</strong> Edge attributes (<code>Amount</code>, <code>TransferTimestamp</code>, <code>FirstUsed</code>, <code>LastUsed</code>) correctly map to <code>NUMERIC</code> and <code>TIMESTAMP</code> Spanner types matching XSD definitions.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex:   &lt;http://example.org/social/&gt; .
+
+ex:SocialFraudOntology a owl:Ontology ;
+    rdfs:label &quot;Social Network and Fraud Ring Detection Ontology&quot; ;
+    rdfs:comment &quot;An OWL ontology for modeling account interactions, device sharing, IP subnets, and transaction flows.&quot; .
+
+# Classes
+ex:Entity a owl:Class .
+
+ex:Account a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:Device a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:IPAddress a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+ex:PhoneNumber a owl:Class ;
+    rdfs:subClassOf ex:Entity .
+
+# Restrictions
+ex:Account rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:usedDevice ;
+        owl:someValuesFrom ex:Device
+    ] ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:usedIP ;
+        owl:someValuesFrom ex:IPAddress
+    ] ,
+    [
+        a owl:Restriction ;
+        owl:onProperty ex:usedPhone ;
+        owl:someValuesFrom ex:PhoneNumber
+    ] .
+
+# Object Properties
+ex:transferredTo a owl:ObjectProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range ex:Account .
+
+ex:usedDevice a owl:ObjectProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range ex:Device .
+
+ex:usedIP a owl:ObjectProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range ex:IPAddress .
+
+ex:usedPhone a owl:ObjectProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range ex:PhoneNumber .
+
+ex:linkedToIP a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain ex:IPAddress ;
+    rdfs:range ex:IPAddress .
+
+# Datatype Properties
+ex:accountId a owl:DatatypeProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range xsd:string .
+
+ex:accountStatus a owl:DatatypeProperty ;
+    rdfs:domain ex:Account ;
+    rdfs:range xsd:string .
+
+ex:deviceId a owl:DatatypeProperty ;
+    rdfs:domain ex:Device ;
+    rdfs:range xsd:string .
+
+ex:deviceType a owl:DatatypeProperty ;
+    rdfs:domain ex:Device ;
+    rdfs:range xsd:string .
+
+ex:ipValue a owl:DatatypeProperty ;
+    rdfs:domain ex:IPAddress ;
+    rdfs:range xsd:string .
+
+ex:phoneValue a owl:DatatypeProperty ;
+    rdfs:domain ex:PhoneNumber ;
+    rdfs:range xsd:string .
+
+# Edge attributes
+ex:amount a owl:DatatypeProperty ;
+    rdfs:domain ex:transferredTo ;
+    rdfs:range xsd:decimal .
+
+ex:timestamp a owl:DatatypeProperty ;
+    rdfs:domain ex:transferredTo ;
+    rdfs:range xsd:dateTime .
+
+ex:firstUsed a owl:DatatypeProperty ;
+    rdfs:domain ex:usedDevice ;
+    rdfs:range xsd:dateTime .
+
+ex:lastUsed a owl:DatatypeProperty ;
+    rdfs:domain ex:usedDevice ;
+    rdfs:range xsd:dateTime .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix ex: &lt;http://example.org/social/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+ex:AccountShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:IPAddress ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:usedIP ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:accountId ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:accountStatus ],
+        [ sh:class ex:PhoneNumber ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:usedPhone ],
+        [ sh:class ex:Device ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ex:usedDevice ],
+        [ sh:class ex:Account ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:transferredTo ] ;
+    sh:targetClass ex:Account .
+
+ex:DeviceShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:deviceType ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:deviceId ] ;
+    sh:targetClass ex:Device .
+
+ex:EntityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ex:Entity .
+
+ex:IPAddressShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class ex:IPAddress ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:linkedToIP ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:ipValue ] ;
+    sh:targetClass ex:IPAddress .
+
+ex:PhoneNumberShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path ex:phoneValue ] ;
+    sh:targetClass ex:PhoneNumber .
+
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- PHYSICAL RELATIONAL SCHEMA
+-- =============================================================================
+
+-- Concrete Table: Devices
+CREATE TABLE Devices (
+  DeviceId STRING(MAX) NOT NULL,
+  DeviceType STRING(MAX)
+) PRIMARY KEY (DeviceId);
+
+-- Concrete Table: IPAddresses
+CREATE TABLE IPAddresses (
+  IPAddressId STRING(MAX) NOT NULL,
+  IPValue STRING(MAX)
+) PRIMARY KEY (IPAddressId);
+
+-- Concrete Table: PhoneNumbers
+CREATE TABLE PhoneNumbers (
+  PhoneNumberId STRING(MAX) NOT NULL,
+  PhoneValue STRING(MAX)
+) PRIMARY KEY (PhoneNumberId);
+
+-- Concrete Table: Accounts
+-- Flattened superclass attributes, foreign keys, and edge interaction properties
+CREATE TABLE Accounts (
+  AccountId STRING(MAX) NOT NULL,
+  AccountStatus STRING(MAX),
+  DeviceId STRING(MAX) NOT NULL,
+  DeviceFirstUsed TIMESTAMP,
+  DeviceLastUsed TIMESTAMP,
+  IPAddressId STRING(MAX) NOT NULL,
+  PhoneNumberId STRING(MAX) NOT NULL,
+  CONSTRAINT FK_Accounts_Device FOREIGN KEY (DeviceId) REFERENCES Devices (DeviceId),
+  CONSTRAINT FK_Accounts_IPAddress FOREIGN KEY (IPAddressId) REFERENCES IPAddresses (IPAddressId),
+  CONSTRAINT FK_Accounts_PhoneNumber FOREIGN KEY (PhoneNumberId) REFERENCES PhoneNumbers (PhoneNumberId)
+) PRIMARY KEY (AccountId);
+
+-- Physical Relationship Table: AccountTransfers (ex:transferredTo)
+CREATE TABLE AccountTransfers (
+  TransferId STRING(36) NOT NULL,
+  FromAccountId STRING(MAX) NOT NULL,
+  ToAccountId STRING(MAX) NOT NULL,
+  Amount NUMERIC,
+  TransferTimestamp TIMESTAMP,
+  CONSTRAINT FK_Transfers_FromAccount FOREIGN KEY (FromAccountId) REFERENCES Accounts (AccountId),
+  CONSTRAINT FK_Transfers_ToAccount FOREIGN KEY (ToAccountId) REFERENCES Accounts (AccountId)
+) PRIMARY KEY (TransferId);
+
+-- Physical Relationship Table: IPAddressLinks (ex:linkedToIP - Symmetric Property)
+CREATE TABLE IPAddressLinks (
+  IPAddressId STRING(MAX) NOT NULL,
+  LinkedIPAddressId STRING(MAX) NOT NULL,
+  CONSTRAINT FK_IPLinks_Src FOREIGN KEY (IPAddressId) REFERENCES IPAddresses (IPAddressId),
+  CONSTRAINT FK_IPLinks_Dst FOREIGN KEY (LinkedIPAddressId) REFERENCES IPAddresses (IPAddressId)
+) PRIMARY KEY (IPAddressId, LinkedIPAddressId);
+
+-- =============================================================================
+-- PROPERTY GRAPH SCHEMA
+-- =============================================================================
+
+CREATE PROPERTY GRAPH SocialFraudGraph
+  NODE TABLES (
+    Accounts
+      LABEL Account PROPERTIES (AccountId, AccountStatus)
+      LABEL Entity NO PROPERTIES,
+    Devices
+      LABEL Device PROPERTIES (DeviceId, DeviceType)
+      LABEL Entity NO PROPERTIES,
+    IPAddresses
+      LABEL IPAddress PROPERTIES (IPAddressId, IPValue)
+      LABEL Entity NO PROPERTIES,
+    PhoneNumbers
+      LABEL PhoneNumber PROPERTIES (PhoneNumberId, PhoneValue)
+      LABEL Entity NO PROPERTIES
+  )
+  EDGE TABLES (
+    -- Transaction Edge between Accounts
+    AccountTransfers
+      SOURCE KEY (FromAccountId) REFERENCES Accounts (AccountId)
+      DESTINATION KEY (ToAccountId) REFERENCES Accounts (AccountId)
+      LABEL TRANSFERRED_TO PROPERTIES (Amount, TransferTimestamp),
+      
+    -- N:1 Edge: Account -&gt; Device (Aliased as AccountDevices to prevent collision with Accounts Node Table)
+    Accounts AS AccountDevices
+      SOURCE KEY (AccountId) REFERENCES Accounts (AccountId)
+      DESTINATION KEY (DeviceId) REFERENCES Devices (DeviceId)
+      LABEL USED_DEVICE PROPERTIES (DeviceFirstUsed AS FirstUsed, DeviceLastUsed AS LastUsed),
+      
+    -- N:1 Edge: Account -&gt; IPAddress
+    Accounts AS AccountIPs
+      SOURCE KEY (AccountId) REFERENCES Accounts (AccountId)
+      DESTINATION KEY (IPAddressId) REFERENCES IPAddresses (IPAddressId)
+      LABEL USED_IP NO PROPERTIES,
+      
+    -- N:1 Edge: Account -&gt; PhoneNumber
+    Accounts AS AccountPhones
+      SOURCE KEY (AccountId) REFERENCES Accounts (AccountId)
+      DESTINATION KEY (PhoneNumberId) REFERENCES PhoneNumbers (PhoneNumberId)
+      LABEL USED_PHONE NO PROPERTIES,
+      
+    -- Symmetric Edge: IPAddress -&gt; IPAddress
+    IPAddressLinks
+      SOURCE KEY (IPAddressId) REFERENCES IPAddresses (IPAddressId)
+      DESTINATION KEY (LinkedIPAddressId) REFERENCES IPAddresses (IPAddressId)
+      LABEL LINKED_TO_IP NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

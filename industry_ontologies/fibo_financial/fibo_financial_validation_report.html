@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - FIBO Financial Domain</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    /* Checklist Box */
+    .checklist-box {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+    .checklist-box ul {
+      margin: 6px 0 0 0;
+      padding-left: 20px;
+    }
+    .checklist-box li {
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>fibo-financial-entities.ttl</code></div>
+          <div>SHACL: <code>fibo-shapes.ttl</code></div>
+          <div>Target DDL: <code>spanner_schema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">7</div>
+        <div class="label">Node Tables (6 Tables + 1 View)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">9</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">6</div>
+        <div class="label">Flattened / Inherited Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    AutonomousAgent["<b>AutonomousAgent</b><br><i>&laquo;Abstract Class&raquo;</i>"]:::abstract
+    LegalEntity["<b>LegalEntity</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ LeiCode: STRING NOT NULL<br>+ LegalName: STRING"]:::abstract
+    FinancialInstrument["<b>FinancialInstrument</b><br><i>&laquo;Abstract Class&raquo;</i>"]:::abstract
+    Security["<b>Security</b><br><i>&laquo;Abstract Class&raquo;</i><br>+ IsinCode: STRING"]:::abstract
+
+    Corporations["<b>Corporations</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ CorporationId: STRING(36) [PK]<br>+ LeiCode: STRING(MAX) [NN]<br>+ LegalName: STRING(MAX)"]:::concrete
+    Partnerships["<b>Partnerships</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ PartnershipId: STRING(36) [PK]<br>+ LeiCode: STRING(MAX) [NN]<br>+ LegalName: STRING(MAX)"]:::concrete
+    ContractualParties["<b>ContractualParties</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ ContractualPartyId: STRING(36) [PK]"]:::concrete
+    Shares["<b>Shares</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ ShareId: STRING(36) [PK]<br>+ IsinCode: STRING(MAX)<br>+ SharesOutstanding: INT64"]:::concrete
+    DebtInstruments["<b>DebtInstruments</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ DebtInstrumentId: STRING(36) [PK]<br>+ IsinCode: STRING(MAX)"]:::concrete
+    Loans["<b>Loans</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ LoanId: STRING(36) [PK]<br>+ LoanAmount: NUMERIC<br>+ InterestRate: NUMERIC<br>+ IsSignificant: BOOL [STORED]"]:::concrete
+
+    AutonomousAgent -.->|Table-Per-Concrete| Corporations
+    AutonomousAgent -.->|Table-Per-Concrete| Partnerships
+    AutonomousAgent -.->|Table-Per-Concrete| ContractualParties
+    LegalEntity -.->|Flatten Props| Corporations
+    LegalEntity -.->|Flatten Props| Partnerships
+    FinancialInstrument -.->|Table-Per-Concrete| Loans
+    FinancialInstrument -.->|Table-Per-Concrete| Shares
+    FinancialInstrument -.->|Table-Per-Concrete| DebtInstruments
+    Security -.->|Flatten Props| Shares
+    Security -.->|Flatten Props| DebtInstruments
+
+    Loans -->|HAS_LENDER| ContractualParties
+    Loans -->|HAS_BORROWER| ContractualParties
+    Shares -->|ISSUED_BY| Corporations
+    Corporations -->|IS_ISSUER_OF| Shares
+    Shares -->|OWNED_BY| Corporations
+    Loans -->|GUARANTEED_BY| Corporations
+    Corporations -->|SHARES_GUARANTOR_RISK_WITH| Corporations
+    Corporations -->|CONTROLLED_BY| Corporations
+    Corporations -->|CONTROLS_LEGAL_ENTITY| Corporations
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened / Suppressed)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table / View</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>fibo:Corporation</code><br>
+            <small style="color:var(--muted)">subClassOf fibo:LegalEntity</small>
+          </td>
+          <td><code>Corporations</code></td>
+          <td>
+            <span class="label-pill">:Corporation</span>
+            <span class="label-pill">:LegalEntity</span>
+            <span class="label-pill">:AutonomousAgent</span>
+          </td>
+          <td>
+            <code>CorporationId STRING(36) [PK]</code><br>
+            <code>LeiCode STRING(MAX) NOT NULL</code><br>
+            <code>LegalName STRING(MAX)</code>
+          </td>
+          <td>Table-Per-Concrete-Class. Inherited <code>leiCode</code> and <code>legalName</code> from <code>fibo:LegalEntity</code>. <code>NOT NULL</code> enforced via <code>sh:minCount 1</code> and OWL cardinality 1.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:Partnership</code><br>
+            <small style="color:var(--muted)">subClassOf fibo:LegalEntity</small>
+          </td>
+          <td><code>Partnerships</code></td>
+          <td>
+            <span class="label-pill">:Partnership</span>
+            <span class="label-pill">:LegalEntity</span>
+            <span class="label-pill">:AutonomousAgent</span>
+          </td>
+          <td>
+            <code>PartnershipId STRING(36) [PK]</code><br>
+            <code>LeiCode STRING(MAX) NOT NULL</code><br>
+            <code>LegalName STRING(MAX)</code>
+          </td>
+          <td>Table-Per-Concrete-Class. Disjoint sibling to Corporation. Inherits <code>LegalEntity</code> properties with matching data types for uniform label signatures.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:ContractualParty</code><br>
+            <small style="color:var(--muted)">subClassOf fibo:AutonomousAgent</small>
+          </td>
+          <td><code>ContractualParties</code></td>
+          <td>
+            <span class="label-pill">:ContractualParty</span>
+            <span class="label-pill">:AutonomousAgent</span>
+          </td>
+          <td>
+            <code>ContractualPartyId STRING(36) [PK]</code>
+          </td>
+          <td>Concrete contractual role node. Abstract parent <code>AutonomousAgent</code> exposed with <code>NO PROPERTIES</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:Share</code><br>
+            <small style="color:var(--muted)">subClassOf fibo:Security</small>
+          </td>
+          <td><code>Shares</code></td>
+          <td>
+            <span class="label-pill">:Share</span>
+            <span class="label-pill">:Security</span>
+            <span class="label-pill">:FinancialInstrument</span>
+          </td>
+          <td>
+            <code>ShareId STRING(36) [PK]</code><br>
+            <code>IsinCode STRING(MAX)</code><br>
+            <code>SharesOutstanding INT64</code>
+          </td>
+          <td>Inherited <code>isinCode</code> from <code>fibo:Security</code>. <code>sharesOutstanding</code> mapped to <code>INT64</code> (XSD integer).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:DebtInstrument</code><br>
+            <small style="color:var(--muted)">subClassOf fibo:Security</small>
+          </td>
+          <td><code>DebtInstruments</code></td>
+          <td>
+            <span class="label-pill">:DebtInstrument</span>
+            <span class="label-pill">:Security</span>
+            <span class="label-pill">:FinancialInstrument</span>
+          </td>
+          <td>
+            <code>DebtInstrumentId STRING(36) [PK]</code><br>
+            <code>IsinCode STRING(MAX)</code>
+          </td>
+          <td>Inherited <code>isinCode</code> from <code>fibo:Security</code>. Shares uniform <code>LABEL Security PROPERTIES (IsinCode)</code> signature with <code>Shares</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:Loan</code><br>
+            <small style="color:var(--muted)">subClassOf fibo:FinancialInstrument</small>
+          </td>
+          <td><code>Loans</code></td>
+          <td>
+            <span class="label-pill">:Loan</span>
+            <span class="label-pill">:FinancialInstrument</span>
+          </td>
+          <td>
+            <code>LoanId STRING(36) [PK]</code><br>
+            <code>LoanAmount NUMERIC</code><br>
+            <code>InterestRate NUMERIC</code><br>
+            <code>IsSignificant BOOL [STORED]</code><br>
+            <code>LenderId STRING(36) NOT NULL</code><br>
+            <code>BorrowerId STRING(36)</code>
+          </td>
+          <td>Functional relations (<code>hasLender</code>, <code>hasBorrower</code>) co-located as foreign keys. Generated column <code>IsSignificant</code> persists equivalent class condition.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:SignificantCorporateLoan</code><br>
+            <small style="color:var(--muted)">owl:equivalentClass</small>
+          </td>
+          <td><code>SignificantCorporateLoans</code><br><i>(SQL View)</i></td>
+          <td>
+            <span class="label-pill">:SignificantCorporateLoan</span>
+          </td>
+          <td>
+            <code>LoanId STRING(36) [KEY]</code><br>
+            <code>LoanAmount NUMERIC</code><br>
+            <code>InterestRate NUMERIC</code><br>
+            <code>IsSignificant BOOL</code>
+          </td>
+          <td>Equivalent class materialized as a Spanner SQL View. Explicitly declared with <code>KEY (LoanId)</code> inside `NODE TABLES` to satisfy Graph engine requirements.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Physical Storage / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>fibo:hasLender</code><br>
+            <small style="color:var(--muted)">Functional (minCount 1)</small>
+          </td>
+          <td><code>Loans</code> &rarr; <code>ContractualParties</code></td>
+          <td><code>Loans AS LoanLenders</code></td>
+          <td><span class="label-pill">:HAS_LENDER</span></td>
+          <td>Stored as inline foreign key column <code>LenderId NOT NULL</code> on <code>Loans</code> table; exposed as edge table using table alias.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:hasBorrower</code><br>
+            <small style="color:var(--muted)">Functional (maxCount 1)</small>
+          </td>
+          <td><code>Loans</code> &rarr; <code>ContractualParties</code></td>
+          <td><code>Loans AS LoanBorrowers</code></td>
+          <td><span class="label-pill">:HAS_BORROWER</span></td>
+          <td>Stored as nullable inline foreign key column <code>BorrowerId</code> on <code>Loans</code> table; exposed as edge table using table alias.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:issuedBy</code><br>
+            <small style="color:var(--muted)">Domain: Security, Range: LegalEntity</small>
+          </td>
+          <td><code>Shares</code> &rarr; <code>Corporations</code></td>
+          <td><code>ShareIssuers</code></td>
+          <td><span class="label-pill">:ISSUED_BY</span></td>
+          <td>Association table mapping concrete endpoints. Multi-column PK enforces idempotency.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:isIssuerOf</code><br>
+            <small style="color:var(--muted)">owl:inverseOf fibo:issuedBy</small>
+          </td>
+          <td><code>Corporations</code> &rarr; <code>Shares</code></td>
+          <td><code>ShareIssuers AS CorporationShareIssuers</code></td>
+          <td><span class="label-pill">:IS_ISSUER_OF</span></td>
+          <td>Storage reuse: leverages the physical <code>ShareIssuers</code> table with inverted <code>SOURCE KEY</code> and <code>DESTINATION KEY</code> declarations.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:ownedBy</code><br>
+            <small style="color:var(--muted)">Domain: Share, Range: LegalEntity</small>
+          </td>
+          <td><code>Shares</code> &rarr; <code>Corporations</code></td>
+          <td><code>ShareCorporationOwners</code></td>
+          <td><span class="label-pill">:OWNED_BY</span></td>
+          <td>Association table connecting concrete <code>Shares</code> to corporate owners.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:guaranteedBy</code><br>
+            <small style="color:var(--muted)">Domain: Loan, Range: LegalEntity</small>
+          </td>
+          <td><code>Loans</code> &rarr; <code>Corporations</code></td>
+          <td><code>LoanCorporationGuarantors</code></td>
+          <td><span class="label-pill">:GUARANTEED_BY</span></td>
+          <td>Association table supporting M:N guarantor relationships.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:sharesGuarantorRiskWith</code><br>
+            <small style="color:var(--muted)">owl:SymmetricProperty</small>
+          </td>
+          <td><code>Corporations</code> &rarr; <code>Corporations</code></td>
+          <td><code>CorporationRiskAlliances</code></td>
+          <td><span class="label-pill">:SHARES_GUARANTOR_RISK_WITH</span></td>
+          <td>Single physical association table storing risk sharing alliances between legal entities.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:controlledBy</code><br>
+            <small style="color:var(--muted)">owl:TransitiveProperty</small>
+          </td>
+          <td><code>Corporations</code> &rarr; <code>Corporations</code></td>
+          <td><code>CorporationControl</code></td>
+          <td><span class="label-pill">:CONTROLLED_BY</span></td>
+          <td>Enables recursive / variable-length path traversal queries in GQL (<code>-[ :CONTROLLED_BY* ]-></code>).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>fibo:controlsLegalEntity</code><br>
+            <small style="color:var(--muted)">owl:inverseOf fibo:controlledBy</small>
+          </td>
+          <td><code>Corporations</code> &rarr; <code>Corporations</code></td>
+          <td><code>CorporationControl AS CorporationControls</code></td>
+          <td><span class="label-pill">:CONTROLS_LEGAL_ENTITY</span></td>
+          <td>Inverse transitive traversal defined over shared physical <code>CorporationControl</code> table.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Superclass Query:</strong><br>Query all legal entities regardless of underlying concrete table</td>
+          <td>
+            <div class="query-box">
+GRAPH FinancialGraph
+MATCH (le:LegalEntity)
+RETURN le.LeiCode, le.LegalName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Transitive Control Chain:</strong><br>Variable-length path navigation through corporate hierarchies</td>
+          <td>
+            <div class="query-box">
+GRAPH FinancialGraph
+MATCH (child:Corporation)-[:CONTROLLED_BY*1..5]->(ultimateParent:Corporation)
+RETURN child.LegalName AS Subsidiary, ultimateParent.LegalName AS Parent;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Full Loan Syndication Traversal:</strong><br>Multi-hop query connecting loans, parties, and guarantors</td>
+          <td>
+            <div class="query-box">
+GRAPH FinancialGraph
+MATCH (lender:ContractualParty)&lt;-[:HAS_LENDER]-(loan:Loan)-[:GUARANTEED_BY]->(guar:Corporation)
+WHERE loan.IsSignificant = TRUE
+RETURN loan.LoanId, loan.LoanAmount, guar.LegalName;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div class="checklist-box">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul>
+        <li><strong>Label Property Signature Uniformity:</strong> <code>LABEL LegalEntity PROPERTIES (LeiCode, LegalName)</code> and <code>LABEL Security PROPERTIES (IsinCode)</code> maintain identical column names and data types across all physical node tables.</li>
+        <li><strong>Abstract Label Regularity:</strong> Superclass labels without unified property sets (<code>AutonomousAgent</code>, <code>FinancialInstrument</code>) consistently declare <code>NO PROPERTIES</code>.</li>
+        <li><strong>View Key Compliance:</strong> View <code>SignificantCorporateLoans</code> defines an explicit <code>KEY (LoanId)</code> inside the <code>NODE TABLES</code> definition.</li>
+        <li><strong>Generated Column Compatibility:</strong> <code>IsSignificant BOOL AS (LoanAmount > 10000000.00) STORED</code> complies with GoogleSQL deterministic expression rules.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:  &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix fibo: &lt;http://spec.edmcouncil.org/fibo/ontology/&gt; .
+
+fibo:FiboOntology a owl:Ontology ;
+    rdfs:label &quot;FIBO-Aligned Financial Instrument and Business Entity Ontology&quot; ;
+    rdfs:comment &quot;A simplified OWL ontology aligned with the Financial Industry Business Ontology (FIBO), covering legal entities, shares, loans, and corporate control chains.&quot; .
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+fibo:AutonomousAgent a owl:Class .
+
+# Business Entity Taxonomy
+fibo:LegalEntity a owl:Class ;
+    rdfs:subClassOf fibo:AutonomousAgent .
+
+fibo:Corporation a owl:Class ;
+    rdfs:subClassOf fibo:LegalEntity ;
+    owl:disjointWith fibo:Partnership .
+
+fibo:Partnership a owl:Class ;
+    rdfs:subClassOf fibo:LegalEntity .
+
+# Contractual Roles
+fibo:ContractualParty a owl:Class ;
+    rdfs:subClassOf fibo:AutonomousAgent .
+
+# Financial Instrument Taxonomy
+fibo:FinancialInstrument a owl:Class .
+
+fibo:Security a owl:Class ;
+    rdfs:subClassOf fibo:FinancialInstrument .
+
+fibo:Share a owl:Class ;
+    rdfs:subClassOf fibo:Security ;
+    owl:disjointWith fibo:DebtInstrument .
+
+fibo:DebtInstrument a owl:Class ;
+    rdfs:subClassOf fibo:Security .
+
+fibo:Loan a owl:Class ;
+    rdfs:subClassOf fibo:FinancialInstrument .
+
+# Equivalent Class: SignificantCorporateLoan
+fibo:SignificantCorporateLoan a owl:Class ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            fibo:Loan
+            [
+                a owl:Restriction ;
+                owl:onProperty fibo:loanAmount ;
+                owl:someValuesFrom [
+                    a rdfs:Datatype ;
+                    owl:onDatatype xsd:decimal ;
+                    owl:withRestrictions ( [ xsd:minExclusive 10000000.00 ] )
+                ]
+            ]
+        )
+    ] .
+
+# ==========================================
+# 2. OBJECT PROPERTIES
+# ==========================================
+
+fibo:hasLender a owl:ObjectProperty ;
+    rdfs:domain fibo:Loan ;
+    rdfs:range fibo:ContractualParty .
+
+fibo:hasBorrower a owl:ObjectProperty ;
+    rdfs:domain fibo:Loan ;
+    rdfs:range fibo:ContractualParty .
+
+fibo:issuedBy a owl:ObjectProperty ;
+    rdfs:domain fibo:Security ;
+    rdfs:range fibo:LegalEntity .
+
+# Inverse Property: LegalEntity issues Security
+fibo:isIssuerOf owl:inverseOf fibo:issuedBy .
+
+fibo:ownedBy a owl:ObjectProperty ;
+    rdfs:domain fibo:Share ;
+    rdfs:range fibo:LegalEntity .
+
+fibo:guaranteedBy a owl:ObjectProperty ;
+    rdfs:domain fibo:Loan ;
+    rdfs:range fibo:LegalEntity .
+
+# Symmetric Property: Co-guarantor alliances
+fibo:sharesGuarantorRiskWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain fibo:LegalEntity ;
+    rdfs:range fibo:LegalEntity .
+
+# Transitive Property: Corporate parent/subsidiary control chains
+fibo:controlledBy a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain fibo:LegalEntity ;
+    rdfs:range fibo:LegalEntity .
+
+fibo:controlsLegalEntity owl:inverseOf fibo:controlledBy .
+
+# ==========================================
+# 3. DATATYPE PROPERTIES
+# ==========================================
+
+fibo:leiCode a owl:DatatypeProperty ;
+    rdfs:domain fibo:LegalEntity ;
+    rdfs:range xsd:string .
+
+fibo:legalName a owl:DatatypeProperty ;
+    rdfs:domain fibo:LegalEntity ;
+    rdfs:range xsd:string .
+
+fibo:isinCode a owl:DatatypeProperty ;
+    rdfs:domain fibo:Security ;
+    rdfs:range xsd:string .
+
+fibo:loanAmount a owl:DatatypeProperty ;
+    rdfs:domain fibo:Loan ;
+    rdfs:range xsd:decimal .
+
+fibo:interestRate a owl:DatatypeProperty ;
+    rdfs:domain fibo:Loan ;
+    rdfs:range xsd:decimal .
+
+fibo:sharesOutstanding a owl:DatatypeProperty ;
+    rdfs:domain fibo:Share ;
+    rdfs:range xsd:integer .
+
+# ==========================================
+# 4. CLASS RESTRICTIONS
+# ==========================================
+
+fibo:LegalEntity rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty fibo:leiCode ;
+        owl:cardinality &quot;1&quot;^^xsd:nonNegativeInteger
+    ] .
+
+fibo:Loan rdfs:subClassOf
+    [
+        a owl:Restriction ;
+        owl:onProperty fibo:hasLender ;
+        owl:someValuesFrom fibo:ContractualParty
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix fibo: &lt;http://spec.edmcouncil.org/fibo/ontology/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+fibo:AutonomousAgentShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:AutonomousAgent .
+
+fibo:ContractualPartyShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:ContractualParty .
+
+fibo:CorporationShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:Corporation .
+
+fibo:DebtInstrumentShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:DebtInstrument .
+
+fibo:FinancialInstrumentShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:FinancialInstrument .
+
+fibo:LegalEntityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class fibo:LegalEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:sharesGuarantorRiskWith ],
+        [ sh:class fibo:LegalEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:controlledBy ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:legalName ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path fibo:leiCode ] ;
+    sh:targetClass fibo:LegalEntity .
+
+fibo:LoanShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path fibo:loanAmount ],
+        [ sh:class fibo:ContractualParty ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:hasBorrower ],
+        [ sh:class fibo:ContractualParty ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path fibo:hasLender ],
+        [ sh:class fibo:LegalEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:guaranteedBy ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path fibo:interestRate ] ;
+    sh:targetClass fibo:Loan .
+
+fibo:PartnershipShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:Partnership .
+
+fibo:SecurityShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:isinCode ],
+        [ sh:class fibo:LegalEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:issuedBy ] ;
+    sh:targetClass fibo:Security .
+
+fibo:ShareShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:class fibo:LegalEntity ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:path fibo:ownedBy ],
+        [ sh:datatype xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path fibo:sharesOutstanding ] ;
+    sh:targetClass fibo:Share .
+
+fibo:SignificantCorporateLoanShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass fibo:SignificantCorporateLoan .
+
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- GOOGLE CLOUD SPANNER DDL SCHEMA GENERATION
+-- Source Ontology: FIBO-Aligned Financial Instrument &amp; Business Entity Ontology
+-- Translation Strategy: Table-Per-Concrete-Class with Flattened Superclasses
+-- =============================================================================
+
+-- -----------------------------------------------------------------------------
+-- 1. PHYSICAL RELATIONAL TABLES
+-- -----------------------------------------------------------------------------
+
+-- Concrete Class: fibo:Corporation (Subclass of LegalEntity -&gt; AutonomousAgent)
+CREATE TABLE Corporations (
+  CorporationId STRING(36) NOT NULL,
+  LeiCode STRING(MAX) NOT NULL,
+  LegalName STRING(MAX)
+) PRIMARY KEY (CorporationId);
+
+-- Concrete Class: fibo:Partnership (Subclass of LegalEntity -&gt; AutonomousAgent)
+CREATE TABLE Partnerships (
+  PartnershipId STRING(36) NOT NULL,
+  LeiCode STRING(MAX) NOT NULL,
+  LegalName STRING(MAX)
+) PRIMARY KEY (PartnershipId);
+
+-- Concrete Class: fibo:ContractualParty (Subclass of AutonomousAgent)
+CREATE TABLE ContractualParties (
+  ContractualPartyId STRING(36) NOT NULL
+) PRIMARY KEY (ContractualPartyId);
+
+-- Concrete Class: fibo:Share (Subclass of Security -&gt; FinancialInstrument)
+CREATE TABLE Shares (
+  ShareId STRING(36) NOT NULL,
+  IsinCode STRING(MAX),
+  SharesOutstanding INT64
+) PRIMARY KEY (ShareId);
+
+-- Concrete Class: fibo:DebtInstrument (Subclass of Security -&gt; FinancialInstrument)
+CREATE TABLE DebtInstruments (
+  DebtInstrumentId STRING(36) NOT NULL,
+  IsinCode STRING(MAX)
+) PRIMARY KEY (DebtInstrumentId);
+
+-- Concrete Class: fibo:Loan (Subclass of FinancialInstrument)
+-- Includes generated column for Equivalent Class fibo:SignificantCorporateLoan
+CREATE TABLE Loans (
+  LoanId STRING(36) NOT NULL,
+  LoanAmount NUMERIC,
+  InterestRate NUMERIC,
+  LenderId STRING(36) NOT NULL,
+  BorrowerId STRING(36),
+  IsSignificant BOOL AS (LoanAmount &gt; 10000000.00) STORED,
+  CONSTRAINT FK_Loans_Lender FOREIGN KEY (LenderId) REFERENCES ContractualParties (ContractualPartyId),
+  CONSTRAINT FK_Loans_Borrower FOREIGN KEY (BorrowerId) REFERENCES ContractualParties (ContractualPartyId)
+) PRIMARY KEY (LoanId);
+
+-- -----------------------------------------------------------------------------
+-- 2. RELATIONSHIP STORAGE TABLES (FOR OBJECT PROPERTIES &amp; EDGES)
+-- -----------------------------------------------------------------------------
+
+-- Relationship: fibo:issuedBy / fibo:isIssuerOf
+CREATE TABLE ShareIssuers (
+  ShareId STRING(36) NOT NULL,
+  CorporationId STRING(36) NOT NULL,
+  CONSTRAINT FK_ShareIssuers_Share FOREIGN KEY (ShareId) REFERENCES Shares (ShareId),
+  CONSTRAINT FK_ShareIssuers_Corp FOREIGN KEY (CorporationId) REFERENCES Corporations (CorporationId)
+) PRIMARY KEY (ShareId, CorporationId);
+
+-- Relationship: fibo:ownedBy
+CREATE TABLE ShareCorporationOwners (
+  ShareId STRING(36) NOT NULL,
+  OwnerCorporationId STRING(36) NOT NULL,
+  CONSTRAINT FK_ShareCorpOwners_Share FOREIGN KEY (ShareId) REFERENCES Shares (ShareId),
+  CONSTRAINT FK_ShareCorpOwners_Corp FOREIGN KEY (OwnerCorporationId) REFERENCES Corporations (CorporationId)
+) PRIMARY KEY (ShareId, OwnerCorporationId);
+
+-- Relationship: fibo:guaranteedBy
+CREATE TABLE LoanCorporationGuarantors (
+  LoanId STRING(36) NOT NULL,
+  GuarantorCorporationId STRING(36) NOT NULL,
+  CONSTRAINT FK_LoanCorpGuar_Loan FOREIGN KEY (LoanId) REFERENCES Loans (LoanId),
+  CONSTRAINT FK_LoanCorpGuar_Corp FOREIGN KEY (GuarantorCorporationId) REFERENCES Corporations (CorporationId)
+) PRIMARY KEY (LoanId, GuarantorCorporationId);
+
+-- Relationship: fibo:sharesGuarantorRiskWith (Symmetric Property)
+CREATE TABLE CorporationRiskAlliances (
+  CorporationId1 STRING(36) NOT NULL,
+  CorporationId2 STRING(36) NOT NULL,
+  CONSTRAINT FK_RiskAlliance_Corp1 FOREIGN KEY (CorporationId1) REFERENCES Corporations (CorporationId),
+  CONSTRAINT FK_RiskAlliance_Corp2 FOREIGN KEY (CorporationId2) REFERENCES Corporations (CorporationId)
+) PRIMARY KEY (CorporationId1, CorporationId2);
+
+-- Relationship: fibo:controlledBy / fibo:controlsLegalEntity (Transitive Property)
+CREATE TABLE CorporationControl (
+  ControlledCorporationId STRING(36) NOT NULL,
+  ControllingCorporationId STRING(36) NOT NULL,
+  CONSTRAINT FK_CorpCtrl_Controlled FOREIGN KEY (ControlledCorporationId) REFERENCES Corporations (CorporationId),
+  CONSTRAINT FK_CorpCtrl_Controlling FOREIGN KEY (ControllingCorporationId) REFERENCES Corporations (CorporationId)
+) PRIMARY KEY (ControlledCorporationId, ControllingCorporationId);
+
+-- -----------------------------------------------------------------------------
+-- 3. SQL VIEWS FOR EQUIVALENT CLASSES
+-- -----------------------------------------------------------------------------
+
+-- Equivalent Class View: fibo:SignificantCorporateLoan
+CREATE VIEW SignificantCorporateLoans SQL SECURITY INVOKER AS
+SELECT 
+  l.LoanId,
+  l.LoanAmount,
+  l.InterestRate,
+  l.IsSignificant
+FROM Loans l
+WHERE l.LoanAmount &gt; 10000000.00;
+
+-- -----------------------------------------------------------------------------
+-- 4. PROPERTY GRAPH SCHEMA DEFINITION
+-- -----------------------------------------------------------------------------
+
+CREATE PROPERTY GRAPH FinancialGraph
+  NODE TABLES (
+    Corporations
+      LABEL Corporation PROPERTIES (CorporationId, LeiCode, LegalName)
+      LABEL LegalEntity PROPERTIES (LeiCode, LegalName)
+      LABEL AutonomousAgent NO PROPERTIES,
+    Partnerships
+      LABEL Partnership PROPERTIES (PartnershipId, LeiCode, LegalName)
+      LABEL LegalEntity PROPERTIES (LeiCode, LegalName)
+      LABEL AutonomousAgent NO PROPERTIES,
+    ContractualParties
+      LABEL ContractualParty PROPERTIES (ContractualPartyId)
+      LABEL AutonomousAgent NO PROPERTIES,
+    Shares
+      LABEL Share PROPERTIES (ShareId, IsinCode, SharesOutstanding)
+      LABEL Security PROPERTIES (IsinCode)
+      LABEL FinancialInstrument NO PROPERTIES,
+    DebtInstruments
+      LABEL DebtInstrument PROPERTIES (DebtInstrumentId, IsinCode)
+      LABEL Security PROPERTIES (IsinCode)
+      LABEL FinancialInstrument NO PROPERTIES,
+    Loans
+      LABEL Loan PROPERTIES (LoanId, LoanAmount, InterestRate, IsSignificant)
+      LABEL FinancialInstrument NO PROPERTIES,
+    SignificantCorporateLoans KEY (LoanId)
+      LABEL SignificantCorporateLoan PROPERTIES (LoanId, LoanAmount, InterestRate, IsSignificant)
+  )
+  EDGE TABLES (
+    -- Relationship: fibo:hasLender
+    Loans AS LoanLenders
+      SOURCE KEY (LoanId) REFERENCES Loans (LoanId)
+      DESTINATION KEY (LenderId) REFERENCES ContractualParties (ContractualPartyId)
+      LABEL HAS_LENDER NO PROPERTIES,
+
+    -- Relationship: fibo:hasBorrower
+    Loans AS LoanBorrowers
+      SOURCE KEY (LoanId) REFERENCES Loans (LoanId)
+      DESTINATION KEY (BorrowerId) REFERENCES ContractualParties (ContractualPartyId)
+      LABEL HAS_BORROWER NO PROPERTIES,
+
+    -- Relationship: fibo:issuedBy (Forward)
+    ShareIssuers
+      SOURCE KEY (ShareId) REFERENCES Shares (ShareId)
+      DESTINATION KEY (CorporationId) REFERENCES Corporations (CorporationId)
+      LABEL ISSUED_BY NO PROPERTIES,
+
+    -- Relationship: fibo:isIssuerOf (Inverse)
+    ShareIssuers AS CorporationShareIssuers
+      SOURCE KEY (CorporationId) REFERENCES Corporations (CorporationId)
+      DESTINATION KEY (ShareId) REFERENCES Shares (ShareId)
+      LABEL IS_ISSUER_OF NO PROPERTIES,
+
+    -- Relationship: fibo:ownedBy
+    ShareCorporationOwners
+      SOURCE KEY (ShareId) REFERENCES Shares (ShareId)
+      DESTINATION KEY (OwnerCorporationId) REFERENCES Corporations (CorporationId)
+      LABEL OWNED_BY NO PROPERTIES,
+
+    -- Relationship: fibo:guaranteedBy
+    LoanCorporationGuarantors
+      SOURCE KEY (LoanId) REFERENCES Loans (LoanId)
+      DESTINATION KEY (GuarantorCorporationId) REFERENCES Corporations (CorporationId)
+      LABEL GUARANTEED_BY NO PROPERTIES,
+
+    -- Relationship: fibo:sharesGuarantorRiskWith (Symmetric)
+    CorporationRiskAlliances
+      SOURCE KEY (CorporationId1) REFERENCES Corporations (CorporationId)
+      DESTINATION KEY (CorporationId2) REFERENCES Corporations (CorporationId)
+      LABEL SHARES_GUARANTOR_RISK_WITH NO PROPERTIES,
+
+    -- Relationship: fibo:controlledBy (Transitive - Forward Edge)
+    CorporationControl
+      SOURCE KEY (ControlledCorporationId) REFERENCES Corporations (CorporationId)
+      DESTINATION KEY (ControllingCorporationId) REFERENCES Corporations (CorporationId)
+      LABEL CONTROLLED_BY NO PROPERTIES,
+
+    -- Relationship: fibo:controlsLegalEntity (Transitive - Inverse Edge)
+    CorporationControl AS CorporationControls
+      SOURCE KEY (ControllingCorporationId) REFERENCES Corporations (CorporationId)
+      DESTINATION KEY (ControlledCorporationId) REFERENCES Corporations (CorporationId)
+      LABEL CONTROLS_LEGAL_ENTITY NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

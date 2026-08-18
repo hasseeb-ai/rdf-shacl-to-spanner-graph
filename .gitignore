@@ -8,3 +8,5 @@ __pycache__/
 .pytest_cache/
 .egs/
 output/
+.DS_Store
+**/.DS_Store
