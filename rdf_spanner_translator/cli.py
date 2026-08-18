@@ -447,7 +447,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             is_unit = item["is_unit"]
             name = item["name"]
             
-            category_dir = "unit_tests" if is_unit else "examples"
+            category_dir = "evals" if is_unit else "industry_ontologies"
             os.makedirs(f"output/{category_dir}", exist_ok=True)
             
             out_schema = f"output/{category_dir}/{stem}_schema.sql"
@@ -534,14 +534,14 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 except Exception:
                     query_status = "ERROR"
                     
-            # Bundle into examples/<domain>/ if requested
+            # Bundle into industry_ontologies/<domain>/ if requested
             if success and bundle_examples and not is_unit:
                 domain_dir = os.path.dirname(ttl_path)
-                shutil.copyfile(out_schema, os.path.join(domain_dir, "schema.sql"))
+                shutil.copyfile(out_schema, os.path.join(domain_dir, f"{stem}_schema.sql"))
                 if os.path.exists(out_report):
-                    shutil.copyfile(out_report, os.path.join(domain_dir, "validation_report.md"))
+                    shutil.copyfile(out_report, os.path.join(domain_dir, f"{stem}_validation_report.html"))
                 if os.path.exists(out_query_report):
-                    shutil.copyfile(out_query_report, os.path.join(domain_dir, "query_report.md"))
+                    shutil.copyfile(out_query_report, os.path.join(domain_dir, f"{stem}_query_report.md"))
                     
             status_str = "PASS" if success else "FAIL"
             results.append({
