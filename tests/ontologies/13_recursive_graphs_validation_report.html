@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Recursive Self-Referencing Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>recursive.ttl</code></div>
+          <div>Target Graph: <code>RecursiveOntologyGraph</code></div>
+          <div>Coverage: <strong>100%</strong> (2/2 Classes, 2/2 Object Properties)</div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">6</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+
+    Employees["<b>Employees</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ EmployeeId: STRING(36) [PK]<br>+ EmployeeName: STRING(MAX)<br>+ JobTitle: STRING(MAX)<br>+ ManagerId: STRING(36) [FK]"]:::concrete
+    Components["<b>Components</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ ComponentId: STRING(36) [PK]<br>+ ComponentName: STRING(MAX)<br>+ SemanticVersion: STRING(MAX)"]:::concrete
+
+    Employees -->|REPORTS_TO<br><i>(Adjacency List)</i>| Employees
+    Components -->|DEPENDS_ON<br><i>(ComponentDependencies)</i>| Components
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node &amp; Self-Referencing Storage)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Physical Columns &amp; Constraints</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Employee</code></td>
+          <td><code>Employees</code></td>
+          <td>
+            <span class="label-pill">:Employee</span>
+          </td>
+          <td>
+            <code>EmployeeId STRING(36) NOT NULL [PK]</code><br>
+            <code>EmployeeName STRING(MAX)</code><br>
+            <code>JobTitle STRING(MAX)</code><br>
+            <code>ManagerId STRING(36) [FK -> Employees]</code>
+          </td>
+          <td>Direct physical mapping. Adjacency list pointer <code>ManagerId</code> embeds the <code>n:1</code> functional recursive relationship directly inside the node table.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Component</code></td>
+          <td><code>Components</code></td>
+          <td>
+            <span class="label-pill">:Component</span>
+          </td>
+          <td>
+            <code>ComponentId STRING(36) NOT NULL [PK]</code><br>
+            <code>ComponentName STRING(MAX)</code><br>
+            <code>SemanticVersion STRING(MAX)</code>
+          </td>
+          <td>Direct physical mapping with surrogate primary key. Optimized for clean graph node abstraction.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:reportsTo</code><br>
+            <small style="color:var(--muted)">owl:FunctionalProperty (n:1 direct tree)</small>
+          </td>
+          <td><code>Employees</code> &rarr; <code>Employees</code></td>
+          <td><code>Employees AS EmployeeReportsTo</code></td>
+          <td>
+            <span class="label-pill">:REPORTS_TO</span>
+          </td>
+          <td><strong>Adjacency List Node-as-Edge Mapping:</strong> Reuses the <code>Employees</code> table directly by aliasing it as <code>EmployeeReportsTo</code> with <code>SOURCE KEY (EmployeeId)</code> and <code>DESTINATION KEY (ManagerId)</code>, avoiding an unnecessary intermediate edge table.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:dependsOn</code><br>
+            <small style="color:var(--muted)">Many-to-Many Recursive DAG</small>
+          </td>
+          <td><code>Components</code> &rarr; <code>Components</code></td>
+          <td><code>ComponentDependencies</code></td>
+          <td>
+            <span class="label-pill">:DEPENDS_ON</span>
+          </td>
+          <td><strong>Physical Edge Join Table:</strong> Implements a dedicated relationship table with composite PK <code>(ComponentId, DependsOnComponentId)</code> to support recursive cyclic or acyclic dependency networks.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Direct Reporting Hierarchy:</strong><br>Query manager and employee direct link</td>
+          <td>
+            <div class="query-box">
+GRAPH RecursiveOntologyGraph
+MATCH (emp:Employee)-[:REPORTS_TO]->(mgr:Employee)
+RETURN emp.EmployeeName AS Employee, emp.JobTitle AS Title, mgr.EmployeeName AS Manager;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Multi-Hop Variable Path Traversal:</strong><br>Query transitive software dependency tree (1 to 5 hops)</td>
+          <td>
+            <div class="query-box">
+GRAPH RecursiveOntologyGraph
+MATCH (root:Component {ComponentName: 'AppServer'})-[:DEPENDS_ON*1..5]->(dep:Component)
+RETURN DISTINCT root.ComponentName AS Root, dep.ComponentName AS Dependency, dep.SemanticVersion AS Version;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Physical Integrity:</strong> Foreign key constraints <code>FK_Employee_Manager</code>, <code>FK_Dependency_Source</code>, and <code>FK_Dependency_Target</code> enforce referential validity.</li>
+        <li><strong>Zero Redundancy:</strong> Functional edge <code>ex:reportsTo</code> is efficiently synthesized without table overhead via aliased node-table self-reference.</li>
+        <li><strong>GQL Dialect Compliance:</strong> <code>SOURCE KEY</code> and <code>DESTINATION KEY</code> clauses reference existing primary keys and foreign keys with exact data type matching (<code>STRING(36)</code>).</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex: &lt;http://example.org/recursive#&gt; .
+
+&lt;http://example.org/recursive&gt; a owl:Ontology ;
+    rdfs:label &quot;Recursive Self-Referencing Graph Ontology&quot;@en ;
+    rdfs:comment &quot;Demonstrates direct recursive adjacency lists for org charts and component dependency trees.&quot;@en .
+
+ex:Employee a owl:Class ;
+    rdfs:label &quot;Employee&quot;@en .
+
+ex:Component a owl:Class ;
+    rdfs:label &quot;Software Component&quot;@en .
+
+ex:reportsTo a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range ex:Employee ;
+    rdfs:label &quot;reports to manager&quot;@en .
+
+ex:dependsOn a owl:ObjectProperty ;
+    rdfs:domain ex:Component ;
+    rdfs:range ex:Component ;
+    rdfs:label &quot;depends on component&quot;@en .
+
+ex:employeeId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:employeeName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:jobTitle a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:componentId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Component ;
+    rdfs:range xsd:string .
+
+ex:componentName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Component ;
+    rdfs:range xsd:string .
+
+ex:semanticVersion a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Component ;
+    rdfs:range xsd:string .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>No companion SHACL shapes defined (Unconstrained OWL translation).</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- PHYSICAL RELATIONAL DDL
+-- =============================================================================
+
+-- Concrete Table: Employee
+CREATE TABLE Employees (
+  EmployeeId STRING(36) NOT NULL,
+  EmployeeName STRING(MAX),
+  JobTitle STRING(MAX),
+  ManagerId STRING(36),
+  CONSTRAINT FK_Employee_Manager FOREIGN KEY (ManagerId) REFERENCES Employees (EmployeeId)
+) PRIMARY KEY (EmployeeId);
+
+-- Concrete Table: Component
+CREATE TABLE Components (
+  ComponentId STRING(36) NOT NULL,
+  ComponentName STRING(MAX),
+  SemanticVersion STRING(MAX)
+) PRIMARY KEY (ComponentId);
+
+-- Edge Table: Component Dependencies (Many-to-Many self-reference)
+CREATE TABLE ComponentDependencies (
+  ComponentId STRING(36) NOT NULL,
+  DependsOnComponentId STRING(36) NOT NULL,
+  CONSTRAINT FK_Dependency_Source FOREIGN KEY (ComponentId) REFERENCES Components (ComponentId),
+  CONSTRAINT FK_Dependency_Target FOREIGN KEY (DependsOnComponentId) REFERENCES Components (ComponentId)
+) PRIMARY KEY (ComponentId, DependsOnComponentId);
+
+-- =============================================================================
+-- PROPERTY GRAPH DDL
+-- =============================================================================
+
+CREATE PROPERTY GRAPH RecursiveOntologyGraph
+  NODE TABLES (
+    Employees
+      LABEL Employee PROPERTIES (EmployeeId, EmployeeName, JobTitle),
+    Components
+      LABEL Component PROPERTIES (ComponentId, ComponentName, SemanticVersion)
+  )
+  EDGE TABLES (
+    -- Direct adjacency list edge via physical table alias
+    Employees AS EmployeeReportsTo
+      SOURCE KEY (EmployeeId) REFERENCES Employees (EmployeeId)
+      DESTINATION KEY (ManagerId) REFERENCES Employees (EmployeeId)
+      LABEL REPORTS_TO PROPERTIES (EmployeeId, ManagerId),
+    -- Edge table mapping for component dependency trees
+    ComponentDependencies
+      SOURCE KEY (ComponentId) REFERENCES Components (ComponentId)
+      DESTINATION KEY (DependsOnComponentId) REFERENCES Components (ComponentId)
+      LABEL DEPENDS_ON PROPERTIES (ComponentId, DependsOnComponentId)
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

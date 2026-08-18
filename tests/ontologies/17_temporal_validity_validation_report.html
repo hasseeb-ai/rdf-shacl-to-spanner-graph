@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Temporal Validity &amp; Prescription Interval Domain</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>temporal.ttl</code></div>
+          <div>SHACL: <code>temporal-shapes.ttl</code></div>
+          <div>Target DDL: <code>schema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">3</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">9</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+
+    Prescriptions["<b>Prescriptions</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ PrescriptionId: STRING(64) [PK]<br>+ DosageMg: NUMERIC<br>+ ValidFrom: TIMESTAMP<br>+ ValidTo: TIMESTAMP<br>+ IsActive: BOOL"]:::concrete
+    Patients["<b>Patients</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ PatientId: STRING(64) [PK]<br>+ PatientName: STRING(MAX)"]:::concrete
+    Medications["<b>Medications</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ MedicationId: STRING(64) [PK]<br>+ MedicationName: STRING(MAX)"]:::concrete
+
+    Prescriptions -->|PRESCRIBED_FOR| Patients
+    Prescriptions -->|DISPENSES_MEDICATION| Medications
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node Table)</div>
+      <div><span style="display:inline-block; width:18px; height:2px; background:#0284c7; vertical-align:middle; margin-right:5px;"></span><strong>Edge Table / Alias Navigation</strong></div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Patient</code></td>
+          <td><code>Patients</code></td>
+          <td>
+            <span class="label-pill">:Patient</span>
+          </td>
+          <td>
+            <code>PatientId STRING(64) [PK] NOT NULL</code><br>
+            <code>PatientName STRING(MAX)</code>
+          </td>
+          <td>Concrete leaf class mapped directly to root physical table and LPG node table.</td>
+        </tr>
+        <tr>
+          <td><code>ex:Medication</code></td>
+          <td><code>Medications</code></td>
+          <td>
+            <span class="label-pill">:Medication</span>
+          </td>
+          <td>
+            <code>MedicationId STRING(64) [PK] NOT NULL</code><br>
+            <code>MedicationName STRING(MAX)</code>
+          </td>
+          <td>Concrete leaf class mapped directly to root physical table and LPG node table.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:Prescription</code><br>
+            <small style="color:var(--muted)">Target of <code>ex:PrescriptionShape</code></small>
+          </td>
+          <td><code>Prescriptions</code></td>
+          <td>
+            <span class="label-pill">:Prescription</span>
+          </td>
+          <td>
+            <code>PrescriptionId STRING(64) [PK] NOT NULL</code><br>
+            <code>DosageMg NUMERIC NOT NULL</code><br>
+            <code>ValidFrom TIMESTAMP NOT NULL</code><br>
+            <code>ValidTo TIMESTAMP</code><br>
+            <code>IsActive BOOL</code>
+          </td>
+          <td>Event/interval entity mapped to concrete node table. Foreign keys (<code>PatientId</code>, <code>MedicationId</code>) are embedded in relational schema and exposed as LPG edge endpoints. Check constraint enforces time interval ordering (<code>ValidTo IS NULL OR ValidTo >= ValidFrom</code>).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:prescribedFor</code><br>
+            <small style="color:var(--muted)">owl:FunctionalProperty, sh:minCount 1</small>
+          </td>
+          <td><code>Prescriptions</code> &rarr; <code>Patients</code></td>
+          <td><code>Prescriptions AS PrescribedForEdges</code></td>
+          <td>
+            <span class="label-pill">:PRESCRIBED_FOR</span>
+          </td>
+          <td>Embedded foreign key <code>PatientId</code> referencing <code>Patients(PatientId)</code>. Exposed in Spanner Graph via table aliasing with source key <code>PrescriptionId</code> and destination key <code>PatientId</code>.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:dispensesMedication</code><br>
+            <small style="color:var(--muted)">owl:FunctionalProperty, sh:minCount 1</small>
+          </td>
+          <td><code>Prescriptions</code> &rarr; <code>Medications</code></td>
+          <td><code>Prescriptions AS DispensesMedicationEdges</code></td>
+          <td>
+            <span class="label-pill">:DISPENSES_MEDICATION</span>
+          </td>
+          <td>Embedded foreign key <code>MedicationId</code> referencing <code>Medications(MedicationId)</code>. Exposed in Spanner Graph via table aliasing with source key <code>PrescriptionId</code> and destination key <code>MedicationId</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Active Prescriptions Traversal:</strong><br>Find active medications prescribed for a specific patient within a time window</td>
+          <td>
+            <div class="query-box">
+GRAPH TemporalPrescriptionGraph
+MATCH (p:Patient {PatientId: 'PAT-1001'})&lt;-[:PRESCRIBED_FOR]-(rx:Prescription)-[:DISPENSES_MEDICATION]->(m:Medication)
+WHERE rx.IsActive = TRUE
+  AND rx.ValidFrom &lt;= CURRENT_TIMESTAMP()
+  AND (rx.ValidTo IS NULL OR rx.ValidTo >= CURRENT_TIMESTAMP())
+RETURN p.PatientName, m.MedicationName, rx.DosageMg, rx.ValidFrom, rx.ValidTo;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Multi-Hop Patient History:</strong><br>Query all historical prescriptions and dispensed drugs for all patients</td>
+          <td>
+            <div class="query-box">
+GRAPH TemporalPrescriptionGraph
+MATCH (rx:Prescription)-[:PRESCRIBED_FOR]->(p:Patient),
+      (rx)-[:DISPENSES_MEDICATION]->(m:Medication)
+RETURN p.PatientId, p.PatientName, m.MedicationName, rx.DosageMg, rx.ValidFrom, rx.ValidTo
+ORDER BY rx.ValidFrom DESC;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Label Signature Uniformity:</strong> All exposed property lists (<code>Patient</code>, <code>Medication</code>, <code>Prescription</code>) strictly match their underlying column definitions and data types.</li>
+        <li><strong>Check Constraint Compliance:</strong> Temporal interval logic <code>CK_Prescription_TemporalValidity CHECK (ValidTo IS NULL OR ValidTo >= ValidFrom)</code> correctly enforces valid start/end bounds.</li>
+        <li><strong>Referential Integrity:</strong> Embedded foreign keys (<code>FK_Prescriptions_Patient</code> and <code>FK_Prescriptions_Medication</code>) guarantee referential consistency before edge traversal.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex: &lt;http://example.org/temporal#&gt; .
+
+&lt;http://example.org/temporal&gt; a owl:Ontology ;
+    rdfs:label &quot;Temporal Validity and Time-Interval Ontology&quot;@en ;
+    rdfs:comment &quot;Demonstrates W3C Time interval modeling with start/end timestamps and validity check constraints.&quot;@en .
+
+ex:Patient a owl:Class ;
+    rdfs:label &quot;Patient&quot;@en .
+
+ex:Medication a owl:Class ;
+    rdfs:label &quot;Medication&quot;@en .
+
+ex:Prescription a owl:Class ;
+    rdfs:label &quot;Prescription Order&quot;@en .
+
+ex:prescribedFor a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range ex:Patient ;
+    rdfs:label &quot;prescribed for patient&quot;@en .
+
+ex:dispensesMedication a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range ex:Medication ;
+    rdfs:label &quot;dispenses medication&quot;@en .
+
+ex:patientId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Patient ;
+    rdfs:range xsd:string .
+
+ex:patientName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Patient ;
+    rdfs:range xsd:string .
+
+ex:medicationId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Medication ;
+    rdfs:range xsd:string .
+
+ex:medicationName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Medication ;
+    rdfs:range xsd:string .
+
+ex:prescriptionId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:string .
+
+ex:dosageMg a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:decimal .
+
+ex:validFrom a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:dateTime .
+
+ex:validTo a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:dateTime .
+
+ex:isActive a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:boolean .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex: &lt;http://example.org/temporal#&gt; .
+
+ex:PrescriptionShape a sh:NodeShape ;
+    sh:targetClass ex:Prescription ;
+    sh:property [
+        sh:path ex:prescriptionId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:prescribedFor ;
+        sh:class ex:Patient ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:dispensesMedication ;
+        sh:class ex:Medication ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:validFrom ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:validTo ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:dosageMg ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- Google Cloud Spanner Physical Relational Schema
+-- =============================================================================
+
+CREATE TABLE Patients (
+  PatientId STRING(64) NOT NULL,
+  PatientName STRING(MAX)
+) PRIMARY KEY (PatientId);
+
+CREATE TABLE Medications (
+  MedicationId STRING(64) NOT NULL,
+  MedicationName STRING(MAX)
+) PRIMARY KEY (MedicationId);
+
+CREATE TABLE Prescriptions (
+  PrescriptionId STRING(64) NOT NULL,
+  PatientId STRING(64) NOT NULL,
+  MedicationId STRING(64) NOT NULL,
+  DosageMg NUMERIC NOT NULL,
+  ValidFrom TIMESTAMP NOT NULL,
+  ValidTo TIMESTAMP,
+  IsActive BOOL,
+  CONSTRAINT FK_Prescriptions_Patient FOREIGN KEY (PatientId) REFERENCES Patients (PatientId),
+  CONSTRAINT FK_Prescriptions_Medication FOREIGN KEY (MedicationId) REFERENCES Medications (MedicationId),
+  CONSTRAINT CK_Prescription_TemporalValidity CHECK (ValidTo IS NULL OR ValidTo &gt;= ValidFrom)
+) PRIMARY KEY (PrescriptionId);
+
+-- =============================================================================
+-- Google Cloud Spanner Property Graph Schema
+-- =============================================================================
+
+CREATE PROPERTY GRAPH TemporalPrescriptionGraph
+  NODE TABLES (
+    Patients
+      LABEL Patient PROPERTIES (PatientId, PatientName),
+    Medications
+      LABEL Medication PROPERTIES (MedicationId, MedicationName),
+    Prescriptions
+      LABEL Prescription PROPERTIES (PrescriptionId, DosageMg, ValidFrom, ValidTo, IsActive)
+  )
+  EDGE TABLES (
+    Prescriptions AS PrescribedForEdges
+      SOURCE KEY (PrescriptionId) REFERENCES Prescriptions (PrescriptionId)
+      DESTINATION KEY (PatientId) REFERENCES Patients (PatientId)
+      LABEL PRESCRIBED_FOR,
+    Prescriptions AS DispensesMedicationEdges
+      SOURCE KEY (PrescriptionId) REFERENCES Prescriptions (PrescriptionId)
+      DESTINATION KEY (MedicationId) REFERENCES Medications (MedicationId)
+      LABEL DISPENSES_MEDICATION
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - Multi-Parent Subproperty DAG</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>subpropdag.ttl</code></div>
+          <div>SHACL: <code>None (Ontology Axioms Only)</code></div>
+          <div>Target DDL: <code>schema.sql</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">1</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">4</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">3</div>
+        <div class="label">Mapped Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology (Diagram First!) -->
+    <h2>1. Visual Graph Schema &amp; Subproperty DAG</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef edgeTable fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#92400e;
+
+    Airports["<b>Airports</b><br><i>&laquo;Spanner Node: Airport&raquo;</i><br>+ AirportId: STRING(36) [PK]<br>+ AirportCode: STRING(MAX)<br>+ AirportName: STRING(MAX)<br>+ CityServiced: STRING(MAX)"]:::concrete
+
+    subgraph DAG ["Subproperty Inheritance DAG (Multi-Label Realization)"]
+      E_Root["<b>AirportConnections</b><br><i>:CONNECTS_TO</i>"]:::edgeTable
+      E_Comm["<b>OperatesCommercialRoutes</b><br><i>:OPERATES_COMMERCIAL_ROUTE<br>:CONNECTS_TO</i>"]:::edgeTable
+      E_Dir["<b>SchedulesDirectRoutes</b><br><i>:SCHEDULES_DIRECT_ROUTE<br>:CONNECTS_TO</i>"]:::edgeTable
+      E_Nonstop["<b>DirectNonstopCommercialFlights</b><br><i>:DIRECT_NONSTOP_COMMERCIAL_FLIGHT<br>:OPERATES_COMMERCIAL_ROUTE<br>:SCHEDULES_DIRECT_ROUTE<br>:CONNECTS_TO</i>"]:::edgeTable
+
+      E_Comm -->|rdfs:subPropertyOf| E_Root
+      E_Dir -->|rdfs:subPropertyOf| E_Root
+      E_Nonstop -->|rdfs:subPropertyOf| E_Comm
+      E_Nonstop -->|rdfs:subPropertyOf| E_Dir
+    end
+
+    Airports -.->|Source/Dest Key| E_Root
+    Airports -.->|Source/Dest Key| E_Comm
+    Airports -.->|Source/Dest Key| E_Dir
+    Airports -.->|Source/Dest Key| E_Nonstop
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Node Table</strong> (Airports)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#fef3c7; border:1.5px solid #d97706; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Edge Tables &amp; Multi-Label DAG Accumulation</strong></div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ex:Airport</code></td>
+          <td><code>Airports</code></td>
+          <td>
+            <span class="label-pill">:Airport</span>
+          </td>
+          <td>
+            <code>AirportId STRING(36) [PK]</code><br>
+            <code>AirportCode STRING(MAX)</code><br>
+            <code>AirportName STRING(MAX)</code><br>
+            <code>CityServiced STRING(MAX)</code>
+          </td>
+          <td>Concrete root class mapped directly to physical table <code>Airports</code> with surrogate primary key <code>AirportId</code>. Functional datatype properties mapped as scalar columns.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping (Subproperty DAG Resolution)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table</th>
+          <th>Accumulated GQL Edge Labels</th>
+          <th>Subproperty Entailment Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>ex:connectsTo</code><br>
+            <small style="color:var(--muted)">Root Object Property</small>
+          </td>
+          <td><code>Airports</code> &rarr; <code>Airports</code></td>
+          <td><code>AirportConnections</code></td>
+          <td>
+            <span class="label-pill">:CONNECTS_TO</span>
+          </td>
+          <td>Root property mapped to dedicated edge table with single top-level label.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:operatesCommercialRoute</code><br>
+            <small style="color:var(--muted)"><code>rdfs:subPropertyOf ex:connectsTo</code></small>
+          </td>
+          <td><code>Airports</code> &rarr; <code>Airports</code></td>
+          <td><code>OperatesCommercialRoutes</code></td>
+          <td>
+            <span class="label-pill">:OPERATES_COMMERCIAL_ROUTE</span>
+            <span class="label-pill">:CONNECTS_TO</span>
+          </td>
+          <td>Level-1 subproperty inherits parent label <code>:CONNECTS_TO</code> to enable polymorphic route matching.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:schedulesDirectRoute</code><br>
+            <small style="color:var(--muted)"><code>rdfs:subPropertyOf ex:connectsTo</code></small>
+          </td>
+          <td><code>Airports</code> &rarr; <code>Airports</code></td>
+          <td><code>SchedulesDirectRoutes</code></td>
+          <td>
+            <span class="label-pill">:SCHEDULES_DIRECT_ROUTE</span>
+            <span class="label-pill">:CONNECTS_TO</span>
+          </td>
+          <td>Level-1 subproperty inherits parent label <code>:CONNECTS_TO</code> to satisfy root traversal queries.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>ex:directNonstopCommercialFlight</code><br>
+            <small style="color:var(--muted)"><code>rdfs:subPropertyOf ex:operatesCommercialRoute, ex:schedulesDirectRoute</code></small>
+          </td>
+          <td><code>Airports</code> &rarr; <code>Airports</code></td>
+          <td><code>DirectNonstopCommercialFlights</code></td>
+          <td>
+            <span class="label-pill">:DIRECT_NONSTOP_COMMERCIAL_FLIGHT</span>
+            <span class="label-pill">:OPERATES_COMMERCIAL_ROUTE</span>
+            <span class="label-pill">:SCHEDULES_DIRECT_ROUTE</span>
+            <span class="label-pill">:CONNECTS_TO</span>
+          </td>
+          <td><strong>DAG Multi-Parent Accumulation:</strong> Inherits all direct superproperties plus the transitive root property, allowing unified queries across any abstraction level.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Query Pattern / Subproperty Semantics</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Root Polymorphic Edge Traversal:</strong><br>Find all connections regardless of route type (matches all 4 physical edge tables)</td>
+          <td>
+            <div class="query-box">
+GRAPH SubpropertyDAGGraph
+MATCH (src:Airport)-[e:CONNECTS_TO]->(dst:Airport)
+RETURN src.AirportCode AS origin, dst.AirportCode AS destination;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Multi-Parent Branch Query:</strong><br>Find all commercial routes (matches <code>OperatesCommercialRoutes</code> and <code>DirectNonstopCommercialFlights</code>)</td>
+          <td>
+            <div class="query-box">
+GRAPH SubpropertyDAGGraph
+MATCH (src:Airport)-[e:OPERATES_COMMERCIAL_ROUTE]->(dst:Airport)
+RETURN src.CityServiced, dst.CityServiced;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>DAG Intersection Match:</strong><br>Find routes that are simultaneously commercial and direct (matching leaf label or multi-label conjunction)</td>
+          <td>
+            <div class="query-box">
+GRAPH SubpropertyDAGGraph
+MATCH (src:Airport)-[e:OPERATES_COMMERCIAL_ROUTE&amp;SCHEDULES_DIRECT_ROUTE]->(dst:Airport)
+RETURN src.AirportName, dst.AirportName;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Leaf-Specific Edge Query:</strong><br>Query only non-stop direct commercial flights</td>
+          <td>
+            <div class="query-box">
+GRAPH SubpropertyDAGGraph
+MATCH (src:Airport)-[e:DIRECT_NONSTOP_COMMERCIAL_FLIGHT]->(dst:Airport)
+RETURN src.AirportCode, dst.AirportCode;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Label Property Signature Uniformity:</strong> The shared labels (<code>:CONNECTS_TO</code>, <code>:OPERATES_COMMERCIAL_ROUTE</code>, <code>:SCHEDULES_DIRECT_ROUTE</code>) expose identical signatures (<code>SourceAirportId STRING(36)</code>, <code>DestinationAirportId STRING(36)</code>) across all four edge tables.</li>
+        <li><strong>Referential Integrity:</strong> All edge tables define explicit GoogleSQL foreign keys referencing <code>Airports(AirportId)</code> with composite primary keys ensuring edge uniqueness.</li>
+        <li><strong>Subproperty DAG Completeness:</strong> The multi-parent subproperty hierarchy is fully resolved without diamond inheritance anomalies or missing transitive parent labels.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Raw Artifacts & DDL Inspector -->
+
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex: &lt;http://example.org/subpropdag#&gt; .
+
+&lt;http://example.org/subpropdag&gt; a owl:Ontology ;
+    rdfs:label &quot;Multi-Parent Subproperty DAG Ontology&quot;@en ;
+    rdfs:comment &quot;Demonstrates directed acyclic graphs of subproperties with multiple orthogonal parent hierarchies accumulating multi-labels on edges.&quot;@en .
+
+ex:Airport a owl:Class ;
+    rdfs:label &quot;Airport&quot;@en .
+
+ex:connectsTo a owl:ObjectProperty ;
+    rdfs:domain ex:Airport ;
+    rdfs:range ex:Airport ;
+    rdfs:label &quot;connects to airport (root route)&quot;@en .
+
+ex:operatesCommercialRoute a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:connectsTo ;
+    rdfs:domain ex:Airport ;
+    rdfs:range ex:Airport ;
+    rdfs:label &quot;operates commercial route&quot;@en .
+
+ex:schedulesDirectRoute a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:connectsTo ;
+    rdfs:domain ex:Airport ;
+    rdfs:range ex:Airport ;
+    rdfs:label &quot;schedules direct route&quot;@en .
+
+# Multi-Parent Subproperty (inherits from both orthogonal branches)
+ex:directNonstopCommercialFlight a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:operatesCommercialRoute, ex:schedulesDirectRoute ;
+    rdfs:domain ex:Airport ;
+    rdfs:range ex:Airport ;
+    rdfs:label &quot;direct nonstop commercial flight&quot;@en .
+
+ex:airportCode a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Airport ;
+    rdfs:range xsd:string .
+
+ex:airportName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Airport ;
+    rdfs:range xsd:string .
+
+ex:cityServiced a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Airport ;
+    rdfs:range xsd:string .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>No companion SHACL shapes defined (Unconstrained OWL translation).</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- PHYSICAL RELATIONAL SCHEMA
+-- =============================================================================
+
+-- Concrete Node Table: Airport
+CREATE TABLE Airports (
+  AirportId STRING(36) NOT NULL,
+  AirportCode STRING(MAX),
+  AirportName STRING(MAX),
+  CityServiced STRING(MAX)
+) PRIMARY KEY (AirportId);
+
+-- Edge Table: Root connectsTo relationship
+CREATE TABLE AirportConnections (
+  SourceAirportId STRING(36) NOT NULL,
+  DestinationAirportId STRING(36) NOT NULL,
+  CONSTRAINT FK_AirportConnections_Source FOREIGN KEY (SourceAirportId) REFERENCES Airports (AirportId),
+  CONSTRAINT FK_AirportConnections_Dest FOREIGN KEY (DestinationAirportId) REFERENCES Airports (AirportId)
+) PRIMARY KEY (SourceAirportId, DestinationAirportId);
+
+-- Edge Table: operatesCommercialRoute relationship
+CREATE TABLE OperatesCommercialRoutes (
+  SourceAirportId STRING(36) NOT NULL,
+  DestinationAirportId STRING(36) NOT NULL,
+  CONSTRAINT FK_OperatesCommercial_Source FOREIGN KEY (SourceAirportId) REFERENCES Airports (AirportId),
+  CONSTRAINT FK_OperatesCommercial_Dest FOREIGN KEY (DestinationAirportId) REFERENCES Airports (AirportId)
+) PRIMARY KEY (SourceAirportId, DestinationAirportId);
+
+-- Edge Table: schedulesDirectRoute relationship
+CREATE TABLE SchedulesDirectRoutes (
+  SourceAirportId STRING(36) NOT NULL,
+  DestinationAirportId STRING(36) NOT NULL,
+  CONSTRAINT FK_SchedulesDirect_Source FOREIGN KEY (SourceAirportId) REFERENCES Airports (AirportId),
+  CONSTRAINT FK_SchedulesDirect_Dest FOREIGN KEY (DestinationAirportId) REFERENCES Airports (AirportId)
+) PRIMARY KEY (SourceAirportId, DestinationAirportId);
+
+-- Edge Table: directNonstopCommercialFlight relationship (Multi-Parent Subproperty Leaf)
+CREATE TABLE DirectNonstopCommercialFlights (
+  SourceAirportId STRING(36) NOT NULL,
+  DestinationAirportId STRING(36) NOT NULL,
+  CONSTRAINT FK_DirectNonstop_Source FOREIGN KEY (SourceAirportId) REFERENCES Airports (AirportId),
+  CONSTRAINT FK_DirectNonstop_Dest FOREIGN KEY (DestinationAirportId) REFERENCES Airports (AirportId)
+) PRIMARY KEY (SourceAirportId, DestinationAirportId);
+
+-- =============================================================================
+-- PROPERTY GRAPH SCHEMA
+-- =============================================================================
+
+CREATE PROPERTY GRAPH SubpropertyDAGGraph
+  NODE TABLES (
+    Airports
+      LABEL Airport PROPERTIES (AirportId, AirportCode, AirportName, CityServiced)
+  )
+  EDGE TABLES (
+    -- Root Property Mapping
+    AirportConnections
+      SOURCE KEY (SourceAirportId) REFERENCES Airports (AirportId)
+      DESTINATION KEY (DestinationAirportId) REFERENCES Airports (AirportId)
+      LABEL CONNECTS_TO PROPERTIES (SourceAirportId, DestinationAirportId),
+
+    -- Subproperty Level 1: operatesCommercialRoute -&gt; connectsTo
+    OperatesCommercialRoutes
+      SOURCE KEY (SourceAirportId) REFERENCES Airports (AirportId)
+      DESTINATION KEY (DestinationAirportId) REFERENCES Airports (AirportId)
+      LABEL OPERATES_COMMERCIAL_ROUTE PROPERTIES (SourceAirportId, DestinationAirportId)
+      LABEL CONNECTS_TO PROPERTIES (SourceAirportId, DestinationAirportId),
+
+    -- Subproperty Level 1: schedulesDirectRoute -&gt; connectsTo
+    SchedulesDirectRoutes
+      SOURCE KEY (SourceAirportId) REFERENCES Airports (AirportId)
+      DESTINATION KEY (DestinationAirportId) REFERENCES Airports (AirportId)
+      LABEL SCHEDULES_DIRECT_ROUTE PROPERTIES (SourceAirportId, DestinationAirportId)
+      LABEL CONNECTS_TO PROPERTIES (SourceAirportId, DestinationAirportId),
+
+    -- Multi-Parent Subproperty Level 2: directNonstopCommercialFlight -&gt; (operatesCommercialRoute, schedulesDirectRoute) -&gt; connectsTo
+    DirectNonstopCommercialFlights
+      SOURCE KEY (SourceAirportId) REFERENCES Airports (AirportId)
+      DESTINATION KEY (DestinationAirportId) REFERENCES Airports (AirportId)
+      LABEL DIRECT_NONSTOP_COMMERCIAL_FLIGHT PROPERTIES (SourceAirportId, DestinationAirportId)
+      LABEL OPERATES_COMMERCIAL_ROUTE PROPERTIES (SourceAirportId, DestinationAirportId)
+      LABEL SCHEDULES_DIRECT_ROUTE PROPERTIES (SourceAirportId, DestinationAirportId)
+      LABEL CONNECTS_TO PROPERTIES (SourceAirportId, DestinationAirportId)
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>
