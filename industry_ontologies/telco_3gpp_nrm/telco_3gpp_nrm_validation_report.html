@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - 3GPP 5G NRM &amp; Network Slicing</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    /* Metric Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    /* Metadata Bar */
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    /* Table Styles */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    /* Collapsible Code Blocks */
+    .code-details {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .code-details summary {
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: #e2e8f0;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+    .code-details summary:hover {
+      background: #cbd5e1;
+    }
+    .code-details .code-container {
+      padding: 16px;
+      background: #0f172a;
+      color: #f8fafc;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+    .code-details pre {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Domain: <strong>3GPP 5G Network Resource Model (NRM) &amp; Slicing</strong></div>
+          <div>Graph Name: <code>NetworkResourceModelGraph</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">10</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">19</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">24</div>
+        <div class="label">Flattened Columns</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    ManagedEntity["<b>ManagedEntity</b><br><i>&laquo;Abstract Root&raquo;</i><br>+ dn: STRING<br>+ adminState: STRING<br>+ operState: STRING"]:::abstract
+    ManagedFunction["<b>ManagedFunction</b><br><i>&laquo;Abstract Class&raquo;</i>"]:::abstract
+
+    SubNetworks["<b>SubNetworks</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SubNetworkId: STRING [PK]"]:::concrete
+    ManagedElements["<b>ManagedElements</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ ManagedElementId: STRING [PK]<br>+ elementName: STRING"]:::concrete
+    
+    GNBCUCP["<b>GNBCUCPFunctions</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ FunctionId: STRING [PK]<br>+ gNBId: INT64, mcc, mnc"]:::concrete
+    GNBCUUP["<b>GNBCUUPFunctions</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ FunctionId: STRING [PK]<br>+ maxThroughputGbps"]:::concrete
+    GNBDU["<b>GNBDUFunctions</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ FunctionId: STRING [PK]<br>+ cellCount: INT64"]:::concrete
+    AMF["<b>AMFFunctions</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ FunctionId: STRING [PK]"]:::concrete
+    SMF["<b>SMFFunctions</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ FunctionId: STRING [PK]"]:::concrete
+    UPF["<b>UPFFunctions</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ FunctionId: STRING [PK]"]:::concrete
+
+    NetworkSlices["<b>NetworkSlices</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SliceId: STRING [PK]<br>+ sst: INT64, sd, latency"]:::concrete
+    NetworkSliceSubnets["<b>NetworkSliceSubnets</b><br><i>&laquo;Spanner Table &amp; Node&raquo;</i><br>+ SliceSubnetId: STRING [PK]"]:::concrete
+
+    ManagedEntity -.->|Table-Per-Concrete| SubNetworks
+    ManagedEntity -.->|Table-Per-Concrete| ManagedElements
+    ManagedEntity -.->|Table-Per-Concrete| ManagedFunction
+    ManagedFunction -.->|Table-Per-Concrete| GNBCUCP
+    ManagedFunction -.->|Table-Per-Concrete| GNBCUUP
+    ManagedFunction -.->|Table-Per-Concrete| GNBDU
+    ManagedFunction -.->|Table-Per-Concrete| AMF
+    ManagedFunction -.->|Table-Per-Concrete| SMF
+    ManagedFunction -.->|Table-Per-Concrete| UPF
+
+    SubNetworks -->|PARENT_SUBNETWORK| SubNetworks
+    SubNetworks -->|CONTAINS_MANAGED_ELEMENT| ManagedElements
+    ManagedElements -->|CONTAINS_MANAGED_FUNCTION| GNBCUCP
+    ManagedElements -->|CONTAINS_MANAGED_FUNCTION| GNBCUUP
+    ManagedElements -->|CONTAINS_MANAGED_FUNCTION| GNBDU
+    
+    GNBCUCP -->|CONTROLS_DU| GNBDU
+    GNBCUCP -->|CONTROLS_CUUP| GNBCUUP
+    GNBCUCP <-->|XN_INTERFACE_WITH| GNBCUCP
+    GNBCUCP -->|CONNECTS_TO_AMF| AMF
+    GNBCUUP -->|CONNECTS_TO_UPF| UPF
+
+    NetworkSlices -->|ALLOCATES_SLICE_SUBNET| NetworkSliceSubnets
+    GNBCUCP -->|SERVES_SLICE| NetworkSlices
+    GNBCUUP -->|SERVES_SLICE| NetworkSlices
+    GNBDU -->|SERVES_SLICE| NetworkSlices
+    UPF -->|SERVES_SLICE| NetworkSlices
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract Class</strong> (Flattened Superclass)</div>
+    </div>
+
+    <!-- 3. Node Table Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>nrm:SubNetwork</code></td>
+          <td><code>SubNetworks</code></td>
+          <td>
+            <span class="label-pill">:SubNetwork</span>
+            <span class="label-pill">:ManagedEntity</span>
+          </td>
+          <td>
+            <code>SubNetworkId STRING(36) [PK]</code><br>
+            <code>dn STRING(MAX) NOT NULL</code><br>
+            <code>administrativeState STRING(50) NOT NULL</code><br>
+            <code>operationalState STRING(50) NOT NULL</code>
+          </td>
+          <td>Concrete leaf mapping. Base properties propagated from abstract superclass <code>nrm:ManagedEntity</code>. SHACL enum values validated via GoogleSQL <code>CHECK</code> constraints.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:ManagedElement</code></td>
+          <td><code>ManagedElements</code></td>
+          <td>
+            <span class="label-pill">:ManagedElement</span>
+            <span class="label-pill">:ManagedEntity</span>
+          </td>
+          <td>
+            <code>ManagedElementId STRING(36) [PK]</code><br>
+            <code>elementName STRING(MAX)</code><br>
+            <code>dn, administrativeState, operationalState</code>
+          </td>
+          <td>Concrete host chassis table. Inherits top-down properties from <code>ManagedEntity</code>. FK <code>SubNetworkId</code> establishes parent administrative scope.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:GNBCUCPFunction</code></td>
+          <td><code>GNBCUCPFunctions</code></td>
+          <td>
+            <span class="label-pill">:GNBCUCPFunction</span>
+            <span class="label-pill">:ManagedFunction</span>
+            <span class="label-pill">:ManagedEntity</span>
+          </td>
+          <td>
+            <code>FunctionId STRING(36) [PK]</code><br>
+            <code>gNBId INT64 NOT NULL</code><br>
+            <code>mcc, mnc STRING(MAX) NOT NULL</code><br>
+            <code>dn, administrativeState, operationalState</code>
+          </td>
+          <td>Concrete 5G RAN Control Plane node. Multi-label accumulation exposes hierarchy (<code>:GNBCUCPFunction</code>, <code>:ManagedFunction</code>, <code>:ManagedEntity</code>). Standardized <code>INT64</code> and <code>STRING</code> mapping.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:GNBCUUPFunction</code></td>
+          <td><code>GNBCUUPFunctions</code></td>
+          <td>
+            <span class="label-pill">:GNBCUUPFunction</span>
+            <span class="label-pill">:ManagedFunction</span>
+            <span class="label-pill">:ManagedEntity</span>
+          </td>
+          <td>
+            <code>FunctionId STRING(36) [PK]</code><br>
+            <code>maxThroughputGbps FLOAT64</code><br>
+            <code>dn, administrativeState, operationalState</code>
+          </td>
+          <td>Concrete 5G RAN User Plane node. <code>xsd:double</code> accurately mapped to GoogleSQL <code>FLOAT64</code>.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:GNBDUFunction</code></td>
+          <td><code>GNBDUFunctions</code></td>
+          <td>
+            <span class="label-pill">:GNBDUFunction</span>
+            <span class="label-pill">:ManagedFunction</span>
+            <span class="label-pill">:ManagedEntity</span>
+          </td>
+          <td>
+            <code>FunctionId STRING(36) [PK]</code><br>
+            <code>cellCount INT64</code><br>
+            <code>dn, administrativeState, operationalState</code>
+          </td>
+          <td>Concrete Distributed Unit node. <code>xsd:integer</code> converted to Spanner <code>INT64</code>. Inherits universal entity state columns.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:AMFFunction</code></td>
+          <td><code>AMFFunctions</code></td>
+          <td>
+            <span class="label-pill">:AMFFunction</span>
+            <span class="label-pill">:ManagedFunction</span>
+            <span class="label-pill">:ManagedEntity</span>
+          </td>
+          <td>
+            <code>FunctionId STRING(36) [PK]</code><br>
+            <code>dn, administrativeState, operationalState</code>
+          </td>
+          <td>Concrete 5GC Access and Mobility Management Function. Uniform <code>ManagedEntity</code> label property signatures maintained.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:SMFFunction</code></td>
+          <td><code>SMFFunctions</code></td>
+          <td>
+            <span class="label-pill">:SMFFunction</span>
+            <span class="label-pill">:ManagedFunction</span>
+            <span class="label-pill">:ManagedEntity</span>
+          </td>
+          <td>
+            <code>FunctionId STRING(36) [PK]</code><br>
+            <code>dn, administrativeState, operationalState</code>
+          </td>
+          <td>Concrete 5GC Session Management Function. Abstract <code>ManagedFunction</code> declared with <code>NO PROPERTIES</code> to ensure uniform LPG signatures.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:UPFFunction</code></td>
+          <td><code>UPFFunctions</code></td>
+          <td>
+            <span class="label-pill">:UPFFunction</span>
+            <span class="label-pill">:ManagedFunction</span>
+            <span class="label-pill">:ManagedEntity</span>
+          </td>
+          <td>
+            <code>FunctionId STRING(36) [PK]</code><br>
+            <code>dn, administrativeState, operationalState</code>
+          </td>
+          <td>Concrete 5GC User Plane Function table and node declaration.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:NetworkSlice</code></td>
+          <td><code>NetworkSlices</code></td>
+          <td>
+            <span class="label-pill">:NetworkSlice</span>
+          </td>
+          <td>
+            <code>SliceId STRING(36) [PK]</code><br>
+            <code>sst INT64 NOT NULL</code><br>
+            <code>sd STRING(MAX)</code><br>
+            <code>guaranteedLatencyMs FLOAT64 NOT NULL</code>
+          </td>
+          <td>End-to-End 5G S-NSSAI modeling. Multi-field attributes (SST/SD) mapped with mandatory SHACL cardinality checks enforced via <code>NOT NULL</code>.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:NetworkSliceSubnet</code></td>
+          <td><code>NetworkSliceSubnets</code></td>
+          <td>
+            <span class="label-pill">:NetworkSliceSubnet</span>
+          </td>
+          <td>
+            <code>SliceSubnetId STRING(36) [PK]</code>
+          </td>
+          <td>Network Slice Subnet Instance (NSSI) entity mapping.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Alias</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>nrm:parentSubNetwork</code><br>
+            <small style="color:var(--muted)">owl:TransitiveProperty</small>
+          </td>
+          <td><code>SubNetworks</code> &rarr; <code>SubNetworks</code></td>
+          <td><code>SubNetworks</code> AS <code>SubNetworkHierarchy</code></td>
+          <td><span class="label-pill">:PARENT_SUBNETWORK</span></td>
+          <td>Self-referencing FK on primary table exposed as graph edge. Enables recursive path searching in GQL.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:containsManagedElement</code></td>
+          <td><code>SubNetworks</code> &rarr; <code>ManagedElements</code></td>
+          <td><code>ManagedElements</code> AS <code>SubNetworkContainsElement</code></td>
+          <td><span class="label-pill">:CONTAINS_MANAGED_ELEMENT</span></td>
+          <td>FK-based edge declaration reusing parent key in <code>ManagedElements</code>. Zero extra physical storage required.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>nrm:containsManagedFunction</code><br>
+            <small style="color:var(--muted)">Polymorphic Abstract Range (ManagedFunction)</small>
+          </td>
+          <td><code>ManagedElements</code> &rarr; <code>[Concrete Functions]</code></td>
+          <td>
+            <code>GNBCUCPFunctions</code> AS <code>ElementContainsCUCP</code><br>
+            <code>GNBCUUPFunctions</code> AS <code>ElementContainsCUUP</code><br>
+            <code>GNBDUFunctions</code> AS <code>ElementContainsDU</code><br>
+            <code>AMFFunctions</code> AS <code>ElementContainsAMF</code><br>
+            <code>SMFFunctions</code> AS <code>ElementContainsSMF</code><br>
+            <code>UPFFunctions</code> AS <code>ElementContainsUPF</code>
+          </td>
+          <td><span class="label-pill">:CONTAINS_MANAGED_FUNCTION</span></td>
+          <td>Polymorphic expansion across all 6 concrete network function tables. Unified edge label <code>:CONTAINS_MANAGED_FUNCTION</code> enables uniform structural traversal.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:controlsDU</code> (F1-C Interface)</td>
+          <td><code>GNBCUCPFunctions</code> &rarr; <code>GNBDUFunctions</code></td>
+          <td><code>CUCPControlsDU</code></td>
+          <td><span class="label-pill">:CONTROLS_DU</span></td>
+          <td>Dedicated relational edge table with foreign keys enforcing 5G RAN control architecture.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:controlsCUUP</code> (E1 Interface)</td>
+          <td><code>GNBCUCPFunctions</code> &rarr; <code>GNBCUUPFunctions</code></td>
+          <td><code>CUCPControlsCUUP</code></td>
+          <td><span class="label-pill">:CONTROLS_CUUP</span></td>
+          <td>Explicit E1 control interface mapping between CU-CP and CU-UP.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>nrm:xnInterfaceWith</code><br>
+            <small style="color:var(--muted)">owl:SymmetricProperty (Xn Interface)</small>
+          </td>
+          <td><code>GNBCUCPFunctions</code> &leftrightarrow; <code>GNBCUCPFunctions</code></td>
+          <td>
+            <code>XnNeighbors</code><br>
+            <code>XnNeighbors</code> AS <code>XnNeighborsInverse</code>
+          </td>
+          <td><span class="label-pill">:XN_INTERFACE_WITH</span></td>
+          <td>Symmetric property modeled via dual key aliasing (Forward: <code>Source</code>&rarr;<code>Target</code>, Inverted: <code>Target</code>&rarr;<code>Source</code>) over a single physical join table. Ensures bidirectional GQL matching.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:connectsToAMF</code> (N2 Interface)</td>
+          <td><code>GNBCUCPFunctions</code> &rarr; <code>AMFFunctions</code></td>
+          <td><code>CUCPConnectsToAMF</code></td>
+          <td><span class="label-pill">:CONNECTS_TO_AMF</span></td>
+          <td>Explicit Control Plane to 5GC Core AMF linkage.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:connectsToUPF</code> (N3 Interface)</td>
+          <td><code>GNBCUUPFunctions</code> &rarr; <code>UPFFunctions</code></td>
+          <td><code>CUUPConnectsToUPF</code></td>
+          <td><span class="label-pill">:CONNECTS_TO_UPF</span></td>
+          <td>User Plane RAN to 5GC Core UPF linkage.</td>
+        </tr>
+        <tr>
+          <td><code>nrm:allocatesSliceSubnet</code></td>
+          <td><code>NetworkSlices</code> &rarr; <code>NetworkSliceSubnets</code></td>
+          <td><code>SliceAllocatesSubnet</code></td>
+          <td><span class="label-pill">:ALLOCATES_SLICE_SUBNET</span></td>
+          <td>Join table connecting end-to-end slice definition to subnets.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>nrm:servesSlice</code><br>
+            <small style="color:var(--muted)">Polymorphic Domain (ManagedFunction)</small>
+          </td>
+          <td><code>[Concrete Functions]</code> &rarr; <code>NetworkSlices</code></td>
+          <td>
+            <code>CUCPFunctionServesSlice</code><br>
+            <code>CUUPFunctionServesSlice</code><br>
+            <code>DUServesSlice</code><br>
+            <code>UPFServesSlice</code>
+          </td>
+          <td><span class="label-pill">:SERVES_SLICE</span></td>
+          <td>Polymorphic domain realization. Each active concrete NF connects to slices via a dedicated join table under a single GQL edge label.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. Sample GQL Queries & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Superclass Query:</strong><br>Retrieve all ManagedEntities regardless of concrete type</td>
+          <td>
+            <div class="query-box">
+GRAPH NetworkResourceModelGraph
+MATCH (e:ManagedEntity)
+RETURN e.dn, e.administrativeState, e.operationalState;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>End-to-End Slice Connectivity Traversal:</strong><br>Find all RAN &amp; Core functions serving URLLC slices (SST=2)</td>
+          <td>
+            <div class="query-box">
+GRAPH NetworkResourceModelGraph
+MATCH (nf:ManagedFunction)-[:SERVES_SLICE]->(s:NetworkSlice {sst: 2})
+RETURN nf.dn, s.sliceId, s.guaranteedLatencyMs;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>5G Control Chain Traversal:</strong><br>Traverse AMF &rarr; CU-CP &rarr; DU hierarchy</td>
+          <td>
+            <div class="query-box">
+GRAPH NetworkResourceModelGraph
+MATCH (amf:AMFFunction)<-[:CONNECTS_TO_AMF]-(cucp:GNBCUCPFunction)-[:CONTROLS_DU]->(du:GNBDUFunction)
+RETURN amf.dn AS amf_dn, cucp.gNBId AS gnb_id, du.cellCount AS cells;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Symmetric Edge Traversal:</strong><br>Query Xn Handover neighbors in both directions</td>
+          <td>
+            <div class="query-box">
+GRAPH NetworkResourceModelGraph
+MATCH (src:GNBCUCPFunction)-[:XN_INTERFACE_WITH]-(tgt:GNBCUCPFunction)
+WHERE src.gNBId = 1001
+RETURN tgt.gNBId, tgt.mcc, tgt.mnc;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Invariants Checklist -->
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Label Property Signature Uniformity:</strong> Fully compliant. <code>:ManagedEntity</code> defines <code>(dn, administrativeState, operationalState)</code> identically across all 8 participating node tables. <code>:ManagedFunction</code> is defined as <code>NO PROPERTIES</code> across all 6 function tables.</li>
+        <li><strong>Symmetric Edge Equivalence:</strong> Fully compliant. <code>nrm:xnInterfaceWith</code> uses forward and inverse aliasing on physical table <code>XnNeighbors</code> with identical label <code>XN_INTERFACE_WITH</code>.</li>
+        <li><strong>Nullability &amp; Cardinality:</strong> Fully compliant. Mandatory SHACL property shapes (<code>sh:minCount 1</code>) are enforced via physical <code>NOT NULL</code> constraints. Enum shapes are enforced via GoogleSQL <code>CHECK</code> constraints.</li>
+        <li><strong>Referential Integrity:</strong> Fully compliant. Foreign key relationships properly mirror OWL domains and ranges.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Raw Artifacts Inspector (Automatically Injected) -->
+
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:   &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:   &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:   &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix nrm:   &lt;http://example.org/3gpp/nrm#&gt; .
+
+&lt;http://example.org/3gpp/nrm&gt; a owl:Ontology ;
+    rdfs:label &quot;3GPP 5G Network Resource Model (NRM) &amp; Slicing Ontology&quot;@en ;
+    rdfs:comment &quot;3GPP TS 28.541 and TS 28.622 standard-aligned ontology modeling 5G RAN (gNodeB CU-CP, CU-UP, DU), 5G Core Network Functions (AMF, SMF, UPF), Network Slicing (SST/SD), and Xn/N2/N3 interconnections.&quot;@en .
+
+# =============================================================================
+# 1. CLASS TAXONOMY
+# =============================================================================
+
+nrm:ManagedEntity a owl:Class ;
+    rdfs:label &quot;Managed Entity (Abstract Root)&quot;@en .
+
+# SubNetwork Hierarchy (Interleaved Administrative Scopes)
+nrm:SubNetwork a owl:Class ;
+    rdfs:subClassOf nrm:ManagedEntity ;
+    rdfs:label &quot;5G SubNetwork Domain Scope&quot;@en .
+
+# ManagedElement (Base Physical / Virtual Chassis)
+nrm:ManagedElement a owl:Class ;
+    rdfs:subClassOf nrm:ManagedEntity ;
+    rdfs:label &quot;Managed Element (gNodeB / Core NF Host Chassis)&quot;@en .
+
+# 5G Network Function (NF) Taxonomy
+nrm:ManagedFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedEntity ;
+    rdfs:label &quot;5G Managed Network Function (Abstract)&quot;@en .
+
+# 5G RAN (gNodeB Disaggregated Functions)
+nrm:GNBCUCPFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label &quot;gNodeB Central Unit - Control Plane (gNB-CU-CP)&quot;@en .
+
+nrm:GNBCUUPFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label &quot;gNodeB Central Unit - User Plane (gNB-CU-UP)&quot;@en .
+
+nrm:GNBDUFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label &quot;gNodeB Distributed Unit (gNB-DU)&quot;@en .
+
+# 5G Core Network Functions (5GC)
+nrm:AMFFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label &quot;Access and Mobility Management Function (AMF)&quot;@en .
+
+nrm:SMFFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label &quot;Session Management Function (SMF)&quot;@en .
+
+nrm:UPFFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label &quot;User Plane Function (UPF)&quot;@en .
+
+# 5G Network Slicing (S-NSSAI: SST + SD)
+nrm:NetworkSlice a owl:Class ;
+    rdfs:label &quot;End-to-End 5G Network Slice&quot;@en .
+
+nrm:NetworkSliceSubnet a owl:Class ;
+    rdfs:label &quot;Network Slice Subnet Instance (NSSI - RAN / Core / Transport)&quot;@en .
+
+# =============================================================================
+# 2. OBJECT PROPERTIES
+# =============================================================================
+
+# Hierarchical Interleaved Containment
+nrm:containsManagedElement a owl:ObjectProperty ;
+    rdfs:domain nrm:SubNetwork ;
+    rdfs:range nrm:ManagedElement ;
+    rdfs:label &quot;contains managed element chassis&quot;@en .
+
+nrm:containsManagedFunction a owl:ObjectProperty ;
+    rdfs:domain nrm:ManagedElement ;
+    rdfs:range nrm:ManagedFunction ;
+    rdfs:label &quot;contains managed network function instance&quot;@en .
+
+# SubNetwork Transitive Hierarchy
+nrm:parentSubNetwork a owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:domain nrm:SubNetwork ;
+    rdfs:range nrm:SubNetwork ;
+    rdfs:label &quot;parent administrative subnetwork (transitive containment)&quot;@en .
+
+# 5G Control Plane Interfaces (gNB-CU-CP controlling gNB-DU via F1-C)
+nrm:controlsDU a owl:ObjectProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range nrm:GNBDUFunction ;
+    rdfs:label &quot;controls distributed unit (F1-C interface)&quot;@en .
+
+# 5G RAN User Plane Interface (E1 between CU-CP and CU-UP)
+nrm:controlsCUUP a owl:ObjectProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range nrm:GNBCUUPFunction ;
+    rdfs:label &quot;controls central unit user plane (E1 interface)&quot;@en .
+
+# gNodeB-to-gNodeB Symmetric Handover / Interconnection (Xn-C / Xn-U interface)
+nrm:xnInterfaceWith a owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range nrm:GNBCUCPFunction ;
+    rdfs:label &quot;Xn interface neighbor with peer gNodeB&quot;@en .
+
+# 5GC Service Associations
+nrm:connectsToAMF a owl:ObjectProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range nrm:AMFFunction ;
+    rdfs:label &quot;connects to 5G Core AMF (N2 interface)&quot;@en .
+
+nrm:connectsToUPF a owl:ObjectProperty ;
+    rdfs:domain nrm:GNBCUUPFunction ;
+    rdfs:range nrm:UPFFunction ;
+    rdfs:label &quot;connects to 5G Core UPF (N3 user plane interface)&quot;@en .
+
+# Slicing Allocation &amp; Association
+nrm:allocatesSliceSubnet a owl:ObjectProperty ;
+    rdfs:domain nrm:NetworkSlice ;
+    rdfs:range nrm:NetworkSliceSubnet ;
+    rdfs:label &quot;allocates network slice subnet instance (NSSI)&quot;@en .
+
+nrm:servesSlice a owl:ObjectProperty ;
+    rdfs:domain nrm:ManagedFunction ;
+    rdfs:range nrm:NetworkSlice ;
+    rdfs:label &quot;serves and allocates resources to network slice&quot;@en .
+
+# =============================================================================
+# 3. DATATYPE PROPERTIES
+# =============================================================================
+
+# Universal Managed Entity Identifier
+nrm:dn a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:ManagedEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;3GPP Distinguished Name (DN)&quot;@en .
+
+nrm:administrativeState a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:ManagedEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;administrative state (LOCKED / UNLOCKED / SHUTTING_DOWN)&quot;@en .
+
+nrm:operationalState a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:ManagedEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;operational state (ENABLED / DISABLED)&quot;@en .
+
+# Chassis &amp; Subnetwork Specific
+nrm:elementName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:ManagedElement ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;managed element name&quot;@en .
+
+nrm:subNetworkId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:SubNetwork ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;subnetwork identifier&quot;@en .
+
+# RAN Function Specific
+nrm:gNBId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range xsd:integer ;
+    rdfs:label &quot;3GPP gNodeB identifier&quot;@en .
+
+nrm:mcc a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;mobile country code (MCC)&quot;@en .
+
+nrm:mnc a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;mobile network code (MNC)&quot;@en .
+
+nrm:maxThroughputGbps a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:GNBCUUPFunction ;
+    rdfs:range xsd:double ;
+    rdfs:label &quot;maximum supported user-plane throughput (Gbps)&quot;@en .
+
+nrm:cellCount a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:GNBDUFunction ;
+    rdfs:range xsd:integer ;
+    rdfs:label &quot;number of active NR cells hosted&quot;@en .
+
+# Slicing Parameters (S-NSSAI)
+nrm:sliceId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:NetworkSlice ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;network slice identifier&quot;@en .
+
+nrm:sst a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:NetworkSlice ;
+    rdfs:range xsd:integer ;
+    rdfs:label &quot;Slice/Service Type (SST: 1=eMBB, 2=URLLC, 3=MIoT, 4=V2X)&quot;@en .
+
+nrm:sd a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:NetworkSlice ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;Slice Differentiator (SD hex string)&quot;@en .
+
+nrm:guaranteedLatencyMs a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:NetworkSlice ;
+    rdfs:range xsd:double ;
+    rdfs:label &quot;guaranteed maximum latency SLA (ms)&quot;@en .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix sh:  &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix nrm: &lt;http://example.org/3gpp/nrm#&gt; .
+
+nrm:ManagedEntityShape a sh:NodeShape ;
+    sh:targetClass nrm:ManagedEntity ;
+    sh:property [
+        sh:path nrm:dn ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:administrativeState ;
+        sh:datatype xsd:string ;
+        sh:in ( &quot;LOCKED&quot; &quot;UNLOCKED&quot; &quot;SHUTTING_DOWN&quot; ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:operationalState ;
+        sh:datatype xsd:string ;
+        sh:in ( &quot;ENABLED&quot; &quot;DISABLED&quot; ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+nrm:GNBCUCPFunctionShape a sh:NodeShape ;
+    sh:targetClass nrm:GNBCUCPFunction ;
+    sh:property [
+        sh:path nrm:gNBId ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:mcc ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:mnc ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+nrm:NetworkSliceShape a sh:NodeShape ;
+    sh:targetClass nrm:NetworkSlice ;
+    sh:property [
+        sh:path nrm:sliceId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:sst ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:guaranteedLatencyMs ;
+        sh:datatype xsd:double ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- GOOGLE CLOUD SPANNER PHYSICAL RELATIONAL DDL
+-- 3GPP 5G Network Resource Model (NRM) &amp; Network Slicing
+-- =============================================================================
+
+-- Administrative SubNetwork Scope
+CREATE TABLE SubNetworks (
+  SubNetworkId STRING(36) NOT NULL,
+  ParentSubNetworkId STRING(36),
+  dn STRING(MAX) NOT NULL,
+  administrativeState STRING(50) NOT NULL,
+  operationalState STRING(50) NOT NULL,
+  CONSTRAINT CK_SubNetwork_AdminState CHECK (administrativeState IN (&#x27;LOCKED&#x27;, &#x27;UNLOCKED&#x27;, &#x27;SHUTTING_DOWN&#x27;)),
+  CONSTRAINT CK_SubNetwork_OperState CHECK (operationalState IN (&#x27;ENABLED&#x27;, &#x27;DISABLED&#x27;)),
+  CONSTRAINT FK_SubNetwork_Parent FOREIGN KEY (ParentSubNetworkId) REFERENCES SubNetworks (SubNetworkId)
+) PRIMARY KEY (SubNetworkId);
+
+-- Managed Element Host Chassis
+CREATE TABLE ManagedElements (
+  ManagedElementId STRING(36) NOT NULL,
+  SubNetworkId STRING(36) NOT NULL,
+  elementName STRING(MAX),
+  dn STRING(MAX) NOT NULL,
+  administrativeState STRING(50) NOT NULL,
+  operationalState STRING(50) NOT NULL,
+  CONSTRAINT CK_ME_AdminState CHECK (administrativeState IN (&#x27;LOCKED&#x27;, &#x27;UNLOCKED&#x27;, &#x27;SHUTTING_DOWN&#x27;)),
+  CONSTRAINT CK_ME_OperState CHECK (operationalState IN (&#x27;ENABLED&#x27;, &#x27;DISABLED&#x27;)),
+  CONSTRAINT FK_ME_SubNetwork FOREIGN KEY (SubNetworkId) REFERENCES SubNetworks (SubNetworkId)
+) PRIMARY KEY (ManagedElementId);
+
+-- 5G RAN: gNodeB Central Unit - Control Plane (gNB-CU-CP)
+CREATE TABLE GNBCUCPFunctions (
+  FunctionId STRING(36) NOT NULL,
+  ManagedElementId STRING(36) NOT NULL,
+  gNBId INT64 NOT NULL,
+  mcc STRING(MAX) NOT NULL,
+  mnc STRING(MAX) NOT NULL,
+  dn STRING(MAX) NOT NULL,
+  administrativeState STRING(50) NOT NULL,
+  operationalState STRING(50) NOT NULL,
+  CONSTRAINT CK_CUCP_AdminState CHECK (administrativeState IN (&#x27;LOCKED&#x27;, &#x27;UNLOCKED&#x27;, &#x27;SHUTTING_DOWN&#x27;)),
+  CONSTRAINT CK_CUCP_OperState CHECK (operationalState IN (&#x27;ENABLED&#x27;, &#x27;DISABLED&#x27;)),
+  CONSTRAINT FK_CUCP_ME FOREIGN KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+) PRIMARY KEY (FunctionId);
+
+-- 5G RAN: gNodeB Central Unit - User Plane (gNB-CU-UP)
+CREATE TABLE GNBCUUPFunctions (
+  FunctionId STRING(36) NOT NULL,
+  ManagedElementId STRING(36) NOT NULL,
+  maxThroughputGbps FLOAT64,
+  dn STRING(MAX) NOT NULL,
+  administrativeState STRING(50) NOT NULL,
+  operationalState STRING(50) NOT NULL,
+  CONSTRAINT CK_CUUP_AdminState CHECK (administrativeState IN (&#x27;LOCKED&#x27;, &#x27;UNLOCKED&#x27;, &#x27;SHUTTING_DOWN&#x27;)),
+  CONSTRAINT CK_CUUP_OperState CHECK (operationalState IN (&#x27;ENABLED&#x27;, &#x27;DISABLED&#x27;)),
+  CONSTRAINT FK_CUUP_ME FOREIGN KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+) PRIMARY KEY (FunctionId);
+
+-- 5G RAN: gNodeB Distributed Unit (gNB-DU)
+CREATE TABLE GNBDUFunctions (
+  FunctionId STRING(36) NOT NULL,
+  ManagedElementId STRING(36) NOT NULL,
+  cellCount INT64,
+  dn STRING(MAX) NOT NULL,
+  administrativeState STRING(50) NOT NULL,
+  operationalState STRING(50) NOT NULL,
+  CONSTRAINT CK_DU_AdminState CHECK (administrativeState IN (&#x27;LOCKED&#x27;, &#x27;UNLOCKED&#x27;, &#x27;SHUTTING_DOWN&#x27;)),
+  CONSTRAINT CK_DU_OperState CHECK (operationalState IN (&#x27;ENABLED&#x27;, &#x27;DISABLED&#x27;)),
+  CONSTRAINT FK_DU_ME FOREIGN KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+) PRIMARY KEY (FunctionId);
+
+-- 5GC: Access and Mobility Management Function (AMF)
+CREATE TABLE AMFFunctions (
+  FunctionId STRING(36) NOT NULL,
+  ManagedElementId STRING(36) NOT NULL,
+  dn STRING(MAX) NOT NULL,
+  administrativeState STRING(50) NOT NULL,
+  operationalState STRING(50) NOT NULL,
+  CONSTRAINT CK_AMF_AdminState CHECK (administrativeState IN (&#x27;LOCKED&#x27;, &#x27;UNLOCKED&#x27;, &#x27;SHUTTING_DOWN&#x27;)),
+  CONSTRAINT CK_AMF_OperState CHECK (operationalState IN (&#x27;ENABLED&#x27;, &#x27;DISABLED&#x27;)),
+  CONSTRAINT FK_AMF_ME FOREIGN KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+) PRIMARY KEY (FunctionId);
+
+-- 5GC: Session Management Function (SMF)
+CREATE TABLE SMFFunctions (
+  FunctionId STRING(36) NOT NULL,
+  ManagedElementId STRING(36) NOT NULL,
+  dn STRING(MAX) NOT NULL,
+  administrativeState STRING(50) NOT NULL,
+  operationalState STRING(50) NOT NULL,
+  CONSTRAINT CK_SMF_AdminState CHECK (administrativeState IN (&#x27;LOCKED&#x27;, &#x27;UNLOCKED&#x27;, &#x27;SHUTTING_DOWN&#x27;)),
+  CONSTRAINT CK_SMF_OperState CHECK (operationalState IN (&#x27;ENABLED&#x27;, &#x27;DISABLED&#x27;)),
+  CONSTRAINT FK_SMF_ME FOREIGN KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+) PRIMARY KEY (FunctionId);
+
+-- 5GC: User Plane Function (UPF)
+CREATE TABLE UPFFunctions (
+  FunctionId STRING(36) NOT NULL,
+  ManagedElementId STRING(36) NOT NULL,
+  dn STRING(MAX) NOT NULL,
+  administrativeState STRING(50) NOT NULL,
+  operationalState STRING(50) NOT NULL,
+  CONSTRAINT CK_UPF_AdminState CHECK (administrativeState IN (&#x27;LOCKED&#x27;, &#x27;UNLOCKED&#x27;, &#x27;SHUTTING_DOWN&#x27;)),
+  CONSTRAINT CK_UPF_OperState CHECK (operationalState IN (&#x27;ENABLED&#x27;, &#x27;DISABLED&#x27;)),
+  CONSTRAINT FK_UPF_ME FOREIGN KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+) PRIMARY KEY (FunctionId);
+
+-- End-to-End 5G Network Slice
+CREATE TABLE NetworkSlices (
+  SliceId STRING(36) NOT NULL,
+  sst INT64 NOT NULL,
+  sd STRING(MAX),
+  guaranteedLatencyMs FLOAT64 NOT NULL
+) PRIMARY KEY (SliceId);
+
+-- Network Slice Subnet Instance (NSSI)
+CREATE TABLE NetworkSliceSubnets (
+  SliceSubnetId STRING(36) NOT NULL
+) PRIMARY KEY (SliceSubnetId);
+
+-- Relational Edge: F1-C Control Interface (CU-CP -&gt; DU)
+CREATE TABLE CUCPControlsDU (
+  CuCpFunctionId STRING(36) NOT NULL,
+  DuFunctionId STRING(36) NOT NULL,
+  CONSTRAINT FK_F1C_CUCP FOREIGN KEY (CuCpFunctionId) REFERENCES GNBCUCPFunctions (FunctionId),
+  CONSTRAINT FK_F1C_DU FOREIGN KEY (DuFunctionId) REFERENCES GNBDUFunctions (FunctionId)
+) PRIMARY KEY (CuCpFunctionId, DuFunctionId);
+
+-- Relational Edge: E1 Interface (CU-CP -&gt; CU-UP)
+CREATE TABLE CUCPControlsCUUP (
+  CuCpFunctionId STRING(36) NOT NULL,
+  CuUpFunctionId STRING(36) NOT NULL,
+  CONSTRAINT FK_E1_CUCP FOREIGN KEY (CuCpFunctionId) REFERENCES GNBCUCPFunctions (FunctionId),
+  CONSTRAINT FK_E1_CUUP FOREIGN KEY (CuUpFunctionId) REFERENCES GNBCUUPFunctions (FunctionId)
+) PRIMARY KEY (CuCpFunctionId, CuUpFunctionId);
+
+-- Relational Edge: Xn Interface Handover (CU-CP &lt;-&gt; CU-CP)
+CREATE TABLE XnNeighbors (
+  SourceCuCpId STRING(36) NOT NULL,
+  TargetCuCpId STRING(36) NOT NULL,
+  CONSTRAINT FK_Xn_Src FOREIGN KEY (SourceCuCpId) REFERENCES GNBCUCPFunctions (FunctionId),
+  CONSTRAINT FK_Xn_Tgt FOREIGN KEY (TargetCuCpId) REFERENCES GNBCUCPFunctions (FunctionId)
+) PRIMARY KEY (SourceCuCpId, TargetCuCpId);
+
+-- Relational Edge: N2 Interface (CU-CP -&gt; AMF)
+CREATE TABLE CUCPConnectsToAMF (
+  CuCpFunctionId STRING(36) NOT NULL,
+  AmfFunctionId STRING(36) NOT NULL,
+  CONSTRAINT FK_N2_CUCP FOREIGN KEY (CuCpFunctionId) REFERENCES GNBCUCPFunctions (FunctionId),
+  CONSTRAINT FK_N2_AMF FOREIGN KEY (AmfFunctionId) REFERENCES AMFFunctions (FunctionId)
+) PRIMARY KEY (CuCpFunctionId, AmfFunctionId);
+
+-- Relational Edge: N3 Interface (CU-UP -&gt; UPF)
+CREATE TABLE CUUPConnectsToUPF (
+  CuUpFunctionId STRING(36) NOT NULL,
+  UpfFunctionId STRING(36) NOT NULL,
+  CONSTRAINT FK_N3_CUUP FOREIGN KEY (CuUpFunctionId) REFERENCES GNBCUUPFunctions (FunctionId),
+  CONSTRAINT FK_N3_UPF FOREIGN KEY (UpfFunctionId) REFERENCES UPFFunctions (FunctionId)
+) PRIMARY KEY (CuUpFunctionId, UpfFunctionId);
+
+-- Relational Edge: Slice -&gt; Subnet Allocation
+CREATE TABLE SliceAllocatesSubnet (
+  SliceId STRING(36) NOT NULL,
+  SliceSubnetId STRING(36) NOT NULL,
+  CONSTRAINT FK_Alloc_Slice FOREIGN KEY (SliceId) REFERENCES NetworkSlices (SliceId),
+  CONSTRAINT FK_Alloc_Subnet FOREIGN KEY (SliceSubnetId) REFERENCES NetworkSliceSubnets (SliceSubnetId)
+) PRIMARY KEY (SliceId, SliceSubnetId);
+
+-- Relational Edge: Function Serves Slice (Polymorphic per concrete NF)
+CREATE TABLE CUCPFunctionServesSlice (
+  FunctionId STRING(36) NOT NULL,
+  SliceId STRING(36) NOT NULL,
+  CONSTRAINT FK_CUCPServe_Func FOREIGN KEY (FunctionId) REFERENCES GNBCUCPFunctions (FunctionId),
+  CONSTRAINT FK_CUCPServe_Slice FOREIGN KEY (SliceId) REFERENCES NetworkSlices (SliceId)
+) PRIMARY KEY (FunctionId, SliceId);
+
+CREATE TABLE CUUPFunctionServesSlice (
+  FunctionId STRING(36) NOT NULL,
+  SliceId STRING(36) NOT NULL,
+  CONSTRAINT FK_CUUPServe_Func FOREIGN KEY (FunctionId) REFERENCES GNBCUUPFunctions (FunctionId),
+  CONSTRAINT FK_CUUPServe_Slice FOREIGN KEY (SliceId) REFERENCES NetworkSlices (SliceId)
+) PRIMARY KEY (FunctionId, SliceId);
+
+CREATE TABLE DUServesSlice (
+  FunctionId STRING(36) NOT NULL,
+  SliceId STRING(36) NOT NULL,
+  CONSTRAINT FK_DUServe_Func FOREIGN KEY (FunctionId) REFERENCES GNBDUFunctions (FunctionId),
+  CONSTRAINT FK_DUServe_Slice FOREIGN KEY (SliceId) REFERENCES NetworkSlices (SliceId)
+) PRIMARY KEY (FunctionId, SliceId);
+
+CREATE TABLE UPFServesSlice (
+  FunctionId STRING(36) NOT NULL,
+  SliceId STRING(36) NOT NULL,
+  CONSTRAINT FK_UPFServe_Func FOREIGN KEY (FunctionId) REFERENCES UPFFunctions (FunctionId),
+  CONSTRAINT FK_UPFServe_Slice FOREIGN KEY (SliceId) REFERENCES NetworkSlices (SliceId)
+) PRIMARY KEY (FunctionId, SliceId);
+
+
+-- =============================================================================
+-- GOOGLE CLOUD SPANNER PROPERTY GRAPH DDL
+-- =============================================================================
+
+CREATE PROPERTY GRAPH NetworkResourceModelGraph
+  NODE TABLES (
+    SubNetworks
+      LABEL SubNetwork PROPERTIES (SubNetworkId)
+      LABEL ManagedEntity PROPERTIES (dn, administrativeState, operationalState),
+    ManagedElements
+      LABEL ManagedElement PROPERTIES (ManagedElementId, elementName)
+      LABEL ManagedEntity PROPERTIES (dn, administrativeState, operationalState),
+    GNBCUCPFunctions
+      LABEL GNBCUCPFunction PROPERTIES (FunctionId, gNBId, mcc, mnc)
+      LABEL ManagedFunction NO PROPERTIES
+      LABEL ManagedEntity PROPERTIES (dn, administrativeState, operationalState),
+    GNBCUUPFunctions
+      LABEL GNBCUUPFunction PROPERTIES (FunctionId, maxThroughputGbps)
+      LABEL ManagedFunction NO PROPERTIES
+      LABEL ManagedEntity PROPERTIES (dn, administrativeState, operationalState),
+    GNBDUFunctions
+      LABEL GNBDUFunction PROPERTIES (FunctionId, cellCount)
+      LABEL ManagedFunction NO PROPERTIES
+      LABEL ManagedEntity PROPERTIES (dn, administrativeState, operationalState),
+    AMFFunctions
+      LABEL AMFFunction PROPERTIES (FunctionId)
+      LABEL ManagedFunction NO PROPERTIES
+      LABEL ManagedEntity PROPERTIES (dn, administrativeState, operationalState),
+    SMFFunctions
+      LABEL SMFFunction PROPERTIES (FunctionId)
+      LABEL ManagedFunction NO PROPERTIES
+      LABEL ManagedEntity PROPERTIES (dn, administrativeState, operationalState),
+    UPFFunctions
+      LABEL UPFFunction PROPERTIES (FunctionId)
+      LABEL ManagedFunction NO PROPERTIES
+      LABEL ManagedEntity PROPERTIES (dn, administrativeState, operationalState),
+    NetworkSlices
+      LABEL NetworkSlice PROPERTIES (SliceId, sst, sd, guaranteedLatencyMs),
+    NetworkSliceSubnets
+      LABEL NetworkSliceSubnet PROPERTIES (SliceSubnetId)
+  )
+  EDGE TABLES (
+    -- SubNetwork Transitive Parent Hierarchy
+    SubNetworks AS SubNetworkHierarchy
+      SOURCE KEY (SubNetworkId) REFERENCES SubNetworks (SubNetworkId)
+      DESTINATION KEY (ParentSubNetworkId) REFERENCES SubNetworks (SubNetworkId)
+      LABEL PARENT_SUBNETWORK NO PROPERTIES,
+
+    -- SubNetwork Containment of Chassis
+    ManagedElements AS SubNetworkContainsElement
+      SOURCE KEY (SubNetworkId) REFERENCES SubNetworks (SubNetworkId)
+      DESTINATION KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+      LABEL CONTAINS_MANAGED_ELEMENT NO PROPERTIES,
+
+    -- ManagedElement Containment of NFs
+    GNBCUCPFunctions AS ElementContainsCUCP
+      SOURCE KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+      DESTINATION KEY (FunctionId) REFERENCES GNBCUCPFunctions (FunctionId)
+      LABEL CONTAINS_MANAGED_FUNCTION NO PROPERTIES,
+    GNBCUUPFunctions AS ElementContainsCUUP
+      SOURCE KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+      DESTINATION KEY (FunctionId) REFERENCES GNBCUUPFunctions (FunctionId)
+      LABEL CONTAINS_MANAGED_FUNCTION NO PROPERTIES,
+    GNBDUFunctions AS ElementContainsDU
+      SOURCE KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+      DESTINATION KEY (FunctionId) REFERENCES GNBDUFunctions (FunctionId)
+      LABEL CONTAINS_MANAGED_FUNCTION NO PROPERTIES,
+    AMFFunctions AS ElementContainsAMF
+      SOURCE KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+      DESTINATION KEY (FunctionId) REFERENCES AMFFunctions (FunctionId)
+      LABEL CONTAINS_MANAGED_FUNCTION NO PROPERTIES,
+    SMFFunctions AS ElementContainsSMF
+      SOURCE KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+      DESTINATION KEY (FunctionId) REFERENCES SMFFunctions (FunctionId)
+      LABEL CONTAINS_MANAGED_FUNCTION NO PROPERTIES,
+    UPFFunctions AS ElementContainsUPF
+      SOURCE KEY (ManagedElementId) REFERENCES ManagedElements (ManagedElementId)
+      DESTINATION KEY (FunctionId) REFERENCES UPFFunctions (FunctionId)
+      LABEL CONTAINS_MANAGED_FUNCTION NO PROPERTIES,
+
+    -- F1-C &amp; E1 Interfaces
+    CUCPControlsDU
+      SOURCE KEY (CuCpFunctionId) REFERENCES GNBCUCPFunctions (FunctionId)
+      DESTINATION KEY (DuFunctionId) REFERENCES GNBDUFunctions (FunctionId)
+      LABEL CONTROLS_DU NO PROPERTIES,
+    CUCPControlsCUUP
+      SOURCE KEY (CuCpFunctionId) REFERENCES GNBCUCPFunctions (FunctionId)
+      DESTINATION KEY (CuUpFunctionId) REFERENCES GNBCUUPFunctions (FunctionId)
+      LABEL CONTROLS_CUUP NO PROPERTIES,
+
+    -- Xn Interface (Symmetric neighbor relationship traversed in both directions)
+    XnNeighbors
+      SOURCE KEY (SourceCuCpId) REFERENCES GNBCUCPFunctions (FunctionId)
+      DESTINATION KEY (TargetCuCpId) REFERENCES GNBCUCPFunctions (FunctionId)
+      LABEL XN_INTERFACE_WITH NO PROPERTIES,
+    XnNeighbors AS XnNeighborsInverse
+      SOURCE KEY (TargetCuCpId) REFERENCES GNBCUCPFunctions (FunctionId)
+      DESTINATION KEY (SourceCuCpId) REFERENCES GNBCUCPFunctions (FunctionId)
+      LABEL XN_INTERFACE_WITH NO PROPERTIES,
+
+    -- 5GC Service Interfaces (N2 &amp; N3)
+    CUCPConnectsToAMF
+      SOURCE KEY (CuCpFunctionId) REFERENCES GNBCUCPFunctions (FunctionId)
+      DESTINATION KEY (AmfFunctionId) REFERENCES AMFFunctions (FunctionId)
+      LABEL CONNECTS_TO_AMF NO PROPERTIES,
+    CUUPConnectsToUPF
+      SOURCE KEY (CuUpFunctionId) REFERENCES GNBCUUPFunctions (FunctionId)
+      DESTINATION KEY (UpfFunctionId) REFERENCES UPFFunctions (FunctionId)
+      LABEL CONNECTS_TO_UPF NO PROPERTIES,
+
+    -- Slice Allocation and Serving Relationships
+    SliceAllocatesSubnet
+      SOURCE KEY (SliceId) REFERENCES NetworkSlices (SliceId)
+      DESTINATION KEY (SliceSubnetId) REFERENCES NetworkSliceSubnets (SliceSubnetId)
+      LABEL ALLOCATES_SLICE_SUBNET NO PROPERTIES,
+    CUCPFunctionServesSlice
+      SOURCE KEY (FunctionId) REFERENCES GNBCUCPFunctions (FunctionId)
+      DESTINATION KEY (SliceId) REFERENCES NetworkSlices (SliceId)
+      LABEL SERVES_SLICE NO PROPERTIES,
+    CUUPFunctionServesSlice
+      SOURCE KEY (FunctionId) REFERENCES GNBCUUPFunctions (FunctionId)
+      DESTINATION KEY (SliceId) REFERENCES NetworkSlices (SliceId)
+      LABEL SERVES_SLICE NO PROPERTIES,
+    DUServesSlice
+      SOURCE KEY (FunctionId) REFERENCES GNBDUFunctions (FunctionId)
+      DESTINATION KEY (SliceId) REFERENCES NetworkSlices (SliceId)
+      LABEL SERVES_SLICE NO PROPERTIES,
+    UPFServesSlice
+      SOURCE KEY (FunctionId) REFERENCES UPFFunctions (FunctionId)
+      DESTINATION KEY (SliceId) REFERENCES NetworkSlices (SliceId)
+      LABEL SERVES_SLICE NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Validation (OWL/SHACL to Spanner LPG Mapping) - TM Forum ODA &amp; SID Framework</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad: true, theme: 'neutral'});</script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --pass: #15803d;
+      --pass-bg: #dcfce7;
+      --warn: #b45309;
+      --warn-bg: #fef3c7;
+      --fail: #cf222e;
+      --fail-bg: #ffebe9;
+      --code-bg: #f1f5f9;
+      --primary: #2563eb;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; margin: 0; font-weight: 700; }
+    h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    
+    .status-badge {
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 20px;
+      background: var(--pass-bg);
+      color: var(--pass);
+      border: 1px solid rgba(21,128,61,0.2);
+    }
+    .status-badge.warn { background: var(--warn-bg); color: var(--warn); border-color: rgba(180,83,9,0.2); }
+    .status-badge.fail { background: var(--fail-bg); color: var(--fail); border-color: rgba(207,34,46,0.2); }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .kpi-card .num { font-size: 20px; font-weight: 700; color: var(--text); }
+    .kpi-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+
+    .meta-bar {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .meta-bar strong { color: var(--text); }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; }
+    th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--code-bg); font-weight: 600; color: #334155; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background-color: var(--code-bg);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0969da;
+    }
+    pre code { background: none; color: inherit; }
+    .query-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      overflow-x: auto;
+    }
+
+    .label-pill {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 1px;
+    }
+
+    .mermaid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 1. Header Banner & Health Matrix -->
+    <div class="header">
+      <div>
+        <h1>RDF/SHACL to Spanner LPG Translation &amp; Validation</h1>
+        <div class="meta-bar" style="margin-top: 6px; margin-bottom: 0;">
+          <div>Ontology: <code>tmforum_oda.ttl</code></div>
+          <div>SHACL: <code>tmforum_shapes.ttl</code></div>
+          <div>Target Graph: <code>OdaSidGraph</code></div>
+        </div>
+      </div>
+      <div class="status-badge">🟢 100% VALIDATED</div>
+    </div>
+
+    <!-- Quick Metric Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="num">8</div>
+        <div class="label">Node Tables</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">9</div>
+        <div class="label">Edge Mappings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">2</div>
+        <div class="label">Propagated Properties</div>
+      </div>
+      <div class="kpi-card">
+        <div class="num">0</div>
+        <div class="label">Schema Warnings</div>
+      </div>
+    </div>
+
+    <!-- 2. Visual Topology -->
+    <h2>1. Visual Graph Schema</h2>
+    <div class="mermaid">
+flowchart TD
+    classDef concrete fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;
+    classDef abstract fill:#f8fafc,stroke:#94a3b8,stroke-dasharray: 4 4,color:#64748b;
+
+    Party["<b>tm:Party</b><br><i>&laquo;Abstract Base&raquo;</i><br>+PartyId: STRING(36)<br>+PartyName: STRING(MAX)"]:::abstract
+    IndividualParties["<b>IndividualParties</b><br><i>&laquo;Node &amp; Table&raquo;</i><br>+PartyId: STRING(36) [PK]<br>+PartyName: STRING(MAX)<br>+NationalId: STRING(MAX)"]:::concrete
+    OrganizationParties["<b>OrganizationParties</b><br><i>&laquo;Node &amp; Table&raquo;</i><br>+PartyId: STRING(36) [PK]<br>+PartyName: STRING(MAX)<br>+TaxRegistrationNumber: STRING(MAX)"]:::concrete
+    CustomerAccounts["<b>CustomerAccounts</b><br><i>&laquo;Node &amp; Table&raquo;</i><br>+AccountId: STRING(36) [PK]<br>+AccountStatus: STRING(50)<br>+CreditLimit: NUMERIC"]:::concrete
+    ProductOfferings["<b>ProductOfferings</b><br><i>&laquo;Node &amp; Table&raquo;</i><br>+OfferingId: STRING(36) [PK]<br>+OfferingName: STRING(MAX)<br>+MonthlyPrice: NUMERIC<br>+IsBundle: BOOL"]:::concrete
+    ProductSpecifications["<b>ProductSpecifications</b><br><i>&laquo;Node &amp; Table&raquo;</i><br>+ProductSpecId: STRING(36) [PK]"]:::concrete
+    ServiceSpecifications["<b>ServiceSpecifications</b><br><i>&laquo;Node &amp; Table&raquo;</i><br>+ServiceSpecId: STRING(36) [PK]<br>+TargetSlaAvailability: FLOAT64"]:::concrete
+    ResourceSpecifications["<b>ResourceSpecifications</b><br><i>&laquo;Node &amp; Table&raquo;</i><br>+ResourceSpecId: STRING(36) [PK]<br>+ResourceType: STRING(50)"]:::concrete
+    ProductOrders["<b>ProductOrders</b><br><i>&laquo;Node &amp; Table&raquo;</i><br>+OrderId: STRING(36) [PK]<br>+OrderDate: TIMESTAMP"]:::concrete
+
+    Party -.->|Table-Per-Concrete| IndividualParties
+    Party -.->|Table-Per-Concrete| OrganizationParties
+
+    IndividualParties -->|HOLDS_ACCOUNT| CustomerAccounts
+    OrganizationParties -->|HOLDS_ACCOUNT| CustomerAccounts
+    OrganizationParties -->|PEERING_PARTNER_OF| OrganizationParties
+
+    ProductSpecifications -->|SPECIFIES_OFFERING| ProductOfferings
+    ProductSpecifications -->|REALIZED_BY_SERVICE_SPEC| ServiceSpecifications
+    ServiceSpecifications -->|REQUIRES_RESOURCE_SPEC| ResourceSpecifications
+
+    ProductOfferings -->|BUNDLES_OFFERING| ProductOfferings
+    ProductOrders -->|ORDERS_OFFERING| ProductOfferings
+    ProductOrders -->|PLACED_FOR_ACCOUNT| CustomerAccounts
+    </div>
+    <div style="display:flex; gap:20px; justify-content:center; margin-top:-6px; margin-bottom:20px; font-size:12px; color:var(--muted);">
+      <div><span style="display:inline-block; width:12px; height:12px; background:#e0f2fe; border:2px solid #0284c7; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Physical Spanner Table</strong> (Concrete Node)</div>
+      <div><span style="display:inline-block; width:12px; height:12px; background:#f8fafc; border:1px dashed #94a3b8; border-radius:2px; vertical-align:middle; margin-right:5px;"></span><strong>Abstract OWL Class</strong> (Flattened Superclass)</div>
+    </div>
+
+    <!-- 3. Node & Class Mapping -->
+    <h2>2. Node &amp; Class Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>OWL Class / Shape</th>
+          <th>Physical Spanner Table</th>
+          <th>Exposed GQL Labels</th>
+          <th>Flattened &amp; Inherited Columns</th>
+          <th>Mapping &amp; Optimization Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>tm:IndividualParty</code><br><small style="color:var(--muted)">subClassOf tm:Party</small></td>
+          <td><code>IndividualParties</code></td>
+          <td>
+            <span class="label-pill">:IndividualParty</span>
+            <span class="label-pill">:Party</span>
+          </td>
+          <td>
+            <code>PartyId STRING(36) [PK]</code><br>
+            <code>PartyName STRING(MAX) NOT NULL</code><br>
+            <code>NationalId STRING(MAX)</code>
+          </td>
+          <td>Top-down flattening of abstract <code>Party</code> attributes. Multi-label accumulation applied to preserve polymorphic traversal over <code>:Party</code>.</td>
+        </tr>
+        <tr>
+          <td><code>tm:OrganizationParty</code><br><small style="color:var(--muted)">subClassOf tm:Party</small></td>
+          <td><code>OrganizationParties</code></td>
+          <td>
+            <span class="label-pill">:OrganizationParty</span>
+            <span class="label-pill">:Party</span>
+          </td>
+          <td>
+            <code>PartyId STRING(36) [PK]</code><br>
+            <code>PartyName STRING(MAX) NOT NULL</code><br>
+            <code>TaxRegistrationNumber STRING(MAX)</code>
+          </td>
+          <td>Top-down flattening of <code>Party</code>. Property signature for <code>:Party (PartyId, PartyName)</code> is identical to <code>IndividualParties</code> (Uniform Signature Rule satisfied).</td>
+        </tr>
+        <tr>
+          <td><code>tm:CustomerAccount</code></td>
+          <td><code>CustomerAccounts</code></td>
+          <td><span class="label-pill">:CustomerAccount</span></td>
+          <td>
+            <code>AccountId STRING(36) [PK]</code><br>
+            <code>AccountStatus STRING(50) NOT NULL</code><br>
+            <code>CreditLimit NUMERIC NOT NULL</code>
+          </td>
+          <td>Direct concrete entity mapping. SHACL enumeration enforced via physical table check constraint <code>CK_CustomerAccountStatus</code>.</td>
+        </tr>
+        <tr>
+          <td><code>tm:ProductSpecification</code></td>
+          <td><code>ProductSpecifications</code></td>
+          <td><span class="label-pill">:ProductSpecification</span></td>
+          <td>
+            <code>ProductSpecId STRING(36) [PK]</code>
+          </td>
+          <td>Standalone catalog entity functioning as structural anchor for service/resource realizations and commercial offerings.</td>
+        </tr>
+        <tr>
+          <td><code>tm:ProductOffering</code></td>
+          <td><code>ProductOfferings</code></td>
+          <td><span class="label-pill">:ProductOffering</span></td>
+          <td>
+            <code>OfferingId STRING(36) [PK]</code><br>
+            <code>OfferingName STRING(MAX) NOT NULL</code><br>
+            <code>MonthlyPrice NUMERIC NOT NULL</code><br>
+            <code>IsBundle BOOL NOT NULL</code>
+          </td>
+          <td>High-volume commercial catalog table. Scalar datatypes converted: <code>xsd:decimal</code> &rarr; <code>NUMERIC</code>, <code>xsd:boolean</code> &rarr; <code>BOOL</code>.</td>
+        </tr>
+        <tr>
+          <td><code>tm:ServiceSpecification</code></td>
+          <td><code>ServiceSpecifications</code></td>
+          <td><span class="label-pill">:ServiceSpecification</span></td>
+          <td>
+            <code>ServiceSpecId STRING(36) [PK]</code><br>
+            <code>TargetSlaAvailability FLOAT64 NOT NULL</code>
+          </td>
+          <td>CFS/RFS specification table. <code>xsd:double</code> mapped to Spanner <code>FLOAT64</code> with strict nullability enforcement.</td>
+        </tr>
+        <tr>
+          <td><code>tm:ResourceSpecification</code></td>
+          <td><code>ResourceSpecifications</code></td>
+          <td><span class="label-pill">:ResourceSpecification</span></td>
+          <td>
+            <code>ResourceSpecId STRING(36) [PK]</code><br>
+            <code>ResourceType STRING(50)</code>
+          </td>
+          <td>Physical/virtual network resource definition node. Optional scalar attribute allows null values as per SHACL.</td>
+        </tr>
+        <tr>
+          <td><code>tm:ProductOrder</code></td>
+          <td><code>ProductOrders</code></td>
+          <td><span class="label-pill">:ProductOrder</span></td>
+          <td>
+            <code>OrderId STRING(36) [PK]</code><br>
+            <code>OrderDate TIMESTAMP NOT NULL</code>
+          </td>
+          <td>Transactional root entity. <code>xsd:dateTime</code> mapped to Spanner <code>TIMESTAMP</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Relationship & Edge Mapping -->
+    <h2>3. Relationship &amp; Edge Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Object Property &amp; Semantics</th>
+          <th>Source &rarr; Target</th>
+          <th>Edge Table / Storage</th>
+          <th>Exposed GQL Edge Labels</th>
+          <th>Implementation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>tm:holdsAccount</code><br>
+            <small style="color:var(--muted)">Abstract Domain: tm:Party</small>
+          </td>
+          <td><code>IndividualParties</code> &rarr; <code>CustomerAccounts</code></td>
+          <td><code>IndividualPartyAccounts</code></td>
+          <td><span class="label-pill">:HOLDS_ACCOUNT</span></td>
+          <td>Polymorphic resolution: Domain <code>tm:Party</code> expanded across leaf table <code>IndividualParties</code> with foreign key references.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>tm:holdsAccount</code><br>
+            <small style="color:var(--muted)">Abstract Domain: tm:Party</small>
+          </td>
+          <td><code>OrganizationParties</code> &rarr; <code>CustomerAccounts</code></td>
+          <td><code>OrganizationPartyAccounts</code></td>
+          <td><span class="label-pill">:HOLDS_ACCOUNT</span></td>
+          <td>Polymorphic resolution: Domain <code>tm:Party</code> expanded across leaf table <code>OrganizationParties</code> sharing label <code>:HOLDS_ACCOUNT</code>.</td>
+        </tr>
+        <tr>
+          <td><code>tm:specifiesOffering</code></td>
+          <td><code>ProductSpecifications</code> &rarr; <code>ProductOfferings</code></td>
+          <td><code>ProductSpecificationOfferings</code></td>
+          <td><span class="label-pill">:SPECIFIES_OFFERING</span></td>
+          <td>Relational join table mapping technical specifications to commercialized market offerings.</td>
+        </tr>
+        <tr>
+          <td><code>tm:realizedByServiceSpec</code></td>
+          <td><code>ProductSpecifications</code> &rarr; <code>ServiceSpecifications</code></td>
+          <td><code>ProductSpecServiceSpecs</code></td>
+          <td><span class="label-pill">:REALIZED_BY_SERVICE_SPEC</span></td>
+          <td>Direct foreign key edge binding product specifications to customer-facing services (CFS).</td>
+        </tr>
+        <tr>
+          <td><code>tm:requiresResourceSpec</code></td>
+          <td><code>ServiceSpecifications</code> &rarr; <code>ResourceSpecifications</code></td>
+          <td><code>ServiceSpecResourceSpecs</code></td>
+          <td><span class="label-pill">:REQUIRES_RESOURCE_SPEC</span></td>
+          <td>Physical network resource dependency link table.</td>
+        </tr>
+        <tr>
+          <td>
+            <code>tm:bundlesOffering</code><br>
+            <small style="color:var(--muted)">owl:TransitiveProperty</small>
+          </td>
+          <td><code>ProductOfferings</code> &rarr; <code>ProductOfferings</code></td>
+          <td><code>ProductOfferingBundles</code></td>
+          <td><span class="label-pill">:BUNDLES_OFFERING</span></td>
+          <td>Self-referencing recursive edge table enabling arbitrary-depth GQL path traversals (<code>-[ :BUNDLES_OFFERING ]-&gt;{1,5}</code>).</td>
+        </tr>
+        <tr>
+          <td>
+            <code>tm:peeringPartnerOf</code><br>
+            <small style="color:var(--muted)">owl:SymmetricProperty</small>
+          </td>
+          <td><code>OrganizationParties</code> &rarr; <code>OrganizationParties</code></td>
+          <td><code>OrganizationPeeringPartners</code></td>
+          <td><span class="label-pill">:PEERING_PARTNER_OF</span></td>
+          <td>Bilateral partner association table supporting undirected/symmetric graph pattern matching.</td>
+        </tr>
+        <tr>
+          <td><code>tm:ordersOffering</code></td>
+          <td><code>ProductOrders</code> &rarr; <code>ProductOfferings</code></td>
+          <td><code>ProductOrderOfferings</code></td>
+          <td><span class="label-pill">:ORDERS_OFFERING</span></td>
+          <td>Order line item association connecting customer purchase events to target offerings.</td>
+        </tr>
+        <tr>
+          <td><code>tm:placedForAccount</code></td>
+          <td><code>ProductOrders</code> &rarr; <code>CustomerAccounts</code></td>
+          <td><code>ProductOrderAccounts</code></td>
+          <td><span class="label-pill">:PLACED_FOR_ACCOUNT</span></td>
+          <td>Customer account attribution edge ensuring financial billing alignment.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 5. GQL Query Cheatsheet & Engine Invariants -->
+    <h2>4. GQL Query Cheatsheet &amp; Engine Invariants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern / Capability</th>
+          <th>Spanner GQL Query Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Polymorphic Party Traversal:</strong><br>Query accounts for all parties regardless of concrete subtype</td>
+          <td>
+            <div class="query-box">
+GRAPH OdaSidGraph
+MATCH (p:Party)-[:HOLDS_ACCOUNT]->(acc:CustomerAccount)
+WHERE acc.AccountStatus = 'ACTIVE'
+RETURN p.PartyId, p.PartyName, acc.AccountId, acc.CreditLimit;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Transitive Bundle Resolution:</strong><br>Traverse recursive product bundle hierarchies</td>
+          <td>
+            <div class="query-box">
+GRAPH OdaSidGraph
+MATCH (bundle:ProductOffering {OfferingName: '5G Enterprise Suite'})
+      -[:BUNDLES_OFFERING]->{1,3} (sub:ProductOffering)
+RETURN bundle.OfferingName, sub.OfferingName, sub.MonthlyPrice;</div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>End-to-End Catalog Lineage:</strong><br>Trace commercial order items down to physical resource specs</td>
+          <td>
+            <div class="query-box">
+GRAPH OdaSidGraph
+MATCH (o:ProductOrder)-[:ORDERS_OFFERING]->(po:ProductOffering)
+      <-[:SPECIFIES_OFFERING]-(ps:ProductSpecification)
+      -[:REALIZED_BY_SERVICE_SPEC]->(ss:ServiceSpecification)
+      -[:REQUIRES_RESOURCE_SPEC]->(rs:ResourceSpecification)
+WHERE o.OrderId = 'ORD-2024-001'
+RETURN po.OfferingName, ss.TargetSlaAvailability, rs.ResourceType;</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-size: 13px;">
+      <strong>Spanner Engine Invariant Verifications:</strong>
+      <ul style="margin: 6px 0 0 0; padding-left: 20px;">
+        <li><strong>Uniform Signature Rule:</strong> <code>LABEL Party PROPERTIES (PartyId, PartyName)</code> exposes identical column names and types across both <code>IndividualParties</code> and <code>OrganizationParties</code>.</li>
+        <li><strong>Referential Key Integrity:</strong> All <code>EDGE TABLES</code> declare valid <code>SOURCE KEY</code> and <code>DESTINATION KEY</code> clauses referencing real table primary keys.</li>
+        <li><strong>Subclass Multi-Labeling:</strong> Leaf node tables declare both their concrete type label and abstract ancestor labels, satisfying polymorphic GQL queries.</li>
+      </ul>
+    </div>
+  
+    <!-- 5. Raw Artifacts & DDL Inspector (Programmatically Injected for 100% Fidelity) -->
+    <h2>5. Raw Artifacts &amp; DDL Inspector</h2>
+    <p style="color:var(--muted); font-size:13px; margin-top:-4px;">Click any section below to expand and view the complete source RDF ontology, companion SHACL shapes, or generated Google Cloud Spanner DDL.</p>
+
+    <details class="code-details">
+      <summary>📄 View Raw Source OWL Ontology (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix rdf:   &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:   &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:   &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix tm:    &lt;http://example.org/tmforum/oda#&gt; .
+
+&lt;http://example.org/tmforum/oda&gt; a owl:Ontology ;
+    rdfs:label &quot;TM Forum Open Digital Architecture (ODA) &amp; SID Information Framework Ontology&quot;@en ;
+    rdfs:comment &quot;Telecom domain ontology modeling TM Forum SID/ODA business entities: Product Offerings, Specifications, Customer Accounts, Party Roles, and Service/Resource Specifications.&quot;@en .
+
+# =============================================================================
+# 1. CLASS TAXONOMY
+# =============================================================================
+
+# Party &amp; PartyRole Taxonomy (Party Table-Per-Concrete Flattening)
+tm:Party a owl:Class ;
+    rdfs:label &quot;Party (Abstract Base)&quot;@en .
+
+tm:IndividualParty a owl:Class ;
+    rdfs:subClassOf tm:Party ;
+    owl:disjointWith tm:OrganizationParty ;
+    rdfs:label &quot;Individual Party&quot;@en .
+
+tm:OrganizationParty a owl:Class ;
+    rdfs:subClassOf tm:Party ;
+    rdfs:label &quot;Organization Party&quot;@en .
+
+tm:CustomerAccount a owl:Class ;
+    rdfs:label &quot;Customer Billing Account&quot;@en .
+
+# Product, Service &amp; Resource Catalog Hierarchy
+tm:ProductOffering a owl:Class ;
+    rdfs:label &quot;Commercial Product Offering (e.g. 5G Unlimited Mobile Plan)&quot;@en .
+
+tm:ProductSpecification a owl:Class ;
+    rdfs:label &quot;Technical Product Specification&quot;@en .
+
+tm:ServiceSpecification a owl:Class ;
+    rdfs:label &quot;Customer &amp; Resource Facing Service Specification&quot;@en .
+
+tm:ResourceSpecification a owl:Class ;
+    rdfs:label &quot;Physical &amp; Logical Network Resource Specification&quot;@en .
+
+tm:ProductOrder a owl:Class ;
+    rdfs:label &quot;Customer Product Order&quot;@en .
+
+# =============================================================================
+# 2. OBJECT PROPERTIES
+# =============================================================================
+
+tm:holdsAccount a owl:ObjectProperty ;
+    rdfs:domain tm:Party ;
+    rdfs:range tm:CustomerAccount ;
+    rdfs:label &quot;holds customer billing account&quot;@en .
+
+tm:specifiesOffering a owl:ObjectProperty ;
+    rdfs:domain tm:ProductSpecification ;
+    rdfs:range tm:ProductOffering ;
+    rdfs:label &quot;specifies commercial product offering&quot;@en .
+
+tm:realizedByServiceSpec a owl:ObjectProperty ;
+    rdfs:domain tm:ProductSpecification ;
+    rdfs:range tm:ServiceSpecification ;
+    rdfs:label &quot;realized by service specification (CFS/RFS)&quot;@en .
+
+tm:requiresResourceSpec a owl:ObjectProperty ;
+    rdfs:domain tm:ServiceSpecification ;
+    rdfs:range tm:ResourceSpecification ;
+    rdfs:label &quot;requires physical or logical resource specification&quot;@en .
+
+# Transitive Product Offering Bundling Hierarchy
+tm:bundlesOffering a owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:domain tm:ProductOffering ;
+    rdfs:range tm:ProductOffering ;
+    rdfs:label &quot;bundles sub-offering (transitive package composition)&quot;@en .
+
+# Symmetric Inter-Carrier Roaming &amp; Peering Partnership
+tm:peeringPartnerOf a owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain tm:OrganizationParty ;
+    rdfs:range tm:OrganizationParty ;
+    rdfs:label &quot;peering or roaming partner of&quot;@en .
+
+# Product Order Composition
+tm:ordersOffering a owl:ObjectProperty ;
+    rdfs:domain tm:ProductOrder ;
+    rdfs:range tm:ProductOffering ;
+    rdfs:label &quot;orders commercial product offering&quot;@en .
+
+tm:placedForAccount a owl:ObjectProperty ;
+    rdfs:domain tm:ProductOrder ;
+    rdfs:range tm:CustomerAccount ;
+    rdfs:label &quot;placed for customer account&quot;@en .
+
+# =============================================================================
+# 3. DATATYPE PROPERTIES
+# =============================================================================
+
+# Party Attributes (Inherited Top-Down)
+tm:partyId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:Party ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;party identifier&quot;@en .
+
+tm:partyName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:Party ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;party legal / trading name&quot;@en .
+
+tm:nationalId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:IndividualParty ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;national identification number&quot;@en .
+
+tm:taxRegistrationNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:OrganizationParty ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;corporate tax number&quot;@en .
+
+# Account Attributes
+tm:accountId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:CustomerAccount ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;account identifier&quot;@en .
+
+tm:accountStatus a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:CustomerAccount ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;account status (e.g. ACTIVE, SUSPENDED)&quot;@en .
+
+tm:creditLimit a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:CustomerAccount ;
+    rdfs:range xsd:decimal ;
+    rdfs:label &quot;approved credit limit amount&quot;@en .
+
+# Product &amp; Service Attributes
+tm:offeringId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOffering ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;product offering identifier&quot;@en .
+
+tm:offeringName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOffering ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;product offering commercial name&quot;@en .
+
+tm:monthlyPrice a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOffering ;
+    rdfs:range xsd:decimal ;
+    rdfs:label &quot;monthly recurring charge (MRC)&quot;@en .
+
+tm:isBundle a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOffering ;
+    rdfs:range xsd:boolean ;
+    rdfs:label &quot;bundle indicator flag&quot;@en .
+
+tm:productSpecId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;product specification identifier&quot;@en .
+
+tm:serviceSpecId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ServiceSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;service specification identifier&quot;@en .
+
+tm:targetSlaAvailability a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ServiceSpecification ;
+    rdfs:range xsd:double ;
+    rdfs:label &quot;target SLA availability percentage (e.g. 99.999)&quot;@en .
+
+tm:resourceSpecId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ResourceSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;resource specification identifier&quot;@en .
+
+tm:resourceType a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ResourceSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;resource type (PHYSICAL / VIRTUAL / CLOUD_NATIVE)&quot;@en .
+
+tm:orderId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOrder ;
+    rdfs:range xsd:string ;
+    rdfs:label &quot;product order identifier&quot;@en .
+
+tm:orderDate a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOrder ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label &quot;order placement timestamp&quot;@en .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Companion SHACL Shapes (.ttl)</summary>
+      <div class="code-container">
+        <pre><code>@prefix sh:  &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix tm:  &lt;http://example.org/tmforum/oda#&gt; .
+
+tm:PartyShape a sh:NodeShape ;
+    sh:targetClass tm:Party ;
+    sh:property [
+        sh:path tm:partyId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:partyName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+tm:CustomerAccountShape a sh:NodeShape ;
+    sh:targetClass tm:CustomerAccount ;
+    sh:property [
+        sh:path tm:accountId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:accountStatus ;
+        sh:datatype xsd:string ;
+        sh:in ( &quot;ACTIVE&quot; &quot;SUSPENDED&quot; &quot;CLOSED&quot; &quot;PENDING&quot; ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:creditLimit ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+tm:ProductOfferingShape a sh:NodeShape ;
+    sh:targetClass tm:ProductOffering ;
+    sh:property [
+        sh:path tm:offeringId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:offeringName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:monthlyPrice ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:isBundle ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+tm:ServiceSpecificationShape a sh:NodeShape ;
+    sh:targetClass tm:ServiceSpecification ;
+    sh:property [
+        sh:path tm:serviceSpecId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:targetSlaAvailability ;
+        sh:datatype xsd:double ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+tm:ProductOrderShape a sh:NodeShape ;
+    sh:targetClass tm:ProductOrder ;
+    sh:property [
+        sh:path tm:orderId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:orderDate ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+</code></pre>
+      </div>
+    </details>
+
+    <details class="code-details">
+      <summary>📄 View Generated Spanner Relational &amp; Graph DDL (.sql)</summary>
+      <div class="code-container">
+        <pre><code>-- =============================================================================
+-- GOOGLE CLOUD SPANNER RELATIONAL DDL (Table-Per-Concrete-Class)
+-- =============================================================================
+
+-- 1. Party Concrete Hierarchy (Top-Down Inherited Properties Flattened)
+CREATE TABLE IndividualParties (
+  PartyId STRING(36) NOT NULL,
+  PartyName STRING(MAX) NOT NULL,
+  NationalId STRING(MAX)
+) PRIMARY KEY (PartyId);
+
+CREATE TABLE OrganizationParties (
+  PartyId STRING(36) NOT NULL,
+  PartyName STRING(MAX) NOT NULL,
+  TaxRegistrationNumber STRING(MAX)
+) PRIMARY KEY (PartyId);
+
+-- 2. Customer Account Entity
+CREATE TABLE CustomerAccounts (
+  AccountId STRING(36) NOT NULL,
+  AccountStatus STRING(50) NOT NULL,
+  CreditLimit NUMERIC NOT NULL,
+  CONSTRAINT CK_CustomerAccountStatus CHECK (
+    AccountStatus IN (&#x27;ACTIVE&#x27;, &#x27;SUSPENDED&#x27;, &#x27;CLOSED&#x27;, &#x27;PENDING&#x27;)
+  )
+) PRIMARY KEY (AccountId);
+
+-- 3. Product, Service &amp; Resource Catalog Specifications
+CREATE TABLE ProductSpecifications (
+  ProductSpecId STRING(36) NOT NULL
+) PRIMARY KEY (ProductSpecId);
+
+CREATE TABLE ProductOfferings (
+  OfferingId STRING(36) NOT NULL,
+  OfferingName STRING(MAX) NOT NULL,
+  MonthlyPrice NUMERIC NOT NULL,
+  IsBundle BOOL NOT NULL
+) PRIMARY KEY (OfferingId);
+
+CREATE TABLE ServiceSpecifications (
+  ServiceSpecId STRING(36) NOT NULL,
+  TargetSlaAvailability FLOAT64 NOT NULL
+) PRIMARY KEY (ServiceSpecId);
+
+CREATE TABLE ResourceSpecifications (
+  ResourceSpecId STRING(36) NOT NULL,
+  ResourceType STRING(50)
+) PRIMARY KEY (ResourceSpecId);
+
+-- 4. Customer Product Orders
+CREATE TABLE ProductOrders (
+  OrderId STRING(36) NOT NULL,
+  OrderDate TIMESTAMP NOT NULL
+) PRIMARY KEY (OrderId);
+
+-- =============================================================================
+-- RELATIONSHIP &amp; INTERMEDIATE EDGE TABLES
+-- =============================================================================
+
+-- Party holds CustomerAccount (Subclass relationships resolved per concrete party)
+CREATE TABLE IndividualPartyAccounts (
+  PartyId STRING(36) NOT NULL,
+  AccountId STRING(36) NOT NULL,
+  CONSTRAINT FK_IndPartyAcc_Party FOREIGN KEY (PartyId) REFERENCES IndividualParties (PartyId),
+  CONSTRAINT FK_IndPartyAcc_Account FOREIGN KEY (AccountId) REFERENCES CustomerAccounts (AccountId)
+) PRIMARY KEY (PartyId, AccountId);
+
+CREATE TABLE OrganizationPartyAccounts (
+  PartyId STRING(36) NOT NULL,
+  AccountId STRING(36) NOT NULL,
+  CONSTRAINT FK_OrgPartyAcc_Party FOREIGN KEY (PartyId) REFERENCES OrganizationParties (PartyId),
+  CONSTRAINT FK_OrgPartyAcc_Account FOREIGN KEY (AccountId) REFERENCES CustomerAccounts (AccountId)
+) PRIMARY KEY (PartyId, AccountId);
+
+-- Product Specification specifies Commercial Product Offering
+CREATE TABLE ProductSpecificationOfferings (
+  ProductSpecId STRING(36) NOT NULL,
+  OfferingId STRING(36) NOT NULL,
+  CONSTRAINT FK_SpecOffering_Spec FOREIGN KEY (ProductSpecId) REFERENCES ProductSpecifications (ProductSpecId),
+  CONSTRAINT FK_SpecOffering_Offering FOREIGN KEY (OfferingId) REFERENCES ProductOfferings (OfferingId)
+) PRIMARY KEY (ProductSpecId, OfferingId);
+
+-- Product Specification realized by Service Specification (CFS/RFS)
+CREATE TABLE ProductSpecServiceSpecs (
+  ProductSpecId STRING(36) NOT NULL,
+  ServiceSpecId STRING(36) NOT NULL,
+  CONSTRAINT FK_SpecServ_ProdSpec FOREIGN KEY (ProductSpecId) REFERENCES ProductSpecifications (ProductSpecId),
+  CONSTRAINT FK_SpecServ_ServSpec FOREIGN KEY (ServiceSpecId) REFERENCES ServiceSpecifications (ServiceSpecId)
+) PRIMARY KEY (ProductSpecId, ServiceSpecId);
+
+-- Service Specification requires Resource Specification
+CREATE TABLE ServiceSpecResourceSpecs (
+  ServiceSpecId STRING(36) NOT NULL,
+  ResourceSpecId STRING(36) NOT NULL,
+  CONSTRAINT FK_ServRes_ServSpec FOREIGN KEY (ServiceSpecId) REFERENCES ServiceSpecifications (ServiceSpecId),
+  CONSTRAINT FK_ServRes_ResSpec FOREIGN KEY (ResourceSpecId) REFERENCES ResourceSpecifications (ResourceSpecId)
+) PRIMARY KEY (ServiceSpecId, ResourceSpecId);
+
+-- Product Offering Bundling Hierarchy (Transitive Package Composition)
+CREATE TABLE ProductOfferingBundles (
+  ParentOfferingId STRING(36) NOT NULL,
+  ChildOfferingId STRING(36) NOT NULL,
+  CONSTRAINT FK_Bundle_Parent FOREIGN KEY (ParentOfferingId) REFERENCES ProductOfferings (OfferingId),
+  CONSTRAINT FK_Bundle_Child FOREIGN KEY (ChildOfferingId) REFERENCES ProductOfferings (OfferingId)
+) PRIMARY KEY (ParentOfferingId, ChildOfferingId);
+
+-- Inter-Carrier Roaming &amp; Peering Partnership (Symmetric Relationship)
+CREATE TABLE OrganizationPeeringPartners (
+  OrganizationPartyId STRING(36) NOT NULL,
+  PeerOrganizationPartyId STRING(36) NOT NULL,
+  CONSTRAINT FK_Peering_Org FOREIGN KEY (OrganizationPartyId) REFERENCES OrganizationParties (PartyId),
+  CONSTRAINT FK_Peering_PeerOrg FOREIGN KEY (PeerOrganizationPartyId) REFERENCES OrganizationParties (PartyId)
+) PRIMARY KEY (OrganizationPartyId, PeerOrganizationPartyId);
+
+-- Product Order to Offering &amp; Account Links
+CREATE TABLE ProductOrderOfferings (
+  OrderId STRING(36) NOT NULL,
+  OfferingId STRING(36) NOT NULL,
+  CONSTRAINT FK_OrderOffering_Order FOREIGN KEY (OrderId) REFERENCES ProductOrders (OrderId),
+  CONSTRAINT FK_OrderOffering_Offering FOREIGN KEY (OfferingId) REFERENCES ProductOfferings (OfferingId)
+) PRIMARY KEY (OrderId, OfferingId);
+
+CREATE TABLE ProductOrderAccounts (
+  OrderId STRING(36) NOT NULL,
+  AccountId STRING(36) NOT NULL,
+  CONSTRAINT FK_OrderAccount_Order FOREIGN KEY (OrderId) REFERENCES ProductOrders (OrderId),
+  CONSTRAINT FK_OrderAccount_Account FOREIGN KEY (AccountId) REFERENCES CustomerAccounts (AccountId)
+) PRIMARY KEY (OrderId, AccountId);
+
+-- =============================================================================
+-- GOOGLE CLOUD SPANNER PROPERTY GRAPH DEFINITION
+-- =============================================================================
+
+CREATE PROPERTY GRAPH OdaSidGraph
+  NODE TABLES (
+    IndividualParties
+      LABEL IndividualParty PROPERTIES (PartyId, PartyName, NationalId)
+      LABEL Party PROPERTIES (PartyId, PartyName),
+    OrganizationParties
+      LABEL OrganizationParty PROPERTIES (PartyId, PartyName, TaxRegistrationNumber)
+      LABEL Party PROPERTIES (PartyId, PartyName),
+    CustomerAccounts
+      LABEL CustomerAccount PROPERTIES (AccountId, AccountStatus, CreditLimit),
+    ProductSpecifications
+      LABEL ProductSpecification PROPERTIES (ProductSpecId),
+    ProductOfferings
+      LABEL ProductOffering PROPERTIES (OfferingId, OfferingName, MonthlyPrice, IsBundle),
+    ServiceSpecifications
+      LABEL ServiceSpecification PROPERTIES (ServiceSpecId, TargetSlaAvailability),
+    ResourceSpecifications
+      LABEL ResourceSpecification PROPERTIES (ResourceSpecId, ResourceType),
+    ProductOrders
+      LABEL ProductOrder PROPERTIES (OrderId, OrderDate)
+  )
+  EDGE TABLES (
+    IndividualPartyAccounts
+      SOURCE KEY (PartyId) REFERENCES IndividualParties (PartyId)
+      DESTINATION KEY (AccountId) REFERENCES CustomerAccounts (AccountId)
+      LABEL HOLDS_ACCOUNT NO PROPERTIES,
+    OrganizationPartyAccounts
+      SOURCE KEY (PartyId) REFERENCES OrganizationParties (PartyId)
+      DESTINATION KEY (AccountId) REFERENCES CustomerAccounts (AccountId)
+      LABEL HOLDS_ACCOUNT NO PROPERTIES,
+    ProductSpecificationOfferings
+      SOURCE KEY (ProductSpecId) REFERENCES ProductSpecifications (ProductSpecId)
+      DESTINATION KEY (OfferingId) REFERENCES ProductOfferings (OfferingId)
+      LABEL SPECIFIES_OFFERING NO PROPERTIES,
+    ProductSpecServiceSpecs
+      SOURCE KEY (ProductSpecId) REFERENCES ProductSpecifications (ProductSpecId)
+      DESTINATION KEY (ServiceSpecId) REFERENCES ServiceSpecifications (ServiceSpecId)
+      LABEL REALIZED_BY_SERVICE_SPEC NO PROPERTIES,
+    ServiceSpecResourceSpecs
+      SOURCE KEY (ServiceSpecId) REFERENCES ServiceSpecifications (ServiceSpecId)
+      DESTINATION KEY (ResourceSpecId) REFERENCES ResourceSpecifications (ResourceSpecId)
+      LABEL REQUIRES_RESOURCE_SPEC NO PROPERTIES,
+    ProductOfferingBundles
+      SOURCE KEY (ParentOfferingId) REFERENCES ProductOfferings (OfferingId)
+      DESTINATION KEY (ChildOfferingId) REFERENCES ProductOfferings (OfferingId)
+      LABEL BUNDLES_OFFERING NO PROPERTIES,
+    OrganizationPeeringPartners
+      SOURCE KEY (OrganizationPartyId) REFERENCES OrganizationParties (PartyId)
+      DESTINATION KEY (PeerOrganizationPartyId) REFERENCES OrganizationParties (PartyId)
+      LABEL PEERING_PARTNER_OF NO PROPERTIES,
+    ProductOrderOfferings
+      SOURCE KEY (OrderId) REFERENCES ProductOrders (OrderId)
+      DESTINATION KEY (OfferingId) REFERENCES ProductOfferings (OfferingId)
+      LABEL ORDERS_OFFERING NO PROPERTIES,
+    ProductOrderAccounts
+      SOURCE KEY (OrderId) REFERENCES ProductOrders (OrderId)
+      DESTINATION KEY (AccountId) REFERENCES CustomerAccounts (AccountId)
+      LABEL PLACED_FOR_ACCOUNT NO PROPERTIES
+  );</code></pre>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>
