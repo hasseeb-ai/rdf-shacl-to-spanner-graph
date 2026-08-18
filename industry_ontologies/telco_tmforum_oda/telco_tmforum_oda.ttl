@@ -1,0 +1,189 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix tm:    <http://example.org/tmforum/oda#> .
+
+<http://example.org/tmforum/oda> a owl:Ontology ;
+    rdfs:label "TM Forum Open Digital Architecture (ODA) & SID Information Framework Ontology"@en ;
+    rdfs:comment "Telecom domain ontology modeling TM Forum SID/ODA business entities: Product Offerings, Specifications, Customer Accounts, Party Roles, and Service/Resource Specifications."@en .
+
+# =============================================================================
+# 1. CLASS TAXONOMY
+# =============================================================================
+
+# Party & PartyRole Taxonomy (Party Table-Per-Concrete Flattening)
+tm:Party a owl:Class ;
+    rdfs:label "Party (Abstract Base)"@en .
+
+tm:IndividualParty a owl:Class ;
+    rdfs:subClassOf tm:Party ;
+    owl:disjointWith tm:OrganizationParty ;
+    rdfs:label "Individual Party"@en .
+
+tm:OrganizationParty a owl:Class ;
+    rdfs:subClassOf tm:Party ;
+    rdfs:label "Organization Party"@en .
+
+tm:CustomerAccount a owl:Class ;
+    rdfs:label "Customer Billing Account"@en .
+
+# Product, Service & Resource Catalog Hierarchy
+tm:ProductOffering a owl:Class ;
+    rdfs:label "Commercial Product Offering (e.g. 5G Unlimited Mobile Plan)"@en .
+
+tm:ProductSpecification a owl:Class ;
+    rdfs:label "Technical Product Specification"@en .
+
+tm:ServiceSpecification a owl:Class ;
+    rdfs:label "Customer & Resource Facing Service Specification"@en .
+
+tm:ResourceSpecification a owl:Class ;
+    rdfs:label "Physical & Logical Network Resource Specification"@en .
+
+tm:ProductOrder a owl:Class ;
+    rdfs:label "Customer Product Order"@en .
+
+# =============================================================================
+# 2. OBJECT PROPERTIES
+# =============================================================================
+
+tm:holdsAccount a owl:ObjectProperty ;
+    rdfs:domain tm:Party ;
+    rdfs:range tm:CustomerAccount ;
+    rdfs:label "holds customer billing account"@en .
+
+tm:specifiesOffering a owl:ObjectProperty ;
+    rdfs:domain tm:ProductSpecification ;
+    rdfs:range tm:ProductOffering ;
+    rdfs:label "specifies commercial product offering"@en .
+
+tm:realizedByServiceSpec a owl:ObjectProperty ;
+    rdfs:domain tm:ProductSpecification ;
+    rdfs:range tm:ServiceSpecification ;
+    rdfs:label "realized by service specification (CFS/RFS)"@en .
+
+tm:requiresResourceSpec a owl:ObjectProperty ;
+    rdfs:domain tm:ServiceSpecification ;
+    rdfs:range tm:ResourceSpecification ;
+    rdfs:label "requires physical or logical resource specification"@en .
+
+# Transitive Product Offering Bundling Hierarchy
+tm:bundlesOffering a owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:domain tm:ProductOffering ;
+    rdfs:range tm:ProductOffering ;
+    rdfs:label "bundles sub-offering (transitive package composition)"@en .
+
+# Symmetric Inter-Carrier Roaming & Peering Partnership
+tm:peeringPartnerOf a owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain tm:OrganizationParty ;
+    rdfs:range tm:OrganizationParty ;
+    rdfs:label "peering or roaming partner of"@en .
+
+# Product Order Composition
+tm:ordersOffering a owl:ObjectProperty ;
+    rdfs:domain tm:ProductOrder ;
+    rdfs:range tm:ProductOffering ;
+    rdfs:label "orders commercial product offering"@en .
+
+tm:placedForAccount a owl:ObjectProperty ;
+    rdfs:domain tm:ProductOrder ;
+    rdfs:range tm:CustomerAccount ;
+    rdfs:label "placed for customer account"@en .
+
+# =============================================================================
+# 3. DATATYPE PROPERTIES
+# =============================================================================
+
+# Party Attributes (Inherited Top-Down)
+tm:partyId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:Party ;
+    rdfs:range xsd:string ;
+    rdfs:label "party identifier"@en .
+
+tm:partyName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:Party ;
+    rdfs:range xsd:string ;
+    rdfs:label "party legal / trading name"@en .
+
+tm:nationalId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:IndividualParty ;
+    rdfs:range xsd:string ;
+    rdfs:label "national identification number"@en .
+
+tm:taxRegistrationNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:OrganizationParty ;
+    rdfs:range xsd:string ;
+    rdfs:label "corporate tax number"@en .
+
+# Account Attributes
+tm:accountId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:CustomerAccount ;
+    rdfs:range xsd:string ;
+    rdfs:label "account identifier"@en .
+
+tm:accountStatus a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:CustomerAccount ;
+    rdfs:range xsd:string ;
+    rdfs:label "account status (e.g. ACTIVE, SUSPENDED)"@en .
+
+tm:creditLimit a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:CustomerAccount ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "approved credit limit amount"@en .
+
+# Product & Service Attributes
+tm:offeringId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOffering ;
+    rdfs:range xsd:string ;
+    rdfs:label "product offering identifier"@en .
+
+tm:offeringName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOffering ;
+    rdfs:range xsd:string ;
+    rdfs:label "product offering commercial name"@en .
+
+tm:monthlyPrice a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOffering ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "monthly recurring charge (MRC)"@en .
+
+tm:isBundle a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOffering ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "bundle indicator flag"@en .
+
+tm:productSpecId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:label "product specification identifier"@en .
+
+tm:serviceSpecId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ServiceSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:label "service specification identifier"@en .
+
+tm:targetSlaAvailability a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ServiceSpecification ;
+    rdfs:range xsd:double ;
+    rdfs:label "target SLA availability percentage (e.g. 99.999)"@en .
+
+tm:resourceSpecId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ResourceSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:label "resource specification identifier"@en .
+
+tm:resourceType a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ResourceSpecification ;
+    rdfs:range xsd:string ;
+    rdfs:label "resource type (PHYSICAL / VIRTUAL / CLOUD_NATIVE)"@en .
+
+tm:orderId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOrder ;
+    rdfs:range xsd:string ;
+    rdfs:label "product order identifier"@en .
+
+tm:orderDate a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain tm:ProductOrder ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "order placement timestamp"@en .

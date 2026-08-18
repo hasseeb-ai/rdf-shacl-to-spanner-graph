@@ -1,0 +1,203 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix nrm:   <http://example.org/3gpp/nrm#> .
+
+<http://example.org/3gpp/nrm> a owl:Ontology ;
+    rdfs:label "3GPP 5G Network Resource Model (NRM) & Slicing Ontology"@en ;
+    rdfs:comment "3GPP TS 28.541 and TS 28.622 standard-aligned ontology modeling 5G RAN (gNodeB CU-CP, CU-UP, DU), 5G Core Network Functions (AMF, SMF, UPF), Network Slicing (SST/SD), and Xn/N2/N3 interconnections."@en .
+
+# =============================================================================
+# 1. CLASS TAXONOMY
+# =============================================================================
+
+nrm:ManagedEntity a owl:Class ;
+    rdfs:label "Managed Entity (Abstract Root)"@en .
+
+# SubNetwork Hierarchy (Interleaved Administrative Scopes)
+nrm:SubNetwork a owl:Class ;
+    rdfs:subClassOf nrm:ManagedEntity ;
+    rdfs:label "5G SubNetwork Domain Scope"@en .
+
+# ManagedElement (Base Physical / Virtual Chassis)
+nrm:ManagedElement a owl:Class ;
+    rdfs:subClassOf nrm:ManagedEntity ;
+    rdfs:label "Managed Element (gNodeB / Core NF Host Chassis)"@en .
+
+# 5G Network Function (NF) Taxonomy
+nrm:ManagedFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedEntity ;
+    rdfs:label "5G Managed Network Function (Abstract)"@en .
+
+# 5G RAN (gNodeB Disaggregated Functions)
+nrm:GNBCUCPFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label "gNodeB Central Unit - Control Plane (gNB-CU-CP)"@en .
+
+nrm:GNBCUUPFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label "gNodeB Central Unit - User Plane (gNB-CU-UP)"@en .
+
+nrm:GNBDUFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label "gNodeB Distributed Unit (gNB-DU)"@en .
+
+# 5G Core Network Functions (5GC)
+nrm:AMFFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label "Access and Mobility Management Function (AMF)"@en .
+
+nrm:SMFFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label "Session Management Function (SMF)"@en .
+
+nrm:UPFFunction a owl:Class ;
+    rdfs:subClassOf nrm:ManagedFunction ;
+    rdfs:label "User Plane Function (UPF)"@en .
+
+# 5G Network Slicing (S-NSSAI: SST + SD)
+nrm:NetworkSlice a owl:Class ;
+    rdfs:label "End-to-End 5G Network Slice"@en .
+
+nrm:NetworkSliceSubnet a owl:Class ;
+    rdfs:label "Network Slice Subnet Instance (NSSI - RAN / Core / Transport)"@en .
+
+# =============================================================================
+# 2. OBJECT PROPERTIES
+# =============================================================================
+
+# Hierarchical Interleaved Containment
+nrm:containsManagedElement a owl:ObjectProperty ;
+    rdfs:domain nrm:SubNetwork ;
+    rdfs:range nrm:ManagedElement ;
+    rdfs:label "contains managed element chassis"@en .
+
+nrm:containsManagedFunction a owl:ObjectProperty ;
+    rdfs:domain nrm:ManagedElement ;
+    rdfs:range nrm:ManagedFunction ;
+    rdfs:label "contains managed network function instance"@en .
+
+# SubNetwork Transitive Hierarchy
+nrm:parentSubNetwork a owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:domain nrm:SubNetwork ;
+    rdfs:range nrm:SubNetwork ;
+    rdfs:label "parent administrative subnetwork (transitive containment)"@en .
+
+# 5G Control Plane Interfaces (gNB-CU-CP controlling gNB-DU via F1-C)
+nrm:controlsDU a owl:ObjectProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range nrm:GNBDUFunction ;
+    rdfs:label "controls distributed unit (F1-C interface)"@en .
+
+# 5G RAN User Plane Interface (E1 between CU-CP and CU-UP)
+nrm:controlsCUUP a owl:ObjectProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range nrm:GNBCUUPFunction ;
+    rdfs:label "controls central unit user plane (E1 interface)"@en .
+
+# gNodeB-to-gNodeB Symmetric Handover / Interconnection (Xn-C / Xn-U interface)
+nrm:xnInterfaceWith a owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range nrm:GNBCUCPFunction ;
+    rdfs:label "Xn interface neighbor with peer gNodeB"@en .
+
+# 5GC Service Associations
+nrm:connectsToAMF a owl:ObjectProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range nrm:AMFFunction ;
+    rdfs:label "connects to 5G Core AMF (N2 interface)"@en .
+
+nrm:connectsToUPF a owl:ObjectProperty ;
+    rdfs:domain nrm:GNBCUUPFunction ;
+    rdfs:range nrm:UPFFunction ;
+    rdfs:label "connects to 5G Core UPF (N3 user plane interface)"@en .
+
+# Slicing Allocation & Association
+nrm:allocatesSliceSubnet a owl:ObjectProperty ;
+    rdfs:domain nrm:NetworkSlice ;
+    rdfs:range nrm:NetworkSliceSubnet ;
+    rdfs:label "allocates network slice subnet instance (NSSI)"@en .
+
+nrm:servesSlice a owl:ObjectProperty ;
+    rdfs:domain nrm:ManagedFunction ;
+    rdfs:range nrm:NetworkSlice ;
+    rdfs:label "serves and allocates resources to network slice"@en .
+
+# =============================================================================
+# 3. DATATYPE PROPERTIES
+# =============================================================================
+
+# Universal Managed Entity Identifier
+nrm:dn a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:ManagedEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label "3GPP Distinguished Name (DN)"@en .
+
+nrm:administrativeState a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:ManagedEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label "administrative state (LOCKED / UNLOCKED / SHUTTING_DOWN)"@en .
+
+nrm:operationalState a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:ManagedEntity ;
+    rdfs:range xsd:string ;
+    rdfs:label "operational state (ENABLED / DISABLED)"@en .
+
+# Chassis & Subnetwork Specific
+nrm:elementName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:ManagedElement ;
+    rdfs:range xsd:string ;
+    rdfs:label "managed element name"@en .
+
+nrm:subNetworkId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:SubNetwork ;
+    rdfs:range xsd:string ;
+    rdfs:label "subnetwork identifier"@en .
+
+# RAN Function Specific
+nrm:gNBId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range xsd:integer ;
+    rdfs:label "3GPP gNodeB identifier"@en .
+
+nrm:mcc a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range xsd:string ;
+    rdfs:label "mobile country code (MCC)"@en .
+
+nrm:mnc a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:GNBCUCPFunction ;
+    rdfs:range xsd:string ;
+    rdfs:label "mobile network code (MNC)"@en .
+
+nrm:maxThroughputGbps a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:GNBCUUPFunction ;
+    rdfs:range xsd:double ;
+    rdfs:label "maximum supported user-plane throughput (Gbps)"@en .
+
+nrm:cellCount a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:GNBDUFunction ;
+    rdfs:range xsd:integer ;
+    rdfs:label "number of active NR cells hosted"@en .
+
+# Slicing Parameters (S-NSSAI)
+nrm:sliceId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:NetworkSlice ;
+    rdfs:range xsd:string ;
+    rdfs:label "network slice identifier"@en .
+
+nrm:sst a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:NetworkSlice ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Slice/Service Type (SST: 1=eMBB, 2=URLLC, 3=MIoT, 4=V2X)"@en .
+
+nrm:sd a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:NetworkSlice ;
+    rdfs:range xsd:string ;
+    rdfs:label "Slice Differentiator (SD hex string)"@en .
+
+nrm:guaranteedLatencyMs a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain nrm:NetworkSlice ;
+    rdfs:range xsd:double ;
+    rdfs:label "guaranteed maximum latency SLA (ms)"@en .

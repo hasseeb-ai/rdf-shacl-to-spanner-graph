@@ -27,7 +27,8 @@ Click on any domain name to jump directly to its visualization and SHACL rules s
 | **[9. Healthcare Records](#9-healthcare-records)** | [`healthcare_records/shacl.ttl`](healthcare_records/shacl.ttl) | Clinical EHR ontology modeling patient encounters, practitioners, procedures, symmetric referral networks, and transitive etiology paths. |
 | **[10. Smart City IoT](#10-smart-city-iot)** | [`smart_city_iot/shacl.ttl`](smart_city_iot/shacl.ttl) | Smart building and IoT sensor network ontology featuring transitive spatial containment, symmetric power grids, and telemetry equivalent classes. |
 | **[11. DCSA Shipping](#11-dcsa-shipping)** | [`dcsa_shipping/shacl.ttl`](dcsa_shipping/shacl.ttl) | DCSA standard-aligned logistics ontology modeling bookings, transport calls, containers, transitive voyage legs, and symmetric alliance vessel sharing. |
-| **[12. FIBO Financial](#12-fibo-financial)** | [`fibo_financial/shacl.ttl`](fibo_financial/shacl.ttl) | FIBO standard-aligned financial ontology modeling legal entities, corporations, loans, shares, debt instruments, and transitive parent corporate control chains. |
+| **[13. Telco: TM Forum SID / ODA](#13-telco-tm-forum-sid--oda)** | [`telco_tmforum_oda/shacl.ttl`](telco_tmforum_oda/shacl.ttl) | TM Forum Open Digital Architecture (ODA) & SID information framework modeling Product Offerings, Catalog Specs, Customer Accounts, Party hierarchies, and transitive bundling. |
+| **[14. Telco: 3GPP 5G NRM](#14-telco-3gpp-5g-nrm)** | [`telco_3gpp_nrm/shacl.ttl`](telco_3gpp_nrm/shacl.ttl) | 3GPP TS 28.541/28.622 5G Network Resource Model modeling 5G RAN (gNodeB CU-CP/UP, DU), 5G Core (AMF, SMF, UPF), Network Slicing (S-NSSAI), and symmetric Xn interfaces. |
 
 ---
 

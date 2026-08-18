@@ -1,0 +1,97 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix tm:  <http://example.org/tmforum/oda#> .
+
+tm:PartyShape a sh:NodeShape ;
+    sh:targetClass tm:Party ;
+    sh:property [
+        sh:path tm:partyId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:partyName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+tm:CustomerAccountShape a sh:NodeShape ;
+    sh:targetClass tm:CustomerAccount ;
+    sh:property [
+        sh:path tm:accountId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:accountStatus ;
+        sh:datatype xsd:string ;
+        sh:in ( "ACTIVE" "SUSPENDED" "CLOSED" "PENDING" ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:creditLimit ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+tm:ProductOfferingShape a sh:NodeShape ;
+    sh:targetClass tm:ProductOffering ;
+    sh:property [
+        sh:path tm:offeringId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:offeringName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:monthlyPrice ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:isBundle ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+tm:ServiceSpecificationShape a sh:NodeShape ;
+    sh:targetClass tm:ServiceSpecification ;
+    sh:property [
+        sh:path tm:serviceSpecId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:targetSlaAvailability ;
+        sh:datatype xsd:double ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+tm:ProductOrderShape a sh:NodeShape ;
+    sh:targetClass tm:ProductOrder ;
+    sh:property [
+        sh:path tm:orderId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path tm:orderDate ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .

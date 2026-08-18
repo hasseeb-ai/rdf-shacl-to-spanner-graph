@@ -1,0 +1,68 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix nrm: <http://example.org/3gpp/nrm#> .
+
+nrm:ManagedEntityShape a sh:NodeShape ;
+    sh:targetClass nrm:ManagedEntity ;
+    sh:property [
+        sh:path nrm:dn ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:administrativeState ;
+        sh:datatype xsd:string ;
+        sh:in ( "LOCKED" "UNLOCKED" "SHUTTING_DOWN" ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:operationalState ;
+        sh:datatype xsd:string ;
+        sh:in ( "ENABLED" "DISABLED" ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+nrm:GNBCUCPFunctionShape a sh:NodeShape ;
+    sh:targetClass nrm:GNBCUCPFunction ;
+    sh:property [
+        sh:path nrm:gNBId ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:mcc ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:mnc ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+nrm:NetworkSliceShape a sh:NodeShape ;
+    sh:targetClass nrm:NetworkSlice ;
+    sh:property [
+        sh:path nrm:sliceId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:sst ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path nrm:guaranteedLatencyMs ;
+        sh:datatype xsd:double ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
