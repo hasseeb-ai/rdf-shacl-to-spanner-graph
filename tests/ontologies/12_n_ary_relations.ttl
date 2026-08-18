@@ -1,0 +1,68 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/nary#> .
+
+<http://example.org/nary> a owl:Ontology ;
+    rdfs:label "N-ary Relations and Attributed Edge Properties Ontology"@en ;
+    rdfs:comment "Demonstrates the W3C N-ary relationship pattern where relationships carry rich metadata mapping to Spanner Edge Tables with Properties."@en .
+
+ex:Person a owl:Class ;
+    rdfs:label "Person"@en .
+
+ex:Company a owl:Class ;
+    rdfs:label "Company"@en .
+
+ex:Employment a owl:Class ;
+    rdfs:label "Employment (Association Class)"@en .
+
+ex:hasEmployee a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employment ;
+    rdfs:range ex:Person ;
+    rdfs:label "has employee"@en .
+
+ex:hasEmployer a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employment ;
+    rdfs:range ex:Company ;
+    rdfs:label "has employer"@en .
+
+ex:personId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:string .
+
+ex:fullName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:string .
+
+ex:companyId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Company ;
+    rdfs:range xsd:string .
+
+ex:companyName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Company ;
+    rdfs:range xsd:string .
+
+ex:employmentId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employment ;
+    rdfs:range xsd:string .
+
+ex:jobTitle a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employment ;
+    rdfs:range xsd:string .
+
+ex:salaryAmount a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employment ;
+    rdfs:range xsd:decimal .
+
+ex:startDate a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employment ;
+    rdfs:range xsd:date .
+
+ex:endDate a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employment ;
+    rdfs:range xsd:date .
+
+ex:isFullTime a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employment ;
+    rdfs:range xsd:boolean .

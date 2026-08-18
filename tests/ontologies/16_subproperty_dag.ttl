@@ -1,0 +1,48 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/subpropdag#> .
+
+<http://example.org/subpropdag> a owl:Ontology ;
+    rdfs:label "Multi-Parent Subproperty DAG Ontology"@en ;
+    rdfs:comment "Demonstrates directed acyclic graphs of subproperties with multiple orthogonal parent hierarchies accumulating multi-labels on edges."@en .
+
+ex:Airport a owl:Class ;
+    rdfs:label "Airport"@en .
+
+ex:connectsTo a owl:ObjectProperty ;
+    rdfs:domain ex:Airport ;
+    rdfs:range ex:Airport ;
+    rdfs:label "connects to airport (root route)"@en .
+
+ex:operatesCommercialRoute a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:connectsTo ;
+    rdfs:domain ex:Airport ;
+    rdfs:range ex:Airport ;
+    rdfs:label "operates commercial route"@en .
+
+ex:schedulesDirectRoute a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:connectsTo ;
+    rdfs:domain ex:Airport ;
+    rdfs:range ex:Airport ;
+    rdfs:label "schedules direct route"@en .
+
+# Multi-Parent Subproperty (inherits from both orthogonal branches)
+ex:directNonstopCommercialFlight a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:operatesCommercialRoute, ex:schedulesDirectRoute ;
+    rdfs:domain ex:Airport ;
+    rdfs:range ex:Airport ;
+    rdfs:label "direct nonstop commercial flight"@en .
+
+ex:airportCode a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Airport ;
+    rdfs:range xsd:string .
+
+ex:airportName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Airport ;
+    rdfs:range xsd:string .
+
+ex:cityServiced a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Airport ;
+    rdfs:range xsd:string .

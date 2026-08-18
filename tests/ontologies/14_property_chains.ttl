@@ -1,0 +1,77 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/propchain#> .
+
+<http://example.org/propchain> a owl:Ontology ;
+    rdfs:label "Property Chain Axiom Ontology"@en ;
+    rdfs:comment "Demonstrates OWL 2 property chain shortcuts (e.g. worksAt o facilityOf => employedByOrg) mapping to multi-hop GQL paths without redundant FKs."@en .
+
+ex:Person a owl:Class ;
+    rdfs:label "Person"@en .
+
+ex:Facility a owl:Class ;
+    rdfs:label "Facility / Campus"@en .
+
+ex:Organization a owl:Class ;
+    rdfs:label "Organization"@en .
+
+ex:City a owl:Class ;
+    rdfs:label "City"@en .
+
+ex:Country a owl:Class ;
+    rdfs:label "Country"@en .
+
+ex:worksAt a owl:ObjectProperty ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Facility ;
+    rdfs:label "works at facility"@en .
+
+ex:facilityOf a owl:ObjectProperty ;
+    rdfs:domain ex:Facility ;
+    rdfs:range ex:Organization ;
+    rdfs:label "is facility of organization"@en .
+
+ex:locatedInCity a owl:ObjectProperty ;
+    rdfs:domain ex:Facility ;
+    rdfs:range ex:City ;
+    rdfs:label "located in city"@en .
+
+ex:inCountry a owl:ObjectProperty ;
+    rdfs:domain ex:City ;
+    rdfs:range ex:Country ;
+    rdfs:label "in country"@en .
+
+# Composite Property Chains
+ex:employedByOrg a owl:ObjectProperty ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Organization ;
+    owl:propertyChainAxiom ( ex:worksAt ex:facilityOf ) ;
+    rdfs:label "employed by organization (inferred composite)"@en .
+
+ex:facilityInCountry a owl:ObjectProperty ;
+    rdfs:domain ex:Facility ;
+    rdfs:range ex:Country ;
+    owl:propertyChainAxiom ( ex:locatedInCity ex:inCountry ) ;
+    rdfs:label "facility located in country (inferred composite)"@en .
+
+ex:personId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:string .
+
+ex:facilityId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Facility ;
+    rdfs:range xsd:string .
+
+ex:orgId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range xsd:string .
+
+ex:cityId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:City ;
+    rdfs:range xsd:string .
+
+ex:countryId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Country ;
+    rdfs:range xsd:string .

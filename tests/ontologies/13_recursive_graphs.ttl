@@ -1,0 +1,49 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/recursive#> .
+
+<http://example.org/recursive> a owl:Ontology ;
+    rdfs:label "Recursive Self-Referencing Graph Ontology"@en ;
+    rdfs:comment "Demonstrates direct recursive adjacency lists for org charts and component dependency trees."@en .
+
+ex:Employee a owl:Class ;
+    rdfs:label "Employee"@en .
+
+ex:Component a owl:Class ;
+    rdfs:label "Software Component"@en .
+
+ex:reportsTo a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range ex:Employee ;
+    rdfs:label "reports to manager"@en .
+
+ex:dependsOn a owl:ObjectProperty ;
+    rdfs:domain ex:Component ;
+    rdfs:range ex:Component ;
+    rdfs:label "depends on component"@en .
+
+ex:employeeId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:employeeName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:jobTitle a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range xsd:string .
+
+ex:componentId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Component ;
+    rdfs:range xsd:string .
+
+ex:componentName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Component ;
+    rdfs:range xsd:string .
+
+ex:semanticVersion a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Component ;
+    rdfs:range xsd:string .

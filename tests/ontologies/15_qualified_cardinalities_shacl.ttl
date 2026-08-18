@@ -1,0 +1,39 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/qcr#> .
+
+ex:BicycleShape a sh:NodeShape ;
+    sh:targetClass ex:Bicycle ;
+    sh:property [
+        sh:path ex:vehicleId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:hasPart ;
+        sh:qualifiedValueShape [ sh:class ex:Wheel ] ;
+        sh:qualifiedMinCount 2 ;
+        sh:qualifiedMaxCount 2 ;
+    ] .
+
+ex:CarShape a sh:NodeShape ;
+    sh:targetClass ex:Car ;
+    sh:property [
+        sh:path ex:vehicleId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:hasPart ;
+        sh:qualifiedValueShape [ sh:class ex:Wheel ] ;
+        sh:qualifiedMinCount 4 ;
+        sh:qualifiedMaxCount 4 ;
+    ] ;
+    sh:property [
+        sh:path ex:hasPart ;
+        sh:qualifiedValueShape [ sh:class ex:Engine ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedMaxCount 1 ;
+    ] .

@@ -1,0 +1,64 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/temporal#> .
+
+<http://example.org/temporal> a owl:Ontology ;
+    rdfs:label "Temporal Validity and Time-Interval Ontology"@en ;
+    rdfs:comment "Demonstrates W3C Time interval modeling with start/end timestamps and validity check constraints."@en .
+
+ex:Patient a owl:Class ;
+    rdfs:label "Patient"@en .
+
+ex:Medication a owl:Class ;
+    rdfs:label "Medication"@en .
+
+ex:Prescription a owl:Class ;
+    rdfs:label "Prescription Order"@en .
+
+ex:prescribedFor a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range ex:Patient ;
+    rdfs:label "prescribed for patient"@en .
+
+ex:dispensesMedication a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range ex:Medication ;
+    rdfs:label "dispenses medication"@en .
+
+ex:patientId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Patient ;
+    rdfs:range xsd:string .
+
+ex:patientName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Patient ;
+    rdfs:range xsd:string .
+
+ex:medicationId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Medication ;
+    rdfs:range xsd:string .
+
+ex:medicationName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Medication ;
+    rdfs:range xsd:string .
+
+ex:prescriptionId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:string .
+
+ex:dosageMg a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:decimal .
+
+ex:validFrom a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:dateTime .
+
+ex:validTo a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:dateTime .
+
+ex:isActive a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Prescription ;
+    rdfs:range xsd:boolean .

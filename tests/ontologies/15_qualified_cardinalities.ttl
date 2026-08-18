@@ -1,0 +1,67 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/qcr#> .
+
+<http://example.org/qcr> a owl:Ontology ;
+    rdfs:label "Qualified Cardinality Restrictions Ontology"@en ;
+    rdfs:comment "Demonstrates class-specific qualified cardinality restrictions (e.g. Bicycle has exactly 2 Wheels, Car has exactly 4 Wheels)."@en .
+
+ex:VehiclePart a owl:Class ;
+    rdfs:label "Vehicle Part"@en .
+
+ex:Wheel a owl:Class ;
+    rdfs:subClassOf ex:VehiclePart ;
+    rdfs:label "Wheel"@en .
+
+ex:Engine a owl:Class ;
+    rdfs:subClassOf ex:VehiclePart ;
+    rdfs:label "Engine"@en .
+
+ex:Vehicle a owl:Class ;
+    rdfs:label "Vehicle (Abstract)"@en .
+
+ex:hasPart a owl:ObjectProperty ;
+    rdfs:domain ex:Vehicle ;
+    rdfs:range ex:VehiclePart ;
+    rdfs:label "has component part"@en .
+
+ex:Bicycle a owl:Class ;
+    rdfs:subClassOf ex:Vehicle,
+        [ a owl:Restriction ;
+          owl:onProperty ex:hasPart ;
+          owl:onClass ex:Wheel ;
+          owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger
+        ] ;
+    rdfs:label "Bicycle"@en .
+
+ex:Car a owl:Class ;
+    rdfs:subClassOf ex:Vehicle,
+        [ a owl:Restriction ;
+          owl:onProperty ex:hasPart ;
+          owl:onClass ex:Wheel ;
+          owl:qualifiedCardinality "4"^^xsd:nonNegativeInteger
+        ],
+        [ a owl:Restriction ;
+          owl:onProperty ex:hasPart ;
+          owl:onClass ex:Engine ;
+          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+        ] ;
+    rdfs:label "Car"@en .
+
+ex:vehicleId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Vehicle ;
+    rdfs:range xsd:string .
+
+ex:modelName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Vehicle ;
+    rdfs:range xsd:string .
+
+ex:partId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:VehiclePart ;
+    rdfs:range xsd:string .
+
+ex:partSerialNum a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:VehiclePart ;
+    rdfs:range xsd:string .
