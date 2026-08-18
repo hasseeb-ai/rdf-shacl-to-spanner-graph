@@ -74,7 +74,8 @@ Evaluate the schema systematically across all 7 dimensions:
 * **Subproperties (`rdfs:subPropertyOf`):** Child edges accumulate parent labels (e.g. `LABEL WRITES_CODE_FOR LABEL CONTRIBUTES_TO_INITIATIVE`).
 
 ### Dimension 7: Spanner Graph Engine Invariants
-* **Label Property Signature Uniformity:** If a label (e.g. `LABEL Event` or `LABEL Location`) appears across multiple node or edge tables, verify that the `PROPERTIES(...)` exposed under that label have **identical column names and data types** across all tables.
+* **Label Property Signature Uniformity:** If a label (e.g. `LABEL Event` or `LABEL Location`) appears across multiple node or edge tables, verify that the `PROPERTIES(...)` exposed under that label have **identical column names and data types** across all tables (or `NO PROPERTIES` for un-propertied abstract labels).
+* **Reserved Keyword Escaping:** Any identifier (table, column, graph name, node/edge label, alias, or property) matching a GoogleSQL reserved keyword (e.g. `CONTAINS`, `GROUP`, `ORDER`, `RANGE`, `FILTER`, `ALL`, `PATH`) MUST be enclosed in backticks (e.g. ``LABEL `CONTAINS` NO PROPERTIES``).
 * **Interleaved PK Alignment:** For any table with `INTERLEAVE IN PARENT <ParentTable>`, verify that the child table's `PRIMARY KEY` begins with the exact primary key columns of `<ParentTable>` in the same order.
 * **Stored Generated Columns:** Thresholds or equivalent class filters must use GoogleSQL syntax: `<Col> <Type> AS (<Expr>) STORED`.
 * **View Key Clause:** Any SQL view exposed as a `NODE TABLE` must define an explicit `KEY(...)` clause.

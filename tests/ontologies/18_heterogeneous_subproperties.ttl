@@ -1,0 +1,99 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/containment#> .
+
+<http://example.org/containment> a owl:Ontology ;
+    rdfs:label "Heterogeneous Subproperties & Containment Hierarchy Ontology"@en ;
+    rdfs:comment "Demonstrates an abstract 'contains' root relationship with specialized subproperties across disparate entity types (Building->Apartment and State->City) with label-isolated attributes and Uniform Signature compliance."@en .
+
+# =============================================================================
+# Classes (Entities)
+# =============================================================================
+
+ex:SpatialEntity a owl:Class ;
+    rdfs:label "Spatial Entity (Abstract)"@en .
+
+ex:Building a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label "Building"@en .
+
+ex:Apartment a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label "Apartment"@en .
+
+ex:State a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label "State / Province"@en .
+
+ex:City a owl:Class ;
+    rdfs:subClassOf ex:SpatialEntity ;
+    rdfs:label "City"@en .
+
+# =============================================================================
+# Relationship Hierarchy (Subproperties)
+# =============================================================================
+
+ex:contains a owl:ObjectProperty ;
+    rdfs:domain ex:SpatialEntity ;
+    rdfs:range ex:SpatialEntity ;
+    rdfs:label "contains (abstract universal relationship)"@en .
+
+ex:buildingContainsApartment a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:contains ;
+    rdfs:domain ex:Building ;
+    rdfs:range ex:Apartment ;
+    rdfs:label "building contains apartment"@en .
+
+ex:stateContainsCity a owl:ObjectProperty ;
+    rdfs:subPropertyOf ex:contains ;
+    rdfs:domain ex:State ;
+    rdfs:range ex:City ;
+    rdfs:label "state contains city"@en .
+
+# =============================================================================
+# Datatype Properties (Entity & Edge Attributes)
+# =============================================================================
+
+ex:buildingId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Building ;
+    rdfs:range xsd:string .
+
+ex:buildingName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Building ;
+    rdfs:range xsd:string .
+
+ex:apartmentId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Apartment ;
+    rdfs:range xsd:string .
+
+ex:apartmentNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Apartment ;
+    rdfs:range xsd:string .
+
+ex:locatedOnFloor a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:Apartment ;
+    rdfs:range xsd:integer ;
+    rdfs:label "located on floor"@en .
+
+ex:stateId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:State ;
+    rdfs:range xsd:string .
+
+ex:stateName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:State ;
+    rdfs:range xsd:string .
+
+ex:cityId a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:City ;
+    rdfs:range xsd:string .
+
+ex:cityName a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:City ;
+    rdfs:range xsd:string .
+
+ex:establishedDate a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain ex:City ;
+    rdfs:range xsd:date ;
+    rdfs:label "established date"@en .

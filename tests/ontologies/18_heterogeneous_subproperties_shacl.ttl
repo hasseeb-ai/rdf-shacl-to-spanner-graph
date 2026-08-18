@@ -1,0 +1,74 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:  <http://example.org/containment#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:targetClass ex:Building ;
+    sh:property [
+        sh:path ex:buildingId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:buildingName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:ApartmentShape a sh:NodeShape ;
+    sh:targetClass ex:Apartment ;
+    sh:property [
+        sh:path ex:apartmentId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:apartmentNumber ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:locatedOnFloor ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:StateShape a sh:NodeShape ;
+    sh:targetClass ex:State ;
+    sh:property [
+        sh:path ex:stateId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:stateName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:CityShape a sh:NodeShape ;
+    sh:targetClass ex:City ;
+    sh:property [
+        sh:path ex:cityId ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:cityName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:establishedDate ;
+        sh:datatype xsd:date ;
+        sh:maxCount 1 ;
+    ] .

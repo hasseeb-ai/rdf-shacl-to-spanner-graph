@@ -111,22 +111,32 @@ To avoid Spanner DDL parser failures, observe the following rules:
      LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, PartyId)
      ```
 
-2. **Rule 2: Shared Label Uniformity Across Tables:**
+2. **Rule 2: Shared Label Uniformity Across Tables (Uniform Signature Rule):**
    If a `LABEL` name is declared across multiple edge or node tables, **EVERY** instance of that label MUST expose an identical property signature (identical property names and compatible types).
+   - **Abstract Classes & Relationships with No Properties (`NO PROPERTIES`):** If an abstract class (e.g. `SpatialEntity`) or generic parent relationship (e.g. `contains`) has no datatype attributes, declare `NO PROPERTIES` for that label on every table. This guarantees a uniform empty signature `{}`.
+   - **Reserved GoogleSQL Keywords in Labels (Backtick Escaping):** If an OWL class or relationship name is a GoogleSQL reserved keyword (e.g. `CONTAINS`, `GROUP`, `ORDER`, `FILTER`, `RANGE`, `PATH`), you **MUST enclose the label in backticks** (e.g. ``LABEL `CONTAINS` NO PROPERTIES``).
+   - **Property Name Alignment via `AS`:** When different tables possess actual attributes that should be unified under a shared label with different underlying column names, use `PROPERTIES (column AS property_name)` to align them into an identical property name.
 
-   - **Incorrect:**
+   - **Correct (Abstract Classes & Subproperties with `NO PROPERTIES` and Backticks):**
      ```sql
-     -- Table A
-     LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, OwnerPersonId AS PartyId) 
-     -- Table B
-     LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, SignatoryPersonId)
+     -- Node Tables
+     Buildings LABEL Building PROPERTIES (BuildingId, BuildingName) LABEL SpatialEntity NO PROPERTIES,
+     Apartments LABEL Apartment PROPERTIES (ApartmentId, ApartmentNumber, LocatedOnFloor) LABEL SpatialEntity NO PROPERTIES
+
+     -- Edge Tables (with backtick escaped reserved keyword `CONTAINS`)
+     BuildingApartments LABEL BUILDING_CONTAINS_APARTMENT NO PROPERTIES LABEL `CONTAINS` NO PROPERTIES,
+     StateCities LABEL STATE_CONTAINS_CITY NO PROPERTIES LABEL `CONTAINS` NO PROPERTIES
      ```
-   - **Correct:**
+
+   - **Correct (Concrete Attribute Alignment via `AS`):**
      ```sql
-     -- Table A
-     LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, OwnerPersonId AS PartyId) 
-     -- Table B
-     LABEL HAS_ASSOCIATED_PARTY PROPERTIES (AccountId, SignatoryPersonId AS PartyId)
+     -- Table A (Person)
+     LABEL Customer PROPERTIES (CONCAT(City, ", ", Country) AS Address)
+     LABEL Entity PROPERTIES (PersonId AS Id, FullName AS Name)
+
+     -- Table B (Account)
+     LABEL Account PROPERTIES (AccountId AS Id, CreateTime)
+     LABEL Entity PROPERTIES (AccountId AS Id, NickName AS Name)
      ```
 
 3. **Rule 3: Primary Key Alignment in Interleaved Tables:**
@@ -136,21 +146,28 @@ To avoid Spanner DDL parser failures, observe the following rules:
    - **Correct:** Parent PK is `EntityId`, Child PK is `(EntityId, ChildEntityId)`.
 
 4. **Rule 4: Google Cloud Spanner Property Graph Syntax:**
-   Google Cloud Spanner Property Graph DDL has a specific syntax. Node definitions inside `NODE TABLES` must **NOT** specify keys (like `KEY (Id)`), and edges inside `EDGE TABLES` must use `SOURCE KEY (...) REFERENCES ...` and `DESTINATION KEY (...) REFERENCES ...` clauses (do **NOT** use `FROM ... TO ...` syntax).
+   Google Cloud Spanner Property Graph DDL uses standard SQL/PGQ graph definition syntax:
+   - Node tables inside `NODE TABLES` use: `TableName [KEY (KeyCols)] LABEL ... [PROPERTIES ... | NO PROPERTIES]`.
+   - Edge tables inside `EDGE TABLES` use: `TableName [KEY (KeyCols)] SOURCE KEY (SrcCols) REFERENCES NodeTable [(NodeKeyCols)] DESTINATION KEY (DstCols) REFERENCES NodeTable [(NodeKeyCols)] LABEL ... [PROPERTIES ... | NO PROPERTIES]`.
+   - Do NOT use non-standard clauses like `FROM ... TO ...`.
 
-   - **Incorrect:**
+   - **Incorrect (Non-standard syntax):**
      ```sql
-     CREATE PROPERTY GRAPH FintechGraph
-       NODE TABLES (
-         People KEY (PersonId)
-           LABEL Person PROPERTIES (PersonId, Name)
-       )
-       EDGE TABLES (
-         PersonalAccountOwners
-           FROM PersonalAccounts KEY (AccountId)
-           TO People KEY (PersonId)
-           LABEL HAS_OWNER
-       );
+     EDGE TABLES (
+       PersonalAccountOwners
+         FROM PersonalAccounts KEY (AccountId)
+         TO People KEY (PersonId)
+         LABEL HAS_OWNER
+     );
+     ```
+   - **Correct (Spanner Graph syntax):**
+     ```sql
+     EDGE TABLES (
+       PersonalAccountOwners
+         SOURCE KEY (AccountId) REFERENCES PersonalAccounts (AccountId)
+         DESTINATION KEY (PersonId) REFERENCES People (PersonId)
+         LABEL HAS_OWNER
+     );
      ```
    - **Correct:**
      ```sql
@@ -304,6 +321,57 @@ To avoid Spanner DDL parser failures, observe the following rules:
         LABEL User PROPERTIES (UserId),     -- Comma separates different tables (Customers -> Merchants)
       Merchants
         ...
+      ```
+
+11. **Rule 11: GoogleSQL Reserved Keywords & Mandatory Backtick Escaping:**
+    GoogleSQL keywords cannot be used as identifiers unless enclosed by backtick (`) characters. If any table name, column name, property graph name, node label, edge table alias, or property name matches any of the following reserved keywords (case-insensitively), it **MUST** be enclosed in backticks (e.g. ``LABEL `CONTAINS` NO PROPERTIES``, `` `GROUP` ``, `` `ORDER` ``, `` `RANGE` ``):
+
+    **Comprehensive GoogleSQL Reserved Keywords Table:**
+    | | | | |
+    | :--- | :--- | :--- | :--- |
+    | `ALL` | `ENUM` | `IS` | `RECURSIVE` |
+    | `AND` | `ESCAPE` | `JOIN` | `RESPECT` |
+    | `ANY` | `EXCEPT` | `LATERAL` | `RIGHT` |
+    | `ARRAY` | `EXCLUDE` | `LEFT` | `ROLLUP` |
+    | `AS` | `EXISTS` | `LIKE` | `ROWS` |
+    | `ASC` | `EXTRACT` | `LIMIT` | `SELECT` |
+    | `ASSERT_ROWS_MODIFIED` | `FALSE` | `LOOKUP` | `SET` |
+    | `AT` | `FETCH` | `MERGE` | `SOME` |
+    | `BETWEEN` | `FOLLOWING` | `NATURAL` | `STRUCT` |
+    | `BY` | `FOR` | `NEW` | `TABLESAMPLE` |
+    | `CASE` | `FROM` | `NO` | `THEN` |
+    | `CAST` | `FULL` | `NOT` | `TO` |
+    | `COLLATE` | `GRAPH_TABLE` | `NULL` | `TREAT` |
+    | `CONTAINS` | `GROUP` | `NULLS` | `TRUE` |
+    | `CREATE` | `GROUPING` | `OF` | `UNBOUNDED` |
+    | `CROSS` | `GROUPS` | `ON` | `UNION` |
+    | `CUBE` | `HASH` | `OR` | `UNNEST` |
+    | `CURRENT` | `HAVING` | `ORDER` | `USING` |
+    | `DEFAULT` | `IF` | `OUTER` | `WHEN` |
+    | `DEFINE` | `IGNORE` | `OVER` | `WHERE` |
+    | `DESC` | `IN` | `PARTITION` | `WINDOW` |
+    | `DISTINCT` | `INNER` | `PRECEDING` | `WITH` |
+    | `ELSE` | `INTERSECT` | `PROTO` | `WITHIN` |
+    | `END` | `INTERVAL` | `RANGE` | |
+    | | `INTO` | | |
+
+    - **Incorrect (Unquoted reserved keyword causes parser syntax error):**
+      ```sql
+      EDGE TABLES (
+        BuildingApartments
+          SOURCE KEY (BuildingId) REFERENCES Buildings (BuildingId)
+          DESTINATION KEY (ApartmentId) REFERENCES Apartments (ApartmentId)
+          LABEL CONTAINS NO PROPERTIES -- Error: CONTAINS is a reserved keyword!
+      )
+      ```
+    - **Correct (Enclosed in backticks):**
+      ```sql
+      EDGE TABLES (
+        BuildingApartments
+          SOURCE KEY (BuildingId) REFERENCES Buildings (BuildingId)
+          DESTINATION KEY (ApartmentId) REFERENCES Apartments (ApartmentId)
+          LABEL `CONTAINS` NO PROPERTIES -- Correct: escaped with backticks
+      )
       ```
 
 ---
