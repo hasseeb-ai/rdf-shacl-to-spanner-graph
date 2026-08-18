@@ -71,7 +71,7 @@ export SPANNER_DATABASE="projects/<PROJECT_ID>/instances/<INSTANCE_ID>/databases
 
 | Command / Workflow | Scope | Primary Target Parameter | Provisioning Behavior & Database Lifecycle |
 | :--- | :--- | :--- | :--- |
-| **`pipeline` (Ephemeral)** | Single File or Directory (`tests/ontologies/`) | `--instance` / `$SPANNER_INSTANCE` | **Automated Lifecycle**: Provisions isolated temporary test database (`rdf2lpg_<uuid>`), compiles schema, verifies queries, and **auto-deletes** upon completion. |
+| **`pipeline` (Ephemeral)** | Single File or Directory (`evals/ontologies/`) | `--instance` / `$SPANNER_INSTANCE` | **Automated Lifecycle**: Provisions isolated temporary test database (`rdf2lpg_<uuid>`), compiles schema, verifies queries, and **auto-deletes** upon completion. |
 | **`pipeline` (Persistent)** | Single File Only | `--database` / `$SPANNER_DATABASE` | **In-Place Update**: Applies DDL updates directly to your existing database. Database is **never deleted**. |
 | **`validate`** | Single Schema (`.sql`) | `--database` / `$SPANNER_DATABASE` | Compiles DDL or runs dynamic GQL query verification against the specified existing database. |
 | **`cleanup-databases`** | Instance Level | `--instance` / `$SPANNER_INSTANCE` | Scans the instance via REST API and batch-deletes all stale `rdf2lpg_*` (and legacy `t_*`) databases. |
@@ -166,9 +166,9 @@ rdf-spanner-translator pipeline \
   --database $SPANNER_DATABASE \
   --verify-queries
 
-# Batch pipeline for all unit test ontologies (with summary scorecard & cleanup):
+# Batch pipeline for all evaluation test ontologies (with summary scorecard & cleanup):
 rdf-spanner-translator pipeline \
-  --input tests/ontologies/ \
+  --input evals/ontologies/ \
   --instance $SPANNER_INSTANCE \
   --verify-queries
 

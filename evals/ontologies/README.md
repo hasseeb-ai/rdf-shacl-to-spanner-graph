@@ -1,21 +1,21 @@
-# Unit Test Ontologies for Cloud Spanner Graph DDL Translator
+# Evaluation Ontologies for Cloud Spanner Graph DDL Translator
 
-This directory contains modular test ontologies and companion SHACL shape definitions. Each test case isolates and verifies specific translation rules and semantic constraints specified in [`owl-to-spanner-property-graph-translator`](../../skills/owl-to-spanner-property-graph-translator/SKILL.md), audited by [`spanner-graph-semantic-validator`](../../skills/spanner-graph-semantic-validator/SKILL.md), and verified dynamically by [`spanner-graph-query-verifier`](../../skills/spanner-graph-query-verifier/SKILL.md).
+This directory contains modular evaluation ontologies and companion SHACL shape definitions. Each test case isolates and verifies specific translation rules and semantic constraints specified in [`owl-to-spanner-property-graph-translator`](../../skills/owl-to-spanner-property-graph-translator/SKILL.md), audited by [`spanner-graph-semantic-validator`](../../skills/spanner-graph-semantic-validator/SKILL.md), and verified dynamically by [`spanner-graph-query-verifier`](../../skills/spanner-graph-query-verifier/SKILL.md).
 
 ## Validation Strategy
 
 Validation operates across three comprehensive stages:
 - **Dialect & Syntactic Compliance:** Ensures the physical GoogleSQL DDL (`CREATE TABLE`) and Property Graph DDL (`CREATE PROPERTY GRAPH`) compile and execute cleanly on a Google Cloud Spanner instance via the official Spanner MCP server.
-- **Semantic Validation & Scorecard:** Audits the schema across 7 semantic dimensions (completeness, renaming traceability, inheritance flattening, property isolation, XSD types, edge connectivity, and Spanner engine invariants), producing an executive one-pager report (`output/unit_tests/<test>_validation_report.md`).
-- **Dynamic Data Ingestion & GQL Query Verification:** Generates coherent, connected mock fixtures (SQL `INSERT`s) and executes 4 representative GQL queries live against Cloud Spanner to verify multi-label polymorphism, multi-hop traversal, inverse aliasing, and property filtering, generating `output/unit_tests/<test>_query_report.md`.
+- **Semantic Validation & Scorecard:** Audits the schema across 7 semantic dimensions (completeness, renaming traceability, inheritance flattening, property isolation, XSD types, edge connectivity, and Spanner engine invariants), producing an executive one-pager report (`output/evals/<test>_validation_report.html`).
+- **Dynamic Data Ingestion & GQL Query Verification:** Generates coherent, connected mock fixtures (SQL `INSERT`s) and executes 4 representative GQL queries live against Cloud Spanner to verify multi-label polymorphism, multi-hop traversal, inverse aliasing, and property filtering, generating `output/evals/<test>_query_report.md`.
 
 > [!IMPORTANT]
 > **Viewing Generated HTML Validation Reports:**
 > GitHub's file viewer displays raw HTML source text and does not render JavaScript or embedded styles.
-> * **Local Viewing (Recommended):** Open any `.html` report directly in a browser (e.g. Google Chrome, Safari, Firefox, Edge) or run `open tests/ontologies/<test>_validation_report.html` from your terminal to view interactive Mermaid.js graph diagrams, scorecard KPIs, and developer guides.
+> * **Local Viewing (Recommended):** Open any `.html` report directly in a browser (e.g. Google Chrome, Safari, Firefox, Edge) or run `open evals/ontologies/<test>_validation_report.html` from your terminal to view interactive Mermaid.js graph diagrams, scorecard KPIs, and developer guides.
 > * **Browsing on GitHub:** Download the raw `.html` file from the repository and open it in your browser.
 
-## Test Ontology Matrix
+## Evaluation Ontology Matrix
 
 | Test Suite & Artifacts | Primary Semantic Concept | Key Verification Aspects |
 | :--- | :--- | :--- |
@@ -37,39 +37,39 @@ Validation operates across three comprehensive stages:
 | **`16_subproperty_dag`**<br>• [OWL (`.ttl`)](16_subproperty_dag.ttl) | Multi-Parent Subproperty DAG | • Subproperties with multiple orthogonal parent properties.<br>• Edge table multi-label accumulation across dual taxonomic branches (`LABEL DIRECT_NONSTOP_FLIGHT LABEL OPERATES_COMMERCIAL_ROUTE LABEL SCHEDULES_DIRECT_ROUTE`). |
 | **`17_temporal_validity`**<br>• [OWL (`.ttl`)](17_temporal_validity.ttl)<br>• [SHACL (`.ttl`)](17_temporal_validity_shacl.ttl) | Temporal Validity Windows & Intervals | • W3C Time interval modeling (`validFrom`, `validTo`, `isActive`).<br>• GoogleSQL `TIMESTAMP` check constraints (`ValidTo IS NULL OR ValidTo >= ValidFrom`) and point-in-time traversal. |
 | **`18_heterogeneous_subproperties`**<br>• [OWL (`.ttl`)](18_heterogeneous_subproperties.ttl)<br>• [SHACL (`.ttl`)](18_heterogeneous_subproperties_shacl.ttl)<br>• [Schema (`.sql`)](18_heterogeneous_subproperties_schema.sql)<br>• [HTML Report (`.html`)](18_heterogeneous_subproperties_validation_report.html) | Heterogeneous Subproperties & Containment | • Abstract universal `contains` relationship with specialized multi-domain subproperties (`buildingContainsApartment` and `stateContainsCity`).<br>• Label-scoped property lists (`PROPERTIES (...)` vs `NO PROPERTIES`) with backtick escaping for reserved keywords (`` `CONTAINS` ``). |
-| **`19_attributed_abstract_entities`**<br>• [OWL (`.ttl`)](19_attributed_abstract_entities.ttl)<br>• [SHACL (`.ttl`)](19_attributed_abstract_entities_shacl.ttl) | Attributed Abstract Superclass & Subproperties | • Abstract superclass `SpatialEntity` with common properties (`spatialEntityId`, `displayName`) inherited by all 4 leaf tables.<br>• Uniform Signature Rule enforcement across node tables sharing `LABEL SpatialEntity PROPERTIES (SpatialEntityId, DisplayName)` alongside heterogeneous subproperty edges. |
+| **`19_attributed_abstract_entities`**<br>• [OWL (`.ttl`)](19_attributed_abstract_entities.ttl)<br>• [SHACL (`.ttl`)](19_attributed_abstract_entities_shacl.ttl)<br>• [Schema (`.sql`)](19_attributed_abstract_entities_schema.sql)<br>• [HTML Report (`.html`)](19_attributed_abstract_entities_validation_report.html) | Attributed Abstract Superclass & Subproperties | • Abstract superclass `SpatialEntity` with common properties (`spatialEntityId`, `displayName`) inherited by all 4 leaf tables.<br>• Uniform Signature Rule enforcement across node tables sharing `LABEL SpatialEntity PROPERTIES (SpatialEntityId, DisplayName)` alongside heterogeneous subproperty edges. |
 
-## Running Unit Tests & Dynamic Query Verification
+## Running Evaluation Suites & Dynamic Query Verification
 
 ```bash
 export SPANNER_INSTANCE="projects/<PROJECT>/instances/<INSTANCE>"
 export SPANNER_DATABASE="projects/<PROJECT>/instances/<INSTANCE>/databases/<DATABASE>"
 
-# Run all unit tests with live Spanner MCP verification, semantic reports, and cleanup:
+# Run all evaluation suites with live Spanner MCP verification, semantic reports, and cleanup:
 rdf-spanner-translator pipeline \
-  --input tests/ontologies/ \
+  --input evals/ontologies/ \
   --instance $SPANNER_INSTANCE
 
-# Run all unit tests including dynamic data ingestion & GQL query verification:
+# Run all evaluation suites including dynamic data ingestion & GQL query verification:
 rdf-spanner-translator pipeline \
-  --input tests/ontologies/ \
+  --input evals/ontologies/ \
   --instance $SPANNER_INSTANCE \
   --verify-queries
 
-# Run a specific unit test ontology:
+# Run a specific evaluation ontology:
 rdf-spanner-translator pipeline \
-  --input tests/ontologies/01_simple_inheritance.ttl \
-  --shacl tests/ontologies/01_simple_inheritance_shacl.ttl \
+  --input evals/ontologies/01_simple_inheritance.ttl \
+  --shacl evals/ontologies/01_simple_inheritance_shacl.ttl \
   --database $SPANNER_DATABASE \
   --verify-queries
 
 # Standalone dynamic query testing on an existing database:
 rdf-spanner-translator validate \
-  --input tests/ontologies/01_simple_inheritance.ttl \
-  --ddl output/unit_tests/01_simple_inheritance_schema.sql \
+  --input evals/ontologies/01_simple_inheritance.ttl \
+  --ddl output/evals/01_simple_inheritance_schema.sql \
   --database $SPANNER_DATABASE \
   --queries-only \
-  --output output/unit_tests/01_simple_inheritance_query_report.md
+  --output output/evals/01_simple_inheritance_query_report.md
 ```
 
 

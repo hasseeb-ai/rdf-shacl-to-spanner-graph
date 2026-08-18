@@ -293,7 +293,7 @@ def discover_ontologies(dir_path: str) -> list[dict]:
                 "stem": stem,
                 "ttl": uttl,
                 "shacl": companion_shacl,
-                "is_unit": "test" in dir_path.lower()
+                "is_unit": "eval" in dir_path.lower() or "test" in dir_path.lower()
             })
         return items
 
