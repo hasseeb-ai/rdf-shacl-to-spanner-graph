@@ -16,11 +16,21 @@ You must produce an **Executive 5-Section Semantic Validation Report & Graph Map
 
 1. **Source OWL Ontology (`.ttl`):** The input domain model written in Turtle syntax containing classes, properties, annotations, and axioms.
 2. **Source SHACL Shapes (`shacl.ttl`, optional):** Companion SHACL constraints defining datatypes, min/max cardinalities, and property paths.
-3. **Generated Spanner DDL (`.sql`):** The output schema containing relational `CREATE TABLE` definitions and the `CREATE PROPERTY GRAPH` statement.
+3. **Spanner DDL to Validate (`.sql`):** The generated schema containing physical relational `CREATE TABLE` definitions and the logical `CREATE PROPERTY GRAPH` statement.
+
+## 2. Expected Output Deliverable
+
+- **Executive 5-Section Semantic Validation Report (`.html`):** A standalone, self-contained styled HTML document (`<!DOCTYPE html>`) featuring:
+  1. Header with metadata and instant KPI scorecard badges (`PASS`/`WARN`/`FAIL`).
+  2. Interactive visual graph architecture diagram (Mermaid.js).
+  3. Unified Node & Class Mapping Guide with inheritance tracing.
+  4. Unified Edge & Relationship Mapping Guide with foreign key mappings.
+  5. Practical GQL Query Cheatsheet & Spanner Engine Invariants.
+  6. Collapsible raw source code inspector.
 
 ---
 
-## 2. Seven-Dimension Evaluation Rubric
+## 3. Seven-Dimension Evaluation Rubric
 
 Evaluate the schema systematically across all 7 dimensions:
 
@@ -82,7 +92,7 @@ Evaluate the schema systematically across all 7 dimensions:
 
 ---
 
-## 3. Output Format: Redesigned 5-Section HTML Blueprint
+## 4. Output Format: 5-Section HTML Blueprint
 
 You MUST output a single, complete, valid HTML5 document (`<!DOCTYPE html>...</html>`). Do NOT output markdown outside of the HTML document. Embed clean CSS in `<style>` and include Mermaid.js for the visual graph architecture diagram.
 
