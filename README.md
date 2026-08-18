@@ -179,10 +179,42 @@ rdf-spanner-translator pipeline \
   --bundle-examples
 ```
 
+#### `validate` & `pipeline` using Local Spanner Emulator (`--emulator`)
+If you want to validate schemas locally without connecting to Google Cloud Spanner or Remote MCP, use the local Cloud Spanner Emulator:
+
+1. **Start the Spanner Emulator via Docker:**
+   ```bash
+   docker run -d -p 9010:9010 -p 9020:9020 gcr.io/cloud-spanner-emulator/emulator
+   ```
+
+2. **Run validation or pipeline with `--emulator`:**
+   ```bash
+   # Syntax check on emulator:
+   rdf-spanner-translator validate \
+     --ddl output/industry_ontologies/fintech_schema.sql \
+     --emulator \
+     --syntax-only
+
+   # End-to-end translation & validation on emulator:
+   rdf-spanner-translator pipeline \
+     --input industry_ontologies/fintech/fintech.ttl \
+     --emulator
+   ```
+
+3. **Or set the environment variable:**
+   ```bash
+   export SPANNER_EMULATOR_HOST="http://localhost:9020"
+   # All commands will automatically use the emulator
+   rdf-spanner-translator pipeline --input evals/ontologies/
+   ```
+
 #### `cleanup-databases` (Instance Pruning)
 ```bash
 export SPANNER_INSTANCE="projects/<PROJECT>/instances/<INSTANCE>"
 
 # List and purge all temporary test databases (rdf2lpg_*) from the Spanner instance:
 rdf-spanner-translator cleanup-databases --instance $SPANNER_INSTANCE
+
+# Or clean up databases on the local emulator:
+rdf-spanner-translator cleanup-databases --emulator
 ```

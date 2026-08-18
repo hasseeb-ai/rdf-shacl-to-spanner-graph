@@ -20,7 +20,13 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.syntax import Syntax
 
-from rdf_spanner_translator.config import DEFAULT_GEMINI_MODEL, DEFAULT_MCP_URL
+from rdf_spanner_translator.config import (
+    DEFAULT_GEMINI_MODEL, 
+    DEFAULT_MCP_URL,
+    DEFAULT_EMULATOR_HOST,
+    DEFAULT_EMULATOR_PROJECT,
+    DEFAULT_EMULATOR_INSTANCE
+)
 from rdf_spanner_translator.parser import validate_rdf_file
 from rdf_spanner_translator.translator import (
     translate_ontology, 
@@ -155,10 +161,12 @@ def translate(input, shacl, output, model):
 @click.option("--syntax-only", is_flag=True, help="Shortcut for --mode syntax.")
 @click.option("--semantic-only", is_flag=True, help="Shortcut for --mode semantic.")
 @click.option("--queries-only", is_flag=True, help="Shortcut for --mode queries.")
+@click.option("--emulator/--no-emulator", default=False, envvar="USE_SPANNER_EMULATOR", help="Use local Cloud Spanner Emulator instead of Remote MCP.")
+@click.option("--emulator-host", default=DEFAULT_EMULATOR_HOST, envvar="SPANNER_EMULATOR_HOST", help=f"Host/URL of local Cloud Spanner Emulator (default: {DEFAULT_EMULATOR_HOST}).")
 @click.option("--mcp-url", "-u", default=DEFAULT_MCP_URL, envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
 @click.option("--model", "-m", default=DEFAULT_GEMINI_MODEL, envvar="GEMINI_MODEL", help=f"Gemini model to use for audits (default: {DEFAULT_GEMINI_MODEL}).")
-def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_only, queries_only, mcp_url, mcp_tool, model):
+def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_only, queries_only, emulator, emulator_host, mcp_url, mcp_tool, model):
     """Validate Spanner Graph DDL across Syntax, Semantic Scorecard, and Dynamic Queries."""
     # Resolve active validation mode
     if syntax_only:
@@ -170,9 +178,11 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
     else:
         active_mode = mode.lower()
         
+    target_env = f"Emulator ({emulator_host})" if emulator or os.getenv("SPANNER_EMULATOR_HOST") else "Remote MCP / Cloud Spanner"
     console.print(Panel.fit(
         f"[bold purple]Spanner Graph Schema Validator[/bold purple]\n"
         f"Mode: [bold]{active_mode.upper()}[/bold]\n"
+        f"Target Engine: [bold cyan]{target_env}[/bold cyan]\n"
         f"DDL File: {ddl}\n"
         f"Source Ontology: {input or 'N/A'}\n"
         f"Database: {database or 'N/A'}",
@@ -180,21 +190,28 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
     ))
     
     # ----------------------------------------------------
-    # Syntactic DDL Validation on Spanner MCP
+    # Syntactic DDL Validation on Spanner MCP / Emulator
     # ----------------------------------------------------
     if active_mode in ("all", "syntax"):
         console.print("\n[bold cyan]─── Dialect & Syntactic Validation ───[/bold cyan]")
-        if not database:
+        if not database and not emulator and not os.getenv("SPANNER_EMULATOR_HOST"):
             if active_mode == "syntax":
-                console.print("[bold red]Error:[/bold red] --database is required for syntax validation.")
+                console.print("[bold red]Error:[/bold red] --database is required for syntax validation (unless --emulator is used).")
                 raise click.Abort()
             else:
                 console.print("[yellow]Skipping: No --database provided.[/yellow]")
         else:
             with open(ddl, "r") as f:
                 ddl_content = f.read()
-            with console.status("[cyan]Validating DDL syntax on Cloud Spanner..."):
-                success, msg = validate_ddl(ddl_content, mcp_url, mcp_tool, database)
+            with console.status(f"[cyan]Validating DDL syntax on {target_env}..."):
+                success, msg = validate_ddl(
+                    ddl_content, 
+                    mcp_url=mcp_url, 
+                    mcp_tool=mcp_tool, 
+                    database=database,
+                    use_emulator=emulator,
+                    emulator_host=emulator_host
+                )
             if success:
                 console.print(f"[bold green]✓ Passed:[/bold green] DDL syntax compiles cleanly on Spanner.\n[dim]{msg}[/dim]")
             else:
@@ -314,15 +331,27 @@ def discover_ontologies(dir_path: str) -> list[dict]:
     return items
 
 
-def cleanup_spanner_databases(databases: list[str], instance_path: str, auto_delete: bool = True):
+def cleanup_spanner_databases(
+    databases: list[str], 
+    instance_path: str | None = None, 
+    auto_delete: bool = True,
+    use_emulator: bool = False,
+    emulator_host: str | None = None
+):
     """Deletes temporary Spanner databases created during testing, or prints cleanup commands."""
-    if not databases or not instance_path:
+    if not databases:
         return
         
-    parts = instance_path.split("/")
-    if len(parts) >= 4 and parts[0] == "projects" and parts[2] == "instances":
-        project_id = parts[1]
-        instance_id = parts[3]
+    if use_emulator or os.getenv("SPANNER_EMULATOR_HOST"):
+        project_id = DEFAULT_EMULATOR_PROJECT
+        instance_id = DEFAULT_EMULATOR_INSTANCE
+    elif instance_path:
+        parts = instance_path.split("/")
+        if len(parts) >= 4 and parts[0] == "projects" and parts[2] == "instances":
+            project_id = parts[1]
+            instance_id = parts[3]
+        else:
+            return
     else:
         return
         
@@ -330,7 +359,13 @@ def cleanup_spanner_databases(databases: list[str], instance_path: str, auto_del
         console.print("\n[bold yellow]Cleaning up created test databases...[/bold yellow]")
         for db in databases:
             console.print(f"Deleting database [cyan]{db}[/cyan]...")
-            success, msg = drop_spanner_database(project_id, instance_id, db)
+            success, msg = drop_spanner_database(
+                project_id, 
+                instance_id, 
+                db,
+                use_emulator=use_emulator,
+                emulator_host=emulator_host
+            )
             if success:
                 console.print(f"  [green]✓ {db} deleted successfully.[/green]")
             else:
@@ -346,28 +381,45 @@ def cleanup_spanner_databases(databases: list[str], instance_path: str, auto_del
 
 
 @main.command("cleanup-databases")
-@click.option("--instance", envvar="SPANNER_INSTANCE", required=True, help="Cloud Spanner instance path (projects/<project>/instances/<instance>).")
+@click.option("--instance", envvar="SPANNER_INSTANCE", help="Cloud Spanner instance path (projects/<project>/instances/<instance>).")
+@click.option("--emulator/--no-emulator", default=False, envvar="USE_SPANNER_EMULATOR", help="Clean up databases on local Cloud Spanner Emulator.")
+@click.option("--emulator-host", default=DEFAULT_EMULATOR_HOST, envvar="SPANNER_EMULATOR_HOST", help=f"Host/URL of local Cloud Spanner Emulator (default: {DEFAULT_EMULATOR_HOST}).")
 @click.option("--prefix", default="rdf2lpg_", help="Prefix filter for temporary test databases (default: 'rdf2lpg_').")
 @click.option("--all-temp/--no-all-temp", default=True, help="Automatically list and delete all temporary databases matching prefix.")
-def cleanup_databases_cli(instance, prefix, all_temp):
-    """Clean up all accumulated temporary test databases (e.g. rdf2lpg_* and t_*) from a Spanner instance."""
-    parts = instance.split("/")
-    if len(parts) >= 4 and parts[0] == "projects" and parts[2] == "instances":
-        project_id = parts[1]
-        instance_id = parts[3]
+def cleanup_databases_cli(instance, emulator, emulator_host, prefix, all_temp):
+    """Clean up all accumulated temporary test databases (e.g. rdf2lpg_* and t_*) from a Spanner instance or emulator."""
+    is_emu = emulator or os.getenv("SPANNER_EMULATOR_HOST") is not None
+    if is_emu:
+        project_id = DEFAULT_EMULATOR_PROJECT
+        instance_id = DEFAULT_EMULATOR_INSTANCE
+        target_disp = f"Emulator ({emulator_host})"
+    elif instance:
+        parts = instance.split("/")
+        if len(parts) >= 4 and parts[0] == "projects" and parts[2] == "instances":
+            project_id = parts[1]
+            instance_id = parts[3]
+            target_disp = instance
+        else:
+            console.print(f"[bold red]Error:[/bold red] Invalid instance path: {instance}. Expected projects/<project>/instances/<instance>")
+            raise click.Abort()
     else:
-        console.print(f"[bold red]Error:[/bold red] Invalid instance path: {instance}. Expected projects/<project>/instances/<instance>")
+        console.print("[bold red]Error:[/bold red] Please provide --instance or use --emulator.")
         raise click.Abort()
         
     console.print(Panel.fit(
         f"[bold yellow]Spanner Temporary Database Pruner[/bold yellow]\n"
-        f"Instance: {instance}\n"
+        f"Target Engine: [bold cyan]{target_disp}[/bold cyan]\n"
         f"Prefix Filter: {prefix}",
         title="Spanner Database Cleanup"
     ))
     
-    with console.status("[cyan]Listing databases in Spanner instance..."):
-        db_list, err = list_spanner_databases(project_id, instance_id)
+    with console.status(f"[cyan]Listing databases in {target_disp}..."):
+        db_list, err = list_spanner_databases(
+            project_id, 
+            instance_id, 
+            use_emulator=is_emu, 
+            emulator_host=emulator_host
+        )
         
     if err:
         console.print(f"[bold red]Error listing databases:[/bold red] {err}")
@@ -404,14 +456,18 @@ def cleanup_databases_cli(instance, prefix, all_temp):
 @click.option("--instance", envvar="SPANNER_INSTANCE", help="Cloud Spanner instance path (projects/<project>/instances/<instance>).")
 @click.option("--database", "--db", envvar="SPANNER_DATABASE", help="Full Cloud Spanner database resource path.")
 @click.option("--cleanup/--no-cleanup", default=True, help="Automatically delete temporary test databases created during batch execution.")
-@click.option("--bundle-examples/--no-bundle-examples", default=False, help="Bundle verified schemas & reports into examples/<domain>/.")
+@click.option("--bundle-examples/--no-bundle-examples", default=False, help="Bundle verified schemas & reports into domain folders.")
+@click.option("--emulator/--no-emulator", default=False, envvar="USE_SPANNER_EMULATOR", help="Use local Cloud Spanner Emulator instead of Remote MCP.")
+@click.option("--emulator-host", default=DEFAULT_EMULATOR_HOST, envvar="SPANNER_EMULATOR_HOST", help=f"Host/URL of local Cloud Spanner Emulator (default: {DEFAULT_EMULATOR_HOST}).")
 @click.option("--mcp-url", "-u", default=DEFAULT_MCP_URL, envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", default="create_database", help="Name of tool on MCP server.")
 @click.option("--self-correct/--no-self-correct", default=True, help="Enable self-correction loop.")
 @click.option("--model", "-m", default=DEFAULT_GEMINI_MODEL, envvar="GEMINI_MODEL", help=f"Gemini model to use (default: {DEFAULT_GEMINI_MODEL}).")
-def pipeline(input, shacl, output, report, verify_queries, query_report, instance, database, cleanup, bundle_examples, mcp_url, mcp_tool, self_correct, model):
-    """End-to-End: Translate OWL ontology, validate syntax via MCP, self-correct if needed, and generate reports."""
-    
+def pipeline(input, shacl, output, report, verify_queries, query_report, instance, database, cleanup, bundle_examples, emulator, emulator_host, mcp_url, mcp_tool, self_correct, model):
+    """End-to-End: Translate OWL ontology, validate syntax via MCP/Emulator, self-correct if needed, and generate reports."""
+    is_emu = emulator or os.getenv("SPANNER_EMULATOR_HOST") is not None
+    target_engine_disp = f"Emulator ({emulator_host})" if is_emu else "Remote MCP / Cloud Spanner"
+
     # ---------------------------------------------------------
     # Batch Execution Mode (When --input is a directory)
     # ---------------------------------------------------------
@@ -422,7 +478,9 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             return
             
         target_instance = instance
-        if not target_instance and database:
+        if is_emu and not target_instance:
+            target_instance = f"projects/{DEFAULT_EMULATOR_PROJECT}/instances/{DEFAULT_EMULATOR_INSTANCE}"
+        elif not target_instance and database:
             parts = database.split("/")
             if len(parts) >= 4:
                 target_instance = "/".join(parts[:4])
@@ -431,6 +489,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             f"[bold green]Validation Run for Directory[/bold green]\n"
             f"Directory: {input}\n"
             f"Ontologies Discovered: {len(discovered)}\n"
+            f"Target Engine: [bold cyan]{target_engine_disp}[/bold cyan]\n"
             f"Spanner Instance: {target_instance or 'N/A'}\n"
             f"Verify Queries: {verify_queries}\n"
             f"Cleanup Databases: {cleanup}",
@@ -478,8 +537,15 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             attempts = 0
             err_msg = ""
             
-            if db_path and mcp_url:
-                success, msg = validate_ddl(current_ddl, mcp_url, "create_database", db_path)
+            if db_path or is_emu:
+                success, msg = validate_ddl(
+                    current_ddl, 
+                    mcp_url=mcp_url, 
+                    mcp_tool="create_database", 
+                    database=db_path,
+                    use_emulator=is_emu,
+                    emulator_host=emulator_host
+                )
                 if not success and self_correct:
                     max_attempts = 3
                     attempt = 1
@@ -488,9 +554,22 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                         attempts = attempt
                         with console.status(f"[yellow]Self-correction attempt {attempt}/{max_attempts} for {stem}..."):
                             current_ddl = self_correct_ddl(ttl_content, current_ddl, current_error, shacl_content=shacl_content, model_name=model)
-                            exists, _ = check_database_existence(mcp_url, "create_database", db_path)
+                            exists, _ = check_database_existence(
+                                mcp_url=mcp_url, 
+                                mcp_tool="create_database", 
+                                database=db_path,
+                                use_emulator=is_emu,
+                                emulator_host=emulator_host
+                            )
                             active_tool = "update_database_schema" if exists else "create_database"
-                            success, msg = validate_ddl(current_ddl, mcp_url, active_tool, db_path)
+                            success, msg = validate_ddl(
+                                current_ddl, 
+                                mcp_url=mcp_url, 
+                                mcp_tool=active_tool, 
+                                database=db_path,
+                                use_emulator=is_emu,
+                                emulator_host=emulator_host
+                            )
                         if not success:
                             current_error = msg
                             attempt += 1
@@ -587,18 +666,24 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         console.print(table)
         
         # Cleanup databases
-        if target_instance and created_databases:
-            cleanup_spanner_databases(created_databases, target_instance, auto_delete=cleanup)
+        if (target_instance or is_emu) and created_databases:
+            cleanup_spanner_databases(
+                created_databases, 
+                target_instance, 
+                auto_delete=cleanup,
+                use_emulator=is_emu,
+                emulator_host=emulator_host
+            )
         return
 
     # ---------------------------------------------------------
     # Single File Pipeline Execution Mode
     # ---------------------------------------------------------
     stem = os.path.splitext(os.path.basename(input))[0] if input.endswith('.ttl') else 'schema'
-    if "test" in input.lower():
-        default_dir = "output/unit_tests"
-    elif "example" in input.lower():
-        default_dir = "output/examples"
+    if "eval" in input.lower() or "test" in input.lower():
+        default_dir = "output/evals"
+    elif "industry" in input.lower() or "example" in input.lower():
+        default_dir = "output/industry_ontologies"
     else:
         default_dir = "output"
         
@@ -612,7 +697,11 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
     temp_db_created = False
     temp_db_id = None
     target_database = database
-    if instance and (not target_database or db_source != click.core.ParameterSource.COMMANDLINE):
+    if is_emu and (not target_database or db_source != click.core.ParameterSource.COMMANDLINE):
+        temp_db_id = f"rdf2lpg_{uuid.uuid4().hex[:8]}"
+        target_database = f"projects/{DEFAULT_EMULATOR_PROJECT}/instances/{DEFAULT_EMULATOR_INSTANCE}/databases/{temp_db_id}"
+        temp_db_created = True
+    elif instance and (not target_database or db_source != click.core.ParameterSource.COMMANDLINE):
         temp_db_id = f"rdf2lpg_{uuid.uuid4().hex[:8]}"
         target_database = f"{instance.rstrip('/')}/databases/{temp_db_id}"
         temp_db_created = True
@@ -621,6 +710,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         f"[bold green]Running End-to-End Spanner Graph Pipeline[/bold green]\n"
         f"Input: {input}\n"
         f"SHACL: {shacl or 'None'}\n"
+        f"Target Engine: [bold cyan]{target_engine_disp}[/bold cyan]\n"
         f"Output: {target_output}\n"
         f"Report: {target_report}\n"
         f"Database: {target_database or 'N/A'}\n"
@@ -659,10 +749,16 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
     with open(input, "r") as f:
         ttl_content = f.read()
         
-    # Pre-validation: Verify database state via MCP before translating
-    if target_database and mcp_url and not temp_db_created:
-        with console.status("[cyan]Verifying target database state..."):
-            exists, err = check_database_existence(mcp_url, mcp_tool, target_database)
+    # Pre-validation: Verify database state before translating
+    if target_database and not temp_db_created and (mcp_url or is_emu):
+        with console.status(f"[cyan]Verifying target database state on {target_engine_disp}..."):
+            exists, err = check_database_existence(
+                mcp_url=mcp_url, 
+                mcp_tool=mcp_tool, 
+                database=target_database,
+                use_emulator=is_emu,
+                emulator_host=emulator_host
+            )
             if err:
                 console.print(f"[yellow]Pre-validation warning: Could not verify database state ({err}). Proceeding...[/yellow]")
             elif exists is not None:
@@ -681,11 +777,11 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         console.print(f"[bold red]Error during translation:[/bold red] {e}")
         raise click.Abort()
         
-    # 3. Validation execution via the MCP Server
-    if not mcp_url:
+    # 3. Validation execution via MCP Server or Emulator
+    if not mcp_url and not is_emu:
         with open(target_output, "w") as f:
             f.write(ddl)
-        console.print(f"[yellow]! Validation skipped (no MCP configuration provided). Saved DDL to {target_output}[/yellow]")
+        console.print(f"[yellow]! Validation skipped (no MCP or Emulator configuration provided). Saved DDL to {target_output}[/yellow]")
         return
         
     def _generate_reports(target_ddl):
@@ -726,16 +822,29 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
 
     try:
         # Run first validation pass
-        with console.status("[cyan]Connecting to MCP server and executing DDL..."):
-            success, msg = validate_ddl(ddl, mcp_url, mcp_tool, target_database)
+        with console.status(f"[cyan]Connecting to {target_engine_disp} and executing DDL..."):
+            success, msg = validate_ddl(
+                ddl, 
+                mcp_url=mcp_url, 
+                mcp_tool=mcp_tool, 
+                database=target_database,
+                use_emulator=is_emu,
+                emulator_host=emulator_host
+            )
             
         if success:
             with open(target_output, "w") as f:
                 f.write(ddl)
             console.print(f"[bold green]✓ DDL validation successful![/bold green] Saved verified DDL to {target_output}")
             _generate_reports(ddl)
-            if temp_db_created and instance:
-                cleanup_spanner_databases([temp_db_id], instance, auto_delete=cleanup)
+            if temp_db_created and (instance or is_emu):
+                cleanup_spanner_databases(
+                    [temp_db_id], 
+                    instance, 
+                    auto_delete=cleanup,
+                    use_emulator=is_emu,
+                    emulator_host=emulator_host
+                )
             return
             
         # If validation fails, proceed to error logging and self-correction
@@ -759,8 +868,14 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             with open(target_output, "w") as f:
                 f.write(ddl)
             console.print(f"[yellow]Self-correction disabled. Saved invalid DDL to {target_output}[/yellow]")
-            if temp_db_created and instance:
-                cleanup_spanner_databases([temp_db_id], instance, auto_delete=cleanup)
+            if temp_db_created and (instance or is_emu):
+                cleanup_spanner_databases(
+                    [temp_db_id], 
+                    instance, 
+                    auto_delete=cleanup,
+                    use_emulator=is_emu,
+                    emulator_host=emulator_host
+                )
             raise click.Abort()
             
         # 4. Self-correction loop
@@ -776,13 +891,26 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 current_ddl = self_correct_ddl(ttl_content, current_ddl, current_error, shacl_content=shacl_content, model_name=model)
                 
             console.print(f"[yellow]Executing corrected DDL...[/yellow]")
-            with console.status("[cyan]Re-validating corrected DDL..."):
-                if mcp_tool == "create_database" and target_database and mcp_url:
-                    exists, _ = check_database_existence(mcp_url, mcp_tool, target_database)
+            with console.status(f"[cyan]Re-validating corrected DDL on {target_engine_disp}..."):
+                if mcp_tool == "create_database" and target_database:
+                    exists, _ = check_database_existence(
+                        mcp_url=mcp_url, 
+                        mcp_tool=mcp_tool, 
+                        database=target_database,
+                        use_emulator=is_emu,
+                        emulator_host=emulator_host
+                    )
                     active_tool = "update_database_schema" if exists else "create_database"
                 else:
                     active_tool = mcp_tool
-                success, msg = validate_ddl(current_ddl, mcp_url, active_tool, target_database)
+                success, msg = validate_ddl(
+                    current_ddl, 
+                    mcp_url=mcp_url, 
+                    mcp_tool=active_tool, 
+                    database=target_database,
+                    use_emulator=is_emu,
+                    emulator_host=emulator_host
+                )
                 
             attempt_info = {
                 "attempt": attempt,
@@ -800,8 +928,14 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 telemetry["final_ddl"] = current_ddl
                 save_telemetry(input, telemetry)
                 _generate_reports(current_ddl)
-                if temp_db_created and instance:
-                    cleanup_spanner_databases([temp_db_id], instance, auto_delete=cleanup)
+                if temp_db_created and (instance or is_emu):
+                    cleanup_spanner_databases(
+                        [temp_db_id], 
+                        instance, 
+                        auto_delete=cleanup,
+                        use_emulator=is_emu,
+                        emulator_host=emulator_host
+                    )
                 return
                 
             console.print(f"[bold red]✗ Corrected DDL validation failed![/bold red]")
@@ -816,14 +950,26 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         telemetry["final_status"] = "FAILURE"
         telemetry["final_ddl"] = current_ddl
         save_telemetry(input, telemetry)
-        if temp_db_created and instance:
-            cleanup_spanner_databases([temp_db_id], instance, auto_delete=cleanup)
+        if temp_db_created and (instance or is_emu):
+            cleanup_spanner_databases(
+                [temp_db_id], 
+                instance, 
+                auto_delete=cleanup,
+                use_emulator=is_emu,
+                emulator_host=emulator_host
+            )
         raise click.Abort()
         
     except Exception as e:
         console.print(f"[bold red]Error during pipeline execution:[/bold red] {e}")
-        if temp_db_created and instance:
-            cleanup_spanner_databases([temp_db_id], instance, auto_delete=cleanup)
+        if temp_db_created and (instance or is_emu):
+            cleanup_spanner_databases(
+                [temp_db_id], 
+                instance, 
+                auto_delete=cleanup,
+                use_emulator=is_emu,
+                emulator_host=emulator_host
+            )
         raise click.Abort()
 
 

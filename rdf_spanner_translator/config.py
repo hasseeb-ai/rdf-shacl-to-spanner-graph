@@ -13,3 +13,8 @@ FALLBACK_GEMINI_MODEL: str = os.getenv("GEMINI_FALLBACK_MODEL", "gemini-3.6-flas
 
 # Default Remote Spanner MCP Server URL
 DEFAULT_MCP_URL: str = os.getenv("SPANNER_REMOTE_MCP_URL", "https://spanner.googleapis.com/mcp")
+
+# Default Local Cloud Spanner Emulator Configuration (REST API port 9020)
+DEFAULT_EMULATOR_HOST: str = os.getenv("SPANNER_EMULATOR_HOST", "http://localhost:9020")
+DEFAULT_EMULATOR_PROJECT: str = os.getenv("SPANNER_EMULATOR_PROJECT", "test-project")
+DEFAULT_EMULATOR_INSTANCE: str = os.getenv("SPANNER_EMULATOR_INSTANCE", "test-instance")
