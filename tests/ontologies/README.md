@@ -9,6 +9,12 @@ Validation operates across three comprehensive stages:
 - **Semantic Validation & Scorecard:** Audits the schema across 7 semantic dimensions (completeness, renaming traceability, inheritance flattening, property isolation, XSD types, edge connectivity, and Spanner engine invariants), producing an executive one-pager report (`output/unit_tests/<test>_validation_report.md`).
 - **Dynamic Data Ingestion & GQL Query Verification:** Generates coherent, connected mock fixtures (SQL `INSERT`s) and executes 4 representative GQL queries live against Cloud Spanner to verify multi-label polymorphism, multi-hop traversal, inverse aliasing, and property filtering, generating `output/unit_tests/<test>_query_report.md`.
 
+> [!IMPORTANT]
+> **Viewing Generated HTML Validation Reports:**
+> GitHub's file viewer displays raw HTML source text and does not render JavaScript or embedded styles.
+> * **Local Viewing (Recommended):** Open any `.html` report directly in a browser (e.g. Google Chrome, Safari, Firefox, Edge) or run `open tests/ontologies/<test>_validation_report.html` from your terminal to view interactive Mermaid.js graph diagrams, scorecard KPIs, and developer guides.
+> * **Browsing on GitHub:** Download the raw `.html` file from the repository and open it in your browser.
+
 ## Test Ontology Matrix
 
 | Test Suite & Artifacts | Primary Semantic Concept | Key Verification Aspects |

@@ -32,6 +32,12 @@ To install this as a native plugin in your local **Antigravity CLI** installatio
   - **Native Query Verification Skill**: The query verification skill ([`skills/spanner-graph-query-verifier/SKILL.md`](skills/spanner-graph-query-verifier/SKILL.md)) synthesizes coherent test data (SQL `INSERT`s) and 4 GQL query archetypes.
   - **Custom Tools**: Registers `translate_rdf_to_spanner_graph_ddl` and `validate_spanner_graph_ddl` as tools available to the model via the MCP server.
 
+> [!IMPORTANT]
+> **Viewing Generated HTML Reports:**
+> GitHub's web interface displays raw source code and does not execute JavaScript or render HTML styles.
+> * **Local Viewing (Recommended):** Open the generated `.html` files in any web browser (Google Chrome, Safari, Firefox, Edge) or run `open output/report.html` on macOS to view the interactive Mermaid graph diagrams, scorecard KPIs, and developer guides.
+> * **Browsing on GitHub:** Download the raw `.html` file from the repository and open it locally in your browser.
+
 ---
 
 ## Authentication & Configuration
