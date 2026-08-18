@@ -11,9 +11,12 @@ Guides the translation of OWL Ontologies (Turtle `.ttl` format) and optional SHA
 ## Expected Input
 
 - **OWL Ontology Definition:** An OWL ontology written in Turtle (`.ttl`) syntax containing classes, class hierarchies, restrictions, and properties.
-- **SHACL Shapes Definition (Optional):** A SHACL file (`shacl.ttl`) defining structural constraints, cardinalities, targets, and property paths.
-- **Relational Schema (Generated):** Physical GoogleSQL `CREATE TABLE` statements implementing a Table-Per-Concrete-Class pattern.
-- **Property Graph Schema (Generated):** A GoogleSQL `CREATE PROPERTY GRAPH` statement mapping nodes and edges with multi-label hierarchies.
+- **SHACL Shapes Definition (Optional):** A companion SHACL file (`shacl.ttl`) defining structural constraints, cardinalities, targets, and property paths.
+
+## Expected Output
+
+- **Physical Relational Schema:** Production-grade GoogleSQL `CREATE TABLE` statements implementing a Table-Per-Concrete-Class pattern with flattened inheritance properties.
+- **Logical Property Graph Schema:** A GoogleSQL `CREATE PROPERTY GRAPH` statement mapping nodes and edges with multi-label hierarchies and GQL-compliant graph semantics.
 
 ---
 
