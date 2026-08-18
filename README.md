@@ -114,9 +114,9 @@ The CLI is organized into **4 core commands** (`translate`, `validate`, `pipelin
 ```bash
 # Translate ontology and SHACL shapes to Spanner DDL:
 rdf-spanner-translator translate \
-  --input examples/fintech/fintech.ttl \
-  --shacl examples/fintech/shacl.ttl \
-  --output output/examples/fintech_schema.sql
+  --input industry_ontologies/fintech/fintech.ttl \
+  --shacl industry_ontologies/fintech/shacl.ttl \
+  --output output/industry_ontologies/fintech_schema.sql
 ```
 
 #### `validate` (Targeted or Comprehensive Validation)
@@ -125,29 +125,29 @@ export SPANNER_DATABASE="projects/<PROJECT>/instances/<INSTANCE>/databases/<DATA
 
 # Syntax compilation check only
 rdf-spanner-translator validate \
-  --ddl output/examples/fintech_schema.sql \
+  --ddl output/industry_ontologies/fintech_schema.sql \
   --database $SPANNER_DATABASE \
   --syntax-only
 
 # Static semantic audit & HTML developer mapping guide
 rdf-spanner-translator validate \
-  --input examples/fintech/fintech.ttl \
-  --ddl output/examples/fintech_schema.sql \
-  --output output/examples/fintech_validation_report.html \
+  --input industry_ontologies/fintech/fintech.ttl \
+  --ddl output/industry_ontologies/fintech_schema.sql \
+  --output output/industry_ontologies/fintech_validation_report.html \
   --semantic-only
 
 # Dynamic data ingestion & live GQL query testing
 rdf-spanner-translator validate \
-  --input examples/fintech/fintech.ttl \
-  --ddl output/examples/fintech_schema.sql \
+  --input industry_ontologies/fintech/fintech.ttl \
+  --ddl output/industry_ontologies/fintech_schema.sql \
   --database $SPANNER_DATABASE \
-  --output output/examples/fintech_query_report.md \
+  --output output/industry_ontologies/fintech_query_report.md \
   --queries-only
 
 # Full validation in one command:
 rdf-spanner-translator validate \
-  --input examples/fintech/fintech.ttl \
-  --ddl output/examples/fintech_schema.sql \
+  --input industry_ontologies/fintech/fintech.ttl \
+  --ddl output/industry_ontologies/fintech_schema.sql \
   --database $SPANNER_DATABASE \
   --mode all
 ```
@@ -159,10 +159,10 @@ export SPANNER_INSTANCE="projects/<PROJECT>/instances/<INSTANCE>"
 
 # Single ontology end-to-end pipeline:
 rdf-spanner-translator pipeline \
-  --input examples/fintech/fintech.ttl \
-  --shacl examples/fintech/shacl.ttl \
-  --output output/examples/fintech_schema.sql \
-  --report output/examples/fintech_validation_report.html \
+  --input industry_ontologies/fintech/fintech.ttl \
+  --shacl industry_ontologies/fintech/shacl.ttl \
+  --output output/industry_ontologies/fintech_schema.sql \
+  --report output/industry_ontologies/fintech_validation_report.html \
   --database $SPANNER_DATABASE \
   --verify-queries
 
@@ -172,9 +172,9 @@ rdf-spanner-translator pipeline \
   --instance $SPANNER_INSTANCE \
   --verify-queries
 
-# Batch pipeline for all domain examples with self-contained bundling:
+# Batch pipeline for all industry domain ontologies with self-contained bundling:
 rdf-spanner-translator pipeline \
-  --input examples/ \
+  --input industry_ontologies/ \
   --instance $SPANNER_INSTANCE \
   --bundle-examples
 ```

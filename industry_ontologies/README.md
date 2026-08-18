@@ -1,6 +1,12 @@
-# Example Ontologies, SHACL Shapes, and Schemas
+# Industry Domain Ontologies, SHACL Shapes, and Schemas
 
-This directory contains test ontologies (in Turtle `.ttl` syntax), accompanying SHACL shapes (`shacl.ttl`), and generated/corrected Google Cloud Spanner SQL schemas used to test and verify the RDF-SHACL-to-Spanner Graph DDL translation pipeline.
+This directory contains real-world enterprise domain ontologies (in Turtle `.ttl` syntax), accompanying SHACL shapes (`shacl.ttl`), and generated/corrected Google Cloud Spanner SQL schemas used to test and verify the RDF-SHACL-to-Spanner Graph DDL translation pipeline across diverse industry verticals.
+
+> [!IMPORTANT]
+> **Viewing Generated HTML Validation Reports:**
+> GitHub's file viewer displays raw HTML source text and does not render JavaScript or embedded styles.
+> * **Local Viewing (Recommended):** Open any `.html` report directly in a browser (e.g. Google Chrome, Safari, Firefox, Edge) or run `open industry_ontologies/<domain>/<domain>_validation_report.html` from your terminal to view interactive Mermaid.js graph diagrams, scorecard KPIs, and developer guides.
+> * **Browsing on GitHub:** Download the raw `.html` file from the repository and open it locally in your browser.
 
 ---
 
