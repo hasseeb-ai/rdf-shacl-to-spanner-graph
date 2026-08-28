@@ -7,17 +7,40 @@ from .config import (
     DEFAULT_EMULATOR_INSTANCE,
 )
 
-def get_google_access_token() -> str | None:
-    """Helper to retrieve active Google Cloud Access Token using Application Default Credentials (ADC)."""
+def get_google_access_token(timeout: float = 5.0) -> str | None:
+    """Helper to retrieve active Google Cloud Access Token using Application Default Credentials (ADC) or gcloud."""
     try:
         import google.auth
         import google.auth.transport.requests
+        import requests
+
+        class TimeoutSession(requests.Session):
+            def request(self, *args, **kwargs):
+                kwargs.setdefault("timeout", timeout)
+                return super().request(*args, **kwargs)
+
         credentials, project = google.auth.default()
-        auth_req = google.auth.transport.requests.Request()
-        credentials.refresh(auth_req)
+        if not credentials.valid or credentials.expired:
+            auth_req = google.auth.transport.requests.Request(session=TimeoutSession())
+            credentials.refresh(auth_req)
         return credentials.token
     except Exception:
-        return None
+        pass
+
+    try:
+        import subprocess
+        res = subprocess.run(
+            ["gcloud", "auth", "print-access-token"],
+            capture_output=True,
+            text=True,
+            timeout=timeout
+        )
+        if res.returncode == 0 and res.stdout.strip():
+            return res.stdout.strip()
+    except Exception:
+        pass
+
+    return None
 
 def _normalize_emulator_url(host: str | None) -> str:
     """Ensures emulator host has http:// prefix and default REST port (9020) if needed."""
