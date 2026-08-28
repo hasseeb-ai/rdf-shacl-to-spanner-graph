@@ -42,18 +42,25 @@ To install this as a native plugin in your local **Antigravity CLI** installatio
 
 ## Authentication & Configuration
 
-The plugin and standalone CLI require access to the Gemini API and Google Cloud Spanner. You can configure authentication using one of two methods:
+The plugin and standalone CLI interact with the Gemini API (for translation & semantic auditing) and Google Cloud Spanner / Remote MCP (for DDL execution & query verification).
 
-### Google AI Studio (API Key)
+### 1. Gemini API (Translation & Semantic Audit)
+Set your Google AI Studio API key:
 ```bash
 export GEMINI_API_KEY="your-api-key-here"
 ```
+*(If `GEMINI_API_KEY` is not set, the translator falls back to Vertex AI using Google Cloud ADC).*
 
-### Vertex AI (Google Cloud ADC)
-If `GEMINI_API_KEY` is not set, the tool falls back to Vertex AI. Authenticate using Application Default Credentials:
-```bash
-gcloud auth application-default login
-```
+### 2. Google Cloud Spanner / Remote MCP (DDL Compilation & Database Lifecycle)
+When validating against Remote Cloud Spanner (using `--instance` or `--database` without `--emulator`), active **Application Default Credentials (ADC)** are required to provision ephemeral test databases and compile DDL statements.
+
+> [!IMPORTANT]
+> **Pre-Step for Remote MCP / Cloud Spanner:**
+> Ensure your Google Cloud ADC session is active by running:
+> ```bash
+> gcloud auth application-default login
+> ```
+> *If an ADC session has expired or is invalid, the pipeline or validator may encounter authentication failures when connecting to Remote MCP / Cloud Spanner. Running `gcloud auth application-default login` refreshes your local credentials immediately.*
 
 ### Spanner Targets & Resolution Precedence
 
@@ -154,6 +161,11 @@ rdf-spanner-translator validate \
 
 #### `pipeline` (End-to-End Automated Pipeline)
 ```bash
+# 1. Ensure active Google Cloud ADC authentication (Pre-step for Remote Spanner / MCP)
+gcloud auth application-default login
+
+# 2. Set environment variables
+export GEMINI_API_KEY="your-gemini-api-key"
 export SPANNER_DATABASE="projects/<PROJECT>/instances/<INSTANCE>/databases/<DATABASE>"
 export SPANNER_INSTANCE="projects/<PROJECT>/instances/<INSTANCE>"
 
