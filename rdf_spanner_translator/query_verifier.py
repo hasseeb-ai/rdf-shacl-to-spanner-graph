@@ -56,7 +56,8 @@ def generate_fixtures_and_queries(
     ttl_content: str, 
     ddl_content: str, 
     shacl_content: str = None, 
-    model_name: str = DEFAULT_GEMINI_MODEL
+    model_name: str = DEFAULT_GEMINI_MODEL,
+    preloaded_dml_statements: list[str] | None = None,
 ) -> dict:
     """Generates synthetic relational SQL INSERTs and 4 GQL queries using Gemini."""
     client = _get_client()
@@ -80,7 +81,28 @@ def generate_fixtures_and_queries(
 ```sql
 {ddl_content}
 ```
+"""
+    if preloaded_dml_statements:
+        # Sample up to 3 INSERT statements per table so GQL filter predicates match loaded RDF triples
+        per_table_counts: dict[str, int] = {}
+        sampled_stmts: list[str] = []
+        for stmt in preloaded_dml_statements:
+            m = re.match(r"^\s*INSERT\s+INTO\s+([A-Za-z0-9_]+)", stmt, re.IGNORECASE)
+            t_name = m.group(1) if m else "UNKNOWN"
+            if per_table_counts.get(t_name, 0) < 3:
+                sampled_stmts.append(stmt)
+                per_table_counts[t_name] = per_table_counts.get(t_name, 0) + 1
+        sample_block = "\n".join(sampled_stmts[:60])
+        prompt += f"""
+### Preloaded RDF Instance Data Sample ({len(preloaded_dml_statements)} total rows already loaded into Spanner):
+```sql
+{sample_block}
+```
 
+IMPORTANT: Because RDF triples have already been loaded into the database, set `"dml_statements": []` in your JSON output, and design the 4 GQL query archetypes (especially Q4 Filter/Path predicates) so they match the actual property values and graph topology shown in the Preloaded RDF Instance Data Sample above.
+"""
+    else:
+        prompt += """
 Generate the coherent, constraint-compliant SQL INSERT statements and the 4 GQL query archetypes as specified in the system instructions. Output the result strictly in JSON matching the schema.
 """
     
@@ -439,7 +461,8 @@ def run_query_verification(
             ttl_content=ttl_content,
             ddl_content=ddl_content,
             shacl_content=shacl_content,
-            model_name=model_name
+            model_name=model_name,
+            preloaded_dml_statements=preloaded_dml_statements,
         )
     
     domain_title = plan.get("domain_title", os.path.basename(ttl_path))

@@ -41,6 +41,7 @@ from rdf_spanner_translator.validator import (
     list_spanner_databases
 )
 from rdf_spanner_translator.query_verifier import run_query_verification
+from rdf_spanner_translator.triple_loader import run_triple_loader
 
 # Initialize Rich console for stylized and formatted terminal outputs
 console = Console()
@@ -151,10 +152,77 @@ def translate(input, shacl, output, model):
         raise click.Abort()
 
 
+@main.command("load-triples")
+@click.option("--triples", "-t", type=click.Path(exists=True), required=True, help="Path to RDF instance triples file (.ttl, .nt, .rdf, .jsonld).")
+@click.option("--ddl", "-d", type=click.Path(exists=True), required=True, help="Path to target Cloud Spanner SQL DDL file.")
+@click.option("--ontology", "-i", type=click.Path(exists=True), default=None, help="Optional path to source OWL/Turtle ontology file.")
+@click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Optional path to SHACL shapes Turtle file.")
+@click.option("--output-dml", "-o", type=click.Path(), default=None, help="Optional path to save generated SQL INSERT statements (.sql).")
+@click.option("--database", "--db", envvar="SPANNER_DATABASE", default=None, help="Full Cloud Spanner database resource path to load triples into.")
+@click.option("--emulator/--no-emulator", default=False, envvar="USE_SPANNER_EMULATOR", help="Load triples into local Cloud Spanner Emulator instead of Remote MCP.")
+@click.option("--emulator-host", default=DEFAULT_EMULATOR_HOST, envvar="SPANNER_EMULATOR_HOST", help=f"Host/URL of local Cloud Spanner Emulator (default: {DEFAULT_EMULATOR_HOST}).")
+@click.option("--mcp-url", "-u", default=DEFAULT_MCP_URL, envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
+@click.option("--llm-mapping/--deterministic-only", default=True, help="Use Gemini LLM to enrich the schema mapping specification (default: enabled; falls back to deterministic mapping offline).")
+@click.option("--model", "-m", default=DEFAULT_GEMINI_MODEL, envvar="GEMINI_MODEL", help=f"Gemini model to use (default: {DEFAULT_GEMINI_MODEL}).")
+def load_triples(triples, ddl, ontology, shacl, output_dml, database, emulator, emulator_host, mcp_url, llm_mapping, model):
+    """Translate RDF instance triples (.ttl, .nt, .rdf, .jsonld) into Spanner DML and optionally load into Spanner/Emulator."""
+    is_emu = emulator or os.getenv("SPANNER_EMULATOR_HOST") is not None
+    target_env = f"Emulator ({emulator_host})" if is_emu else ("Remote MCP / Cloud Spanner" if database else "Offline DML Generation Only")
+    console.print(Panel.fit(
+        f"[bold green]RDF Triples to Spanner Graph Loader[/bold green]\n"
+        f"Triples File: {triples}\n"
+        f"Target DDL: {ddl}\n"
+        f"Source Ontology: {ontology or 'Auto/Embedded'}\n"
+        f"SHACL Shapes: {shacl or 'None'}\n"
+        f"Output DML: {output_dml or 'N/A'}\n"
+        f"Target Engine: [bold cyan]{target_env}[/bold cyan]\n"
+        f"Database: {database or ('emulator default' if is_emu else 'N/A')}",
+        title="RDF Triples Loader"
+    ))
+
+    try:
+        ok, dml_stmts, table_counts, summary_msg = run_triple_loader(
+            triples_path=triples,
+            ddl_path=ddl,
+            ontology_path=ontology,
+            shacl_path=shacl,
+            database=database,
+            output_dml=output_dml,
+            mcp_url=mcp_url,
+            use_emulator=is_emu,
+            emulator_host=emulator_host,
+            use_llm_mapping=llm_mapping,
+            model_name=model,
+        )
+
+        # Print per-table summary
+        tbl = Table(title="Spanner Table Row Distribution")
+        tbl.add_column("Physical Table", style="cyan")
+        tbl.add_column("Generated INSERT Rows", justify="right", style="green")
+        for t_name, cnt in table_counts.items():
+            tbl.add_row(t_name, str(cnt))
+        tbl.add_section()
+        tbl.add_row("[bold]TOTAL[/bold]", f"[bold]{len(dml_stmts)}[/bold]")
+        console.print(tbl)
+
+        if ok:
+            console.print(f"[bold green]✓ {summary_msg}[/bold green]")
+        else:
+            console.print(f"[bold red]✗ {summary_msg}[/bold red]")
+            raise click.Abort()
+    except click.Abort:
+        raise
+    except Exception as e:
+        console.print(f"[bold red]Error loading triples:[/bold red] {e}")
+        raise click.Abort()
+
+
 @main.command()
 @click.option("--input", "-i", type=click.Path(exists=True), default=None, help="Path to input OWL/Turtle file (required for semantic and query validation).")
 @click.option("--ddl", "-d", type=click.Path(exists=True), required=True, help="Path to generated Spanner SQL DDL file.")
 @click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
+@click.option("--triples", type=click.Path(exists=True), default=None, help="Optional path to RDF instance triples file (.ttl, .nt, .rdf, .jsonld) to load and use for query verification.")
+@click.option("--output-dml", type=click.Path(), default=None, help="Optional path to save generated SQL INSERT statements from --triples.")
 @click.option("--database", "--db", envvar="SPANNER_DATABASE", default=None, help="Full Cloud Spanner database resource path.")
 @click.option("--output", "-o", type=click.Path(), default=None, help="Path to output markdown report file.")
 @click.option("--mode", type=click.Choice(["all", "syntax", "semantic", "queries"], case_sensitive=False), default="all", help="Validation mode to run.")
@@ -166,7 +234,7 @@ def translate(input, shacl, output, model):
 @click.option("--mcp-url", "-u", default=DEFAULT_MCP_URL, envvar="SPANNER_REMOTE_MCP_URL", help="URL of Remote Spanner MCP Server.")
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", help="Name of tool on MCP server.")
 @click.option("--model", "-m", default=DEFAULT_GEMINI_MODEL, envvar="GEMINI_MODEL", help=f"Gemini model to use for audits (default: {DEFAULT_GEMINI_MODEL}).")
-def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_only, queries_only, emulator, emulator_host, mcp_url, mcp_tool, model):
+def validate(input, ddl, shacl, triples, output_dml, database, output, mode, syntax_only, semantic_only, queries_only, emulator, emulator_host, mcp_url, mcp_tool, model):
     """Validate Spanner Graph DDL across Syntax, Semantic Scorecard, and Dynamic Queries."""
     # Resolve active validation mode
     if syntax_only:
@@ -177,15 +245,21 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
         active_mode = "queries"
     else:
         active_mode = mode.lower()
+
+    is_emu = emulator or os.getenv("SPANNER_EMULATOR_HOST") is not None
+    effective_db = database
+    if is_emu and not effective_db:
+        effective_db = f"projects/{DEFAULT_EMULATOR_PROJECT}/instances/{DEFAULT_EMULATOR_INSTANCE}/databases/test-db"
         
-    target_env = f"Emulator ({emulator_host})" if emulator or os.getenv("SPANNER_EMULATOR_HOST") else "Remote MCP / Cloud Spanner"
+    target_env = f"Emulator ({emulator_host})" if is_emu else "Remote MCP / Cloud Spanner"
     console.print(Panel.fit(
         f"[bold purple]Spanner Graph Schema Validator[/bold purple]\n"
         f"Mode: [bold]{active_mode.upper()}[/bold]\n"
         f"Target Engine: [bold cyan]{target_env}[/bold cyan]\n"
         f"DDL File: {ddl}\n"
         f"Source Ontology: {input or 'N/A'}\n"
-        f"Database: {database or 'N/A'}",
+        f"RDF Triples: {triples or 'None'}\n"
+        f"Database: {effective_db or 'N/A'}",
         title="Spanner Validator"
     ))
     
@@ -194,7 +268,7 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
     # ----------------------------------------------------
     if active_mode in ("all", "syntax"):
         console.print("\n[bold cyan]─── Dialect & Syntactic Validation ───[/bold cyan]")
-        if not database and not emulator and not os.getenv("SPANNER_EMULATOR_HOST"):
+        if not effective_db and not is_emu:
             if active_mode == "syntax":
                 console.print("[bold red]Error:[/bold red] --database is required for syntax validation (unless --emulator is used).")
                 raise click.Abort()
@@ -208,8 +282,8 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
                     ddl_content, 
                     mcp_url=mcp_url, 
                     mcp_tool=mcp_tool, 
-                    database=database,
-                    use_emulator=emulator,
+                    database=effective_db,
+                    use_emulator=is_emu,
                     emulator_host=emulator_host
                 )
             if success:
@@ -259,13 +333,36 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
         console.print(f"Executive scorecard saved to [bold cyan]{report_file}[/bold cyan]")
 
     # ----------------------------------------------------
+    # Optional RDF Triples Ingestion (when --triples is provided)
+    # ----------------------------------------------------
+    loaded_dml_stmts = None
+    if triples:
+        console.print("\n[bold cyan]─── RDF Triples Ingestion ───[/bold cyan]")
+        ok, loaded_dml_stmts, _, trip_msg = run_triple_loader(
+            triples_path=triples,
+            ddl_path=ddl,
+            ontology_path=input,
+            shacl_path=shacl,
+            database=effective_db,
+            output_dml=output_dml,
+            mcp_url=mcp_url,
+            use_emulator=is_emu,
+            emulator_host=emulator_host,
+            model_name=model,
+        )
+        if ok:
+            console.print(f"[bold green]✓ {trip_msg}[/bold green]")
+        else:
+            console.print(f"[yellow]Warning during RDF triples loading: {trip_msg}[/yellow]")
+
+    # ----------------------------------------------------
     # Dynamic Mock Data & Live GQL Query Execution
     # ----------------------------------------------------
     if active_mode in ("all", "queries"):
         console.print("\n[bold cyan]─── Dynamic Data & GQL Query Verification ───[/bold cyan]")
-        if not input or not database:
+        if not input or not effective_db:
             if active_mode == "queries":
-                console.print("[bold red]Error:[/bold red] Both --input and --database are required for query verification.")
+                console.print("[bold red]Error:[/bold red] Both --input and --database (or --emulator) are required for query verification.")
                 raise click.Abort()
             else:
                 console.print("[yellow]Skipping: --input or --database not provided.[/yellow]")
@@ -278,11 +375,14 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
             all_passed, report_md = run_query_verification(
                 ttl_path=input,
                 ddl_path=ddl,
-                database=database,
+                database=effective_db,
                 shacl_path=shacl,
                 mcp_url=mcp_url,
                 model_name=model,
-                output_report=query_report_file
+                output_report=query_report_file,
+                use_emulator=is_emu,
+                emulator_host=emulator_host,
+                preloaded_dml_statements=loaded_dml_stmts,
             )
             status_str = "SUCCESS (4/4 Queries Passed)" if all_passed else "WARNING (Some queries encountered issues)"
             status_color = "green" if all_passed else "yellow"
@@ -291,41 +391,52 @@ def validate(input, ddl, shacl, database, output, mode, syntax_only, semantic_on
 
 
 def discover_ontologies(dir_path: str) -> list[dict]:
-    """Discovers all Turtle ontologies and companion SHACL shapes in a directory or directory tree."""
+    """Discovers all Turtle ontologies, companion SHACL shapes, and companion RDF triples in a directory or directory tree."""
     items = []
     
-    # Check if direct flat directory (like tests/ontologies/)
+    # Check if direct flat directory (like evals/ontologies/)
     flat_ttls = sorted(glob.glob(os.path.join(dir_path, "*.ttl")))
     if flat_ttls:
         for uttl in flat_ttls:
             base_name = os.path.basename(uttl)
-            if base_name.endswith("_shacl.ttl") or base_name == "shacl.ttl":
+            if (
+                base_name.endswith("_shacl.ttl")
+                or base_name == "shacl.ttl"
+                or base_name.endswith("_triples.ttl")
+                or base_name == "triples.ttl"
+            ):
                 continue
             stem = base_name[:-4]
             companion_shacl = os.path.join(dir_path, f"{stem}_shacl.ttl")
             if not os.path.exists(companion_shacl):
                 companion_shacl = None
+            companion_triples = os.path.join(dir_path, f"{stem}_triples.ttl")
+            if not os.path.exists(companion_triples):
+                companion_triples = None
             items.append({
                 "name": stem,
                 "stem": stem,
                 "ttl": uttl,
                 "shacl": companion_shacl,
+                "triples": companion_triples,
                 "is_unit": "eval" in dir_path.lower() or "test" in dir_path.lower()
             })
         return items
 
-    # Check for domain subdirectories (like examples/<domain>/)
+    # Check for domain subdirectories (like industry_ontologies/<domain>/)
     for entry in sorted(os.listdir(dir_path)):
         sub_dir = os.path.join(dir_path, entry)
         if os.path.isdir(sub_dir):
             ont_file = os.path.join(sub_dir, f"{entry}.ttl")
             if os.path.exists(ont_file):
                 shacl_file = os.path.join(sub_dir, "shacl.ttl")
+                triples_file = os.path.join(sub_dir, "triples.ttl")
                 items.append({
                     "name": f"Example: {entry}",
                     "stem": entry,
                     "ttl": ont_file,
                     "shacl": shacl_file if os.path.exists(shacl_file) else None,
+                    "triples": triples_file if os.path.exists(triples_file) else None,
                     "is_unit": False
                 })
     return items
@@ -449,6 +560,9 @@ def cleanup_databases_cli(instance, emulator, emulator_host, prefix, all_temp):
 @main.command()
 @click.option("--input", "-i", type=click.Path(exists=True), required=True, help="Path to input OWL/Turtle file or directory of ontologies.")
 @click.option("--shacl", "-s", type=click.Path(exists=True), default=None, help="Path to optional SHACL shapes Turtle file.")
+@click.option("--triples", type=click.Path(exists=True), default=None, help="Optional path to RDF instance triples file (.ttl, .nt, .rdf, .jsonld) to load into Spanner after DDL creation.")
+@click.option("--output-dml", type=click.Path(), default=None, help="Optional path to save generated SQL INSERT statements (.sql) from RDF triples.")
+@click.option("--load-companion-triples/--no-load-companion-triples", default=False, help="In directory batch mode, automatically load companion triples files (*_triples.ttl or triples.ttl) if present.")
 @click.option("--output", "-o", type=click.Path(), default=None, help="Path to output SQL file (or output directory in batch mode).")
 @click.option("--report", "-r", type=click.Path(), default=None, help="Optional path to output executive semantic validation report.")
 @click.option("--verify-queries/--no-verify-queries", default=False, help="Enable live data ingestion and GQL query verification.")
@@ -463,8 +577,8 @@ def cleanup_databases_cli(instance, emulator, emulator_host, prefix, all_temp):
 @click.option("--mcp-tool", "-t", envvar="SPANNER_MCP_TOOL_NAME", default="create_database", help="Name of tool on MCP server.")
 @click.option("--self-correct/--no-self-correct", default=True, help="Enable self-correction loop.")
 @click.option("--model", "-m", default=DEFAULT_GEMINI_MODEL, envvar="GEMINI_MODEL", help=f"Gemini model to use (default: {DEFAULT_GEMINI_MODEL}).")
-def pipeline(input, shacl, output, report, verify_queries, query_report, instance, database, cleanup, bundle_examples, emulator, emulator_host, mcp_url, mcp_tool, self_correct, model):
-    """End-to-End: Translate OWL ontology, validate syntax via MCP/Emulator, self-correct if needed, and generate reports."""
+def pipeline(input, shacl, triples, output_dml, load_companion_triples, output, report, verify_queries, query_report, instance, database, cleanup, bundle_examples, emulator, emulator_host, mcp_url, mcp_tool, self_correct, model):
+    """End-to-End: Translate OWL ontology, validate syntax via MCP/Emulator, self-correct if needed, load RDF triples, and generate reports."""
     is_emu = emulator or os.getenv("SPANNER_EMULATOR_HOST") is not None
     target_engine_disp = f"Emulator ({emulator_host})" if is_emu else "Remote MCP / Cloud Spanner"
 
@@ -491,6 +605,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             f"Ontologies Discovered: {len(discovered)}\n"
             f"Target Engine: [bold cyan]{target_engine_disp}[/bold cyan]\n"
             f"Spanner Instance: {target_instance or 'N/A'}\n"
+            f"Load Companion Triples: {load_companion_triples}\n"
             f"Verify Queries: {verify_queries}\n"
             f"Cleanup Databases: {cleanup}",
             title="Validation Run for Directory"
@@ -503,6 +618,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             stem = item["stem"]
             ttl_path = item["ttl"]
             shacl_path = item["shacl"]
+            item_triples = item.get("triples")
             is_unit = item["is_unit"]
             name = item["name"]
             
@@ -510,6 +626,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
             os.makedirs(f"output/{category_dir}", exist_ok=True)
             
             out_schema = f"output/{category_dir}/{stem}_schema.sql"
+            out_dml = f"output/{category_dir}/{stem}_dml.sql"
             out_report = f"output/{category_dir}/{stem}_validation_report.html"
             out_query_report = f"output/{category_dir}/{stem}_query_report.md"
             
@@ -594,6 +711,27 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                     sem_score = score
                 except Exception:
                     sem_score = "Reviewed"
+
+            # 3.5 Optional Companion RDF Triples Loading
+            loaded_dml_stmts = None
+            triples_status = "N/A"
+            if success and load_companion_triples and item_triples:
+                try:
+                    t_ok, loaded_dml_stmts, _, _ = run_triple_loader(
+                        triples_path=item_triples,
+                        ddl_path=out_schema,
+                        ontology_path=ttl_path,
+                        shacl_path=shacl_path,
+                        database=db_path,
+                        output_dml=out_dml,
+                        mcp_url=mcp_url,
+                        use_emulator=is_emu,
+                        emulator_host=emulator_host,
+                        model_name=model,
+                    )
+                    triples_status = f"PASS ({len(loaded_dml_stmts)} rows)" if t_ok else f"WARN ({len(loaded_dml_stmts)} rows)"
+                except Exception:
+                    triples_status = "ERROR"
                     
             # 4. Dynamic Query Verification
             query_status = "N/A"
@@ -607,7 +745,10 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                             shacl_path=shacl_path,
                             mcp_url=mcp_url,
                             model_name=model,
-                            output_report=out_query_report
+                            output_report=out_query_report,
+                            use_emulator=is_emu,
+                            emulator_host=emulator_host,
+                            preloaded_dml_statements=loaded_dml_stmts,
                         )
                     query_status = "PASS (4/4)" if q_pass else "WARN"
                 except Exception:
@@ -627,6 +768,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 "name": name,
                 "status": status_str,
                 "semantic_score": sem_score,
+                "triples_status": triples_status,
                 "query_status": query_status,
                 "attempts": attempts,
                 "report": out_report if success else err_msg
@@ -642,6 +784,8 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         table.add_column("Ontology Target", style="cyan")
         table.add_column("DDL Syntax", style="bold")
         table.add_column("Semantic Score", justify="center", style="green")
+        if load_companion_triples:
+            table.add_column("RDF Triples", justify="center", style="cyan")
         if verify_queries:
             table.add_column("GQL Queries", justify="center", style="magenta")
         table.add_column("Correction Attempts", justify="right", style="magenta")
@@ -655,6 +799,8 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 f"[{status_style}]{r['status']}[/{status_style}]",
                 f"[{score_style}]{r['semantic_score']}[/{score_style}]",
             ]
+            if load_companion_triples:
+                row.append(r["triples_status"])
             if verify_queries:
                 row.append(r["query_status"])
             row.extend([
@@ -688,6 +834,7 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         default_dir = "output"
         
     target_output = output or os.path.join(default_dir, f"{stem}_schema.sql")
+    target_dml_output = output_dml or (os.path.join(default_dir, f"{stem}_dml.sql") if triples else None)
     target_report = report or os.path.join(default_dir, f"{stem}_validation_report.html")
     target_query_report = query_report or os.path.join(default_dir, f"{stem}_query_report.md")
 
@@ -710,8 +857,10 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         f"[bold green]Running End-to-End Spanner Graph Pipeline[/bold green]\n"
         f"Input: {input}\n"
         f"SHACL: {shacl or 'None'}\n"
+        f"RDF Triples: {triples or 'None'}\n"
         f"Target Engine: [bold cyan]{target_engine_disp}[/bold cyan]\n"
         f"Output: {target_output}\n"
+        f"Output DML: {target_dml_output or 'N/A'}\n"
         f"Report: {target_report}\n"
         f"Database: {target_database or 'N/A'}\n"
         f"Self-Correct: {self_correct}\n"
@@ -782,6 +931,16 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
         with open(target_output, "w") as f:
             f.write(ddl)
         console.print(f"[yellow]! Validation skipped (no MCP or Emulator configuration provided). Saved DDL to {target_output}[/yellow]")
+        if triples:
+            run_triple_loader(
+                triples_path=triples,
+                ddl_path=target_output,
+                ontology_path=input,
+                shacl_path=shacl,
+                database=None,
+                output_dml=target_dml_output,
+                model_name=model,
+            )
         return
         
     def _generate_reports(target_ddl):
@@ -799,6 +958,29 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                 console.print(f"[{status_color}]✓ Semantic Validation Report generated: {status} ({score}) -> {target_report}[/{status_color}]")
             except Exception as ex:
                 console.print(f"[yellow]Warning: Could not generate semantic report: {ex}[/yellow]")
+
+        loaded_dml_stmts = None
+        if triples:
+            try:
+                console.print("\n[bold cyan]─── RDF Triples Ingestion ───[/bold cyan]")
+                t_ok, loaded_dml_stmts, _, trip_msg = run_triple_loader(
+                    triples_path=triples,
+                    ddl_path=target_output,
+                    ontology_path=input,
+                    shacl_path=shacl,
+                    database=target_database,
+                    output_dml=target_dml_output,
+                    mcp_url=mcp_url,
+                    use_emulator=is_emu,
+                    emulator_host=emulator_host,
+                    model_name=model,
+                )
+                if t_ok:
+                    console.print(f"[bold green]✓ {trip_msg}[/bold green]")
+                else:
+                    console.print(f"[yellow]Warning during RDF triples loading: {trip_msg}[/yellow]")
+            except Exception as ex:
+                console.print(f"[yellow]Warning: Could not load RDF triples: {ex}[/yellow]")
                 
         if verify_queries and target_database:
             try:
@@ -812,7 +994,10 @@ def pipeline(input, shacl, output, report, verify_queries, query_report, instanc
                     shacl_path=shacl,
                     mcp_url=mcp_url,
                     model_name=model,
-                    output_report=target_query_report
+                    output_report=target_query_report,
+                    use_emulator=is_emu,
+                    emulator_host=emulator_host,
+                    preloaded_dml_statements=loaded_dml_stmts,
                 )
                 status_str = "SUCCESS" if all_passed else "WARNING (Some queries failed)"
                 status_color = "green" if all_passed else "yellow"
