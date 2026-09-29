@@ -1,0 +1,1886 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/entertainment/> .
+
+# ABox Instance Triples for entertainment (with RDF Reification for CharacterName & BillingOrder)
+
+ex:movie_001 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 1" ;
+    ex:releaseDate "1996-02-02"^^xsd:date .
+
+ex:movie_002 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 2" ;
+    ex:releaseDate "1997-03-03"^^xsd:date .
+
+ex:movie_003 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 3" ;
+    ex:releaseDate "1998-04-04"^^xsd:date .
+
+ex:movie_004 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 4" ;
+    ex:releaseDate "1999-05-05"^^xsd:date .
+
+ex:movie_005 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 5" ;
+    ex:releaseDate "2000-06-06"^^xsd:date .
+
+ex:movie_006 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 6" ;
+    ex:releaseDate "2001-07-07"^^xsd:date .
+
+ex:movie_007 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 7" ;
+    ex:releaseDate "2002-08-08"^^xsd:date .
+
+ex:movie_008 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 8" ;
+    ex:releaseDate "2003-09-09"^^xsd:date .
+
+ex:movie_009 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 9" ;
+    ex:releaseDate "2004-10-10"^^xsd:date .
+
+ex:movie_010 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 10" ;
+    ex:releaseDate "2005-11-11"^^xsd:date .
+
+ex:movie_011 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 11" ;
+    ex:releaseDate "2006-12-12"^^xsd:date .
+
+ex:movie_012 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 12" ;
+    ex:releaseDate "2007-01-13"^^xsd:date .
+
+ex:movie_013 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 13" ;
+    ex:releaseDate "2008-02-14"^^xsd:date .
+
+ex:movie_014 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 14" ;
+    ex:releaseDate "2009-03-15"^^xsd:date .
+
+ex:movie_015 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 15" ;
+    ex:releaseDate "2010-04-16"^^xsd:date .
+
+ex:movie_016 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 16" ;
+    ex:releaseDate "2011-05-17"^^xsd:date .
+
+ex:movie_017 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 17" ;
+    ex:releaseDate "2012-06-18"^^xsd:date .
+
+ex:movie_018 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 18" ;
+    ex:releaseDate "2013-07-19"^^xsd:date .
+
+ex:movie_019 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 19" ;
+    ex:releaseDate "2014-08-20"^^xsd:date .
+
+ex:movie_020 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 20" ;
+    ex:releaseDate "2015-09-21"^^xsd:date .
+
+ex:movie_021 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 21" ;
+    ex:releaseDate "2016-10-22"^^xsd:date .
+
+ex:movie_022 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 22" ;
+    ex:releaseDate "2017-11-23"^^xsd:date .
+
+ex:movie_023 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 23" ;
+    ex:releaseDate "2018-12-24"^^xsd:date .
+
+ex:movie_024 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 24" ;
+    ex:releaseDate "2019-01-25"^^xsd:date .
+
+ex:movie_025 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 25" ;
+    ex:releaseDate "2020-02-26"^^xsd:date .
+
+ex:movie_026 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 26" ;
+    ex:releaseDate "2021-03-27"^^xsd:date .
+
+ex:movie_027 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 27" ;
+    ex:releaseDate "2022-04-28"^^xsd:date .
+
+ex:movie_028 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 28" ;
+    ex:releaseDate "2023-05-01"^^xsd:date .
+
+ex:movie_029 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 29" ;
+    ex:releaseDate "2024-06-02"^^xsd:date .
+
+ex:movie_030 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 30" ;
+    ex:releaseDate "1995-07-03"^^xsd:date .
+
+ex:movie_031 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 31" ;
+    ex:releaseDate "1996-08-04"^^xsd:date .
+
+ex:movie_032 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 32" ;
+    ex:releaseDate "1997-09-05"^^xsd:date .
+
+ex:movie_033 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 33" ;
+    ex:releaseDate "1998-10-06"^^xsd:date .
+
+ex:movie_034 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 34" ;
+    ex:releaseDate "1999-11-07"^^xsd:date .
+
+ex:movie_035 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 35" ;
+    ex:releaseDate "2000-12-08"^^xsd:date .
+
+ex:movie_036 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 36" ;
+    ex:releaseDate "2001-01-09"^^xsd:date .
+
+ex:movie_037 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 37" ;
+    ex:releaseDate "2002-02-10"^^xsd:date .
+
+ex:movie_038 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 38" ;
+    ex:releaseDate "2003-03-11"^^xsd:date .
+
+ex:movie_039 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 39" ;
+    ex:releaseDate "2004-04-12"^^xsd:date .
+
+ex:movie_040 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 40" ;
+    ex:releaseDate "2005-05-13"^^xsd:date .
+
+ex:movie_041 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 41" ;
+    ex:releaseDate "2006-06-14"^^xsd:date .
+
+ex:movie_042 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 42" ;
+    ex:releaseDate "2007-07-15"^^xsd:date .
+
+ex:movie_043 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 43" ;
+    ex:releaseDate "2008-08-16"^^xsd:date .
+
+ex:movie_044 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 44" ;
+    ex:releaseDate "2009-09-17"^^xsd:date .
+
+ex:movie_045 a ex:Movie ;
+    ex:title "Chronicles of the Horizon Part 45" ;
+    ex:releaseDate "2010-10-18"^^xsd:date .
+
+ex:series_001 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 1" ;
+    ex:releaseDate "2006-02-02"^^xsd:date .
+
+ex:series_002 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 2" ;
+    ex:releaseDate "2007-03-03"^^xsd:date .
+
+ex:series_003 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 3" ;
+    ex:releaseDate "2008-04-04"^^xsd:date .
+
+ex:series_004 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 4" ;
+    ex:releaseDate "2009-05-05"^^xsd:date .
+
+ex:series_005 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 5" ;
+    ex:releaseDate "2010-06-06"^^xsd:date .
+
+ex:series_006 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 6" ;
+    ex:releaseDate "2011-07-07"^^xsd:date .
+
+ex:series_007 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 7" ;
+    ex:releaseDate "2012-08-08"^^xsd:date .
+
+ex:series_008 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 8" ;
+    ex:releaseDate "2013-09-09"^^xsd:date .
+
+ex:series_009 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 9" ;
+    ex:releaseDate "2014-10-10"^^xsd:date .
+
+ex:series_010 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 10" ;
+    ex:releaseDate "2015-11-11"^^xsd:date .
+
+ex:series_011 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 11" ;
+    ex:releaseDate "2016-12-12"^^xsd:date .
+
+ex:series_012 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 12" ;
+    ex:releaseDate "2017-01-13"^^xsd:date .
+
+ex:series_013 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 13" ;
+    ex:releaseDate "2018-02-14"^^xsd:date .
+
+ex:series_014 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 14" ;
+    ex:releaseDate "2019-03-15"^^xsd:date .
+
+ex:series_015 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 15" ;
+    ex:releaseDate "2020-04-16"^^xsd:date .
+
+ex:series_016 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 16" ;
+    ex:releaseDate "2021-05-17"^^xsd:date .
+
+ex:series_017 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 17" ;
+    ex:releaseDate "2022-06-18"^^xsd:date .
+
+ex:series_018 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 18" ;
+    ex:releaseDate "2023-07-19"^^xsd:date .
+
+ex:series_019 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 19" ;
+    ex:releaseDate "2024-08-20"^^xsd:date .
+
+ex:series_020 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 20" ;
+    ex:releaseDate "2005-09-21"^^xsd:date .
+
+ex:series_021 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 21" ;
+    ex:releaseDate "2006-10-22"^^xsd:date .
+
+ex:series_022 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 22" ;
+    ex:releaseDate "2007-11-23"^^xsd:date .
+
+ex:series_023 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 23" ;
+    ex:releaseDate "2008-12-24"^^xsd:date .
+
+ex:series_024 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 24" ;
+    ex:releaseDate "2009-01-25"^^xsd:date .
+
+ex:series_025 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 25" ;
+    ex:releaseDate "2010-02-26"^^xsd:date .
+
+ex:series_026 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 26" ;
+    ex:releaseDate "2011-03-27"^^xsd:date .
+
+ex:series_027 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 27" ;
+    ex:releaseDate "2012-04-28"^^xsd:date .
+
+ex:series_028 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 28" ;
+    ex:releaseDate "2013-05-01"^^xsd:date .
+
+ex:series_029 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 29" ;
+    ex:releaseDate "2014-06-02"^^xsd:date .
+
+ex:series_030 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 30" ;
+    ex:releaseDate "2015-07-03"^^xsd:date .
+
+ex:series_031 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 31" ;
+    ex:releaseDate "2016-08-04"^^xsd:date .
+
+ex:series_032 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 32" ;
+    ex:releaseDate "2017-09-05"^^xsd:date .
+
+ex:series_033 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 33" ;
+    ex:releaseDate "2018-10-06"^^xsd:date .
+
+ex:series_034 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 34" ;
+    ex:releaseDate "2019-11-07"^^xsd:date .
+
+ex:series_035 a ex:TVSeries ;
+    ex:title "Quantum Detective Season 35" ;
+    ex:releaseDate "2020-12-08"^^xsd:date .
+
+ex:director_001 a ex:Director ;
+    ex:name "Director #001" ;
+    ex:directed ex:movie_001, ex:series_001 .
+
+ex:director_002 a ex:Director ;
+    ex:name "Director #002" ;
+    ex:directed ex:movie_002, ex:series_002 .
+
+ex:director_003 a ex:Director ;
+    ex:name "Director #003" ;
+    ex:directed ex:movie_003, ex:series_003 .
+
+ex:director_004 a ex:Director ;
+    ex:name "Director #004" ;
+    ex:directed ex:movie_004, ex:series_004 .
+
+ex:director_005 a ex:Director ;
+    ex:name "Director #005" ;
+    ex:directed ex:movie_005, ex:series_005 .
+
+ex:director_006 a ex:Director ;
+    ex:name "Director #006" ;
+    ex:directed ex:movie_006, ex:series_006 .
+
+ex:director_007 a ex:Director ;
+    ex:name "Director #007" ;
+    ex:directed ex:movie_007, ex:series_007 .
+
+ex:director_008 a ex:Director ;
+    ex:name "Director #008" ;
+    ex:directed ex:movie_008, ex:series_008 .
+
+ex:director_009 a ex:Director ;
+    ex:name "Director #009" ;
+    ex:directed ex:movie_009, ex:series_009 .
+
+ex:director_010 a ex:Director ;
+    ex:name "Director #010" ;
+    ex:directed ex:movie_010, ex:series_010 .
+
+ex:director_011 a ex:Director ;
+    ex:name "Director #011" ;
+    ex:directed ex:movie_011, ex:series_011 .
+
+ex:director_012 a ex:Director ;
+    ex:name "Director #012" ;
+    ex:directed ex:movie_012, ex:series_012 .
+
+ex:director_013 a ex:Director ;
+    ex:name "Director #013" ;
+    ex:directed ex:movie_013, ex:series_013 .
+
+ex:director_014 a ex:Director ;
+    ex:name "Director #014" ;
+    ex:directed ex:movie_014, ex:series_014 .
+
+ex:director_015 a ex:Director ;
+    ex:name "Director #015" ;
+    ex:directed ex:movie_015, ex:series_015 .
+
+ex:director_016 a ex:Director ;
+    ex:name "Director #016" ;
+    ex:directed ex:movie_016, ex:series_016 .
+
+ex:director_017 a ex:Director ;
+    ex:name "Director #017" ;
+    ex:directed ex:movie_017, ex:series_017 .
+
+ex:director_018 a ex:Director ;
+    ex:name "Director #018" ;
+    ex:directed ex:movie_018, ex:series_018 .
+
+ex:director_019 a ex:Director ;
+    ex:name "Director #019" ;
+    ex:directed ex:movie_019, ex:series_019 .
+
+ex:director_020 a ex:Director ;
+    ex:name "Director #020" ;
+    ex:directed ex:movie_020, ex:series_020 .
+
+ex:director_021 a ex:Director ;
+    ex:name "Director #021" ;
+    ex:directed ex:movie_021, ex:series_021 .
+
+ex:director_022 a ex:Director ;
+    ex:name "Director #022" ;
+    ex:directed ex:movie_022, ex:series_022 .
+
+ex:director_023 a ex:Director ;
+    ex:name "Director #023" ;
+    ex:directed ex:movie_023, ex:series_023 .
+
+ex:director_024 a ex:Director ;
+    ex:name "Director #024" ;
+    ex:directed ex:movie_024, ex:series_024 .
+
+ex:director_025 a ex:Director ;
+    ex:name "Director #025" ;
+    ex:directed ex:movie_025, ex:series_025 .
+
+ex:director_026 a ex:Director ;
+    ex:name "Director #026" ;
+    ex:directed ex:movie_026, ex:series_026 .
+
+ex:director_027 a ex:Director ;
+    ex:name "Director #027" ;
+    ex:directed ex:movie_027, ex:series_027 .
+
+ex:director_028 a ex:Director ;
+    ex:name "Director #028" ;
+    ex:directed ex:movie_028, ex:series_028 .
+
+ex:director_029 a ex:Director ;
+    ex:name "Director #029" ;
+    ex:directed ex:movie_029, ex:series_029 .
+
+ex:director_030 a ex:Director ;
+    ex:name "Director #030" ;
+    ex:directed ex:movie_030, ex:series_030 .
+
+ex:actor_001 a ex:Actor ;
+    ex:name "Screen Actor #001" ;
+    ex:actedIn ex:movie_001, ex:series_001 .
+
+ex:stmt_movie_001 a rdf:Statement ;
+    rdf:subject ex:actor_001 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_001 ;
+    ex:characterName "Commander Vance #001" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_001 a rdf:Statement ;
+    rdf:subject ex:actor_001 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_001 ;
+    ex:characterName "Inspector Elena #001" ;
+    ex:billingOrder 2 .
+
+ex:actor_002 a ex:Actor ;
+    ex:name "Screen Actor #002" ;
+    ex:actedIn ex:movie_002, ex:series_002 .
+
+ex:stmt_movie_002 a rdf:Statement ;
+    rdf:subject ex:actor_002 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_002 ;
+    ex:characterName "Commander Vance #002" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_002 a rdf:Statement ;
+    rdf:subject ex:actor_002 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_002 ;
+    ex:characterName "Inspector Elena #002" ;
+    ex:billingOrder 3 .
+
+ex:actor_003 a ex:Actor ;
+    ex:name "Screen Actor #003" ;
+    ex:actedIn ex:movie_003, ex:series_003 .
+
+ex:stmt_movie_003 a rdf:Statement ;
+    rdf:subject ex:actor_003 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_003 ;
+    ex:characterName "Commander Vance #003" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_003 a rdf:Statement ;
+    rdf:subject ex:actor_003 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_003 ;
+    ex:characterName "Inspector Elena #003" ;
+    ex:billingOrder 4 .
+
+ex:actor_004 a ex:Actor ;
+    ex:name "Screen Actor #004" ;
+    ex:actedIn ex:movie_004, ex:series_004 .
+
+ex:stmt_movie_004 a rdf:Statement ;
+    rdf:subject ex:actor_004 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_004 ;
+    ex:characterName "Commander Vance #004" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_004 a rdf:Statement ;
+    rdf:subject ex:actor_004 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_004 ;
+    ex:characterName "Inspector Elena #004" ;
+    ex:billingOrder 5 .
+
+ex:actor_005 a ex:Actor ;
+    ex:name "Screen Actor #005" ;
+    ex:actedIn ex:movie_005, ex:series_005 .
+
+ex:stmt_movie_005 a rdf:Statement ;
+    rdf:subject ex:actor_005 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_005 ;
+    ex:characterName "Commander Vance #005" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_005 a rdf:Statement ;
+    rdf:subject ex:actor_005 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_005 ;
+    ex:characterName "Inspector Elena #005" ;
+    ex:billingOrder 1 .
+
+ex:actor_006 a ex:Actor ;
+    ex:name "Screen Actor #006" ;
+    ex:actedIn ex:movie_006, ex:series_006 .
+
+ex:stmt_movie_006 a rdf:Statement ;
+    rdf:subject ex:actor_006 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_006 ;
+    ex:characterName "Commander Vance #006" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_006 a rdf:Statement ;
+    rdf:subject ex:actor_006 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_006 ;
+    ex:characterName "Inspector Elena #006" ;
+    ex:billingOrder 2 .
+
+ex:actor_007 a ex:Actor ;
+    ex:name "Screen Actor #007" ;
+    ex:actedIn ex:movie_007, ex:series_007 .
+
+ex:stmt_movie_007 a rdf:Statement ;
+    rdf:subject ex:actor_007 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_007 ;
+    ex:characterName "Commander Vance #007" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_007 a rdf:Statement ;
+    rdf:subject ex:actor_007 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_007 ;
+    ex:characterName "Inspector Elena #007" ;
+    ex:billingOrder 3 .
+
+ex:actor_008 a ex:Actor ;
+    ex:name "Screen Actor #008" ;
+    ex:actedIn ex:movie_008, ex:series_008 .
+
+ex:stmt_movie_008 a rdf:Statement ;
+    rdf:subject ex:actor_008 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_008 ;
+    ex:characterName "Commander Vance #008" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_008 a rdf:Statement ;
+    rdf:subject ex:actor_008 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_008 ;
+    ex:characterName "Inspector Elena #008" ;
+    ex:billingOrder 4 .
+
+ex:actor_009 a ex:Actor ;
+    ex:name "Screen Actor #009" ;
+    ex:actedIn ex:movie_009, ex:series_009 .
+
+ex:stmt_movie_009 a rdf:Statement ;
+    rdf:subject ex:actor_009 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_009 ;
+    ex:characterName "Commander Vance #009" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_009 a rdf:Statement ;
+    rdf:subject ex:actor_009 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_009 ;
+    ex:characterName "Inspector Elena #009" ;
+    ex:billingOrder 5 .
+
+ex:actor_010 a ex:Actor ;
+    ex:name "Screen Actor #010" ;
+    ex:actedIn ex:movie_010, ex:series_010 .
+
+ex:stmt_movie_010 a rdf:Statement ;
+    rdf:subject ex:actor_010 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_010 ;
+    ex:characterName "Commander Vance #010" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_010 a rdf:Statement ;
+    rdf:subject ex:actor_010 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_010 ;
+    ex:characterName "Inspector Elena #010" ;
+    ex:billingOrder 1 .
+
+ex:actor_011 a ex:Actor ;
+    ex:name "Screen Actor #011" ;
+    ex:actedIn ex:movie_011, ex:series_011 .
+
+ex:stmt_movie_011 a rdf:Statement ;
+    rdf:subject ex:actor_011 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_011 ;
+    ex:characterName "Commander Vance #011" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_011 a rdf:Statement ;
+    rdf:subject ex:actor_011 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_011 ;
+    ex:characterName "Inspector Elena #011" ;
+    ex:billingOrder 2 .
+
+ex:actor_012 a ex:Actor ;
+    ex:name "Screen Actor #012" ;
+    ex:actedIn ex:movie_012, ex:series_012 .
+
+ex:stmt_movie_012 a rdf:Statement ;
+    rdf:subject ex:actor_012 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_012 ;
+    ex:characterName "Commander Vance #012" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_012 a rdf:Statement ;
+    rdf:subject ex:actor_012 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_012 ;
+    ex:characterName "Inspector Elena #012" ;
+    ex:billingOrder 3 .
+
+ex:actor_013 a ex:Actor ;
+    ex:name "Screen Actor #013" ;
+    ex:actedIn ex:movie_013, ex:series_013 .
+
+ex:stmt_movie_013 a rdf:Statement ;
+    rdf:subject ex:actor_013 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_013 ;
+    ex:characterName "Commander Vance #013" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_013 a rdf:Statement ;
+    rdf:subject ex:actor_013 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_013 ;
+    ex:characterName "Inspector Elena #013" ;
+    ex:billingOrder 4 .
+
+ex:actor_014 a ex:Actor ;
+    ex:name "Screen Actor #014" ;
+    ex:actedIn ex:movie_014, ex:series_014 .
+
+ex:stmt_movie_014 a rdf:Statement ;
+    rdf:subject ex:actor_014 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_014 ;
+    ex:characterName "Commander Vance #014" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_014 a rdf:Statement ;
+    rdf:subject ex:actor_014 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_014 ;
+    ex:characterName "Inspector Elena #014" ;
+    ex:billingOrder 5 .
+
+ex:actor_015 a ex:Actor ;
+    ex:name "Screen Actor #015" ;
+    ex:actedIn ex:movie_015, ex:series_015 .
+
+ex:stmt_movie_015 a rdf:Statement ;
+    rdf:subject ex:actor_015 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_015 ;
+    ex:characterName "Commander Vance #015" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_015 a rdf:Statement ;
+    rdf:subject ex:actor_015 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_015 ;
+    ex:characterName "Inspector Elena #015" ;
+    ex:billingOrder 1 .
+
+ex:actor_016 a ex:Actor ;
+    ex:name "Screen Actor #016" ;
+    ex:actedIn ex:movie_016, ex:series_016 .
+
+ex:stmt_movie_016 a rdf:Statement ;
+    rdf:subject ex:actor_016 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_016 ;
+    ex:characterName "Commander Vance #016" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_016 a rdf:Statement ;
+    rdf:subject ex:actor_016 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_016 ;
+    ex:characterName "Inspector Elena #016" ;
+    ex:billingOrder 2 .
+
+ex:actor_017 a ex:Actor ;
+    ex:name "Screen Actor #017" ;
+    ex:actedIn ex:movie_017, ex:series_017 .
+
+ex:stmt_movie_017 a rdf:Statement ;
+    rdf:subject ex:actor_017 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_017 ;
+    ex:characterName "Commander Vance #017" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_017 a rdf:Statement ;
+    rdf:subject ex:actor_017 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_017 ;
+    ex:characterName "Inspector Elena #017" ;
+    ex:billingOrder 3 .
+
+ex:actor_018 a ex:Actor ;
+    ex:name "Screen Actor #018" ;
+    ex:actedIn ex:movie_018, ex:series_018 .
+
+ex:stmt_movie_018 a rdf:Statement ;
+    rdf:subject ex:actor_018 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_018 ;
+    ex:characterName "Commander Vance #018" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_018 a rdf:Statement ;
+    rdf:subject ex:actor_018 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_018 ;
+    ex:characterName "Inspector Elena #018" ;
+    ex:billingOrder 4 .
+
+ex:actor_019 a ex:Actor ;
+    ex:name "Screen Actor #019" ;
+    ex:actedIn ex:movie_019, ex:series_019 .
+
+ex:stmt_movie_019 a rdf:Statement ;
+    rdf:subject ex:actor_019 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_019 ;
+    ex:characterName "Commander Vance #019" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_019 a rdf:Statement ;
+    rdf:subject ex:actor_019 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_019 ;
+    ex:characterName "Inspector Elena #019" ;
+    ex:billingOrder 5 .
+
+ex:actor_020 a ex:Actor ;
+    ex:name "Screen Actor #020" ;
+    ex:actedIn ex:movie_020, ex:series_020 .
+
+ex:stmt_movie_020 a rdf:Statement ;
+    rdf:subject ex:actor_020 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_020 ;
+    ex:characterName "Commander Vance #020" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_020 a rdf:Statement ;
+    rdf:subject ex:actor_020 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_020 ;
+    ex:characterName "Inspector Elena #020" ;
+    ex:billingOrder 1 .
+
+ex:actor_021 a ex:Actor ;
+    ex:name "Screen Actor #021" ;
+    ex:actedIn ex:movie_021, ex:series_021 .
+
+ex:stmt_movie_021 a rdf:Statement ;
+    rdf:subject ex:actor_021 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_021 ;
+    ex:characterName "Commander Vance #021" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_021 a rdf:Statement ;
+    rdf:subject ex:actor_021 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_021 ;
+    ex:characterName "Inspector Elena #021" ;
+    ex:billingOrder 2 .
+
+ex:actor_022 a ex:Actor ;
+    ex:name "Screen Actor #022" ;
+    ex:actedIn ex:movie_022, ex:series_022 .
+
+ex:stmt_movie_022 a rdf:Statement ;
+    rdf:subject ex:actor_022 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_022 ;
+    ex:characterName "Commander Vance #022" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_022 a rdf:Statement ;
+    rdf:subject ex:actor_022 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_022 ;
+    ex:characterName "Inspector Elena #022" ;
+    ex:billingOrder 3 .
+
+ex:actor_023 a ex:Actor ;
+    ex:name "Screen Actor #023" ;
+    ex:actedIn ex:movie_023, ex:series_023 .
+
+ex:stmt_movie_023 a rdf:Statement ;
+    rdf:subject ex:actor_023 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_023 ;
+    ex:characterName "Commander Vance #023" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_023 a rdf:Statement ;
+    rdf:subject ex:actor_023 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_023 ;
+    ex:characterName "Inspector Elena #023" ;
+    ex:billingOrder 4 .
+
+ex:actor_024 a ex:Actor ;
+    ex:name "Screen Actor #024" ;
+    ex:actedIn ex:movie_024, ex:series_024 .
+
+ex:stmt_movie_024 a rdf:Statement ;
+    rdf:subject ex:actor_024 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_024 ;
+    ex:characterName "Commander Vance #024" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_024 a rdf:Statement ;
+    rdf:subject ex:actor_024 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_024 ;
+    ex:characterName "Inspector Elena #024" ;
+    ex:billingOrder 5 .
+
+ex:actor_025 a ex:Actor ;
+    ex:name "Screen Actor #025" ;
+    ex:actedIn ex:movie_025, ex:series_025 .
+
+ex:stmt_movie_025 a rdf:Statement ;
+    rdf:subject ex:actor_025 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_025 ;
+    ex:characterName "Commander Vance #025" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_025 a rdf:Statement ;
+    rdf:subject ex:actor_025 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_025 ;
+    ex:characterName "Inspector Elena #025" ;
+    ex:billingOrder 1 .
+
+ex:actor_026 a ex:Actor ;
+    ex:name "Screen Actor #026" ;
+    ex:actedIn ex:movie_026, ex:series_026 .
+
+ex:stmt_movie_026 a rdf:Statement ;
+    rdf:subject ex:actor_026 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_026 ;
+    ex:characterName "Commander Vance #026" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_026 a rdf:Statement ;
+    rdf:subject ex:actor_026 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_026 ;
+    ex:characterName "Inspector Elena #026" ;
+    ex:billingOrder 2 .
+
+ex:actor_027 a ex:Actor ;
+    ex:name "Screen Actor #027" ;
+    ex:actedIn ex:movie_027, ex:series_027 .
+
+ex:stmt_movie_027 a rdf:Statement ;
+    rdf:subject ex:actor_027 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_027 ;
+    ex:characterName "Commander Vance #027" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_027 a rdf:Statement ;
+    rdf:subject ex:actor_027 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_027 ;
+    ex:characterName "Inspector Elena #027" ;
+    ex:billingOrder 3 .
+
+ex:actor_028 a ex:Actor ;
+    ex:name "Screen Actor #028" ;
+    ex:actedIn ex:movie_028, ex:series_028 .
+
+ex:stmt_movie_028 a rdf:Statement ;
+    rdf:subject ex:actor_028 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_028 ;
+    ex:characterName "Commander Vance #028" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_028 a rdf:Statement ;
+    rdf:subject ex:actor_028 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_028 ;
+    ex:characterName "Inspector Elena #028" ;
+    ex:billingOrder 4 .
+
+ex:actor_029 a ex:Actor ;
+    ex:name "Screen Actor #029" ;
+    ex:actedIn ex:movie_029, ex:series_029 .
+
+ex:stmt_movie_029 a rdf:Statement ;
+    rdf:subject ex:actor_029 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_029 ;
+    ex:characterName "Commander Vance #029" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_029 a rdf:Statement ;
+    rdf:subject ex:actor_029 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_029 ;
+    ex:characterName "Inspector Elena #029" ;
+    ex:billingOrder 5 .
+
+ex:actor_030 a ex:Actor ;
+    ex:name "Screen Actor #030" ;
+    ex:actedIn ex:movie_030, ex:series_030 .
+
+ex:stmt_movie_030 a rdf:Statement ;
+    rdf:subject ex:actor_030 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_030 ;
+    ex:characterName "Commander Vance #030" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_030 a rdf:Statement ;
+    rdf:subject ex:actor_030 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_030 ;
+    ex:characterName "Inspector Elena #030" ;
+    ex:billingOrder 1 .
+
+ex:actor_031 a ex:Actor ;
+    ex:name "Screen Actor #031" ;
+    ex:actedIn ex:movie_031, ex:series_031 .
+
+ex:stmt_movie_031 a rdf:Statement ;
+    rdf:subject ex:actor_031 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_031 ;
+    ex:characterName "Commander Vance #031" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_031 a rdf:Statement ;
+    rdf:subject ex:actor_031 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_031 ;
+    ex:characterName "Inspector Elena #031" ;
+    ex:billingOrder 2 .
+
+ex:actor_032 a ex:Actor ;
+    ex:name "Screen Actor #032" ;
+    ex:actedIn ex:movie_032, ex:series_032 .
+
+ex:stmt_movie_032 a rdf:Statement ;
+    rdf:subject ex:actor_032 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_032 ;
+    ex:characterName "Commander Vance #032" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_032 a rdf:Statement ;
+    rdf:subject ex:actor_032 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_032 ;
+    ex:characterName "Inspector Elena #032" ;
+    ex:billingOrder 3 .
+
+ex:actor_033 a ex:Actor ;
+    ex:name "Screen Actor #033" ;
+    ex:actedIn ex:movie_033, ex:series_033 .
+
+ex:stmt_movie_033 a rdf:Statement ;
+    rdf:subject ex:actor_033 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_033 ;
+    ex:characterName "Commander Vance #033" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_033 a rdf:Statement ;
+    rdf:subject ex:actor_033 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_033 ;
+    ex:characterName "Inspector Elena #033" ;
+    ex:billingOrder 4 .
+
+ex:actor_034 a ex:Actor ;
+    ex:name "Screen Actor #034" ;
+    ex:actedIn ex:movie_034, ex:series_034 .
+
+ex:stmt_movie_034 a rdf:Statement ;
+    rdf:subject ex:actor_034 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_034 ;
+    ex:characterName "Commander Vance #034" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_034 a rdf:Statement ;
+    rdf:subject ex:actor_034 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_034 ;
+    ex:characterName "Inspector Elena #034" ;
+    ex:billingOrder 5 .
+
+ex:actor_035 a ex:Actor ;
+    ex:name "Screen Actor #035" ;
+    ex:actedIn ex:movie_035, ex:series_035 .
+
+ex:stmt_movie_035 a rdf:Statement ;
+    rdf:subject ex:actor_035 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_035 ;
+    ex:characterName "Commander Vance #035" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_035 a rdf:Statement ;
+    rdf:subject ex:actor_035 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_035 ;
+    ex:characterName "Inspector Elena #035" ;
+    ex:billingOrder 1 .
+
+ex:actor_036 a ex:Actor ;
+    ex:name "Screen Actor #036" ;
+    ex:actedIn ex:movie_036, ex:series_001 .
+
+ex:stmt_movie_036 a rdf:Statement ;
+    rdf:subject ex:actor_036 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_036 ;
+    ex:characterName "Commander Vance #036" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_036 a rdf:Statement ;
+    rdf:subject ex:actor_036 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_001 ;
+    ex:characterName "Inspector Elena #036" ;
+    ex:billingOrder 2 .
+
+ex:actor_037 a ex:Actor ;
+    ex:name "Screen Actor #037" ;
+    ex:actedIn ex:movie_037, ex:series_002 .
+
+ex:stmt_movie_037 a rdf:Statement ;
+    rdf:subject ex:actor_037 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_037 ;
+    ex:characterName "Commander Vance #037" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_037 a rdf:Statement ;
+    rdf:subject ex:actor_037 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_002 ;
+    ex:characterName "Inspector Elena #037" ;
+    ex:billingOrder 3 .
+
+ex:actor_038 a ex:Actor ;
+    ex:name "Screen Actor #038" ;
+    ex:actedIn ex:movie_038, ex:series_003 .
+
+ex:stmt_movie_038 a rdf:Statement ;
+    rdf:subject ex:actor_038 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_038 ;
+    ex:characterName "Commander Vance #038" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_038 a rdf:Statement ;
+    rdf:subject ex:actor_038 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_003 ;
+    ex:characterName "Inspector Elena #038" ;
+    ex:billingOrder 4 .
+
+ex:actor_039 a ex:Actor ;
+    ex:name "Screen Actor #039" ;
+    ex:actedIn ex:movie_039, ex:series_004 .
+
+ex:stmt_movie_039 a rdf:Statement ;
+    rdf:subject ex:actor_039 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_039 ;
+    ex:characterName "Commander Vance #039" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_039 a rdf:Statement ;
+    rdf:subject ex:actor_039 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_004 ;
+    ex:characterName "Inspector Elena #039" ;
+    ex:billingOrder 5 .
+
+ex:actor_040 a ex:Actor ;
+    ex:name "Screen Actor #040" ;
+    ex:actedIn ex:movie_040, ex:series_005 .
+
+ex:stmt_movie_040 a rdf:Statement ;
+    rdf:subject ex:actor_040 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_040 ;
+    ex:characterName "Commander Vance #040" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_040 a rdf:Statement ;
+    rdf:subject ex:actor_040 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_005 ;
+    ex:characterName "Inspector Elena #040" ;
+    ex:billingOrder 1 .
+
+ex:actor_041 a ex:Actor ;
+    ex:name "Screen Actor #041" ;
+    ex:actedIn ex:movie_041, ex:series_006 .
+
+ex:stmt_movie_041 a rdf:Statement ;
+    rdf:subject ex:actor_041 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_041 ;
+    ex:characterName "Commander Vance #041" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_041 a rdf:Statement ;
+    rdf:subject ex:actor_041 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_006 ;
+    ex:characterName "Inspector Elena #041" ;
+    ex:billingOrder 2 .
+
+ex:actor_042 a ex:Actor ;
+    ex:name "Screen Actor #042" ;
+    ex:actedIn ex:movie_042, ex:series_007 .
+
+ex:stmt_movie_042 a rdf:Statement ;
+    rdf:subject ex:actor_042 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_042 ;
+    ex:characterName "Commander Vance #042" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_042 a rdf:Statement ;
+    rdf:subject ex:actor_042 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_007 ;
+    ex:characterName "Inspector Elena #042" ;
+    ex:billingOrder 3 .
+
+ex:actor_043 a ex:Actor ;
+    ex:name "Screen Actor #043" ;
+    ex:actedIn ex:movie_043, ex:series_008 .
+
+ex:stmt_movie_043 a rdf:Statement ;
+    rdf:subject ex:actor_043 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_043 ;
+    ex:characterName "Commander Vance #043" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_043 a rdf:Statement ;
+    rdf:subject ex:actor_043 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_008 ;
+    ex:characterName "Inspector Elena #043" ;
+    ex:billingOrder 4 .
+
+ex:actor_044 a ex:Actor ;
+    ex:name "Screen Actor #044" ;
+    ex:actedIn ex:movie_044, ex:series_009 .
+
+ex:stmt_movie_044 a rdf:Statement ;
+    rdf:subject ex:actor_044 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_044 ;
+    ex:characterName "Commander Vance #044" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_044 a rdf:Statement ;
+    rdf:subject ex:actor_044 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_009 ;
+    ex:characterName "Inspector Elena #044" ;
+    ex:billingOrder 5 .
+
+ex:actor_045 a ex:Actor ;
+    ex:name "Screen Actor #045" ;
+    ex:actedIn ex:movie_045, ex:series_010 .
+
+ex:stmt_movie_045 a rdf:Statement ;
+    rdf:subject ex:actor_045 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_045 ;
+    ex:characterName "Commander Vance #045" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_045 a rdf:Statement ;
+    rdf:subject ex:actor_045 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_010 ;
+    ex:characterName "Inspector Elena #045" ;
+    ex:billingOrder 1 .
+
+ex:actor_046 a ex:Actor ;
+    ex:name "Screen Actor #046" ;
+    ex:actedIn ex:movie_001, ex:series_011 .
+
+ex:stmt_movie_046 a rdf:Statement ;
+    rdf:subject ex:actor_046 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_001 ;
+    ex:characterName "Commander Vance #046" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_046 a rdf:Statement ;
+    rdf:subject ex:actor_046 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_011 ;
+    ex:characterName "Inspector Elena #046" ;
+    ex:billingOrder 2 .
+
+ex:actor_047 a ex:Actor ;
+    ex:name "Screen Actor #047" ;
+    ex:actedIn ex:movie_002, ex:series_012 .
+
+ex:stmt_movie_047 a rdf:Statement ;
+    rdf:subject ex:actor_047 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_002 ;
+    ex:characterName "Commander Vance #047" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_047 a rdf:Statement ;
+    rdf:subject ex:actor_047 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_012 ;
+    ex:characterName "Inspector Elena #047" ;
+    ex:billingOrder 3 .
+
+ex:actor_048 a ex:Actor ;
+    ex:name "Screen Actor #048" ;
+    ex:actedIn ex:movie_003, ex:series_013 .
+
+ex:stmt_movie_048 a rdf:Statement ;
+    rdf:subject ex:actor_048 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_003 ;
+    ex:characterName "Commander Vance #048" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_048 a rdf:Statement ;
+    rdf:subject ex:actor_048 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_013 ;
+    ex:characterName "Inspector Elena #048" ;
+    ex:billingOrder 4 .
+
+ex:actor_049 a ex:Actor ;
+    ex:name "Screen Actor #049" ;
+    ex:actedIn ex:movie_004, ex:series_014 .
+
+ex:stmt_movie_049 a rdf:Statement ;
+    rdf:subject ex:actor_049 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_004 ;
+    ex:characterName "Commander Vance #049" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_049 a rdf:Statement ;
+    rdf:subject ex:actor_049 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_014 ;
+    ex:characterName "Inspector Elena #049" ;
+    ex:billingOrder 5 .
+
+ex:actor_050 a ex:Actor ;
+    ex:name "Screen Actor #050" ;
+    ex:actedIn ex:movie_005, ex:series_015 .
+
+ex:stmt_movie_050 a rdf:Statement ;
+    rdf:subject ex:actor_050 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_005 ;
+    ex:characterName "Commander Vance #050" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_050 a rdf:Statement ;
+    rdf:subject ex:actor_050 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_015 ;
+    ex:characterName "Inspector Elena #050" ;
+    ex:billingOrder 1 .
+
+ex:actor_051 a ex:Actor ;
+    ex:name "Screen Actor #051" ;
+    ex:actedIn ex:movie_006, ex:series_016 .
+
+ex:stmt_movie_051 a rdf:Statement ;
+    rdf:subject ex:actor_051 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_006 ;
+    ex:characterName "Commander Vance #051" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_051 a rdf:Statement ;
+    rdf:subject ex:actor_051 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_016 ;
+    ex:characterName "Inspector Elena #051" ;
+    ex:billingOrder 2 .
+
+ex:actor_052 a ex:Actor ;
+    ex:name "Screen Actor #052" ;
+    ex:actedIn ex:movie_007, ex:series_017 .
+
+ex:stmt_movie_052 a rdf:Statement ;
+    rdf:subject ex:actor_052 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_007 ;
+    ex:characterName "Commander Vance #052" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_052 a rdf:Statement ;
+    rdf:subject ex:actor_052 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_017 ;
+    ex:characterName "Inspector Elena #052" ;
+    ex:billingOrder 3 .
+
+ex:actor_053 a ex:Actor ;
+    ex:name "Screen Actor #053" ;
+    ex:actedIn ex:movie_008, ex:series_018 .
+
+ex:stmt_movie_053 a rdf:Statement ;
+    rdf:subject ex:actor_053 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_008 ;
+    ex:characterName "Commander Vance #053" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_053 a rdf:Statement ;
+    rdf:subject ex:actor_053 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_018 ;
+    ex:characterName "Inspector Elena #053" ;
+    ex:billingOrder 4 .
+
+ex:actor_054 a ex:Actor ;
+    ex:name "Screen Actor #054" ;
+    ex:actedIn ex:movie_009, ex:series_019 .
+
+ex:stmt_movie_054 a rdf:Statement ;
+    rdf:subject ex:actor_054 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_009 ;
+    ex:characterName "Commander Vance #054" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_054 a rdf:Statement ;
+    rdf:subject ex:actor_054 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_019 ;
+    ex:characterName "Inspector Elena #054" ;
+    ex:billingOrder 5 .
+
+ex:actor_055 a ex:Actor ;
+    ex:name "Screen Actor #055" ;
+    ex:actedIn ex:movie_010, ex:series_020 .
+
+ex:stmt_movie_055 a rdf:Statement ;
+    rdf:subject ex:actor_055 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_010 ;
+    ex:characterName "Commander Vance #055" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_055 a rdf:Statement ;
+    rdf:subject ex:actor_055 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_020 ;
+    ex:characterName "Inspector Elena #055" ;
+    ex:billingOrder 1 .
+
+ex:actor_056 a ex:Actor ;
+    ex:name "Screen Actor #056" ;
+    ex:actedIn ex:movie_011, ex:series_021 .
+
+ex:stmt_movie_056 a rdf:Statement ;
+    rdf:subject ex:actor_056 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_011 ;
+    ex:characterName "Commander Vance #056" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_056 a rdf:Statement ;
+    rdf:subject ex:actor_056 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_021 ;
+    ex:characterName "Inspector Elena #056" ;
+    ex:billingOrder 2 .
+
+ex:actor_057 a ex:Actor ;
+    ex:name "Screen Actor #057" ;
+    ex:actedIn ex:movie_012, ex:series_022 .
+
+ex:stmt_movie_057 a rdf:Statement ;
+    rdf:subject ex:actor_057 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_012 ;
+    ex:characterName "Commander Vance #057" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_057 a rdf:Statement ;
+    rdf:subject ex:actor_057 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_022 ;
+    ex:characterName "Inspector Elena #057" ;
+    ex:billingOrder 3 .
+
+ex:actor_058 a ex:Actor ;
+    ex:name "Screen Actor #058" ;
+    ex:actedIn ex:movie_013, ex:series_023 .
+
+ex:stmt_movie_058 a rdf:Statement ;
+    rdf:subject ex:actor_058 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_013 ;
+    ex:characterName "Commander Vance #058" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_058 a rdf:Statement ;
+    rdf:subject ex:actor_058 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_023 ;
+    ex:characterName "Inspector Elena #058" ;
+    ex:billingOrder 4 .
+
+ex:actor_059 a ex:Actor ;
+    ex:name "Screen Actor #059" ;
+    ex:actedIn ex:movie_014, ex:series_024 .
+
+ex:stmt_movie_059 a rdf:Statement ;
+    rdf:subject ex:actor_059 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_014 ;
+    ex:characterName "Commander Vance #059" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_059 a rdf:Statement ;
+    rdf:subject ex:actor_059 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_024 ;
+    ex:characterName "Inspector Elena #059" ;
+    ex:billingOrder 5 .
+
+ex:actor_060 a ex:Actor ;
+    ex:name "Screen Actor #060" ;
+    ex:actedIn ex:movie_015, ex:series_025 .
+
+ex:stmt_movie_060 a rdf:Statement ;
+    rdf:subject ex:actor_060 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_015 ;
+    ex:characterName "Commander Vance #060" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_060 a rdf:Statement ;
+    rdf:subject ex:actor_060 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_025 ;
+    ex:characterName "Inspector Elena #060" ;
+    ex:billingOrder 1 .
+
+ex:actor_061 a ex:Actor ;
+    ex:name "Screen Actor #061" ;
+    ex:actedIn ex:movie_016, ex:series_026 .
+
+ex:stmt_movie_061 a rdf:Statement ;
+    rdf:subject ex:actor_061 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_016 ;
+    ex:characterName "Commander Vance #061" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_061 a rdf:Statement ;
+    rdf:subject ex:actor_061 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_026 ;
+    ex:characterName "Inspector Elena #061" ;
+    ex:billingOrder 2 .
+
+ex:actor_062 a ex:Actor ;
+    ex:name "Screen Actor #062" ;
+    ex:actedIn ex:movie_017, ex:series_027 .
+
+ex:stmt_movie_062 a rdf:Statement ;
+    rdf:subject ex:actor_062 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_017 ;
+    ex:characterName "Commander Vance #062" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_062 a rdf:Statement ;
+    rdf:subject ex:actor_062 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_027 ;
+    ex:characterName "Inspector Elena #062" ;
+    ex:billingOrder 3 .
+
+ex:actor_063 a ex:Actor ;
+    ex:name "Screen Actor #063" ;
+    ex:actedIn ex:movie_018, ex:series_028 .
+
+ex:stmt_movie_063 a rdf:Statement ;
+    rdf:subject ex:actor_063 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_018 ;
+    ex:characterName "Commander Vance #063" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_063 a rdf:Statement ;
+    rdf:subject ex:actor_063 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_028 ;
+    ex:characterName "Inspector Elena #063" ;
+    ex:billingOrder 4 .
+
+ex:actor_064 a ex:Actor ;
+    ex:name "Screen Actor #064" ;
+    ex:actedIn ex:movie_019, ex:series_029 .
+
+ex:stmt_movie_064 a rdf:Statement ;
+    rdf:subject ex:actor_064 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_019 ;
+    ex:characterName "Commander Vance #064" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_064 a rdf:Statement ;
+    rdf:subject ex:actor_064 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_029 ;
+    ex:characterName "Inspector Elena #064" ;
+    ex:billingOrder 5 .
+
+ex:actor_065 a ex:Actor ;
+    ex:name "Screen Actor #065" ;
+    ex:actedIn ex:movie_020, ex:series_030 .
+
+ex:stmt_movie_065 a rdf:Statement ;
+    rdf:subject ex:actor_065 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_020 ;
+    ex:characterName "Commander Vance #065" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_065 a rdf:Statement ;
+    rdf:subject ex:actor_065 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_030 ;
+    ex:characterName "Inspector Elena #065" ;
+    ex:billingOrder 1 .
+
+ex:actor_066 a ex:Actor ;
+    ex:name "Screen Actor #066" ;
+    ex:actedIn ex:movie_021, ex:series_031 .
+
+ex:stmt_movie_066 a rdf:Statement ;
+    rdf:subject ex:actor_066 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_021 ;
+    ex:characterName "Commander Vance #066" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_066 a rdf:Statement ;
+    rdf:subject ex:actor_066 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_031 ;
+    ex:characterName "Inspector Elena #066" ;
+    ex:billingOrder 2 .
+
+ex:actor_067 a ex:Actor ;
+    ex:name "Screen Actor #067" ;
+    ex:actedIn ex:movie_022, ex:series_032 .
+
+ex:stmt_movie_067 a rdf:Statement ;
+    rdf:subject ex:actor_067 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_022 ;
+    ex:characterName "Commander Vance #067" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_067 a rdf:Statement ;
+    rdf:subject ex:actor_067 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_032 ;
+    ex:characterName "Inspector Elena #067" ;
+    ex:billingOrder 3 .
+
+ex:actor_068 a ex:Actor ;
+    ex:name "Screen Actor #068" ;
+    ex:actedIn ex:movie_023, ex:series_033 .
+
+ex:stmt_movie_068 a rdf:Statement ;
+    rdf:subject ex:actor_068 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_023 ;
+    ex:characterName "Commander Vance #068" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_068 a rdf:Statement ;
+    rdf:subject ex:actor_068 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_033 ;
+    ex:characterName "Inspector Elena #068" ;
+    ex:billingOrder 4 .
+
+ex:actor_069 a ex:Actor ;
+    ex:name "Screen Actor #069" ;
+    ex:actedIn ex:movie_024, ex:series_034 .
+
+ex:stmt_movie_069 a rdf:Statement ;
+    rdf:subject ex:actor_069 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_024 ;
+    ex:characterName "Commander Vance #069" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_069 a rdf:Statement ;
+    rdf:subject ex:actor_069 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_034 ;
+    ex:characterName "Inspector Elena #069" ;
+    ex:billingOrder 5 .
+
+ex:actor_070 a ex:Actor ;
+    ex:name "Screen Actor #070" ;
+    ex:actedIn ex:movie_025, ex:series_035 .
+
+ex:stmt_movie_070 a rdf:Statement ;
+    rdf:subject ex:actor_070 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_025 ;
+    ex:characterName "Commander Vance #070" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_070 a rdf:Statement ;
+    rdf:subject ex:actor_070 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_035 ;
+    ex:characterName "Inspector Elena #070" ;
+    ex:billingOrder 1 .
+
+ex:actor_071 a ex:Actor ;
+    ex:name "Screen Actor #071" ;
+    ex:actedIn ex:movie_026, ex:series_001 .
+
+ex:stmt_movie_071 a rdf:Statement ;
+    rdf:subject ex:actor_071 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_026 ;
+    ex:characterName "Commander Vance #071" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_071 a rdf:Statement ;
+    rdf:subject ex:actor_071 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_001 ;
+    ex:characterName "Inspector Elena #071" ;
+    ex:billingOrder 2 .
+
+ex:actor_072 a ex:Actor ;
+    ex:name "Screen Actor #072" ;
+    ex:actedIn ex:movie_027, ex:series_002 .
+
+ex:stmt_movie_072 a rdf:Statement ;
+    rdf:subject ex:actor_072 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_027 ;
+    ex:characterName "Commander Vance #072" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_072 a rdf:Statement ;
+    rdf:subject ex:actor_072 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_002 ;
+    ex:characterName "Inspector Elena #072" ;
+    ex:billingOrder 3 .
+
+ex:actor_073 a ex:Actor ;
+    ex:name "Screen Actor #073" ;
+    ex:actedIn ex:movie_028, ex:series_003 .
+
+ex:stmt_movie_073 a rdf:Statement ;
+    rdf:subject ex:actor_073 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_028 ;
+    ex:characterName "Commander Vance #073" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_073 a rdf:Statement ;
+    rdf:subject ex:actor_073 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_003 ;
+    ex:characterName "Inspector Elena #073" ;
+    ex:billingOrder 4 .
+
+ex:actor_074 a ex:Actor ;
+    ex:name "Screen Actor #074" ;
+    ex:actedIn ex:movie_029, ex:series_004 .
+
+ex:stmt_movie_074 a rdf:Statement ;
+    rdf:subject ex:actor_074 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_029 ;
+    ex:characterName "Commander Vance #074" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_074 a rdf:Statement ;
+    rdf:subject ex:actor_074 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_004 ;
+    ex:characterName "Inspector Elena #074" ;
+    ex:billingOrder 5 .
+
+ex:actor_075 a ex:Actor ;
+    ex:name "Screen Actor #075" ;
+    ex:actedIn ex:movie_030, ex:series_005 .
+
+ex:stmt_movie_075 a rdf:Statement ;
+    rdf:subject ex:actor_075 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_030 ;
+    ex:characterName "Commander Vance #075" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_075 a rdf:Statement ;
+    rdf:subject ex:actor_075 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_005 ;
+    ex:characterName "Inspector Elena #075" ;
+    ex:billingOrder 1 .
+
+ex:actor_076 a ex:Actor ;
+    ex:name "Screen Actor #076" ;
+    ex:actedIn ex:movie_031, ex:series_006 .
+
+ex:stmt_movie_076 a rdf:Statement ;
+    rdf:subject ex:actor_076 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_031 ;
+    ex:characterName "Commander Vance #076" ;
+    ex:billingOrder 2 .
+
+ex:stmt_series_076 a rdf:Statement ;
+    rdf:subject ex:actor_076 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_006 ;
+    ex:characterName "Inspector Elena #076" ;
+    ex:billingOrder 2 .
+
+ex:actor_077 a ex:Actor ;
+    ex:name "Screen Actor #077" ;
+    ex:actedIn ex:movie_032, ex:series_007 .
+
+ex:stmt_movie_077 a rdf:Statement ;
+    rdf:subject ex:actor_077 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_032 ;
+    ex:characterName "Commander Vance #077" ;
+    ex:billingOrder 3 .
+
+ex:stmt_series_077 a rdf:Statement ;
+    rdf:subject ex:actor_077 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_007 ;
+    ex:characterName "Inspector Elena #077" ;
+    ex:billingOrder 3 .
+
+ex:actor_078 a ex:Actor ;
+    ex:name "Screen Actor #078" ;
+    ex:actedIn ex:movie_033, ex:series_008 .
+
+ex:stmt_movie_078 a rdf:Statement ;
+    rdf:subject ex:actor_078 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_033 ;
+    ex:characterName "Commander Vance #078" ;
+    ex:billingOrder 4 .
+
+ex:stmt_series_078 a rdf:Statement ;
+    rdf:subject ex:actor_078 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_008 ;
+    ex:characterName "Inspector Elena #078" ;
+    ex:billingOrder 4 .
+
+ex:actor_079 a ex:Actor ;
+    ex:name "Screen Actor #079" ;
+    ex:actedIn ex:movie_034, ex:series_009 .
+
+ex:stmt_movie_079 a rdf:Statement ;
+    rdf:subject ex:actor_079 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_034 ;
+    ex:characterName "Commander Vance #079" ;
+    ex:billingOrder 5 .
+
+ex:stmt_series_079 a rdf:Statement ;
+    rdf:subject ex:actor_079 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_009 ;
+    ex:characterName "Inspector Elena #079" ;
+    ex:billingOrder 5 .
+
+ex:actor_080 a ex:Actor ;
+    ex:name "Screen Actor #080" ;
+    ex:actedIn ex:movie_035, ex:series_010 .
+
+ex:stmt_movie_080 a rdf:Statement ;
+    rdf:subject ex:actor_080 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:movie_035 ;
+    ex:characterName "Commander Vance #080" ;
+    ex:billingOrder 1 .
+
+ex:stmt_series_080 a rdf:Statement ;
+    rdf:subject ex:actor_080 ;
+    rdf:predicate ex:actedIn ;
+    rdf:object ex:series_010 ;
+    ex:characterName "Inspector Elena #080" ;
+    ex:billingOrder 1 .

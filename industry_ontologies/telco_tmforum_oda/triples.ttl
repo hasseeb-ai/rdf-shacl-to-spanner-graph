@@ -1,0 +1,2181 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix tm:   <http://example.org/tmforum/oda#> .
+
+# ABox Instance Triples for telco_tmforum_oda
+
+tm:acct_001 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00001" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 3000.00 .
+
+tm:acct_002 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00002" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 3500.00 .
+
+tm:acct_003 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00003" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 4000.00 .
+
+tm:acct_004 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00004" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 4500.00 .
+
+tm:acct_005 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00005" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 5000.00 .
+
+tm:acct_006 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00006" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 5500.00 .
+
+tm:acct_007 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00007" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 6000.00 .
+
+tm:acct_008 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00008" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 6500.00 .
+
+tm:acct_009 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00009" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 7000.00 .
+
+tm:acct_010 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00010" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 7500.00 .
+
+tm:acct_011 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00011" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 8000.00 .
+
+tm:acct_012 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00012" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 8500.00 .
+
+tm:acct_013 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00013" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 9000.00 .
+
+tm:acct_014 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00014" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 9500.00 .
+
+tm:acct_015 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00015" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 10000.00 .
+
+tm:acct_016 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00016" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 10500.00 .
+
+tm:acct_017 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00017" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 11000.00 .
+
+tm:acct_018 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00018" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 11500.00 .
+
+tm:acct_019 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00019" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 12000.00 .
+
+tm:acct_020 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00020" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 12500.00 .
+
+tm:acct_021 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00021" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 13000.00 .
+
+tm:acct_022 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00022" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 13500.00 .
+
+tm:acct_023 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00023" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 14000.00 .
+
+tm:acct_024 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00024" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 14500.00 .
+
+tm:acct_025 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00025" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 15000.00 .
+
+tm:acct_026 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00026" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 15500.00 .
+
+tm:acct_027 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00027" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 16000.00 .
+
+tm:acct_028 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00028" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 16500.00 .
+
+tm:acct_029 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00029" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 17000.00 .
+
+tm:acct_030 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00030" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 17500.00 .
+
+tm:acct_031 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00031" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 18000.00 .
+
+tm:acct_032 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00032" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 18500.00 .
+
+tm:acct_033 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00033" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 19000.00 .
+
+tm:acct_034 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00034" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 19500.00 .
+
+tm:acct_035 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00035" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 20000.00 .
+
+tm:acct_036 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00036" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 20500.00 .
+
+tm:acct_037 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00037" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 21000.00 .
+
+tm:acct_038 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00038" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 21500.00 .
+
+tm:acct_039 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00039" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 22000.00 .
+
+tm:acct_040 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00040" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 22500.00 .
+
+tm:acct_041 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00041" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 23000.00 .
+
+tm:acct_042 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00042" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 23500.00 .
+
+tm:acct_043 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00043" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 24000.00 .
+
+tm:acct_044 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00044" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 24500.00 .
+
+tm:acct_045 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00045" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 25000.00 .
+
+tm:acct_046 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00046" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 25500.00 .
+
+tm:acct_047 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00047" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 26000.00 .
+
+tm:acct_048 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00048" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 26500.00 .
+
+tm:acct_049 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00049" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 27000.00 .
+
+tm:acct_050 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00050" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 27500.00 .
+
+tm:acct_051 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00051" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 28000.00 .
+
+tm:acct_052 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00052" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 28500.00 .
+
+tm:acct_053 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00053" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 29000.00 .
+
+tm:acct_054 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00054" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 29500.00 .
+
+tm:acct_055 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00055" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 30000.00 .
+
+tm:acct_056 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00056" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 30500.00 .
+
+tm:acct_057 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00057" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 31000.00 .
+
+tm:acct_058 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00058" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 31500.00 .
+
+tm:acct_059 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00059" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 32000.00 .
+
+tm:acct_060 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00060" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 32500.00 .
+
+tm:acct_061 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00061" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 33000.00 .
+
+tm:acct_062 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00062" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 33500.00 .
+
+tm:acct_063 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00063" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 34000.00 .
+
+tm:acct_064 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00064" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 34500.00 .
+
+tm:acct_065 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00065" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 35000.00 .
+
+tm:acct_066 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00066" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 35500.00 .
+
+tm:acct_067 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00067" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 36000.00 .
+
+tm:acct_068 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00068" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 36500.00 .
+
+tm:acct_069 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00069" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 37000.00 .
+
+tm:acct_070 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00070" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 37500.00 .
+
+tm:acct_071 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00071" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 38000.00 .
+
+tm:acct_072 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00072" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 38500.00 .
+
+tm:acct_073 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00073" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 39000.00 .
+
+tm:acct_074 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00074" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 39500.00 .
+
+tm:acct_075 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00075" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 40000.00 .
+
+tm:acct_076 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00076" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 40500.00 .
+
+tm:acct_077 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00077" ;
+    tm:accountStatus "SUSPENDED" ;
+    tm:creditLimit 41000.00 .
+
+tm:acct_078 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00078" ;
+    tm:accountStatus "CLOSED" ;
+    tm:creditLimit 41500.00 .
+
+tm:acct_079 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00079" ;
+    tm:accountStatus "PENDING" ;
+    tm:creditLimit 42000.00 .
+
+tm:acct_080 a tm:CustomerAccount ;
+    tm:accountId "TMF-ACC-00080" ;
+    tm:accountStatus "ACTIVE" ;
+    tm:creditLimit 42500.00 .
+
+tm:ind_party_001 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0001" ;
+    tm:partyName "Subscriber Individual #001" ;
+    tm:nationalId "NID-TMF-00001" ;
+    tm:holdsAccount tm:acct_001 .
+
+tm:ind_party_002 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0002" ;
+    tm:partyName "Subscriber Individual #002" ;
+    tm:nationalId "NID-TMF-00002" ;
+    tm:holdsAccount tm:acct_002 .
+
+tm:ind_party_003 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0003" ;
+    tm:partyName "Subscriber Individual #003" ;
+    tm:nationalId "NID-TMF-00003" ;
+    tm:holdsAccount tm:acct_003 .
+
+tm:ind_party_004 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0004" ;
+    tm:partyName "Subscriber Individual #004" ;
+    tm:nationalId "NID-TMF-00004" ;
+    tm:holdsAccount tm:acct_004 .
+
+tm:ind_party_005 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0005" ;
+    tm:partyName "Subscriber Individual #005" ;
+    tm:nationalId "NID-TMF-00005" ;
+    tm:holdsAccount tm:acct_005 .
+
+tm:ind_party_006 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0006" ;
+    tm:partyName "Subscriber Individual #006" ;
+    tm:nationalId "NID-TMF-00006" ;
+    tm:holdsAccount tm:acct_006 .
+
+tm:ind_party_007 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0007" ;
+    tm:partyName "Subscriber Individual #007" ;
+    tm:nationalId "NID-TMF-00007" ;
+    tm:holdsAccount tm:acct_007 .
+
+tm:ind_party_008 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0008" ;
+    tm:partyName "Subscriber Individual #008" ;
+    tm:nationalId "NID-TMF-00008" ;
+    tm:holdsAccount tm:acct_008 .
+
+tm:ind_party_009 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0009" ;
+    tm:partyName "Subscriber Individual #009" ;
+    tm:nationalId "NID-TMF-00009" ;
+    tm:holdsAccount tm:acct_009 .
+
+tm:ind_party_010 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0010" ;
+    tm:partyName "Subscriber Individual #010" ;
+    tm:nationalId "NID-TMF-00010" ;
+    tm:holdsAccount tm:acct_010 .
+
+tm:ind_party_011 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0011" ;
+    tm:partyName "Subscriber Individual #011" ;
+    tm:nationalId "NID-TMF-00011" ;
+    tm:holdsAccount tm:acct_011 .
+
+tm:ind_party_012 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0012" ;
+    tm:partyName "Subscriber Individual #012" ;
+    tm:nationalId "NID-TMF-00012" ;
+    tm:holdsAccount tm:acct_012 .
+
+tm:ind_party_013 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0013" ;
+    tm:partyName "Subscriber Individual #013" ;
+    tm:nationalId "NID-TMF-00013" ;
+    tm:holdsAccount tm:acct_013 .
+
+tm:ind_party_014 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0014" ;
+    tm:partyName "Subscriber Individual #014" ;
+    tm:nationalId "NID-TMF-00014" ;
+    tm:holdsAccount tm:acct_014 .
+
+tm:ind_party_015 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0015" ;
+    tm:partyName "Subscriber Individual #015" ;
+    tm:nationalId "NID-TMF-00015" ;
+    tm:holdsAccount tm:acct_015 .
+
+tm:ind_party_016 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0016" ;
+    tm:partyName "Subscriber Individual #016" ;
+    tm:nationalId "NID-TMF-00016" ;
+    tm:holdsAccount tm:acct_016 .
+
+tm:ind_party_017 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0017" ;
+    tm:partyName "Subscriber Individual #017" ;
+    tm:nationalId "NID-TMF-00017" ;
+    tm:holdsAccount tm:acct_017 .
+
+tm:ind_party_018 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0018" ;
+    tm:partyName "Subscriber Individual #018" ;
+    tm:nationalId "NID-TMF-00018" ;
+    tm:holdsAccount tm:acct_018 .
+
+tm:ind_party_019 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0019" ;
+    tm:partyName "Subscriber Individual #019" ;
+    tm:nationalId "NID-TMF-00019" ;
+    tm:holdsAccount tm:acct_019 .
+
+tm:ind_party_020 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0020" ;
+    tm:partyName "Subscriber Individual #020" ;
+    tm:nationalId "NID-TMF-00020" ;
+    tm:holdsAccount tm:acct_020 .
+
+tm:ind_party_021 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0021" ;
+    tm:partyName "Subscriber Individual #021" ;
+    tm:nationalId "NID-TMF-00021" ;
+    tm:holdsAccount tm:acct_021 .
+
+tm:ind_party_022 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0022" ;
+    tm:partyName "Subscriber Individual #022" ;
+    tm:nationalId "NID-TMF-00022" ;
+    tm:holdsAccount tm:acct_022 .
+
+tm:ind_party_023 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0023" ;
+    tm:partyName "Subscriber Individual #023" ;
+    tm:nationalId "NID-TMF-00023" ;
+    tm:holdsAccount tm:acct_023 .
+
+tm:ind_party_024 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0024" ;
+    tm:partyName "Subscriber Individual #024" ;
+    tm:nationalId "NID-TMF-00024" ;
+    tm:holdsAccount tm:acct_024 .
+
+tm:ind_party_025 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0025" ;
+    tm:partyName "Subscriber Individual #025" ;
+    tm:nationalId "NID-TMF-00025" ;
+    tm:holdsAccount tm:acct_025 .
+
+tm:ind_party_026 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0026" ;
+    tm:partyName "Subscriber Individual #026" ;
+    tm:nationalId "NID-TMF-00026" ;
+    tm:holdsAccount tm:acct_026 .
+
+tm:ind_party_027 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0027" ;
+    tm:partyName "Subscriber Individual #027" ;
+    tm:nationalId "NID-TMF-00027" ;
+    tm:holdsAccount tm:acct_027 .
+
+tm:ind_party_028 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0028" ;
+    tm:partyName "Subscriber Individual #028" ;
+    tm:nationalId "NID-TMF-00028" ;
+    tm:holdsAccount tm:acct_028 .
+
+tm:ind_party_029 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0029" ;
+    tm:partyName "Subscriber Individual #029" ;
+    tm:nationalId "NID-TMF-00029" ;
+    tm:holdsAccount tm:acct_029 .
+
+tm:ind_party_030 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0030" ;
+    tm:partyName "Subscriber Individual #030" ;
+    tm:nationalId "NID-TMF-00030" ;
+    tm:holdsAccount tm:acct_030 .
+
+tm:ind_party_031 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0031" ;
+    tm:partyName "Subscriber Individual #031" ;
+    tm:nationalId "NID-TMF-00031" ;
+    tm:holdsAccount tm:acct_031 .
+
+tm:ind_party_032 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0032" ;
+    tm:partyName "Subscriber Individual #032" ;
+    tm:nationalId "NID-TMF-00032" ;
+    tm:holdsAccount tm:acct_032 .
+
+tm:ind_party_033 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0033" ;
+    tm:partyName "Subscriber Individual #033" ;
+    tm:nationalId "NID-TMF-00033" ;
+    tm:holdsAccount tm:acct_033 .
+
+tm:ind_party_034 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0034" ;
+    tm:partyName "Subscriber Individual #034" ;
+    tm:nationalId "NID-TMF-00034" ;
+    tm:holdsAccount tm:acct_034 .
+
+tm:ind_party_035 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0035" ;
+    tm:partyName "Subscriber Individual #035" ;
+    tm:nationalId "NID-TMF-00035" ;
+    tm:holdsAccount tm:acct_035 .
+
+tm:ind_party_036 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0036" ;
+    tm:partyName "Subscriber Individual #036" ;
+    tm:nationalId "NID-TMF-00036" ;
+    tm:holdsAccount tm:acct_036 .
+
+tm:ind_party_037 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0037" ;
+    tm:partyName "Subscriber Individual #037" ;
+    tm:nationalId "NID-TMF-00037" ;
+    tm:holdsAccount tm:acct_037 .
+
+tm:ind_party_038 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0038" ;
+    tm:partyName "Subscriber Individual #038" ;
+    tm:nationalId "NID-TMF-00038" ;
+    tm:holdsAccount tm:acct_038 .
+
+tm:ind_party_039 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0039" ;
+    tm:partyName "Subscriber Individual #039" ;
+    tm:nationalId "NID-TMF-00039" ;
+    tm:holdsAccount tm:acct_039 .
+
+tm:ind_party_040 a tm:IndividualParty ;
+    tm:partyId "PRT-IND-0040" ;
+    tm:partyName "Subscriber Individual #040" ;
+    tm:nationalId "NID-TMF-00040" ;
+    tm:holdsAccount tm:acct_040 .
+
+tm:org_party_001 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0001" ;
+    tm:partyName "Enterprise Carrier Partner #001" ;
+    tm:taxRegistrationNumber "TAX-ORG-80001" ;
+    tm:holdsAccount tm:acct_041 ;
+    tm:peeringPartnerOf tm:org_party_002 .
+
+tm:org_party_002 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0002" ;
+    tm:partyName "Enterprise Carrier Partner #002" ;
+    tm:taxRegistrationNumber "TAX-ORG-80002" ;
+    tm:holdsAccount tm:acct_042 ;
+    tm:peeringPartnerOf tm:org_party_003 .
+
+tm:org_party_003 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0003" ;
+    tm:partyName "Enterprise Carrier Partner #003" ;
+    tm:taxRegistrationNumber "TAX-ORG-80003" ;
+    tm:holdsAccount tm:acct_043 ;
+    tm:peeringPartnerOf tm:org_party_004 .
+
+tm:org_party_004 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0004" ;
+    tm:partyName "Enterprise Carrier Partner #004" ;
+    tm:taxRegistrationNumber "TAX-ORG-80004" ;
+    tm:holdsAccount tm:acct_044 ;
+    tm:peeringPartnerOf tm:org_party_005 .
+
+tm:org_party_005 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0005" ;
+    tm:partyName "Enterprise Carrier Partner #005" ;
+    tm:taxRegistrationNumber "TAX-ORG-80005" ;
+    tm:holdsAccount tm:acct_045 ;
+    tm:peeringPartnerOf tm:org_party_006 .
+
+tm:org_party_006 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0006" ;
+    tm:partyName "Enterprise Carrier Partner #006" ;
+    tm:taxRegistrationNumber "TAX-ORG-80006" ;
+    tm:holdsAccount tm:acct_046 ;
+    tm:peeringPartnerOf tm:org_party_007 .
+
+tm:org_party_007 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0007" ;
+    tm:partyName "Enterprise Carrier Partner #007" ;
+    tm:taxRegistrationNumber "TAX-ORG-80007" ;
+    tm:holdsAccount tm:acct_047 ;
+    tm:peeringPartnerOf tm:org_party_008 .
+
+tm:org_party_008 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0008" ;
+    tm:partyName "Enterprise Carrier Partner #008" ;
+    tm:taxRegistrationNumber "TAX-ORG-80008" ;
+    tm:holdsAccount tm:acct_048 ;
+    tm:peeringPartnerOf tm:org_party_009 .
+
+tm:org_party_009 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0009" ;
+    tm:partyName "Enterprise Carrier Partner #009" ;
+    tm:taxRegistrationNumber "TAX-ORG-80009" ;
+    tm:holdsAccount tm:acct_049 ;
+    tm:peeringPartnerOf tm:org_party_010 .
+
+tm:org_party_010 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0010" ;
+    tm:partyName "Enterprise Carrier Partner #010" ;
+    tm:taxRegistrationNumber "TAX-ORG-80010" ;
+    tm:holdsAccount tm:acct_050 ;
+    tm:peeringPartnerOf tm:org_party_011 .
+
+tm:org_party_011 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0011" ;
+    tm:partyName "Enterprise Carrier Partner #011" ;
+    tm:taxRegistrationNumber "TAX-ORG-80011" ;
+    tm:holdsAccount tm:acct_051 ;
+    tm:peeringPartnerOf tm:org_party_012 .
+
+tm:org_party_012 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0012" ;
+    tm:partyName "Enterprise Carrier Partner #012" ;
+    tm:taxRegistrationNumber "TAX-ORG-80012" ;
+    tm:holdsAccount tm:acct_052 ;
+    tm:peeringPartnerOf tm:org_party_013 .
+
+tm:org_party_013 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0013" ;
+    tm:partyName "Enterprise Carrier Partner #013" ;
+    tm:taxRegistrationNumber "TAX-ORG-80013" ;
+    tm:holdsAccount tm:acct_053 ;
+    tm:peeringPartnerOf tm:org_party_014 .
+
+tm:org_party_014 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0014" ;
+    tm:partyName "Enterprise Carrier Partner #014" ;
+    tm:taxRegistrationNumber "TAX-ORG-80014" ;
+    tm:holdsAccount tm:acct_054 ;
+    tm:peeringPartnerOf tm:org_party_015 .
+
+tm:org_party_015 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0015" ;
+    tm:partyName "Enterprise Carrier Partner #015" ;
+    tm:taxRegistrationNumber "TAX-ORG-80015" ;
+    tm:holdsAccount tm:acct_055 ;
+    tm:peeringPartnerOf tm:org_party_016 .
+
+tm:org_party_016 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0016" ;
+    tm:partyName "Enterprise Carrier Partner #016" ;
+    tm:taxRegistrationNumber "TAX-ORG-80016" ;
+    tm:holdsAccount tm:acct_056 ;
+    tm:peeringPartnerOf tm:org_party_017 .
+
+tm:org_party_017 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0017" ;
+    tm:partyName "Enterprise Carrier Partner #017" ;
+    tm:taxRegistrationNumber "TAX-ORG-80017" ;
+    tm:holdsAccount tm:acct_057 ;
+    tm:peeringPartnerOf tm:org_party_018 .
+
+tm:org_party_018 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0018" ;
+    tm:partyName "Enterprise Carrier Partner #018" ;
+    tm:taxRegistrationNumber "TAX-ORG-80018" ;
+    tm:holdsAccount tm:acct_058 ;
+    tm:peeringPartnerOf tm:org_party_019 .
+
+tm:org_party_019 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0019" ;
+    tm:partyName "Enterprise Carrier Partner #019" ;
+    tm:taxRegistrationNumber "TAX-ORG-80019" ;
+    tm:holdsAccount tm:acct_059 ;
+    tm:peeringPartnerOf tm:org_party_020 .
+
+tm:org_party_020 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0020" ;
+    tm:partyName "Enterprise Carrier Partner #020" ;
+    tm:taxRegistrationNumber "TAX-ORG-80020" ;
+    tm:holdsAccount tm:acct_060 ;
+    tm:peeringPartnerOf tm:org_party_021 .
+
+tm:org_party_021 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0021" ;
+    tm:partyName "Enterprise Carrier Partner #021" ;
+    tm:taxRegistrationNumber "TAX-ORG-80021" ;
+    tm:holdsAccount tm:acct_061 ;
+    tm:peeringPartnerOf tm:org_party_022 .
+
+tm:org_party_022 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0022" ;
+    tm:partyName "Enterprise Carrier Partner #022" ;
+    tm:taxRegistrationNumber "TAX-ORG-80022" ;
+    tm:holdsAccount tm:acct_062 ;
+    tm:peeringPartnerOf tm:org_party_023 .
+
+tm:org_party_023 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0023" ;
+    tm:partyName "Enterprise Carrier Partner #023" ;
+    tm:taxRegistrationNumber "TAX-ORG-80023" ;
+    tm:holdsAccount tm:acct_063 ;
+    tm:peeringPartnerOf tm:org_party_024 .
+
+tm:org_party_024 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0024" ;
+    tm:partyName "Enterprise Carrier Partner #024" ;
+    tm:taxRegistrationNumber "TAX-ORG-80024" ;
+    tm:holdsAccount tm:acct_064 ;
+    tm:peeringPartnerOf tm:org_party_025 .
+
+tm:org_party_025 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0025" ;
+    tm:partyName "Enterprise Carrier Partner #025" ;
+    tm:taxRegistrationNumber "TAX-ORG-80025" ;
+    tm:holdsAccount tm:acct_065 ;
+    tm:peeringPartnerOf tm:org_party_026 .
+
+tm:org_party_026 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0026" ;
+    tm:partyName "Enterprise Carrier Partner #026" ;
+    tm:taxRegistrationNumber "TAX-ORG-80026" ;
+    tm:holdsAccount tm:acct_066 ;
+    tm:peeringPartnerOf tm:org_party_027 .
+
+tm:org_party_027 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0027" ;
+    tm:partyName "Enterprise Carrier Partner #027" ;
+    tm:taxRegistrationNumber "TAX-ORG-80027" ;
+    tm:holdsAccount tm:acct_067 ;
+    tm:peeringPartnerOf tm:org_party_028 .
+
+tm:org_party_028 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0028" ;
+    tm:partyName "Enterprise Carrier Partner #028" ;
+    tm:taxRegistrationNumber "TAX-ORG-80028" ;
+    tm:holdsAccount tm:acct_068 ;
+    tm:peeringPartnerOf tm:org_party_029 .
+
+tm:org_party_029 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0029" ;
+    tm:partyName "Enterprise Carrier Partner #029" ;
+    tm:taxRegistrationNumber "TAX-ORG-80029" ;
+    tm:holdsAccount tm:acct_069 ;
+    tm:peeringPartnerOf tm:org_party_030 .
+
+tm:org_party_030 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0030" ;
+    tm:partyName "Enterprise Carrier Partner #030" ;
+    tm:taxRegistrationNumber "TAX-ORG-80030" ;
+    tm:holdsAccount tm:acct_070 ;
+    tm:peeringPartnerOf tm:org_party_031 .
+
+tm:org_party_031 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0031" ;
+    tm:partyName "Enterprise Carrier Partner #031" ;
+    tm:taxRegistrationNumber "TAX-ORG-80031" ;
+    tm:holdsAccount tm:acct_071 ;
+    tm:peeringPartnerOf tm:org_party_032 .
+
+tm:org_party_032 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0032" ;
+    tm:partyName "Enterprise Carrier Partner #032" ;
+    tm:taxRegistrationNumber "TAX-ORG-80032" ;
+    tm:holdsAccount tm:acct_072 ;
+    tm:peeringPartnerOf tm:org_party_033 .
+
+tm:org_party_033 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0033" ;
+    tm:partyName "Enterprise Carrier Partner #033" ;
+    tm:taxRegistrationNumber "TAX-ORG-80033" ;
+    tm:holdsAccount tm:acct_073 ;
+    tm:peeringPartnerOf tm:org_party_034 .
+
+tm:org_party_034 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0034" ;
+    tm:partyName "Enterprise Carrier Partner #034" ;
+    tm:taxRegistrationNumber "TAX-ORG-80034" ;
+    tm:holdsAccount tm:acct_074 ;
+    tm:peeringPartnerOf tm:org_party_035 .
+
+tm:org_party_035 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0035" ;
+    tm:partyName "Enterprise Carrier Partner #035" ;
+    tm:taxRegistrationNumber "TAX-ORG-80035" ;
+    tm:holdsAccount tm:acct_075 ;
+    tm:peeringPartnerOf tm:org_party_036 .
+
+tm:org_party_036 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0036" ;
+    tm:partyName "Enterprise Carrier Partner #036" ;
+    tm:taxRegistrationNumber "TAX-ORG-80036" ;
+    tm:holdsAccount tm:acct_076 ;
+    tm:peeringPartnerOf tm:org_party_037 .
+
+tm:org_party_037 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0037" ;
+    tm:partyName "Enterprise Carrier Partner #037" ;
+    tm:taxRegistrationNumber "TAX-ORG-80037" ;
+    tm:holdsAccount tm:acct_077 ;
+    tm:peeringPartnerOf tm:org_party_038 .
+
+tm:org_party_038 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0038" ;
+    tm:partyName "Enterprise Carrier Partner #038" ;
+    tm:taxRegistrationNumber "TAX-ORG-80038" ;
+    tm:holdsAccount tm:acct_078 ;
+    tm:peeringPartnerOf tm:org_party_039 .
+
+tm:org_party_039 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0039" ;
+    tm:partyName "Enterprise Carrier Partner #039" ;
+    tm:taxRegistrationNumber "TAX-ORG-80039" ;
+    tm:holdsAccount tm:acct_079 ;
+    tm:peeringPartnerOf tm:org_party_040 .
+
+tm:org_party_040 a tm:OrganizationParty ;
+    tm:partyId "PRT-ORG-0040" ;
+    tm:partyName "Enterprise Carrier Partner #040" ;
+    tm:taxRegistrationNumber "TAX-ORG-80040" ;
+    tm:holdsAccount tm:acct_080 ;
+    tm:peeringPartnerOf tm:org_party_001 .
+
+tm:res_spec_001 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0001" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_002 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0002" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_003 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0003" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_004 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0004" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_005 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0005" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_006 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0006" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_007 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0007" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_008 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0008" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_009 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0009" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_010 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0010" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_011 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0011" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_012 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0012" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_013 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0013" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_014 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0014" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_015 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0015" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_016 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0016" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_017 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0017" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_018 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0018" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_019 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0019" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_020 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0020" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_021 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0021" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_022 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0022" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_023 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0023" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_024 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0024" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_025 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0025" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_026 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0026" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_027 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0027" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_028 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0028" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_029 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0029" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_030 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0030" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_031 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0031" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_032 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0032" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:res_spec_033 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0033" ;
+    tm:resourceType "PHYSICAL" .
+
+tm:res_spec_034 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0034" ;
+    tm:resourceType "VIRTUAL" .
+
+tm:res_spec_035 a tm:ResourceSpecification ;
+    tm:resourceSpecId "RSPEC-0035" ;
+    tm:resourceType "CLOUD_NATIVE" .
+
+tm:srv_spec_001 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0001" ;
+    tm:targetSlaAvailability "99.911"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_001 .
+
+tm:srv_spec_002 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0002" ;
+    tm:targetSlaAvailability "99.922"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_002 .
+
+tm:srv_spec_003 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0003" ;
+    tm:targetSlaAvailability "99.933"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_003 .
+
+tm:srv_spec_004 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0004" ;
+    tm:targetSlaAvailability "99.944"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_004 .
+
+tm:srv_spec_005 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0005" ;
+    tm:targetSlaAvailability "99.955"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_005 .
+
+tm:srv_spec_006 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0006" ;
+    tm:targetSlaAvailability "99.966"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_006 .
+
+tm:srv_spec_007 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0007" ;
+    tm:targetSlaAvailability "99.977"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_007 .
+
+tm:srv_spec_008 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0008" ;
+    tm:targetSlaAvailability "99.988"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_008 .
+
+tm:srv_spec_009 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0009" ;
+    tm:targetSlaAvailability "99.900"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_009 .
+
+tm:srv_spec_010 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0010" ;
+    tm:targetSlaAvailability "99.911"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_010 .
+
+tm:srv_spec_011 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0011" ;
+    tm:targetSlaAvailability "99.922"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_011 .
+
+tm:srv_spec_012 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0012" ;
+    tm:targetSlaAvailability "99.933"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_012 .
+
+tm:srv_spec_013 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0013" ;
+    tm:targetSlaAvailability "99.944"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_013 .
+
+tm:srv_spec_014 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0014" ;
+    tm:targetSlaAvailability "99.955"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_014 .
+
+tm:srv_spec_015 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0015" ;
+    tm:targetSlaAvailability "99.966"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_015 .
+
+tm:srv_spec_016 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0016" ;
+    tm:targetSlaAvailability "99.977"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_016 .
+
+tm:srv_spec_017 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0017" ;
+    tm:targetSlaAvailability "99.988"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_017 .
+
+tm:srv_spec_018 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0018" ;
+    tm:targetSlaAvailability "99.900"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_018 .
+
+tm:srv_spec_019 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0019" ;
+    tm:targetSlaAvailability "99.911"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_019 .
+
+tm:srv_spec_020 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0020" ;
+    tm:targetSlaAvailability "99.922"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_020 .
+
+tm:srv_spec_021 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0021" ;
+    tm:targetSlaAvailability "99.933"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_021 .
+
+tm:srv_spec_022 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0022" ;
+    tm:targetSlaAvailability "99.944"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_022 .
+
+tm:srv_spec_023 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0023" ;
+    tm:targetSlaAvailability "99.955"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_023 .
+
+tm:srv_spec_024 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0024" ;
+    tm:targetSlaAvailability "99.966"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_024 .
+
+tm:srv_spec_025 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0025" ;
+    tm:targetSlaAvailability "99.977"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_025 .
+
+tm:srv_spec_026 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0026" ;
+    tm:targetSlaAvailability "99.988"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_026 .
+
+tm:srv_spec_027 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0027" ;
+    tm:targetSlaAvailability "99.900"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_027 .
+
+tm:srv_spec_028 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0028" ;
+    tm:targetSlaAvailability "99.911"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_028 .
+
+tm:srv_spec_029 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0029" ;
+    tm:targetSlaAvailability "99.922"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_029 .
+
+tm:srv_spec_030 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0030" ;
+    tm:targetSlaAvailability "99.933"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_030 .
+
+tm:srv_spec_031 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0031" ;
+    tm:targetSlaAvailability "99.944"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_031 .
+
+tm:srv_spec_032 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0032" ;
+    tm:targetSlaAvailability "99.955"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_032 .
+
+tm:srv_spec_033 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0033" ;
+    tm:targetSlaAvailability "99.966"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_033 .
+
+tm:srv_spec_034 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0034" ;
+    tm:targetSlaAvailability "99.977"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_034 .
+
+tm:srv_spec_035 a tm:ServiceSpecification ;
+    tm:serviceSpecId "SSPEC-0035" ;
+    tm:targetSlaAvailability "99.988"^^xsd:double ;
+    tm:requiresResourceSpec tm:res_spec_035 .
+
+tm:offering_001 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0001" ;
+    tm:offeringName "5G Enterprise Converged Plan #001" ;
+    tm:monthlyPrice 59.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_016, tm:offering_031 .
+
+tm:offering_002 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0002" ;
+    tm:offeringName "5G Enterprise Converged Plan #002" ;
+    tm:monthlyPrice 69.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_017, tm:offering_032 .
+
+tm:offering_003 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0003" ;
+    tm:offeringName "5G Enterprise Converged Plan #003" ;
+    tm:monthlyPrice 79.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_018, tm:offering_033 .
+
+tm:offering_004 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0004" ;
+    tm:offeringName "5G Enterprise Converged Plan #004" ;
+    tm:monthlyPrice 89.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_019, tm:offering_034 .
+
+tm:offering_005 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0005" ;
+    tm:offeringName "5G Enterprise Converged Plan #005" ;
+    tm:monthlyPrice 99.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_020, tm:offering_035 .
+
+tm:offering_006 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0006" ;
+    tm:offeringName "5G Enterprise Converged Plan #006" ;
+    tm:monthlyPrice 109.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_021, tm:offering_036 .
+
+tm:offering_007 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0007" ;
+    tm:offeringName "5G Enterprise Converged Plan #007" ;
+    tm:monthlyPrice 119.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_022, tm:offering_037 .
+
+tm:offering_008 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0008" ;
+    tm:offeringName "5G Enterprise Converged Plan #008" ;
+    tm:monthlyPrice 129.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_023, tm:offering_038 .
+
+tm:offering_009 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0009" ;
+    tm:offeringName "5G Enterprise Converged Plan #009" ;
+    tm:monthlyPrice 139.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_024, tm:offering_039 .
+
+tm:offering_010 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0010" ;
+    tm:offeringName "5G Enterprise Converged Plan #010" ;
+    tm:monthlyPrice 149.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_025, tm:offering_040 .
+
+tm:offering_011 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0011" ;
+    tm:offeringName "5G Enterprise Converged Plan #011" ;
+    tm:monthlyPrice 159.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_026, tm:offering_041 .
+
+tm:offering_012 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0012" ;
+    tm:offeringName "5G Enterprise Converged Plan #012" ;
+    tm:monthlyPrice 169.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_027, tm:offering_042 .
+
+tm:offering_013 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0013" ;
+    tm:offeringName "5G Enterprise Converged Plan #013" ;
+    tm:monthlyPrice 179.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_028, tm:offering_043 .
+
+tm:offering_014 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0014" ;
+    tm:offeringName "5G Enterprise Converged Plan #014" ;
+    tm:monthlyPrice 189.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_029, tm:offering_044 .
+
+tm:offering_015 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0015" ;
+    tm:offeringName "5G Enterprise Converged Plan #015" ;
+    tm:monthlyPrice 199.99 ;
+    tm:isBundle true ;
+    tm:bundlesOffering tm:offering_030, tm:offering_045 .
+
+tm:offering_016 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0016" ;
+    tm:offeringName "5G Enterprise Converged Plan #016" ;
+    tm:monthlyPrice 209.99 ;
+    tm:isBundle false .
+
+tm:offering_017 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0017" ;
+    tm:offeringName "5G Enterprise Converged Plan #017" ;
+    tm:monthlyPrice 219.99 ;
+    tm:isBundle false .
+
+tm:offering_018 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0018" ;
+    tm:offeringName "5G Enterprise Converged Plan #018" ;
+    tm:monthlyPrice 229.99 ;
+    tm:isBundle false .
+
+tm:offering_019 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0019" ;
+    tm:offeringName "5G Enterprise Converged Plan #019" ;
+    tm:monthlyPrice 239.99 ;
+    tm:isBundle false .
+
+tm:offering_020 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0020" ;
+    tm:offeringName "5G Enterprise Converged Plan #020" ;
+    tm:monthlyPrice 249.99 ;
+    tm:isBundle false .
+
+tm:offering_021 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0021" ;
+    tm:offeringName "5G Enterprise Converged Plan #021" ;
+    tm:monthlyPrice 259.99 ;
+    tm:isBundle false .
+
+tm:offering_022 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0022" ;
+    tm:offeringName "5G Enterprise Converged Plan #022" ;
+    tm:monthlyPrice 269.99 ;
+    tm:isBundle false .
+
+tm:offering_023 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0023" ;
+    tm:offeringName "5G Enterprise Converged Plan #023" ;
+    tm:monthlyPrice 279.99 ;
+    tm:isBundle false .
+
+tm:offering_024 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0024" ;
+    tm:offeringName "5G Enterprise Converged Plan #024" ;
+    tm:monthlyPrice 289.99 ;
+    tm:isBundle false .
+
+tm:offering_025 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0025" ;
+    tm:offeringName "5G Enterprise Converged Plan #025" ;
+    tm:monthlyPrice 299.99 ;
+    tm:isBundle false .
+
+tm:offering_026 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0026" ;
+    tm:offeringName "5G Enterprise Converged Plan #026" ;
+    tm:monthlyPrice 309.99 ;
+    tm:isBundle false .
+
+tm:offering_027 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0027" ;
+    tm:offeringName "5G Enterprise Converged Plan #027" ;
+    tm:monthlyPrice 319.99 ;
+    tm:isBundle false .
+
+tm:offering_028 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0028" ;
+    tm:offeringName "5G Enterprise Converged Plan #028" ;
+    tm:monthlyPrice 329.99 ;
+    tm:isBundle false .
+
+tm:offering_029 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0029" ;
+    tm:offeringName "5G Enterprise Converged Plan #029" ;
+    tm:monthlyPrice 339.99 ;
+    tm:isBundle false .
+
+tm:offering_030 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0030" ;
+    tm:offeringName "5G Enterprise Converged Plan #030" ;
+    tm:monthlyPrice 349.99 ;
+    tm:isBundle false .
+
+tm:offering_031 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0031" ;
+    tm:offeringName "5G Enterprise Converged Plan #031" ;
+    tm:monthlyPrice 359.99 ;
+    tm:isBundle false .
+
+tm:offering_032 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0032" ;
+    tm:offeringName "5G Enterprise Converged Plan #032" ;
+    tm:monthlyPrice 369.99 ;
+    tm:isBundle false .
+
+tm:offering_033 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0033" ;
+    tm:offeringName "5G Enterprise Converged Plan #033" ;
+    tm:monthlyPrice 379.99 ;
+    tm:isBundle false .
+
+tm:offering_034 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0034" ;
+    tm:offeringName "5G Enterprise Converged Plan #034" ;
+    tm:monthlyPrice 389.99 ;
+    tm:isBundle false .
+
+tm:offering_035 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0035" ;
+    tm:offeringName "5G Enterprise Converged Plan #035" ;
+    tm:monthlyPrice 399.99 ;
+    tm:isBundle false .
+
+tm:offering_036 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0036" ;
+    tm:offeringName "5G Enterprise Converged Plan #036" ;
+    tm:monthlyPrice 409.99 ;
+    tm:isBundle false .
+
+tm:offering_037 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0037" ;
+    tm:offeringName "5G Enterprise Converged Plan #037" ;
+    tm:monthlyPrice 419.99 ;
+    tm:isBundle false .
+
+tm:offering_038 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0038" ;
+    tm:offeringName "5G Enterprise Converged Plan #038" ;
+    tm:monthlyPrice 429.99 ;
+    tm:isBundle false .
+
+tm:offering_039 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0039" ;
+    tm:offeringName "5G Enterprise Converged Plan #039" ;
+    tm:monthlyPrice 439.99 ;
+    tm:isBundle false .
+
+tm:offering_040 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0040" ;
+    tm:offeringName "5G Enterprise Converged Plan #040" ;
+    tm:monthlyPrice 449.99 ;
+    tm:isBundle false .
+
+tm:offering_041 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0041" ;
+    tm:offeringName "5G Enterprise Converged Plan #041" ;
+    tm:monthlyPrice 459.99 ;
+    tm:isBundle false .
+
+tm:offering_042 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0042" ;
+    tm:offeringName "5G Enterprise Converged Plan #042" ;
+    tm:monthlyPrice 469.99 ;
+    tm:isBundle false .
+
+tm:offering_043 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0043" ;
+    tm:offeringName "5G Enterprise Converged Plan #043" ;
+    tm:monthlyPrice 479.99 ;
+    tm:isBundle false .
+
+tm:offering_044 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0044" ;
+    tm:offeringName "5G Enterprise Converged Plan #044" ;
+    tm:monthlyPrice 489.99 ;
+    tm:isBundle false .
+
+tm:offering_045 a tm:ProductOffering ;
+    tm:offeringId "OFFR-0045" ;
+    tm:offeringName "5G Enterprise Converged Plan #045" ;
+    tm:monthlyPrice 499.99 ;
+    tm:isBundle false .
+
+tm:prod_spec_001 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0001" ;
+    tm:specifiesOffering tm:offering_001 ;
+    tm:realizedByServiceSpec tm:srv_spec_001 .
+
+tm:prod_spec_002 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0002" ;
+    tm:specifiesOffering tm:offering_002 ;
+    tm:realizedByServiceSpec tm:srv_spec_002 .
+
+tm:prod_spec_003 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0003" ;
+    tm:specifiesOffering tm:offering_003 ;
+    tm:realizedByServiceSpec tm:srv_spec_003 .
+
+tm:prod_spec_004 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0004" ;
+    tm:specifiesOffering tm:offering_004 ;
+    tm:realizedByServiceSpec tm:srv_spec_004 .
+
+tm:prod_spec_005 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0005" ;
+    tm:specifiesOffering tm:offering_005 ;
+    tm:realizedByServiceSpec tm:srv_spec_005 .
+
+tm:prod_spec_006 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0006" ;
+    tm:specifiesOffering tm:offering_006 ;
+    tm:realizedByServiceSpec tm:srv_spec_006 .
+
+tm:prod_spec_007 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0007" ;
+    tm:specifiesOffering tm:offering_007 ;
+    tm:realizedByServiceSpec tm:srv_spec_007 .
+
+tm:prod_spec_008 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0008" ;
+    tm:specifiesOffering tm:offering_008 ;
+    tm:realizedByServiceSpec tm:srv_spec_008 .
+
+tm:prod_spec_009 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0009" ;
+    tm:specifiesOffering tm:offering_009 ;
+    tm:realizedByServiceSpec tm:srv_spec_009 .
+
+tm:prod_spec_010 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0010" ;
+    tm:specifiesOffering tm:offering_010 ;
+    tm:realizedByServiceSpec tm:srv_spec_010 .
+
+tm:prod_spec_011 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0011" ;
+    tm:specifiesOffering tm:offering_011 ;
+    tm:realizedByServiceSpec tm:srv_spec_011 .
+
+tm:prod_spec_012 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0012" ;
+    tm:specifiesOffering tm:offering_012 ;
+    tm:realizedByServiceSpec tm:srv_spec_012 .
+
+tm:prod_spec_013 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0013" ;
+    tm:specifiesOffering tm:offering_013 ;
+    tm:realizedByServiceSpec tm:srv_spec_013 .
+
+tm:prod_spec_014 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0014" ;
+    tm:specifiesOffering tm:offering_014 ;
+    tm:realizedByServiceSpec tm:srv_spec_014 .
+
+tm:prod_spec_015 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0015" ;
+    tm:specifiesOffering tm:offering_015 ;
+    tm:realizedByServiceSpec tm:srv_spec_015 .
+
+tm:prod_spec_016 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0016" ;
+    tm:specifiesOffering tm:offering_016 ;
+    tm:realizedByServiceSpec tm:srv_spec_016 .
+
+tm:prod_spec_017 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0017" ;
+    tm:specifiesOffering tm:offering_017 ;
+    tm:realizedByServiceSpec tm:srv_spec_017 .
+
+tm:prod_spec_018 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0018" ;
+    tm:specifiesOffering tm:offering_018 ;
+    tm:realizedByServiceSpec tm:srv_spec_018 .
+
+tm:prod_spec_019 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0019" ;
+    tm:specifiesOffering tm:offering_019 ;
+    tm:realizedByServiceSpec tm:srv_spec_019 .
+
+tm:prod_spec_020 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0020" ;
+    tm:specifiesOffering tm:offering_020 ;
+    tm:realizedByServiceSpec tm:srv_spec_020 .
+
+tm:prod_spec_021 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0021" ;
+    tm:specifiesOffering tm:offering_021 ;
+    tm:realizedByServiceSpec tm:srv_spec_021 .
+
+tm:prod_spec_022 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0022" ;
+    tm:specifiesOffering tm:offering_022 ;
+    tm:realizedByServiceSpec tm:srv_spec_022 .
+
+tm:prod_spec_023 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0023" ;
+    tm:specifiesOffering tm:offering_023 ;
+    tm:realizedByServiceSpec tm:srv_spec_023 .
+
+tm:prod_spec_024 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0024" ;
+    tm:specifiesOffering tm:offering_024 ;
+    tm:realizedByServiceSpec tm:srv_spec_024 .
+
+tm:prod_spec_025 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0025" ;
+    tm:specifiesOffering tm:offering_025 ;
+    tm:realizedByServiceSpec tm:srv_spec_025 .
+
+tm:prod_spec_026 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0026" ;
+    tm:specifiesOffering tm:offering_026 ;
+    tm:realizedByServiceSpec tm:srv_spec_026 .
+
+tm:prod_spec_027 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0027" ;
+    tm:specifiesOffering tm:offering_027 ;
+    tm:realizedByServiceSpec tm:srv_spec_027 .
+
+tm:prod_spec_028 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0028" ;
+    tm:specifiesOffering tm:offering_028 ;
+    tm:realizedByServiceSpec tm:srv_spec_028 .
+
+tm:prod_spec_029 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0029" ;
+    tm:specifiesOffering tm:offering_029 ;
+    tm:realizedByServiceSpec tm:srv_spec_029 .
+
+tm:prod_spec_030 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0030" ;
+    tm:specifiesOffering tm:offering_030 ;
+    tm:realizedByServiceSpec tm:srv_spec_030 .
+
+tm:prod_spec_031 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0031" ;
+    tm:specifiesOffering tm:offering_031 ;
+    tm:realizedByServiceSpec tm:srv_spec_031 .
+
+tm:prod_spec_032 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0032" ;
+    tm:specifiesOffering tm:offering_032 ;
+    tm:realizedByServiceSpec tm:srv_spec_032 .
+
+tm:prod_spec_033 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0033" ;
+    tm:specifiesOffering tm:offering_033 ;
+    tm:realizedByServiceSpec tm:srv_spec_033 .
+
+tm:prod_spec_034 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0034" ;
+    tm:specifiesOffering tm:offering_034 ;
+    tm:realizedByServiceSpec tm:srv_spec_034 .
+
+tm:prod_spec_035 a tm:ProductSpecification ;
+    tm:productSpecId "PSPEC-0035" ;
+    tm:specifiesOffering tm:offering_035 ;
+    tm:realizedByServiceSpec tm:srv_spec_035 .
+
+tm:order_001 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00001" ;
+    tm:orderDate "2025-06-02T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_001 ;
+    tm:placedForAccount tm:acct_001 .
+
+tm:order_002 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00002" ;
+    tm:orderDate "2025-06-03T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_002 ;
+    tm:placedForAccount tm:acct_002 .
+
+tm:order_003 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00003" ;
+    tm:orderDate "2025-06-04T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_003 ;
+    tm:placedForAccount tm:acct_003 .
+
+tm:order_004 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00004" ;
+    tm:orderDate "2025-06-05T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_004 ;
+    tm:placedForAccount tm:acct_004 .
+
+tm:order_005 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00005" ;
+    tm:orderDate "2025-06-06T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_005 ;
+    tm:placedForAccount tm:acct_005 .
+
+tm:order_006 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00006" ;
+    tm:orderDate "2025-06-07T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_006 ;
+    tm:placedForAccount tm:acct_006 .
+
+tm:order_007 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00007" ;
+    tm:orderDate "2025-06-08T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_007 ;
+    tm:placedForAccount tm:acct_007 .
+
+tm:order_008 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00008" ;
+    tm:orderDate "2025-06-09T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_008 ;
+    tm:placedForAccount tm:acct_008 .
+
+tm:order_009 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00009" ;
+    tm:orderDate "2025-06-10T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_009 ;
+    tm:placedForAccount tm:acct_009 .
+
+tm:order_010 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00010" ;
+    tm:orderDate "2025-06-11T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_010 ;
+    tm:placedForAccount tm:acct_010 .
+
+tm:order_011 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00011" ;
+    tm:orderDate "2025-06-12T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_011 ;
+    tm:placedForAccount tm:acct_011 .
+
+tm:order_012 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00012" ;
+    tm:orderDate "2025-06-13T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_012 ;
+    tm:placedForAccount tm:acct_012 .
+
+tm:order_013 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00013" ;
+    tm:orderDate "2025-06-14T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_013 ;
+    tm:placedForAccount tm:acct_013 .
+
+tm:order_014 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00014" ;
+    tm:orderDate "2025-06-15T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_014 ;
+    tm:placedForAccount tm:acct_014 .
+
+tm:order_015 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00015" ;
+    tm:orderDate "2025-06-16T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_015 ;
+    tm:placedForAccount tm:acct_015 .
+
+tm:order_016 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00016" ;
+    tm:orderDate "2025-06-17T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_016 ;
+    tm:placedForAccount tm:acct_016 .
+
+tm:order_017 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00017" ;
+    tm:orderDate "2025-06-18T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_017 ;
+    tm:placedForAccount tm:acct_017 .
+
+tm:order_018 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00018" ;
+    tm:orderDate "2025-06-19T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_018 ;
+    tm:placedForAccount tm:acct_018 .
+
+tm:order_019 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00019" ;
+    tm:orderDate "2025-06-20T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_019 ;
+    tm:placedForAccount tm:acct_019 .
+
+tm:order_020 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00020" ;
+    tm:orderDate "2025-06-21T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_020 ;
+    tm:placedForAccount tm:acct_020 .
+
+tm:order_021 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00021" ;
+    tm:orderDate "2025-06-22T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_021 ;
+    tm:placedForAccount tm:acct_021 .
+
+tm:order_022 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00022" ;
+    tm:orderDate "2025-06-23T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_022 ;
+    tm:placedForAccount tm:acct_022 .
+
+tm:order_023 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00023" ;
+    tm:orderDate "2025-06-24T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_023 ;
+    tm:placedForAccount tm:acct_023 .
+
+tm:order_024 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00024" ;
+    tm:orderDate "2025-06-25T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_024 ;
+    tm:placedForAccount tm:acct_024 .
+
+tm:order_025 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00025" ;
+    tm:orderDate "2025-06-26T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_025 ;
+    tm:placedForAccount tm:acct_025 .
+
+tm:order_026 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00026" ;
+    tm:orderDate "2025-06-27T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_026 ;
+    tm:placedForAccount tm:acct_026 .
+
+tm:order_027 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00027" ;
+    tm:orderDate "2025-06-28T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_027 ;
+    tm:placedForAccount tm:acct_027 .
+
+tm:order_028 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00028" ;
+    tm:orderDate "2025-06-01T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_028 ;
+    tm:placedForAccount tm:acct_028 .
+
+tm:order_029 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00029" ;
+    tm:orderDate "2025-06-02T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_029 ;
+    tm:placedForAccount tm:acct_029 .
+
+tm:order_030 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00030" ;
+    tm:orderDate "2025-06-03T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_030 ;
+    tm:placedForAccount tm:acct_030 .
+
+tm:order_031 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00031" ;
+    tm:orderDate "2025-06-04T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_031 ;
+    tm:placedForAccount tm:acct_031 .
+
+tm:order_032 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00032" ;
+    tm:orderDate "2025-06-05T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_032 ;
+    tm:placedForAccount tm:acct_032 .
+
+tm:order_033 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00033" ;
+    tm:orderDate "2025-06-06T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_033 ;
+    tm:placedForAccount tm:acct_033 .
+
+tm:order_034 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00034" ;
+    tm:orderDate "2025-06-07T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_034 ;
+    tm:placedForAccount tm:acct_034 .
+
+tm:order_035 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00035" ;
+    tm:orderDate "2025-06-08T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_035 ;
+    tm:placedForAccount tm:acct_035 .
+
+tm:order_036 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00036" ;
+    tm:orderDate "2025-06-09T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_036 ;
+    tm:placedForAccount tm:acct_036 .
+
+tm:order_037 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00037" ;
+    tm:orderDate "2025-06-10T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_037 ;
+    tm:placedForAccount tm:acct_037 .
+
+tm:order_038 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00038" ;
+    tm:orderDate "2025-06-11T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_038 ;
+    tm:placedForAccount tm:acct_038 .
+
+tm:order_039 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00039" ;
+    tm:orderDate "2025-06-12T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_039 ;
+    tm:placedForAccount tm:acct_039 .
+
+tm:order_040 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00040" ;
+    tm:orderDate "2025-06-13T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_040 ;
+    tm:placedForAccount tm:acct_040 .
+
+tm:order_041 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00041" ;
+    tm:orderDate "2025-06-14T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_041 ;
+    tm:placedForAccount tm:acct_041 .
+
+tm:order_042 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00042" ;
+    tm:orderDate "2025-06-15T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_042 ;
+    tm:placedForAccount tm:acct_042 .
+
+tm:order_043 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00043" ;
+    tm:orderDate "2025-06-16T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_043 ;
+    tm:placedForAccount tm:acct_043 .
+
+tm:order_044 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00044" ;
+    tm:orderDate "2025-06-17T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_044 ;
+    tm:placedForAccount tm:acct_044 .
+
+tm:order_045 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00045" ;
+    tm:orderDate "2025-06-18T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_045 ;
+    tm:placedForAccount tm:acct_045 .
+
+tm:order_046 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00046" ;
+    tm:orderDate "2025-06-19T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_001 ;
+    tm:placedForAccount tm:acct_046 .
+
+tm:order_047 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00047" ;
+    tm:orderDate "2025-06-20T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_002 ;
+    tm:placedForAccount tm:acct_047 .
+
+tm:order_048 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00048" ;
+    tm:orderDate "2025-06-21T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_003 ;
+    tm:placedForAccount tm:acct_048 .
+
+tm:order_049 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00049" ;
+    tm:orderDate "2025-06-22T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_004 ;
+    tm:placedForAccount tm:acct_049 .
+
+tm:order_050 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00050" ;
+    tm:orderDate "2025-06-23T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_005 ;
+    tm:placedForAccount tm:acct_050 .
+
+tm:order_051 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00051" ;
+    tm:orderDate "2025-06-24T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_006 ;
+    tm:placedForAccount tm:acct_051 .
+
+tm:order_052 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00052" ;
+    tm:orderDate "2025-06-25T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_007 ;
+    tm:placedForAccount tm:acct_052 .
+
+tm:order_053 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00053" ;
+    tm:orderDate "2025-06-26T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_008 ;
+    tm:placedForAccount tm:acct_053 .
+
+tm:order_054 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00054" ;
+    tm:orderDate "2025-06-27T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_009 ;
+    tm:placedForAccount tm:acct_054 .
+
+tm:order_055 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00055" ;
+    tm:orderDate "2025-06-28T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_010 ;
+    tm:placedForAccount tm:acct_055 .
+
+tm:order_056 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00056" ;
+    tm:orderDate "2025-06-01T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_011 ;
+    tm:placedForAccount tm:acct_056 .
+
+tm:order_057 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00057" ;
+    tm:orderDate "2025-06-02T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_012 ;
+    tm:placedForAccount tm:acct_057 .
+
+tm:order_058 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00058" ;
+    tm:orderDate "2025-06-03T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_013 ;
+    tm:placedForAccount tm:acct_058 .
+
+tm:order_059 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00059" ;
+    tm:orderDate "2025-06-04T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_014 ;
+    tm:placedForAccount tm:acct_059 .
+
+tm:order_060 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00060" ;
+    tm:orderDate "2025-06-05T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_015 ;
+    tm:placedForAccount tm:acct_060 .
+
+tm:order_061 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00061" ;
+    tm:orderDate "2025-06-06T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_016 ;
+    tm:placedForAccount tm:acct_061 .
+
+tm:order_062 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00062" ;
+    tm:orderDate "2025-06-07T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_017 ;
+    tm:placedForAccount tm:acct_062 .
+
+tm:order_063 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00063" ;
+    tm:orderDate "2025-06-08T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_018 ;
+    tm:placedForAccount tm:acct_063 .
+
+tm:order_064 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00064" ;
+    tm:orderDate "2025-06-09T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_019 ;
+    tm:placedForAccount tm:acct_064 .
+
+tm:order_065 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00065" ;
+    tm:orderDate "2025-06-10T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_020 ;
+    tm:placedForAccount tm:acct_065 .
+
+tm:order_066 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00066" ;
+    tm:orderDate "2025-06-11T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_021 ;
+    tm:placedForAccount tm:acct_066 .
+
+tm:order_067 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00067" ;
+    tm:orderDate "2025-06-12T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_022 ;
+    tm:placedForAccount tm:acct_067 .
+
+tm:order_068 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00068" ;
+    tm:orderDate "2025-06-13T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_023 ;
+    tm:placedForAccount tm:acct_068 .
+
+tm:order_069 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00069" ;
+    tm:orderDate "2025-06-14T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_024 ;
+    tm:placedForAccount tm:acct_069 .
+
+tm:order_070 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00070" ;
+    tm:orderDate "2025-06-15T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_025 ;
+    tm:placedForAccount tm:acct_070 .
+
+tm:order_071 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00071" ;
+    tm:orderDate "2025-06-16T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_026 ;
+    tm:placedForAccount tm:acct_071 .
+
+tm:order_072 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00072" ;
+    tm:orderDate "2025-06-17T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_027 ;
+    tm:placedForAccount tm:acct_072 .
+
+tm:order_073 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00073" ;
+    tm:orderDate "2025-06-18T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_028 ;
+    tm:placedForAccount tm:acct_073 .
+
+tm:order_074 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00074" ;
+    tm:orderDate "2025-06-19T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_029 ;
+    tm:placedForAccount tm:acct_074 .
+
+tm:order_075 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00075" ;
+    tm:orderDate "2025-06-20T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_030 ;
+    tm:placedForAccount tm:acct_075 .
+
+tm:order_076 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00076" ;
+    tm:orderDate "2025-06-21T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_031 ;
+    tm:placedForAccount tm:acct_076 .
+
+tm:order_077 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00077" ;
+    tm:orderDate "2025-06-22T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_032 ;
+    tm:placedForAccount tm:acct_077 .
+
+tm:order_078 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00078" ;
+    tm:orderDate "2025-06-23T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_033 ;
+    tm:placedForAccount tm:acct_078 .
+
+tm:order_079 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00079" ;
+    tm:orderDate "2025-06-24T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_034 ;
+    tm:placedForAccount tm:acct_079 .
+
+tm:order_080 a tm:ProductOrder ;
+    tm:orderId "TMF-ORD-2025-00080" ;
+    tm:orderDate "2025-06-25T10:00:00Z"^^xsd:dateTime ;
+    tm:ordersOffering tm:offering_035 ;
+    tm:placedForAccount tm:acct_080 .

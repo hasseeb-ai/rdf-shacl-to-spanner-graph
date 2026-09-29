@@ -1,0 +1,1766 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/simple_inheritance/> .
+
+# ABox Instance Triples for 01_simple_inheritance
+
+ex:car_001 a ex:Car ;
+    ex:vin "1HGCM82633A000001" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_002 a ex:Car ;
+    ex:vin "1HGCM82633A000002" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_003 a ex:Car ;
+    ex:vin "1HGCM82633A000003" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_004 a ex:Car ;
+    ex:vin "1HGCM82633A000004" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_005 a ex:Car ;
+    ex:vin "1HGCM82633A000005" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_006 a ex:Car ;
+    ex:vin "1HGCM82633A000006" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_007 a ex:Car ;
+    ex:vin "1HGCM82633A000007" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_008 a ex:Car ;
+    ex:vin "1HGCM82633A000008" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_009 a ex:Car ;
+    ex:vin "1HGCM82633A000009" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_010 a ex:Car ;
+    ex:vin "1HGCM82633A000010" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_011 a ex:Car ;
+    ex:vin "1HGCM82633A000011" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_012 a ex:Car ;
+    ex:vin "1HGCM82633A000012" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_013 a ex:Car ;
+    ex:vin "1HGCM82633A000013" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_014 a ex:Car ;
+    ex:vin "1HGCM82633A000014" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_015 a ex:Car ;
+    ex:vin "1HGCM82633A000015" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_016 a ex:Car ;
+    ex:vin "1HGCM82633A000016" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_017 a ex:Car ;
+    ex:vin "1HGCM82633A000017" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_018 a ex:Car ;
+    ex:vin "1HGCM82633A000018" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_019 a ex:Car ;
+    ex:vin "1HGCM82633A000019" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_020 a ex:Car ;
+    ex:vin "1HGCM82633A000020" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_021 a ex:Car ;
+    ex:vin "1HGCM82633A000021" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_022 a ex:Car ;
+    ex:vin "1HGCM82633A000022" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_023 a ex:Car ;
+    ex:vin "1HGCM82633A000023" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_024 a ex:Car ;
+    ex:vin "1HGCM82633A000024" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_025 a ex:Car ;
+    ex:vin "1HGCM82633A000025" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_026 a ex:Car ;
+    ex:vin "1HGCM82633A000026" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_027 a ex:Car ;
+    ex:vin "1HGCM82633A000027" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_028 a ex:Car ;
+    ex:vin "1HGCM82633A000028" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_029 a ex:Car ;
+    ex:vin "1HGCM82633A000029" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_030 a ex:Car ;
+    ex:vin "1HGCM82633A000030" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_031 a ex:Car ;
+    ex:vin "1HGCM82633A000031" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_032 a ex:Car ;
+    ex:vin "1HGCM82633A000032" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_033 a ex:Car ;
+    ex:vin "1HGCM82633A000033" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_034 a ex:Car ;
+    ex:vin "1HGCM82633A000034" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_035 a ex:Car ;
+    ex:vin "1HGCM82633A000035" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_036 a ex:Car ;
+    ex:vin "1HGCM82633A000036" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_037 a ex:Car ;
+    ex:vin "1HGCM82633A000037" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_038 a ex:Car ;
+    ex:vin "1HGCM82633A000038" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_039 a ex:Car ;
+    ex:vin "1HGCM82633A000039" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_040 a ex:Car ;
+    ex:vin "1HGCM82633A000040" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_041 a ex:Car ;
+    ex:vin "1HGCM82633A000041" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_042 a ex:Car ;
+    ex:vin "1HGCM82633A000042" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_043 a ex:Car ;
+    ex:vin "1HGCM82633A000043" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_044 a ex:Car ;
+    ex:vin "1HGCM82633A000044" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_045 a ex:Car ;
+    ex:vin "1HGCM82633A000045" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_046 a ex:Car ;
+    ex:vin "1HGCM82633A000046" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_047 a ex:Car ;
+    ex:vin "1HGCM82633A000047" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_048 a ex:Car ;
+    ex:vin "1HGCM82633A000048" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_049 a ex:Car ;
+    ex:vin "1HGCM82633A000049" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_050 a ex:Car ;
+    ex:vin "1HGCM82633A000050" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_051 a ex:Car ;
+    ex:vin "1HGCM82633A000051" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_052 a ex:Car ;
+    ex:vin "1HGCM82633A000052" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_053 a ex:Car ;
+    ex:vin "1HGCM82633A000053" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_054 a ex:Car ;
+    ex:vin "1HGCM82633A000054" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_055 a ex:Car ;
+    ex:vin "1HGCM82633A000055" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_056 a ex:Car ;
+    ex:vin "1HGCM82633A000056" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_057 a ex:Car ;
+    ex:vin "1HGCM82633A000057" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_058 a ex:Car ;
+    ex:vin "1HGCM82633A000058" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_059 a ex:Car ;
+    ex:vin "1HGCM82633A000059" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_060 a ex:Car ;
+    ex:vin "1HGCM82633A000060" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_061 a ex:Car ;
+    ex:vin "1HGCM82633A000061" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_062 a ex:Car ;
+    ex:vin "1HGCM82633A000062" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_063 a ex:Car ;
+    ex:vin "1HGCM82633A000063" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_064 a ex:Car ;
+    ex:vin "1HGCM82633A000064" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_065 a ex:Car ;
+    ex:vin "1HGCM82633A000065" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_066 a ex:Car ;
+    ex:vin "1HGCM82633A000066" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_067 a ex:Car ;
+    ex:vin "1HGCM82633A000067" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_068 a ex:Car ;
+    ex:vin "1HGCM82633A000068" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_069 a ex:Car ;
+    ex:vin "1HGCM82633A000069" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_070 a ex:Car ;
+    ex:vin "1HGCM82633A000070" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_071 a ex:Car ;
+    ex:vin "1HGCM82633A000071" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_072 a ex:Car ;
+    ex:vin "1HGCM82633A000072" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_073 a ex:Car ;
+    ex:vin "1HGCM82633A000073" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_074 a ex:Car ;
+    ex:vin "1HGCM82633A000074" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_075 a ex:Car ;
+    ex:vin "1HGCM82633A000075" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_076 a ex:Car ;
+    ex:vin "1HGCM82633A000076" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_077 a ex:Car ;
+    ex:vin "1HGCM82633A000077" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_078 a ex:Car ;
+    ex:vin "1HGCM82633A000078" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_079 a ex:Car ;
+    ex:vin "1HGCM82633A000079" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_080 a ex:Car ;
+    ex:vin "1HGCM82633A000080" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_081 a ex:Car ;
+    ex:vin "1HGCM82633A000081" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_082 a ex:Car ;
+    ex:vin "1HGCM82633A000082" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_083 a ex:Car ;
+    ex:vin "1HGCM82633A000083" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_084 a ex:Car ;
+    ex:vin "1HGCM82633A000084" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_085 a ex:Car ;
+    ex:vin "1HGCM82633A000085" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_086 a ex:Car ;
+    ex:vin "1HGCM82633A000086" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_087 a ex:Car ;
+    ex:vin "1HGCM82633A000087" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_088 a ex:Car ;
+    ex:vin "1HGCM82633A000088" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_089 a ex:Car ;
+    ex:vin "1HGCM82633A000089" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_090 a ex:Car ;
+    ex:vin "1HGCM82633A000090" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_091 a ex:Car ;
+    ex:vin "1HGCM82633A000091" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_092 a ex:Car ;
+    ex:vin "1HGCM82633A000092" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_093 a ex:Car ;
+    ex:vin "1HGCM82633A000093" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_094 a ex:Car ;
+    ex:vin "1HGCM82633A000094" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_095 a ex:Car ;
+    ex:vin "1HGCM82633A000095" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_096 a ex:Car ;
+    ex:vin "1HGCM82633A000096" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_097 a ex:Car ;
+    ex:vin "1HGCM82633A000097" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_098 a ex:Car ;
+    ex:vin "1HGCM82633A000098" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_099 a ex:Car ;
+    ex:vin "1HGCM82633A000099" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_100 a ex:Car ;
+    ex:vin "1HGCM82633A000100" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_101 a ex:Car ;
+    ex:vin "1HGCM82633A000101" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_102 a ex:Car ;
+    ex:vin "1HGCM82633A000102" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_103 a ex:Car ;
+    ex:vin "1HGCM82633A000103" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_104 a ex:Car ;
+    ex:vin "1HGCM82633A000104" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_105 a ex:Car ;
+    ex:vin "1HGCM82633A000105" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_106 a ex:Car ;
+    ex:vin "1HGCM82633A000106" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_107 a ex:Car ;
+    ex:vin "1HGCM82633A000107" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_108 a ex:Car ;
+    ex:vin "1HGCM82633A000108" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_109 a ex:Car ;
+    ex:vin "1HGCM82633A000109" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_110 a ex:Car ;
+    ex:vin "1HGCM82633A000110" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:car_111 a ex:Car ;
+    ex:vin "1HGCM82633A000111" ;
+    ex:manufacturer "Honda" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof false .
+
+ex:car_112 a ex:Car ;
+    ex:vin "1HGCM82633A000112" ;
+    ex:manufacturer "Ford" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof true .
+
+ex:car_113 a ex:Car ;
+    ex:vin "1HGCM82633A000113" ;
+    ex:manufacturer "BMW" ;
+    ex:engineDisplacementCc 1750 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof false .
+
+ex:car_114 a ex:Car ;
+    ex:vin "1HGCM82633A000114" ;
+    ex:manufacturer "Mercedes-Benz" ;
+    ex:engineDisplacementCc 2000 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof true .
+
+ex:car_115 a ex:Car ;
+    ex:vin "1HGCM82633A000115" ;
+    ex:manufacturer "Audi" ;
+    ex:engineDisplacementCc 2250 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof false .
+
+ex:car_116 a ex:Car ;
+    ex:vin "1HGCM82633A000116" ;
+    ex:manufacturer "Volkswagen" ;
+    ex:engineDisplacementCc 2500 ;
+    ex:fuelType "DIESEL" ;
+    ex:seatingCapacity 4 ;
+    ex:hasSunroof true .
+
+ex:car_117 a ex:Car ;
+    ex:vin "1HGCM82633A000117" ;
+    ex:manufacturer "Volvo" ;
+    ex:engineDisplacementCc 2750 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:seatingCapacity 5 ;
+    ex:hasSunroof false .
+
+ex:car_118 a ex:Car ;
+    ex:vin "1HGCM82633A000118" ;
+    ex:manufacturer "Hyundai" ;
+    ex:engineDisplacementCc 3000 ;
+    ex:fuelType "HYBRID" ;
+    ex:seatingCapacity 7 ;
+    ex:hasSunroof true .
+
+ex:car_119 a ex:Car ;
+    ex:vin "1HGCM82633A000119" ;
+    ex:manufacturer "Rivian" ;
+    ex:engineDisplacementCc 3250 ;
+    ex:fuelType "HYDROGEN" ;
+    ex:seatingCapacity 8 ;
+    ex:hasSunroof false .
+
+ex:car_120 a ex:Car ;
+    ex:vin "1HGCM82633A000120" ;
+    ex:manufacturer "Toyota" ;
+    ex:engineDisplacementCc 1500 ;
+    ex:fuelType "GASOLINE" ;
+    ex:seatingCapacity 2 ;
+    ex:hasSunroof true .
+
+ex:truck_001 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000001" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 8750.50 ;
+    ex:axleCount 3 .
+
+ex:truck_002 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000002" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 9001.00 ;
+    ex:axleCount 4 .
+
+ex:truck_003 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000003" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 9251.50 ;
+    ex:axleCount 5 .
+
+ex:truck_004 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000004" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 9502.00 ;
+    ex:axleCount 6 .
+
+ex:truck_005 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000005" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 9752.50 ;
+    ex:axleCount 2 .
+
+ex:truck_006 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000006" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 10003.00 ;
+    ex:axleCount 3 .
+
+ex:truck_007 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000007" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 10253.50 ;
+    ex:axleCount 4 .
+
+ex:truck_008 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000008" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 10504.00 ;
+    ex:axleCount 5 .
+
+ex:truck_009 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000009" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 10754.50 ;
+    ex:axleCount 6 .
+
+ex:truck_010 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000010" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 11005.00 ;
+    ex:axleCount 2 .
+
+ex:truck_011 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000011" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 11255.50 ;
+    ex:axleCount 3 .
+
+ex:truck_012 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000012" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 11506.00 ;
+    ex:axleCount 4 .
+
+ex:truck_013 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000013" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 11756.50 ;
+    ex:axleCount 5 .
+
+ex:truck_014 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000014" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 12007.00 ;
+    ex:axleCount 6 .
+
+ex:truck_015 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000015" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 12257.50 ;
+    ex:axleCount 2 .
+
+ex:truck_016 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000016" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 12508.00 ;
+    ex:axleCount 3 .
+
+ex:truck_017 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000017" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 12758.50 ;
+    ex:axleCount 4 .
+
+ex:truck_018 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000018" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 13009.00 ;
+    ex:axleCount 5 .
+
+ex:truck_019 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000019" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 13259.50 ;
+    ex:axleCount 6 .
+
+ex:truck_020 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000020" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 13510.00 ;
+    ex:axleCount 2 .
+
+ex:truck_021 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000021" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 13760.50 ;
+    ex:axleCount 3 .
+
+ex:truck_022 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000022" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 14011.00 ;
+    ex:axleCount 4 .
+
+ex:truck_023 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000023" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 14261.50 ;
+    ex:axleCount 5 .
+
+ex:truck_024 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000024" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 14512.00 ;
+    ex:axleCount 6 .
+
+ex:truck_025 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000025" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 14762.50 ;
+    ex:axleCount 2 .
+
+ex:truck_026 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000026" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 15013.00 ;
+    ex:axleCount 3 .
+
+ex:truck_027 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000027" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 15263.50 ;
+    ex:axleCount 4 .
+
+ex:truck_028 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000028" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 15514.00 ;
+    ex:axleCount 5 .
+
+ex:truck_029 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000029" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 15764.50 ;
+    ex:axleCount 6 .
+
+ex:truck_030 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000030" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 16015.00 ;
+    ex:axleCount 2 .
+
+ex:truck_031 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000031" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 16265.50 ;
+    ex:axleCount 3 .
+
+ex:truck_032 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000032" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 16516.00 ;
+    ex:axleCount 4 .
+
+ex:truck_033 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000033" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 16766.50 ;
+    ex:axleCount 5 .
+
+ex:truck_034 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000034" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 17017.00 ;
+    ex:axleCount 6 .
+
+ex:truck_035 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000035" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 17267.50 ;
+    ex:axleCount 2 .
+
+ex:truck_036 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000036" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 17518.00 ;
+    ex:axleCount 3 .
+
+ex:truck_037 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000037" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 17768.50 ;
+    ex:axleCount 4 .
+
+ex:truck_038 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000038" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 18019.00 ;
+    ex:axleCount 5 .
+
+ex:truck_039 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000039" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 18269.50 ;
+    ex:axleCount 6 .
+
+ex:truck_040 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000040" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 18520.00 ;
+    ex:axleCount 2 .
+
+ex:truck_041 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000041" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 18770.50 ;
+    ex:axleCount 3 .
+
+ex:truck_042 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000042" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 19021.00 ;
+    ex:axleCount 4 .
+
+ex:truck_043 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000043" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 19271.50 ;
+    ex:axleCount 5 .
+
+ex:truck_044 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000044" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 19522.00 ;
+    ex:axleCount 6 .
+
+ex:truck_045 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000045" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 19772.50 ;
+    ex:axleCount 2 .
+
+ex:truck_046 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000046" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 20023.00 ;
+    ex:axleCount 3 .
+
+ex:truck_047 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000047" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 20273.50 ;
+    ex:axleCount 4 .
+
+ex:truck_048 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000048" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 20524.00 ;
+    ex:axleCount 5 .
+
+ex:truck_049 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000049" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 20774.50 ;
+    ex:axleCount 6 .
+
+ex:truck_050 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000050" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 21025.00 ;
+    ex:axleCount 2 .
+
+ex:truck_051 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000051" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 21275.50 ;
+    ex:axleCount 3 .
+
+ex:truck_052 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000052" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 21526.00 ;
+    ex:axleCount 4 .
+
+ex:truck_053 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000053" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 21776.50 ;
+    ex:axleCount 5 .
+
+ex:truck_054 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000054" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 22027.00 ;
+    ex:axleCount 6 .
+
+ex:truck_055 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000055" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 22277.50 ;
+    ex:axleCount 2 .
+
+ex:truck_056 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000056" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 22528.00 ;
+    ex:axleCount 3 .
+
+ex:truck_057 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000057" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 22778.50 ;
+    ex:axleCount 4 .
+
+ex:truck_058 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000058" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 23029.00 ;
+    ex:axleCount 5 .
+
+ex:truck_059 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000059" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 23279.50 ;
+    ex:axleCount 6 .
+
+ex:truck_060 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000060" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 23530.00 ;
+    ex:axleCount 2 .
+
+ex:truck_061 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000061" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 23780.50 ;
+    ex:axleCount 3 .
+
+ex:truck_062 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000062" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 24031.00 ;
+    ex:axleCount 4 .
+
+ex:truck_063 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000063" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 24281.50 ;
+    ex:axleCount 5 .
+
+ex:truck_064 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000064" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 24532.00 ;
+    ex:axleCount 6 .
+
+ex:truck_065 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000065" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 24782.50 ;
+    ex:axleCount 2 .
+
+ex:truck_066 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000066" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 25033.00 ;
+    ex:axleCount 3 .
+
+ex:truck_067 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000067" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 25283.50 ;
+    ex:axleCount 4 .
+
+ex:truck_068 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000068" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 25534.00 ;
+    ex:axleCount 5 .
+
+ex:truck_069 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000069" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 25784.50 ;
+    ex:axleCount 6 .
+
+ex:truck_070 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000070" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 26035.00 ;
+    ex:axleCount 2 .
+
+ex:truck_071 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000071" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 26285.50 ;
+    ex:axleCount 3 .
+
+ex:truck_072 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000072" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 26536.00 ;
+    ex:axleCount 4 .
+
+ex:truck_073 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000073" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 26786.50 ;
+    ex:axleCount 5 .
+
+ex:truck_074 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000074" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 27037.00 ;
+    ex:axleCount 6 .
+
+ex:truck_075 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000075" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 27287.50 ;
+    ex:axleCount 2 .
+
+ex:truck_076 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000076" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 27538.00 ;
+    ex:axleCount 3 .
+
+ex:truck_077 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000077" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 27788.50 ;
+    ex:axleCount 4 .
+
+ex:truck_078 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000078" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 28039.00 ;
+    ex:axleCount 5 .
+
+ex:truck_079 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000079" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 28289.50 ;
+    ex:axleCount 6 .
+
+ex:truck_080 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000080" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 28540.00 ;
+    ex:axleCount 2 .
+
+ex:truck_081 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000081" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 28790.50 ;
+    ex:axleCount 3 .
+
+ex:truck_082 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000082" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 29041.00 ;
+    ex:axleCount 4 .
+
+ex:truck_083 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000083" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 29291.50 ;
+    ex:axleCount 5 .
+
+ex:truck_084 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000084" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 29542.00 ;
+    ex:axleCount 6 .
+
+ex:truck_085 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000085" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 29792.50 ;
+    ex:axleCount 2 .
+
+ex:truck_086 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000086" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 30043.00 ;
+    ex:axleCount 3 .
+
+ex:truck_087 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000087" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 30293.50 ;
+    ex:axleCount 4 .
+
+ex:truck_088 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000088" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 30544.00 ;
+    ex:axleCount 5 .
+
+ex:truck_089 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000089" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 30794.50 ;
+    ex:axleCount 6 .
+
+ex:truck_090 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000090" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 31045.00 ;
+    ex:axleCount 2 .
+
+ex:truck_091 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000091" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 31295.50 ;
+    ex:axleCount 3 .
+
+ex:truck_092 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000092" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 31546.00 ;
+    ex:axleCount 4 .
+
+ex:truck_093 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000093" ;
+    ex:manufacturer "Scania" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 31796.50 ;
+    ex:axleCount 5 .
+
+ex:truck_094 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000094" ;
+    ex:manufacturer "MAN" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 32047.00 ;
+    ex:axleCount 6 .
+
+ex:truck_095 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000095" ;
+    ex:manufacturer "DAF" ;
+    ex:engineDisplacementCc 13500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 32297.50 ;
+    ex:axleCount 2 .
+
+ex:truck_096 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000096" ;
+    ex:manufacturer "Freightliner" ;
+    ex:engineDisplacementCc 6000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 32548.00 ;
+    ex:axleCount 3 .
+
+ex:truck_097 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000097" ;
+    ex:manufacturer "Kenworth" ;
+    ex:engineDisplacementCc 7500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 32798.50 ;
+    ex:axleCount 4 .
+
+ex:truck_098 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000098" ;
+    ex:manufacturer "Peterbilt" ;
+    ex:engineDisplacementCc 9000 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 33049.00 ;
+    ex:axleCount 5 .
+
+ex:truck_099 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000099" ;
+    ex:manufacturer "Volvo Trucks" ;
+    ex:engineDisplacementCc 10500 ;
+    ex:fuelType "DIESEL" ;
+    ex:payloadCapacityKg 33299.50 ;
+    ex:axleCount 6 .
+
+ex:truck_100 a ex:Truck ;
+    ex:vin "3HTMMAAL84N000100" ;
+    ex:manufacturer "Mack" ;
+    ex:engineDisplacementCc 12000 ;
+    ex:fuelType "ELECTRIC" ;
+    ex:payloadCapacityKg 33550.00 ;
+    ex:axleCount 2 .

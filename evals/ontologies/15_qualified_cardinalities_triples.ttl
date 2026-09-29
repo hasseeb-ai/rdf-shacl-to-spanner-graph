@@ -1,0 +1,1907 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/qcr#> .
+
+# ABox Instance Triples for 15_qualified_cardinalities
+# Every Bicycle has exactly 2 Wheels; every Car has 4 Wheels and 1 Engine
+
+ex:wheel_001 a ex:Wheel ;
+    ex:partId "PRT-W-0001" ;
+    ex:partSerialNum "SN-WHL-B-00001" .
+
+ex:wheel_002 a ex:Wheel ;
+    ex:partId "PRT-W-0002" ;
+    ex:partSerialNum "SN-WHL-B-00002" .
+
+ex:bicycle_001 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-001" ;
+    ex:modelName "Carbon Road Pro #001" ;
+    ex:hasPart ex:wheel_001, ex:wheel_002 .
+
+ex:wheel_003 a ex:Wheel ;
+    ex:partId "PRT-W-0003" ;
+    ex:partSerialNum "SN-WHL-B-00003" .
+
+ex:wheel_004 a ex:Wheel ;
+    ex:partId "PRT-W-0004" ;
+    ex:partSerialNum "SN-WHL-B-00004" .
+
+ex:bicycle_002 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-002" ;
+    ex:modelName "Carbon Road Pro #002" ;
+    ex:hasPart ex:wheel_003, ex:wheel_004 .
+
+ex:wheel_005 a ex:Wheel ;
+    ex:partId "PRT-W-0005" ;
+    ex:partSerialNum "SN-WHL-B-00005" .
+
+ex:wheel_006 a ex:Wheel ;
+    ex:partId "PRT-W-0006" ;
+    ex:partSerialNum "SN-WHL-B-00006" .
+
+ex:bicycle_003 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-003" ;
+    ex:modelName "Carbon Road Pro #003" ;
+    ex:hasPart ex:wheel_005, ex:wheel_006 .
+
+ex:wheel_007 a ex:Wheel ;
+    ex:partId "PRT-W-0007" ;
+    ex:partSerialNum "SN-WHL-B-00007" .
+
+ex:wheel_008 a ex:Wheel ;
+    ex:partId "PRT-W-0008" ;
+    ex:partSerialNum "SN-WHL-B-00008" .
+
+ex:bicycle_004 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-004" ;
+    ex:modelName "Carbon Road Pro #004" ;
+    ex:hasPart ex:wheel_007, ex:wheel_008 .
+
+ex:wheel_009 a ex:Wheel ;
+    ex:partId "PRT-W-0009" ;
+    ex:partSerialNum "SN-WHL-B-00009" .
+
+ex:wheel_010 a ex:Wheel ;
+    ex:partId "PRT-W-0010" ;
+    ex:partSerialNum "SN-WHL-B-00010" .
+
+ex:bicycle_005 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-005" ;
+    ex:modelName "Carbon Road Pro #005" ;
+    ex:hasPart ex:wheel_009, ex:wheel_010 .
+
+ex:wheel_011 a ex:Wheel ;
+    ex:partId "PRT-W-0011" ;
+    ex:partSerialNum "SN-WHL-B-00011" .
+
+ex:wheel_012 a ex:Wheel ;
+    ex:partId "PRT-W-0012" ;
+    ex:partSerialNum "SN-WHL-B-00012" .
+
+ex:bicycle_006 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-006" ;
+    ex:modelName "Carbon Road Pro #006" ;
+    ex:hasPart ex:wheel_011, ex:wheel_012 .
+
+ex:wheel_013 a ex:Wheel ;
+    ex:partId "PRT-W-0013" ;
+    ex:partSerialNum "SN-WHL-B-00013" .
+
+ex:wheel_014 a ex:Wheel ;
+    ex:partId "PRT-W-0014" ;
+    ex:partSerialNum "SN-WHL-B-00014" .
+
+ex:bicycle_007 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-007" ;
+    ex:modelName "Carbon Road Pro #007" ;
+    ex:hasPart ex:wheel_013, ex:wheel_014 .
+
+ex:wheel_015 a ex:Wheel ;
+    ex:partId "PRT-W-0015" ;
+    ex:partSerialNum "SN-WHL-B-00015" .
+
+ex:wheel_016 a ex:Wheel ;
+    ex:partId "PRT-W-0016" ;
+    ex:partSerialNum "SN-WHL-B-00016" .
+
+ex:bicycle_008 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-008" ;
+    ex:modelName "Carbon Road Pro #008" ;
+    ex:hasPart ex:wheel_015, ex:wheel_016 .
+
+ex:wheel_017 a ex:Wheel ;
+    ex:partId "PRT-W-0017" ;
+    ex:partSerialNum "SN-WHL-B-00017" .
+
+ex:wheel_018 a ex:Wheel ;
+    ex:partId "PRT-W-0018" ;
+    ex:partSerialNum "SN-WHL-B-00018" .
+
+ex:bicycle_009 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-009" ;
+    ex:modelName "Carbon Road Pro #009" ;
+    ex:hasPart ex:wheel_017, ex:wheel_018 .
+
+ex:wheel_019 a ex:Wheel ;
+    ex:partId "PRT-W-0019" ;
+    ex:partSerialNum "SN-WHL-B-00019" .
+
+ex:wheel_020 a ex:Wheel ;
+    ex:partId "PRT-W-0020" ;
+    ex:partSerialNum "SN-WHL-B-00020" .
+
+ex:bicycle_010 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-010" ;
+    ex:modelName "Carbon Road Pro #010" ;
+    ex:hasPart ex:wheel_019, ex:wheel_020 .
+
+ex:wheel_021 a ex:Wheel ;
+    ex:partId "PRT-W-0021" ;
+    ex:partSerialNum "SN-WHL-B-00021" .
+
+ex:wheel_022 a ex:Wheel ;
+    ex:partId "PRT-W-0022" ;
+    ex:partSerialNum "SN-WHL-B-00022" .
+
+ex:bicycle_011 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-011" ;
+    ex:modelName "Carbon Road Pro #011" ;
+    ex:hasPart ex:wheel_021, ex:wheel_022 .
+
+ex:wheel_023 a ex:Wheel ;
+    ex:partId "PRT-W-0023" ;
+    ex:partSerialNum "SN-WHL-B-00023" .
+
+ex:wheel_024 a ex:Wheel ;
+    ex:partId "PRT-W-0024" ;
+    ex:partSerialNum "SN-WHL-B-00024" .
+
+ex:bicycle_012 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-012" ;
+    ex:modelName "Carbon Road Pro #012" ;
+    ex:hasPart ex:wheel_023, ex:wheel_024 .
+
+ex:wheel_025 a ex:Wheel ;
+    ex:partId "PRT-W-0025" ;
+    ex:partSerialNum "SN-WHL-B-00025" .
+
+ex:wheel_026 a ex:Wheel ;
+    ex:partId "PRT-W-0026" ;
+    ex:partSerialNum "SN-WHL-B-00026" .
+
+ex:bicycle_013 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-013" ;
+    ex:modelName "Carbon Road Pro #013" ;
+    ex:hasPart ex:wheel_025, ex:wheel_026 .
+
+ex:wheel_027 a ex:Wheel ;
+    ex:partId "PRT-W-0027" ;
+    ex:partSerialNum "SN-WHL-B-00027" .
+
+ex:wheel_028 a ex:Wheel ;
+    ex:partId "PRT-W-0028" ;
+    ex:partSerialNum "SN-WHL-B-00028" .
+
+ex:bicycle_014 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-014" ;
+    ex:modelName "Carbon Road Pro #014" ;
+    ex:hasPart ex:wheel_027, ex:wheel_028 .
+
+ex:wheel_029 a ex:Wheel ;
+    ex:partId "PRT-W-0029" ;
+    ex:partSerialNum "SN-WHL-B-00029" .
+
+ex:wheel_030 a ex:Wheel ;
+    ex:partId "PRT-W-0030" ;
+    ex:partSerialNum "SN-WHL-B-00030" .
+
+ex:bicycle_015 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-015" ;
+    ex:modelName "Carbon Road Pro #015" ;
+    ex:hasPart ex:wheel_029, ex:wheel_030 .
+
+ex:wheel_031 a ex:Wheel ;
+    ex:partId "PRT-W-0031" ;
+    ex:partSerialNum "SN-WHL-B-00031" .
+
+ex:wheel_032 a ex:Wheel ;
+    ex:partId "PRT-W-0032" ;
+    ex:partSerialNum "SN-WHL-B-00032" .
+
+ex:bicycle_016 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-016" ;
+    ex:modelName "Carbon Road Pro #016" ;
+    ex:hasPart ex:wheel_031, ex:wheel_032 .
+
+ex:wheel_033 a ex:Wheel ;
+    ex:partId "PRT-W-0033" ;
+    ex:partSerialNum "SN-WHL-B-00033" .
+
+ex:wheel_034 a ex:Wheel ;
+    ex:partId "PRT-W-0034" ;
+    ex:partSerialNum "SN-WHL-B-00034" .
+
+ex:bicycle_017 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-017" ;
+    ex:modelName "Carbon Road Pro #017" ;
+    ex:hasPart ex:wheel_033, ex:wheel_034 .
+
+ex:wheel_035 a ex:Wheel ;
+    ex:partId "PRT-W-0035" ;
+    ex:partSerialNum "SN-WHL-B-00035" .
+
+ex:wheel_036 a ex:Wheel ;
+    ex:partId "PRT-W-0036" ;
+    ex:partSerialNum "SN-WHL-B-00036" .
+
+ex:bicycle_018 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-018" ;
+    ex:modelName "Carbon Road Pro #018" ;
+    ex:hasPart ex:wheel_035, ex:wheel_036 .
+
+ex:wheel_037 a ex:Wheel ;
+    ex:partId "PRT-W-0037" ;
+    ex:partSerialNum "SN-WHL-B-00037" .
+
+ex:wheel_038 a ex:Wheel ;
+    ex:partId "PRT-W-0038" ;
+    ex:partSerialNum "SN-WHL-B-00038" .
+
+ex:bicycle_019 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-019" ;
+    ex:modelName "Carbon Road Pro #019" ;
+    ex:hasPart ex:wheel_037, ex:wheel_038 .
+
+ex:wheel_039 a ex:Wheel ;
+    ex:partId "PRT-W-0039" ;
+    ex:partSerialNum "SN-WHL-B-00039" .
+
+ex:wheel_040 a ex:Wheel ;
+    ex:partId "PRT-W-0040" ;
+    ex:partSerialNum "SN-WHL-B-00040" .
+
+ex:bicycle_020 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-020" ;
+    ex:modelName "Carbon Road Pro #020" ;
+    ex:hasPart ex:wheel_039, ex:wheel_040 .
+
+ex:wheel_041 a ex:Wheel ;
+    ex:partId "PRT-W-0041" ;
+    ex:partSerialNum "SN-WHL-B-00041" .
+
+ex:wheel_042 a ex:Wheel ;
+    ex:partId "PRT-W-0042" ;
+    ex:partSerialNum "SN-WHL-B-00042" .
+
+ex:bicycle_021 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-021" ;
+    ex:modelName "Carbon Road Pro #021" ;
+    ex:hasPart ex:wheel_041, ex:wheel_042 .
+
+ex:wheel_043 a ex:Wheel ;
+    ex:partId "PRT-W-0043" ;
+    ex:partSerialNum "SN-WHL-B-00043" .
+
+ex:wheel_044 a ex:Wheel ;
+    ex:partId "PRT-W-0044" ;
+    ex:partSerialNum "SN-WHL-B-00044" .
+
+ex:bicycle_022 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-022" ;
+    ex:modelName "Carbon Road Pro #022" ;
+    ex:hasPart ex:wheel_043, ex:wheel_044 .
+
+ex:wheel_045 a ex:Wheel ;
+    ex:partId "PRT-W-0045" ;
+    ex:partSerialNum "SN-WHL-B-00045" .
+
+ex:wheel_046 a ex:Wheel ;
+    ex:partId "PRT-W-0046" ;
+    ex:partSerialNum "SN-WHL-B-00046" .
+
+ex:bicycle_023 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-023" ;
+    ex:modelName "Carbon Road Pro #023" ;
+    ex:hasPart ex:wheel_045, ex:wheel_046 .
+
+ex:wheel_047 a ex:Wheel ;
+    ex:partId "PRT-W-0047" ;
+    ex:partSerialNum "SN-WHL-B-00047" .
+
+ex:wheel_048 a ex:Wheel ;
+    ex:partId "PRT-W-0048" ;
+    ex:partSerialNum "SN-WHL-B-00048" .
+
+ex:bicycle_024 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-024" ;
+    ex:modelName "Carbon Road Pro #024" ;
+    ex:hasPart ex:wheel_047, ex:wheel_048 .
+
+ex:wheel_049 a ex:Wheel ;
+    ex:partId "PRT-W-0049" ;
+    ex:partSerialNum "SN-WHL-B-00049" .
+
+ex:wheel_050 a ex:Wheel ;
+    ex:partId "PRT-W-0050" ;
+    ex:partSerialNum "SN-WHL-B-00050" .
+
+ex:bicycle_025 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-025" ;
+    ex:modelName "Carbon Road Pro #025" ;
+    ex:hasPart ex:wheel_049, ex:wheel_050 .
+
+ex:wheel_051 a ex:Wheel ;
+    ex:partId "PRT-W-0051" ;
+    ex:partSerialNum "SN-WHL-B-00051" .
+
+ex:wheel_052 a ex:Wheel ;
+    ex:partId "PRT-W-0052" ;
+    ex:partSerialNum "SN-WHL-B-00052" .
+
+ex:bicycle_026 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-026" ;
+    ex:modelName "Carbon Road Pro #026" ;
+    ex:hasPart ex:wheel_051, ex:wheel_052 .
+
+ex:wheel_053 a ex:Wheel ;
+    ex:partId "PRT-W-0053" ;
+    ex:partSerialNum "SN-WHL-B-00053" .
+
+ex:wheel_054 a ex:Wheel ;
+    ex:partId "PRT-W-0054" ;
+    ex:partSerialNum "SN-WHL-B-00054" .
+
+ex:bicycle_027 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-027" ;
+    ex:modelName "Carbon Road Pro #027" ;
+    ex:hasPart ex:wheel_053, ex:wheel_054 .
+
+ex:wheel_055 a ex:Wheel ;
+    ex:partId "PRT-W-0055" ;
+    ex:partSerialNum "SN-WHL-B-00055" .
+
+ex:wheel_056 a ex:Wheel ;
+    ex:partId "PRT-W-0056" ;
+    ex:partSerialNum "SN-WHL-B-00056" .
+
+ex:bicycle_028 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-028" ;
+    ex:modelName "Carbon Road Pro #028" ;
+    ex:hasPart ex:wheel_055, ex:wheel_056 .
+
+ex:wheel_057 a ex:Wheel ;
+    ex:partId "PRT-W-0057" ;
+    ex:partSerialNum "SN-WHL-B-00057" .
+
+ex:wheel_058 a ex:Wheel ;
+    ex:partId "PRT-W-0058" ;
+    ex:partSerialNum "SN-WHL-B-00058" .
+
+ex:bicycle_029 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-029" ;
+    ex:modelName "Carbon Road Pro #029" ;
+    ex:hasPart ex:wheel_057, ex:wheel_058 .
+
+ex:wheel_059 a ex:Wheel ;
+    ex:partId "PRT-W-0059" ;
+    ex:partSerialNum "SN-WHL-B-00059" .
+
+ex:wheel_060 a ex:Wheel ;
+    ex:partId "PRT-W-0060" ;
+    ex:partSerialNum "SN-WHL-B-00060" .
+
+ex:bicycle_030 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-030" ;
+    ex:modelName "Carbon Road Pro #030" ;
+    ex:hasPart ex:wheel_059, ex:wheel_060 .
+
+ex:wheel_061 a ex:Wheel ;
+    ex:partId "PRT-W-0061" ;
+    ex:partSerialNum "SN-WHL-B-00061" .
+
+ex:wheel_062 a ex:Wheel ;
+    ex:partId "PRT-W-0062" ;
+    ex:partSerialNum "SN-WHL-B-00062" .
+
+ex:bicycle_031 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-031" ;
+    ex:modelName "Carbon Road Pro #031" ;
+    ex:hasPart ex:wheel_061, ex:wheel_062 .
+
+ex:wheel_063 a ex:Wheel ;
+    ex:partId "PRT-W-0063" ;
+    ex:partSerialNum "SN-WHL-B-00063" .
+
+ex:wheel_064 a ex:Wheel ;
+    ex:partId "PRT-W-0064" ;
+    ex:partSerialNum "SN-WHL-B-00064" .
+
+ex:bicycle_032 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-032" ;
+    ex:modelName "Carbon Road Pro #032" ;
+    ex:hasPart ex:wheel_063, ex:wheel_064 .
+
+ex:wheel_065 a ex:Wheel ;
+    ex:partId "PRT-W-0065" ;
+    ex:partSerialNum "SN-WHL-B-00065" .
+
+ex:wheel_066 a ex:Wheel ;
+    ex:partId "PRT-W-0066" ;
+    ex:partSerialNum "SN-WHL-B-00066" .
+
+ex:bicycle_033 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-033" ;
+    ex:modelName "Carbon Road Pro #033" ;
+    ex:hasPart ex:wheel_065, ex:wheel_066 .
+
+ex:wheel_067 a ex:Wheel ;
+    ex:partId "PRT-W-0067" ;
+    ex:partSerialNum "SN-WHL-B-00067" .
+
+ex:wheel_068 a ex:Wheel ;
+    ex:partId "PRT-W-0068" ;
+    ex:partSerialNum "SN-WHL-B-00068" .
+
+ex:bicycle_034 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-034" ;
+    ex:modelName "Carbon Road Pro #034" ;
+    ex:hasPart ex:wheel_067, ex:wheel_068 .
+
+ex:wheel_069 a ex:Wheel ;
+    ex:partId "PRT-W-0069" ;
+    ex:partSerialNum "SN-WHL-B-00069" .
+
+ex:wheel_070 a ex:Wheel ;
+    ex:partId "PRT-W-0070" ;
+    ex:partSerialNum "SN-WHL-B-00070" .
+
+ex:bicycle_035 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-035" ;
+    ex:modelName "Carbon Road Pro #035" ;
+    ex:hasPart ex:wheel_069, ex:wheel_070 .
+
+ex:wheel_071 a ex:Wheel ;
+    ex:partId "PRT-W-0071" ;
+    ex:partSerialNum "SN-WHL-B-00071" .
+
+ex:wheel_072 a ex:Wheel ;
+    ex:partId "PRT-W-0072" ;
+    ex:partSerialNum "SN-WHL-B-00072" .
+
+ex:bicycle_036 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-036" ;
+    ex:modelName "Carbon Road Pro #036" ;
+    ex:hasPart ex:wheel_071, ex:wheel_072 .
+
+ex:wheel_073 a ex:Wheel ;
+    ex:partId "PRT-W-0073" ;
+    ex:partSerialNum "SN-WHL-B-00073" .
+
+ex:wheel_074 a ex:Wheel ;
+    ex:partId "PRT-W-0074" ;
+    ex:partSerialNum "SN-WHL-B-00074" .
+
+ex:bicycle_037 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-037" ;
+    ex:modelName "Carbon Road Pro #037" ;
+    ex:hasPart ex:wheel_073, ex:wheel_074 .
+
+ex:wheel_075 a ex:Wheel ;
+    ex:partId "PRT-W-0075" ;
+    ex:partSerialNum "SN-WHL-B-00075" .
+
+ex:wheel_076 a ex:Wheel ;
+    ex:partId "PRT-W-0076" ;
+    ex:partSerialNum "SN-WHL-B-00076" .
+
+ex:bicycle_038 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-038" ;
+    ex:modelName "Carbon Road Pro #038" ;
+    ex:hasPart ex:wheel_075, ex:wheel_076 .
+
+ex:wheel_077 a ex:Wheel ;
+    ex:partId "PRT-W-0077" ;
+    ex:partSerialNum "SN-WHL-B-00077" .
+
+ex:wheel_078 a ex:Wheel ;
+    ex:partId "PRT-W-0078" ;
+    ex:partSerialNum "SN-WHL-B-00078" .
+
+ex:bicycle_039 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-039" ;
+    ex:modelName "Carbon Road Pro #039" ;
+    ex:hasPart ex:wheel_077, ex:wheel_078 .
+
+ex:wheel_079 a ex:Wheel ;
+    ex:partId "PRT-W-0079" ;
+    ex:partSerialNum "SN-WHL-B-00079" .
+
+ex:wheel_080 a ex:Wheel ;
+    ex:partId "PRT-W-0080" ;
+    ex:partSerialNum "SN-WHL-B-00080" .
+
+ex:bicycle_040 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-040" ;
+    ex:modelName "Carbon Road Pro #040" ;
+    ex:hasPart ex:wheel_079, ex:wheel_080 .
+
+ex:wheel_081 a ex:Wheel ;
+    ex:partId "PRT-W-0081" ;
+    ex:partSerialNum "SN-WHL-B-00081" .
+
+ex:wheel_082 a ex:Wheel ;
+    ex:partId "PRT-W-0082" ;
+    ex:partSerialNum "SN-WHL-B-00082" .
+
+ex:bicycle_041 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-041" ;
+    ex:modelName "Carbon Road Pro #041" ;
+    ex:hasPart ex:wheel_081, ex:wheel_082 .
+
+ex:wheel_083 a ex:Wheel ;
+    ex:partId "PRT-W-0083" ;
+    ex:partSerialNum "SN-WHL-B-00083" .
+
+ex:wheel_084 a ex:Wheel ;
+    ex:partId "PRT-W-0084" ;
+    ex:partSerialNum "SN-WHL-B-00084" .
+
+ex:bicycle_042 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-042" ;
+    ex:modelName "Carbon Road Pro #042" ;
+    ex:hasPart ex:wheel_083, ex:wheel_084 .
+
+ex:wheel_085 a ex:Wheel ;
+    ex:partId "PRT-W-0085" ;
+    ex:partSerialNum "SN-WHL-B-00085" .
+
+ex:wheel_086 a ex:Wheel ;
+    ex:partId "PRT-W-0086" ;
+    ex:partSerialNum "SN-WHL-B-00086" .
+
+ex:bicycle_043 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-043" ;
+    ex:modelName "Carbon Road Pro #043" ;
+    ex:hasPart ex:wheel_085, ex:wheel_086 .
+
+ex:wheel_087 a ex:Wheel ;
+    ex:partId "PRT-W-0087" ;
+    ex:partSerialNum "SN-WHL-B-00087" .
+
+ex:wheel_088 a ex:Wheel ;
+    ex:partId "PRT-W-0088" ;
+    ex:partSerialNum "SN-WHL-B-00088" .
+
+ex:bicycle_044 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-044" ;
+    ex:modelName "Carbon Road Pro #044" ;
+    ex:hasPart ex:wheel_087, ex:wheel_088 .
+
+ex:wheel_089 a ex:Wheel ;
+    ex:partId "PRT-W-0089" ;
+    ex:partSerialNum "SN-WHL-B-00089" .
+
+ex:wheel_090 a ex:Wheel ;
+    ex:partId "PRT-W-0090" ;
+    ex:partSerialNum "SN-WHL-B-00090" .
+
+ex:bicycle_045 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-045" ;
+    ex:modelName "Carbon Road Pro #045" ;
+    ex:hasPart ex:wheel_089, ex:wheel_090 .
+
+ex:wheel_091 a ex:Wheel ;
+    ex:partId "PRT-W-0091" ;
+    ex:partSerialNum "SN-WHL-B-00091" .
+
+ex:wheel_092 a ex:Wheel ;
+    ex:partId "PRT-W-0092" ;
+    ex:partSerialNum "SN-WHL-B-00092" .
+
+ex:bicycle_046 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-046" ;
+    ex:modelName "Carbon Road Pro #046" ;
+    ex:hasPart ex:wheel_091, ex:wheel_092 .
+
+ex:wheel_093 a ex:Wheel ;
+    ex:partId "PRT-W-0093" ;
+    ex:partSerialNum "SN-WHL-B-00093" .
+
+ex:wheel_094 a ex:Wheel ;
+    ex:partId "PRT-W-0094" ;
+    ex:partSerialNum "SN-WHL-B-00094" .
+
+ex:bicycle_047 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-047" ;
+    ex:modelName "Carbon Road Pro #047" ;
+    ex:hasPart ex:wheel_093, ex:wheel_094 .
+
+ex:wheel_095 a ex:Wheel ;
+    ex:partId "PRT-W-0095" ;
+    ex:partSerialNum "SN-WHL-B-00095" .
+
+ex:wheel_096 a ex:Wheel ;
+    ex:partId "PRT-W-0096" ;
+    ex:partSerialNum "SN-WHL-B-00096" .
+
+ex:bicycle_048 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-048" ;
+    ex:modelName "Carbon Road Pro #048" ;
+    ex:hasPart ex:wheel_095, ex:wheel_096 .
+
+ex:wheel_097 a ex:Wheel ;
+    ex:partId "PRT-W-0097" ;
+    ex:partSerialNum "SN-WHL-B-00097" .
+
+ex:wheel_098 a ex:Wheel ;
+    ex:partId "PRT-W-0098" ;
+    ex:partSerialNum "SN-WHL-B-00098" .
+
+ex:bicycle_049 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-049" ;
+    ex:modelName "Carbon Road Pro #049" ;
+    ex:hasPart ex:wheel_097, ex:wheel_098 .
+
+ex:wheel_099 a ex:Wheel ;
+    ex:partId "PRT-W-0099" ;
+    ex:partSerialNum "SN-WHL-B-00099" .
+
+ex:wheel_100 a ex:Wheel ;
+    ex:partId "PRT-W-0100" ;
+    ex:partSerialNum "SN-WHL-B-00100" .
+
+ex:bicycle_050 a ex:Bicycle ;
+    ex:vehicleId "VEH-BIKE-050" ;
+    ex:modelName "Carbon Road Pro #050" ;
+    ex:hasPart ex:wheel_099, ex:wheel_100 .
+
+ex:wheel_101 a ex:Wheel ;
+    ex:partId "PRT-W-0101" ;
+    ex:partSerialNum "SN-WHL-C-00101" .
+
+ex:wheel_102 a ex:Wheel ;
+    ex:partId "PRT-W-0102" ;
+    ex:partSerialNum "SN-WHL-C-00102" .
+
+ex:wheel_103 a ex:Wheel ;
+    ex:partId "PRT-W-0103" ;
+    ex:partSerialNum "SN-WHL-C-00103" .
+
+ex:wheel_104 a ex:Wheel ;
+    ex:partId "PRT-W-0104" ;
+    ex:partSerialNum "SN-WHL-C-00104" .
+
+ex:engine_001 a ex:Engine ;
+    ex:partId "PRT-ENG-0001" ;
+    ex:partSerialNum "SN-ENG-V8-00001" .
+
+ex:car_001 a ex:Car ;
+    ex:vehicleId "VEH-CAR-001" ;
+    ex:modelName "Gran Turismo EV #001" ;
+    ex:hasPart ex:wheel_101, ex:wheel_102, ex:wheel_103, ex:wheel_104, ex:engine_001 .
+
+ex:wheel_105 a ex:Wheel ;
+    ex:partId "PRT-W-0105" ;
+    ex:partSerialNum "SN-WHL-C-00105" .
+
+ex:wheel_106 a ex:Wheel ;
+    ex:partId "PRT-W-0106" ;
+    ex:partSerialNum "SN-WHL-C-00106" .
+
+ex:wheel_107 a ex:Wheel ;
+    ex:partId "PRT-W-0107" ;
+    ex:partSerialNum "SN-WHL-C-00107" .
+
+ex:wheel_108 a ex:Wheel ;
+    ex:partId "PRT-W-0108" ;
+    ex:partSerialNum "SN-WHL-C-00108" .
+
+ex:engine_002 a ex:Engine ;
+    ex:partId "PRT-ENG-0002" ;
+    ex:partSerialNum "SN-ENG-V8-00002" .
+
+ex:car_002 a ex:Car ;
+    ex:vehicleId "VEH-CAR-002" ;
+    ex:modelName "Gran Turismo EV #002" ;
+    ex:hasPart ex:wheel_105, ex:wheel_106, ex:wheel_107, ex:wheel_108, ex:engine_002 .
+
+ex:wheel_109 a ex:Wheel ;
+    ex:partId "PRT-W-0109" ;
+    ex:partSerialNum "SN-WHL-C-00109" .
+
+ex:wheel_110 a ex:Wheel ;
+    ex:partId "PRT-W-0110" ;
+    ex:partSerialNum "SN-WHL-C-00110" .
+
+ex:wheel_111 a ex:Wheel ;
+    ex:partId "PRT-W-0111" ;
+    ex:partSerialNum "SN-WHL-C-00111" .
+
+ex:wheel_112 a ex:Wheel ;
+    ex:partId "PRT-W-0112" ;
+    ex:partSerialNum "SN-WHL-C-00112" .
+
+ex:engine_003 a ex:Engine ;
+    ex:partId "PRT-ENG-0003" ;
+    ex:partSerialNum "SN-ENG-V8-00003" .
+
+ex:car_003 a ex:Car ;
+    ex:vehicleId "VEH-CAR-003" ;
+    ex:modelName "Gran Turismo EV #003" ;
+    ex:hasPart ex:wheel_109, ex:wheel_110, ex:wheel_111, ex:wheel_112, ex:engine_003 .
+
+ex:wheel_113 a ex:Wheel ;
+    ex:partId "PRT-W-0113" ;
+    ex:partSerialNum "SN-WHL-C-00113" .
+
+ex:wheel_114 a ex:Wheel ;
+    ex:partId "PRT-W-0114" ;
+    ex:partSerialNum "SN-WHL-C-00114" .
+
+ex:wheel_115 a ex:Wheel ;
+    ex:partId "PRT-W-0115" ;
+    ex:partSerialNum "SN-WHL-C-00115" .
+
+ex:wheel_116 a ex:Wheel ;
+    ex:partId "PRT-W-0116" ;
+    ex:partSerialNum "SN-WHL-C-00116" .
+
+ex:engine_004 a ex:Engine ;
+    ex:partId "PRT-ENG-0004" ;
+    ex:partSerialNum "SN-ENG-V8-00004" .
+
+ex:car_004 a ex:Car ;
+    ex:vehicleId "VEH-CAR-004" ;
+    ex:modelName "Gran Turismo EV #004" ;
+    ex:hasPart ex:wheel_113, ex:wheel_114, ex:wheel_115, ex:wheel_116, ex:engine_004 .
+
+ex:wheel_117 a ex:Wheel ;
+    ex:partId "PRT-W-0117" ;
+    ex:partSerialNum "SN-WHL-C-00117" .
+
+ex:wheel_118 a ex:Wheel ;
+    ex:partId "PRT-W-0118" ;
+    ex:partSerialNum "SN-WHL-C-00118" .
+
+ex:wheel_119 a ex:Wheel ;
+    ex:partId "PRT-W-0119" ;
+    ex:partSerialNum "SN-WHL-C-00119" .
+
+ex:wheel_120 a ex:Wheel ;
+    ex:partId "PRT-W-0120" ;
+    ex:partSerialNum "SN-WHL-C-00120" .
+
+ex:engine_005 a ex:Engine ;
+    ex:partId "PRT-ENG-0005" ;
+    ex:partSerialNum "SN-ENG-V8-00005" .
+
+ex:car_005 a ex:Car ;
+    ex:vehicleId "VEH-CAR-005" ;
+    ex:modelName "Gran Turismo EV #005" ;
+    ex:hasPart ex:wheel_117, ex:wheel_118, ex:wheel_119, ex:wheel_120, ex:engine_005 .
+
+ex:wheel_121 a ex:Wheel ;
+    ex:partId "PRT-W-0121" ;
+    ex:partSerialNum "SN-WHL-C-00121" .
+
+ex:wheel_122 a ex:Wheel ;
+    ex:partId "PRT-W-0122" ;
+    ex:partSerialNum "SN-WHL-C-00122" .
+
+ex:wheel_123 a ex:Wheel ;
+    ex:partId "PRT-W-0123" ;
+    ex:partSerialNum "SN-WHL-C-00123" .
+
+ex:wheel_124 a ex:Wheel ;
+    ex:partId "PRT-W-0124" ;
+    ex:partSerialNum "SN-WHL-C-00124" .
+
+ex:engine_006 a ex:Engine ;
+    ex:partId "PRT-ENG-0006" ;
+    ex:partSerialNum "SN-ENG-V8-00006" .
+
+ex:car_006 a ex:Car ;
+    ex:vehicleId "VEH-CAR-006" ;
+    ex:modelName "Gran Turismo EV #006" ;
+    ex:hasPart ex:wheel_121, ex:wheel_122, ex:wheel_123, ex:wheel_124, ex:engine_006 .
+
+ex:wheel_125 a ex:Wheel ;
+    ex:partId "PRT-W-0125" ;
+    ex:partSerialNum "SN-WHL-C-00125" .
+
+ex:wheel_126 a ex:Wheel ;
+    ex:partId "PRT-W-0126" ;
+    ex:partSerialNum "SN-WHL-C-00126" .
+
+ex:wheel_127 a ex:Wheel ;
+    ex:partId "PRT-W-0127" ;
+    ex:partSerialNum "SN-WHL-C-00127" .
+
+ex:wheel_128 a ex:Wheel ;
+    ex:partId "PRT-W-0128" ;
+    ex:partSerialNum "SN-WHL-C-00128" .
+
+ex:engine_007 a ex:Engine ;
+    ex:partId "PRT-ENG-0007" ;
+    ex:partSerialNum "SN-ENG-V8-00007" .
+
+ex:car_007 a ex:Car ;
+    ex:vehicleId "VEH-CAR-007" ;
+    ex:modelName "Gran Turismo EV #007" ;
+    ex:hasPart ex:wheel_125, ex:wheel_126, ex:wheel_127, ex:wheel_128, ex:engine_007 .
+
+ex:wheel_129 a ex:Wheel ;
+    ex:partId "PRT-W-0129" ;
+    ex:partSerialNum "SN-WHL-C-00129" .
+
+ex:wheel_130 a ex:Wheel ;
+    ex:partId "PRT-W-0130" ;
+    ex:partSerialNum "SN-WHL-C-00130" .
+
+ex:wheel_131 a ex:Wheel ;
+    ex:partId "PRT-W-0131" ;
+    ex:partSerialNum "SN-WHL-C-00131" .
+
+ex:wheel_132 a ex:Wheel ;
+    ex:partId "PRT-W-0132" ;
+    ex:partSerialNum "SN-WHL-C-00132" .
+
+ex:engine_008 a ex:Engine ;
+    ex:partId "PRT-ENG-0008" ;
+    ex:partSerialNum "SN-ENG-V8-00008" .
+
+ex:car_008 a ex:Car ;
+    ex:vehicleId "VEH-CAR-008" ;
+    ex:modelName "Gran Turismo EV #008" ;
+    ex:hasPart ex:wheel_129, ex:wheel_130, ex:wheel_131, ex:wheel_132, ex:engine_008 .
+
+ex:wheel_133 a ex:Wheel ;
+    ex:partId "PRT-W-0133" ;
+    ex:partSerialNum "SN-WHL-C-00133" .
+
+ex:wheel_134 a ex:Wheel ;
+    ex:partId "PRT-W-0134" ;
+    ex:partSerialNum "SN-WHL-C-00134" .
+
+ex:wheel_135 a ex:Wheel ;
+    ex:partId "PRT-W-0135" ;
+    ex:partSerialNum "SN-WHL-C-00135" .
+
+ex:wheel_136 a ex:Wheel ;
+    ex:partId "PRT-W-0136" ;
+    ex:partSerialNum "SN-WHL-C-00136" .
+
+ex:engine_009 a ex:Engine ;
+    ex:partId "PRT-ENG-0009" ;
+    ex:partSerialNum "SN-ENG-V8-00009" .
+
+ex:car_009 a ex:Car ;
+    ex:vehicleId "VEH-CAR-009" ;
+    ex:modelName "Gran Turismo EV #009" ;
+    ex:hasPart ex:wheel_133, ex:wheel_134, ex:wheel_135, ex:wheel_136, ex:engine_009 .
+
+ex:wheel_137 a ex:Wheel ;
+    ex:partId "PRT-W-0137" ;
+    ex:partSerialNum "SN-WHL-C-00137" .
+
+ex:wheel_138 a ex:Wheel ;
+    ex:partId "PRT-W-0138" ;
+    ex:partSerialNum "SN-WHL-C-00138" .
+
+ex:wheel_139 a ex:Wheel ;
+    ex:partId "PRT-W-0139" ;
+    ex:partSerialNum "SN-WHL-C-00139" .
+
+ex:wheel_140 a ex:Wheel ;
+    ex:partId "PRT-W-0140" ;
+    ex:partSerialNum "SN-WHL-C-00140" .
+
+ex:engine_010 a ex:Engine ;
+    ex:partId "PRT-ENG-0010" ;
+    ex:partSerialNum "SN-ENG-V8-00010" .
+
+ex:car_010 a ex:Car ;
+    ex:vehicleId "VEH-CAR-010" ;
+    ex:modelName "Gran Turismo EV #010" ;
+    ex:hasPart ex:wheel_137, ex:wheel_138, ex:wheel_139, ex:wheel_140, ex:engine_010 .
+
+ex:wheel_141 a ex:Wheel ;
+    ex:partId "PRT-W-0141" ;
+    ex:partSerialNum "SN-WHL-C-00141" .
+
+ex:wheel_142 a ex:Wheel ;
+    ex:partId "PRT-W-0142" ;
+    ex:partSerialNum "SN-WHL-C-00142" .
+
+ex:wheel_143 a ex:Wheel ;
+    ex:partId "PRT-W-0143" ;
+    ex:partSerialNum "SN-WHL-C-00143" .
+
+ex:wheel_144 a ex:Wheel ;
+    ex:partId "PRT-W-0144" ;
+    ex:partSerialNum "SN-WHL-C-00144" .
+
+ex:engine_011 a ex:Engine ;
+    ex:partId "PRT-ENG-0011" ;
+    ex:partSerialNum "SN-ENG-V8-00011" .
+
+ex:car_011 a ex:Car ;
+    ex:vehicleId "VEH-CAR-011" ;
+    ex:modelName "Gran Turismo EV #011" ;
+    ex:hasPart ex:wheel_141, ex:wheel_142, ex:wheel_143, ex:wheel_144, ex:engine_011 .
+
+ex:wheel_145 a ex:Wheel ;
+    ex:partId "PRT-W-0145" ;
+    ex:partSerialNum "SN-WHL-C-00145" .
+
+ex:wheel_146 a ex:Wheel ;
+    ex:partId "PRT-W-0146" ;
+    ex:partSerialNum "SN-WHL-C-00146" .
+
+ex:wheel_147 a ex:Wheel ;
+    ex:partId "PRT-W-0147" ;
+    ex:partSerialNum "SN-WHL-C-00147" .
+
+ex:wheel_148 a ex:Wheel ;
+    ex:partId "PRT-W-0148" ;
+    ex:partSerialNum "SN-WHL-C-00148" .
+
+ex:engine_012 a ex:Engine ;
+    ex:partId "PRT-ENG-0012" ;
+    ex:partSerialNum "SN-ENG-V8-00012" .
+
+ex:car_012 a ex:Car ;
+    ex:vehicleId "VEH-CAR-012" ;
+    ex:modelName "Gran Turismo EV #012" ;
+    ex:hasPart ex:wheel_145, ex:wheel_146, ex:wheel_147, ex:wheel_148, ex:engine_012 .
+
+ex:wheel_149 a ex:Wheel ;
+    ex:partId "PRT-W-0149" ;
+    ex:partSerialNum "SN-WHL-C-00149" .
+
+ex:wheel_150 a ex:Wheel ;
+    ex:partId "PRT-W-0150" ;
+    ex:partSerialNum "SN-WHL-C-00150" .
+
+ex:wheel_151 a ex:Wheel ;
+    ex:partId "PRT-W-0151" ;
+    ex:partSerialNum "SN-WHL-C-00151" .
+
+ex:wheel_152 a ex:Wheel ;
+    ex:partId "PRT-W-0152" ;
+    ex:partSerialNum "SN-WHL-C-00152" .
+
+ex:engine_013 a ex:Engine ;
+    ex:partId "PRT-ENG-0013" ;
+    ex:partSerialNum "SN-ENG-V8-00013" .
+
+ex:car_013 a ex:Car ;
+    ex:vehicleId "VEH-CAR-013" ;
+    ex:modelName "Gran Turismo EV #013" ;
+    ex:hasPart ex:wheel_149, ex:wheel_150, ex:wheel_151, ex:wheel_152, ex:engine_013 .
+
+ex:wheel_153 a ex:Wheel ;
+    ex:partId "PRT-W-0153" ;
+    ex:partSerialNum "SN-WHL-C-00153" .
+
+ex:wheel_154 a ex:Wheel ;
+    ex:partId "PRT-W-0154" ;
+    ex:partSerialNum "SN-WHL-C-00154" .
+
+ex:wheel_155 a ex:Wheel ;
+    ex:partId "PRT-W-0155" ;
+    ex:partSerialNum "SN-WHL-C-00155" .
+
+ex:wheel_156 a ex:Wheel ;
+    ex:partId "PRT-W-0156" ;
+    ex:partSerialNum "SN-WHL-C-00156" .
+
+ex:engine_014 a ex:Engine ;
+    ex:partId "PRT-ENG-0014" ;
+    ex:partSerialNum "SN-ENG-V8-00014" .
+
+ex:car_014 a ex:Car ;
+    ex:vehicleId "VEH-CAR-014" ;
+    ex:modelName "Gran Turismo EV #014" ;
+    ex:hasPart ex:wheel_153, ex:wheel_154, ex:wheel_155, ex:wheel_156, ex:engine_014 .
+
+ex:wheel_157 a ex:Wheel ;
+    ex:partId "PRT-W-0157" ;
+    ex:partSerialNum "SN-WHL-C-00157" .
+
+ex:wheel_158 a ex:Wheel ;
+    ex:partId "PRT-W-0158" ;
+    ex:partSerialNum "SN-WHL-C-00158" .
+
+ex:wheel_159 a ex:Wheel ;
+    ex:partId "PRT-W-0159" ;
+    ex:partSerialNum "SN-WHL-C-00159" .
+
+ex:wheel_160 a ex:Wheel ;
+    ex:partId "PRT-W-0160" ;
+    ex:partSerialNum "SN-WHL-C-00160" .
+
+ex:engine_015 a ex:Engine ;
+    ex:partId "PRT-ENG-0015" ;
+    ex:partSerialNum "SN-ENG-V8-00015" .
+
+ex:car_015 a ex:Car ;
+    ex:vehicleId "VEH-CAR-015" ;
+    ex:modelName "Gran Turismo EV #015" ;
+    ex:hasPart ex:wheel_157, ex:wheel_158, ex:wheel_159, ex:wheel_160, ex:engine_015 .
+
+ex:wheel_161 a ex:Wheel ;
+    ex:partId "PRT-W-0161" ;
+    ex:partSerialNum "SN-WHL-C-00161" .
+
+ex:wheel_162 a ex:Wheel ;
+    ex:partId "PRT-W-0162" ;
+    ex:partSerialNum "SN-WHL-C-00162" .
+
+ex:wheel_163 a ex:Wheel ;
+    ex:partId "PRT-W-0163" ;
+    ex:partSerialNum "SN-WHL-C-00163" .
+
+ex:wheel_164 a ex:Wheel ;
+    ex:partId "PRT-W-0164" ;
+    ex:partSerialNum "SN-WHL-C-00164" .
+
+ex:engine_016 a ex:Engine ;
+    ex:partId "PRT-ENG-0016" ;
+    ex:partSerialNum "SN-ENG-V8-00016" .
+
+ex:car_016 a ex:Car ;
+    ex:vehicleId "VEH-CAR-016" ;
+    ex:modelName "Gran Turismo EV #016" ;
+    ex:hasPart ex:wheel_161, ex:wheel_162, ex:wheel_163, ex:wheel_164, ex:engine_016 .
+
+ex:wheel_165 a ex:Wheel ;
+    ex:partId "PRT-W-0165" ;
+    ex:partSerialNum "SN-WHL-C-00165" .
+
+ex:wheel_166 a ex:Wheel ;
+    ex:partId "PRT-W-0166" ;
+    ex:partSerialNum "SN-WHL-C-00166" .
+
+ex:wheel_167 a ex:Wheel ;
+    ex:partId "PRT-W-0167" ;
+    ex:partSerialNum "SN-WHL-C-00167" .
+
+ex:wheel_168 a ex:Wheel ;
+    ex:partId "PRT-W-0168" ;
+    ex:partSerialNum "SN-WHL-C-00168" .
+
+ex:engine_017 a ex:Engine ;
+    ex:partId "PRT-ENG-0017" ;
+    ex:partSerialNum "SN-ENG-V8-00017" .
+
+ex:car_017 a ex:Car ;
+    ex:vehicleId "VEH-CAR-017" ;
+    ex:modelName "Gran Turismo EV #017" ;
+    ex:hasPart ex:wheel_165, ex:wheel_166, ex:wheel_167, ex:wheel_168, ex:engine_017 .
+
+ex:wheel_169 a ex:Wheel ;
+    ex:partId "PRT-W-0169" ;
+    ex:partSerialNum "SN-WHL-C-00169" .
+
+ex:wheel_170 a ex:Wheel ;
+    ex:partId "PRT-W-0170" ;
+    ex:partSerialNum "SN-WHL-C-00170" .
+
+ex:wheel_171 a ex:Wheel ;
+    ex:partId "PRT-W-0171" ;
+    ex:partSerialNum "SN-WHL-C-00171" .
+
+ex:wheel_172 a ex:Wheel ;
+    ex:partId "PRT-W-0172" ;
+    ex:partSerialNum "SN-WHL-C-00172" .
+
+ex:engine_018 a ex:Engine ;
+    ex:partId "PRT-ENG-0018" ;
+    ex:partSerialNum "SN-ENG-V8-00018" .
+
+ex:car_018 a ex:Car ;
+    ex:vehicleId "VEH-CAR-018" ;
+    ex:modelName "Gran Turismo EV #018" ;
+    ex:hasPart ex:wheel_169, ex:wheel_170, ex:wheel_171, ex:wheel_172, ex:engine_018 .
+
+ex:wheel_173 a ex:Wheel ;
+    ex:partId "PRT-W-0173" ;
+    ex:partSerialNum "SN-WHL-C-00173" .
+
+ex:wheel_174 a ex:Wheel ;
+    ex:partId "PRT-W-0174" ;
+    ex:partSerialNum "SN-WHL-C-00174" .
+
+ex:wheel_175 a ex:Wheel ;
+    ex:partId "PRT-W-0175" ;
+    ex:partSerialNum "SN-WHL-C-00175" .
+
+ex:wheel_176 a ex:Wheel ;
+    ex:partId "PRT-W-0176" ;
+    ex:partSerialNum "SN-WHL-C-00176" .
+
+ex:engine_019 a ex:Engine ;
+    ex:partId "PRT-ENG-0019" ;
+    ex:partSerialNum "SN-ENG-V8-00019" .
+
+ex:car_019 a ex:Car ;
+    ex:vehicleId "VEH-CAR-019" ;
+    ex:modelName "Gran Turismo EV #019" ;
+    ex:hasPart ex:wheel_173, ex:wheel_174, ex:wheel_175, ex:wheel_176, ex:engine_019 .
+
+ex:wheel_177 a ex:Wheel ;
+    ex:partId "PRT-W-0177" ;
+    ex:partSerialNum "SN-WHL-C-00177" .
+
+ex:wheel_178 a ex:Wheel ;
+    ex:partId "PRT-W-0178" ;
+    ex:partSerialNum "SN-WHL-C-00178" .
+
+ex:wheel_179 a ex:Wheel ;
+    ex:partId "PRT-W-0179" ;
+    ex:partSerialNum "SN-WHL-C-00179" .
+
+ex:wheel_180 a ex:Wheel ;
+    ex:partId "PRT-W-0180" ;
+    ex:partSerialNum "SN-WHL-C-00180" .
+
+ex:engine_020 a ex:Engine ;
+    ex:partId "PRT-ENG-0020" ;
+    ex:partSerialNum "SN-ENG-V8-00020" .
+
+ex:car_020 a ex:Car ;
+    ex:vehicleId "VEH-CAR-020" ;
+    ex:modelName "Gran Turismo EV #020" ;
+    ex:hasPart ex:wheel_177, ex:wheel_178, ex:wheel_179, ex:wheel_180, ex:engine_020 .
+
+ex:wheel_181 a ex:Wheel ;
+    ex:partId "PRT-W-0181" ;
+    ex:partSerialNum "SN-WHL-C-00181" .
+
+ex:wheel_182 a ex:Wheel ;
+    ex:partId "PRT-W-0182" ;
+    ex:partSerialNum "SN-WHL-C-00182" .
+
+ex:wheel_183 a ex:Wheel ;
+    ex:partId "PRT-W-0183" ;
+    ex:partSerialNum "SN-WHL-C-00183" .
+
+ex:wheel_184 a ex:Wheel ;
+    ex:partId "PRT-W-0184" ;
+    ex:partSerialNum "SN-WHL-C-00184" .
+
+ex:engine_021 a ex:Engine ;
+    ex:partId "PRT-ENG-0021" ;
+    ex:partSerialNum "SN-ENG-V8-00021" .
+
+ex:car_021 a ex:Car ;
+    ex:vehicleId "VEH-CAR-021" ;
+    ex:modelName "Gran Turismo EV #021" ;
+    ex:hasPart ex:wheel_181, ex:wheel_182, ex:wheel_183, ex:wheel_184, ex:engine_021 .
+
+ex:wheel_185 a ex:Wheel ;
+    ex:partId "PRT-W-0185" ;
+    ex:partSerialNum "SN-WHL-C-00185" .
+
+ex:wheel_186 a ex:Wheel ;
+    ex:partId "PRT-W-0186" ;
+    ex:partSerialNum "SN-WHL-C-00186" .
+
+ex:wheel_187 a ex:Wheel ;
+    ex:partId "PRT-W-0187" ;
+    ex:partSerialNum "SN-WHL-C-00187" .
+
+ex:wheel_188 a ex:Wheel ;
+    ex:partId "PRT-W-0188" ;
+    ex:partSerialNum "SN-WHL-C-00188" .
+
+ex:engine_022 a ex:Engine ;
+    ex:partId "PRT-ENG-0022" ;
+    ex:partSerialNum "SN-ENG-V8-00022" .
+
+ex:car_022 a ex:Car ;
+    ex:vehicleId "VEH-CAR-022" ;
+    ex:modelName "Gran Turismo EV #022" ;
+    ex:hasPart ex:wheel_185, ex:wheel_186, ex:wheel_187, ex:wheel_188, ex:engine_022 .
+
+ex:wheel_189 a ex:Wheel ;
+    ex:partId "PRT-W-0189" ;
+    ex:partSerialNum "SN-WHL-C-00189" .
+
+ex:wheel_190 a ex:Wheel ;
+    ex:partId "PRT-W-0190" ;
+    ex:partSerialNum "SN-WHL-C-00190" .
+
+ex:wheel_191 a ex:Wheel ;
+    ex:partId "PRT-W-0191" ;
+    ex:partSerialNum "SN-WHL-C-00191" .
+
+ex:wheel_192 a ex:Wheel ;
+    ex:partId "PRT-W-0192" ;
+    ex:partSerialNum "SN-WHL-C-00192" .
+
+ex:engine_023 a ex:Engine ;
+    ex:partId "PRT-ENG-0023" ;
+    ex:partSerialNum "SN-ENG-V8-00023" .
+
+ex:car_023 a ex:Car ;
+    ex:vehicleId "VEH-CAR-023" ;
+    ex:modelName "Gran Turismo EV #023" ;
+    ex:hasPart ex:wheel_189, ex:wheel_190, ex:wheel_191, ex:wheel_192, ex:engine_023 .
+
+ex:wheel_193 a ex:Wheel ;
+    ex:partId "PRT-W-0193" ;
+    ex:partSerialNum "SN-WHL-C-00193" .
+
+ex:wheel_194 a ex:Wheel ;
+    ex:partId "PRT-W-0194" ;
+    ex:partSerialNum "SN-WHL-C-00194" .
+
+ex:wheel_195 a ex:Wheel ;
+    ex:partId "PRT-W-0195" ;
+    ex:partSerialNum "SN-WHL-C-00195" .
+
+ex:wheel_196 a ex:Wheel ;
+    ex:partId "PRT-W-0196" ;
+    ex:partSerialNum "SN-WHL-C-00196" .
+
+ex:engine_024 a ex:Engine ;
+    ex:partId "PRT-ENG-0024" ;
+    ex:partSerialNum "SN-ENG-V8-00024" .
+
+ex:car_024 a ex:Car ;
+    ex:vehicleId "VEH-CAR-024" ;
+    ex:modelName "Gran Turismo EV #024" ;
+    ex:hasPart ex:wheel_193, ex:wheel_194, ex:wheel_195, ex:wheel_196, ex:engine_024 .
+
+ex:wheel_197 a ex:Wheel ;
+    ex:partId "PRT-W-0197" ;
+    ex:partSerialNum "SN-WHL-C-00197" .
+
+ex:wheel_198 a ex:Wheel ;
+    ex:partId "PRT-W-0198" ;
+    ex:partSerialNum "SN-WHL-C-00198" .
+
+ex:wheel_199 a ex:Wheel ;
+    ex:partId "PRT-W-0199" ;
+    ex:partSerialNum "SN-WHL-C-00199" .
+
+ex:wheel_200 a ex:Wheel ;
+    ex:partId "PRT-W-0200" ;
+    ex:partSerialNum "SN-WHL-C-00200" .
+
+ex:engine_025 a ex:Engine ;
+    ex:partId "PRT-ENG-0025" ;
+    ex:partSerialNum "SN-ENG-V8-00025" .
+
+ex:car_025 a ex:Car ;
+    ex:vehicleId "VEH-CAR-025" ;
+    ex:modelName "Gran Turismo EV #025" ;
+    ex:hasPart ex:wheel_197, ex:wheel_198, ex:wheel_199, ex:wheel_200, ex:engine_025 .
+
+ex:wheel_201 a ex:Wheel ;
+    ex:partId "PRT-W-0201" ;
+    ex:partSerialNum "SN-WHL-C-00201" .
+
+ex:wheel_202 a ex:Wheel ;
+    ex:partId "PRT-W-0202" ;
+    ex:partSerialNum "SN-WHL-C-00202" .
+
+ex:wheel_203 a ex:Wheel ;
+    ex:partId "PRT-W-0203" ;
+    ex:partSerialNum "SN-WHL-C-00203" .
+
+ex:wheel_204 a ex:Wheel ;
+    ex:partId "PRT-W-0204" ;
+    ex:partSerialNum "SN-WHL-C-00204" .
+
+ex:engine_026 a ex:Engine ;
+    ex:partId "PRT-ENG-0026" ;
+    ex:partSerialNum "SN-ENG-V8-00026" .
+
+ex:car_026 a ex:Car ;
+    ex:vehicleId "VEH-CAR-026" ;
+    ex:modelName "Gran Turismo EV #026" ;
+    ex:hasPart ex:wheel_201, ex:wheel_202, ex:wheel_203, ex:wheel_204, ex:engine_026 .
+
+ex:wheel_205 a ex:Wheel ;
+    ex:partId "PRT-W-0205" ;
+    ex:partSerialNum "SN-WHL-C-00205" .
+
+ex:wheel_206 a ex:Wheel ;
+    ex:partId "PRT-W-0206" ;
+    ex:partSerialNum "SN-WHL-C-00206" .
+
+ex:wheel_207 a ex:Wheel ;
+    ex:partId "PRT-W-0207" ;
+    ex:partSerialNum "SN-WHL-C-00207" .
+
+ex:wheel_208 a ex:Wheel ;
+    ex:partId "PRT-W-0208" ;
+    ex:partSerialNum "SN-WHL-C-00208" .
+
+ex:engine_027 a ex:Engine ;
+    ex:partId "PRT-ENG-0027" ;
+    ex:partSerialNum "SN-ENG-V8-00027" .
+
+ex:car_027 a ex:Car ;
+    ex:vehicleId "VEH-CAR-027" ;
+    ex:modelName "Gran Turismo EV #027" ;
+    ex:hasPart ex:wheel_205, ex:wheel_206, ex:wheel_207, ex:wheel_208, ex:engine_027 .
+
+ex:wheel_209 a ex:Wheel ;
+    ex:partId "PRT-W-0209" ;
+    ex:partSerialNum "SN-WHL-C-00209" .
+
+ex:wheel_210 a ex:Wheel ;
+    ex:partId "PRT-W-0210" ;
+    ex:partSerialNum "SN-WHL-C-00210" .
+
+ex:wheel_211 a ex:Wheel ;
+    ex:partId "PRT-W-0211" ;
+    ex:partSerialNum "SN-WHL-C-00211" .
+
+ex:wheel_212 a ex:Wheel ;
+    ex:partId "PRT-W-0212" ;
+    ex:partSerialNum "SN-WHL-C-00212" .
+
+ex:engine_028 a ex:Engine ;
+    ex:partId "PRT-ENG-0028" ;
+    ex:partSerialNum "SN-ENG-V8-00028" .
+
+ex:car_028 a ex:Car ;
+    ex:vehicleId "VEH-CAR-028" ;
+    ex:modelName "Gran Turismo EV #028" ;
+    ex:hasPart ex:wheel_209, ex:wheel_210, ex:wheel_211, ex:wheel_212, ex:engine_028 .
+
+ex:wheel_213 a ex:Wheel ;
+    ex:partId "PRT-W-0213" ;
+    ex:partSerialNum "SN-WHL-C-00213" .
+
+ex:wheel_214 a ex:Wheel ;
+    ex:partId "PRT-W-0214" ;
+    ex:partSerialNum "SN-WHL-C-00214" .
+
+ex:wheel_215 a ex:Wheel ;
+    ex:partId "PRT-W-0215" ;
+    ex:partSerialNum "SN-WHL-C-00215" .
+
+ex:wheel_216 a ex:Wheel ;
+    ex:partId "PRT-W-0216" ;
+    ex:partSerialNum "SN-WHL-C-00216" .
+
+ex:engine_029 a ex:Engine ;
+    ex:partId "PRT-ENG-0029" ;
+    ex:partSerialNum "SN-ENG-V8-00029" .
+
+ex:car_029 a ex:Car ;
+    ex:vehicleId "VEH-CAR-029" ;
+    ex:modelName "Gran Turismo EV #029" ;
+    ex:hasPart ex:wheel_213, ex:wheel_214, ex:wheel_215, ex:wheel_216, ex:engine_029 .
+
+ex:wheel_217 a ex:Wheel ;
+    ex:partId "PRT-W-0217" ;
+    ex:partSerialNum "SN-WHL-C-00217" .
+
+ex:wheel_218 a ex:Wheel ;
+    ex:partId "PRT-W-0218" ;
+    ex:partSerialNum "SN-WHL-C-00218" .
+
+ex:wheel_219 a ex:Wheel ;
+    ex:partId "PRT-W-0219" ;
+    ex:partSerialNum "SN-WHL-C-00219" .
+
+ex:wheel_220 a ex:Wheel ;
+    ex:partId "PRT-W-0220" ;
+    ex:partSerialNum "SN-WHL-C-00220" .
+
+ex:engine_030 a ex:Engine ;
+    ex:partId "PRT-ENG-0030" ;
+    ex:partSerialNum "SN-ENG-V8-00030" .
+
+ex:car_030 a ex:Car ;
+    ex:vehicleId "VEH-CAR-030" ;
+    ex:modelName "Gran Turismo EV #030" ;
+    ex:hasPart ex:wheel_217, ex:wheel_218, ex:wheel_219, ex:wheel_220, ex:engine_030 .
+
+ex:wheel_221 a ex:Wheel ;
+    ex:partId "PRT-W-0221" ;
+    ex:partSerialNum "SN-WHL-C-00221" .
+
+ex:wheel_222 a ex:Wheel ;
+    ex:partId "PRT-W-0222" ;
+    ex:partSerialNum "SN-WHL-C-00222" .
+
+ex:wheel_223 a ex:Wheel ;
+    ex:partId "PRT-W-0223" ;
+    ex:partSerialNum "SN-WHL-C-00223" .
+
+ex:wheel_224 a ex:Wheel ;
+    ex:partId "PRT-W-0224" ;
+    ex:partSerialNum "SN-WHL-C-00224" .
+
+ex:engine_031 a ex:Engine ;
+    ex:partId "PRT-ENG-0031" ;
+    ex:partSerialNum "SN-ENG-V8-00031" .
+
+ex:car_031 a ex:Car ;
+    ex:vehicleId "VEH-CAR-031" ;
+    ex:modelName "Gran Turismo EV #031" ;
+    ex:hasPart ex:wheel_221, ex:wheel_222, ex:wheel_223, ex:wheel_224, ex:engine_031 .
+
+ex:wheel_225 a ex:Wheel ;
+    ex:partId "PRT-W-0225" ;
+    ex:partSerialNum "SN-WHL-C-00225" .
+
+ex:wheel_226 a ex:Wheel ;
+    ex:partId "PRT-W-0226" ;
+    ex:partSerialNum "SN-WHL-C-00226" .
+
+ex:wheel_227 a ex:Wheel ;
+    ex:partId "PRT-W-0227" ;
+    ex:partSerialNum "SN-WHL-C-00227" .
+
+ex:wheel_228 a ex:Wheel ;
+    ex:partId "PRT-W-0228" ;
+    ex:partSerialNum "SN-WHL-C-00228" .
+
+ex:engine_032 a ex:Engine ;
+    ex:partId "PRT-ENG-0032" ;
+    ex:partSerialNum "SN-ENG-V8-00032" .
+
+ex:car_032 a ex:Car ;
+    ex:vehicleId "VEH-CAR-032" ;
+    ex:modelName "Gran Turismo EV #032" ;
+    ex:hasPart ex:wheel_225, ex:wheel_226, ex:wheel_227, ex:wheel_228, ex:engine_032 .
+
+ex:wheel_229 a ex:Wheel ;
+    ex:partId "PRT-W-0229" ;
+    ex:partSerialNum "SN-WHL-C-00229" .
+
+ex:wheel_230 a ex:Wheel ;
+    ex:partId "PRT-W-0230" ;
+    ex:partSerialNum "SN-WHL-C-00230" .
+
+ex:wheel_231 a ex:Wheel ;
+    ex:partId "PRT-W-0231" ;
+    ex:partSerialNum "SN-WHL-C-00231" .
+
+ex:wheel_232 a ex:Wheel ;
+    ex:partId "PRT-W-0232" ;
+    ex:partSerialNum "SN-WHL-C-00232" .
+
+ex:engine_033 a ex:Engine ;
+    ex:partId "PRT-ENG-0033" ;
+    ex:partSerialNum "SN-ENG-V8-00033" .
+
+ex:car_033 a ex:Car ;
+    ex:vehicleId "VEH-CAR-033" ;
+    ex:modelName "Gran Turismo EV #033" ;
+    ex:hasPart ex:wheel_229, ex:wheel_230, ex:wheel_231, ex:wheel_232, ex:engine_033 .
+
+ex:wheel_233 a ex:Wheel ;
+    ex:partId "PRT-W-0233" ;
+    ex:partSerialNum "SN-WHL-C-00233" .
+
+ex:wheel_234 a ex:Wheel ;
+    ex:partId "PRT-W-0234" ;
+    ex:partSerialNum "SN-WHL-C-00234" .
+
+ex:wheel_235 a ex:Wheel ;
+    ex:partId "PRT-W-0235" ;
+    ex:partSerialNum "SN-WHL-C-00235" .
+
+ex:wheel_236 a ex:Wheel ;
+    ex:partId "PRT-W-0236" ;
+    ex:partSerialNum "SN-WHL-C-00236" .
+
+ex:engine_034 a ex:Engine ;
+    ex:partId "PRT-ENG-0034" ;
+    ex:partSerialNum "SN-ENG-V8-00034" .
+
+ex:car_034 a ex:Car ;
+    ex:vehicleId "VEH-CAR-034" ;
+    ex:modelName "Gran Turismo EV #034" ;
+    ex:hasPart ex:wheel_233, ex:wheel_234, ex:wheel_235, ex:wheel_236, ex:engine_034 .
+
+ex:wheel_237 a ex:Wheel ;
+    ex:partId "PRT-W-0237" ;
+    ex:partSerialNum "SN-WHL-C-00237" .
+
+ex:wheel_238 a ex:Wheel ;
+    ex:partId "PRT-W-0238" ;
+    ex:partSerialNum "SN-WHL-C-00238" .
+
+ex:wheel_239 a ex:Wheel ;
+    ex:partId "PRT-W-0239" ;
+    ex:partSerialNum "SN-WHL-C-00239" .
+
+ex:wheel_240 a ex:Wheel ;
+    ex:partId "PRT-W-0240" ;
+    ex:partSerialNum "SN-WHL-C-00240" .
+
+ex:engine_035 a ex:Engine ;
+    ex:partId "PRT-ENG-0035" ;
+    ex:partSerialNum "SN-ENG-V8-00035" .
+
+ex:car_035 a ex:Car ;
+    ex:vehicleId "VEH-CAR-035" ;
+    ex:modelName "Gran Turismo EV #035" ;
+    ex:hasPart ex:wheel_237, ex:wheel_238, ex:wheel_239, ex:wheel_240, ex:engine_035 .
+
+ex:wheel_241 a ex:Wheel ;
+    ex:partId "PRT-W-0241" ;
+    ex:partSerialNum "SN-WHL-C-00241" .
+
+ex:wheel_242 a ex:Wheel ;
+    ex:partId "PRT-W-0242" ;
+    ex:partSerialNum "SN-WHL-C-00242" .
+
+ex:wheel_243 a ex:Wheel ;
+    ex:partId "PRT-W-0243" ;
+    ex:partSerialNum "SN-WHL-C-00243" .
+
+ex:wheel_244 a ex:Wheel ;
+    ex:partId "PRT-W-0244" ;
+    ex:partSerialNum "SN-WHL-C-00244" .
+
+ex:engine_036 a ex:Engine ;
+    ex:partId "PRT-ENG-0036" ;
+    ex:partSerialNum "SN-ENG-V8-00036" .
+
+ex:car_036 a ex:Car ;
+    ex:vehicleId "VEH-CAR-036" ;
+    ex:modelName "Gran Turismo EV #036" ;
+    ex:hasPart ex:wheel_241, ex:wheel_242, ex:wheel_243, ex:wheel_244, ex:engine_036 .
+
+ex:wheel_245 a ex:Wheel ;
+    ex:partId "PRT-W-0245" ;
+    ex:partSerialNum "SN-WHL-C-00245" .
+
+ex:wheel_246 a ex:Wheel ;
+    ex:partId "PRT-W-0246" ;
+    ex:partSerialNum "SN-WHL-C-00246" .
+
+ex:wheel_247 a ex:Wheel ;
+    ex:partId "PRT-W-0247" ;
+    ex:partSerialNum "SN-WHL-C-00247" .
+
+ex:wheel_248 a ex:Wheel ;
+    ex:partId "PRT-W-0248" ;
+    ex:partSerialNum "SN-WHL-C-00248" .
+
+ex:engine_037 a ex:Engine ;
+    ex:partId "PRT-ENG-0037" ;
+    ex:partSerialNum "SN-ENG-V8-00037" .
+
+ex:car_037 a ex:Car ;
+    ex:vehicleId "VEH-CAR-037" ;
+    ex:modelName "Gran Turismo EV #037" ;
+    ex:hasPart ex:wheel_245, ex:wheel_246, ex:wheel_247, ex:wheel_248, ex:engine_037 .
+
+ex:wheel_249 a ex:Wheel ;
+    ex:partId "PRT-W-0249" ;
+    ex:partSerialNum "SN-WHL-C-00249" .
+
+ex:wheel_250 a ex:Wheel ;
+    ex:partId "PRT-W-0250" ;
+    ex:partSerialNum "SN-WHL-C-00250" .
+
+ex:wheel_251 a ex:Wheel ;
+    ex:partId "PRT-W-0251" ;
+    ex:partSerialNum "SN-WHL-C-00251" .
+
+ex:wheel_252 a ex:Wheel ;
+    ex:partId "PRT-W-0252" ;
+    ex:partSerialNum "SN-WHL-C-00252" .
+
+ex:engine_038 a ex:Engine ;
+    ex:partId "PRT-ENG-0038" ;
+    ex:partSerialNum "SN-ENG-V8-00038" .
+
+ex:car_038 a ex:Car ;
+    ex:vehicleId "VEH-CAR-038" ;
+    ex:modelName "Gran Turismo EV #038" ;
+    ex:hasPart ex:wheel_249, ex:wheel_250, ex:wheel_251, ex:wheel_252, ex:engine_038 .
+
+ex:wheel_253 a ex:Wheel ;
+    ex:partId "PRT-W-0253" ;
+    ex:partSerialNum "SN-WHL-C-00253" .
+
+ex:wheel_254 a ex:Wheel ;
+    ex:partId "PRT-W-0254" ;
+    ex:partSerialNum "SN-WHL-C-00254" .
+
+ex:wheel_255 a ex:Wheel ;
+    ex:partId "PRT-W-0255" ;
+    ex:partSerialNum "SN-WHL-C-00255" .
+
+ex:wheel_256 a ex:Wheel ;
+    ex:partId "PRT-W-0256" ;
+    ex:partSerialNum "SN-WHL-C-00256" .
+
+ex:engine_039 a ex:Engine ;
+    ex:partId "PRT-ENG-0039" ;
+    ex:partSerialNum "SN-ENG-V8-00039" .
+
+ex:car_039 a ex:Car ;
+    ex:vehicleId "VEH-CAR-039" ;
+    ex:modelName "Gran Turismo EV #039" ;
+    ex:hasPart ex:wheel_253, ex:wheel_254, ex:wheel_255, ex:wheel_256, ex:engine_039 .
+
+ex:wheel_257 a ex:Wheel ;
+    ex:partId "PRT-W-0257" ;
+    ex:partSerialNum "SN-WHL-C-00257" .
+
+ex:wheel_258 a ex:Wheel ;
+    ex:partId "PRT-W-0258" ;
+    ex:partSerialNum "SN-WHL-C-00258" .
+
+ex:wheel_259 a ex:Wheel ;
+    ex:partId "PRT-W-0259" ;
+    ex:partSerialNum "SN-WHL-C-00259" .
+
+ex:wheel_260 a ex:Wheel ;
+    ex:partId "PRT-W-0260" ;
+    ex:partSerialNum "SN-WHL-C-00260" .
+
+ex:engine_040 a ex:Engine ;
+    ex:partId "PRT-ENG-0040" ;
+    ex:partSerialNum "SN-ENG-V8-00040" .
+
+ex:car_040 a ex:Car ;
+    ex:vehicleId "VEH-CAR-040" ;
+    ex:modelName "Gran Turismo EV #040" ;
+    ex:hasPart ex:wheel_257, ex:wheel_258, ex:wheel_259, ex:wheel_260, ex:engine_040 .
+
+ex:wheel_261 a ex:Wheel ;
+    ex:partId "PRT-W-0261" ;
+    ex:partSerialNum "SN-WHL-C-00261" .
+
+ex:wheel_262 a ex:Wheel ;
+    ex:partId "PRT-W-0262" ;
+    ex:partSerialNum "SN-WHL-C-00262" .
+
+ex:wheel_263 a ex:Wheel ;
+    ex:partId "PRT-W-0263" ;
+    ex:partSerialNum "SN-WHL-C-00263" .
+
+ex:wheel_264 a ex:Wheel ;
+    ex:partId "PRT-W-0264" ;
+    ex:partSerialNum "SN-WHL-C-00264" .
+
+ex:engine_041 a ex:Engine ;
+    ex:partId "PRT-ENG-0041" ;
+    ex:partSerialNum "SN-ENG-V8-00041" .
+
+ex:car_041 a ex:Car ;
+    ex:vehicleId "VEH-CAR-041" ;
+    ex:modelName "Gran Turismo EV #041" ;
+    ex:hasPart ex:wheel_261, ex:wheel_262, ex:wheel_263, ex:wheel_264, ex:engine_041 .
+
+ex:wheel_265 a ex:Wheel ;
+    ex:partId "PRT-W-0265" ;
+    ex:partSerialNum "SN-WHL-C-00265" .
+
+ex:wheel_266 a ex:Wheel ;
+    ex:partId "PRT-W-0266" ;
+    ex:partSerialNum "SN-WHL-C-00266" .
+
+ex:wheel_267 a ex:Wheel ;
+    ex:partId "PRT-W-0267" ;
+    ex:partSerialNum "SN-WHL-C-00267" .
+
+ex:wheel_268 a ex:Wheel ;
+    ex:partId "PRT-W-0268" ;
+    ex:partSerialNum "SN-WHL-C-00268" .
+
+ex:engine_042 a ex:Engine ;
+    ex:partId "PRT-ENG-0042" ;
+    ex:partSerialNum "SN-ENG-V8-00042" .
+
+ex:car_042 a ex:Car ;
+    ex:vehicleId "VEH-CAR-042" ;
+    ex:modelName "Gran Turismo EV #042" ;
+    ex:hasPart ex:wheel_265, ex:wheel_266, ex:wheel_267, ex:wheel_268, ex:engine_042 .
+
+ex:wheel_269 a ex:Wheel ;
+    ex:partId "PRT-W-0269" ;
+    ex:partSerialNum "SN-WHL-C-00269" .
+
+ex:wheel_270 a ex:Wheel ;
+    ex:partId "PRT-W-0270" ;
+    ex:partSerialNum "SN-WHL-C-00270" .
+
+ex:wheel_271 a ex:Wheel ;
+    ex:partId "PRT-W-0271" ;
+    ex:partSerialNum "SN-WHL-C-00271" .
+
+ex:wheel_272 a ex:Wheel ;
+    ex:partId "PRT-W-0272" ;
+    ex:partSerialNum "SN-WHL-C-00272" .
+
+ex:engine_043 a ex:Engine ;
+    ex:partId "PRT-ENG-0043" ;
+    ex:partSerialNum "SN-ENG-V8-00043" .
+
+ex:car_043 a ex:Car ;
+    ex:vehicleId "VEH-CAR-043" ;
+    ex:modelName "Gran Turismo EV #043" ;
+    ex:hasPart ex:wheel_269, ex:wheel_270, ex:wheel_271, ex:wheel_272, ex:engine_043 .
+
+ex:wheel_273 a ex:Wheel ;
+    ex:partId "PRT-W-0273" ;
+    ex:partSerialNum "SN-WHL-C-00273" .
+
+ex:wheel_274 a ex:Wheel ;
+    ex:partId "PRT-W-0274" ;
+    ex:partSerialNum "SN-WHL-C-00274" .
+
+ex:wheel_275 a ex:Wheel ;
+    ex:partId "PRT-W-0275" ;
+    ex:partSerialNum "SN-WHL-C-00275" .
+
+ex:wheel_276 a ex:Wheel ;
+    ex:partId "PRT-W-0276" ;
+    ex:partSerialNum "SN-WHL-C-00276" .
+
+ex:engine_044 a ex:Engine ;
+    ex:partId "PRT-ENG-0044" ;
+    ex:partSerialNum "SN-ENG-V8-00044" .
+
+ex:car_044 a ex:Car ;
+    ex:vehicleId "VEH-CAR-044" ;
+    ex:modelName "Gran Turismo EV #044" ;
+    ex:hasPart ex:wheel_273, ex:wheel_274, ex:wheel_275, ex:wheel_276, ex:engine_044 .
+
+ex:wheel_277 a ex:Wheel ;
+    ex:partId "PRT-W-0277" ;
+    ex:partSerialNum "SN-WHL-C-00277" .
+
+ex:wheel_278 a ex:Wheel ;
+    ex:partId "PRT-W-0278" ;
+    ex:partSerialNum "SN-WHL-C-00278" .
+
+ex:wheel_279 a ex:Wheel ;
+    ex:partId "PRT-W-0279" ;
+    ex:partSerialNum "SN-WHL-C-00279" .
+
+ex:wheel_280 a ex:Wheel ;
+    ex:partId "PRT-W-0280" ;
+    ex:partSerialNum "SN-WHL-C-00280" .
+
+ex:engine_045 a ex:Engine ;
+    ex:partId "PRT-ENG-0045" ;
+    ex:partSerialNum "SN-ENG-V8-00045" .
+
+ex:car_045 a ex:Car ;
+    ex:vehicleId "VEH-CAR-045" ;
+    ex:modelName "Gran Turismo EV #045" ;
+    ex:hasPart ex:wheel_277, ex:wheel_278, ex:wheel_279, ex:wheel_280, ex:engine_045 .
+
+ex:wheel_281 a ex:Wheel ;
+    ex:partId "PRT-W-0281" ;
+    ex:partSerialNum "SN-WHL-C-00281" .
+
+ex:wheel_282 a ex:Wheel ;
+    ex:partId "PRT-W-0282" ;
+    ex:partSerialNum "SN-WHL-C-00282" .
+
+ex:wheel_283 a ex:Wheel ;
+    ex:partId "PRT-W-0283" ;
+    ex:partSerialNum "SN-WHL-C-00283" .
+
+ex:wheel_284 a ex:Wheel ;
+    ex:partId "PRT-W-0284" ;
+    ex:partSerialNum "SN-WHL-C-00284" .
+
+ex:engine_046 a ex:Engine ;
+    ex:partId "PRT-ENG-0046" ;
+    ex:partSerialNum "SN-ENG-V8-00046" .
+
+ex:car_046 a ex:Car ;
+    ex:vehicleId "VEH-CAR-046" ;
+    ex:modelName "Gran Turismo EV #046" ;
+    ex:hasPart ex:wheel_281, ex:wheel_282, ex:wheel_283, ex:wheel_284, ex:engine_046 .
+
+ex:wheel_285 a ex:Wheel ;
+    ex:partId "PRT-W-0285" ;
+    ex:partSerialNum "SN-WHL-C-00285" .
+
+ex:wheel_286 a ex:Wheel ;
+    ex:partId "PRT-W-0286" ;
+    ex:partSerialNum "SN-WHL-C-00286" .
+
+ex:wheel_287 a ex:Wheel ;
+    ex:partId "PRT-W-0287" ;
+    ex:partSerialNum "SN-WHL-C-00287" .
+
+ex:wheel_288 a ex:Wheel ;
+    ex:partId "PRT-W-0288" ;
+    ex:partSerialNum "SN-WHL-C-00288" .
+
+ex:engine_047 a ex:Engine ;
+    ex:partId "PRT-ENG-0047" ;
+    ex:partSerialNum "SN-ENG-V8-00047" .
+
+ex:car_047 a ex:Car ;
+    ex:vehicleId "VEH-CAR-047" ;
+    ex:modelName "Gran Turismo EV #047" ;
+    ex:hasPart ex:wheel_285, ex:wheel_286, ex:wheel_287, ex:wheel_288, ex:engine_047 .
+
+ex:wheel_289 a ex:Wheel ;
+    ex:partId "PRT-W-0289" ;
+    ex:partSerialNum "SN-WHL-C-00289" .
+
+ex:wheel_290 a ex:Wheel ;
+    ex:partId "PRT-W-0290" ;
+    ex:partSerialNum "SN-WHL-C-00290" .
+
+ex:wheel_291 a ex:Wheel ;
+    ex:partId "PRT-W-0291" ;
+    ex:partSerialNum "SN-WHL-C-00291" .
+
+ex:wheel_292 a ex:Wheel ;
+    ex:partId "PRT-W-0292" ;
+    ex:partSerialNum "SN-WHL-C-00292" .
+
+ex:engine_048 a ex:Engine ;
+    ex:partId "PRT-ENG-0048" ;
+    ex:partSerialNum "SN-ENG-V8-00048" .
+
+ex:car_048 a ex:Car ;
+    ex:vehicleId "VEH-CAR-048" ;
+    ex:modelName "Gran Turismo EV #048" ;
+    ex:hasPart ex:wheel_289, ex:wheel_290, ex:wheel_291, ex:wheel_292, ex:engine_048 .
+
+ex:wheel_293 a ex:Wheel ;
+    ex:partId "PRT-W-0293" ;
+    ex:partSerialNum "SN-WHL-C-00293" .
+
+ex:wheel_294 a ex:Wheel ;
+    ex:partId "PRT-W-0294" ;
+    ex:partSerialNum "SN-WHL-C-00294" .
+
+ex:wheel_295 a ex:Wheel ;
+    ex:partId "PRT-W-0295" ;
+    ex:partSerialNum "SN-WHL-C-00295" .
+
+ex:wheel_296 a ex:Wheel ;
+    ex:partId "PRT-W-0296" ;
+    ex:partSerialNum "SN-WHL-C-00296" .
+
+ex:engine_049 a ex:Engine ;
+    ex:partId "PRT-ENG-0049" ;
+    ex:partSerialNum "SN-ENG-V8-00049" .
+
+ex:car_049 a ex:Car ;
+    ex:vehicleId "VEH-CAR-049" ;
+    ex:modelName "Gran Turismo EV #049" ;
+    ex:hasPart ex:wheel_293, ex:wheel_294, ex:wheel_295, ex:wheel_296, ex:engine_049 .
+
+ex:wheel_297 a ex:Wheel ;
+    ex:partId "PRT-W-0297" ;
+    ex:partSerialNum "SN-WHL-C-00297" .
+
+ex:wheel_298 a ex:Wheel ;
+    ex:partId "PRT-W-0298" ;
+    ex:partSerialNum "SN-WHL-C-00298" .
+
+ex:wheel_299 a ex:Wheel ;
+    ex:partId "PRT-W-0299" ;
+    ex:partSerialNum "SN-WHL-C-00299" .
+
+ex:wheel_300 a ex:Wheel ;
+    ex:partId "PRT-W-0300" ;
+    ex:partSerialNum "SN-WHL-C-00300" .
+
+ex:engine_050 a ex:Engine ;
+    ex:partId "PRT-ENG-0050" ;
+    ex:partSerialNum "SN-ENG-V8-00050" .
+
+ex:car_050 a ex:Car ;
+    ex:vehicleId "VEH-CAR-050" ;
+    ex:modelName "Gran Turismo EV #050" ;
+    ex:hasPart ex:wheel_297, ex:wheel_298, ex:wheel_299, ex:wheel_300, ex:engine_050 .

@@ -1,0 +1,1616 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/containment#> .
+
+# ABox Instance Triples for 18_heterogeneous_subproperties
+
+ex:building_001 a ex:Building ;
+    ex:buildingId "BLD-001" ;
+    ex:buildingName "Metropolitan Tower #001" .
+
+ex:building_002 a ex:Building ;
+    ex:buildingId "BLD-002" ;
+    ex:buildingName "Metropolitan Tower #002" .
+
+ex:building_003 a ex:Building ;
+    ex:buildingId "BLD-003" ;
+    ex:buildingName "Metropolitan Tower #003" .
+
+ex:building_004 a ex:Building ;
+    ex:buildingId "BLD-004" ;
+    ex:buildingName "Metropolitan Tower #004" .
+
+ex:building_005 a ex:Building ;
+    ex:buildingId "BLD-005" ;
+    ex:buildingName "Metropolitan Tower #005" .
+
+ex:building_006 a ex:Building ;
+    ex:buildingId "BLD-006" ;
+    ex:buildingName "Metropolitan Tower #006" .
+
+ex:building_007 a ex:Building ;
+    ex:buildingId "BLD-007" ;
+    ex:buildingName "Metropolitan Tower #007" .
+
+ex:building_008 a ex:Building ;
+    ex:buildingId "BLD-008" ;
+    ex:buildingName "Metropolitan Tower #008" .
+
+ex:building_009 a ex:Building ;
+    ex:buildingId "BLD-009" ;
+    ex:buildingName "Metropolitan Tower #009" .
+
+ex:building_010 a ex:Building ;
+    ex:buildingId "BLD-010" ;
+    ex:buildingName "Metropolitan Tower #010" .
+
+ex:building_011 a ex:Building ;
+    ex:buildingId "BLD-011" ;
+    ex:buildingName "Metropolitan Tower #011" .
+
+ex:building_012 a ex:Building ;
+    ex:buildingId "BLD-012" ;
+    ex:buildingName "Metropolitan Tower #012" .
+
+ex:building_013 a ex:Building ;
+    ex:buildingId "BLD-013" ;
+    ex:buildingName "Metropolitan Tower #013" .
+
+ex:building_014 a ex:Building ;
+    ex:buildingId "BLD-014" ;
+    ex:buildingName "Metropolitan Tower #014" .
+
+ex:building_015 a ex:Building ;
+    ex:buildingId "BLD-015" ;
+    ex:buildingName "Metropolitan Tower #015" .
+
+ex:building_016 a ex:Building ;
+    ex:buildingId "BLD-016" ;
+    ex:buildingName "Metropolitan Tower #016" .
+
+ex:building_017 a ex:Building ;
+    ex:buildingId "BLD-017" ;
+    ex:buildingName "Metropolitan Tower #017" .
+
+ex:building_018 a ex:Building ;
+    ex:buildingId "BLD-018" ;
+    ex:buildingName "Metropolitan Tower #018" .
+
+ex:building_019 a ex:Building ;
+    ex:buildingId "BLD-019" ;
+    ex:buildingName "Metropolitan Tower #019" .
+
+ex:building_020 a ex:Building ;
+    ex:buildingId "BLD-020" ;
+    ex:buildingName "Metropolitan Tower #020" .
+
+ex:building_021 a ex:Building ;
+    ex:buildingId "BLD-021" ;
+    ex:buildingName "Metropolitan Tower #021" .
+
+ex:building_022 a ex:Building ;
+    ex:buildingId "BLD-022" ;
+    ex:buildingName "Metropolitan Tower #022" .
+
+ex:building_023 a ex:Building ;
+    ex:buildingId "BLD-023" ;
+    ex:buildingName "Metropolitan Tower #023" .
+
+ex:building_024 a ex:Building ;
+    ex:buildingId "BLD-024" ;
+    ex:buildingName "Metropolitan Tower #024" .
+
+ex:building_025 a ex:Building ;
+    ex:buildingId "BLD-025" ;
+    ex:buildingName "Metropolitan Tower #025" .
+
+ex:building_026 a ex:Building ;
+    ex:buildingId "BLD-026" ;
+    ex:buildingName "Metropolitan Tower #026" .
+
+ex:building_027 a ex:Building ;
+    ex:buildingId "BLD-027" ;
+    ex:buildingName "Metropolitan Tower #027" .
+
+ex:building_028 a ex:Building ;
+    ex:buildingId "BLD-028" ;
+    ex:buildingName "Metropolitan Tower #028" .
+
+ex:building_029 a ex:Building ;
+    ex:buildingId "BLD-029" ;
+    ex:buildingName "Metropolitan Tower #029" .
+
+ex:building_030 a ex:Building ;
+    ex:buildingId "BLD-030" ;
+    ex:buildingName "Metropolitan Tower #030" .
+
+ex:building_031 a ex:Building ;
+    ex:buildingId "BLD-031" ;
+    ex:buildingName "Metropolitan Tower #031" .
+
+ex:building_032 a ex:Building ;
+    ex:buildingId "BLD-032" ;
+    ex:buildingName "Metropolitan Tower #032" .
+
+ex:building_033 a ex:Building ;
+    ex:buildingId "BLD-033" ;
+    ex:buildingName "Metropolitan Tower #033" .
+
+ex:building_034 a ex:Building ;
+    ex:buildingId "BLD-034" ;
+    ex:buildingName "Metropolitan Tower #034" .
+
+ex:building_035 a ex:Building ;
+    ex:buildingId "BLD-035" ;
+    ex:buildingName "Metropolitan Tower #035" .
+
+ex:building_036 a ex:Building ;
+    ex:buildingId "BLD-036" ;
+    ex:buildingName "Metropolitan Tower #036" .
+
+ex:building_037 a ex:Building ;
+    ex:buildingId "BLD-037" ;
+    ex:buildingName "Metropolitan Tower #037" .
+
+ex:building_038 a ex:Building ;
+    ex:buildingId "BLD-038" ;
+    ex:buildingName "Metropolitan Tower #038" .
+
+ex:building_039 a ex:Building ;
+    ex:buildingId "BLD-039" ;
+    ex:buildingName "Metropolitan Tower #039" .
+
+ex:building_040 a ex:Building ;
+    ex:buildingId "BLD-040" ;
+    ex:buildingName "Metropolitan Tower #040" .
+
+ex:apartment_001 a ex:Apartment ;
+    ex:apartmentId "APT-0001" ;
+    ex:apartmentNumber "202A" ;
+    ex:locatedOnFloor 2 .
+
+ex:building_001 ex:buildingContainsApartment ex:apartment_001 .
+
+ex:apartment_002 a ex:Apartment ;
+    ex:apartmentId "APT-0002" ;
+    ex:apartmentNumber "303A" ;
+    ex:locatedOnFloor 3 .
+
+ex:building_002 ex:buildingContainsApartment ex:apartment_002 .
+
+ex:apartment_003 a ex:Apartment ;
+    ex:apartmentId "APT-0003" ;
+    ex:apartmentNumber "404A" ;
+    ex:locatedOnFloor 4 .
+
+ex:building_003 ex:buildingContainsApartment ex:apartment_003 .
+
+ex:apartment_004 a ex:Apartment ;
+    ex:apartmentId "APT-0004" ;
+    ex:apartmentNumber "505A" ;
+    ex:locatedOnFloor 5 .
+
+ex:building_004 ex:buildingContainsApartment ex:apartment_004 .
+
+ex:apartment_005 a ex:Apartment ;
+    ex:apartmentId "APT-0005" ;
+    ex:apartmentNumber "606A" ;
+    ex:locatedOnFloor 6 .
+
+ex:building_005 ex:buildingContainsApartment ex:apartment_005 .
+
+ex:apartment_006 a ex:Apartment ;
+    ex:apartmentId "APT-0006" ;
+    ex:apartmentNumber "707A" ;
+    ex:locatedOnFloor 7 .
+
+ex:building_006 ex:buildingContainsApartment ex:apartment_006 .
+
+ex:apartment_007 a ex:Apartment ;
+    ex:apartmentId "APT-0007" ;
+    ex:apartmentNumber "808A" ;
+    ex:locatedOnFloor 8 .
+
+ex:building_007 ex:buildingContainsApartment ex:apartment_007 .
+
+ex:apartment_008 a ex:Apartment ;
+    ex:apartmentId "APT-0008" ;
+    ex:apartmentNumber "901A" ;
+    ex:locatedOnFloor 9 .
+
+ex:building_008 ex:buildingContainsApartment ex:apartment_008 .
+
+ex:apartment_009 a ex:Apartment ;
+    ex:apartmentId "APT-0009" ;
+    ex:apartmentNumber "1002A" ;
+    ex:locatedOnFloor 10 .
+
+ex:building_009 ex:buildingContainsApartment ex:apartment_009 .
+
+ex:apartment_010 a ex:Apartment ;
+    ex:apartmentId "APT-0010" ;
+    ex:apartmentNumber "1103A" ;
+    ex:locatedOnFloor 11 .
+
+ex:building_010 ex:buildingContainsApartment ex:apartment_010 .
+
+ex:apartment_011 a ex:Apartment ;
+    ex:apartmentId "APT-0011" ;
+    ex:apartmentNumber "1204A" ;
+    ex:locatedOnFloor 12 .
+
+ex:building_011 ex:buildingContainsApartment ex:apartment_011 .
+
+ex:apartment_012 a ex:Apartment ;
+    ex:apartmentId "APT-0012" ;
+    ex:apartmentNumber "1305A" ;
+    ex:locatedOnFloor 13 .
+
+ex:building_012 ex:buildingContainsApartment ex:apartment_012 .
+
+ex:apartment_013 a ex:Apartment ;
+    ex:apartmentId "APT-0013" ;
+    ex:apartmentNumber "1406A" ;
+    ex:locatedOnFloor 14 .
+
+ex:building_013 ex:buildingContainsApartment ex:apartment_013 .
+
+ex:apartment_014 a ex:Apartment ;
+    ex:apartmentId "APT-0014" ;
+    ex:apartmentNumber "1507A" ;
+    ex:locatedOnFloor 15 .
+
+ex:building_014 ex:buildingContainsApartment ex:apartment_014 .
+
+ex:apartment_015 a ex:Apartment ;
+    ex:apartmentId "APT-0015" ;
+    ex:apartmentNumber "1608A" ;
+    ex:locatedOnFloor 16 .
+
+ex:building_015 ex:buildingContainsApartment ex:apartment_015 .
+
+ex:apartment_016 a ex:Apartment ;
+    ex:apartmentId "APT-0016" ;
+    ex:apartmentNumber "1701A" ;
+    ex:locatedOnFloor 17 .
+
+ex:building_016 ex:buildingContainsApartment ex:apartment_016 .
+
+ex:apartment_017 a ex:Apartment ;
+    ex:apartmentId "APT-0017" ;
+    ex:apartmentNumber "1802A" ;
+    ex:locatedOnFloor 18 .
+
+ex:building_017 ex:buildingContainsApartment ex:apartment_017 .
+
+ex:apartment_018 a ex:Apartment ;
+    ex:apartmentId "APT-0018" ;
+    ex:apartmentNumber "1903A" ;
+    ex:locatedOnFloor 19 .
+
+ex:building_018 ex:buildingContainsApartment ex:apartment_018 .
+
+ex:apartment_019 a ex:Apartment ;
+    ex:apartmentId "APT-0019" ;
+    ex:apartmentNumber "2004A" ;
+    ex:locatedOnFloor 20 .
+
+ex:building_019 ex:buildingContainsApartment ex:apartment_019 .
+
+ex:apartment_020 a ex:Apartment ;
+    ex:apartmentId "APT-0020" ;
+    ex:apartmentNumber "2105A" ;
+    ex:locatedOnFloor 21 .
+
+ex:building_020 ex:buildingContainsApartment ex:apartment_020 .
+
+ex:apartment_021 a ex:Apartment ;
+    ex:apartmentId "APT-0021" ;
+    ex:apartmentNumber "2206A" ;
+    ex:locatedOnFloor 22 .
+
+ex:building_021 ex:buildingContainsApartment ex:apartment_021 .
+
+ex:apartment_022 a ex:Apartment ;
+    ex:apartmentId "APT-0022" ;
+    ex:apartmentNumber "2307A" ;
+    ex:locatedOnFloor 23 .
+
+ex:building_022 ex:buildingContainsApartment ex:apartment_022 .
+
+ex:apartment_023 a ex:Apartment ;
+    ex:apartmentId "APT-0023" ;
+    ex:apartmentNumber "2408A" ;
+    ex:locatedOnFloor 24 .
+
+ex:building_023 ex:buildingContainsApartment ex:apartment_023 .
+
+ex:apartment_024 a ex:Apartment ;
+    ex:apartmentId "APT-0024" ;
+    ex:apartmentNumber "2501A" ;
+    ex:locatedOnFloor 25 .
+
+ex:building_024 ex:buildingContainsApartment ex:apartment_024 .
+
+ex:apartment_025 a ex:Apartment ;
+    ex:apartmentId "APT-0025" ;
+    ex:apartmentNumber "102A" ;
+    ex:locatedOnFloor 1 .
+
+ex:building_025 ex:buildingContainsApartment ex:apartment_025 .
+
+ex:apartment_026 a ex:Apartment ;
+    ex:apartmentId "APT-0026" ;
+    ex:apartmentNumber "203A" ;
+    ex:locatedOnFloor 2 .
+
+ex:building_026 ex:buildingContainsApartment ex:apartment_026 .
+
+ex:apartment_027 a ex:Apartment ;
+    ex:apartmentId "APT-0027" ;
+    ex:apartmentNumber "304A" ;
+    ex:locatedOnFloor 3 .
+
+ex:building_027 ex:buildingContainsApartment ex:apartment_027 .
+
+ex:apartment_028 a ex:Apartment ;
+    ex:apartmentId "APT-0028" ;
+    ex:apartmentNumber "405A" ;
+    ex:locatedOnFloor 4 .
+
+ex:building_028 ex:buildingContainsApartment ex:apartment_028 .
+
+ex:apartment_029 a ex:Apartment ;
+    ex:apartmentId "APT-0029" ;
+    ex:apartmentNumber "506A" ;
+    ex:locatedOnFloor 5 .
+
+ex:building_029 ex:buildingContainsApartment ex:apartment_029 .
+
+ex:apartment_030 a ex:Apartment ;
+    ex:apartmentId "APT-0030" ;
+    ex:apartmentNumber "607A" ;
+    ex:locatedOnFloor 6 .
+
+ex:building_030 ex:buildingContainsApartment ex:apartment_030 .
+
+ex:apartment_031 a ex:Apartment ;
+    ex:apartmentId "APT-0031" ;
+    ex:apartmentNumber "708A" ;
+    ex:locatedOnFloor 7 .
+
+ex:building_031 ex:buildingContainsApartment ex:apartment_031 .
+
+ex:apartment_032 a ex:Apartment ;
+    ex:apartmentId "APT-0032" ;
+    ex:apartmentNumber "801A" ;
+    ex:locatedOnFloor 8 .
+
+ex:building_032 ex:buildingContainsApartment ex:apartment_032 .
+
+ex:apartment_033 a ex:Apartment ;
+    ex:apartmentId "APT-0033" ;
+    ex:apartmentNumber "902A" ;
+    ex:locatedOnFloor 9 .
+
+ex:building_033 ex:buildingContainsApartment ex:apartment_033 .
+
+ex:apartment_034 a ex:Apartment ;
+    ex:apartmentId "APT-0034" ;
+    ex:apartmentNumber "1003A" ;
+    ex:locatedOnFloor 10 .
+
+ex:building_034 ex:buildingContainsApartment ex:apartment_034 .
+
+ex:apartment_035 a ex:Apartment ;
+    ex:apartmentId "APT-0035" ;
+    ex:apartmentNumber "1104A" ;
+    ex:locatedOnFloor 11 .
+
+ex:building_035 ex:buildingContainsApartment ex:apartment_035 .
+
+ex:apartment_036 a ex:Apartment ;
+    ex:apartmentId "APT-0036" ;
+    ex:apartmentNumber "1205A" ;
+    ex:locatedOnFloor 12 .
+
+ex:building_036 ex:buildingContainsApartment ex:apartment_036 .
+
+ex:apartment_037 a ex:Apartment ;
+    ex:apartmentId "APT-0037" ;
+    ex:apartmentNumber "1306A" ;
+    ex:locatedOnFloor 13 .
+
+ex:building_037 ex:buildingContainsApartment ex:apartment_037 .
+
+ex:apartment_038 a ex:Apartment ;
+    ex:apartmentId "APT-0038" ;
+    ex:apartmentNumber "1407A" ;
+    ex:locatedOnFloor 14 .
+
+ex:building_038 ex:buildingContainsApartment ex:apartment_038 .
+
+ex:apartment_039 a ex:Apartment ;
+    ex:apartmentId "APT-0039" ;
+    ex:apartmentNumber "1508A" ;
+    ex:locatedOnFloor 15 .
+
+ex:building_039 ex:buildingContainsApartment ex:apartment_039 .
+
+ex:apartment_040 a ex:Apartment ;
+    ex:apartmentId "APT-0040" ;
+    ex:apartmentNumber "1601A" ;
+    ex:locatedOnFloor 16 .
+
+ex:building_040 ex:buildingContainsApartment ex:apartment_040 .
+
+ex:apartment_041 a ex:Apartment ;
+    ex:apartmentId "APT-0041" ;
+    ex:apartmentNumber "1702A" ;
+    ex:locatedOnFloor 17 .
+
+ex:building_001 ex:buildingContainsApartment ex:apartment_041 .
+
+ex:apartment_042 a ex:Apartment ;
+    ex:apartmentId "APT-0042" ;
+    ex:apartmentNumber "1803A" ;
+    ex:locatedOnFloor 18 .
+
+ex:building_002 ex:buildingContainsApartment ex:apartment_042 .
+
+ex:apartment_043 a ex:Apartment ;
+    ex:apartmentId "APT-0043" ;
+    ex:apartmentNumber "1904A" ;
+    ex:locatedOnFloor 19 .
+
+ex:building_003 ex:buildingContainsApartment ex:apartment_043 .
+
+ex:apartment_044 a ex:Apartment ;
+    ex:apartmentId "APT-0044" ;
+    ex:apartmentNumber "2005A" ;
+    ex:locatedOnFloor 20 .
+
+ex:building_004 ex:buildingContainsApartment ex:apartment_044 .
+
+ex:apartment_045 a ex:Apartment ;
+    ex:apartmentId "APT-0045" ;
+    ex:apartmentNumber "2106A" ;
+    ex:locatedOnFloor 21 .
+
+ex:building_005 ex:buildingContainsApartment ex:apartment_045 .
+
+ex:apartment_046 a ex:Apartment ;
+    ex:apartmentId "APT-0046" ;
+    ex:apartmentNumber "2207A" ;
+    ex:locatedOnFloor 22 .
+
+ex:building_006 ex:buildingContainsApartment ex:apartment_046 .
+
+ex:apartment_047 a ex:Apartment ;
+    ex:apartmentId "APT-0047" ;
+    ex:apartmentNumber "2308A" ;
+    ex:locatedOnFloor 23 .
+
+ex:building_007 ex:buildingContainsApartment ex:apartment_047 .
+
+ex:apartment_048 a ex:Apartment ;
+    ex:apartmentId "APT-0048" ;
+    ex:apartmentNumber "2401A" ;
+    ex:locatedOnFloor 24 .
+
+ex:building_008 ex:buildingContainsApartment ex:apartment_048 .
+
+ex:apartment_049 a ex:Apartment ;
+    ex:apartmentId "APT-0049" ;
+    ex:apartmentNumber "2502A" ;
+    ex:locatedOnFloor 25 .
+
+ex:building_009 ex:buildingContainsApartment ex:apartment_049 .
+
+ex:apartment_050 a ex:Apartment ;
+    ex:apartmentId "APT-0050" ;
+    ex:apartmentNumber "103A" ;
+    ex:locatedOnFloor 1 .
+
+ex:building_010 ex:buildingContainsApartment ex:apartment_050 .
+
+ex:apartment_051 a ex:Apartment ;
+    ex:apartmentId "APT-0051" ;
+    ex:apartmentNumber "204A" ;
+    ex:locatedOnFloor 2 .
+
+ex:building_011 ex:buildingContainsApartment ex:apartment_051 .
+
+ex:apartment_052 a ex:Apartment ;
+    ex:apartmentId "APT-0052" ;
+    ex:apartmentNumber "305A" ;
+    ex:locatedOnFloor 3 .
+
+ex:building_012 ex:buildingContainsApartment ex:apartment_052 .
+
+ex:apartment_053 a ex:Apartment ;
+    ex:apartmentId "APT-0053" ;
+    ex:apartmentNumber "406A" ;
+    ex:locatedOnFloor 4 .
+
+ex:building_013 ex:buildingContainsApartment ex:apartment_053 .
+
+ex:apartment_054 a ex:Apartment ;
+    ex:apartmentId "APT-0054" ;
+    ex:apartmentNumber "507A" ;
+    ex:locatedOnFloor 5 .
+
+ex:building_014 ex:buildingContainsApartment ex:apartment_054 .
+
+ex:apartment_055 a ex:Apartment ;
+    ex:apartmentId "APT-0055" ;
+    ex:apartmentNumber "608A" ;
+    ex:locatedOnFloor 6 .
+
+ex:building_015 ex:buildingContainsApartment ex:apartment_055 .
+
+ex:apartment_056 a ex:Apartment ;
+    ex:apartmentId "APT-0056" ;
+    ex:apartmentNumber "701A" ;
+    ex:locatedOnFloor 7 .
+
+ex:building_016 ex:buildingContainsApartment ex:apartment_056 .
+
+ex:apartment_057 a ex:Apartment ;
+    ex:apartmentId "APT-0057" ;
+    ex:apartmentNumber "802A" ;
+    ex:locatedOnFloor 8 .
+
+ex:building_017 ex:buildingContainsApartment ex:apartment_057 .
+
+ex:apartment_058 a ex:Apartment ;
+    ex:apartmentId "APT-0058" ;
+    ex:apartmentNumber "903A" ;
+    ex:locatedOnFloor 9 .
+
+ex:building_018 ex:buildingContainsApartment ex:apartment_058 .
+
+ex:apartment_059 a ex:Apartment ;
+    ex:apartmentId "APT-0059" ;
+    ex:apartmentNumber "1004A" ;
+    ex:locatedOnFloor 10 .
+
+ex:building_019 ex:buildingContainsApartment ex:apartment_059 .
+
+ex:apartment_060 a ex:Apartment ;
+    ex:apartmentId "APT-0060" ;
+    ex:apartmentNumber "1105A" ;
+    ex:locatedOnFloor 11 .
+
+ex:building_020 ex:buildingContainsApartment ex:apartment_060 .
+
+ex:apartment_061 a ex:Apartment ;
+    ex:apartmentId "APT-0061" ;
+    ex:apartmentNumber "1206A" ;
+    ex:locatedOnFloor 12 .
+
+ex:building_021 ex:buildingContainsApartment ex:apartment_061 .
+
+ex:apartment_062 a ex:Apartment ;
+    ex:apartmentId "APT-0062" ;
+    ex:apartmentNumber "1307A" ;
+    ex:locatedOnFloor 13 .
+
+ex:building_022 ex:buildingContainsApartment ex:apartment_062 .
+
+ex:apartment_063 a ex:Apartment ;
+    ex:apartmentId "APT-0063" ;
+    ex:apartmentNumber "1408A" ;
+    ex:locatedOnFloor 14 .
+
+ex:building_023 ex:buildingContainsApartment ex:apartment_063 .
+
+ex:apartment_064 a ex:Apartment ;
+    ex:apartmentId "APT-0064" ;
+    ex:apartmentNumber "1501A" ;
+    ex:locatedOnFloor 15 .
+
+ex:building_024 ex:buildingContainsApartment ex:apartment_064 .
+
+ex:apartment_065 a ex:Apartment ;
+    ex:apartmentId "APT-0065" ;
+    ex:apartmentNumber "1602A" ;
+    ex:locatedOnFloor 16 .
+
+ex:building_025 ex:buildingContainsApartment ex:apartment_065 .
+
+ex:apartment_066 a ex:Apartment ;
+    ex:apartmentId "APT-0066" ;
+    ex:apartmentNumber "1703A" ;
+    ex:locatedOnFloor 17 .
+
+ex:building_026 ex:buildingContainsApartment ex:apartment_066 .
+
+ex:apartment_067 a ex:Apartment ;
+    ex:apartmentId "APT-0067" ;
+    ex:apartmentNumber "1804A" ;
+    ex:locatedOnFloor 18 .
+
+ex:building_027 ex:buildingContainsApartment ex:apartment_067 .
+
+ex:apartment_068 a ex:Apartment ;
+    ex:apartmentId "APT-0068" ;
+    ex:apartmentNumber "1905A" ;
+    ex:locatedOnFloor 19 .
+
+ex:building_028 ex:buildingContainsApartment ex:apartment_068 .
+
+ex:apartment_069 a ex:Apartment ;
+    ex:apartmentId "APT-0069" ;
+    ex:apartmentNumber "2006A" ;
+    ex:locatedOnFloor 20 .
+
+ex:building_029 ex:buildingContainsApartment ex:apartment_069 .
+
+ex:apartment_070 a ex:Apartment ;
+    ex:apartmentId "APT-0070" ;
+    ex:apartmentNumber "2107A" ;
+    ex:locatedOnFloor 21 .
+
+ex:building_030 ex:buildingContainsApartment ex:apartment_070 .
+
+ex:apartment_071 a ex:Apartment ;
+    ex:apartmentId "APT-0071" ;
+    ex:apartmentNumber "2208A" ;
+    ex:locatedOnFloor 22 .
+
+ex:building_031 ex:buildingContainsApartment ex:apartment_071 .
+
+ex:apartment_072 a ex:Apartment ;
+    ex:apartmentId "APT-0072" ;
+    ex:apartmentNumber "2301A" ;
+    ex:locatedOnFloor 23 .
+
+ex:building_032 ex:buildingContainsApartment ex:apartment_072 .
+
+ex:apartment_073 a ex:Apartment ;
+    ex:apartmentId "APT-0073" ;
+    ex:apartmentNumber "2402A" ;
+    ex:locatedOnFloor 24 .
+
+ex:building_033 ex:buildingContainsApartment ex:apartment_073 .
+
+ex:apartment_074 a ex:Apartment ;
+    ex:apartmentId "APT-0074" ;
+    ex:apartmentNumber "2503A" ;
+    ex:locatedOnFloor 25 .
+
+ex:building_034 ex:buildingContainsApartment ex:apartment_074 .
+
+ex:apartment_075 a ex:Apartment ;
+    ex:apartmentId "APT-0075" ;
+    ex:apartmentNumber "104A" ;
+    ex:locatedOnFloor 1 .
+
+ex:building_035 ex:buildingContainsApartment ex:apartment_075 .
+
+ex:apartment_076 a ex:Apartment ;
+    ex:apartmentId "APT-0076" ;
+    ex:apartmentNumber "205A" ;
+    ex:locatedOnFloor 2 .
+
+ex:building_036 ex:buildingContainsApartment ex:apartment_076 .
+
+ex:apartment_077 a ex:Apartment ;
+    ex:apartmentId "APT-0077" ;
+    ex:apartmentNumber "306A" ;
+    ex:locatedOnFloor 3 .
+
+ex:building_037 ex:buildingContainsApartment ex:apartment_077 .
+
+ex:apartment_078 a ex:Apartment ;
+    ex:apartmentId "APT-0078" ;
+    ex:apartmentNumber "407A" ;
+    ex:locatedOnFloor 4 .
+
+ex:building_038 ex:buildingContainsApartment ex:apartment_078 .
+
+ex:apartment_079 a ex:Apartment ;
+    ex:apartmentId "APT-0079" ;
+    ex:apartmentNumber "508A" ;
+    ex:locatedOnFloor 5 .
+
+ex:building_039 ex:buildingContainsApartment ex:apartment_079 .
+
+ex:apartment_080 a ex:Apartment ;
+    ex:apartmentId "APT-0080" ;
+    ex:apartmentNumber "601A" ;
+    ex:locatedOnFloor 6 .
+
+ex:building_040 ex:buildingContainsApartment ex:apartment_080 .
+
+ex:apartment_081 a ex:Apartment ;
+    ex:apartmentId "APT-0081" ;
+    ex:apartmentNumber "702A" ;
+    ex:locatedOnFloor 7 .
+
+ex:building_001 ex:buildingContainsApartment ex:apartment_081 .
+
+ex:apartment_082 a ex:Apartment ;
+    ex:apartmentId "APT-0082" ;
+    ex:apartmentNumber "803A" ;
+    ex:locatedOnFloor 8 .
+
+ex:building_002 ex:buildingContainsApartment ex:apartment_082 .
+
+ex:apartment_083 a ex:Apartment ;
+    ex:apartmentId "APT-0083" ;
+    ex:apartmentNumber "904A" ;
+    ex:locatedOnFloor 9 .
+
+ex:building_003 ex:buildingContainsApartment ex:apartment_083 .
+
+ex:apartment_084 a ex:Apartment ;
+    ex:apartmentId "APT-0084" ;
+    ex:apartmentNumber "1005A" ;
+    ex:locatedOnFloor 10 .
+
+ex:building_004 ex:buildingContainsApartment ex:apartment_084 .
+
+ex:apartment_085 a ex:Apartment ;
+    ex:apartmentId "APT-0085" ;
+    ex:apartmentNumber "1106A" ;
+    ex:locatedOnFloor 11 .
+
+ex:building_005 ex:buildingContainsApartment ex:apartment_085 .
+
+ex:apartment_086 a ex:Apartment ;
+    ex:apartmentId "APT-0086" ;
+    ex:apartmentNumber "1207A" ;
+    ex:locatedOnFloor 12 .
+
+ex:building_006 ex:buildingContainsApartment ex:apartment_086 .
+
+ex:apartment_087 a ex:Apartment ;
+    ex:apartmentId "APT-0087" ;
+    ex:apartmentNumber "1308A" ;
+    ex:locatedOnFloor 13 .
+
+ex:building_007 ex:buildingContainsApartment ex:apartment_087 .
+
+ex:apartment_088 a ex:Apartment ;
+    ex:apartmentId "APT-0088" ;
+    ex:apartmentNumber "1401A" ;
+    ex:locatedOnFloor 14 .
+
+ex:building_008 ex:buildingContainsApartment ex:apartment_088 .
+
+ex:apartment_089 a ex:Apartment ;
+    ex:apartmentId "APT-0089" ;
+    ex:apartmentNumber "1502A" ;
+    ex:locatedOnFloor 15 .
+
+ex:building_009 ex:buildingContainsApartment ex:apartment_089 .
+
+ex:apartment_090 a ex:Apartment ;
+    ex:apartmentId "APT-0090" ;
+    ex:apartmentNumber "1603A" ;
+    ex:locatedOnFloor 16 .
+
+ex:building_010 ex:buildingContainsApartment ex:apartment_090 .
+
+ex:apartment_091 a ex:Apartment ;
+    ex:apartmentId "APT-0091" ;
+    ex:apartmentNumber "1704A" ;
+    ex:locatedOnFloor 17 .
+
+ex:building_011 ex:buildingContainsApartment ex:apartment_091 .
+
+ex:apartment_092 a ex:Apartment ;
+    ex:apartmentId "APT-0092" ;
+    ex:apartmentNumber "1805A" ;
+    ex:locatedOnFloor 18 .
+
+ex:building_012 ex:buildingContainsApartment ex:apartment_092 .
+
+ex:apartment_093 a ex:Apartment ;
+    ex:apartmentId "APT-0093" ;
+    ex:apartmentNumber "1906A" ;
+    ex:locatedOnFloor 19 .
+
+ex:building_013 ex:buildingContainsApartment ex:apartment_093 .
+
+ex:apartment_094 a ex:Apartment ;
+    ex:apartmentId "APT-0094" ;
+    ex:apartmentNumber "2007A" ;
+    ex:locatedOnFloor 20 .
+
+ex:building_014 ex:buildingContainsApartment ex:apartment_094 .
+
+ex:apartment_095 a ex:Apartment ;
+    ex:apartmentId "APT-0095" ;
+    ex:apartmentNumber "2108A" ;
+    ex:locatedOnFloor 21 .
+
+ex:building_015 ex:buildingContainsApartment ex:apartment_095 .
+
+ex:apartment_096 a ex:Apartment ;
+    ex:apartmentId "APT-0096" ;
+    ex:apartmentNumber "2201A" ;
+    ex:locatedOnFloor 22 .
+
+ex:building_016 ex:buildingContainsApartment ex:apartment_096 .
+
+ex:apartment_097 a ex:Apartment ;
+    ex:apartmentId "APT-0097" ;
+    ex:apartmentNumber "2302A" ;
+    ex:locatedOnFloor 23 .
+
+ex:building_017 ex:buildingContainsApartment ex:apartment_097 .
+
+ex:apartment_098 a ex:Apartment ;
+    ex:apartmentId "APT-0098" ;
+    ex:apartmentNumber "2403A" ;
+    ex:locatedOnFloor 24 .
+
+ex:building_018 ex:buildingContainsApartment ex:apartment_098 .
+
+ex:apartment_099 a ex:Apartment ;
+    ex:apartmentId "APT-0099" ;
+    ex:apartmentNumber "2504A" ;
+    ex:locatedOnFloor 25 .
+
+ex:building_019 ex:buildingContainsApartment ex:apartment_099 .
+
+ex:apartment_100 a ex:Apartment ;
+    ex:apartmentId "APT-0100" ;
+    ex:apartmentNumber "105A" ;
+    ex:locatedOnFloor 1 .
+
+ex:building_020 ex:buildingContainsApartment ex:apartment_100 .
+
+ex:state_001 a ex:State ;
+    ex:stateId "ST-001" ;
+    ex:stateName "State Province #001" .
+
+ex:state_002 a ex:State ;
+    ex:stateId "ST-002" ;
+    ex:stateName "State Province #002" .
+
+ex:state_003 a ex:State ;
+    ex:stateId "ST-003" ;
+    ex:stateName "State Province #003" .
+
+ex:state_004 a ex:State ;
+    ex:stateId "ST-004" ;
+    ex:stateName "State Province #004" .
+
+ex:state_005 a ex:State ;
+    ex:stateId "ST-005" ;
+    ex:stateName "State Province #005" .
+
+ex:state_006 a ex:State ;
+    ex:stateId "ST-006" ;
+    ex:stateName "State Province #006" .
+
+ex:state_007 a ex:State ;
+    ex:stateId "ST-007" ;
+    ex:stateName "State Province #007" .
+
+ex:state_008 a ex:State ;
+    ex:stateId "ST-008" ;
+    ex:stateName "State Province #008" .
+
+ex:state_009 a ex:State ;
+    ex:stateId "ST-009" ;
+    ex:stateName "State Province #009" .
+
+ex:state_010 a ex:State ;
+    ex:stateId "ST-010" ;
+    ex:stateName "State Province #010" .
+
+ex:state_011 a ex:State ;
+    ex:stateId "ST-011" ;
+    ex:stateName "State Province #011" .
+
+ex:state_012 a ex:State ;
+    ex:stateId "ST-012" ;
+    ex:stateName "State Province #012" .
+
+ex:state_013 a ex:State ;
+    ex:stateId "ST-013" ;
+    ex:stateName "State Province #013" .
+
+ex:state_014 a ex:State ;
+    ex:stateId "ST-014" ;
+    ex:stateName "State Province #014" .
+
+ex:state_015 a ex:State ;
+    ex:stateId "ST-015" ;
+    ex:stateName "State Province #015" .
+
+ex:state_016 a ex:State ;
+    ex:stateId "ST-016" ;
+    ex:stateName "State Province #016" .
+
+ex:state_017 a ex:State ;
+    ex:stateId "ST-017" ;
+    ex:stateName "State Province #017" .
+
+ex:state_018 a ex:State ;
+    ex:stateId "ST-018" ;
+    ex:stateName "State Province #018" .
+
+ex:state_019 a ex:State ;
+    ex:stateId "ST-019" ;
+    ex:stateName "State Province #019" .
+
+ex:state_020 a ex:State ;
+    ex:stateId "ST-020" ;
+    ex:stateName "State Province #020" .
+
+ex:state_021 a ex:State ;
+    ex:stateId "ST-021" ;
+    ex:stateName "State Province #021" .
+
+ex:state_022 a ex:State ;
+    ex:stateId "ST-022" ;
+    ex:stateName "State Province #022" .
+
+ex:state_023 a ex:State ;
+    ex:stateId "ST-023" ;
+    ex:stateName "State Province #023" .
+
+ex:state_024 a ex:State ;
+    ex:stateId "ST-024" ;
+    ex:stateName "State Province #024" .
+
+ex:state_025 a ex:State ;
+    ex:stateId "ST-025" ;
+    ex:stateName "State Province #025" .
+
+ex:state_026 a ex:State ;
+    ex:stateId "ST-026" ;
+    ex:stateName "State Province #026" .
+
+ex:state_027 a ex:State ;
+    ex:stateId "ST-027" ;
+    ex:stateName "State Province #027" .
+
+ex:state_028 a ex:State ;
+    ex:stateId "ST-028" ;
+    ex:stateName "State Province #028" .
+
+ex:state_029 a ex:State ;
+    ex:stateId "ST-029" ;
+    ex:stateName "State Province #029" .
+
+ex:state_030 a ex:State ;
+    ex:stateId "ST-030" ;
+    ex:stateName "State Province #030" .
+
+ex:city_001 a ex:City ;
+    ex:cityId "CTY-0001" ;
+    ex:cityName "Municipality #001" ;
+    ex:establishedDate "1851-02-02"^^xsd:date .
+
+ex:state_001 ex:stateContainsCity ex:city_001 .
+
+ex:city_002 a ex:City ;
+    ex:cityId "CTY-0002" ;
+    ex:cityName "Municipality #002" ;
+    ex:establishedDate "1852-03-03"^^xsd:date .
+
+ex:state_002 ex:stateContainsCity ex:city_002 .
+
+ex:city_003 a ex:City ;
+    ex:cityId "CTY-0003" ;
+    ex:cityName "Municipality #003" ;
+    ex:establishedDate "1853-04-04"^^xsd:date .
+
+ex:state_003 ex:stateContainsCity ex:city_003 .
+
+ex:city_004 a ex:City ;
+    ex:cityId "CTY-0004" ;
+    ex:cityName "Municipality #004" ;
+    ex:establishedDate "1854-05-05"^^xsd:date .
+
+ex:state_004 ex:stateContainsCity ex:city_004 .
+
+ex:city_005 a ex:City ;
+    ex:cityId "CTY-0005" ;
+    ex:cityName "Municipality #005" ;
+    ex:establishedDate "1855-06-06"^^xsd:date .
+
+ex:state_005 ex:stateContainsCity ex:city_005 .
+
+ex:city_006 a ex:City ;
+    ex:cityId "CTY-0006" ;
+    ex:cityName "Municipality #006" ;
+    ex:establishedDate "1856-07-07"^^xsd:date .
+
+ex:state_006 ex:stateContainsCity ex:city_006 .
+
+ex:city_007 a ex:City ;
+    ex:cityId "CTY-0007" ;
+    ex:cityName "Municipality #007" ;
+    ex:establishedDate "1857-08-08"^^xsd:date .
+
+ex:state_007 ex:stateContainsCity ex:city_007 .
+
+ex:city_008 a ex:City ;
+    ex:cityId "CTY-0008" ;
+    ex:cityName "Municipality #008" ;
+    ex:establishedDate "1858-09-09"^^xsd:date .
+
+ex:state_008 ex:stateContainsCity ex:city_008 .
+
+ex:city_009 a ex:City ;
+    ex:cityId "CTY-0009" ;
+    ex:cityName "Municipality #009" ;
+    ex:establishedDate "1859-10-10"^^xsd:date .
+
+ex:state_009 ex:stateContainsCity ex:city_009 .
+
+ex:city_010 a ex:City ;
+    ex:cityId "CTY-0010" ;
+    ex:cityName "Municipality #010" ;
+    ex:establishedDate "1860-11-11"^^xsd:date .
+
+ex:state_010 ex:stateContainsCity ex:city_010 .
+
+ex:city_011 a ex:City ;
+    ex:cityId "CTY-0011" ;
+    ex:cityName "Municipality #011" ;
+    ex:establishedDate "1861-12-12"^^xsd:date .
+
+ex:state_011 ex:stateContainsCity ex:city_011 .
+
+ex:city_012 a ex:City ;
+    ex:cityId "CTY-0012" ;
+    ex:cityName "Municipality #012" ;
+    ex:establishedDate "1862-01-13"^^xsd:date .
+
+ex:state_012 ex:stateContainsCity ex:city_012 .
+
+ex:city_013 a ex:City ;
+    ex:cityId "CTY-0013" ;
+    ex:cityName "Municipality #013" ;
+    ex:establishedDate "1863-02-14"^^xsd:date .
+
+ex:state_013 ex:stateContainsCity ex:city_013 .
+
+ex:city_014 a ex:City ;
+    ex:cityId "CTY-0014" ;
+    ex:cityName "Municipality #014" ;
+    ex:establishedDate "1864-03-15"^^xsd:date .
+
+ex:state_014 ex:stateContainsCity ex:city_014 .
+
+ex:city_015 a ex:City ;
+    ex:cityId "CTY-0015" ;
+    ex:cityName "Municipality #015" ;
+    ex:establishedDate "1865-04-16"^^xsd:date .
+
+ex:state_015 ex:stateContainsCity ex:city_015 .
+
+ex:city_016 a ex:City ;
+    ex:cityId "CTY-0016" ;
+    ex:cityName "Municipality #016" ;
+    ex:establishedDate "1866-05-17"^^xsd:date .
+
+ex:state_016 ex:stateContainsCity ex:city_016 .
+
+ex:city_017 a ex:City ;
+    ex:cityId "CTY-0017" ;
+    ex:cityName "Municipality #017" ;
+    ex:establishedDate "1867-06-18"^^xsd:date .
+
+ex:state_017 ex:stateContainsCity ex:city_017 .
+
+ex:city_018 a ex:City ;
+    ex:cityId "CTY-0018" ;
+    ex:cityName "Municipality #018" ;
+    ex:establishedDate "1868-07-19"^^xsd:date .
+
+ex:state_018 ex:stateContainsCity ex:city_018 .
+
+ex:city_019 a ex:City ;
+    ex:cityId "CTY-0019" ;
+    ex:cityName "Municipality #019" ;
+    ex:establishedDate "1869-08-20"^^xsd:date .
+
+ex:state_019 ex:stateContainsCity ex:city_019 .
+
+ex:city_020 a ex:City ;
+    ex:cityId "CTY-0020" ;
+    ex:cityName "Municipality #020" ;
+    ex:establishedDate "1870-09-21"^^xsd:date .
+
+ex:state_020 ex:stateContainsCity ex:city_020 .
+
+ex:city_021 a ex:City ;
+    ex:cityId "CTY-0021" ;
+    ex:cityName "Municipality #021" ;
+    ex:establishedDate "1871-10-22"^^xsd:date .
+
+ex:state_021 ex:stateContainsCity ex:city_021 .
+
+ex:city_022 a ex:City ;
+    ex:cityId "CTY-0022" ;
+    ex:cityName "Municipality #022" ;
+    ex:establishedDate "1872-11-23"^^xsd:date .
+
+ex:state_022 ex:stateContainsCity ex:city_022 .
+
+ex:city_023 a ex:City ;
+    ex:cityId "CTY-0023" ;
+    ex:cityName "Municipality #023" ;
+    ex:establishedDate "1873-12-24"^^xsd:date .
+
+ex:state_023 ex:stateContainsCity ex:city_023 .
+
+ex:city_024 a ex:City ;
+    ex:cityId "CTY-0024" ;
+    ex:cityName "Municipality #024" ;
+    ex:establishedDate "1874-01-25"^^xsd:date .
+
+ex:state_024 ex:stateContainsCity ex:city_024 .
+
+ex:city_025 a ex:City ;
+    ex:cityId "CTY-0025" ;
+    ex:cityName "Municipality #025" ;
+    ex:establishedDate "1875-02-26"^^xsd:date .
+
+ex:state_025 ex:stateContainsCity ex:city_025 .
+
+ex:city_026 a ex:City ;
+    ex:cityId "CTY-0026" ;
+    ex:cityName "Municipality #026" ;
+    ex:establishedDate "1876-03-27"^^xsd:date .
+
+ex:state_026 ex:stateContainsCity ex:city_026 .
+
+ex:city_027 a ex:City ;
+    ex:cityId "CTY-0027" ;
+    ex:cityName "Municipality #027" ;
+    ex:establishedDate "1877-04-28"^^xsd:date .
+
+ex:state_027 ex:stateContainsCity ex:city_027 .
+
+ex:city_028 a ex:City ;
+    ex:cityId "CTY-0028" ;
+    ex:cityName "Municipality #028" ;
+    ex:establishedDate "1878-05-01"^^xsd:date .
+
+ex:state_028 ex:stateContainsCity ex:city_028 .
+
+ex:city_029 a ex:City ;
+    ex:cityId "CTY-0029" ;
+    ex:cityName "Municipality #029" ;
+    ex:establishedDate "1879-06-02"^^xsd:date .
+
+ex:state_029 ex:stateContainsCity ex:city_029 .
+
+ex:city_030 a ex:City ;
+    ex:cityId "CTY-0030" ;
+    ex:cityName "Municipality #030" ;
+    ex:establishedDate "1880-07-03"^^xsd:date .
+
+ex:state_030 ex:stateContainsCity ex:city_030 .
+
+ex:city_031 a ex:City ;
+    ex:cityId "CTY-0031" ;
+    ex:cityName "Municipality #031" ;
+    ex:establishedDate "1881-08-04"^^xsd:date .
+
+ex:state_001 ex:stateContainsCity ex:city_031 .
+
+ex:city_032 a ex:City ;
+    ex:cityId "CTY-0032" ;
+    ex:cityName "Municipality #032" ;
+    ex:establishedDate "1882-09-05"^^xsd:date .
+
+ex:state_002 ex:stateContainsCity ex:city_032 .
+
+ex:city_033 a ex:City ;
+    ex:cityId "CTY-0033" ;
+    ex:cityName "Municipality #033" ;
+    ex:establishedDate "1883-10-06"^^xsd:date .
+
+ex:state_003 ex:stateContainsCity ex:city_033 .
+
+ex:city_034 a ex:City ;
+    ex:cityId "CTY-0034" ;
+    ex:cityName "Municipality #034" ;
+    ex:establishedDate "1884-11-07"^^xsd:date .
+
+ex:state_004 ex:stateContainsCity ex:city_034 .
+
+ex:city_035 a ex:City ;
+    ex:cityId "CTY-0035" ;
+    ex:cityName "Municipality #035" ;
+    ex:establishedDate "1885-12-08"^^xsd:date .
+
+ex:state_005 ex:stateContainsCity ex:city_035 .
+
+ex:city_036 a ex:City ;
+    ex:cityId "CTY-0036" ;
+    ex:cityName "Municipality #036" ;
+    ex:establishedDate "1886-01-09"^^xsd:date .
+
+ex:state_006 ex:stateContainsCity ex:city_036 .
+
+ex:city_037 a ex:City ;
+    ex:cityId "CTY-0037" ;
+    ex:cityName "Municipality #037" ;
+    ex:establishedDate "1887-02-10"^^xsd:date .
+
+ex:state_007 ex:stateContainsCity ex:city_037 .
+
+ex:city_038 a ex:City ;
+    ex:cityId "CTY-0038" ;
+    ex:cityName "Municipality #038" ;
+    ex:establishedDate "1888-03-11"^^xsd:date .
+
+ex:state_008 ex:stateContainsCity ex:city_038 .
+
+ex:city_039 a ex:City ;
+    ex:cityId "CTY-0039" ;
+    ex:cityName "Municipality #039" ;
+    ex:establishedDate "1889-04-12"^^xsd:date .
+
+ex:state_009 ex:stateContainsCity ex:city_039 .
+
+ex:city_040 a ex:City ;
+    ex:cityId "CTY-0040" ;
+    ex:cityName "Municipality #040" ;
+    ex:establishedDate "1890-05-13"^^xsd:date .
+
+ex:state_010 ex:stateContainsCity ex:city_040 .
+
+ex:city_041 a ex:City ;
+    ex:cityId "CTY-0041" ;
+    ex:cityName "Municipality #041" ;
+    ex:establishedDate "1891-06-14"^^xsd:date .
+
+ex:state_011 ex:stateContainsCity ex:city_041 .
+
+ex:city_042 a ex:City ;
+    ex:cityId "CTY-0042" ;
+    ex:cityName "Municipality #042" ;
+    ex:establishedDate "1892-07-15"^^xsd:date .
+
+ex:state_012 ex:stateContainsCity ex:city_042 .
+
+ex:city_043 a ex:City ;
+    ex:cityId "CTY-0043" ;
+    ex:cityName "Municipality #043" ;
+    ex:establishedDate "1893-08-16"^^xsd:date .
+
+ex:state_013 ex:stateContainsCity ex:city_043 .
+
+ex:city_044 a ex:City ;
+    ex:cityId "CTY-0044" ;
+    ex:cityName "Municipality #044" ;
+    ex:establishedDate "1894-09-17"^^xsd:date .
+
+ex:state_014 ex:stateContainsCity ex:city_044 .
+
+ex:city_045 a ex:City ;
+    ex:cityId "CTY-0045" ;
+    ex:cityName "Municipality #045" ;
+    ex:establishedDate "1895-10-18"^^xsd:date .
+
+ex:state_015 ex:stateContainsCity ex:city_045 .
+
+ex:city_046 a ex:City ;
+    ex:cityId "CTY-0046" ;
+    ex:cityName "Municipality #046" ;
+    ex:establishedDate "1896-11-19"^^xsd:date .
+
+ex:state_016 ex:stateContainsCity ex:city_046 .
+
+ex:city_047 a ex:City ;
+    ex:cityId "CTY-0047" ;
+    ex:cityName "Municipality #047" ;
+    ex:establishedDate "1897-12-20"^^xsd:date .
+
+ex:state_017 ex:stateContainsCity ex:city_047 .
+
+ex:city_048 a ex:City ;
+    ex:cityId "CTY-0048" ;
+    ex:cityName "Municipality #048" ;
+    ex:establishedDate "1898-01-21"^^xsd:date .
+
+ex:state_018 ex:stateContainsCity ex:city_048 .
+
+ex:city_049 a ex:City ;
+    ex:cityId "CTY-0049" ;
+    ex:cityName "Municipality #049" ;
+    ex:establishedDate "1899-02-22"^^xsd:date .
+
+ex:state_019 ex:stateContainsCity ex:city_049 .
+
+ex:city_050 a ex:City ;
+    ex:cityId "CTY-0050" ;
+    ex:cityName "Municipality #050" ;
+    ex:establishedDate "1900-03-23"^^xsd:date .
+
+ex:state_020 ex:stateContainsCity ex:city_050 .
+
+ex:city_051 a ex:City ;
+    ex:cityId "CTY-0051" ;
+    ex:cityName "Municipality #051" ;
+    ex:establishedDate "1901-04-24"^^xsd:date .
+
+ex:state_021 ex:stateContainsCity ex:city_051 .
+
+ex:city_052 a ex:City ;
+    ex:cityId "CTY-0052" ;
+    ex:cityName "Municipality #052" ;
+    ex:establishedDate "1902-05-25"^^xsd:date .
+
+ex:state_022 ex:stateContainsCity ex:city_052 .
+
+ex:city_053 a ex:City ;
+    ex:cityId "CTY-0053" ;
+    ex:cityName "Municipality #053" ;
+    ex:establishedDate "1903-06-26"^^xsd:date .
+
+ex:state_023 ex:stateContainsCity ex:city_053 .
+
+ex:city_054 a ex:City ;
+    ex:cityId "CTY-0054" ;
+    ex:cityName "Municipality #054" ;
+    ex:establishedDate "1904-07-27"^^xsd:date .
+
+ex:state_024 ex:stateContainsCity ex:city_054 .
+
+ex:city_055 a ex:City ;
+    ex:cityId "CTY-0055" ;
+    ex:cityName "Municipality #055" ;
+    ex:establishedDate "1905-08-28"^^xsd:date .
+
+ex:state_025 ex:stateContainsCity ex:city_055 .
+
+ex:city_056 a ex:City ;
+    ex:cityId "CTY-0056" ;
+    ex:cityName "Municipality #056" ;
+    ex:establishedDate "1906-09-01"^^xsd:date .
+
+ex:state_026 ex:stateContainsCity ex:city_056 .
+
+ex:city_057 a ex:City ;
+    ex:cityId "CTY-0057" ;
+    ex:cityName "Municipality #057" ;
+    ex:establishedDate "1907-10-02"^^xsd:date .
+
+ex:state_027 ex:stateContainsCity ex:city_057 .
+
+ex:city_058 a ex:City ;
+    ex:cityId "CTY-0058" ;
+    ex:cityName "Municipality #058" ;
+    ex:establishedDate "1908-11-03"^^xsd:date .
+
+ex:state_028 ex:stateContainsCity ex:city_058 .
+
+ex:city_059 a ex:City ;
+    ex:cityId "CTY-0059" ;
+    ex:cityName "Municipality #059" ;
+    ex:establishedDate "1909-12-04"^^xsd:date .
+
+ex:state_029 ex:stateContainsCity ex:city_059 .
+
+ex:city_060 a ex:City ;
+    ex:cityId "CTY-0060" ;
+    ex:cityName "Municipality #060" ;
+    ex:establishedDate "1910-01-05"^^xsd:date .
+
+ex:state_030 ex:stateContainsCity ex:city_060 .
+
+ex:city_061 a ex:City ;
+    ex:cityId "CTY-0061" ;
+    ex:cityName "Municipality #061" ;
+    ex:establishedDate "1911-02-06"^^xsd:date .
+
+ex:state_001 ex:stateContainsCity ex:city_061 .
+
+ex:city_062 a ex:City ;
+    ex:cityId "CTY-0062" ;
+    ex:cityName "Municipality #062" ;
+    ex:establishedDate "1912-03-07"^^xsd:date .
+
+ex:state_002 ex:stateContainsCity ex:city_062 .
+
+ex:city_063 a ex:City ;
+    ex:cityId "CTY-0063" ;
+    ex:cityName "Municipality #063" ;
+    ex:establishedDate "1913-04-08"^^xsd:date .
+
+ex:state_003 ex:stateContainsCity ex:city_063 .
+
+ex:city_064 a ex:City ;
+    ex:cityId "CTY-0064" ;
+    ex:cityName "Municipality #064" ;
+    ex:establishedDate "1914-05-09"^^xsd:date .
+
+ex:state_004 ex:stateContainsCity ex:city_064 .
+
+ex:city_065 a ex:City ;
+    ex:cityId "CTY-0065" ;
+    ex:cityName "Municipality #065" ;
+    ex:establishedDate "1915-06-10"^^xsd:date .
+
+ex:state_005 ex:stateContainsCity ex:city_065 .
+
+ex:city_066 a ex:City ;
+    ex:cityId "CTY-0066" ;
+    ex:cityName "Municipality #066" ;
+    ex:establishedDate "1916-07-11"^^xsd:date .
+
+ex:state_006 ex:stateContainsCity ex:city_066 .
+
+ex:city_067 a ex:City ;
+    ex:cityId "CTY-0067" ;
+    ex:cityName "Municipality #067" ;
+    ex:establishedDate "1917-08-12"^^xsd:date .
+
+ex:state_007 ex:stateContainsCity ex:city_067 .
+
+ex:city_068 a ex:City ;
+    ex:cityId "CTY-0068" ;
+    ex:cityName "Municipality #068" ;
+    ex:establishedDate "1918-09-13"^^xsd:date .
+
+ex:state_008 ex:stateContainsCity ex:city_068 .
+
+ex:city_069 a ex:City ;
+    ex:cityId "CTY-0069" ;
+    ex:cityName "Municipality #069" ;
+    ex:establishedDate "1919-10-14"^^xsd:date .
+
+ex:state_009 ex:stateContainsCity ex:city_069 .
+
+ex:city_070 a ex:City ;
+    ex:cityId "CTY-0070" ;
+    ex:cityName "Municipality #070" ;
+    ex:establishedDate "1920-11-15"^^xsd:date .
+
+ex:state_010 ex:stateContainsCity ex:city_070 .
+
+ex:city_071 a ex:City ;
+    ex:cityId "CTY-0071" ;
+    ex:cityName "Municipality #071" ;
+    ex:establishedDate "1921-12-16"^^xsd:date .
+
+ex:state_011 ex:stateContainsCity ex:city_071 .
+
+ex:city_072 a ex:City ;
+    ex:cityId "CTY-0072" ;
+    ex:cityName "Municipality #072" ;
+    ex:establishedDate "1922-01-17"^^xsd:date .
+
+ex:state_012 ex:stateContainsCity ex:city_072 .
+
+ex:city_073 a ex:City ;
+    ex:cityId "CTY-0073" ;
+    ex:cityName "Municipality #073" ;
+    ex:establishedDate "1923-02-18"^^xsd:date .
+
+ex:state_013 ex:stateContainsCity ex:city_073 .
+
+ex:city_074 a ex:City ;
+    ex:cityId "CTY-0074" ;
+    ex:cityName "Municipality #074" ;
+    ex:establishedDate "1924-03-19"^^xsd:date .
+
+ex:state_014 ex:stateContainsCity ex:city_074 .
+
+ex:city_075 a ex:City ;
+    ex:cityId "CTY-0075" ;
+    ex:cityName "Municipality #075" ;
+    ex:establishedDate "1925-04-20"^^xsd:date .
+
+ex:state_015 ex:stateContainsCity ex:city_075 .
+
+ex:city_076 a ex:City ;
+    ex:cityId "CTY-0076" ;
+    ex:cityName "Municipality #076" ;
+    ex:establishedDate "1926-05-21"^^xsd:date .
+
+ex:state_016 ex:stateContainsCity ex:city_076 .
+
+ex:city_077 a ex:City ;
+    ex:cityId "CTY-0077" ;
+    ex:cityName "Municipality #077" ;
+    ex:establishedDate "1927-06-22"^^xsd:date .
+
+ex:state_017 ex:stateContainsCity ex:city_077 .
+
+ex:city_078 a ex:City ;
+    ex:cityId "CTY-0078" ;
+    ex:cityName "Municipality #078" ;
+    ex:establishedDate "1928-07-23"^^xsd:date .
+
+ex:state_018 ex:stateContainsCity ex:city_078 .
+
+ex:city_079 a ex:City ;
+    ex:cityId "CTY-0079" ;
+    ex:cityName "Municipality #079" ;
+    ex:establishedDate "1929-08-24"^^xsd:date .
+
+ex:state_019 ex:stateContainsCity ex:city_079 .
+
+ex:city_080 a ex:City ;
+    ex:cityId "CTY-0080" ;
+    ex:cityName "Municipality #080" ;
+    ex:establishedDate "1930-09-25"^^xsd:date .
+
+ex:state_020 ex:stateContainsCity ex:city_080 .
+
+ex:city_081 a ex:City ;
+    ex:cityId "CTY-0081" ;
+    ex:cityName "Municipality #081" ;
+    ex:establishedDate "1931-10-26"^^xsd:date .
+
+ex:state_021 ex:stateContainsCity ex:city_081 .
+
+ex:city_082 a ex:City ;
+    ex:cityId "CTY-0082" ;
+    ex:cityName "Municipality #082" ;
+    ex:establishedDate "1932-11-27"^^xsd:date .
+
+ex:state_022 ex:stateContainsCity ex:city_082 .
+
+ex:city_083 a ex:City ;
+    ex:cityId "CTY-0083" ;
+    ex:cityName "Municipality #083" ;
+    ex:establishedDate "1933-12-28"^^xsd:date .
+
+ex:state_023 ex:stateContainsCity ex:city_083 .
+
+ex:city_084 a ex:City ;
+    ex:cityId "CTY-0084" ;
+    ex:cityName "Municipality #084" ;
+    ex:establishedDate "1934-01-01"^^xsd:date .
+
+ex:state_024 ex:stateContainsCity ex:city_084 .
+
+ex:city_085 a ex:City ;
+    ex:cityId "CTY-0085" ;
+    ex:cityName "Municipality #085" ;
+    ex:establishedDate "1935-02-02"^^xsd:date .
+
+ex:state_025 ex:stateContainsCity ex:city_085 .
+
+ex:city_086 a ex:City ;
+    ex:cityId "CTY-0086" ;
+    ex:cityName "Municipality #086" ;
+    ex:establishedDate "1936-03-03"^^xsd:date .
+
+ex:state_026 ex:stateContainsCity ex:city_086 .
+
+ex:city_087 a ex:City ;
+    ex:cityId "CTY-0087" ;
+    ex:cityName "Municipality #087" ;
+    ex:establishedDate "1937-04-04"^^xsd:date .
+
+ex:state_027 ex:stateContainsCity ex:city_087 .
+
+ex:city_088 a ex:City ;
+    ex:cityId "CTY-0088" ;
+    ex:cityName "Municipality #088" ;
+    ex:establishedDate "1938-05-05"^^xsd:date .
+
+ex:state_028 ex:stateContainsCity ex:city_088 .
+
+ex:city_089 a ex:City ;
+    ex:cityId "CTY-0089" ;
+    ex:cityName "Municipality #089" ;
+    ex:establishedDate "1939-06-06"^^xsd:date .
+
+ex:state_029 ex:stateContainsCity ex:city_089 .
+
+ex:city_090 a ex:City ;
+    ex:cityId "CTY-0090" ;
+    ex:cityName "Municipality #090" ;
+    ex:establishedDate "1940-07-07"^^xsd:date .
+
+ex:state_030 ex:stateContainsCity ex:city_090 .

@@ -1,0 +1,1237 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/inverse_properties/> .
+
+# ABox Instance Triples for 05_inverse_properties
+# Includes both forward (contractsWith, assignedToProject) and inverse (contractedBy, hasAssignedContractor) assertions
+
+ex:enterprise_001 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #001" .
+
+ex:enterprise_002 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #002" .
+
+ex:enterprise_003 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #003" .
+
+ex:enterprise_004 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #004" .
+
+ex:enterprise_005 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #005" .
+
+ex:enterprise_006 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #006" .
+
+ex:enterprise_007 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #007" .
+
+ex:enterprise_008 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #008" .
+
+ex:enterprise_009 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #009" .
+
+ex:enterprise_010 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #010" .
+
+ex:enterprise_011 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #011" .
+
+ex:enterprise_012 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #012" .
+
+ex:enterprise_013 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #013" .
+
+ex:enterprise_014 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #014" .
+
+ex:enterprise_015 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #015" .
+
+ex:enterprise_016 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #016" .
+
+ex:enterprise_017 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #017" .
+
+ex:enterprise_018 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #018" .
+
+ex:enterprise_019 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #019" .
+
+ex:enterprise_020 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #020" .
+
+ex:enterprise_021 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #021" .
+
+ex:enterprise_022 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #022" .
+
+ex:enterprise_023 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #023" .
+
+ex:enterprise_024 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #024" .
+
+ex:enterprise_025 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #025" .
+
+ex:enterprise_026 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #026" .
+
+ex:enterprise_027 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #027" .
+
+ex:enterprise_028 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #028" .
+
+ex:enterprise_029 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #029" .
+
+ex:enterprise_030 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #030" .
+
+ex:enterprise_031 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #031" .
+
+ex:enterprise_032 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #032" .
+
+ex:enterprise_033 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #033" .
+
+ex:enterprise_034 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #034" .
+
+ex:enterprise_035 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #035" .
+
+ex:enterprise_036 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #036" .
+
+ex:enterprise_037 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #037" .
+
+ex:enterprise_038 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #038" .
+
+ex:enterprise_039 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #039" .
+
+ex:enterprise_040 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #040" .
+
+ex:enterprise_041 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #041" .
+
+ex:enterprise_042 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #042" .
+
+ex:enterprise_043 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #043" .
+
+ex:enterprise_044 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #044" .
+
+ex:enterprise_045 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #045" .
+
+ex:enterprise_046 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #046" .
+
+ex:enterprise_047 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #047" .
+
+ex:enterprise_048 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #048" .
+
+ex:enterprise_049 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #049" .
+
+ex:enterprise_050 a ex:Enterprise ;
+    ex:enterpriseName "Apex Enterprise Holdings #050" .
+
+ex:project_001 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #001" .
+
+ex:project_002 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #002" .
+
+ex:project_003 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #003" .
+
+ex:project_004 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #004" .
+
+ex:project_005 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #005" .
+
+ex:project_006 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #006" .
+
+ex:project_007 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #007" .
+
+ex:project_008 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #008" .
+
+ex:project_009 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #009" .
+
+ex:project_010 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #010" .
+
+ex:project_011 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #011" .
+
+ex:project_012 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #012" .
+
+ex:project_013 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #013" .
+
+ex:project_014 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #014" .
+
+ex:project_015 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #015" .
+
+ex:project_016 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #016" .
+
+ex:project_017 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #017" .
+
+ex:project_018 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #018" .
+
+ex:project_019 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #019" .
+
+ex:project_020 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #020" .
+
+ex:project_021 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #021" .
+
+ex:project_022 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #022" .
+
+ex:project_023 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #023" .
+
+ex:project_024 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #024" .
+
+ex:project_025 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #025" .
+
+ex:project_026 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #026" .
+
+ex:project_027 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #027" .
+
+ex:project_028 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #028" .
+
+ex:project_029 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #029" .
+
+ex:project_030 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #030" .
+
+ex:project_031 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #031" .
+
+ex:project_032 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #032" .
+
+ex:project_033 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #033" .
+
+ex:project_034 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #034" .
+
+ex:project_035 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #035" .
+
+ex:project_036 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #036" .
+
+ex:project_037 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #037" .
+
+ex:project_038 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #038" .
+
+ex:project_039 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #039" .
+
+ex:project_040 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #040" .
+
+ex:project_041 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #041" .
+
+ex:project_042 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #042" .
+
+ex:project_043 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #043" .
+
+ex:project_044 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #044" .
+
+ex:project_045 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #045" .
+
+ex:project_046 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #046" .
+
+ex:project_047 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #047" .
+
+ex:project_048 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #048" .
+
+ex:project_049 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #049" .
+
+ex:project_050 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #050" .
+
+ex:project_051 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #051" .
+
+ex:project_052 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #052" .
+
+ex:project_053 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #053" .
+
+ex:project_054 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #054" .
+
+ex:project_055 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #055" .
+
+ex:project_056 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #056" .
+
+ex:project_057 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #057" .
+
+ex:project_058 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #058" .
+
+ex:project_059 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #059" .
+
+ex:project_060 a ex:Project ;
+    ex:projectName "Cloud Spanner Migration Initiative #060" .
+
+ex:contractor_001 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #001" ;
+    ex:hourlyRate 90.00 ;
+    ex:contractedBy ex:enterprise_001 ;
+    ex:assignedToProject ex:project_001, ex:project_002 .
+
+ex:enterprise_001 ex:contractsWith ex:contractor_001 .
+ex:project_001 ex:hasAssignedContractor ex:contractor_001 .
+
+ex:contractor_002 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #002" ;
+    ex:hourlyRate 95.00 ;
+    ex:contractedBy ex:enterprise_002 ;
+    ex:assignedToProject ex:project_002, ex:project_003 .
+
+ex:enterprise_002 ex:contractsWith ex:contractor_002 .
+ex:project_002 ex:hasAssignedContractor ex:contractor_002 .
+
+ex:contractor_003 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #003" ;
+    ex:hourlyRate 100.00 ;
+    ex:contractedBy ex:enterprise_003 ;
+    ex:assignedToProject ex:project_003, ex:project_004 .
+
+ex:enterprise_003 ex:contractsWith ex:contractor_003 .
+ex:project_003 ex:hasAssignedContractor ex:contractor_003 .
+
+ex:contractor_004 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #004" ;
+    ex:hourlyRate 105.00 ;
+    ex:contractedBy ex:enterprise_004 ;
+    ex:assignedToProject ex:project_004, ex:project_005 .
+
+ex:enterprise_004 ex:contractsWith ex:contractor_004 .
+ex:project_004 ex:hasAssignedContractor ex:contractor_004 .
+
+ex:contractor_005 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #005" ;
+    ex:hourlyRate 110.00 ;
+    ex:contractedBy ex:enterprise_005 ;
+    ex:assignedToProject ex:project_005, ex:project_006 .
+
+ex:enterprise_005 ex:contractsWith ex:contractor_005 .
+ex:project_005 ex:hasAssignedContractor ex:contractor_005 .
+
+ex:contractor_006 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #006" ;
+    ex:hourlyRate 115.00 ;
+    ex:contractedBy ex:enterprise_006 ;
+    ex:assignedToProject ex:project_006, ex:project_007 .
+
+ex:enterprise_006 ex:contractsWith ex:contractor_006 .
+ex:project_006 ex:hasAssignedContractor ex:contractor_006 .
+
+ex:contractor_007 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #007" ;
+    ex:hourlyRate 120.00 ;
+    ex:contractedBy ex:enterprise_007 ;
+    ex:assignedToProject ex:project_007, ex:project_008 .
+
+ex:enterprise_007 ex:contractsWith ex:contractor_007 .
+ex:project_007 ex:hasAssignedContractor ex:contractor_007 .
+
+ex:contractor_008 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #008" ;
+    ex:hourlyRate 125.00 ;
+    ex:contractedBy ex:enterprise_008 ;
+    ex:assignedToProject ex:project_008, ex:project_009 .
+
+ex:enterprise_008 ex:contractsWith ex:contractor_008 .
+ex:project_008 ex:hasAssignedContractor ex:contractor_008 .
+
+ex:contractor_009 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #009" ;
+    ex:hourlyRate 130.00 ;
+    ex:contractedBy ex:enterprise_009 ;
+    ex:assignedToProject ex:project_009, ex:project_010 .
+
+ex:enterprise_009 ex:contractsWith ex:contractor_009 .
+ex:project_009 ex:hasAssignedContractor ex:contractor_009 .
+
+ex:contractor_010 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #010" ;
+    ex:hourlyRate 135.00 ;
+    ex:contractedBy ex:enterprise_010 ;
+    ex:assignedToProject ex:project_010, ex:project_011 .
+
+ex:enterprise_010 ex:contractsWith ex:contractor_010 .
+ex:project_010 ex:hasAssignedContractor ex:contractor_010 .
+
+ex:contractor_011 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #011" ;
+    ex:hourlyRate 140.00 ;
+    ex:contractedBy ex:enterprise_011 ;
+    ex:assignedToProject ex:project_011, ex:project_012 .
+
+ex:enterprise_011 ex:contractsWith ex:contractor_011 .
+ex:project_011 ex:hasAssignedContractor ex:contractor_011 .
+
+ex:contractor_012 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #012" ;
+    ex:hourlyRate 145.00 ;
+    ex:contractedBy ex:enterprise_012 ;
+    ex:assignedToProject ex:project_012, ex:project_013 .
+
+ex:enterprise_012 ex:contractsWith ex:contractor_012 .
+ex:project_012 ex:hasAssignedContractor ex:contractor_012 .
+
+ex:contractor_013 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #013" ;
+    ex:hourlyRate 150.00 ;
+    ex:contractedBy ex:enterprise_013 ;
+    ex:assignedToProject ex:project_013, ex:project_014 .
+
+ex:enterprise_013 ex:contractsWith ex:contractor_013 .
+ex:project_013 ex:hasAssignedContractor ex:contractor_013 .
+
+ex:contractor_014 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #014" ;
+    ex:hourlyRate 155.00 ;
+    ex:contractedBy ex:enterprise_014 ;
+    ex:assignedToProject ex:project_014, ex:project_015 .
+
+ex:enterprise_014 ex:contractsWith ex:contractor_014 .
+ex:project_014 ex:hasAssignedContractor ex:contractor_014 .
+
+ex:contractor_015 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #015" ;
+    ex:hourlyRate 160.00 ;
+    ex:contractedBy ex:enterprise_015 ;
+    ex:assignedToProject ex:project_015, ex:project_016 .
+
+ex:enterprise_015 ex:contractsWith ex:contractor_015 .
+ex:project_015 ex:hasAssignedContractor ex:contractor_015 .
+
+ex:contractor_016 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #016" ;
+    ex:hourlyRate 165.00 ;
+    ex:contractedBy ex:enterprise_016 ;
+    ex:assignedToProject ex:project_016, ex:project_017 .
+
+ex:enterprise_016 ex:contractsWith ex:contractor_016 .
+ex:project_016 ex:hasAssignedContractor ex:contractor_016 .
+
+ex:contractor_017 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #017" ;
+    ex:hourlyRate 170.00 ;
+    ex:contractedBy ex:enterprise_017 ;
+    ex:assignedToProject ex:project_017, ex:project_018 .
+
+ex:enterprise_017 ex:contractsWith ex:contractor_017 .
+ex:project_017 ex:hasAssignedContractor ex:contractor_017 .
+
+ex:contractor_018 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #018" ;
+    ex:hourlyRate 175.00 ;
+    ex:contractedBy ex:enterprise_018 ;
+    ex:assignedToProject ex:project_018, ex:project_019 .
+
+ex:enterprise_018 ex:contractsWith ex:contractor_018 .
+ex:project_018 ex:hasAssignedContractor ex:contractor_018 .
+
+ex:contractor_019 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #019" ;
+    ex:hourlyRate 180.00 ;
+    ex:contractedBy ex:enterprise_019 ;
+    ex:assignedToProject ex:project_019, ex:project_020 .
+
+ex:enterprise_019 ex:contractsWith ex:contractor_019 .
+ex:project_019 ex:hasAssignedContractor ex:contractor_019 .
+
+ex:contractor_020 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #020" ;
+    ex:hourlyRate 185.00 ;
+    ex:contractedBy ex:enterprise_020 ;
+    ex:assignedToProject ex:project_020, ex:project_021 .
+
+ex:enterprise_020 ex:contractsWith ex:contractor_020 .
+ex:project_020 ex:hasAssignedContractor ex:contractor_020 .
+
+ex:contractor_021 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #021" ;
+    ex:hourlyRate 190.00 ;
+    ex:contractedBy ex:enterprise_021 ;
+    ex:assignedToProject ex:project_021, ex:project_022 .
+
+ex:enterprise_021 ex:contractsWith ex:contractor_021 .
+ex:project_021 ex:hasAssignedContractor ex:contractor_021 .
+
+ex:contractor_022 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #022" ;
+    ex:hourlyRate 195.00 ;
+    ex:contractedBy ex:enterprise_022 ;
+    ex:assignedToProject ex:project_022, ex:project_023 .
+
+ex:enterprise_022 ex:contractsWith ex:contractor_022 .
+ex:project_022 ex:hasAssignedContractor ex:contractor_022 .
+
+ex:contractor_023 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #023" ;
+    ex:hourlyRate 200.00 ;
+    ex:contractedBy ex:enterprise_023 ;
+    ex:assignedToProject ex:project_023, ex:project_024 .
+
+ex:enterprise_023 ex:contractsWith ex:contractor_023 .
+ex:project_023 ex:hasAssignedContractor ex:contractor_023 .
+
+ex:contractor_024 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #024" ;
+    ex:hourlyRate 205.00 ;
+    ex:contractedBy ex:enterprise_024 ;
+    ex:assignedToProject ex:project_024, ex:project_025 .
+
+ex:enterprise_024 ex:contractsWith ex:contractor_024 .
+ex:project_024 ex:hasAssignedContractor ex:contractor_024 .
+
+ex:contractor_025 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #025" ;
+    ex:hourlyRate 210.00 ;
+    ex:contractedBy ex:enterprise_025 ;
+    ex:assignedToProject ex:project_025, ex:project_026 .
+
+ex:enterprise_025 ex:contractsWith ex:contractor_025 .
+ex:project_025 ex:hasAssignedContractor ex:contractor_025 .
+
+ex:contractor_026 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #026" ;
+    ex:hourlyRate 215.00 ;
+    ex:contractedBy ex:enterprise_026 ;
+    ex:assignedToProject ex:project_026, ex:project_027 .
+
+ex:enterprise_026 ex:contractsWith ex:contractor_026 .
+ex:project_026 ex:hasAssignedContractor ex:contractor_026 .
+
+ex:contractor_027 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #027" ;
+    ex:hourlyRate 220.00 ;
+    ex:contractedBy ex:enterprise_027 ;
+    ex:assignedToProject ex:project_027, ex:project_028 .
+
+ex:enterprise_027 ex:contractsWith ex:contractor_027 .
+ex:project_027 ex:hasAssignedContractor ex:contractor_027 .
+
+ex:contractor_028 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #028" ;
+    ex:hourlyRate 225.00 ;
+    ex:contractedBy ex:enterprise_028 ;
+    ex:assignedToProject ex:project_028, ex:project_029 .
+
+ex:enterprise_028 ex:contractsWith ex:contractor_028 .
+ex:project_028 ex:hasAssignedContractor ex:contractor_028 .
+
+ex:contractor_029 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #029" ;
+    ex:hourlyRate 230.00 ;
+    ex:contractedBy ex:enterprise_029 ;
+    ex:assignedToProject ex:project_029, ex:project_030 .
+
+ex:enterprise_029 ex:contractsWith ex:contractor_029 .
+ex:project_029 ex:hasAssignedContractor ex:contractor_029 .
+
+ex:contractor_030 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #030" ;
+    ex:hourlyRate 235.00 ;
+    ex:contractedBy ex:enterprise_030 ;
+    ex:assignedToProject ex:project_030, ex:project_031 .
+
+ex:enterprise_030 ex:contractsWith ex:contractor_030 .
+ex:project_030 ex:hasAssignedContractor ex:contractor_030 .
+
+ex:contractor_031 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #031" ;
+    ex:hourlyRate 240.00 ;
+    ex:contractedBy ex:enterprise_031 ;
+    ex:assignedToProject ex:project_031, ex:project_032 .
+
+ex:enterprise_031 ex:contractsWith ex:contractor_031 .
+ex:project_031 ex:hasAssignedContractor ex:contractor_031 .
+
+ex:contractor_032 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #032" ;
+    ex:hourlyRate 245.00 ;
+    ex:contractedBy ex:enterprise_032 ;
+    ex:assignedToProject ex:project_032, ex:project_033 .
+
+ex:enterprise_032 ex:contractsWith ex:contractor_032 .
+ex:project_032 ex:hasAssignedContractor ex:contractor_032 .
+
+ex:contractor_033 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #033" ;
+    ex:hourlyRate 250.00 ;
+    ex:contractedBy ex:enterprise_033 ;
+    ex:assignedToProject ex:project_033, ex:project_034 .
+
+ex:enterprise_033 ex:contractsWith ex:contractor_033 .
+ex:project_033 ex:hasAssignedContractor ex:contractor_033 .
+
+ex:contractor_034 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #034" ;
+    ex:hourlyRate 255.00 ;
+    ex:contractedBy ex:enterprise_034 ;
+    ex:assignedToProject ex:project_034, ex:project_035 .
+
+ex:enterprise_034 ex:contractsWith ex:contractor_034 .
+ex:project_034 ex:hasAssignedContractor ex:contractor_034 .
+
+ex:contractor_035 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #035" ;
+    ex:hourlyRate 85.00 ;
+    ex:contractedBy ex:enterprise_035 ;
+    ex:assignedToProject ex:project_035, ex:project_036 .
+
+ex:enterprise_035 ex:contractsWith ex:contractor_035 .
+ex:project_035 ex:hasAssignedContractor ex:contractor_035 .
+
+ex:contractor_036 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #036" ;
+    ex:hourlyRate 90.00 ;
+    ex:contractedBy ex:enterprise_036 ;
+    ex:assignedToProject ex:project_036, ex:project_037 .
+
+ex:enterprise_036 ex:contractsWith ex:contractor_036 .
+ex:project_036 ex:hasAssignedContractor ex:contractor_036 .
+
+ex:contractor_037 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #037" ;
+    ex:hourlyRate 95.00 ;
+    ex:contractedBy ex:enterprise_037 ;
+    ex:assignedToProject ex:project_037, ex:project_038 .
+
+ex:enterprise_037 ex:contractsWith ex:contractor_037 .
+ex:project_037 ex:hasAssignedContractor ex:contractor_037 .
+
+ex:contractor_038 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #038" ;
+    ex:hourlyRate 100.00 ;
+    ex:contractedBy ex:enterprise_038 ;
+    ex:assignedToProject ex:project_038, ex:project_039 .
+
+ex:enterprise_038 ex:contractsWith ex:contractor_038 .
+ex:project_038 ex:hasAssignedContractor ex:contractor_038 .
+
+ex:contractor_039 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #039" ;
+    ex:hourlyRate 105.00 ;
+    ex:contractedBy ex:enterprise_039 ;
+    ex:assignedToProject ex:project_039, ex:project_040 .
+
+ex:enterprise_039 ex:contractsWith ex:contractor_039 .
+ex:project_039 ex:hasAssignedContractor ex:contractor_039 .
+
+ex:contractor_040 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #040" ;
+    ex:hourlyRate 110.00 ;
+    ex:contractedBy ex:enterprise_040 ;
+    ex:assignedToProject ex:project_040, ex:project_041 .
+
+ex:enterprise_040 ex:contractsWith ex:contractor_040 .
+ex:project_040 ex:hasAssignedContractor ex:contractor_040 .
+
+ex:contractor_041 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #041" ;
+    ex:hourlyRate 115.00 ;
+    ex:contractedBy ex:enterprise_041 ;
+    ex:assignedToProject ex:project_041, ex:project_042 .
+
+ex:enterprise_041 ex:contractsWith ex:contractor_041 .
+ex:project_041 ex:hasAssignedContractor ex:contractor_041 .
+
+ex:contractor_042 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #042" ;
+    ex:hourlyRate 120.00 ;
+    ex:contractedBy ex:enterprise_042 ;
+    ex:assignedToProject ex:project_042, ex:project_043 .
+
+ex:enterprise_042 ex:contractsWith ex:contractor_042 .
+ex:project_042 ex:hasAssignedContractor ex:contractor_042 .
+
+ex:contractor_043 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #043" ;
+    ex:hourlyRate 125.00 ;
+    ex:contractedBy ex:enterprise_043 ;
+    ex:assignedToProject ex:project_043, ex:project_044 .
+
+ex:enterprise_043 ex:contractsWith ex:contractor_043 .
+ex:project_043 ex:hasAssignedContractor ex:contractor_043 .
+
+ex:contractor_044 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #044" ;
+    ex:hourlyRate 130.00 ;
+    ex:contractedBy ex:enterprise_044 ;
+    ex:assignedToProject ex:project_044, ex:project_045 .
+
+ex:enterprise_044 ex:contractsWith ex:contractor_044 .
+ex:project_044 ex:hasAssignedContractor ex:contractor_044 .
+
+ex:contractor_045 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #045" ;
+    ex:hourlyRate 135.00 ;
+    ex:contractedBy ex:enterprise_045 ;
+    ex:assignedToProject ex:project_045, ex:project_046 .
+
+ex:enterprise_045 ex:contractsWith ex:contractor_045 .
+ex:project_045 ex:hasAssignedContractor ex:contractor_045 .
+
+ex:contractor_046 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #046" ;
+    ex:hourlyRate 140.00 ;
+    ex:contractedBy ex:enterprise_046 ;
+    ex:assignedToProject ex:project_046, ex:project_047 .
+
+ex:enterprise_046 ex:contractsWith ex:contractor_046 .
+ex:project_046 ex:hasAssignedContractor ex:contractor_046 .
+
+ex:contractor_047 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #047" ;
+    ex:hourlyRate 145.00 ;
+    ex:contractedBy ex:enterprise_047 ;
+    ex:assignedToProject ex:project_047, ex:project_048 .
+
+ex:enterprise_047 ex:contractsWith ex:contractor_047 .
+ex:project_047 ex:hasAssignedContractor ex:contractor_047 .
+
+ex:contractor_048 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #048" ;
+    ex:hourlyRate 150.00 ;
+    ex:contractedBy ex:enterprise_048 ;
+    ex:assignedToProject ex:project_048, ex:project_049 .
+
+ex:enterprise_048 ex:contractsWith ex:contractor_048 .
+ex:project_048 ex:hasAssignedContractor ex:contractor_048 .
+
+ex:contractor_049 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #049" ;
+    ex:hourlyRate 155.00 ;
+    ex:contractedBy ex:enterprise_049 ;
+    ex:assignedToProject ex:project_049, ex:project_050 .
+
+ex:enterprise_049 ex:contractsWith ex:contractor_049 .
+ex:project_049 ex:hasAssignedContractor ex:contractor_049 .
+
+ex:contractor_050 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #050" ;
+    ex:hourlyRate 160.00 ;
+    ex:contractedBy ex:enterprise_050 ;
+    ex:assignedToProject ex:project_050, ex:project_051 .
+
+ex:enterprise_050 ex:contractsWith ex:contractor_050 .
+ex:project_050 ex:hasAssignedContractor ex:contractor_050 .
+
+ex:contractor_051 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #051" ;
+    ex:hourlyRate 165.00 ;
+    ex:contractedBy ex:enterprise_001 ;
+    ex:assignedToProject ex:project_051, ex:project_052 .
+
+ex:enterprise_001 ex:contractsWith ex:contractor_051 .
+ex:project_051 ex:hasAssignedContractor ex:contractor_051 .
+
+ex:contractor_052 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #052" ;
+    ex:hourlyRate 170.00 ;
+    ex:contractedBy ex:enterprise_002 ;
+    ex:assignedToProject ex:project_052, ex:project_053 .
+
+ex:enterprise_002 ex:contractsWith ex:contractor_052 .
+ex:project_052 ex:hasAssignedContractor ex:contractor_052 .
+
+ex:contractor_053 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #053" ;
+    ex:hourlyRate 175.00 ;
+    ex:contractedBy ex:enterprise_003 ;
+    ex:assignedToProject ex:project_053, ex:project_054 .
+
+ex:enterprise_003 ex:contractsWith ex:contractor_053 .
+ex:project_053 ex:hasAssignedContractor ex:contractor_053 .
+
+ex:contractor_054 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #054" ;
+    ex:hourlyRate 180.00 ;
+    ex:contractedBy ex:enterprise_004 ;
+    ex:assignedToProject ex:project_054, ex:project_055 .
+
+ex:enterprise_004 ex:contractsWith ex:contractor_054 .
+ex:project_054 ex:hasAssignedContractor ex:contractor_054 .
+
+ex:contractor_055 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #055" ;
+    ex:hourlyRate 185.00 ;
+    ex:contractedBy ex:enterprise_005 ;
+    ex:assignedToProject ex:project_055, ex:project_056 .
+
+ex:enterprise_005 ex:contractsWith ex:contractor_055 .
+ex:project_055 ex:hasAssignedContractor ex:contractor_055 .
+
+ex:contractor_056 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #056" ;
+    ex:hourlyRate 190.00 ;
+    ex:contractedBy ex:enterprise_006 ;
+    ex:assignedToProject ex:project_056, ex:project_057 .
+
+ex:enterprise_006 ex:contractsWith ex:contractor_056 .
+ex:project_056 ex:hasAssignedContractor ex:contractor_056 .
+
+ex:contractor_057 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #057" ;
+    ex:hourlyRate 195.00 ;
+    ex:contractedBy ex:enterprise_007 ;
+    ex:assignedToProject ex:project_057, ex:project_058 .
+
+ex:enterprise_007 ex:contractsWith ex:contractor_057 .
+ex:project_057 ex:hasAssignedContractor ex:contractor_057 .
+
+ex:contractor_058 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #058" ;
+    ex:hourlyRate 200.00 ;
+    ex:contractedBy ex:enterprise_008 ;
+    ex:assignedToProject ex:project_058, ex:project_059 .
+
+ex:enterprise_008 ex:contractsWith ex:contractor_058 .
+ex:project_058 ex:hasAssignedContractor ex:contractor_058 .
+
+ex:contractor_059 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #059" ;
+    ex:hourlyRate 205.00 ;
+    ex:contractedBy ex:enterprise_009 ;
+    ex:assignedToProject ex:project_059, ex:project_060 .
+
+ex:enterprise_009 ex:contractsWith ex:contractor_059 .
+ex:project_059 ex:hasAssignedContractor ex:contractor_059 .
+
+ex:contractor_060 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #060" ;
+    ex:hourlyRate 210.00 ;
+    ex:contractedBy ex:enterprise_010 ;
+    ex:assignedToProject ex:project_060, ex:project_001 .
+
+ex:enterprise_010 ex:contractsWith ex:contractor_060 .
+ex:project_060 ex:hasAssignedContractor ex:contractor_060 .
+
+ex:contractor_061 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #061" ;
+    ex:hourlyRate 215.00 ;
+    ex:contractedBy ex:enterprise_011 ;
+    ex:assignedToProject ex:project_001, ex:project_002 .
+
+ex:enterprise_011 ex:contractsWith ex:contractor_061 .
+ex:project_001 ex:hasAssignedContractor ex:contractor_061 .
+
+ex:contractor_062 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #062" ;
+    ex:hourlyRate 220.00 ;
+    ex:contractedBy ex:enterprise_012 ;
+    ex:assignedToProject ex:project_002, ex:project_003 .
+
+ex:enterprise_012 ex:contractsWith ex:contractor_062 .
+ex:project_002 ex:hasAssignedContractor ex:contractor_062 .
+
+ex:contractor_063 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #063" ;
+    ex:hourlyRate 225.00 ;
+    ex:contractedBy ex:enterprise_013 ;
+    ex:assignedToProject ex:project_003, ex:project_004 .
+
+ex:enterprise_013 ex:contractsWith ex:contractor_063 .
+ex:project_003 ex:hasAssignedContractor ex:contractor_063 .
+
+ex:contractor_064 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #064" ;
+    ex:hourlyRate 230.00 ;
+    ex:contractedBy ex:enterprise_014 ;
+    ex:assignedToProject ex:project_004, ex:project_005 .
+
+ex:enterprise_014 ex:contractsWith ex:contractor_064 .
+ex:project_004 ex:hasAssignedContractor ex:contractor_064 .
+
+ex:contractor_065 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #065" ;
+    ex:hourlyRate 235.00 ;
+    ex:contractedBy ex:enterprise_015 ;
+    ex:assignedToProject ex:project_005, ex:project_006 .
+
+ex:enterprise_015 ex:contractsWith ex:contractor_065 .
+ex:project_005 ex:hasAssignedContractor ex:contractor_065 .
+
+ex:contractor_066 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #066" ;
+    ex:hourlyRate 240.00 ;
+    ex:contractedBy ex:enterprise_016 ;
+    ex:assignedToProject ex:project_006, ex:project_007 .
+
+ex:enterprise_016 ex:contractsWith ex:contractor_066 .
+ex:project_006 ex:hasAssignedContractor ex:contractor_066 .
+
+ex:contractor_067 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #067" ;
+    ex:hourlyRate 245.00 ;
+    ex:contractedBy ex:enterprise_017 ;
+    ex:assignedToProject ex:project_007, ex:project_008 .
+
+ex:enterprise_017 ex:contractsWith ex:contractor_067 .
+ex:project_007 ex:hasAssignedContractor ex:contractor_067 .
+
+ex:contractor_068 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #068" ;
+    ex:hourlyRate 250.00 ;
+    ex:contractedBy ex:enterprise_018 ;
+    ex:assignedToProject ex:project_008, ex:project_009 .
+
+ex:enterprise_018 ex:contractsWith ex:contractor_068 .
+ex:project_008 ex:hasAssignedContractor ex:contractor_068 .
+
+ex:contractor_069 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #069" ;
+    ex:hourlyRate 255.00 ;
+    ex:contractedBy ex:enterprise_019 ;
+    ex:assignedToProject ex:project_009, ex:project_010 .
+
+ex:enterprise_019 ex:contractsWith ex:contractor_069 .
+ex:project_009 ex:hasAssignedContractor ex:contractor_069 .
+
+ex:contractor_070 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #070" ;
+    ex:hourlyRate 85.00 ;
+    ex:contractedBy ex:enterprise_020 ;
+    ex:assignedToProject ex:project_010, ex:project_011 .
+
+ex:enterprise_020 ex:contractsWith ex:contractor_070 .
+ex:project_010 ex:hasAssignedContractor ex:contractor_070 .
+
+ex:contractor_071 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #071" ;
+    ex:hourlyRate 90.00 ;
+    ex:contractedBy ex:enterprise_021 ;
+    ex:assignedToProject ex:project_011, ex:project_012 .
+
+ex:enterprise_021 ex:contractsWith ex:contractor_071 .
+ex:project_011 ex:hasAssignedContractor ex:contractor_071 .
+
+ex:contractor_072 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #072" ;
+    ex:hourlyRate 95.00 ;
+    ex:contractedBy ex:enterprise_022 ;
+    ex:assignedToProject ex:project_012, ex:project_013 .
+
+ex:enterprise_022 ex:contractsWith ex:contractor_072 .
+ex:project_012 ex:hasAssignedContractor ex:contractor_072 .
+
+ex:contractor_073 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #073" ;
+    ex:hourlyRate 100.00 ;
+    ex:contractedBy ex:enterprise_023 ;
+    ex:assignedToProject ex:project_013, ex:project_014 .
+
+ex:enterprise_023 ex:contractsWith ex:contractor_073 .
+ex:project_013 ex:hasAssignedContractor ex:contractor_073 .
+
+ex:contractor_074 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #074" ;
+    ex:hourlyRate 105.00 ;
+    ex:contractedBy ex:enterprise_024 ;
+    ex:assignedToProject ex:project_014, ex:project_015 .
+
+ex:enterprise_024 ex:contractsWith ex:contractor_074 .
+ex:project_014 ex:hasAssignedContractor ex:contractor_074 .
+
+ex:contractor_075 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #075" ;
+    ex:hourlyRate 110.00 ;
+    ex:contractedBy ex:enterprise_025 ;
+    ex:assignedToProject ex:project_015, ex:project_016 .
+
+ex:enterprise_025 ex:contractsWith ex:contractor_075 .
+ex:project_015 ex:hasAssignedContractor ex:contractor_075 .
+
+ex:contractor_076 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #076" ;
+    ex:hourlyRate 115.00 ;
+    ex:contractedBy ex:enterprise_026 ;
+    ex:assignedToProject ex:project_016, ex:project_017 .
+
+ex:enterprise_026 ex:contractsWith ex:contractor_076 .
+ex:project_016 ex:hasAssignedContractor ex:contractor_076 .
+
+ex:contractor_077 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #077" ;
+    ex:hourlyRate 120.00 ;
+    ex:contractedBy ex:enterprise_027 ;
+    ex:assignedToProject ex:project_017, ex:project_018 .
+
+ex:enterprise_027 ex:contractsWith ex:contractor_077 .
+ex:project_017 ex:hasAssignedContractor ex:contractor_077 .
+
+ex:contractor_078 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #078" ;
+    ex:hourlyRate 125.00 ;
+    ex:contractedBy ex:enterprise_028 ;
+    ex:assignedToProject ex:project_018, ex:project_019 .
+
+ex:enterprise_028 ex:contractsWith ex:contractor_078 .
+ex:project_018 ex:hasAssignedContractor ex:contractor_078 .
+
+ex:contractor_079 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #079" ;
+    ex:hourlyRate 130.00 ;
+    ex:contractedBy ex:enterprise_029 ;
+    ex:assignedToProject ex:project_019, ex:project_020 .
+
+ex:enterprise_029 ex:contractsWith ex:contractor_079 .
+ex:project_019 ex:hasAssignedContractor ex:contractor_079 .
+
+ex:contractor_080 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #080" ;
+    ex:hourlyRate 135.00 ;
+    ex:contractedBy ex:enterprise_030 ;
+    ex:assignedToProject ex:project_020, ex:project_021 .
+
+ex:enterprise_030 ex:contractsWith ex:contractor_080 .
+ex:project_020 ex:hasAssignedContractor ex:contractor_080 .
+
+ex:contractor_081 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #081" ;
+    ex:hourlyRate 140.00 ;
+    ex:contractedBy ex:enterprise_031 ;
+    ex:assignedToProject ex:project_021, ex:project_022 .
+
+ex:enterprise_031 ex:contractsWith ex:contractor_081 .
+ex:project_021 ex:hasAssignedContractor ex:contractor_081 .
+
+ex:contractor_082 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #082" ;
+    ex:hourlyRate 145.00 ;
+    ex:contractedBy ex:enterprise_032 ;
+    ex:assignedToProject ex:project_022, ex:project_023 .
+
+ex:enterprise_032 ex:contractsWith ex:contractor_082 .
+ex:project_022 ex:hasAssignedContractor ex:contractor_082 .
+
+ex:contractor_083 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #083" ;
+    ex:hourlyRate 150.00 ;
+    ex:contractedBy ex:enterprise_033 ;
+    ex:assignedToProject ex:project_023, ex:project_024 .
+
+ex:enterprise_033 ex:contractsWith ex:contractor_083 .
+ex:project_023 ex:hasAssignedContractor ex:contractor_083 .
+
+ex:contractor_084 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #084" ;
+    ex:hourlyRate 155.00 ;
+    ex:contractedBy ex:enterprise_034 ;
+    ex:assignedToProject ex:project_024, ex:project_025 .
+
+ex:enterprise_034 ex:contractsWith ex:contractor_084 .
+ex:project_024 ex:hasAssignedContractor ex:contractor_084 .
+
+ex:contractor_085 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #085" ;
+    ex:hourlyRate 160.00 ;
+    ex:contractedBy ex:enterprise_035 ;
+    ex:assignedToProject ex:project_025, ex:project_026 .
+
+ex:enterprise_035 ex:contractsWith ex:contractor_085 .
+ex:project_025 ex:hasAssignedContractor ex:contractor_085 .
+
+ex:contractor_086 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #086" ;
+    ex:hourlyRate 165.00 ;
+    ex:contractedBy ex:enterprise_036 ;
+    ex:assignedToProject ex:project_026, ex:project_027 .
+
+ex:enterprise_036 ex:contractsWith ex:contractor_086 .
+ex:project_026 ex:hasAssignedContractor ex:contractor_086 .
+
+ex:contractor_087 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #087" ;
+    ex:hourlyRate 170.00 ;
+    ex:contractedBy ex:enterprise_037 ;
+    ex:assignedToProject ex:project_027, ex:project_028 .
+
+ex:enterprise_037 ex:contractsWith ex:contractor_087 .
+ex:project_027 ex:hasAssignedContractor ex:contractor_087 .
+
+ex:contractor_088 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #088" ;
+    ex:hourlyRate 175.00 ;
+    ex:contractedBy ex:enterprise_038 ;
+    ex:assignedToProject ex:project_028, ex:project_029 .
+
+ex:enterprise_038 ex:contractsWith ex:contractor_088 .
+ex:project_028 ex:hasAssignedContractor ex:contractor_088 .
+
+ex:contractor_089 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #089" ;
+    ex:hourlyRate 180.00 ;
+    ex:contractedBy ex:enterprise_039 ;
+    ex:assignedToProject ex:project_029, ex:project_030 .
+
+ex:enterprise_039 ex:contractsWith ex:contractor_089 .
+ex:project_029 ex:hasAssignedContractor ex:contractor_089 .
+
+ex:contractor_090 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #090" ;
+    ex:hourlyRate 185.00 ;
+    ex:contractedBy ex:enterprise_040 ;
+    ex:assignedToProject ex:project_030, ex:project_031 .
+
+ex:enterprise_040 ex:contractsWith ex:contractor_090 .
+ex:project_030 ex:hasAssignedContractor ex:contractor_090 .
+
+ex:contractor_091 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #091" ;
+    ex:hourlyRate 190.00 ;
+    ex:contractedBy ex:enterprise_041 ;
+    ex:assignedToProject ex:project_031, ex:project_032 .
+
+ex:enterprise_041 ex:contractsWith ex:contractor_091 .
+ex:project_031 ex:hasAssignedContractor ex:contractor_091 .
+
+ex:contractor_092 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #092" ;
+    ex:hourlyRate 195.00 ;
+    ex:contractedBy ex:enterprise_042 ;
+    ex:assignedToProject ex:project_032, ex:project_033 .
+
+ex:enterprise_042 ex:contractsWith ex:contractor_092 .
+ex:project_032 ex:hasAssignedContractor ex:contractor_092 .
+
+ex:contractor_093 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #093" ;
+    ex:hourlyRate 200.00 ;
+    ex:contractedBy ex:enterprise_043 ;
+    ex:assignedToProject ex:project_033, ex:project_034 .
+
+ex:enterprise_043 ex:contractsWith ex:contractor_093 .
+ex:project_033 ex:hasAssignedContractor ex:contractor_093 .
+
+ex:contractor_094 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #094" ;
+    ex:hourlyRate 205.00 ;
+    ex:contractedBy ex:enterprise_044 ;
+    ex:assignedToProject ex:project_034, ex:project_035 .
+
+ex:enterprise_044 ex:contractsWith ex:contractor_094 .
+ex:project_034 ex:hasAssignedContractor ex:contractor_094 .
+
+ex:contractor_095 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #095" ;
+    ex:hourlyRate 210.00 ;
+    ex:contractedBy ex:enterprise_045 ;
+    ex:assignedToProject ex:project_035, ex:project_036 .
+
+ex:enterprise_045 ex:contractsWith ex:contractor_095 .
+ex:project_035 ex:hasAssignedContractor ex:contractor_095 .
+
+ex:contractor_096 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #096" ;
+    ex:hourlyRate 215.00 ;
+    ex:contractedBy ex:enterprise_046 ;
+    ex:assignedToProject ex:project_036, ex:project_037 .
+
+ex:enterprise_046 ex:contractsWith ex:contractor_096 .
+ex:project_036 ex:hasAssignedContractor ex:contractor_096 .
+
+ex:contractor_097 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #097" ;
+    ex:hourlyRate 220.00 ;
+    ex:contractedBy ex:enterprise_047 ;
+    ex:assignedToProject ex:project_037, ex:project_038 .
+
+ex:enterprise_047 ex:contractsWith ex:contractor_097 .
+ex:project_037 ex:hasAssignedContractor ex:contractor_097 .
+
+ex:contractor_098 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #098" ;
+    ex:hourlyRate 225.00 ;
+    ex:contractedBy ex:enterprise_048 ;
+    ex:assignedToProject ex:project_038, ex:project_039 .
+
+ex:enterprise_048 ex:contractsWith ex:contractor_098 .
+ex:project_038 ex:hasAssignedContractor ex:contractor_098 .
+
+ex:contractor_099 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #099" ;
+    ex:hourlyRate 230.00 ;
+    ex:contractedBy ex:enterprise_049 ;
+    ex:assignedToProject ex:project_039, ex:project_040 .
+
+ex:enterprise_049 ex:contractsWith ex:contractor_099 .
+ex:project_039 ex:hasAssignedContractor ex:contractor_099 .
+
+ex:contractor_100 a ex:Contractor ;
+    ex:contractorName "Principal Consultant #100" ;
+    ex:hourlyRate 235.00 ;
+    ex:contractedBy ex:enterprise_050 ;
+    ex:assignedToProject ex:project_040, ex:project_041 .
+
+ex:enterprise_050 ex:contractsWith ex:contractor_100 .
+ex:project_040 ex:hasAssignedContractor ex:contractor_100 .

@@ -1,0 +1,1846 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/multiple_inheritance/> .
+
+# ABox Instance Triples for 02_multiple_inheritance (Diamond Hierarchy)
+
+ex:reg_emp_001 a ex:RegularEmployee ;
+    ex:fullName "Bob Kim" ;
+    ex:nationalId "NID-EMP-00001" ;
+    ex:employeeId "EMP-10001" ;
+    ex:hourlyRate 37.25 ;
+    ex:employeeCode "EC-0001" .
+
+ex:reg_emp_002 a ex:RegularEmployee ;
+    ex:fullName "Carlos Okafor" ;
+    ex:nationalId "NID-EMP-00002" ;
+    ex:employeeId "EMP-10002" ;
+    ex:hourlyRate 39.50 ;
+    ex:employeeCode "EC-0002" .
+
+ex:reg_emp_003 a ex:RegularEmployee ;
+    ex:fullName "Diana Rousseau" ;
+    ex:nationalId "NID-EMP-00003" ;
+    ex:employeeId "EMP-10003" ;
+    ex:hourlyRate 41.75 ;
+    ex:employeeCode "EC-0003" .
+
+ex:reg_emp_004 a ex:RegularEmployee ;
+    ex:fullName "Elena Garcia" ;
+    ex:nationalId "NID-EMP-00004" ;
+    ex:employeeId "EMP-10004" ;
+    ex:hourlyRate 44.00 ;
+    ex:employeeCode "EC-0004" .
+
+ex:reg_emp_005 a ex:RegularEmployee ;
+    ex:fullName "Farhan Chen" ;
+    ex:nationalId "NID-EMP-00005" ;
+    ex:employeeId "EMP-10005" ;
+    ex:hourlyRate 46.25 ;
+    ex:employeeCode "EC-0005" .
+
+ex:reg_emp_006 a ex:RegularEmployee ;
+    ex:fullName "Grace Novak" ;
+    ex:nationalId "NID-EMP-00006" ;
+    ex:employeeId "EMP-10006" ;
+    ex:hourlyRate 48.50 ;
+    ex:employeeCode "EC-0006" .
+
+ex:reg_emp_007 a ex:RegularEmployee ;
+    ex:fullName "Hiroshi Patel" ;
+    ex:nationalId "NID-EMP-00007" ;
+    ex:employeeId "EMP-10007" ;
+    ex:hourlyRate 50.75 ;
+    ex:employeeCode "EC-0007" .
+
+ex:reg_emp_008 a ex:RegularEmployee ;
+    ex:fullName "Ingrid Muller" ;
+    ex:nationalId "NID-EMP-00008" ;
+    ex:employeeId "EMP-10008" ;
+    ex:hourlyRate 53.00 ;
+    ex:employeeCode "EC-0008" .
+
+ex:reg_emp_009 a ex:RegularEmployee ;
+    ex:fullName "Julian Silva" ;
+    ex:nationalId "NID-EMP-00009" ;
+    ex:employeeId "EMP-10009" ;
+    ex:hourlyRate 55.25 ;
+    ex:employeeCode "EC-0009" .
+
+ex:reg_emp_010 a ex:RegularEmployee ;
+    ex:fullName "Kavita Smith" ;
+    ex:nationalId "NID-EMP-00010" ;
+    ex:employeeId "EMP-10010" ;
+    ex:hourlyRate 57.50 ;
+    ex:employeeCode "EC-0010" .
+
+ex:reg_emp_011 a ex:RegularEmployee ;
+    ex:fullName "Liam Kim" ;
+    ex:nationalId "NID-EMP-00011" ;
+    ex:employeeId "EMP-10011" ;
+    ex:hourlyRate 59.75 ;
+    ex:employeeCode "EC-0011" .
+
+ex:reg_emp_012 a ex:RegularEmployee ;
+    ex:fullName "Alice Okafor" ;
+    ex:nationalId "NID-EMP-00012" ;
+    ex:employeeId "EMP-10012" ;
+    ex:hourlyRate 62.00 ;
+    ex:employeeCode "EC-0012" .
+
+ex:reg_emp_013 a ex:RegularEmployee ;
+    ex:fullName "Bob Rousseau" ;
+    ex:nationalId "NID-EMP-00013" ;
+    ex:employeeId "EMP-10013" ;
+    ex:hourlyRate 64.25 ;
+    ex:employeeCode "EC-0013" .
+
+ex:reg_emp_014 a ex:RegularEmployee ;
+    ex:fullName "Carlos Garcia" ;
+    ex:nationalId "NID-EMP-00014" ;
+    ex:employeeId "EMP-10014" ;
+    ex:hourlyRate 66.50 ;
+    ex:employeeCode "EC-0014" .
+
+ex:reg_emp_015 a ex:RegularEmployee ;
+    ex:fullName "Diana Chen" ;
+    ex:nationalId "NID-EMP-00015" ;
+    ex:employeeId "EMP-10015" ;
+    ex:hourlyRate 68.75 ;
+    ex:employeeCode "EC-0015" .
+
+ex:reg_emp_016 a ex:RegularEmployee ;
+    ex:fullName "Elena Novak" ;
+    ex:nationalId "NID-EMP-00016" ;
+    ex:employeeId "EMP-10016" ;
+    ex:hourlyRate 71.00 ;
+    ex:employeeCode "EC-0016" .
+
+ex:reg_emp_017 a ex:RegularEmployee ;
+    ex:fullName "Farhan Patel" ;
+    ex:nationalId "NID-EMP-00017" ;
+    ex:employeeId "EMP-10017" ;
+    ex:hourlyRate 73.25 ;
+    ex:employeeCode "EC-0017" .
+
+ex:reg_emp_018 a ex:RegularEmployee ;
+    ex:fullName "Grace Muller" ;
+    ex:nationalId "NID-EMP-00018" ;
+    ex:employeeId "EMP-10018" ;
+    ex:hourlyRate 75.50 ;
+    ex:employeeCode "EC-0018" .
+
+ex:reg_emp_019 a ex:RegularEmployee ;
+    ex:fullName "Hiroshi Silva" ;
+    ex:nationalId "NID-EMP-00019" ;
+    ex:employeeId "EMP-10019" ;
+    ex:hourlyRate 77.75 ;
+    ex:employeeCode "EC-0019" .
+
+ex:reg_emp_020 a ex:RegularEmployee ;
+    ex:fullName "Ingrid Smith" ;
+    ex:nationalId "NID-EMP-00020" ;
+    ex:employeeId "EMP-10020" ;
+    ex:hourlyRate 80.00 ;
+    ex:employeeCode "EC-0020" .
+
+ex:reg_emp_021 a ex:RegularEmployee ;
+    ex:fullName "Julian Kim" ;
+    ex:nationalId "NID-EMP-00021" ;
+    ex:employeeId "EMP-10021" ;
+    ex:hourlyRate 82.25 ;
+    ex:employeeCode "EC-0021" .
+
+ex:reg_emp_022 a ex:RegularEmployee ;
+    ex:fullName "Kavita Okafor" ;
+    ex:nationalId "NID-EMP-00022" ;
+    ex:employeeId "EMP-10022" ;
+    ex:hourlyRate 84.50 ;
+    ex:employeeCode "EC-0022" .
+
+ex:reg_emp_023 a ex:RegularEmployee ;
+    ex:fullName "Liam Rousseau" ;
+    ex:nationalId "NID-EMP-00023" ;
+    ex:employeeId "EMP-10023" ;
+    ex:hourlyRate 86.75 ;
+    ex:employeeCode "EC-0023" .
+
+ex:reg_emp_024 a ex:RegularEmployee ;
+    ex:fullName "Alice Garcia" ;
+    ex:nationalId "NID-EMP-00024" ;
+    ex:employeeId "EMP-10024" ;
+    ex:hourlyRate 89.00 ;
+    ex:employeeCode "EC-0024" .
+
+ex:reg_emp_025 a ex:RegularEmployee ;
+    ex:fullName "Bob Chen" ;
+    ex:nationalId "NID-EMP-00025" ;
+    ex:employeeId "EMP-10025" ;
+    ex:hourlyRate 91.25 ;
+    ex:employeeCode "EC-0025" .
+
+ex:reg_emp_026 a ex:RegularEmployee ;
+    ex:fullName "Carlos Novak" ;
+    ex:nationalId "NID-EMP-00026" ;
+    ex:employeeId "EMP-10026" ;
+    ex:hourlyRate 93.50 ;
+    ex:employeeCode "EC-0026" .
+
+ex:reg_emp_027 a ex:RegularEmployee ;
+    ex:fullName "Diana Patel" ;
+    ex:nationalId "NID-EMP-00027" ;
+    ex:employeeId "EMP-10027" ;
+    ex:hourlyRate 95.75 ;
+    ex:employeeCode "EC-0027" .
+
+ex:reg_emp_028 a ex:RegularEmployee ;
+    ex:fullName "Elena Muller" ;
+    ex:nationalId "NID-EMP-00028" ;
+    ex:employeeId "EMP-10028" ;
+    ex:hourlyRate 98.00 ;
+    ex:employeeCode "EC-0028" .
+
+ex:reg_emp_029 a ex:RegularEmployee ;
+    ex:fullName "Farhan Silva" ;
+    ex:nationalId "NID-EMP-00029" ;
+    ex:employeeId "EMP-10029" ;
+    ex:hourlyRate 100.25 ;
+    ex:employeeCode "EC-0029" .
+
+ex:reg_emp_030 a ex:RegularEmployee ;
+    ex:fullName "Grace Smith" ;
+    ex:nationalId "NID-EMP-00030" ;
+    ex:employeeId "EMP-10030" ;
+    ex:hourlyRate 102.50 ;
+    ex:employeeCode "EC-0030" .
+
+ex:reg_emp_031 a ex:RegularEmployee ;
+    ex:fullName "Hiroshi Kim" ;
+    ex:nationalId "NID-EMP-00031" ;
+    ex:employeeId "EMP-10031" ;
+    ex:hourlyRate 104.75 ;
+    ex:employeeCode "EC-0031" .
+
+ex:reg_emp_032 a ex:RegularEmployee ;
+    ex:fullName "Ingrid Okafor" ;
+    ex:nationalId "NID-EMP-00032" ;
+    ex:employeeId "EMP-10032" ;
+    ex:hourlyRate 107.00 ;
+    ex:employeeCode "EC-0032" .
+
+ex:reg_emp_033 a ex:RegularEmployee ;
+    ex:fullName "Julian Rousseau" ;
+    ex:nationalId "NID-EMP-00033" ;
+    ex:employeeId "EMP-10033" ;
+    ex:hourlyRate 109.25 ;
+    ex:employeeCode "EC-0033" .
+
+ex:reg_emp_034 a ex:RegularEmployee ;
+    ex:fullName "Kavita Garcia" ;
+    ex:nationalId "NID-EMP-00034" ;
+    ex:employeeId "EMP-10034" ;
+    ex:hourlyRate 111.50 ;
+    ex:employeeCode "EC-0034" .
+
+ex:reg_emp_035 a ex:RegularEmployee ;
+    ex:fullName "Liam Chen" ;
+    ex:nationalId "NID-EMP-00035" ;
+    ex:employeeId "EMP-10035" ;
+    ex:hourlyRate 113.75 ;
+    ex:employeeCode "EC-0035" .
+
+ex:reg_emp_036 a ex:RegularEmployee ;
+    ex:fullName "Alice Novak" ;
+    ex:nationalId "NID-EMP-00036" ;
+    ex:employeeId "EMP-10036" ;
+    ex:hourlyRate 116.00 ;
+    ex:employeeCode "EC-0036" .
+
+ex:reg_emp_037 a ex:RegularEmployee ;
+    ex:fullName "Bob Patel" ;
+    ex:nationalId "NID-EMP-00037" ;
+    ex:employeeId "EMP-10037" ;
+    ex:hourlyRate 118.25 ;
+    ex:employeeCode "EC-0037" .
+
+ex:reg_emp_038 a ex:RegularEmployee ;
+    ex:fullName "Carlos Muller" ;
+    ex:nationalId "NID-EMP-00038" ;
+    ex:employeeId "EMP-10038" ;
+    ex:hourlyRate 120.50 ;
+    ex:employeeCode "EC-0038" .
+
+ex:reg_emp_039 a ex:RegularEmployee ;
+    ex:fullName "Diana Silva" ;
+    ex:nationalId "NID-EMP-00039" ;
+    ex:employeeId "EMP-10039" ;
+    ex:hourlyRate 122.75 ;
+    ex:employeeCode "EC-0039" .
+
+ex:reg_emp_040 a ex:RegularEmployee ;
+    ex:fullName "Elena Smith" ;
+    ex:nationalId "NID-EMP-00040" ;
+    ex:employeeId "EMP-10040" ;
+    ex:hourlyRate 35.00 ;
+    ex:employeeCode "EC-0040" .
+
+ex:reg_emp_041 a ex:RegularEmployee ;
+    ex:fullName "Farhan Kim" ;
+    ex:nationalId "NID-EMP-00041" ;
+    ex:employeeId "EMP-10041" ;
+    ex:hourlyRate 37.25 ;
+    ex:employeeCode "EC-0041" .
+
+ex:reg_emp_042 a ex:RegularEmployee ;
+    ex:fullName "Grace Okafor" ;
+    ex:nationalId "NID-EMP-00042" ;
+    ex:employeeId "EMP-10042" ;
+    ex:hourlyRate 39.50 ;
+    ex:employeeCode "EC-0042" .
+
+ex:reg_emp_043 a ex:RegularEmployee ;
+    ex:fullName "Hiroshi Rousseau" ;
+    ex:nationalId "NID-EMP-00043" ;
+    ex:employeeId "EMP-10043" ;
+    ex:hourlyRate 41.75 ;
+    ex:employeeCode "EC-0043" .
+
+ex:reg_emp_044 a ex:RegularEmployee ;
+    ex:fullName "Ingrid Garcia" ;
+    ex:nationalId "NID-EMP-00044" ;
+    ex:employeeId "EMP-10044" ;
+    ex:hourlyRate 44.00 ;
+    ex:employeeCode "EC-0044" .
+
+ex:reg_emp_045 a ex:RegularEmployee ;
+    ex:fullName "Julian Chen" ;
+    ex:nationalId "NID-EMP-00045" ;
+    ex:employeeId "EMP-10045" ;
+    ex:hourlyRate 46.25 ;
+    ex:employeeCode "EC-0045" .
+
+ex:reg_emp_046 a ex:RegularEmployee ;
+    ex:fullName "Kavita Novak" ;
+    ex:nationalId "NID-EMP-00046" ;
+    ex:employeeId "EMP-10046" ;
+    ex:hourlyRate 48.50 ;
+    ex:employeeCode "EC-0046" .
+
+ex:reg_emp_047 a ex:RegularEmployee ;
+    ex:fullName "Liam Patel" ;
+    ex:nationalId "NID-EMP-00047" ;
+    ex:employeeId "EMP-10047" ;
+    ex:hourlyRate 50.75 ;
+    ex:employeeCode "EC-0047" .
+
+ex:reg_emp_048 a ex:RegularEmployee ;
+    ex:fullName "Alice Muller" ;
+    ex:nationalId "NID-EMP-00048" ;
+    ex:employeeId "EMP-10048" ;
+    ex:hourlyRate 53.00 ;
+    ex:employeeCode "EC-0048" .
+
+ex:reg_emp_049 a ex:RegularEmployee ;
+    ex:fullName "Bob Silva" ;
+    ex:nationalId "NID-EMP-00049" ;
+    ex:employeeId "EMP-10049" ;
+    ex:hourlyRate 55.25 ;
+    ex:employeeCode "EC-0049" .
+
+ex:reg_emp_050 a ex:RegularEmployee ;
+    ex:fullName "Carlos Smith" ;
+    ex:nationalId "NID-EMP-00050" ;
+    ex:employeeId "EMP-10050" ;
+    ex:hourlyRate 57.50 ;
+    ex:employeeCode "EC-0050" .
+
+ex:reg_emp_051 a ex:RegularEmployee ;
+    ex:fullName "Diana Kim" ;
+    ex:nationalId "NID-EMP-00051" ;
+    ex:employeeId "EMP-10051" ;
+    ex:hourlyRate 59.75 ;
+    ex:employeeCode "EC-0051" .
+
+ex:reg_emp_052 a ex:RegularEmployee ;
+    ex:fullName "Elena Okafor" ;
+    ex:nationalId "NID-EMP-00052" ;
+    ex:employeeId "EMP-10052" ;
+    ex:hourlyRate 62.00 ;
+    ex:employeeCode "EC-0052" .
+
+ex:reg_emp_053 a ex:RegularEmployee ;
+    ex:fullName "Farhan Rousseau" ;
+    ex:nationalId "NID-EMP-00053" ;
+    ex:employeeId "EMP-10053" ;
+    ex:hourlyRate 64.25 ;
+    ex:employeeCode "EC-0053" .
+
+ex:reg_emp_054 a ex:RegularEmployee ;
+    ex:fullName "Grace Garcia" ;
+    ex:nationalId "NID-EMP-00054" ;
+    ex:employeeId "EMP-10054" ;
+    ex:hourlyRate 66.50 ;
+    ex:employeeCode "EC-0054" .
+
+ex:reg_emp_055 a ex:RegularEmployee ;
+    ex:fullName "Hiroshi Chen" ;
+    ex:nationalId "NID-EMP-00055" ;
+    ex:employeeId "EMP-10055" ;
+    ex:hourlyRate 68.75 ;
+    ex:employeeCode "EC-0055" .
+
+ex:reg_emp_056 a ex:RegularEmployee ;
+    ex:fullName "Ingrid Novak" ;
+    ex:nationalId "NID-EMP-00056" ;
+    ex:employeeId "EMP-10056" ;
+    ex:hourlyRate 71.00 ;
+    ex:employeeCode "EC-0056" .
+
+ex:reg_emp_057 a ex:RegularEmployee ;
+    ex:fullName "Julian Patel" ;
+    ex:nationalId "NID-EMP-00057" ;
+    ex:employeeId "EMP-10057" ;
+    ex:hourlyRate 73.25 ;
+    ex:employeeCode "EC-0057" .
+
+ex:reg_emp_058 a ex:RegularEmployee ;
+    ex:fullName "Kavita Muller" ;
+    ex:nationalId "NID-EMP-00058" ;
+    ex:employeeId "EMP-10058" ;
+    ex:hourlyRate 75.50 ;
+    ex:employeeCode "EC-0058" .
+
+ex:reg_emp_059 a ex:RegularEmployee ;
+    ex:fullName "Liam Silva" ;
+    ex:nationalId "NID-EMP-00059" ;
+    ex:employeeId "EMP-10059" ;
+    ex:hourlyRate 77.75 ;
+    ex:employeeCode "EC-0059" .
+
+ex:reg_emp_060 a ex:RegularEmployee ;
+    ex:fullName "Alice Smith" ;
+    ex:nationalId "NID-EMP-00060" ;
+    ex:employeeId "EMP-10060" ;
+    ex:hourlyRate 80.00 ;
+    ex:employeeCode "EC-0060" .
+
+ex:reg_emp_061 a ex:RegularEmployee ;
+    ex:fullName "Bob Kim" ;
+    ex:nationalId "NID-EMP-00061" ;
+    ex:employeeId "EMP-10061" ;
+    ex:hourlyRate 82.25 ;
+    ex:employeeCode "EC-0061" .
+
+ex:reg_emp_062 a ex:RegularEmployee ;
+    ex:fullName "Carlos Okafor" ;
+    ex:nationalId "NID-EMP-00062" ;
+    ex:employeeId "EMP-10062" ;
+    ex:hourlyRate 84.50 ;
+    ex:employeeCode "EC-0062" .
+
+ex:reg_emp_063 a ex:RegularEmployee ;
+    ex:fullName "Diana Rousseau" ;
+    ex:nationalId "NID-EMP-00063" ;
+    ex:employeeId "EMP-10063" ;
+    ex:hourlyRate 86.75 ;
+    ex:employeeCode "EC-0063" .
+
+ex:reg_emp_064 a ex:RegularEmployee ;
+    ex:fullName "Elena Garcia" ;
+    ex:nationalId "NID-EMP-00064" ;
+    ex:employeeId "EMP-10064" ;
+    ex:hourlyRate 89.00 ;
+    ex:employeeCode "EC-0064" .
+
+ex:reg_emp_065 a ex:RegularEmployee ;
+    ex:fullName "Farhan Chen" ;
+    ex:nationalId "NID-EMP-00065" ;
+    ex:employeeId "EMP-10065" ;
+    ex:hourlyRate 91.25 ;
+    ex:employeeCode "EC-0065" .
+
+ex:reg_emp_066 a ex:RegularEmployee ;
+    ex:fullName "Grace Novak" ;
+    ex:nationalId "NID-EMP-00066" ;
+    ex:employeeId "EMP-10066" ;
+    ex:hourlyRate 93.50 ;
+    ex:employeeCode "EC-0066" .
+
+ex:reg_emp_067 a ex:RegularEmployee ;
+    ex:fullName "Hiroshi Patel" ;
+    ex:nationalId "NID-EMP-00067" ;
+    ex:employeeId "EMP-10067" ;
+    ex:hourlyRate 95.75 ;
+    ex:employeeCode "EC-0067" .
+
+ex:reg_emp_068 a ex:RegularEmployee ;
+    ex:fullName "Ingrid Muller" ;
+    ex:nationalId "NID-EMP-00068" ;
+    ex:employeeId "EMP-10068" ;
+    ex:hourlyRate 98.00 ;
+    ex:employeeCode "EC-0068" .
+
+ex:reg_emp_069 a ex:RegularEmployee ;
+    ex:fullName "Julian Silva" ;
+    ex:nationalId "NID-EMP-00069" ;
+    ex:employeeId "EMP-10069" ;
+    ex:hourlyRate 100.25 ;
+    ex:employeeCode "EC-0069" .
+
+ex:reg_emp_070 a ex:RegularEmployee ;
+    ex:fullName "Kavita Smith" ;
+    ex:nationalId "NID-EMP-00070" ;
+    ex:employeeId "EMP-10070" ;
+    ex:hourlyRate 102.50 ;
+    ex:employeeCode "EC-0070" .
+
+ex:reg_emp_071 a ex:RegularEmployee ;
+    ex:fullName "Liam Kim" ;
+    ex:nationalId "NID-EMP-00071" ;
+    ex:employeeId "EMP-10071" ;
+    ex:hourlyRate 104.75 ;
+    ex:employeeCode "EC-0071" .
+
+ex:reg_emp_072 a ex:RegularEmployee ;
+    ex:fullName "Alice Okafor" ;
+    ex:nationalId "NID-EMP-00072" ;
+    ex:employeeId "EMP-10072" ;
+    ex:hourlyRate 107.00 ;
+    ex:employeeCode "EC-0072" .
+
+ex:reg_emp_073 a ex:RegularEmployee ;
+    ex:fullName "Bob Rousseau" ;
+    ex:nationalId "NID-EMP-00073" ;
+    ex:employeeId "EMP-10073" ;
+    ex:hourlyRate 109.25 ;
+    ex:employeeCode "EC-0073" .
+
+ex:reg_emp_074 a ex:RegularEmployee ;
+    ex:fullName "Carlos Garcia" ;
+    ex:nationalId "NID-EMP-00074" ;
+    ex:employeeId "EMP-10074" ;
+    ex:hourlyRate 111.50 ;
+    ex:employeeCode "EC-0074" .
+
+ex:reg_emp_075 a ex:RegularEmployee ;
+    ex:fullName "Diana Chen" ;
+    ex:nationalId "NID-EMP-00075" ;
+    ex:employeeId "EMP-10075" ;
+    ex:hourlyRate 113.75 ;
+    ex:employeeCode "EC-0075" .
+
+ex:reg_emp_076 a ex:RegularEmployee ;
+    ex:fullName "Elena Novak" ;
+    ex:nationalId "NID-EMP-00076" ;
+    ex:employeeId "EMP-10076" ;
+    ex:hourlyRate 116.00 ;
+    ex:employeeCode "EC-0076" .
+
+ex:reg_emp_077 a ex:RegularEmployee ;
+    ex:fullName "Farhan Patel" ;
+    ex:nationalId "NID-EMP-00077" ;
+    ex:employeeId "EMP-10077" ;
+    ex:hourlyRate 118.25 ;
+    ex:employeeCode "EC-0077" .
+
+ex:reg_emp_078 a ex:RegularEmployee ;
+    ex:fullName "Grace Muller" ;
+    ex:nationalId "NID-EMP-00078" ;
+    ex:employeeId "EMP-10078" ;
+    ex:hourlyRate 120.50 ;
+    ex:employeeCode "EC-0078" .
+
+ex:reg_emp_079 a ex:RegularEmployee ;
+    ex:fullName "Hiroshi Silva" ;
+    ex:nationalId "NID-EMP-00079" ;
+    ex:employeeId "EMP-10079" ;
+    ex:hourlyRate 122.75 ;
+    ex:employeeCode "EC-0079" .
+
+ex:reg_emp_080 a ex:RegularEmployee ;
+    ex:fullName "Ingrid Smith" ;
+    ex:nationalId "NID-EMP-00080" ;
+    ex:employeeId "EMP-10080" ;
+    ex:hourlyRate 35.00 ;
+    ex:employeeCode "EC-0080" .
+
+ex:ug_student_001 a ex:UndergraduateStudent ;
+    ex:fullName "Farhan Silva" ;
+    ex:nationalId "NID-STU-00001" ;
+    ex:studentNumber "STU-20001" ;
+    ex:gpa 2.60 ;
+    ex:studentCode "SC-0001" .
+
+ex:ug_student_002 a ex:UndergraduateStudent ;
+    ex:fullName "Grace Muller" ;
+    ex:nationalId "NID-STU-00002" ;
+    ex:studentNumber "STU-20002" ;
+    ex:gpa 2.70 ;
+    ex:studentCode "SC-0002" .
+
+ex:ug_student_003 a ex:UndergraduateStudent ;
+    ex:fullName "Hiroshi Patel" ;
+    ex:nationalId "NID-STU-00003" ;
+    ex:studentNumber "STU-20003" ;
+    ex:gpa 2.80 ;
+    ex:studentCode "SC-0003" .
+
+ex:ug_student_004 a ex:UndergraduateStudent ;
+    ex:fullName "Ingrid Novak" ;
+    ex:nationalId "NID-STU-00004" ;
+    ex:studentNumber "STU-20004" ;
+    ex:gpa 2.90 ;
+    ex:studentCode "SC-0004" .
+
+ex:ug_student_005 a ex:UndergraduateStudent ;
+    ex:fullName "Julian Chen" ;
+    ex:nationalId "NID-STU-00005" ;
+    ex:studentNumber "STU-20005" ;
+    ex:gpa 3.00 ;
+    ex:studentCode "SC-0005" .
+
+ex:ug_student_006 a ex:UndergraduateStudent ;
+    ex:fullName "Kavita Garcia" ;
+    ex:nationalId "NID-STU-00006" ;
+    ex:studentNumber "STU-20006" ;
+    ex:gpa 3.10 ;
+    ex:studentCode "SC-0006" .
+
+ex:ug_student_007 a ex:UndergraduateStudent ;
+    ex:fullName "Liam Rousseau" ;
+    ex:nationalId "NID-STU-00007" ;
+    ex:studentNumber "STU-20007" ;
+    ex:gpa 3.20 ;
+    ex:studentCode "SC-0007" .
+
+ex:ug_student_008 a ex:UndergraduateStudent ;
+    ex:fullName "Alice Okafor" ;
+    ex:nationalId "NID-STU-00008" ;
+    ex:studentNumber "STU-20008" ;
+    ex:gpa 3.30 ;
+    ex:studentCode "SC-0008" .
+
+ex:ug_student_009 a ex:UndergraduateStudent ;
+    ex:fullName "Bob Kim" ;
+    ex:nationalId "NID-STU-00009" ;
+    ex:studentNumber "STU-20009" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SC-0009" .
+
+ex:ug_student_010 a ex:UndergraduateStudent ;
+    ex:fullName "Carlos Smith" ;
+    ex:nationalId "NID-STU-00010" ;
+    ex:studentNumber "STU-20010" ;
+    ex:gpa 3.50 ;
+    ex:studentCode "SC-0010" .
+
+ex:ug_student_011 a ex:UndergraduateStudent ;
+    ex:fullName "Diana Silva" ;
+    ex:nationalId "NID-STU-00011" ;
+    ex:studentNumber "STU-20011" ;
+    ex:gpa 3.60 ;
+    ex:studentCode "SC-0011" .
+
+ex:ug_student_012 a ex:UndergraduateStudent ;
+    ex:fullName "Elena Muller" ;
+    ex:nationalId "NID-STU-00012" ;
+    ex:studentNumber "STU-20012" ;
+    ex:gpa 3.70 ;
+    ex:studentCode "SC-0012" .
+
+ex:ug_student_013 a ex:UndergraduateStudent ;
+    ex:fullName "Farhan Patel" ;
+    ex:nationalId "NID-STU-00013" ;
+    ex:studentNumber "STU-20013" ;
+    ex:gpa 3.80 ;
+    ex:studentCode "SC-0013" .
+
+ex:ug_student_014 a ex:UndergraduateStudent ;
+    ex:fullName "Grace Novak" ;
+    ex:nationalId "NID-STU-00014" ;
+    ex:studentNumber "STU-20014" ;
+    ex:gpa 3.90 ;
+    ex:studentCode "SC-0014" .
+
+ex:ug_student_015 a ex:UndergraduateStudent ;
+    ex:fullName "Hiroshi Chen" ;
+    ex:nationalId "NID-STU-00015" ;
+    ex:studentNumber "STU-20015" ;
+    ex:gpa 2.50 ;
+    ex:studentCode "SC-0015" .
+
+ex:ug_student_016 a ex:UndergraduateStudent ;
+    ex:fullName "Ingrid Garcia" ;
+    ex:nationalId "NID-STU-00016" ;
+    ex:studentNumber "STU-20016" ;
+    ex:gpa 2.60 ;
+    ex:studentCode "SC-0016" .
+
+ex:ug_student_017 a ex:UndergraduateStudent ;
+    ex:fullName "Julian Rousseau" ;
+    ex:nationalId "NID-STU-00017" ;
+    ex:studentNumber "STU-20017" ;
+    ex:gpa 2.70 ;
+    ex:studentCode "SC-0017" .
+
+ex:ug_student_018 a ex:UndergraduateStudent ;
+    ex:fullName "Kavita Okafor" ;
+    ex:nationalId "NID-STU-00018" ;
+    ex:studentNumber "STU-20018" ;
+    ex:gpa 2.80 ;
+    ex:studentCode "SC-0018" .
+
+ex:ug_student_019 a ex:UndergraduateStudent ;
+    ex:fullName "Liam Kim" ;
+    ex:nationalId "NID-STU-00019" ;
+    ex:studentNumber "STU-20019" ;
+    ex:gpa 2.90 ;
+    ex:studentCode "SC-0019" .
+
+ex:ug_student_020 a ex:UndergraduateStudent ;
+    ex:fullName "Alice Smith" ;
+    ex:nationalId "NID-STU-00020" ;
+    ex:studentNumber "STU-20020" ;
+    ex:gpa 3.00 ;
+    ex:studentCode "SC-0020" .
+
+ex:ug_student_021 a ex:UndergraduateStudent ;
+    ex:fullName "Bob Silva" ;
+    ex:nationalId "NID-STU-00021" ;
+    ex:studentNumber "STU-20021" ;
+    ex:gpa 3.10 ;
+    ex:studentCode "SC-0021" .
+
+ex:ug_student_022 a ex:UndergraduateStudent ;
+    ex:fullName "Carlos Muller" ;
+    ex:nationalId "NID-STU-00022" ;
+    ex:studentNumber "STU-20022" ;
+    ex:gpa 3.20 ;
+    ex:studentCode "SC-0022" .
+
+ex:ug_student_023 a ex:UndergraduateStudent ;
+    ex:fullName "Diana Patel" ;
+    ex:nationalId "NID-STU-00023" ;
+    ex:studentNumber "STU-20023" ;
+    ex:gpa 3.30 ;
+    ex:studentCode "SC-0023" .
+
+ex:ug_student_024 a ex:UndergraduateStudent ;
+    ex:fullName "Elena Novak" ;
+    ex:nationalId "NID-STU-00024" ;
+    ex:studentNumber "STU-20024" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SC-0024" .
+
+ex:ug_student_025 a ex:UndergraduateStudent ;
+    ex:fullName "Farhan Chen" ;
+    ex:nationalId "NID-STU-00025" ;
+    ex:studentNumber "STU-20025" ;
+    ex:gpa 3.50 ;
+    ex:studentCode "SC-0025" .
+
+ex:ug_student_026 a ex:UndergraduateStudent ;
+    ex:fullName "Grace Garcia" ;
+    ex:nationalId "NID-STU-00026" ;
+    ex:studentNumber "STU-20026" ;
+    ex:gpa 3.60 ;
+    ex:studentCode "SC-0026" .
+
+ex:ug_student_027 a ex:UndergraduateStudent ;
+    ex:fullName "Hiroshi Rousseau" ;
+    ex:nationalId "NID-STU-00027" ;
+    ex:studentNumber "STU-20027" ;
+    ex:gpa 3.70 ;
+    ex:studentCode "SC-0027" .
+
+ex:ug_student_028 a ex:UndergraduateStudent ;
+    ex:fullName "Ingrid Okafor" ;
+    ex:nationalId "NID-STU-00028" ;
+    ex:studentNumber "STU-20028" ;
+    ex:gpa 3.80 ;
+    ex:studentCode "SC-0028" .
+
+ex:ug_student_029 a ex:UndergraduateStudent ;
+    ex:fullName "Julian Kim" ;
+    ex:nationalId "NID-STU-00029" ;
+    ex:studentNumber "STU-20029" ;
+    ex:gpa 3.90 ;
+    ex:studentCode "SC-0029" .
+
+ex:ug_student_030 a ex:UndergraduateStudent ;
+    ex:fullName "Kavita Smith" ;
+    ex:nationalId "NID-STU-00030" ;
+    ex:studentNumber "STU-20030" ;
+    ex:gpa 2.50 ;
+    ex:studentCode "SC-0030" .
+
+ex:ug_student_031 a ex:UndergraduateStudent ;
+    ex:fullName "Liam Silva" ;
+    ex:nationalId "NID-STU-00031" ;
+    ex:studentNumber "STU-20031" ;
+    ex:gpa 2.60 ;
+    ex:studentCode "SC-0031" .
+
+ex:ug_student_032 a ex:UndergraduateStudent ;
+    ex:fullName "Alice Muller" ;
+    ex:nationalId "NID-STU-00032" ;
+    ex:studentNumber "STU-20032" ;
+    ex:gpa 2.70 ;
+    ex:studentCode "SC-0032" .
+
+ex:ug_student_033 a ex:UndergraduateStudent ;
+    ex:fullName "Bob Patel" ;
+    ex:nationalId "NID-STU-00033" ;
+    ex:studentNumber "STU-20033" ;
+    ex:gpa 2.80 ;
+    ex:studentCode "SC-0033" .
+
+ex:ug_student_034 a ex:UndergraduateStudent ;
+    ex:fullName "Carlos Novak" ;
+    ex:nationalId "NID-STU-00034" ;
+    ex:studentNumber "STU-20034" ;
+    ex:gpa 2.90 ;
+    ex:studentCode "SC-0034" .
+
+ex:ug_student_035 a ex:UndergraduateStudent ;
+    ex:fullName "Diana Chen" ;
+    ex:nationalId "NID-STU-00035" ;
+    ex:studentNumber "STU-20035" ;
+    ex:gpa 3.00 ;
+    ex:studentCode "SC-0035" .
+
+ex:ug_student_036 a ex:UndergraduateStudent ;
+    ex:fullName "Elena Garcia" ;
+    ex:nationalId "NID-STU-00036" ;
+    ex:studentNumber "STU-20036" ;
+    ex:gpa 3.10 ;
+    ex:studentCode "SC-0036" .
+
+ex:ug_student_037 a ex:UndergraduateStudent ;
+    ex:fullName "Farhan Rousseau" ;
+    ex:nationalId "NID-STU-00037" ;
+    ex:studentNumber "STU-20037" ;
+    ex:gpa 3.20 ;
+    ex:studentCode "SC-0037" .
+
+ex:ug_student_038 a ex:UndergraduateStudent ;
+    ex:fullName "Grace Okafor" ;
+    ex:nationalId "NID-STU-00038" ;
+    ex:studentNumber "STU-20038" ;
+    ex:gpa 3.30 ;
+    ex:studentCode "SC-0038" .
+
+ex:ug_student_039 a ex:UndergraduateStudent ;
+    ex:fullName "Hiroshi Kim" ;
+    ex:nationalId "NID-STU-00039" ;
+    ex:studentNumber "STU-20039" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SC-0039" .
+
+ex:ug_student_040 a ex:UndergraduateStudent ;
+    ex:fullName "Ingrid Smith" ;
+    ex:nationalId "NID-STU-00040" ;
+    ex:studentNumber "STU-20040" ;
+    ex:gpa 3.50 ;
+    ex:studentCode "SC-0040" .
+
+ex:ug_student_041 a ex:UndergraduateStudent ;
+    ex:fullName "Julian Silva" ;
+    ex:nationalId "NID-STU-00041" ;
+    ex:studentNumber "STU-20041" ;
+    ex:gpa 3.60 ;
+    ex:studentCode "SC-0041" .
+
+ex:ug_student_042 a ex:UndergraduateStudent ;
+    ex:fullName "Kavita Muller" ;
+    ex:nationalId "NID-STU-00042" ;
+    ex:studentNumber "STU-20042" ;
+    ex:gpa 3.70 ;
+    ex:studentCode "SC-0042" .
+
+ex:ug_student_043 a ex:UndergraduateStudent ;
+    ex:fullName "Liam Patel" ;
+    ex:nationalId "NID-STU-00043" ;
+    ex:studentNumber "STU-20043" ;
+    ex:gpa 3.80 ;
+    ex:studentCode "SC-0043" .
+
+ex:ug_student_044 a ex:UndergraduateStudent ;
+    ex:fullName "Alice Novak" ;
+    ex:nationalId "NID-STU-00044" ;
+    ex:studentNumber "STU-20044" ;
+    ex:gpa 3.90 ;
+    ex:studentCode "SC-0044" .
+
+ex:ug_student_045 a ex:UndergraduateStudent ;
+    ex:fullName "Bob Chen" ;
+    ex:nationalId "NID-STU-00045" ;
+    ex:studentNumber "STU-20045" ;
+    ex:gpa 2.50 ;
+    ex:studentCode "SC-0045" .
+
+ex:ug_student_046 a ex:UndergraduateStudent ;
+    ex:fullName "Carlos Garcia" ;
+    ex:nationalId "NID-STU-00046" ;
+    ex:studentNumber "STU-20046" ;
+    ex:gpa 2.60 ;
+    ex:studentCode "SC-0046" .
+
+ex:ug_student_047 a ex:UndergraduateStudent ;
+    ex:fullName "Diana Rousseau" ;
+    ex:nationalId "NID-STU-00047" ;
+    ex:studentNumber "STU-20047" ;
+    ex:gpa 2.70 ;
+    ex:studentCode "SC-0047" .
+
+ex:ug_student_048 a ex:UndergraduateStudent ;
+    ex:fullName "Elena Okafor" ;
+    ex:nationalId "NID-STU-00048" ;
+    ex:studentNumber "STU-20048" ;
+    ex:gpa 2.80 ;
+    ex:studentCode "SC-0048" .
+
+ex:ug_student_049 a ex:UndergraduateStudent ;
+    ex:fullName "Farhan Kim" ;
+    ex:nationalId "NID-STU-00049" ;
+    ex:studentNumber "STU-20049" ;
+    ex:gpa 2.90 ;
+    ex:studentCode "SC-0049" .
+
+ex:ug_student_050 a ex:UndergraduateStudent ;
+    ex:fullName "Grace Smith" ;
+    ex:nationalId "NID-STU-00050" ;
+    ex:studentNumber "STU-20050" ;
+    ex:gpa 3.00 ;
+    ex:studentCode "SC-0050" .
+
+ex:ug_student_051 a ex:UndergraduateStudent ;
+    ex:fullName "Hiroshi Silva" ;
+    ex:nationalId "NID-STU-00051" ;
+    ex:studentNumber "STU-20051" ;
+    ex:gpa 3.10 ;
+    ex:studentCode "SC-0051" .
+
+ex:ug_student_052 a ex:UndergraduateStudent ;
+    ex:fullName "Ingrid Muller" ;
+    ex:nationalId "NID-STU-00052" ;
+    ex:studentNumber "STU-20052" ;
+    ex:gpa 3.20 ;
+    ex:studentCode "SC-0052" .
+
+ex:ug_student_053 a ex:UndergraduateStudent ;
+    ex:fullName "Julian Patel" ;
+    ex:nationalId "NID-STU-00053" ;
+    ex:studentNumber "STU-20053" ;
+    ex:gpa 3.30 ;
+    ex:studentCode "SC-0053" .
+
+ex:ug_student_054 a ex:UndergraduateStudent ;
+    ex:fullName "Kavita Novak" ;
+    ex:nationalId "NID-STU-00054" ;
+    ex:studentNumber "STU-20054" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SC-0054" .
+
+ex:ug_student_055 a ex:UndergraduateStudent ;
+    ex:fullName "Liam Chen" ;
+    ex:nationalId "NID-STU-00055" ;
+    ex:studentNumber "STU-20055" ;
+    ex:gpa 3.50 ;
+    ex:studentCode "SC-0055" .
+
+ex:ug_student_056 a ex:UndergraduateStudent ;
+    ex:fullName "Alice Garcia" ;
+    ex:nationalId "NID-STU-00056" ;
+    ex:studentNumber "STU-20056" ;
+    ex:gpa 3.60 ;
+    ex:studentCode "SC-0056" .
+
+ex:ug_student_057 a ex:UndergraduateStudent ;
+    ex:fullName "Bob Rousseau" ;
+    ex:nationalId "NID-STU-00057" ;
+    ex:studentNumber "STU-20057" ;
+    ex:gpa 3.70 ;
+    ex:studentCode "SC-0057" .
+
+ex:ug_student_058 a ex:UndergraduateStudent ;
+    ex:fullName "Carlos Okafor" ;
+    ex:nationalId "NID-STU-00058" ;
+    ex:studentNumber "STU-20058" ;
+    ex:gpa 3.80 ;
+    ex:studentCode "SC-0058" .
+
+ex:ug_student_059 a ex:UndergraduateStudent ;
+    ex:fullName "Diana Kim" ;
+    ex:nationalId "NID-STU-00059" ;
+    ex:studentNumber "STU-20059" ;
+    ex:gpa 3.90 ;
+    ex:studentCode "SC-0059" .
+
+ex:ug_student_060 a ex:UndergraduateStudent ;
+    ex:fullName "Elena Smith" ;
+    ex:nationalId "NID-STU-00060" ;
+    ex:studentNumber "STU-20060" ;
+    ex:gpa 2.50 ;
+    ex:studentCode "SC-0060" .
+
+ex:ug_student_061 a ex:UndergraduateStudent ;
+    ex:fullName "Farhan Silva" ;
+    ex:nationalId "NID-STU-00061" ;
+    ex:studentNumber "STU-20061" ;
+    ex:gpa 2.60 ;
+    ex:studentCode "SC-0061" .
+
+ex:ug_student_062 a ex:UndergraduateStudent ;
+    ex:fullName "Grace Muller" ;
+    ex:nationalId "NID-STU-00062" ;
+    ex:studentNumber "STU-20062" ;
+    ex:gpa 2.70 ;
+    ex:studentCode "SC-0062" .
+
+ex:ug_student_063 a ex:UndergraduateStudent ;
+    ex:fullName "Hiroshi Patel" ;
+    ex:nationalId "NID-STU-00063" ;
+    ex:studentNumber "STU-20063" ;
+    ex:gpa 2.80 ;
+    ex:studentCode "SC-0063" .
+
+ex:ug_student_064 a ex:UndergraduateStudent ;
+    ex:fullName "Ingrid Novak" ;
+    ex:nationalId "NID-STU-00064" ;
+    ex:studentNumber "STU-20064" ;
+    ex:gpa 2.90 ;
+    ex:studentCode "SC-0064" .
+
+ex:ug_student_065 a ex:UndergraduateStudent ;
+    ex:fullName "Julian Chen" ;
+    ex:nationalId "NID-STU-00065" ;
+    ex:studentNumber "STU-20065" ;
+    ex:gpa 3.00 ;
+    ex:studentCode "SC-0065" .
+
+ex:ug_student_066 a ex:UndergraduateStudent ;
+    ex:fullName "Kavita Garcia" ;
+    ex:nationalId "NID-STU-00066" ;
+    ex:studentNumber "STU-20066" ;
+    ex:gpa 3.10 ;
+    ex:studentCode "SC-0066" .
+
+ex:ug_student_067 a ex:UndergraduateStudent ;
+    ex:fullName "Liam Rousseau" ;
+    ex:nationalId "NID-STU-00067" ;
+    ex:studentNumber "STU-20067" ;
+    ex:gpa 3.20 ;
+    ex:studentCode "SC-0067" .
+
+ex:ug_student_068 a ex:UndergraduateStudent ;
+    ex:fullName "Alice Okafor" ;
+    ex:nationalId "NID-STU-00068" ;
+    ex:studentNumber "STU-20068" ;
+    ex:gpa 3.30 ;
+    ex:studentCode "SC-0068" .
+
+ex:ug_student_069 a ex:UndergraduateStudent ;
+    ex:fullName "Bob Kim" ;
+    ex:nationalId "NID-STU-00069" ;
+    ex:studentNumber "STU-20069" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SC-0069" .
+
+ex:ug_student_070 a ex:UndergraduateStudent ;
+    ex:fullName "Carlos Smith" ;
+    ex:nationalId "NID-STU-00070" ;
+    ex:studentNumber "STU-20070" ;
+    ex:gpa 3.50 ;
+    ex:studentCode "SC-0070" .
+
+ex:ug_student_071 a ex:UndergraduateStudent ;
+    ex:fullName "Diana Silva" ;
+    ex:nationalId "NID-STU-00071" ;
+    ex:studentNumber "STU-20071" ;
+    ex:gpa 3.60 ;
+    ex:studentCode "SC-0071" .
+
+ex:ug_student_072 a ex:UndergraduateStudent ;
+    ex:fullName "Elena Muller" ;
+    ex:nationalId "NID-STU-00072" ;
+    ex:studentNumber "STU-20072" ;
+    ex:gpa 3.70 ;
+    ex:studentCode "SC-0072" .
+
+ex:ug_student_073 a ex:UndergraduateStudent ;
+    ex:fullName "Farhan Patel" ;
+    ex:nationalId "NID-STU-00073" ;
+    ex:studentNumber "STU-20073" ;
+    ex:gpa 3.80 ;
+    ex:studentCode "SC-0073" .
+
+ex:ug_student_074 a ex:UndergraduateStudent ;
+    ex:fullName "Grace Novak" ;
+    ex:nationalId "NID-STU-00074" ;
+    ex:studentNumber "STU-20074" ;
+    ex:gpa 3.90 ;
+    ex:studentCode "SC-0074" .
+
+ex:ug_student_075 a ex:UndergraduateStudent ;
+    ex:fullName "Hiroshi Chen" ;
+    ex:nationalId "NID-STU-00075" ;
+    ex:studentNumber "STU-20075" ;
+    ex:gpa 2.50 ;
+    ex:studentCode "SC-0075" .
+
+ex:ug_student_076 a ex:UndergraduateStudent ;
+    ex:fullName "Ingrid Garcia" ;
+    ex:nationalId "NID-STU-00076" ;
+    ex:studentNumber "STU-20076" ;
+    ex:gpa 2.60 ;
+    ex:studentCode "SC-0076" .
+
+ex:ug_student_077 a ex:UndergraduateStudent ;
+    ex:fullName "Julian Rousseau" ;
+    ex:nationalId "NID-STU-00077" ;
+    ex:studentNumber "STU-20077" ;
+    ex:gpa 2.70 ;
+    ex:studentCode "SC-0077" .
+
+ex:ug_student_078 a ex:UndergraduateStudent ;
+    ex:fullName "Kavita Okafor" ;
+    ex:nationalId "NID-STU-00078" ;
+    ex:studentNumber "STU-20078" ;
+    ex:gpa 2.80 ;
+    ex:studentCode "SC-0078" .
+
+ex:ug_student_079 a ex:UndergraduateStudent ;
+    ex:fullName "Liam Kim" ;
+    ex:nationalId "NID-STU-00079" ;
+    ex:studentNumber "STU-20079" ;
+    ex:gpa 2.90 ;
+    ex:studentCode "SC-0079" .
+
+ex:ug_student_080 a ex:UndergraduateStudent ;
+    ex:fullName "Alice Smith" ;
+    ex:nationalId "NID-STU-00080" ;
+    ex:studentNumber "STU-20080" ;
+    ex:gpa 3.00 ;
+    ex:studentCode "SC-0080" .
+
+ex:ta_001 a ex:TeachingAssistant ;
+    ex:fullName "Diana Chen" ;
+    ex:nationalId "NID-TA-00001" ;
+    ex:employeeId "EMP-TA-30001" ;
+    ex:hourlyRate 25.50 ;
+    ex:employeeCode "ECTA-0001" ;
+    ex:studentNumber "STU-TA-40001" ;
+    ex:gpa 3.49 ;
+    ex:studentCode "SCTA-0001" ;
+    ex:stipendAmount 1950.00 ;
+    ex:assignedCourseCode "CS204" .
+
+ex:ta_002 a ex:TeachingAssistant ;
+    ex:fullName "Elena Smith" ;
+    ex:nationalId "NID-TA-00002" ;
+    ex:employeeId "EMP-TA-30002" ;
+    ex:hourlyRate 27.00 ;
+    ex:employeeCode "ECTA-0002" ;
+    ex:studentNumber "STU-TA-40002" ;
+    ex:gpa 3.58 ;
+    ex:studentCode "SCTA-0002" ;
+    ex:stipendAmount 2100.00 ;
+    ex:assignedCourseCode "CS310" .
+
+ex:ta_003 a ex:TeachingAssistant ;
+    ex:fullName "Farhan Chen" ;
+    ex:nationalId "NID-TA-00003" ;
+    ex:employeeId "EMP-TA-30003" ;
+    ex:hourlyRate 28.50 ;
+    ex:employeeCode "ECTA-0003" ;
+    ex:studentNumber "STU-TA-40003" ;
+    ex:gpa 3.67 ;
+    ex:studentCode "SCTA-0003" ;
+    ex:stipendAmount 2250.00 ;
+    ex:assignedCourseCode "MATH201" .
+
+ex:ta_004 a ex:TeachingAssistant ;
+    ex:fullName "Grace Smith" ;
+    ex:nationalId "NID-TA-00004" ;
+    ex:employeeId "EMP-TA-30004" ;
+    ex:hourlyRate 30.00 ;
+    ex:employeeCode "ECTA-0004" ;
+    ex:studentNumber "STU-TA-40004" ;
+    ex:gpa 3.76 ;
+    ex:studentCode "SCTA-0004" ;
+    ex:stipendAmount 2400.00 ;
+    ex:assignedCourseCode "PHYS102" .
+
+ex:ta_005 a ex:TeachingAssistant ;
+    ex:fullName "Hiroshi Chen" ;
+    ex:nationalId "NID-TA-00005" ;
+    ex:employeeId "EMP-TA-30005" ;
+    ex:hourlyRate 31.50 ;
+    ex:employeeCode "ECTA-0005" ;
+    ex:studentNumber "STU-TA-40005" ;
+    ex:gpa 3.85 ;
+    ex:studentCode "SCTA-0005" ;
+    ex:stipendAmount 2550.00 ;
+    ex:assignedCourseCode "STAT305" .
+
+ex:ta_006 a ex:TeachingAssistant ;
+    ex:fullName "Ingrid Smith" ;
+    ex:nationalId "NID-TA-00006" ;
+    ex:employeeId "EMP-TA-30006" ;
+    ex:hourlyRate 33.00 ;
+    ex:employeeCode "ECTA-0006" ;
+    ex:studentNumber "STU-TA-40006" ;
+    ex:gpa 3.94 ;
+    ex:studentCode "SCTA-0006" ;
+    ex:stipendAmount 2700.00 ;
+    ex:assignedCourseCode "EE210" .
+
+ex:ta_007 a ex:TeachingAssistant ;
+    ex:fullName "Julian Chen" ;
+    ex:nationalId "NID-TA-00007" ;
+    ex:employeeId "EMP-TA-30007" ;
+    ex:hourlyRate 34.50 ;
+    ex:employeeCode "ECTA-0007" ;
+    ex:studentNumber "STU-TA-40007" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SCTA-0007" ;
+    ex:stipendAmount 2850.00 ;
+    ex:assignedCourseCode "AI401" .
+
+ex:ta_008 a ex:TeachingAssistant ;
+    ex:fullName "Kavita Smith" ;
+    ex:nationalId "NID-TA-00008" ;
+    ex:employeeId "EMP-TA-30008" ;
+    ex:hourlyRate 36.00 ;
+    ex:employeeCode "ECTA-0008" ;
+    ex:studentNumber "STU-TA-40008" ;
+    ex:gpa 3.49 ;
+    ex:studentCode "SCTA-0008" ;
+    ex:stipendAmount 3000.00 ;
+    ex:assignedCourseCode "CS101" .
+
+ex:ta_009 a ex:TeachingAssistant ;
+    ex:fullName "Liam Chen" ;
+    ex:nationalId "NID-TA-00009" ;
+    ex:employeeId "EMP-TA-30009" ;
+    ex:hourlyRate 37.50 ;
+    ex:employeeCode "ECTA-0009" ;
+    ex:studentNumber "STU-TA-40009" ;
+    ex:gpa 3.58 ;
+    ex:studentCode "SCTA-0009" ;
+    ex:stipendAmount 3150.00 ;
+    ex:assignedCourseCode "CS204" .
+
+ex:ta_010 a ex:TeachingAssistant ;
+    ex:fullName "Alice Smith" ;
+    ex:nationalId "NID-TA-00010" ;
+    ex:employeeId "EMP-TA-30010" ;
+    ex:hourlyRate 39.00 ;
+    ex:employeeCode "ECTA-0010" ;
+    ex:studentNumber "STU-TA-40010" ;
+    ex:gpa 3.67 ;
+    ex:studentCode "SCTA-0010" ;
+    ex:stipendAmount 1800.00 ;
+    ex:assignedCourseCode "CS310" .
+
+ex:ta_011 a ex:TeachingAssistant ;
+    ex:fullName "Bob Chen" ;
+    ex:nationalId "NID-TA-00011" ;
+    ex:employeeId "EMP-TA-30011" ;
+    ex:hourlyRate 40.50 ;
+    ex:employeeCode "ECTA-0011" ;
+    ex:studentNumber "STU-TA-40011" ;
+    ex:gpa 3.76 ;
+    ex:studentCode "SCTA-0011" ;
+    ex:stipendAmount 1950.00 ;
+    ex:assignedCourseCode "MATH201" .
+
+ex:ta_012 a ex:TeachingAssistant ;
+    ex:fullName "Carlos Smith" ;
+    ex:nationalId "NID-TA-00012" ;
+    ex:employeeId "EMP-TA-30012" ;
+    ex:hourlyRate 24.00 ;
+    ex:employeeCode "ECTA-0012" ;
+    ex:studentNumber "STU-TA-40012" ;
+    ex:gpa 3.85 ;
+    ex:studentCode "SCTA-0012" ;
+    ex:stipendAmount 2100.00 ;
+    ex:assignedCourseCode "PHYS102" .
+
+ex:ta_013 a ex:TeachingAssistant ;
+    ex:fullName "Diana Chen" ;
+    ex:nationalId "NID-TA-00013" ;
+    ex:employeeId "EMP-TA-30013" ;
+    ex:hourlyRate 25.50 ;
+    ex:employeeCode "ECTA-0013" ;
+    ex:studentNumber "STU-TA-40013" ;
+    ex:gpa 3.94 ;
+    ex:studentCode "SCTA-0013" ;
+    ex:stipendAmount 2250.00 ;
+    ex:assignedCourseCode "STAT305" .
+
+ex:ta_014 a ex:TeachingAssistant ;
+    ex:fullName "Elena Smith" ;
+    ex:nationalId "NID-TA-00014" ;
+    ex:employeeId "EMP-TA-30014" ;
+    ex:hourlyRate 27.00 ;
+    ex:employeeCode "ECTA-0014" ;
+    ex:studentNumber "STU-TA-40014" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SCTA-0014" ;
+    ex:stipendAmount 2400.00 ;
+    ex:assignedCourseCode "EE210" .
+
+ex:ta_015 a ex:TeachingAssistant ;
+    ex:fullName "Farhan Chen" ;
+    ex:nationalId "NID-TA-00015" ;
+    ex:employeeId "EMP-TA-30015" ;
+    ex:hourlyRate 28.50 ;
+    ex:employeeCode "ECTA-0015" ;
+    ex:studentNumber "STU-TA-40015" ;
+    ex:gpa 3.49 ;
+    ex:studentCode "SCTA-0015" ;
+    ex:stipendAmount 2550.00 ;
+    ex:assignedCourseCode "AI401" .
+
+ex:ta_016 a ex:TeachingAssistant ;
+    ex:fullName "Grace Smith" ;
+    ex:nationalId "NID-TA-00016" ;
+    ex:employeeId "EMP-TA-30016" ;
+    ex:hourlyRate 30.00 ;
+    ex:employeeCode "ECTA-0016" ;
+    ex:studentNumber "STU-TA-40016" ;
+    ex:gpa 3.58 ;
+    ex:studentCode "SCTA-0016" ;
+    ex:stipendAmount 2700.00 ;
+    ex:assignedCourseCode "CS101" .
+
+ex:ta_017 a ex:TeachingAssistant ;
+    ex:fullName "Hiroshi Chen" ;
+    ex:nationalId "NID-TA-00017" ;
+    ex:employeeId "EMP-TA-30017" ;
+    ex:hourlyRate 31.50 ;
+    ex:employeeCode "ECTA-0017" ;
+    ex:studentNumber "STU-TA-40017" ;
+    ex:gpa 3.67 ;
+    ex:studentCode "SCTA-0017" ;
+    ex:stipendAmount 2850.00 ;
+    ex:assignedCourseCode "CS204" .
+
+ex:ta_018 a ex:TeachingAssistant ;
+    ex:fullName "Ingrid Smith" ;
+    ex:nationalId "NID-TA-00018" ;
+    ex:employeeId "EMP-TA-30018" ;
+    ex:hourlyRate 33.00 ;
+    ex:employeeCode "ECTA-0018" ;
+    ex:studentNumber "STU-TA-40018" ;
+    ex:gpa 3.76 ;
+    ex:studentCode "SCTA-0018" ;
+    ex:stipendAmount 3000.00 ;
+    ex:assignedCourseCode "CS310" .
+
+ex:ta_019 a ex:TeachingAssistant ;
+    ex:fullName "Julian Chen" ;
+    ex:nationalId "NID-TA-00019" ;
+    ex:employeeId "EMP-TA-30019" ;
+    ex:hourlyRate 34.50 ;
+    ex:employeeCode "ECTA-0019" ;
+    ex:studentNumber "STU-TA-40019" ;
+    ex:gpa 3.85 ;
+    ex:studentCode "SCTA-0019" ;
+    ex:stipendAmount 3150.00 ;
+    ex:assignedCourseCode "MATH201" .
+
+ex:ta_020 a ex:TeachingAssistant ;
+    ex:fullName "Kavita Smith" ;
+    ex:nationalId "NID-TA-00020" ;
+    ex:employeeId "EMP-TA-30020" ;
+    ex:hourlyRate 36.00 ;
+    ex:employeeCode "ECTA-0020" ;
+    ex:studentNumber "STU-TA-40020" ;
+    ex:gpa 3.94 ;
+    ex:studentCode "SCTA-0020" ;
+    ex:stipendAmount 1800.00 ;
+    ex:assignedCourseCode "PHYS102" .
+
+ex:ta_021 a ex:TeachingAssistant ;
+    ex:fullName "Liam Chen" ;
+    ex:nationalId "NID-TA-00021" ;
+    ex:employeeId "EMP-TA-30021" ;
+    ex:hourlyRate 37.50 ;
+    ex:employeeCode "ECTA-0021" ;
+    ex:studentNumber "STU-TA-40021" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SCTA-0021" ;
+    ex:stipendAmount 1950.00 ;
+    ex:assignedCourseCode "STAT305" .
+
+ex:ta_022 a ex:TeachingAssistant ;
+    ex:fullName "Alice Smith" ;
+    ex:nationalId "NID-TA-00022" ;
+    ex:employeeId "EMP-TA-30022" ;
+    ex:hourlyRate 39.00 ;
+    ex:employeeCode "ECTA-0022" ;
+    ex:studentNumber "STU-TA-40022" ;
+    ex:gpa 3.49 ;
+    ex:studentCode "SCTA-0022" ;
+    ex:stipendAmount 2100.00 ;
+    ex:assignedCourseCode "EE210" .
+
+ex:ta_023 a ex:TeachingAssistant ;
+    ex:fullName "Bob Chen" ;
+    ex:nationalId "NID-TA-00023" ;
+    ex:employeeId "EMP-TA-30023" ;
+    ex:hourlyRate 40.50 ;
+    ex:employeeCode "ECTA-0023" ;
+    ex:studentNumber "STU-TA-40023" ;
+    ex:gpa 3.58 ;
+    ex:studentCode "SCTA-0023" ;
+    ex:stipendAmount 2250.00 ;
+    ex:assignedCourseCode "AI401" .
+
+ex:ta_024 a ex:TeachingAssistant ;
+    ex:fullName "Carlos Smith" ;
+    ex:nationalId "NID-TA-00024" ;
+    ex:employeeId "EMP-TA-30024" ;
+    ex:hourlyRate 24.00 ;
+    ex:employeeCode "ECTA-0024" ;
+    ex:studentNumber "STU-TA-40024" ;
+    ex:gpa 3.67 ;
+    ex:studentCode "SCTA-0024" ;
+    ex:stipendAmount 2400.00 ;
+    ex:assignedCourseCode "CS101" .
+
+ex:ta_025 a ex:TeachingAssistant ;
+    ex:fullName "Diana Chen" ;
+    ex:nationalId "NID-TA-00025" ;
+    ex:employeeId "EMP-TA-30025" ;
+    ex:hourlyRate 25.50 ;
+    ex:employeeCode "ECTA-0025" ;
+    ex:studentNumber "STU-TA-40025" ;
+    ex:gpa 3.76 ;
+    ex:studentCode "SCTA-0025" ;
+    ex:stipendAmount 2550.00 ;
+    ex:assignedCourseCode "CS204" .
+
+ex:ta_026 a ex:TeachingAssistant ;
+    ex:fullName "Elena Smith" ;
+    ex:nationalId "NID-TA-00026" ;
+    ex:employeeId "EMP-TA-30026" ;
+    ex:hourlyRate 27.00 ;
+    ex:employeeCode "ECTA-0026" ;
+    ex:studentNumber "STU-TA-40026" ;
+    ex:gpa 3.85 ;
+    ex:studentCode "SCTA-0026" ;
+    ex:stipendAmount 2700.00 ;
+    ex:assignedCourseCode "CS310" .
+
+ex:ta_027 a ex:TeachingAssistant ;
+    ex:fullName "Farhan Chen" ;
+    ex:nationalId "NID-TA-00027" ;
+    ex:employeeId "EMP-TA-30027" ;
+    ex:hourlyRate 28.50 ;
+    ex:employeeCode "ECTA-0027" ;
+    ex:studentNumber "STU-TA-40027" ;
+    ex:gpa 3.94 ;
+    ex:studentCode "SCTA-0027" ;
+    ex:stipendAmount 2850.00 ;
+    ex:assignedCourseCode "MATH201" .
+
+ex:ta_028 a ex:TeachingAssistant ;
+    ex:fullName "Grace Smith" ;
+    ex:nationalId "NID-TA-00028" ;
+    ex:employeeId "EMP-TA-30028" ;
+    ex:hourlyRate 30.00 ;
+    ex:employeeCode "ECTA-0028" ;
+    ex:studentNumber "STU-TA-40028" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SCTA-0028" ;
+    ex:stipendAmount 3000.00 ;
+    ex:assignedCourseCode "PHYS102" .
+
+ex:ta_029 a ex:TeachingAssistant ;
+    ex:fullName "Hiroshi Chen" ;
+    ex:nationalId "NID-TA-00029" ;
+    ex:employeeId "EMP-TA-30029" ;
+    ex:hourlyRate 31.50 ;
+    ex:employeeCode "ECTA-0029" ;
+    ex:studentNumber "STU-TA-40029" ;
+    ex:gpa 3.49 ;
+    ex:studentCode "SCTA-0029" ;
+    ex:stipendAmount 3150.00 ;
+    ex:assignedCourseCode "STAT305" .
+
+ex:ta_030 a ex:TeachingAssistant ;
+    ex:fullName "Ingrid Smith" ;
+    ex:nationalId "NID-TA-00030" ;
+    ex:employeeId "EMP-TA-30030" ;
+    ex:hourlyRate 33.00 ;
+    ex:employeeCode "ECTA-0030" ;
+    ex:studentNumber "STU-TA-40030" ;
+    ex:gpa 3.58 ;
+    ex:studentCode "SCTA-0030" ;
+    ex:stipendAmount 1800.00 ;
+    ex:assignedCourseCode "EE210" .
+
+ex:ta_031 a ex:TeachingAssistant ;
+    ex:fullName "Julian Chen" ;
+    ex:nationalId "NID-TA-00031" ;
+    ex:employeeId "EMP-TA-30031" ;
+    ex:hourlyRate 34.50 ;
+    ex:employeeCode "ECTA-0031" ;
+    ex:studentNumber "STU-TA-40031" ;
+    ex:gpa 3.67 ;
+    ex:studentCode "SCTA-0031" ;
+    ex:stipendAmount 1950.00 ;
+    ex:assignedCourseCode "AI401" .
+
+ex:ta_032 a ex:TeachingAssistant ;
+    ex:fullName "Kavita Smith" ;
+    ex:nationalId "NID-TA-00032" ;
+    ex:employeeId "EMP-TA-30032" ;
+    ex:hourlyRate 36.00 ;
+    ex:employeeCode "ECTA-0032" ;
+    ex:studentNumber "STU-TA-40032" ;
+    ex:gpa 3.76 ;
+    ex:studentCode "SCTA-0032" ;
+    ex:stipendAmount 2100.00 ;
+    ex:assignedCourseCode "CS101" .
+
+ex:ta_033 a ex:TeachingAssistant ;
+    ex:fullName "Liam Chen" ;
+    ex:nationalId "NID-TA-00033" ;
+    ex:employeeId "EMP-TA-30033" ;
+    ex:hourlyRate 37.50 ;
+    ex:employeeCode "ECTA-0033" ;
+    ex:studentNumber "STU-TA-40033" ;
+    ex:gpa 3.85 ;
+    ex:studentCode "SCTA-0033" ;
+    ex:stipendAmount 2250.00 ;
+    ex:assignedCourseCode "CS204" .
+
+ex:ta_034 a ex:TeachingAssistant ;
+    ex:fullName "Alice Smith" ;
+    ex:nationalId "NID-TA-00034" ;
+    ex:employeeId "EMP-TA-30034" ;
+    ex:hourlyRate 39.00 ;
+    ex:employeeCode "ECTA-0034" ;
+    ex:studentNumber "STU-TA-40034" ;
+    ex:gpa 3.94 ;
+    ex:studentCode "SCTA-0034" ;
+    ex:stipendAmount 2400.00 ;
+    ex:assignedCourseCode "CS310" .
+
+ex:ta_035 a ex:TeachingAssistant ;
+    ex:fullName "Bob Chen" ;
+    ex:nationalId "NID-TA-00035" ;
+    ex:employeeId "EMP-TA-30035" ;
+    ex:hourlyRate 40.50 ;
+    ex:employeeCode "ECTA-0035" ;
+    ex:studentNumber "STU-TA-40035" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SCTA-0035" ;
+    ex:stipendAmount 2550.00 ;
+    ex:assignedCourseCode "MATH201" .
+
+ex:ta_036 a ex:TeachingAssistant ;
+    ex:fullName "Carlos Smith" ;
+    ex:nationalId "NID-TA-00036" ;
+    ex:employeeId "EMP-TA-30036" ;
+    ex:hourlyRate 24.00 ;
+    ex:employeeCode "ECTA-0036" ;
+    ex:studentNumber "STU-TA-40036" ;
+    ex:gpa 3.49 ;
+    ex:studentCode "SCTA-0036" ;
+    ex:stipendAmount 2700.00 ;
+    ex:assignedCourseCode "PHYS102" .
+
+ex:ta_037 a ex:TeachingAssistant ;
+    ex:fullName "Diana Chen" ;
+    ex:nationalId "NID-TA-00037" ;
+    ex:employeeId "EMP-TA-30037" ;
+    ex:hourlyRate 25.50 ;
+    ex:employeeCode "ECTA-0037" ;
+    ex:studentNumber "STU-TA-40037" ;
+    ex:gpa 3.58 ;
+    ex:studentCode "SCTA-0037" ;
+    ex:stipendAmount 2850.00 ;
+    ex:assignedCourseCode "STAT305" .
+
+ex:ta_038 a ex:TeachingAssistant ;
+    ex:fullName "Elena Smith" ;
+    ex:nationalId "NID-TA-00038" ;
+    ex:employeeId "EMP-TA-30038" ;
+    ex:hourlyRate 27.00 ;
+    ex:employeeCode "ECTA-0038" ;
+    ex:studentNumber "STU-TA-40038" ;
+    ex:gpa 3.67 ;
+    ex:studentCode "SCTA-0038" ;
+    ex:stipendAmount 3000.00 ;
+    ex:assignedCourseCode "EE210" .
+
+ex:ta_039 a ex:TeachingAssistant ;
+    ex:fullName "Farhan Chen" ;
+    ex:nationalId "NID-TA-00039" ;
+    ex:employeeId "EMP-TA-30039" ;
+    ex:hourlyRate 28.50 ;
+    ex:employeeCode "ECTA-0039" ;
+    ex:studentNumber "STU-TA-40039" ;
+    ex:gpa 3.76 ;
+    ex:studentCode "SCTA-0039" ;
+    ex:stipendAmount 3150.00 ;
+    ex:assignedCourseCode "AI401" .
+
+ex:ta_040 a ex:TeachingAssistant ;
+    ex:fullName "Grace Smith" ;
+    ex:nationalId "NID-TA-00040" ;
+    ex:employeeId "EMP-TA-30040" ;
+    ex:hourlyRate 30.00 ;
+    ex:employeeCode "ECTA-0040" ;
+    ex:studentNumber "STU-TA-40040" ;
+    ex:gpa 3.85 ;
+    ex:studentCode "SCTA-0040" ;
+    ex:stipendAmount 1800.00 ;
+    ex:assignedCourseCode "CS101" .
+
+ex:ta_041 a ex:TeachingAssistant ;
+    ex:fullName "Hiroshi Chen" ;
+    ex:nationalId "NID-TA-00041" ;
+    ex:employeeId "EMP-TA-30041" ;
+    ex:hourlyRate 31.50 ;
+    ex:employeeCode "ECTA-0041" ;
+    ex:studentNumber "STU-TA-40041" ;
+    ex:gpa 3.94 ;
+    ex:studentCode "SCTA-0041" ;
+    ex:stipendAmount 1950.00 ;
+    ex:assignedCourseCode "CS204" .
+
+ex:ta_042 a ex:TeachingAssistant ;
+    ex:fullName "Ingrid Smith" ;
+    ex:nationalId "NID-TA-00042" ;
+    ex:employeeId "EMP-TA-30042" ;
+    ex:hourlyRate 33.00 ;
+    ex:employeeCode "ECTA-0042" ;
+    ex:studentNumber "STU-TA-40042" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SCTA-0042" ;
+    ex:stipendAmount 2100.00 ;
+    ex:assignedCourseCode "CS310" .
+
+ex:ta_043 a ex:TeachingAssistant ;
+    ex:fullName "Julian Chen" ;
+    ex:nationalId "NID-TA-00043" ;
+    ex:employeeId "EMP-TA-30043" ;
+    ex:hourlyRate 34.50 ;
+    ex:employeeCode "ECTA-0043" ;
+    ex:studentNumber "STU-TA-40043" ;
+    ex:gpa 3.49 ;
+    ex:studentCode "SCTA-0043" ;
+    ex:stipendAmount 2250.00 ;
+    ex:assignedCourseCode "MATH201" .
+
+ex:ta_044 a ex:TeachingAssistant ;
+    ex:fullName "Kavita Smith" ;
+    ex:nationalId "NID-TA-00044" ;
+    ex:employeeId "EMP-TA-30044" ;
+    ex:hourlyRate 36.00 ;
+    ex:employeeCode "ECTA-0044" ;
+    ex:studentNumber "STU-TA-40044" ;
+    ex:gpa 3.58 ;
+    ex:studentCode "SCTA-0044" ;
+    ex:stipendAmount 2400.00 ;
+    ex:assignedCourseCode "PHYS102" .
+
+ex:ta_045 a ex:TeachingAssistant ;
+    ex:fullName "Liam Chen" ;
+    ex:nationalId "NID-TA-00045" ;
+    ex:employeeId "EMP-TA-30045" ;
+    ex:hourlyRate 37.50 ;
+    ex:employeeCode "ECTA-0045" ;
+    ex:studentNumber "STU-TA-40045" ;
+    ex:gpa 3.67 ;
+    ex:studentCode "SCTA-0045" ;
+    ex:stipendAmount 2550.00 ;
+    ex:assignedCourseCode "STAT305" .
+
+ex:ta_046 a ex:TeachingAssistant ;
+    ex:fullName "Alice Smith" ;
+    ex:nationalId "NID-TA-00046" ;
+    ex:employeeId "EMP-TA-30046" ;
+    ex:hourlyRate 39.00 ;
+    ex:employeeCode "ECTA-0046" ;
+    ex:studentNumber "STU-TA-40046" ;
+    ex:gpa 3.76 ;
+    ex:studentCode "SCTA-0046" ;
+    ex:stipendAmount 2700.00 ;
+    ex:assignedCourseCode "EE210" .
+
+ex:ta_047 a ex:TeachingAssistant ;
+    ex:fullName "Bob Chen" ;
+    ex:nationalId "NID-TA-00047" ;
+    ex:employeeId "EMP-TA-30047" ;
+    ex:hourlyRate 40.50 ;
+    ex:employeeCode "ECTA-0047" ;
+    ex:studentNumber "STU-TA-40047" ;
+    ex:gpa 3.85 ;
+    ex:studentCode "SCTA-0047" ;
+    ex:stipendAmount 2850.00 ;
+    ex:assignedCourseCode "AI401" .
+
+ex:ta_048 a ex:TeachingAssistant ;
+    ex:fullName "Carlos Smith" ;
+    ex:nationalId "NID-TA-00048" ;
+    ex:employeeId "EMP-TA-30048" ;
+    ex:hourlyRate 24.00 ;
+    ex:employeeCode "ECTA-0048" ;
+    ex:studentNumber "STU-TA-40048" ;
+    ex:gpa 3.94 ;
+    ex:studentCode "SCTA-0048" ;
+    ex:stipendAmount 3000.00 ;
+    ex:assignedCourseCode "CS101" .
+
+ex:ta_049 a ex:TeachingAssistant ;
+    ex:fullName "Diana Chen" ;
+    ex:nationalId "NID-TA-00049" ;
+    ex:employeeId "EMP-TA-30049" ;
+    ex:hourlyRate 25.50 ;
+    ex:employeeCode "ECTA-0049" ;
+    ex:studentNumber "STU-TA-40049" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SCTA-0049" ;
+    ex:stipendAmount 3150.00 ;
+    ex:assignedCourseCode "CS204" .
+
+ex:ta_050 a ex:TeachingAssistant ;
+    ex:fullName "Elena Smith" ;
+    ex:nationalId "NID-TA-00050" ;
+    ex:employeeId "EMP-TA-30050" ;
+    ex:hourlyRate 27.00 ;
+    ex:employeeCode "ECTA-0050" ;
+    ex:studentNumber "STU-TA-40050" ;
+    ex:gpa 3.49 ;
+    ex:studentCode "SCTA-0050" ;
+    ex:stipendAmount 1800.00 ;
+    ex:assignedCourseCode "CS310" .
+
+ex:ta_051 a ex:TeachingAssistant ;
+    ex:fullName "Farhan Chen" ;
+    ex:nationalId "NID-TA-00051" ;
+    ex:employeeId "EMP-TA-30051" ;
+    ex:hourlyRate 28.50 ;
+    ex:employeeCode "ECTA-0051" ;
+    ex:studentNumber "STU-TA-40051" ;
+    ex:gpa 3.58 ;
+    ex:studentCode "SCTA-0051" ;
+    ex:stipendAmount 1950.00 ;
+    ex:assignedCourseCode "MATH201" .
+
+ex:ta_052 a ex:TeachingAssistant ;
+    ex:fullName "Grace Smith" ;
+    ex:nationalId "NID-TA-00052" ;
+    ex:employeeId "EMP-TA-30052" ;
+    ex:hourlyRate 30.00 ;
+    ex:employeeCode "ECTA-0052" ;
+    ex:studentNumber "STU-TA-40052" ;
+    ex:gpa 3.67 ;
+    ex:studentCode "SCTA-0052" ;
+    ex:stipendAmount 2100.00 ;
+    ex:assignedCourseCode "PHYS102" .
+
+ex:ta_053 a ex:TeachingAssistant ;
+    ex:fullName "Hiroshi Chen" ;
+    ex:nationalId "NID-TA-00053" ;
+    ex:employeeId "EMP-TA-30053" ;
+    ex:hourlyRate 31.50 ;
+    ex:employeeCode "ECTA-0053" ;
+    ex:studentNumber "STU-TA-40053" ;
+    ex:gpa 3.76 ;
+    ex:studentCode "SCTA-0053" ;
+    ex:stipendAmount 2250.00 ;
+    ex:assignedCourseCode "STAT305" .
+
+ex:ta_054 a ex:TeachingAssistant ;
+    ex:fullName "Ingrid Smith" ;
+    ex:nationalId "NID-TA-00054" ;
+    ex:employeeId "EMP-TA-30054" ;
+    ex:hourlyRate 33.00 ;
+    ex:employeeCode "ECTA-0054" ;
+    ex:studentNumber "STU-TA-40054" ;
+    ex:gpa 3.85 ;
+    ex:studentCode "SCTA-0054" ;
+    ex:stipendAmount 2400.00 ;
+    ex:assignedCourseCode "EE210" .
+
+ex:ta_055 a ex:TeachingAssistant ;
+    ex:fullName "Julian Chen" ;
+    ex:nationalId "NID-TA-00055" ;
+    ex:employeeId "EMP-TA-30055" ;
+    ex:hourlyRate 34.50 ;
+    ex:employeeCode "ECTA-0055" ;
+    ex:studentNumber "STU-TA-40055" ;
+    ex:gpa 3.94 ;
+    ex:studentCode "SCTA-0055" ;
+    ex:stipendAmount 2550.00 ;
+    ex:assignedCourseCode "AI401" .
+
+ex:ta_056 a ex:TeachingAssistant ;
+    ex:fullName "Kavita Smith" ;
+    ex:nationalId "NID-TA-00056" ;
+    ex:employeeId "EMP-TA-30056" ;
+    ex:hourlyRate 36.00 ;
+    ex:employeeCode "ECTA-0056" ;
+    ex:studentNumber "STU-TA-40056" ;
+    ex:gpa 3.40 ;
+    ex:studentCode "SCTA-0056" ;
+    ex:stipendAmount 2700.00 ;
+    ex:assignedCourseCode "CS101" .
+
+ex:ta_057 a ex:TeachingAssistant ;
+    ex:fullName "Liam Chen" ;
+    ex:nationalId "NID-TA-00057" ;
+    ex:employeeId "EMP-TA-30057" ;
+    ex:hourlyRate 37.50 ;
+    ex:employeeCode "ECTA-0057" ;
+    ex:studentNumber "STU-TA-40057" ;
+    ex:gpa 3.49 ;
+    ex:studentCode "SCTA-0057" ;
+    ex:stipendAmount 2850.00 ;
+    ex:assignedCourseCode "CS204" .
+
+ex:ta_058 a ex:TeachingAssistant ;
+    ex:fullName "Alice Smith" ;
+    ex:nationalId "NID-TA-00058" ;
+    ex:employeeId "EMP-TA-30058" ;
+    ex:hourlyRate 39.00 ;
+    ex:employeeCode "ECTA-0058" ;
+    ex:studentNumber "STU-TA-40058" ;
+    ex:gpa 3.58 ;
+    ex:studentCode "SCTA-0058" ;
+    ex:stipendAmount 3000.00 ;
+    ex:assignedCourseCode "CS310" .
+
+ex:ta_059 a ex:TeachingAssistant ;
+    ex:fullName "Bob Chen" ;
+    ex:nationalId "NID-TA-00059" ;
+    ex:employeeId "EMP-TA-30059" ;
+    ex:hourlyRate 40.50 ;
+    ex:employeeCode "ECTA-0059" ;
+    ex:studentNumber "STU-TA-40059" ;
+    ex:gpa 3.67 ;
+    ex:studentCode "SCTA-0059" ;
+    ex:stipendAmount 3150.00 ;
+    ex:assignedCourseCode "MATH201" .
+
+ex:ta_060 a ex:TeachingAssistant ;
+    ex:fullName "Carlos Smith" ;
+    ex:nationalId "NID-TA-00060" ;
+    ex:employeeId "EMP-TA-30060" ;
+    ex:hourlyRate 24.00 ;
+    ex:employeeCode "ECTA-0060" ;
+    ex:studentNumber "STU-TA-40060" ;
+    ex:gpa 3.76 ;
+    ex:studentCode "SCTA-0060" ;
+    ex:stipendAmount 1800.00 ;
+    ex:assignedCourseCode "PHYS102" .

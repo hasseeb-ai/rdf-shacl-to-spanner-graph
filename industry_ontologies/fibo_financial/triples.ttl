@@ -1,0 +1,1556 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix fibo: <http://spec.edmcouncil.org/fibo/ontology/> .
+
+# ABox Instance Triples for fibo_financial
+
+fibo:corp_001 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000001" ;
+    fibo:legalName "Global Bancorp Holdings #001 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_002 .
+
+fibo:corp_002 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000002" ;
+    fibo:legalName "Global Bancorp Holdings #002 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_003 .
+
+fibo:corp_003 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000003" ;
+    fibo:legalName "Global Bancorp Holdings #003 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_004 .
+
+fibo:corp_004 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000004" ;
+    fibo:legalName "Global Bancorp Holdings #004 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_005 .
+
+fibo:corp_005 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000005" ;
+    fibo:legalName "Global Bancorp Holdings #005 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_006 .
+
+fibo:corp_006 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000006" ;
+    fibo:legalName "Global Bancorp Holdings #006 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_007 .
+
+fibo:corp_007 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000007" ;
+    fibo:legalName "Global Bancorp Holdings #007 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_008 .
+
+fibo:corp_008 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000008" ;
+    fibo:legalName "Global Bancorp Holdings #008 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_009 .
+
+fibo:corp_009 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000009" ;
+    fibo:legalName "Global Bancorp Holdings #009 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_010 .
+
+fibo:corp_010 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000010" ;
+    fibo:legalName "Global Bancorp Holdings #010 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_011 .
+
+fibo:corp_011 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000011" ;
+    fibo:legalName "Global Bancorp Holdings #011 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_012 ;
+    fibo:controlledBy fibo:corp_001 .
+
+fibo:corp_001 fibo:controlsLegalEntity fibo:corp_011 .
+
+fibo:corp_012 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000012" ;
+    fibo:legalName "Global Bancorp Holdings #012 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_013 ;
+    fibo:controlledBy fibo:corp_002 .
+
+fibo:corp_002 fibo:controlsLegalEntity fibo:corp_012 .
+
+fibo:corp_013 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000013" ;
+    fibo:legalName "Global Bancorp Holdings #013 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_014 ;
+    fibo:controlledBy fibo:corp_003 .
+
+fibo:corp_003 fibo:controlsLegalEntity fibo:corp_013 .
+
+fibo:corp_014 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000014" ;
+    fibo:legalName "Global Bancorp Holdings #014 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_015 ;
+    fibo:controlledBy fibo:corp_004 .
+
+fibo:corp_004 fibo:controlsLegalEntity fibo:corp_014 .
+
+fibo:corp_015 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000015" ;
+    fibo:legalName "Global Bancorp Holdings #015 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_016 ;
+    fibo:controlledBy fibo:corp_005 .
+
+fibo:corp_005 fibo:controlsLegalEntity fibo:corp_015 .
+
+fibo:corp_016 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000016" ;
+    fibo:legalName "Global Bancorp Holdings #016 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_017 ;
+    fibo:controlledBy fibo:corp_006 .
+
+fibo:corp_006 fibo:controlsLegalEntity fibo:corp_016 .
+
+fibo:corp_017 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000017" ;
+    fibo:legalName "Global Bancorp Holdings #017 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_018 ;
+    fibo:controlledBy fibo:corp_007 .
+
+fibo:corp_007 fibo:controlsLegalEntity fibo:corp_017 .
+
+fibo:corp_018 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000018" ;
+    fibo:legalName "Global Bancorp Holdings #018 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_019 ;
+    fibo:controlledBy fibo:corp_008 .
+
+fibo:corp_008 fibo:controlsLegalEntity fibo:corp_018 .
+
+fibo:corp_019 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000019" ;
+    fibo:legalName "Global Bancorp Holdings #019 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_020 ;
+    fibo:controlledBy fibo:corp_009 .
+
+fibo:corp_009 fibo:controlsLegalEntity fibo:corp_019 .
+
+fibo:corp_020 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000020" ;
+    fibo:legalName "Global Bancorp Holdings #020 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_021 ;
+    fibo:controlledBy fibo:corp_010 .
+
+fibo:corp_010 fibo:controlsLegalEntity fibo:corp_020 .
+
+fibo:corp_021 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000021" ;
+    fibo:legalName "Global Bancorp Holdings #021 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_022 ;
+    fibo:controlledBy fibo:corp_001 .
+
+fibo:corp_001 fibo:controlsLegalEntity fibo:corp_021 .
+
+fibo:corp_022 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000022" ;
+    fibo:legalName "Global Bancorp Holdings #022 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_023 ;
+    fibo:controlledBy fibo:corp_002 .
+
+fibo:corp_002 fibo:controlsLegalEntity fibo:corp_022 .
+
+fibo:corp_023 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000023" ;
+    fibo:legalName "Global Bancorp Holdings #023 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_024 ;
+    fibo:controlledBy fibo:corp_003 .
+
+fibo:corp_003 fibo:controlsLegalEntity fibo:corp_023 .
+
+fibo:corp_024 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000024" ;
+    fibo:legalName "Global Bancorp Holdings #024 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_025 ;
+    fibo:controlledBy fibo:corp_004 .
+
+fibo:corp_004 fibo:controlsLegalEntity fibo:corp_024 .
+
+fibo:corp_025 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000025" ;
+    fibo:legalName "Global Bancorp Holdings #025 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_026 ;
+    fibo:controlledBy fibo:corp_005 .
+
+fibo:corp_005 fibo:controlsLegalEntity fibo:corp_025 .
+
+fibo:corp_026 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000026" ;
+    fibo:legalName "Global Bancorp Holdings #026 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_027 ;
+    fibo:controlledBy fibo:corp_011 .
+
+fibo:corp_011 fibo:controlsLegalEntity fibo:corp_026 .
+
+fibo:corp_027 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000027" ;
+    fibo:legalName "Global Bancorp Holdings #027 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_028 ;
+    fibo:controlledBy fibo:corp_012 .
+
+fibo:corp_012 fibo:controlsLegalEntity fibo:corp_027 .
+
+fibo:corp_028 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000028" ;
+    fibo:legalName "Global Bancorp Holdings #028 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_029 ;
+    fibo:controlledBy fibo:corp_013 .
+
+fibo:corp_013 fibo:controlsLegalEntity fibo:corp_028 .
+
+fibo:corp_029 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000029" ;
+    fibo:legalName "Global Bancorp Holdings #029 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_030 ;
+    fibo:controlledBy fibo:corp_014 .
+
+fibo:corp_014 fibo:controlsLegalEntity fibo:corp_029 .
+
+fibo:corp_030 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000030" ;
+    fibo:legalName "Global Bancorp Holdings #030 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_031 ;
+    fibo:controlledBy fibo:corp_015 .
+
+fibo:corp_015 fibo:controlsLegalEntity fibo:corp_030 .
+
+fibo:corp_031 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000031" ;
+    fibo:legalName "Global Bancorp Holdings #031 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_032 ;
+    fibo:controlledBy fibo:corp_016 .
+
+fibo:corp_016 fibo:controlsLegalEntity fibo:corp_031 .
+
+fibo:corp_032 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000032" ;
+    fibo:legalName "Global Bancorp Holdings #032 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_033 ;
+    fibo:controlledBy fibo:corp_017 .
+
+fibo:corp_017 fibo:controlsLegalEntity fibo:corp_032 .
+
+fibo:corp_033 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000033" ;
+    fibo:legalName "Global Bancorp Holdings #033 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_034 ;
+    fibo:controlledBy fibo:corp_018 .
+
+fibo:corp_018 fibo:controlsLegalEntity fibo:corp_033 .
+
+fibo:corp_034 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000034" ;
+    fibo:legalName "Global Bancorp Holdings #034 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_035 ;
+    fibo:controlledBy fibo:corp_019 .
+
+fibo:corp_019 fibo:controlsLegalEntity fibo:corp_034 .
+
+fibo:corp_035 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000035" ;
+    fibo:legalName "Global Bancorp Holdings #035 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_036 ;
+    fibo:controlledBy fibo:corp_020 .
+
+fibo:corp_020 fibo:controlsLegalEntity fibo:corp_035 .
+
+fibo:corp_036 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000036" ;
+    fibo:legalName "Global Bancorp Holdings #036 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_037 ;
+    fibo:controlledBy fibo:corp_021 .
+
+fibo:corp_021 fibo:controlsLegalEntity fibo:corp_036 .
+
+fibo:corp_037 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000037" ;
+    fibo:legalName "Global Bancorp Holdings #037 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_038 ;
+    fibo:controlledBy fibo:corp_022 .
+
+fibo:corp_022 fibo:controlsLegalEntity fibo:corp_037 .
+
+fibo:corp_038 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000038" ;
+    fibo:legalName "Global Bancorp Holdings #038 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_039 ;
+    fibo:controlledBy fibo:corp_023 .
+
+fibo:corp_023 fibo:controlsLegalEntity fibo:corp_038 .
+
+fibo:corp_039 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000039" ;
+    fibo:legalName "Global Bancorp Holdings #039 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_040 ;
+    fibo:controlledBy fibo:corp_024 .
+
+fibo:corp_024 fibo:controlsLegalEntity fibo:corp_039 .
+
+fibo:corp_040 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000040" ;
+    fibo:legalName "Global Bancorp Holdings #040 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_041 ;
+    fibo:controlledBy fibo:corp_025 .
+
+fibo:corp_025 fibo:controlsLegalEntity fibo:corp_040 .
+
+fibo:corp_041 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000041" ;
+    fibo:legalName "Global Bancorp Holdings #041 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_042 ;
+    fibo:controlledBy fibo:corp_011 .
+
+fibo:corp_011 fibo:controlsLegalEntity fibo:corp_041 .
+
+fibo:corp_042 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000042" ;
+    fibo:legalName "Global Bancorp Holdings #042 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_043 ;
+    fibo:controlledBy fibo:corp_012 .
+
+fibo:corp_012 fibo:controlsLegalEntity fibo:corp_042 .
+
+fibo:corp_043 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000043" ;
+    fibo:legalName "Global Bancorp Holdings #043 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_044 ;
+    fibo:controlledBy fibo:corp_013 .
+
+fibo:corp_013 fibo:controlsLegalEntity fibo:corp_043 .
+
+fibo:corp_044 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000044" ;
+    fibo:legalName "Global Bancorp Holdings #044 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_045 ;
+    fibo:controlledBy fibo:corp_014 .
+
+fibo:corp_014 fibo:controlsLegalEntity fibo:corp_044 .
+
+fibo:corp_045 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000045" ;
+    fibo:legalName "Global Bancorp Holdings #045 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_046 ;
+    fibo:controlledBy fibo:corp_015 .
+
+fibo:corp_015 fibo:controlsLegalEntity fibo:corp_045 .
+
+fibo:corp_046 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000046" ;
+    fibo:legalName "Global Bancorp Holdings #046 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_047 ;
+    fibo:controlledBy fibo:corp_016 .
+
+fibo:corp_016 fibo:controlsLegalEntity fibo:corp_046 .
+
+fibo:corp_047 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000047" ;
+    fibo:legalName "Global Bancorp Holdings #047 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_048 ;
+    fibo:controlledBy fibo:corp_017 .
+
+fibo:corp_017 fibo:controlsLegalEntity fibo:corp_047 .
+
+fibo:corp_048 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000048" ;
+    fibo:legalName "Global Bancorp Holdings #048 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_049 ;
+    fibo:controlledBy fibo:corp_018 .
+
+fibo:corp_018 fibo:controlsLegalEntity fibo:corp_048 .
+
+fibo:corp_049 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000049" ;
+    fibo:legalName "Global Bancorp Holdings #049 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_050 ;
+    fibo:controlledBy fibo:corp_019 .
+
+fibo:corp_019 fibo:controlsLegalEntity fibo:corp_049 .
+
+fibo:corp_050 a fibo:Corporation ;
+    fibo:leiCode "549300FIBOENT0000050" ;
+    fibo:legalName "Global Bancorp Holdings #050 Inc." ;
+    fibo:sharesGuarantorRiskWith fibo:corp_001 ;
+    fibo:controlledBy fibo:corp_020 .
+
+fibo:corp_020 fibo:controlsLegalEntity fibo:corp_050 .
+
+fibo:partnership_001 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000001" ;
+    fibo:legalName "Capital Ventures LLP #001" .
+
+fibo:partnership_002 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000002" ;
+    fibo:legalName "Capital Ventures LLP #002" .
+
+fibo:partnership_003 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000003" ;
+    fibo:legalName "Capital Ventures LLP #003" .
+
+fibo:partnership_004 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000004" ;
+    fibo:legalName "Capital Ventures LLP #004" .
+
+fibo:partnership_005 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000005" ;
+    fibo:legalName "Capital Ventures LLP #005" .
+
+fibo:partnership_006 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000006" ;
+    fibo:legalName "Capital Ventures LLP #006" .
+
+fibo:partnership_007 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000007" ;
+    fibo:legalName "Capital Ventures LLP #007" .
+
+fibo:partnership_008 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000008" ;
+    fibo:legalName "Capital Ventures LLP #008" .
+
+fibo:partnership_009 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000009" ;
+    fibo:legalName "Capital Ventures LLP #009" .
+
+fibo:partnership_010 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000010" ;
+    fibo:legalName "Capital Ventures LLP #010" .
+
+fibo:partnership_011 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000011" ;
+    fibo:legalName "Capital Ventures LLP #011" .
+
+fibo:partnership_012 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000012" ;
+    fibo:legalName "Capital Ventures LLP #012" .
+
+fibo:partnership_013 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000013" ;
+    fibo:legalName "Capital Ventures LLP #013" .
+
+fibo:partnership_014 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000014" ;
+    fibo:legalName "Capital Ventures LLP #014" .
+
+fibo:partnership_015 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000015" ;
+    fibo:legalName "Capital Ventures LLP #015" .
+
+fibo:partnership_016 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000016" ;
+    fibo:legalName "Capital Ventures LLP #016" .
+
+fibo:partnership_017 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000017" ;
+    fibo:legalName "Capital Ventures LLP #017" .
+
+fibo:partnership_018 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000018" ;
+    fibo:legalName "Capital Ventures LLP #018" .
+
+fibo:partnership_019 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000019" ;
+    fibo:legalName "Capital Ventures LLP #019" .
+
+fibo:partnership_020 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000020" ;
+    fibo:legalName "Capital Ventures LLP #020" .
+
+fibo:partnership_021 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000021" ;
+    fibo:legalName "Capital Ventures LLP #021" .
+
+fibo:partnership_022 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000022" ;
+    fibo:legalName "Capital Ventures LLP #022" .
+
+fibo:partnership_023 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000023" ;
+    fibo:legalName "Capital Ventures LLP #023" .
+
+fibo:partnership_024 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000024" ;
+    fibo:legalName "Capital Ventures LLP #024" .
+
+fibo:partnership_025 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000025" ;
+    fibo:legalName "Capital Ventures LLP #025" .
+
+fibo:partnership_026 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000026" ;
+    fibo:legalName "Capital Ventures LLP #026" .
+
+fibo:partnership_027 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000027" ;
+    fibo:legalName "Capital Ventures LLP #027" .
+
+fibo:partnership_028 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000028" ;
+    fibo:legalName "Capital Ventures LLP #028" .
+
+fibo:partnership_029 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000029" ;
+    fibo:legalName "Capital Ventures LLP #029" .
+
+fibo:partnership_030 a fibo:Partnership ;
+    fibo:leiCode "549300FIBOPRT0000030" ;
+    fibo:legalName "Capital Ventures LLP #030" .
+
+fibo:party_001 a fibo:ContractualParty .
+
+fibo:party_002 a fibo:ContractualParty .
+
+fibo:party_003 a fibo:ContractualParty .
+
+fibo:party_004 a fibo:ContractualParty .
+
+fibo:party_005 a fibo:ContractualParty .
+
+fibo:party_006 a fibo:ContractualParty .
+
+fibo:party_007 a fibo:ContractualParty .
+
+fibo:party_008 a fibo:ContractualParty .
+
+fibo:party_009 a fibo:ContractualParty .
+
+fibo:party_010 a fibo:ContractualParty .
+
+fibo:party_011 a fibo:ContractualParty .
+
+fibo:party_012 a fibo:ContractualParty .
+
+fibo:party_013 a fibo:ContractualParty .
+
+fibo:party_014 a fibo:ContractualParty .
+
+fibo:party_015 a fibo:ContractualParty .
+
+fibo:party_016 a fibo:ContractualParty .
+
+fibo:party_017 a fibo:ContractualParty .
+
+fibo:party_018 a fibo:ContractualParty .
+
+fibo:party_019 a fibo:ContractualParty .
+
+fibo:party_020 a fibo:ContractualParty .
+
+fibo:party_021 a fibo:ContractualParty .
+
+fibo:party_022 a fibo:ContractualParty .
+
+fibo:party_023 a fibo:ContractualParty .
+
+fibo:party_024 a fibo:ContractualParty .
+
+fibo:party_025 a fibo:ContractualParty .
+
+fibo:party_026 a fibo:ContractualParty .
+
+fibo:party_027 a fibo:ContractualParty .
+
+fibo:party_028 a fibo:ContractualParty .
+
+fibo:party_029 a fibo:ContractualParty .
+
+fibo:party_030 a fibo:ContractualParty .
+
+fibo:party_031 a fibo:ContractualParty .
+
+fibo:party_032 a fibo:ContractualParty .
+
+fibo:party_033 a fibo:ContractualParty .
+
+fibo:party_034 a fibo:ContractualParty .
+
+fibo:party_035 a fibo:ContractualParty .
+
+fibo:party_036 a fibo:ContractualParty .
+
+fibo:party_037 a fibo:ContractualParty .
+
+fibo:party_038 a fibo:ContractualParty .
+
+fibo:party_039 a fibo:ContractualParty .
+
+fibo:party_040 a fibo:ContractualParty .
+
+fibo:share_001 a fibo:Share ;
+    fibo:isinCode "US1000000011" ;
+    fibo:sharesOutstanding 1250000 ;
+    fibo:issuedBy fibo:corp_001 ;
+    fibo:ownedBy fibo:corp_002 .
+
+fibo:corp_001 fibo:isIssuerOf fibo:share_001 .
+
+fibo:share_002 a fibo:Share ;
+    fibo:isinCode "US1000000021" ;
+    fibo:sharesOutstanding 1500000 ;
+    fibo:issuedBy fibo:corp_002 ;
+    fibo:ownedBy fibo:corp_003 .
+
+fibo:corp_002 fibo:isIssuerOf fibo:share_002 .
+
+fibo:share_003 a fibo:Share ;
+    fibo:isinCode "US1000000031" ;
+    fibo:sharesOutstanding 1750000 ;
+    fibo:issuedBy fibo:corp_003 ;
+    fibo:ownedBy fibo:corp_004 .
+
+fibo:corp_003 fibo:isIssuerOf fibo:share_003 .
+
+fibo:share_004 a fibo:Share ;
+    fibo:isinCode "US1000000041" ;
+    fibo:sharesOutstanding 2000000 ;
+    fibo:issuedBy fibo:corp_004 ;
+    fibo:ownedBy fibo:corp_005 .
+
+fibo:corp_004 fibo:isIssuerOf fibo:share_004 .
+
+fibo:share_005 a fibo:Share ;
+    fibo:isinCode "US1000000051" ;
+    fibo:sharesOutstanding 2250000 ;
+    fibo:issuedBy fibo:corp_005 ;
+    fibo:ownedBy fibo:corp_006 .
+
+fibo:corp_005 fibo:isIssuerOf fibo:share_005 .
+
+fibo:share_006 a fibo:Share ;
+    fibo:isinCode "US1000000061" ;
+    fibo:sharesOutstanding 2500000 ;
+    fibo:issuedBy fibo:corp_006 ;
+    fibo:ownedBy fibo:corp_007 .
+
+fibo:corp_006 fibo:isIssuerOf fibo:share_006 .
+
+fibo:share_007 a fibo:Share ;
+    fibo:isinCode "US1000000071" ;
+    fibo:sharesOutstanding 2750000 ;
+    fibo:issuedBy fibo:corp_007 ;
+    fibo:ownedBy fibo:corp_008 .
+
+fibo:corp_007 fibo:isIssuerOf fibo:share_007 .
+
+fibo:share_008 a fibo:Share ;
+    fibo:isinCode "US1000000081" ;
+    fibo:sharesOutstanding 3000000 ;
+    fibo:issuedBy fibo:corp_008 ;
+    fibo:ownedBy fibo:corp_009 .
+
+fibo:corp_008 fibo:isIssuerOf fibo:share_008 .
+
+fibo:share_009 a fibo:Share ;
+    fibo:isinCode "US1000000091" ;
+    fibo:sharesOutstanding 3250000 ;
+    fibo:issuedBy fibo:corp_009 ;
+    fibo:ownedBy fibo:corp_010 .
+
+fibo:corp_009 fibo:isIssuerOf fibo:share_009 .
+
+fibo:share_010 a fibo:Share ;
+    fibo:isinCode "US1000000101" ;
+    fibo:sharesOutstanding 3500000 ;
+    fibo:issuedBy fibo:corp_010 ;
+    fibo:ownedBy fibo:corp_011 .
+
+fibo:corp_010 fibo:isIssuerOf fibo:share_010 .
+
+fibo:share_011 a fibo:Share ;
+    fibo:isinCode "US1000000111" ;
+    fibo:sharesOutstanding 3750000 ;
+    fibo:issuedBy fibo:corp_011 ;
+    fibo:ownedBy fibo:corp_012 .
+
+fibo:corp_011 fibo:isIssuerOf fibo:share_011 .
+
+fibo:share_012 a fibo:Share ;
+    fibo:isinCode "US1000000121" ;
+    fibo:sharesOutstanding 4000000 ;
+    fibo:issuedBy fibo:corp_012 ;
+    fibo:ownedBy fibo:corp_013 .
+
+fibo:corp_012 fibo:isIssuerOf fibo:share_012 .
+
+fibo:share_013 a fibo:Share ;
+    fibo:isinCode "US1000000131" ;
+    fibo:sharesOutstanding 4250000 ;
+    fibo:issuedBy fibo:corp_013 ;
+    fibo:ownedBy fibo:corp_014 .
+
+fibo:corp_013 fibo:isIssuerOf fibo:share_013 .
+
+fibo:share_014 a fibo:Share ;
+    fibo:isinCode "US1000000141" ;
+    fibo:sharesOutstanding 4500000 ;
+    fibo:issuedBy fibo:corp_014 ;
+    fibo:ownedBy fibo:corp_015 .
+
+fibo:corp_014 fibo:isIssuerOf fibo:share_014 .
+
+fibo:share_015 a fibo:Share ;
+    fibo:isinCode "US1000000151" ;
+    fibo:sharesOutstanding 4750000 ;
+    fibo:issuedBy fibo:corp_015 ;
+    fibo:ownedBy fibo:corp_016 .
+
+fibo:corp_015 fibo:isIssuerOf fibo:share_015 .
+
+fibo:share_016 a fibo:Share ;
+    fibo:isinCode "US1000000161" ;
+    fibo:sharesOutstanding 5000000 ;
+    fibo:issuedBy fibo:corp_016 ;
+    fibo:ownedBy fibo:corp_017 .
+
+fibo:corp_016 fibo:isIssuerOf fibo:share_016 .
+
+fibo:share_017 a fibo:Share ;
+    fibo:isinCode "US1000000171" ;
+    fibo:sharesOutstanding 5250000 ;
+    fibo:issuedBy fibo:corp_017 ;
+    fibo:ownedBy fibo:corp_018 .
+
+fibo:corp_017 fibo:isIssuerOf fibo:share_017 .
+
+fibo:share_018 a fibo:Share ;
+    fibo:isinCode "US1000000181" ;
+    fibo:sharesOutstanding 5500000 ;
+    fibo:issuedBy fibo:corp_018 ;
+    fibo:ownedBy fibo:corp_019 .
+
+fibo:corp_018 fibo:isIssuerOf fibo:share_018 .
+
+fibo:share_019 a fibo:Share ;
+    fibo:isinCode "US1000000191" ;
+    fibo:sharesOutstanding 5750000 ;
+    fibo:issuedBy fibo:corp_019 ;
+    fibo:ownedBy fibo:corp_020 .
+
+fibo:corp_019 fibo:isIssuerOf fibo:share_019 .
+
+fibo:share_020 a fibo:Share ;
+    fibo:isinCode "US1000000201" ;
+    fibo:sharesOutstanding 6000000 ;
+    fibo:issuedBy fibo:corp_020 ;
+    fibo:ownedBy fibo:corp_021 .
+
+fibo:corp_020 fibo:isIssuerOf fibo:share_020 .
+
+fibo:share_021 a fibo:Share ;
+    fibo:isinCode "US1000000211" ;
+    fibo:sharesOutstanding 6250000 ;
+    fibo:issuedBy fibo:corp_021 ;
+    fibo:ownedBy fibo:corp_022 .
+
+fibo:corp_021 fibo:isIssuerOf fibo:share_021 .
+
+fibo:share_022 a fibo:Share ;
+    fibo:isinCode "US1000000221" ;
+    fibo:sharesOutstanding 6500000 ;
+    fibo:issuedBy fibo:corp_022 ;
+    fibo:ownedBy fibo:corp_023 .
+
+fibo:corp_022 fibo:isIssuerOf fibo:share_022 .
+
+fibo:share_023 a fibo:Share ;
+    fibo:isinCode "US1000000231" ;
+    fibo:sharesOutstanding 6750000 ;
+    fibo:issuedBy fibo:corp_023 ;
+    fibo:ownedBy fibo:corp_024 .
+
+fibo:corp_023 fibo:isIssuerOf fibo:share_023 .
+
+fibo:share_024 a fibo:Share ;
+    fibo:isinCode "US1000000241" ;
+    fibo:sharesOutstanding 7000000 ;
+    fibo:issuedBy fibo:corp_024 ;
+    fibo:ownedBy fibo:corp_025 .
+
+fibo:corp_024 fibo:isIssuerOf fibo:share_024 .
+
+fibo:share_025 a fibo:Share ;
+    fibo:isinCode "US1000000251" ;
+    fibo:sharesOutstanding 7250000 ;
+    fibo:issuedBy fibo:corp_025 ;
+    fibo:ownedBy fibo:corp_026 .
+
+fibo:corp_025 fibo:isIssuerOf fibo:share_025 .
+
+fibo:share_026 a fibo:Share ;
+    fibo:isinCode "US1000000261" ;
+    fibo:sharesOutstanding 7500000 ;
+    fibo:issuedBy fibo:corp_026 ;
+    fibo:ownedBy fibo:corp_027 .
+
+fibo:corp_026 fibo:isIssuerOf fibo:share_026 .
+
+fibo:share_027 a fibo:Share ;
+    fibo:isinCode "US1000000271" ;
+    fibo:sharesOutstanding 7750000 ;
+    fibo:issuedBy fibo:corp_027 ;
+    fibo:ownedBy fibo:corp_028 .
+
+fibo:corp_027 fibo:isIssuerOf fibo:share_027 .
+
+fibo:share_028 a fibo:Share ;
+    fibo:isinCode "US1000000281" ;
+    fibo:sharesOutstanding 8000000 ;
+    fibo:issuedBy fibo:corp_028 ;
+    fibo:ownedBy fibo:corp_029 .
+
+fibo:corp_028 fibo:isIssuerOf fibo:share_028 .
+
+fibo:share_029 a fibo:Share ;
+    fibo:isinCode "US1000000291" ;
+    fibo:sharesOutstanding 8250000 ;
+    fibo:issuedBy fibo:corp_029 ;
+    fibo:ownedBy fibo:corp_030 .
+
+fibo:corp_029 fibo:isIssuerOf fibo:share_029 .
+
+fibo:share_030 a fibo:Share ;
+    fibo:isinCode "US1000000301" ;
+    fibo:sharesOutstanding 8500000 ;
+    fibo:issuedBy fibo:corp_030 ;
+    fibo:ownedBy fibo:corp_031 .
+
+fibo:corp_030 fibo:isIssuerOf fibo:share_030 .
+
+fibo:share_031 a fibo:Share ;
+    fibo:isinCode "US1000000311" ;
+    fibo:sharesOutstanding 8750000 ;
+    fibo:issuedBy fibo:corp_031 ;
+    fibo:ownedBy fibo:corp_032 .
+
+fibo:corp_031 fibo:isIssuerOf fibo:share_031 .
+
+fibo:share_032 a fibo:Share ;
+    fibo:isinCode "US1000000321" ;
+    fibo:sharesOutstanding 9000000 ;
+    fibo:issuedBy fibo:corp_032 ;
+    fibo:ownedBy fibo:corp_033 .
+
+fibo:corp_032 fibo:isIssuerOf fibo:share_032 .
+
+fibo:share_033 a fibo:Share ;
+    fibo:isinCode "US1000000331" ;
+    fibo:sharesOutstanding 9250000 ;
+    fibo:issuedBy fibo:corp_033 ;
+    fibo:ownedBy fibo:corp_034 .
+
+fibo:corp_033 fibo:isIssuerOf fibo:share_033 .
+
+fibo:share_034 a fibo:Share ;
+    fibo:isinCode "US1000000341" ;
+    fibo:sharesOutstanding 9500000 ;
+    fibo:issuedBy fibo:corp_034 ;
+    fibo:ownedBy fibo:corp_035 .
+
+fibo:corp_034 fibo:isIssuerOf fibo:share_034 .
+
+fibo:share_035 a fibo:Share ;
+    fibo:isinCode "US1000000351" ;
+    fibo:sharesOutstanding 9750000 ;
+    fibo:issuedBy fibo:corp_035 ;
+    fibo:ownedBy fibo:corp_036 .
+
+fibo:corp_035 fibo:isIssuerOf fibo:share_035 .
+
+fibo:share_036 a fibo:Share ;
+    fibo:isinCode "US1000000361" ;
+    fibo:sharesOutstanding 10000000 ;
+    fibo:issuedBy fibo:corp_036 ;
+    fibo:ownedBy fibo:corp_037 .
+
+fibo:corp_036 fibo:isIssuerOf fibo:share_036 .
+
+fibo:share_037 a fibo:Share ;
+    fibo:isinCode "US1000000371" ;
+    fibo:sharesOutstanding 10250000 ;
+    fibo:issuedBy fibo:corp_037 ;
+    fibo:ownedBy fibo:corp_038 .
+
+fibo:corp_037 fibo:isIssuerOf fibo:share_037 .
+
+fibo:share_038 a fibo:Share ;
+    fibo:isinCode "US1000000381" ;
+    fibo:sharesOutstanding 10500000 ;
+    fibo:issuedBy fibo:corp_038 ;
+    fibo:ownedBy fibo:corp_039 .
+
+fibo:corp_038 fibo:isIssuerOf fibo:share_038 .
+
+fibo:share_039 a fibo:Share ;
+    fibo:isinCode "US1000000391" ;
+    fibo:sharesOutstanding 10750000 ;
+    fibo:issuedBy fibo:corp_039 ;
+    fibo:ownedBy fibo:corp_040 .
+
+fibo:corp_039 fibo:isIssuerOf fibo:share_039 .
+
+fibo:share_040 a fibo:Share ;
+    fibo:isinCode "US1000000401" ;
+    fibo:sharesOutstanding 11000000 ;
+    fibo:issuedBy fibo:corp_040 ;
+    fibo:ownedBy fibo:corp_041 .
+
+fibo:corp_040 fibo:isIssuerOf fibo:share_040 .
+
+fibo:share_041 a fibo:Share ;
+    fibo:isinCode "US1000000411" ;
+    fibo:sharesOutstanding 11250000 ;
+    fibo:issuedBy fibo:corp_041 ;
+    fibo:ownedBy fibo:corp_042 .
+
+fibo:corp_041 fibo:isIssuerOf fibo:share_041 .
+
+fibo:share_042 a fibo:Share ;
+    fibo:isinCode "US1000000421" ;
+    fibo:sharesOutstanding 11500000 ;
+    fibo:issuedBy fibo:corp_042 ;
+    fibo:ownedBy fibo:corp_043 .
+
+fibo:corp_042 fibo:isIssuerOf fibo:share_042 .
+
+fibo:share_043 a fibo:Share ;
+    fibo:isinCode "US1000000431" ;
+    fibo:sharesOutstanding 11750000 ;
+    fibo:issuedBy fibo:corp_043 ;
+    fibo:ownedBy fibo:corp_044 .
+
+fibo:corp_043 fibo:isIssuerOf fibo:share_043 .
+
+fibo:share_044 a fibo:Share ;
+    fibo:isinCode "US1000000441" ;
+    fibo:sharesOutstanding 12000000 ;
+    fibo:issuedBy fibo:corp_044 ;
+    fibo:ownedBy fibo:corp_045 .
+
+fibo:corp_044 fibo:isIssuerOf fibo:share_044 .
+
+fibo:share_045 a fibo:Share ;
+    fibo:isinCode "US1000000451" ;
+    fibo:sharesOutstanding 12250000 ;
+    fibo:issuedBy fibo:corp_045 ;
+    fibo:ownedBy fibo:corp_046 .
+
+fibo:corp_045 fibo:isIssuerOf fibo:share_045 .
+
+fibo:share_046 a fibo:Share ;
+    fibo:isinCode "US1000000461" ;
+    fibo:sharesOutstanding 12500000 ;
+    fibo:issuedBy fibo:corp_046 ;
+    fibo:ownedBy fibo:corp_047 .
+
+fibo:corp_046 fibo:isIssuerOf fibo:share_046 .
+
+fibo:share_047 a fibo:Share ;
+    fibo:isinCode "US1000000471" ;
+    fibo:sharesOutstanding 12750000 ;
+    fibo:issuedBy fibo:corp_047 ;
+    fibo:ownedBy fibo:corp_048 .
+
+fibo:corp_047 fibo:isIssuerOf fibo:share_047 .
+
+fibo:share_048 a fibo:Share ;
+    fibo:isinCode "US1000000481" ;
+    fibo:sharesOutstanding 13000000 ;
+    fibo:issuedBy fibo:corp_048 ;
+    fibo:ownedBy fibo:corp_049 .
+
+fibo:corp_048 fibo:isIssuerOf fibo:share_048 .
+
+fibo:share_049 a fibo:Share ;
+    fibo:isinCode "US1000000491" ;
+    fibo:sharesOutstanding 13250000 ;
+    fibo:issuedBy fibo:corp_049 ;
+    fibo:ownedBy fibo:corp_050 .
+
+fibo:corp_049 fibo:isIssuerOf fibo:share_049 .
+
+fibo:share_050 a fibo:Share ;
+    fibo:isinCode "US1000000501" ;
+    fibo:sharesOutstanding 13500000 ;
+    fibo:issuedBy fibo:corp_050 ;
+    fibo:ownedBy fibo:corp_001 .
+
+fibo:corp_050 fibo:isIssuerOf fibo:share_050 .
+
+fibo:bond_001 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000015" ;
+    fibo:issuedBy fibo:corp_001 .
+
+fibo:bond_002 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000025" ;
+    fibo:issuedBy fibo:corp_002 .
+
+fibo:bond_003 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000035" ;
+    fibo:issuedBy fibo:corp_003 .
+
+fibo:bond_004 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000045" ;
+    fibo:issuedBy fibo:corp_004 .
+
+fibo:bond_005 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000055" ;
+    fibo:issuedBy fibo:corp_005 .
+
+fibo:bond_006 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000065" ;
+    fibo:issuedBy fibo:corp_006 .
+
+fibo:bond_007 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000075" ;
+    fibo:issuedBy fibo:corp_007 .
+
+fibo:bond_008 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000085" ;
+    fibo:issuedBy fibo:corp_008 .
+
+fibo:bond_009 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000095" ;
+    fibo:issuedBy fibo:corp_009 .
+
+fibo:bond_010 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000105" ;
+    fibo:issuedBy fibo:corp_010 .
+
+fibo:bond_011 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000115" ;
+    fibo:issuedBy fibo:corp_011 .
+
+fibo:bond_012 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000125" ;
+    fibo:issuedBy fibo:corp_012 .
+
+fibo:bond_013 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000135" ;
+    fibo:issuedBy fibo:corp_013 .
+
+fibo:bond_014 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000145" ;
+    fibo:issuedBy fibo:corp_014 .
+
+fibo:bond_015 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000155" ;
+    fibo:issuedBy fibo:corp_015 .
+
+fibo:bond_016 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000165" ;
+    fibo:issuedBy fibo:corp_016 .
+
+fibo:bond_017 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000175" ;
+    fibo:issuedBy fibo:corp_017 .
+
+fibo:bond_018 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000185" ;
+    fibo:issuedBy fibo:corp_018 .
+
+fibo:bond_019 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000195" ;
+    fibo:issuedBy fibo:corp_019 .
+
+fibo:bond_020 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000205" ;
+    fibo:issuedBy fibo:corp_020 .
+
+fibo:bond_021 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000215" ;
+    fibo:issuedBy fibo:corp_021 .
+
+fibo:bond_022 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000225" ;
+    fibo:issuedBy fibo:corp_022 .
+
+fibo:bond_023 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000235" ;
+    fibo:issuedBy fibo:corp_023 .
+
+fibo:bond_024 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000245" ;
+    fibo:issuedBy fibo:corp_024 .
+
+fibo:bond_025 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000255" ;
+    fibo:issuedBy fibo:corp_025 .
+
+fibo:bond_026 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000265" ;
+    fibo:issuedBy fibo:corp_026 .
+
+fibo:bond_027 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000275" ;
+    fibo:issuedBy fibo:corp_027 .
+
+fibo:bond_028 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000285" ;
+    fibo:issuedBy fibo:corp_028 .
+
+fibo:bond_029 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000295" ;
+    fibo:issuedBy fibo:corp_029 .
+
+fibo:bond_030 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000305" ;
+    fibo:issuedBy fibo:corp_030 .
+
+fibo:bond_031 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000315" ;
+    fibo:issuedBy fibo:corp_031 .
+
+fibo:bond_032 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000325" ;
+    fibo:issuedBy fibo:corp_032 .
+
+fibo:bond_033 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000335" ;
+    fibo:issuedBy fibo:corp_033 .
+
+fibo:bond_034 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000345" ;
+    fibo:issuedBy fibo:corp_034 .
+
+fibo:bond_035 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000355" ;
+    fibo:issuedBy fibo:corp_035 .
+
+fibo:bond_036 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000365" ;
+    fibo:issuedBy fibo:corp_036 .
+
+fibo:bond_037 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000375" ;
+    fibo:issuedBy fibo:corp_037 .
+
+fibo:bond_038 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000385" ;
+    fibo:issuedBy fibo:corp_038 .
+
+fibo:bond_039 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000395" ;
+    fibo:issuedBy fibo:corp_039 .
+
+fibo:bond_040 a fibo:DebtInstrument ;
+    fibo:isinCode "XS2000000405" ;
+    fibo:issuedBy fibo:corp_040 .
+
+fibo:loan_001 a fibo:Loan ;
+    fibo:loanAmount 2600000.00 ;
+    fibo:interestRate 4.50 ;
+    fibo:hasLender fibo:party_001 ;
+    fibo:hasBorrower fibo:party_002 ;
+    fibo:guaranteedBy fibo:corp_001 .
+
+fibo:loan_002 a fibo:Loan ;
+    fibo:loanAmount 16000000.00 ;
+    fibo:interestRate 4.75 ;
+    fibo:hasLender fibo:party_002 ;
+    fibo:hasBorrower fibo:party_003 ;
+    fibo:guaranteedBy fibo:corp_002 .
+
+fibo:loan_003 a fibo:Loan ;
+    fibo:loanAmount 2800000.00 ;
+    fibo:interestRate 5.00 ;
+    fibo:hasLender fibo:party_003 ;
+    fibo:hasBorrower fibo:party_004 ;
+    fibo:guaranteedBy fibo:corp_003 .
+
+fibo:loan_004 a fibo:Loan ;
+    fibo:loanAmount 17000000.00 ;
+    fibo:interestRate 5.25 ;
+    fibo:hasLender fibo:party_004 ;
+    fibo:hasBorrower fibo:party_005 ;
+    fibo:guaranteedBy fibo:corp_004 .
+
+fibo:loan_005 a fibo:Loan ;
+    fibo:loanAmount 3000000.00 ;
+    fibo:interestRate 5.50 ;
+    fibo:hasLender fibo:party_005 ;
+    fibo:hasBorrower fibo:party_006 ;
+    fibo:guaranteedBy fibo:corp_005 .
+
+fibo:loan_006 a fibo:Loan ;
+    fibo:loanAmount 18000000.00 ;
+    fibo:interestRate 5.75 ;
+    fibo:hasLender fibo:party_006 ;
+    fibo:hasBorrower fibo:party_007 ;
+    fibo:guaranteedBy fibo:corp_006 .
+
+fibo:loan_007 a fibo:Loan ;
+    fibo:loanAmount 3200000.00 ;
+    fibo:interestRate 6.00 ;
+    fibo:hasLender fibo:party_007 ;
+    fibo:hasBorrower fibo:party_008 ;
+    fibo:guaranteedBy fibo:corp_007 .
+
+fibo:loan_008 a fibo:Loan ;
+    fibo:loanAmount 19000000.00 ;
+    fibo:interestRate 6.25 ;
+    fibo:hasLender fibo:party_008 ;
+    fibo:hasBorrower fibo:party_009 ;
+    fibo:guaranteedBy fibo:corp_008 .
+
+fibo:loan_009 a fibo:Loan ;
+    fibo:loanAmount 3400000.00 ;
+    fibo:interestRate 6.50 ;
+    fibo:hasLender fibo:party_009 ;
+    fibo:hasBorrower fibo:party_010 ;
+    fibo:guaranteedBy fibo:corp_009 .
+
+fibo:loan_010 a fibo:Loan ;
+    fibo:loanAmount 20000000.00 ;
+    fibo:interestRate 4.25 ;
+    fibo:hasLender fibo:party_010 ;
+    fibo:hasBorrower fibo:party_011 ;
+    fibo:guaranteedBy fibo:corp_010 .
+
+fibo:loan_011 a fibo:Loan ;
+    fibo:loanAmount 3600000.00 ;
+    fibo:interestRate 4.50 ;
+    fibo:hasLender fibo:party_011 ;
+    fibo:hasBorrower fibo:party_012 ;
+    fibo:guaranteedBy fibo:corp_011 .
+
+fibo:loan_012 a fibo:Loan ;
+    fibo:loanAmount 21000000.00 ;
+    fibo:interestRate 4.75 ;
+    fibo:hasLender fibo:party_012 ;
+    fibo:hasBorrower fibo:party_013 ;
+    fibo:guaranteedBy fibo:corp_012 .
+
+fibo:loan_013 a fibo:Loan ;
+    fibo:loanAmount 3800000.00 ;
+    fibo:interestRate 5.00 ;
+    fibo:hasLender fibo:party_013 ;
+    fibo:hasBorrower fibo:party_014 ;
+    fibo:guaranteedBy fibo:corp_013 .
+
+fibo:loan_014 a fibo:Loan ;
+    fibo:loanAmount 22000000.00 ;
+    fibo:interestRate 5.25 ;
+    fibo:hasLender fibo:party_014 ;
+    fibo:hasBorrower fibo:party_015 ;
+    fibo:guaranteedBy fibo:corp_014 .
+
+fibo:loan_015 a fibo:Loan ;
+    fibo:loanAmount 4000000.00 ;
+    fibo:interestRate 5.50 ;
+    fibo:hasLender fibo:party_015 ;
+    fibo:hasBorrower fibo:party_016 ;
+    fibo:guaranteedBy fibo:corp_015 .
+
+fibo:loan_016 a fibo:Loan ;
+    fibo:loanAmount 23000000.00 ;
+    fibo:interestRate 5.75 ;
+    fibo:hasLender fibo:party_016 ;
+    fibo:hasBorrower fibo:party_017 ;
+    fibo:guaranteedBy fibo:corp_016 .
+
+fibo:loan_017 a fibo:Loan ;
+    fibo:loanAmount 4200000.00 ;
+    fibo:interestRate 6.00 ;
+    fibo:hasLender fibo:party_017 ;
+    fibo:hasBorrower fibo:party_018 ;
+    fibo:guaranteedBy fibo:corp_017 .
+
+fibo:loan_018 a fibo:Loan ;
+    fibo:loanAmount 24000000.00 ;
+    fibo:interestRate 6.25 ;
+    fibo:hasLender fibo:party_018 ;
+    fibo:hasBorrower fibo:party_019 ;
+    fibo:guaranteedBy fibo:corp_018 .
+
+fibo:loan_019 a fibo:Loan ;
+    fibo:loanAmount 4400000.00 ;
+    fibo:interestRate 6.50 ;
+    fibo:hasLender fibo:party_019 ;
+    fibo:hasBorrower fibo:party_020 ;
+    fibo:guaranteedBy fibo:corp_019 .
+
+fibo:loan_020 a fibo:Loan ;
+    fibo:loanAmount 25000000.00 ;
+    fibo:interestRate 4.25 ;
+    fibo:hasLender fibo:party_020 ;
+    fibo:hasBorrower fibo:party_021 ;
+    fibo:guaranteedBy fibo:corp_020 .
+
+fibo:loan_021 a fibo:Loan ;
+    fibo:loanAmount 4600000.00 ;
+    fibo:interestRate 4.50 ;
+    fibo:hasLender fibo:party_021 ;
+    fibo:hasBorrower fibo:party_022 ;
+    fibo:guaranteedBy fibo:corp_021 .
+
+fibo:loan_022 a fibo:Loan ;
+    fibo:loanAmount 26000000.00 ;
+    fibo:interestRate 4.75 ;
+    fibo:hasLender fibo:party_022 ;
+    fibo:hasBorrower fibo:party_023 ;
+    fibo:guaranteedBy fibo:corp_022 .
+
+fibo:loan_023 a fibo:Loan ;
+    fibo:loanAmount 4800000.00 ;
+    fibo:interestRate 5.00 ;
+    fibo:hasLender fibo:party_023 ;
+    fibo:hasBorrower fibo:party_024 ;
+    fibo:guaranteedBy fibo:corp_023 .
+
+fibo:loan_024 a fibo:Loan ;
+    fibo:loanAmount 27000000.00 ;
+    fibo:interestRate 5.25 ;
+    fibo:hasLender fibo:party_024 ;
+    fibo:hasBorrower fibo:party_025 ;
+    fibo:guaranteedBy fibo:corp_024 .
+
+fibo:loan_025 a fibo:Loan ;
+    fibo:loanAmount 5000000.00 ;
+    fibo:interestRate 5.50 ;
+    fibo:hasLender fibo:party_025 ;
+    fibo:hasBorrower fibo:party_026 ;
+    fibo:guaranteedBy fibo:corp_025 .
+
+fibo:loan_026 a fibo:Loan ;
+    fibo:loanAmount 28000000.00 ;
+    fibo:interestRate 5.75 ;
+    fibo:hasLender fibo:party_026 ;
+    fibo:hasBorrower fibo:party_027 ;
+    fibo:guaranteedBy fibo:corp_026 .
+
+fibo:loan_027 a fibo:Loan ;
+    fibo:loanAmount 5200000.00 ;
+    fibo:interestRate 6.00 ;
+    fibo:hasLender fibo:party_027 ;
+    fibo:hasBorrower fibo:party_028 ;
+    fibo:guaranteedBy fibo:corp_027 .
+
+fibo:loan_028 a fibo:Loan ;
+    fibo:loanAmount 29000000.00 ;
+    fibo:interestRate 6.25 ;
+    fibo:hasLender fibo:party_028 ;
+    fibo:hasBorrower fibo:party_029 ;
+    fibo:guaranteedBy fibo:corp_028 .
+
+fibo:loan_029 a fibo:Loan ;
+    fibo:loanAmount 5400000.00 ;
+    fibo:interestRate 6.50 ;
+    fibo:hasLender fibo:party_029 ;
+    fibo:hasBorrower fibo:party_030 ;
+    fibo:guaranteedBy fibo:corp_029 .
+
+fibo:loan_030 a fibo:Loan ;
+    fibo:loanAmount 30000000.00 ;
+    fibo:interestRate 4.25 ;
+    fibo:hasLender fibo:party_030 ;
+    fibo:hasBorrower fibo:party_031 ;
+    fibo:guaranteedBy fibo:corp_030 .
+
+fibo:loan_031 a fibo:Loan ;
+    fibo:loanAmount 5600000.00 ;
+    fibo:interestRate 4.50 ;
+    fibo:hasLender fibo:party_031 ;
+    fibo:hasBorrower fibo:party_032 ;
+    fibo:guaranteedBy fibo:corp_031 .
+
+fibo:loan_032 a fibo:Loan ;
+    fibo:loanAmount 31000000.00 ;
+    fibo:interestRate 4.75 ;
+    fibo:hasLender fibo:party_032 ;
+    fibo:hasBorrower fibo:party_033 ;
+    fibo:guaranteedBy fibo:corp_032 .
+
+fibo:loan_033 a fibo:Loan ;
+    fibo:loanAmount 5800000.00 ;
+    fibo:interestRate 5.00 ;
+    fibo:hasLender fibo:party_033 ;
+    fibo:hasBorrower fibo:party_034 ;
+    fibo:guaranteedBy fibo:corp_033 .
+
+fibo:loan_034 a fibo:Loan ;
+    fibo:loanAmount 32000000.00 ;
+    fibo:interestRate 5.25 ;
+    fibo:hasLender fibo:party_034 ;
+    fibo:hasBorrower fibo:party_035 ;
+    fibo:guaranteedBy fibo:corp_034 .
+
+fibo:loan_035 a fibo:Loan ;
+    fibo:loanAmount 6000000.00 ;
+    fibo:interestRate 5.50 ;
+    fibo:hasLender fibo:party_035 ;
+    fibo:hasBorrower fibo:party_036 ;
+    fibo:guaranteedBy fibo:corp_035 .
+
+fibo:loan_036 a fibo:Loan ;
+    fibo:loanAmount 33000000.00 ;
+    fibo:interestRate 5.75 ;
+    fibo:hasLender fibo:party_036 ;
+    fibo:hasBorrower fibo:party_037 ;
+    fibo:guaranteedBy fibo:corp_036 .
+
+fibo:loan_037 a fibo:Loan ;
+    fibo:loanAmount 6200000.00 ;
+    fibo:interestRate 6.00 ;
+    fibo:hasLender fibo:party_037 ;
+    fibo:hasBorrower fibo:party_038 ;
+    fibo:guaranteedBy fibo:corp_037 .
+
+fibo:loan_038 a fibo:Loan ;
+    fibo:loanAmount 34000000.00 ;
+    fibo:interestRate 6.25 ;
+    fibo:hasLender fibo:party_038 ;
+    fibo:hasBorrower fibo:party_039 ;
+    fibo:guaranteedBy fibo:corp_038 .
+
+fibo:loan_039 a fibo:Loan ;
+    fibo:loanAmount 6400000.00 ;
+    fibo:interestRate 6.50 ;
+    fibo:hasLender fibo:party_039 ;
+    fibo:hasBorrower fibo:party_040 ;
+    fibo:guaranteedBy fibo:corp_039 .
+
+fibo:loan_040 a fibo:Loan ;
+    fibo:loanAmount 35000000.00 ;
+    fibo:interestRate 4.25 ;
+    fibo:hasLender fibo:party_040 ;
+    fibo:hasBorrower fibo:party_001 ;
+    fibo:guaranteedBy fibo:corp_040 .
+
+fibo:loan_041 a fibo:Loan ;
+    fibo:loanAmount 6600000.00 ;
+    fibo:interestRate 4.50 ;
+    fibo:hasLender fibo:party_001 ;
+    fibo:hasBorrower fibo:party_002 ;
+    fibo:guaranteedBy fibo:corp_041 .
+
+fibo:loan_042 a fibo:Loan ;
+    fibo:loanAmount 36000000.00 ;
+    fibo:interestRate 4.75 ;
+    fibo:hasLender fibo:party_002 ;
+    fibo:hasBorrower fibo:party_003 ;
+    fibo:guaranteedBy fibo:corp_042 .
+
+fibo:loan_043 a fibo:Loan ;
+    fibo:loanAmount 6800000.00 ;
+    fibo:interestRate 5.00 ;
+    fibo:hasLender fibo:party_003 ;
+    fibo:hasBorrower fibo:party_004 ;
+    fibo:guaranteedBy fibo:corp_043 .
+
+fibo:loan_044 a fibo:Loan ;
+    fibo:loanAmount 37000000.00 ;
+    fibo:interestRate 5.25 ;
+    fibo:hasLender fibo:party_004 ;
+    fibo:hasBorrower fibo:party_005 ;
+    fibo:guaranteedBy fibo:corp_044 .
+
+fibo:loan_045 a fibo:Loan ;
+    fibo:loanAmount 7000000.00 ;
+    fibo:interestRate 5.50 ;
+    fibo:hasLender fibo:party_005 ;
+    fibo:hasBorrower fibo:party_006 ;
+    fibo:guaranteedBy fibo:corp_045 .
+
+fibo:loan_046 a fibo:Loan ;
+    fibo:loanAmount 38000000.00 ;
+    fibo:interestRate 5.75 ;
+    fibo:hasLender fibo:party_006 ;
+    fibo:hasBorrower fibo:party_007 ;
+    fibo:guaranteedBy fibo:corp_046 .
+
+fibo:loan_047 a fibo:Loan ;
+    fibo:loanAmount 7200000.00 ;
+    fibo:interestRate 6.00 ;
+    fibo:hasLender fibo:party_007 ;
+    fibo:hasBorrower fibo:party_008 ;
+    fibo:guaranteedBy fibo:corp_047 .
+
+fibo:loan_048 a fibo:Loan ;
+    fibo:loanAmount 39000000.00 ;
+    fibo:interestRate 6.25 ;
+    fibo:hasLender fibo:party_008 ;
+    fibo:hasBorrower fibo:party_009 ;
+    fibo:guaranteedBy fibo:corp_048 .
+
+fibo:loan_049 a fibo:Loan ;
+    fibo:loanAmount 7400000.00 ;
+    fibo:interestRate 6.50 ;
+    fibo:hasLender fibo:party_009 ;
+    fibo:hasBorrower fibo:party_010 ;
+    fibo:guaranteedBy fibo:corp_049 .
+
+fibo:loan_050 a fibo:Loan ;
+    fibo:loanAmount 40000000.00 ;
+    fibo:interestRate 4.25 ;
+    fibo:hasLender fibo:party_010 ;
+    fibo:hasBorrower fibo:party_011 ;
+    fibo:guaranteedBy fibo:corp_050 .
+
+fibo:loan_051 a fibo:Loan ;
+    fibo:loanAmount 7600000.00 ;
+    fibo:interestRate 4.50 ;
+    fibo:hasLender fibo:party_011 ;
+    fibo:hasBorrower fibo:party_012 ;
+    fibo:guaranteedBy fibo:corp_001 .
+
+fibo:loan_052 a fibo:Loan ;
+    fibo:loanAmount 41000000.00 ;
+    fibo:interestRate 4.75 ;
+    fibo:hasLender fibo:party_012 ;
+    fibo:hasBorrower fibo:party_013 ;
+    fibo:guaranteedBy fibo:corp_002 .
+
+fibo:loan_053 a fibo:Loan ;
+    fibo:loanAmount 7800000.00 ;
+    fibo:interestRate 5.00 ;
+    fibo:hasLender fibo:party_013 ;
+    fibo:hasBorrower fibo:party_014 ;
+    fibo:guaranteedBy fibo:corp_003 .
+
+fibo:loan_054 a fibo:Loan ;
+    fibo:loanAmount 42000000.00 ;
+    fibo:interestRate 5.25 ;
+    fibo:hasLender fibo:party_014 ;
+    fibo:hasBorrower fibo:party_015 ;
+    fibo:guaranteedBy fibo:corp_004 .
+
+fibo:loan_055 a fibo:Loan ;
+    fibo:loanAmount 8000000.00 ;
+    fibo:interestRate 5.50 ;
+    fibo:hasLender fibo:party_015 ;
+    fibo:hasBorrower fibo:party_016 ;
+    fibo:guaranteedBy fibo:corp_005 .
+
+fibo:loan_056 a fibo:Loan ;
+    fibo:loanAmount 43000000.00 ;
+    fibo:interestRate 5.75 ;
+    fibo:hasLender fibo:party_016 ;
+    fibo:hasBorrower fibo:party_017 ;
+    fibo:guaranteedBy fibo:corp_006 .
+
+fibo:loan_057 a fibo:Loan ;
+    fibo:loanAmount 8200000.00 ;
+    fibo:interestRate 6.00 ;
+    fibo:hasLender fibo:party_017 ;
+    fibo:hasBorrower fibo:party_018 ;
+    fibo:guaranteedBy fibo:corp_007 .
+
+fibo:loan_058 a fibo:Loan ;
+    fibo:loanAmount 44000000.00 ;
+    fibo:interestRate 6.25 ;
+    fibo:hasLender fibo:party_018 ;
+    fibo:hasBorrower fibo:party_019 ;
+    fibo:guaranteedBy fibo:corp_008 .
+
+fibo:loan_059 a fibo:Loan ;
+    fibo:loanAmount 8400000.00 ;
+    fibo:interestRate 6.50 ;
+    fibo:hasLender fibo:party_019 ;
+    fibo:hasBorrower fibo:party_020 ;
+    fibo:guaranteedBy fibo:corp_009 .
+
+fibo:loan_060 a fibo:Loan ;
+    fibo:loanAmount 45000000.00 ;
+    fibo:interestRate 4.25 ;
+    fibo:hasLender fibo:party_020 ;
+    fibo:hasBorrower fibo:party_021 ;
+    fibo:guaranteedBy fibo:corp_010 .

@@ -1,0 +1,1126 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/union_domains/> .
+
+# ABox Instance Triples for 09_union_domains
+
+ex:natural_person_001 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00001" ;
+    ex:contactEmail "person.001@citizens.example.org" ;
+    ex:birthDate "1966-02-02"^^xsd:date .
+
+ex:natural_person_002 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00002" ;
+    ex:contactEmail "person.002@citizens.example.org" ;
+    ex:birthDate "1967-03-03"^^xsd:date .
+
+ex:natural_person_003 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00003" ;
+    ex:contactEmail "person.003@citizens.example.org" ;
+    ex:birthDate "1968-04-04"^^xsd:date .
+
+ex:natural_person_004 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00004" ;
+    ex:contactEmail "person.004@citizens.example.org" ;
+    ex:birthDate "1969-05-05"^^xsd:date .
+
+ex:natural_person_005 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00005" ;
+    ex:contactEmail "person.005@citizens.example.org" ;
+    ex:birthDate "1970-06-06"^^xsd:date .
+
+ex:natural_person_006 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00006" ;
+    ex:contactEmail "person.006@citizens.example.org" ;
+    ex:birthDate "1971-07-07"^^xsd:date .
+
+ex:natural_person_007 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00007" ;
+    ex:contactEmail "person.007@citizens.example.org" ;
+    ex:birthDate "1972-08-08"^^xsd:date .
+
+ex:natural_person_008 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00008" ;
+    ex:contactEmail "person.008@citizens.example.org" ;
+    ex:birthDate "1973-09-09"^^xsd:date .
+
+ex:natural_person_009 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00009" ;
+    ex:contactEmail "person.009@citizens.example.org" ;
+    ex:birthDate "1974-10-10"^^xsd:date .
+
+ex:natural_person_010 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00010" ;
+    ex:contactEmail "person.010@citizens.example.org" ;
+    ex:birthDate "1975-11-11"^^xsd:date .
+
+ex:natural_person_011 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00011" ;
+    ex:contactEmail "person.011@citizens.example.org" ;
+    ex:birthDate "1976-12-12"^^xsd:date .
+
+ex:natural_person_012 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00012" ;
+    ex:contactEmail "person.012@citizens.example.org" ;
+    ex:birthDate "1977-01-13"^^xsd:date .
+
+ex:natural_person_013 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00013" ;
+    ex:contactEmail "person.013@citizens.example.org" ;
+    ex:birthDate "1978-02-14"^^xsd:date .
+
+ex:natural_person_014 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00014" ;
+    ex:contactEmail "person.014@citizens.example.org" ;
+    ex:birthDate "1979-03-15"^^xsd:date .
+
+ex:natural_person_015 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00015" ;
+    ex:contactEmail "person.015@citizens.example.org" ;
+    ex:birthDate "1980-04-16"^^xsd:date .
+
+ex:natural_person_016 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00016" ;
+    ex:contactEmail "person.016@citizens.example.org" ;
+    ex:birthDate "1981-05-17"^^xsd:date .
+
+ex:natural_person_017 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00017" ;
+    ex:contactEmail "person.017@citizens.example.org" ;
+    ex:birthDate "1982-06-18"^^xsd:date .
+
+ex:natural_person_018 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00018" ;
+    ex:contactEmail "person.018@citizens.example.org" ;
+    ex:birthDate "1983-07-19"^^xsd:date .
+
+ex:natural_person_019 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00019" ;
+    ex:contactEmail "person.019@citizens.example.org" ;
+    ex:birthDate "1984-08-20"^^xsd:date .
+
+ex:natural_person_020 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00020" ;
+    ex:contactEmail "person.020@citizens.example.org" ;
+    ex:birthDate "1985-09-21"^^xsd:date .
+
+ex:natural_person_021 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00021" ;
+    ex:contactEmail "person.021@citizens.example.org" ;
+    ex:birthDate "1986-10-22"^^xsd:date .
+
+ex:natural_person_022 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00022" ;
+    ex:contactEmail "person.022@citizens.example.org" ;
+    ex:birthDate "1987-11-23"^^xsd:date .
+
+ex:natural_person_023 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00023" ;
+    ex:contactEmail "person.023@citizens.example.org" ;
+    ex:birthDate "1988-12-24"^^xsd:date .
+
+ex:natural_person_024 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00024" ;
+    ex:contactEmail "person.024@citizens.example.org" ;
+    ex:birthDate "1989-01-25"^^xsd:date .
+
+ex:natural_person_025 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00025" ;
+    ex:contactEmail "person.025@citizens.example.org" ;
+    ex:birthDate "1990-02-26"^^xsd:date .
+
+ex:natural_person_026 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00026" ;
+    ex:contactEmail "person.026@citizens.example.org" ;
+    ex:birthDate "1991-03-27"^^xsd:date .
+
+ex:natural_person_027 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00027" ;
+    ex:contactEmail "person.027@citizens.example.org" ;
+    ex:birthDate "1992-04-28"^^xsd:date .
+
+ex:natural_person_028 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00028" ;
+    ex:contactEmail "person.028@citizens.example.org" ;
+    ex:birthDate "1993-05-01"^^xsd:date .
+
+ex:natural_person_029 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00029" ;
+    ex:contactEmail "person.029@citizens.example.org" ;
+    ex:birthDate "1994-06-02"^^xsd:date .
+
+ex:natural_person_030 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00030" ;
+    ex:contactEmail "person.030@citizens.example.org" ;
+    ex:birthDate "1995-07-03"^^xsd:date .
+
+ex:natural_person_031 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00031" ;
+    ex:contactEmail "person.031@citizens.example.org" ;
+    ex:birthDate "1996-08-04"^^xsd:date .
+
+ex:natural_person_032 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00032" ;
+    ex:contactEmail "person.032@citizens.example.org" ;
+    ex:birthDate "1997-09-05"^^xsd:date .
+
+ex:natural_person_033 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00033" ;
+    ex:contactEmail "person.033@citizens.example.org" ;
+    ex:birthDate "1998-10-06"^^xsd:date .
+
+ex:natural_person_034 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00034" ;
+    ex:contactEmail "person.034@citizens.example.org" ;
+    ex:birthDate "1999-11-07"^^xsd:date .
+
+ex:natural_person_035 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00035" ;
+    ex:contactEmail "person.035@citizens.example.org" ;
+    ex:birthDate "1965-12-08"^^xsd:date .
+
+ex:natural_person_036 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00036" ;
+    ex:contactEmail "person.036@citizens.example.org" ;
+    ex:birthDate "1966-01-09"^^xsd:date .
+
+ex:natural_person_037 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00037" ;
+    ex:contactEmail "person.037@citizens.example.org" ;
+    ex:birthDate "1967-02-10"^^xsd:date .
+
+ex:natural_person_038 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00038" ;
+    ex:contactEmail "person.038@citizens.example.org" ;
+    ex:birthDate "1968-03-11"^^xsd:date .
+
+ex:natural_person_039 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00039" ;
+    ex:contactEmail "person.039@citizens.example.org" ;
+    ex:birthDate "1969-04-12"^^xsd:date .
+
+ex:natural_person_040 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00040" ;
+    ex:contactEmail "person.040@citizens.example.org" ;
+    ex:birthDate "1970-05-13"^^xsd:date .
+
+ex:natural_person_041 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00041" ;
+    ex:contactEmail "person.041@citizens.example.org" ;
+    ex:birthDate "1971-06-14"^^xsd:date .
+
+ex:natural_person_042 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00042" ;
+    ex:contactEmail "person.042@citizens.example.org" ;
+    ex:birthDate "1972-07-15"^^xsd:date .
+
+ex:natural_person_043 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00043" ;
+    ex:contactEmail "person.043@citizens.example.org" ;
+    ex:birthDate "1973-08-16"^^xsd:date .
+
+ex:natural_person_044 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00044" ;
+    ex:contactEmail "person.044@citizens.example.org" ;
+    ex:birthDate "1974-09-17"^^xsd:date .
+
+ex:natural_person_045 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00045" ;
+    ex:contactEmail "person.045@citizens.example.org" ;
+    ex:birthDate "1975-10-18"^^xsd:date .
+
+ex:natural_person_046 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00046" ;
+    ex:contactEmail "person.046@citizens.example.org" ;
+    ex:birthDate "1976-11-19"^^xsd:date .
+
+ex:natural_person_047 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00047" ;
+    ex:contactEmail "person.047@citizens.example.org" ;
+    ex:birthDate "1977-12-20"^^xsd:date .
+
+ex:natural_person_048 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00048" ;
+    ex:contactEmail "person.048@citizens.example.org" ;
+    ex:birthDate "1978-01-21"^^xsd:date .
+
+ex:natural_person_049 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00049" ;
+    ex:contactEmail "person.049@citizens.example.org" ;
+    ex:birthDate "1979-02-22"^^xsd:date .
+
+ex:natural_person_050 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00050" ;
+    ex:contactEmail "person.050@citizens.example.org" ;
+    ex:birthDate "1980-03-23"^^xsd:date .
+
+ex:natural_person_051 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00051" ;
+    ex:contactEmail "person.051@citizens.example.org" ;
+    ex:birthDate "1981-04-24"^^xsd:date .
+
+ex:natural_person_052 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00052" ;
+    ex:contactEmail "person.052@citizens.example.org" ;
+    ex:birthDate "1982-05-25"^^xsd:date .
+
+ex:natural_person_053 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00053" ;
+    ex:contactEmail "person.053@citizens.example.org" ;
+    ex:birthDate "1983-06-26"^^xsd:date .
+
+ex:natural_person_054 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00054" ;
+    ex:contactEmail "person.054@citizens.example.org" ;
+    ex:birthDate "1984-07-27"^^xsd:date .
+
+ex:natural_person_055 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00055" ;
+    ex:contactEmail "person.055@citizens.example.org" ;
+    ex:birthDate "1985-08-28"^^xsd:date .
+
+ex:natural_person_056 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00056" ;
+    ex:contactEmail "person.056@citizens.example.org" ;
+    ex:birthDate "1986-09-01"^^xsd:date .
+
+ex:natural_person_057 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00057" ;
+    ex:contactEmail "person.057@citizens.example.org" ;
+    ex:birthDate "1987-10-02"^^xsd:date .
+
+ex:natural_person_058 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00058" ;
+    ex:contactEmail "person.058@citizens.example.org" ;
+    ex:birthDate "1988-11-03"^^xsd:date .
+
+ex:natural_person_059 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00059" ;
+    ex:contactEmail "person.059@citizens.example.org" ;
+    ex:birthDate "1989-12-04"^^xsd:date .
+
+ex:natural_person_060 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00060" ;
+    ex:contactEmail "person.060@citizens.example.org" ;
+    ex:birthDate "1990-01-05"^^xsd:date .
+
+ex:natural_person_061 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00061" ;
+    ex:contactEmail "person.061@citizens.example.org" ;
+    ex:birthDate "1991-02-06"^^xsd:date .
+
+ex:natural_person_062 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00062" ;
+    ex:contactEmail "person.062@citizens.example.org" ;
+    ex:birthDate "1992-03-07"^^xsd:date .
+
+ex:natural_person_063 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00063" ;
+    ex:contactEmail "person.063@citizens.example.org" ;
+    ex:birthDate "1993-04-08"^^xsd:date .
+
+ex:natural_person_064 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00064" ;
+    ex:contactEmail "person.064@citizens.example.org" ;
+    ex:birthDate "1994-05-09"^^xsd:date .
+
+ex:natural_person_065 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00065" ;
+    ex:contactEmail "person.065@citizens.example.org" ;
+    ex:birthDate "1995-06-10"^^xsd:date .
+
+ex:natural_person_066 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00066" ;
+    ex:contactEmail "person.066@citizens.example.org" ;
+    ex:birthDate "1996-07-11"^^xsd:date .
+
+ex:natural_person_067 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00067" ;
+    ex:contactEmail "person.067@citizens.example.org" ;
+    ex:birthDate "1997-08-12"^^xsd:date .
+
+ex:natural_person_068 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00068" ;
+    ex:contactEmail "person.068@citizens.example.org" ;
+    ex:birthDate "1998-09-13"^^xsd:date .
+
+ex:natural_person_069 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00069" ;
+    ex:contactEmail "person.069@citizens.example.org" ;
+    ex:birthDate "1999-10-14"^^xsd:date .
+
+ex:natural_person_070 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00070" ;
+    ex:contactEmail "person.070@citizens.example.org" ;
+    ex:birthDate "1965-11-15"^^xsd:date .
+
+ex:natural_person_071 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00071" ;
+    ex:contactEmail "person.071@citizens.example.org" ;
+    ex:birthDate "1966-12-16"^^xsd:date .
+
+ex:natural_person_072 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00072" ;
+    ex:contactEmail "person.072@citizens.example.org" ;
+    ex:birthDate "1967-01-17"^^xsd:date .
+
+ex:natural_person_073 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00073" ;
+    ex:contactEmail "person.073@citizens.example.org" ;
+    ex:birthDate "1968-02-18"^^xsd:date .
+
+ex:natural_person_074 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00074" ;
+    ex:contactEmail "person.074@citizens.example.org" ;
+    ex:birthDate "1969-03-19"^^xsd:date .
+
+ex:natural_person_075 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00075" ;
+    ex:contactEmail "person.075@citizens.example.org" ;
+    ex:birthDate "1970-04-20"^^xsd:date .
+
+ex:natural_person_076 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00076" ;
+    ex:contactEmail "person.076@citizens.example.org" ;
+    ex:birthDate "1971-05-21"^^xsd:date .
+
+ex:natural_person_077 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00077" ;
+    ex:contactEmail "person.077@citizens.example.org" ;
+    ex:birthDate "1972-06-22"^^xsd:date .
+
+ex:natural_person_078 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00078" ;
+    ex:contactEmail "person.078@citizens.example.org" ;
+    ex:birthDate "1973-07-23"^^xsd:date .
+
+ex:natural_person_079 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00079" ;
+    ex:contactEmail "person.079@citizens.example.org" ;
+    ex:birthDate "1974-08-24"^^xsd:date .
+
+ex:natural_person_080 a ex:NaturalPerson ;
+    ex:taxIdentifier "TIN-NP-00080" ;
+    ex:contactEmail "person.080@citizens.example.org" ;
+    ex:birthDate "1975-09-25"^^xsd:date .
+
+ex:corporation_001 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00001" ;
+    ex:contactEmail "corporate.001@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80001" .
+
+ex:corporation_002 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00002" ;
+    ex:contactEmail "corporate.002@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80002" .
+
+ex:corporation_003 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00003" ;
+    ex:contactEmail "corporate.003@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80003" .
+
+ex:corporation_004 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00004" ;
+    ex:contactEmail "corporate.004@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80004" .
+
+ex:corporation_005 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00005" ;
+    ex:contactEmail "corporate.005@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80005" .
+
+ex:corporation_006 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00006" ;
+    ex:contactEmail "corporate.006@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80006" .
+
+ex:corporation_007 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00007" ;
+    ex:contactEmail "corporate.007@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80007" .
+
+ex:corporation_008 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00008" ;
+    ex:contactEmail "corporate.008@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80008" .
+
+ex:corporation_009 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00009" ;
+    ex:contactEmail "corporate.009@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80009" .
+
+ex:corporation_010 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00010" ;
+    ex:contactEmail "corporate.010@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80010" .
+
+ex:corporation_011 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00011" ;
+    ex:contactEmail "corporate.011@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80011" .
+
+ex:corporation_012 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00012" ;
+    ex:contactEmail "corporate.012@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80012" .
+
+ex:corporation_013 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00013" ;
+    ex:contactEmail "corporate.013@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80013" .
+
+ex:corporation_014 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00014" ;
+    ex:contactEmail "corporate.014@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80014" .
+
+ex:corporation_015 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00015" ;
+    ex:contactEmail "corporate.015@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80015" .
+
+ex:corporation_016 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00016" ;
+    ex:contactEmail "corporate.016@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80016" .
+
+ex:corporation_017 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00017" ;
+    ex:contactEmail "corporate.017@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80017" .
+
+ex:corporation_018 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00018" ;
+    ex:contactEmail "corporate.018@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80018" .
+
+ex:corporation_019 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00019" ;
+    ex:contactEmail "corporate.019@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80019" .
+
+ex:corporation_020 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00020" ;
+    ex:contactEmail "corporate.020@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80020" .
+
+ex:corporation_021 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00021" ;
+    ex:contactEmail "corporate.021@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80021" .
+
+ex:corporation_022 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00022" ;
+    ex:contactEmail "corporate.022@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80022" .
+
+ex:corporation_023 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00023" ;
+    ex:contactEmail "corporate.023@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80023" .
+
+ex:corporation_024 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00024" ;
+    ex:contactEmail "corporate.024@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80024" .
+
+ex:corporation_025 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00025" ;
+    ex:contactEmail "corporate.025@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80025" .
+
+ex:corporation_026 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00026" ;
+    ex:contactEmail "corporate.026@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80026" .
+
+ex:corporation_027 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00027" ;
+    ex:contactEmail "corporate.027@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80027" .
+
+ex:corporation_028 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00028" ;
+    ex:contactEmail "corporate.028@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80028" .
+
+ex:corporation_029 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00029" ;
+    ex:contactEmail "corporate.029@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80029" .
+
+ex:corporation_030 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00030" ;
+    ex:contactEmail "corporate.030@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80030" .
+
+ex:corporation_031 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00031" ;
+    ex:contactEmail "corporate.031@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80031" .
+
+ex:corporation_032 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00032" ;
+    ex:contactEmail "corporate.032@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80032" .
+
+ex:corporation_033 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00033" ;
+    ex:contactEmail "corporate.033@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80033" .
+
+ex:corporation_034 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00034" ;
+    ex:contactEmail "corporate.034@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80034" .
+
+ex:corporation_035 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00035" ;
+    ex:contactEmail "corporate.035@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80035" .
+
+ex:corporation_036 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00036" ;
+    ex:contactEmail "corporate.036@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80036" .
+
+ex:corporation_037 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00037" ;
+    ex:contactEmail "corporate.037@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80037" .
+
+ex:corporation_038 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00038" ;
+    ex:contactEmail "corporate.038@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80038" .
+
+ex:corporation_039 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00039" ;
+    ex:contactEmail "corporate.039@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80039" .
+
+ex:corporation_040 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00040" ;
+    ex:contactEmail "corporate.040@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80040" .
+
+ex:corporation_041 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00041" ;
+    ex:contactEmail "corporate.041@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80041" .
+
+ex:corporation_042 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00042" ;
+    ex:contactEmail "corporate.042@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80042" .
+
+ex:corporation_043 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00043" ;
+    ex:contactEmail "corporate.043@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80043" .
+
+ex:corporation_044 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00044" ;
+    ex:contactEmail "corporate.044@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80044" .
+
+ex:corporation_045 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00045" ;
+    ex:contactEmail "corporate.045@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80045" .
+
+ex:corporation_046 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00046" ;
+    ex:contactEmail "corporate.046@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80046" .
+
+ex:corporation_047 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00047" ;
+    ex:contactEmail "corporate.047@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80047" .
+
+ex:corporation_048 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00048" ;
+    ex:contactEmail "corporate.048@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80048" .
+
+ex:corporation_049 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00049" ;
+    ex:contactEmail "corporate.049@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80049" .
+
+ex:corporation_050 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00050" ;
+    ex:contactEmail "corporate.050@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80050" .
+
+ex:corporation_051 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00051" ;
+    ex:contactEmail "corporate.051@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80051" .
+
+ex:corporation_052 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00052" ;
+    ex:contactEmail "corporate.052@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80052" .
+
+ex:corporation_053 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00053" ;
+    ex:contactEmail "corporate.053@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80053" .
+
+ex:corporation_054 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00054" ;
+    ex:contactEmail "corporate.054@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80054" .
+
+ex:corporation_055 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00055" ;
+    ex:contactEmail "corporate.055@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80055" .
+
+ex:corporation_056 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00056" ;
+    ex:contactEmail "corporate.056@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80056" .
+
+ex:corporation_057 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00057" ;
+    ex:contactEmail "corporate.057@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80057" .
+
+ex:corporation_058 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00058" ;
+    ex:contactEmail "corporate.058@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80058" .
+
+ex:corporation_059 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00059" ;
+    ex:contactEmail "corporate.059@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80059" .
+
+ex:corporation_060 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00060" ;
+    ex:contactEmail "corporate.060@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80060" .
+
+ex:corporation_061 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00061" ;
+    ex:contactEmail "corporate.061@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80061" .
+
+ex:corporation_062 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00062" ;
+    ex:contactEmail "corporate.062@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80062" .
+
+ex:corporation_063 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00063" ;
+    ex:contactEmail "corporate.063@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80063" .
+
+ex:corporation_064 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00064" ;
+    ex:contactEmail "corporate.064@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80064" .
+
+ex:corporation_065 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00065" ;
+    ex:contactEmail "corporate.065@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80065" .
+
+ex:corporation_066 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00066" ;
+    ex:contactEmail "corporate.066@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80066" .
+
+ex:corporation_067 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00067" ;
+    ex:contactEmail "corporate.067@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80067" .
+
+ex:corporation_068 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00068" ;
+    ex:contactEmail "corporate.068@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80068" .
+
+ex:corporation_069 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00069" ;
+    ex:contactEmail "corporate.069@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80069" .
+
+ex:corporation_070 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00070" ;
+    ex:contactEmail "corporate.070@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80070" .
+
+ex:corporation_071 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00071" ;
+    ex:contactEmail "corporate.071@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80071" .
+
+ex:corporation_072 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00072" ;
+    ex:contactEmail "corporate.072@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80072" .
+
+ex:corporation_073 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00073" ;
+    ex:contactEmail "corporate.073@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80073" .
+
+ex:corporation_074 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00074" ;
+    ex:contactEmail "corporate.074@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80074" .
+
+ex:corporation_075 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00075" ;
+    ex:contactEmail "corporate.075@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80075" .
+
+ex:corporation_076 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00076" ;
+    ex:contactEmail "corporate.076@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80076" .
+
+ex:corporation_077 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00077" ;
+    ex:contactEmail "corporate.077@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80077" .
+
+ex:corporation_078 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00078" ;
+    ex:contactEmail "corporate.078@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80078" .
+
+ex:corporation_079 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00079" ;
+    ex:contactEmail "corporate.079@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80079" .
+
+ex:corporation_080 a ex:Corporation ;
+    ex:taxIdentifier "TIN-CORP-00080" ;
+    ex:contactEmail "corporate.080@enterprises.example.org" ;
+    ex:incorporationNumber "INC-DE-80080" .
+
+ex:nonprofit_001 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00001" ;
+    ex:charityRegistrationId "501C3-70001" .
+
+ex:nonprofit_002 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00002" ;
+    ex:charityRegistrationId "501C3-70002" .
+
+ex:nonprofit_003 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00003" ;
+    ex:charityRegistrationId "501C3-70003" .
+
+ex:nonprofit_004 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00004" ;
+    ex:charityRegistrationId "501C3-70004" .
+
+ex:nonprofit_005 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00005" ;
+    ex:charityRegistrationId "501C3-70005" .
+
+ex:nonprofit_006 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00006" ;
+    ex:charityRegistrationId "501C3-70006" .
+
+ex:nonprofit_007 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00007" ;
+    ex:charityRegistrationId "501C3-70007" .
+
+ex:nonprofit_008 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00008" ;
+    ex:charityRegistrationId "501C3-70008" .
+
+ex:nonprofit_009 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00009" ;
+    ex:charityRegistrationId "501C3-70009" .
+
+ex:nonprofit_010 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00010" ;
+    ex:charityRegistrationId "501C3-70010" .
+
+ex:nonprofit_011 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00011" ;
+    ex:charityRegistrationId "501C3-70011" .
+
+ex:nonprofit_012 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00012" ;
+    ex:charityRegistrationId "501C3-70012" .
+
+ex:nonprofit_013 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00013" ;
+    ex:charityRegistrationId "501C3-70013" .
+
+ex:nonprofit_014 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00014" ;
+    ex:charityRegistrationId "501C3-70014" .
+
+ex:nonprofit_015 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00015" ;
+    ex:charityRegistrationId "501C3-70015" .
+
+ex:nonprofit_016 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00016" ;
+    ex:charityRegistrationId "501C3-70016" .
+
+ex:nonprofit_017 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00017" ;
+    ex:charityRegistrationId "501C3-70017" .
+
+ex:nonprofit_018 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00018" ;
+    ex:charityRegistrationId "501C3-70018" .
+
+ex:nonprofit_019 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00019" ;
+    ex:charityRegistrationId "501C3-70019" .
+
+ex:nonprofit_020 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00020" ;
+    ex:charityRegistrationId "501C3-70020" .
+
+ex:nonprofit_021 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00021" ;
+    ex:charityRegistrationId "501C3-70021" .
+
+ex:nonprofit_022 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00022" ;
+    ex:charityRegistrationId "501C3-70022" .
+
+ex:nonprofit_023 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00023" ;
+    ex:charityRegistrationId "501C3-70023" .
+
+ex:nonprofit_024 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00024" ;
+    ex:charityRegistrationId "501C3-70024" .
+
+ex:nonprofit_025 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00025" ;
+    ex:charityRegistrationId "501C3-70025" .
+
+ex:nonprofit_026 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00026" ;
+    ex:charityRegistrationId "501C3-70026" .
+
+ex:nonprofit_027 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00027" ;
+    ex:charityRegistrationId "501C3-70027" .
+
+ex:nonprofit_028 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00028" ;
+    ex:charityRegistrationId "501C3-70028" .
+
+ex:nonprofit_029 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00029" ;
+    ex:charityRegistrationId "501C3-70029" .
+
+ex:nonprofit_030 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00030" ;
+    ex:charityRegistrationId "501C3-70030" .
+
+ex:nonprofit_031 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00031" ;
+    ex:charityRegistrationId "501C3-70031" .
+
+ex:nonprofit_032 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00032" ;
+    ex:charityRegistrationId "501C3-70032" .
+
+ex:nonprofit_033 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00033" ;
+    ex:charityRegistrationId "501C3-70033" .
+
+ex:nonprofit_034 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00034" ;
+    ex:charityRegistrationId "501C3-70034" .
+
+ex:nonprofit_035 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00035" ;
+    ex:charityRegistrationId "501C3-70035" .
+
+ex:nonprofit_036 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00036" ;
+    ex:charityRegistrationId "501C3-70036" .
+
+ex:nonprofit_037 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00037" ;
+    ex:charityRegistrationId "501C3-70037" .
+
+ex:nonprofit_038 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00038" ;
+    ex:charityRegistrationId "501C3-70038" .
+
+ex:nonprofit_039 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00039" ;
+    ex:charityRegistrationId "501C3-70039" .
+
+ex:nonprofit_040 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00040" ;
+    ex:charityRegistrationId "501C3-70040" .
+
+ex:nonprofit_041 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00041" ;
+    ex:charityRegistrationId "501C3-70041" .
+
+ex:nonprofit_042 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00042" ;
+    ex:charityRegistrationId "501C3-70042" .
+
+ex:nonprofit_043 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00043" ;
+    ex:charityRegistrationId "501C3-70043" .
+
+ex:nonprofit_044 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00044" ;
+    ex:charityRegistrationId "501C3-70044" .
+
+ex:nonprofit_045 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00045" ;
+    ex:charityRegistrationId "501C3-70045" .
+
+ex:nonprofit_046 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00046" ;
+    ex:charityRegistrationId "501C3-70046" .
+
+ex:nonprofit_047 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00047" ;
+    ex:charityRegistrationId "501C3-70047" .
+
+ex:nonprofit_048 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00048" ;
+    ex:charityRegistrationId "501C3-70048" .
+
+ex:nonprofit_049 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00049" ;
+    ex:charityRegistrationId "501C3-70049" .
+
+ex:nonprofit_050 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00050" ;
+    ex:charityRegistrationId "501C3-70050" .
+
+ex:nonprofit_051 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00051" ;
+    ex:charityRegistrationId "501C3-70051" .
+
+ex:nonprofit_052 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00052" ;
+    ex:charityRegistrationId "501C3-70052" .
+
+ex:nonprofit_053 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00053" ;
+    ex:charityRegistrationId "501C3-70053" .
+
+ex:nonprofit_054 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00054" ;
+    ex:charityRegistrationId "501C3-70054" .
+
+ex:nonprofit_055 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00055" ;
+    ex:charityRegistrationId "501C3-70055" .
+
+ex:nonprofit_056 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00056" ;
+    ex:charityRegistrationId "501C3-70056" .
+
+ex:nonprofit_057 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00057" ;
+    ex:charityRegistrationId "501C3-70057" .
+
+ex:nonprofit_058 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00058" ;
+    ex:charityRegistrationId "501C3-70058" .
+
+ex:nonprofit_059 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00059" ;
+    ex:charityRegistrationId "501C3-70059" .
+
+ex:nonprofit_060 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00060" ;
+    ex:charityRegistrationId "501C3-70060" .
+
+ex:nonprofit_061 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00061" ;
+    ex:charityRegistrationId "501C3-70061" .
+
+ex:nonprofit_062 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00062" ;
+    ex:charityRegistrationId "501C3-70062" .
+
+ex:nonprofit_063 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00063" ;
+    ex:charityRegistrationId "501C3-70063" .
+
+ex:nonprofit_064 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00064" ;
+    ex:charityRegistrationId "501C3-70064" .
+
+ex:nonprofit_065 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00065" ;
+    ex:charityRegistrationId "501C3-70065" .
+
+ex:nonprofit_066 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00066" ;
+    ex:charityRegistrationId "501C3-70066" .
+
+ex:nonprofit_067 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00067" ;
+    ex:charityRegistrationId "501C3-70067" .
+
+ex:nonprofit_068 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00068" ;
+    ex:charityRegistrationId "501C3-70068" .
+
+ex:nonprofit_069 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00069" ;
+    ex:charityRegistrationId "501C3-70069" .
+
+ex:nonprofit_070 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00070" ;
+    ex:charityRegistrationId "501C3-70070" .
+
+ex:nonprofit_071 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00071" ;
+    ex:charityRegistrationId "501C3-70071" .
+
+ex:nonprofit_072 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00072" ;
+    ex:charityRegistrationId "501C3-70072" .
+
+ex:nonprofit_073 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00073" ;
+    ex:charityRegistrationId "501C3-70073" .
+
+ex:nonprofit_074 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00074" ;
+    ex:charityRegistrationId "501C3-70074" .
+
+ex:nonprofit_075 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00075" ;
+    ex:charityRegistrationId "501C3-70075" .
+
+ex:nonprofit_076 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00076" ;
+    ex:charityRegistrationId "501C3-70076" .
+
+ex:nonprofit_077 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00077" ;
+    ex:charityRegistrationId "501C3-70077" .
+
+ex:nonprofit_078 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00078" ;
+    ex:charityRegistrationId "501C3-70078" .
+
+ex:nonprofit_079 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00079" ;
+    ex:charityRegistrationId "501C3-70079" .
+
+ex:nonprofit_080 a ex:NonProfit ;
+    ex:taxIdentifier "TIN-NPO-00080" ;
+    ex:charityRegistrationId "501C3-70080" .

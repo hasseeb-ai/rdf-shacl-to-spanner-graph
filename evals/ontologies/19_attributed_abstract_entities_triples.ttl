@@ -1,0 +1,1876 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/spatial#> .
+
+# ABox Instance Triples for 19_attributed_abstract_entities
+
+ex:building_001 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-001" ;
+    ex:displayName "Skyline Complex #001" ;
+    ex:buildingCode "BC-001" .
+
+ex:building_002 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-002" ;
+    ex:displayName "Skyline Complex #002" ;
+    ex:buildingCode "BC-002" .
+
+ex:building_003 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-003" ;
+    ex:displayName "Skyline Complex #003" ;
+    ex:buildingCode "BC-003" .
+
+ex:building_004 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-004" ;
+    ex:displayName "Skyline Complex #004" ;
+    ex:buildingCode "BC-004" .
+
+ex:building_005 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-005" ;
+    ex:displayName "Skyline Complex #005" ;
+    ex:buildingCode "BC-005" .
+
+ex:building_006 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-006" ;
+    ex:displayName "Skyline Complex #006" ;
+    ex:buildingCode "BC-006" .
+
+ex:building_007 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-007" ;
+    ex:displayName "Skyline Complex #007" ;
+    ex:buildingCode "BC-007" .
+
+ex:building_008 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-008" ;
+    ex:displayName "Skyline Complex #008" ;
+    ex:buildingCode "BC-008" .
+
+ex:building_009 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-009" ;
+    ex:displayName "Skyline Complex #009" ;
+    ex:buildingCode "BC-009" .
+
+ex:building_010 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-010" ;
+    ex:displayName "Skyline Complex #010" ;
+    ex:buildingCode "BC-010" .
+
+ex:building_011 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-011" ;
+    ex:displayName "Skyline Complex #011" ;
+    ex:buildingCode "BC-011" .
+
+ex:building_012 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-012" ;
+    ex:displayName "Skyline Complex #012" ;
+    ex:buildingCode "BC-012" .
+
+ex:building_013 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-013" ;
+    ex:displayName "Skyline Complex #013" ;
+    ex:buildingCode "BC-013" .
+
+ex:building_014 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-014" ;
+    ex:displayName "Skyline Complex #014" ;
+    ex:buildingCode "BC-014" .
+
+ex:building_015 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-015" ;
+    ex:displayName "Skyline Complex #015" ;
+    ex:buildingCode "BC-015" .
+
+ex:building_016 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-016" ;
+    ex:displayName "Skyline Complex #016" ;
+    ex:buildingCode "BC-016" .
+
+ex:building_017 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-017" ;
+    ex:displayName "Skyline Complex #017" ;
+    ex:buildingCode "BC-017" .
+
+ex:building_018 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-018" ;
+    ex:displayName "Skyline Complex #018" ;
+    ex:buildingCode "BC-018" .
+
+ex:building_019 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-019" ;
+    ex:displayName "Skyline Complex #019" ;
+    ex:buildingCode "BC-019" .
+
+ex:building_020 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-020" ;
+    ex:displayName "Skyline Complex #020" ;
+    ex:buildingCode "BC-020" .
+
+ex:building_021 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-021" ;
+    ex:displayName "Skyline Complex #021" ;
+    ex:buildingCode "BC-021" .
+
+ex:building_022 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-022" ;
+    ex:displayName "Skyline Complex #022" ;
+    ex:buildingCode "BC-022" .
+
+ex:building_023 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-023" ;
+    ex:displayName "Skyline Complex #023" ;
+    ex:buildingCode "BC-023" .
+
+ex:building_024 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-024" ;
+    ex:displayName "Skyline Complex #024" ;
+    ex:buildingCode "BC-024" .
+
+ex:building_025 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-025" ;
+    ex:displayName "Skyline Complex #025" ;
+    ex:buildingCode "BC-025" .
+
+ex:building_026 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-026" ;
+    ex:displayName "Skyline Complex #026" ;
+    ex:buildingCode "BC-026" .
+
+ex:building_027 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-027" ;
+    ex:displayName "Skyline Complex #027" ;
+    ex:buildingCode "BC-027" .
+
+ex:building_028 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-028" ;
+    ex:displayName "Skyline Complex #028" ;
+    ex:buildingCode "BC-028" .
+
+ex:building_029 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-029" ;
+    ex:displayName "Skyline Complex #029" ;
+    ex:buildingCode "BC-029" .
+
+ex:building_030 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-030" ;
+    ex:displayName "Skyline Complex #030" ;
+    ex:buildingCode "BC-030" .
+
+ex:building_031 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-031" ;
+    ex:displayName "Skyline Complex #031" ;
+    ex:buildingCode "BC-031" .
+
+ex:building_032 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-032" ;
+    ex:displayName "Skyline Complex #032" ;
+    ex:buildingCode "BC-032" .
+
+ex:building_033 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-033" ;
+    ex:displayName "Skyline Complex #033" ;
+    ex:buildingCode "BC-033" .
+
+ex:building_034 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-034" ;
+    ex:displayName "Skyline Complex #034" ;
+    ex:buildingCode "BC-034" .
+
+ex:building_035 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-035" ;
+    ex:displayName "Skyline Complex #035" ;
+    ex:buildingCode "BC-035" .
+
+ex:building_036 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-036" ;
+    ex:displayName "Skyline Complex #036" ;
+    ex:buildingCode "BC-036" .
+
+ex:building_037 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-037" ;
+    ex:displayName "Skyline Complex #037" ;
+    ex:buildingCode "BC-037" .
+
+ex:building_038 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-038" ;
+    ex:displayName "Skyline Complex #038" ;
+    ex:buildingCode "BC-038" .
+
+ex:building_039 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-039" ;
+    ex:displayName "Skyline Complex #039" ;
+    ex:buildingCode "BC-039" .
+
+ex:building_040 a ex:Building ;
+    ex:spatialEntityId "SP-BLD-040" ;
+    ex:displayName "Skyline Complex #040" ;
+    ex:buildingCode "BC-040" .
+
+ex:apartment_001 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0001" ;
+    ex:displayName "Residence Suite 202 (Bldg 001)" ;
+    ex:unitNumber "202" ;
+    ex:floorNumber 2 .
+
+ex:building_001 ex:buildingContainsApartment ex:apartment_001 .
+
+ex:apartment_002 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0002" ;
+    ex:displayName "Residence Suite 303 (Bldg 002)" ;
+    ex:unitNumber "303" ;
+    ex:floorNumber 3 .
+
+ex:building_002 ex:buildingContainsApartment ex:apartment_002 .
+
+ex:apartment_003 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0003" ;
+    ex:displayName "Residence Suite 404 (Bldg 003)" ;
+    ex:unitNumber "404" ;
+    ex:floorNumber 4 .
+
+ex:building_003 ex:buildingContainsApartment ex:apartment_003 .
+
+ex:apartment_004 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0004" ;
+    ex:displayName "Residence Suite 505 (Bldg 004)" ;
+    ex:unitNumber "505" ;
+    ex:floorNumber 5 .
+
+ex:building_004 ex:buildingContainsApartment ex:apartment_004 .
+
+ex:apartment_005 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0005" ;
+    ex:displayName "Residence Suite 606 (Bldg 005)" ;
+    ex:unitNumber "606" ;
+    ex:floorNumber 6 .
+
+ex:building_005 ex:buildingContainsApartment ex:apartment_005 .
+
+ex:apartment_006 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0006" ;
+    ex:displayName "Residence Suite 701 (Bldg 006)" ;
+    ex:unitNumber "701" ;
+    ex:floorNumber 7 .
+
+ex:building_006 ex:buildingContainsApartment ex:apartment_006 .
+
+ex:apartment_007 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0007" ;
+    ex:displayName "Residence Suite 802 (Bldg 007)" ;
+    ex:unitNumber "802" ;
+    ex:floorNumber 8 .
+
+ex:building_007 ex:buildingContainsApartment ex:apartment_007 .
+
+ex:apartment_008 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0008" ;
+    ex:displayName "Residence Suite 903 (Bldg 008)" ;
+    ex:unitNumber "903" ;
+    ex:floorNumber 9 .
+
+ex:building_008 ex:buildingContainsApartment ex:apartment_008 .
+
+ex:apartment_009 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0009" ;
+    ex:displayName "Residence Suite 1004 (Bldg 009)" ;
+    ex:unitNumber "1004" ;
+    ex:floorNumber 10 .
+
+ex:building_009 ex:buildingContainsApartment ex:apartment_009 .
+
+ex:apartment_010 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0010" ;
+    ex:displayName "Residence Suite 1105 (Bldg 010)" ;
+    ex:unitNumber "1105" ;
+    ex:floorNumber 11 .
+
+ex:building_010 ex:buildingContainsApartment ex:apartment_010 .
+
+ex:apartment_011 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0011" ;
+    ex:displayName "Residence Suite 1206 (Bldg 011)" ;
+    ex:unitNumber "1206" ;
+    ex:floorNumber 12 .
+
+ex:building_011 ex:buildingContainsApartment ex:apartment_011 .
+
+ex:apartment_012 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0012" ;
+    ex:displayName "Residence Suite 1301 (Bldg 012)" ;
+    ex:unitNumber "1301" ;
+    ex:floorNumber 13 .
+
+ex:building_012 ex:buildingContainsApartment ex:apartment_012 .
+
+ex:apartment_013 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0013" ;
+    ex:displayName "Residence Suite 1402 (Bldg 013)" ;
+    ex:unitNumber "1402" ;
+    ex:floorNumber 14 .
+
+ex:building_013 ex:buildingContainsApartment ex:apartment_013 .
+
+ex:apartment_014 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0014" ;
+    ex:displayName "Residence Suite 1503 (Bldg 014)" ;
+    ex:unitNumber "1503" ;
+    ex:floorNumber 15 .
+
+ex:building_014 ex:buildingContainsApartment ex:apartment_014 .
+
+ex:apartment_015 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0015" ;
+    ex:displayName "Residence Suite 1604 (Bldg 015)" ;
+    ex:unitNumber "1604" ;
+    ex:floorNumber 16 .
+
+ex:building_015 ex:buildingContainsApartment ex:apartment_015 .
+
+ex:apartment_016 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0016" ;
+    ex:displayName "Residence Suite 1705 (Bldg 016)" ;
+    ex:unitNumber "1705" ;
+    ex:floorNumber 17 .
+
+ex:building_016 ex:buildingContainsApartment ex:apartment_016 .
+
+ex:apartment_017 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0017" ;
+    ex:displayName "Residence Suite 1806 (Bldg 017)" ;
+    ex:unitNumber "1806" ;
+    ex:floorNumber 18 .
+
+ex:building_017 ex:buildingContainsApartment ex:apartment_017 .
+
+ex:apartment_018 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0018" ;
+    ex:displayName "Residence Suite 1901 (Bldg 018)" ;
+    ex:unitNumber "1901" ;
+    ex:floorNumber 19 .
+
+ex:building_018 ex:buildingContainsApartment ex:apartment_018 .
+
+ex:apartment_019 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0019" ;
+    ex:displayName "Residence Suite 2002 (Bldg 019)" ;
+    ex:unitNumber "2002" ;
+    ex:floorNumber 20 .
+
+ex:building_019 ex:buildingContainsApartment ex:apartment_019 .
+
+ex:apartment_020 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0020" ;
+    ex:displayName "Residence Suite 2103 (Bldg 020)" ;
+    ex:unitNumber "2103" ;
+    ex:floorNumber 21 .
+
+ex:building_020 ex:buildingContainsApartment ex:apartment_020 .
+
+ex:apartment_021 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0021" ;
+    ex:displayName "Residence Suite 2204 (Bldg 021)" ;
+    ex:unitNumber "2204" ;
+    ex:floorNumber 22 .
+
+ex:building_021 ex:buildingContainsApartment ex:apartment_021 .
+
+ex:apartment_022 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0022" ;
+    ex:displayName "Residence Suite 2305 (Bldg 022)" ;
+    ex:unitNumber "2305" ;
+    ex:floorNumber 23 .
+
+ex:building_022 ex:buildingContainsApartment ex:apartment_022 .
+
+ex:apartment_023 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0023" ;
+    ex:displayName "Residence Suite 2406 (Bldg 023)" ;
+    ex:unitNumber "2406" ;
+    ex:floorNumber 24 .
+
+ex:building_023 ex:buildingContainsApartment ex:apartment_023 .
+
+ex:apartment_024 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0024" ;
+    ex:displayName "Residence Suite 2501 (Bldg 024)" ;
+    ex:unitNumber "2501" ;
+    ex:floorNumber 25 .
+
+ex:building_024 ex:buildingContainsApartment ex:apartment_024 .
+
+ex:apartment_025 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0025" ;
+    ex:displayName "Residence Suite 2602 (Bldg 025)" ;
+    ex:unitNumber "2602" ;
+    ex:floorNumber 26 .
+
+ex:building_025 ex:buildingContainsApartment ex:apartment_025 .
+
+ex:apartment_026 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0026" ;
+    ex:displayName "Residence Suite 2703 (Bldg 026)" ;
+    ex:unitNumber "2703" ;
+    ex:floorNumber 27 .
+
+ex:building_026 ex:buildingContainsApartment ex:apartment_026 .
+
+ex:apartment_027 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0027" ;
+    ex:displayName "Residence Suite 2804 (Bldg 027)" ;
+    ex:unitNumber "2804" ;
+    ex:floorNumber 28 .
+
+ex:building_027 ex:buildingContainsApartment ex:apartment_027 .
+
+ex:apartment_028 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0028" ;
+    ex:displayName "Residence Suite 2905 (Bldg 028)" ;
+    ex:unitNumber "2905" ;
+    ex:floorNumber 29 .
+
+ex:building_028 ex:buildingContainsApartment ex:apartment_028 .
+
+ex:apartment_029 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0029" ;
+    ex:displayName "Residence Suite 3006 (Bldg 029)" ;
+    ex:unitNumber "3006" ;
+    ex:floorNumber 30 .
+
+ex:building_029 ex:buildingContainsApartment ex:apartment_029 .
+
+ex:apartment_030 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0030" ;
+    ex:displayName "Residence Suite 101 (Bldg 030)" ;
+    ex:unitNumber "101" ;
+    ex:floorNumber 1 .
+
+ex:building_030 ex:buildingContainsApartment ex:apartment_030 .
+
+ex:apartment_031 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0031" ;
+    ex:displayName "Residence Suite 202 (Bldg 031)" ;
+    ex:unitNumber "202" ;
+    ex:floorNumber 2 .
+
+ex:building_031 ex:buildingContainsApartment ex:apartment_031 .
+
+ex:apartment_032 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0032" ;
+    ex:displayName "Residence Suite 303 (Bldg 032)" ;
+    ex:unitNumber "303" ;
+    ex:floorNumber 3 .
+
+ex:building_032 ex:buildingContainsApartment ex:apartment_032 .
+
+ex:apartment_033 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0033" ;
+    ex:displayName "Residence Suite 404 (Bldg 033)" ;
+    ex:unitNumber "404" ;
+    ex:floorNumber 4 .
+
+ex:building_033 ex:buildingContainsApartment ex:apartment_033 .
+
+ex:apartment_034 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0034" ;
+    ex:displayName "Residence Suite 505 (Bldg 034)" ;
+    ex:unitNumber "505" ;
+    ex:floorNumber 5 .
+
+ex:building_034 ex:buildingContainsApartment ex:apartment_034 .
+
+ex:apartment_035 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0035" ;
+    ex:displayName "Residence Suite 606 (Bldg 035)" ;
+    ex:unitNumber "606" ;
+    ex:floorNumber 6 .
+
+ex:building_035 ex:buildingContainsApartment ex:apartment_035 .
+
+ex:apartment_036 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0036" ;
+    ex:displayName "Residence Suite 701 (Bldg 036)" ;
+    ex:unitNumber "701" ;
+    ex:floorNumber 7 .
+
+ex:building_036 ex:buildingContainsApartment ex:apartment_036 .
+
+ex:apartment_037 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0037" ;
+    ex:displayName "Residence Suite 802 (Bldg 037)" ;
+    ex:unitNumber "802" ;
+    ex:floorNumber 8 .
+
+ex:building_037 ex:buildingContainsApartment ex:apartment_037 .
+
+ex:apartment_038 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0038" ;
+    ex:displayName "Residence Suite 903 (Bldg 038)" ;
+    ex:unitNumber "903" ;
+    ex:floorNumber 9 .
+
+ex:building_038 ex:buildingContainsApartment ex:apartment_038 .
+
+ex:apartment_039 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0039" ;
+    ex:displayName "Residence Suite 1004 (Bldg 039)" ;
+    ex:unitNumber "1004" ;
+    ex:floorNumber 10 .
+
+ex:building_039 ex:buildingContainsApartment ex:apartment_039 .
+
+ex:apartment_040 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0040" ;
+    ex:displayName "Residence Suite 1105 (Bldg 040)" ;
+    ex:unitNumber "1105" ;
+    ex:floorNumber 11 .
+
+ex:building_040 ex:buildingContainsApartment ex:apartment_040 .
+
+ex:apartment_041 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0041" ;
+    ex:displayName "Residence Suite 1206 (Bldg 001)" ;
+    ex:unitNumber "1206" ;
+    ex:floorNumber 12 .
+
+ex:building_001 ex:buildingContainsApartment ex:apartment_041 .
+
+ex:apartment_042 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0042" ;
+    ex:displayName "Residence Suite 1301 (Bldg 002)" ;
+    ex:unitNumber "1301" ;
+    ex:floorNumber 13 .
+
+ex:building_002 ex:buildingContainsApartment ex:apartment_042 .
+
+ex:apartment_043 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0043" ;
+    ex:displayName "Residence Suite 1402 (Bldg 003)" ;
+    ex:unitNumber "1402" ;
+    ex:floorNumber 14 .
+
+ex:building_003 ex:buildingContainsApartment ex:apartment_043 .
+
+ex:apartment_044 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0044" ;
+    ex:displayName "Residence Suite 1503 (Bldg 004)" ;
+    ex:unitNumber "1503" ;
+    ex:floorNumber 15 .
+
+ex:building_004 ex:buildingContainsApartment ex:apartment_044 .
+
+ex:apartment_045 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0045" ;
+    ex:displayName "Residence Suite 1604 (Bldg 005)" ;
+    ex:unitNumber "1604" ;
+    ex:floorNumber 16 .
+
+ex:building_005 ex:buildingContainsApartment ex:apartment_045 .
+
+ex:apartment_046 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0046" ;
+    ex:displayName "Residence Suite 1705 (Bldg 006)" ;
+    ex:unitNumber "1705" ;
+    ex:floorNumber 17 .
+
+ex:building_006 ex:buildingContainsApartment ex:apartment_046 .
+
+ex:apartment_047 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0047" ;
+    ex:displayName "Residence Suite 1806 (Bldg 007)" ;
+    ex:unitNumber "1806" ;
+    ex:floorNumber 18 .
+
+ex:building_007 ex:buildingContainsApartment ex:apartment_047 .
+
+ex:apartment_048 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0048" ;
+    ex:displayName "Residence Suite 1901 (Bldg 008)" ;
+    ex:unitNumber "1901" ;
+    ex:floorNumber 19 .
+
+ex:building_008 ex:buildingContainsApartment ex:apartment_048 .
+
+ex:apartment_049 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0049" ;
+    ex:displayName "Residence Suite 2002 (Bldg 009)" ;
+    ex:unitNumber "2002" ;
+    ex:floorNumber 20 .
+
+ex:building_009 ex:buildingContainsApartment ex:apartment_049 .
+
+ex:apartment_050 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0050" ;
+    ex:displayName "Residence Suite 2103 (Bldg 010)" ;
+    ex:unitNumber "2103" ;
+    ex:floorNumber 21 .
+
+ex:building_010 ex:buildingContainsApartment ex:apartment_050 .
+
+ex:apartment_051 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0051" ;
+    ex:displayName "Residence Suite 2204 (Bldg 011)" ;
+    ex:unitNumber "2204" ;
+    ex:floorNumber 22 .
+
+ex:building_011 ex:buildingContainsApartment ex:apartment_051 .
+
+ex:apartment_052 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0052" ;
+    ex:displayName "Residence Suite 2305 (Bldg 012)" ;
+    ex:unitNumber "2305" ;
+    ex:floorNumber 23 .
+
+ex:building_012 ex:buildingContainsApartment ex:apartment_052 .
+
+ex:apartment_053 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0053" ;
+    ex:displayName "Residence Suite 2406 (Bldg 013)" ;
+    ex:unitNumber "2406" ;
+    ex:floorNumber 24 .
+
+ex:building_013 ex:buildingContainsApartment ex:apartment_053 .
+
+ex:apartment_054 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0054" ;
+    ex:displayName "Residence Suite 2501 (Bldg 014)" ;
+    ex:unitNumber "2501" ;
+    ex:floorNumber 25 .
+
+ex:building_014 ex:buildingContainsApartment ex:apartment_054 .
+
+ex:apartment_055 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0055" ;
+    ex:displayName "Residence Suite 2602 (Bldg 015)" ;
+    ex:unitNumber "2602" ;
+    ex:floorNumber 26 .
+
+ex:building_015 ex:buildingContainsApartment ex:apartment_055 .
+
+ex:apartment_056 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0056" ;
+    ex:displayName "Residence Suite 2703 (Bldg 016)" ;
+    ex:unitNumber "2703" ;
+    ex:floorNumber 27 .
+
+ex:building_016 ex:buildingContainsApartment ex:apartment_056 .
+
+ex:apartment_057 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0057" ;
+    ex:displayName "Residence Suite 2804 (Bldg 017)" ;
+    ex:unitNumber "2804" ;
+    ex:floorNumber 28 .
+
+ex:building_017 ex:buildingContainsApartment ex:apartment_057 .
+
+ex:apartment_058 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0058" ;
+    ex:displayName "Residence Suite 2905 (Bldg 018)" ;
+    ex:unitNumber "2905" ;
+    ex:floorNumber 29 .
+
+ex:building_018 ex:buildingContainsApartment ex:apartment_058 .
+
+ex:apartment_059 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0059" ;
+    ex:displayName "Residence Suite 3006 (Bldg 019)" ;
+    ex:unitNumber "3006" ;
+    ex:floorNumber 30 .
+
+ex:building_019 ex:buildingContainsApartment ex:apartment_059 .
+
+ex:apartment_060 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0060" ;
+    ex:displayName "Residence Suite 101 (Bldg 020)" ;
+    ex:unitNumber "101" ;
+    ex:floorNumber 1 .
+
+ex:building_020 ex:buildingContainsApartment ex:apartment_060 .
+
+ex:apartment_061 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0061" ;
+    ex:displayName "Residence Suite 202 (Bldg 021)" ;
+    ex:unitNumber "202" ;
+    ex:floorNumber 2 .
+
+ex:building_021 ex:buildingContainsApartment ex:apartment_061 .
+
+ex:apartment_062 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0062" ;
+    ex:displayName "Residence Suite 303 (Bldg 022)" ;
+    ex:unitNumber "303" ;
+    ex:floorNumber 3 .
+
+ex:building_022 ex:buildingContainsApartment ex:apartment_062 .
+
+ex:apartment_063 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0063" ;
+    ex:displayName "Residence Suite 404 (Bldg 023)" ;
+    ex:unitNumber "404" ;
+    ex:floorNumber 4 .
+
+ex:building_023 ex:buildingContainsApartment ex:apartment_063 .
+
+ex:apartment_064 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0064" ;
+    ex:displayName "Residence Suite 505 (Bldg 024)" ;
+    ex:unitNumber "505" ;
+    ex:floorNumber 5 .
+
+ex:building_024 ex:buildingContainsApartment ex:apartment_064 .
+
+ex:apartment_065 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0065" ;
+    ex:displayName "Residence Suite 606 (Bldg 025)" ;
+    ex:unitNumber "606" ;
+    ex:floorNumber 6 .
+
+ex:building_025 ex:buildingContainsApartment ex:apartment_065 .
+
+ex:apartment_066 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0066" ;
+    ex:displayName "Residence Suite 701 (Bldg 026)" ;
+    ex:unitNumber "701" ;
+    ex:floorNumber 7 .
+
+ex:building_026 ex:buildingContainsApartment ex:apartment_066 .
+
+ex:apartment_067 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0067" ;
+    ex:displayName "Residence Suite 802 (Bldg 027)" ;
+    ex:unitNumber "802" ;
+    ex:floorNumber 8 .
+
+ex:building_027 ex:buildingContainsApartment ex:apartment_067 .
+
+ex:apartment_068 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0068" ;
+    ex:displayName "Residence Suite 903 (Bldg 028)" ;
+    ex:unitNumber "903" ;
+    ex:floorNumber 9 .
+
+ex:building_028 ex:buildingContainsApartment ex:apartment_068 .
+
+ex:apartment_069 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0069" ;
+    ex:displayName "Residence Suite 1004 (Bldg 029)" ;
+    ex:unitNumber "1004" ;
+    ex:floorNumber 10 .
+
+ex:building_029 ex:buildingContainsApartment ex:apartment_069 .
+
+ex:apartment_070 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0070" ;
+    ex:displayName "Residence Suite 1105 (Bldg 030)" ;
+    ex:unitNumber "1105" ;
+    ex:floorNumber 11 .
+
+ex:building_030 ex:buildingContainsApartment ex:apartment_070 .
+
+ex:apartment_071 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0071" ;
+    ex:displayName "Residence Suite 1206 (Bldg 031)" ;
+    ex:unitNumber "1206" ;
+    ex:floorNumber 12 .
+
+ex:building_031 ex:buildingContainsApartment ex:apartment_071 .
+
+ex:apartment_072 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0072" ;
+    ex:displayName "Residence Suite 1301 (Bldg 032)" ;
+    ex:unitNumber "1301" ;
+    ex:floorNumber 13 .
+
+ex:building_032 ex:buildingContainsApartment ex:apartment_072 .
+
+ex:apartment_073 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0073" ;
+    ex:displayName "Residence Suite 1402 (Bldg 033)" ;
+    ex:unitNumber "1402" ;
+    ex:floorNumber 14 .
+
+ex:building_033 ex:buildingContainsApartment ex:apartment_073 .
+
+ex:apartment_074 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0074" ;
+    ex:displayName "Residence Suite 1503 (Bldg 034)" ;
+    ex:unitNumber "1503" ;
+    ex:floorNumber 15 .
+
+ex:building_034 ex:buildingContainsApartment ex:apartment_074 .
+
+ex:apartment_075 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0075" ;
+    ex:displayName "Residence Suite 1604 (Bldg 035)" ;
+    ex:unitNumber "1604" ;
+    ex:floorNumber 16 .
+
+ex:building_035 ex:buildingContainsApartment ex:apartment_075 .
+
+ex:apartment_076 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0076" ;
+    ex:displayName "Residence Suite 1705 (Bldg 036)" ;
+    ex:unitNumber "1705" ;
+    ex:floorNumber 17 .
+
+ex:building_036 ex:buildingContainsApartment ex:apartment_076 .
+
+ex:apartment_077 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0077" ;
+    ex:displayName "Residence Suite 1806 (Bldg 037)" ;
+    ex:unitNumber "1806" ;
+    ex:floorNumber 18 .
+
+ex:building_037 ex:buildingContainsApartment ex:apartment_077 .
+
+ex:apartment_078 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0078" ;
+    ex:displayName "Residence Suite 1901 (Bldg 038)" ;
+    ex:unitNumber "1901" ;
+    ex:floorNumber 19 .
+
+ex:building_038 ex:buildingContainsApartment ex:apartment_078 .
+
+ex:apartment_079 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0079" ;
+    ex:displayName "Residence Suite 2002 (Bldg 039)" ;
+    ex:unitNumber "2002" ;
+    ex:floorNumber 20 .
+
+ex:building_039 ex:buildingContainsApartment ex:apartment_079 .
+
+ex:apartment_080 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0080" ;
+    ex:displayName "Residence Suite 2103 (Bldg 040)" ;
+    ex:unitNumber "2103" ;
+    ex:floorNumber 21 .
+
+ex:building_040 ex:buildingContainsApartment ex:apartment_080 .
+
+ex:apartment_081 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0081" ;
+    ex:displayName "Residence Suite 2204 (Bldg 001)" ;
+    ex:unitNumber "2204" ;
+    ex:floorNumber 22 .
+
+ex:building_001 ex:buildingContainsApartment ex:apartment_081 .
+
+ex:apartment_082 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0082" ;
+    ex:displayName "Residence Suite 2305 (Bldg 002)" ;
+    ex:unitNumber "2305" ;
+    ex:floorNumber 23 .
+
+ex:building_002 ex:buildingContainsApartment ex:apartment_082 .
+
+ex:apartment_083 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0083" ;
+    ex:displayName "Residence Suite 2406 (Bldg 003)" ;
+    ex:unitNumber "2406" ;
+    ex:floorNumber 24 .
+
+ex:building_003 ex:buildingContainsApartment ex:apartment_083 .
+
+ex:apartment_084 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0084" ;
+    ex:displayName "Residence Suite 2501 (Bldg 004)" ;
+    ex:unitNumber "2501" ;
+    ex:floorNumber 25 .
+
+ex:building_004 ex:buildingContainsApartment ex:apartment_084 .
+
+ex:apartment_085 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0085" ;
+    ex:displayName "Residence Suite 2602 (Bldg 005)" ;
+    ex:unitNumber "2602" ;
+    ex:floorNumber 26 .
+
+ex:building_005 ex:buildingContainsApartment ex:apartment_085 .
+
+ex:apartment_086 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0086" ;
+    ex:displayName "Residence Suite 2703 (Bldg 006)" ;
+    ex:unitNumber "2703" ;
+    ex:floorNumber 27 .
+
+ex:building_006 ex:buildingContainsApartment ex:apartment_086 .
+
+ex:apartment_087 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0087" ;
+    ex:displayName "Residence Suite 2804 (Bldg 007)" ;
+    ex:unitNumber "2804" ;
+    ex:floorNumber 28 .
+
+ex:building_007 ex:buildingContainsApartment ex:apartment_087 .
+
+ex:apartment_088 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0088" ;
+    ex:displayName "Residence Suite 2905 (Bldg 008)" ;
+    ex:unitNumber "2905" ;
+    ex:floorNumber 29 .
+
+ex:building_008 ex:buildingContainsApartment ex:apartment_088 .
+
+ex:apartment_089 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0089" ;
+    ex:displayName "Residence Suite 3006 (Bldg 009)" ;
+    ex:unitNumber "3006" ;
+    ex:floorNumber 30 .
+
+ex:building_009 ex:buildingContainsApartment ex:apartment_089 .
+
+ex:apartment_090 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0090" ;
+    ex:displayName "Residence Suite 101 (Bldg 010)" ;
+    ex:unitNumber "101" ;
+    ex:floorNumber 1 .
+
+ex:building_010 ex:buildingContainsApartment ex:apartment_090 .
+
+ex:apartment_091 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0091" ;
+    ex:displayName "Residence Suite 202 (Bldg 011)" ;
+    ex:unitNumber "202" ;
+    ex:floorNumber 2 .
+
+ex:building_011 ex:buildingContainsApartment ex:apartment_091 .
+
+ex:apartment_092 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0092" ;
+    ex:displayName "Residence Suite 303 (Bldg 012)" ;
+    ex:unitNumber "303" ;
+    ex:floorNumber 3 .
+
+ex:building_012 ex:buildingContainsApartment ex:apartment_092 .
+
+ex:apartment_093 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0093" ;
+    ex:displayName "Residence Suite 404 (Bldg 013)" ;
+    ex:unitNumber "404" ;
+    ex:floorNumber 4 .
+
+ex:building_013 ex:buildingContainsApartment ex:apartment_093 .
+
+ex:apartment_094 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0094" ;
+    ex:displayName "Residence Suite 505 (Bldg 014)" ;
+    ex:unitNumber "505" ;
+    ex:floorNumber 5 .
+
+ex:building_014 ex:buildingContainsApartment ex:apartment_094 .
+
+ex:apartment_095 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0095" ;
+    ex:displayName "Residence Suite 606 (Bldg 015)" ;
+    ex:unitNumber "606" ;
+    ex:floorNumber 6 .
+
+ex:building_015 ex:buildingContainsApartment ex:apartment_095 .
+
+ex:apartment_096 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0096" ;
+    ex:displayName "Residence Suite 701 (Bldg 016)" ;
+    ex:unitNumber "701" ;
+    ex:floorNumber 7 .
+
+ex:building_016 ex:buildingContainsApartment ex:apartment_096 .
+
+ex:apartment_097 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0097" ;
+    ex:displayName "Residence Suite 802 (Bldg 017)" ;
+    ex:unitNumber "802" ;
+    ex:floorNumber 8 .
+
+ex:building_017 ex:buildingContainsApartment ex:apartment_097 .
+
+ex:apartment_098 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0098" ;
+    ex:displayName "Residence Suite 903 (Bldg 018)" ;
+    ex:unitNumber "903" ;
+    ex:floorNumber 9 .
+
+ex:building_018 ex:buildingContainsApartment ex:apartment_098 .
+
+ex:apartment_099 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0099" ;
+    ex:displayName "Residence Suite 1004 (Bldg 019)" ;
+    ex:unitNumber "1004" ;
+    ex:floorNumber 10 .
+
+ex:building_019 ex:buildingContainsApartment ex:apartment_099 .
+
+ex:apartment_100 a ex:Apartment ;
+    ex:spatialEntityId "SP-APT-0100" ;
+    ex:displayName "Residence Suite 1105 (Bldg 020)" ;
+    ex:unitNumber "1105" ;
+    ex:floorNumber 11 .
+
+ex:building_020 ex:buildingContainsApartment ex:apartment_100 .
+
+ex:state_001 a ex:State ;
+    ex:spatialEntityId "SP-ST-001" ;
+    ex:displayName "State Territory AA" ;
+    ex:stateCode "AA" .
+
+ex:state_002 a ex:State ;
+    ex:spatialEntityId "SP-ST-002" ;
+    ex:displayName "State Territory AB" ;
+    ex:stateCode "AB" .
+
+ex:state_003 a ex:State ;
+    ex:spatialEntityId "SP-ST-003" ;
+    ex:displayName "State Territory AC" ;
+    ex:stateCode "AC" .
+
+ex:state_004 a ex:State ;
+    ex:spatialEntityId "SP-ST-004" ;
+    ex:displayName "State Territory AD" ;
+    ex:stateCode "AD" .
+
+ex:state_005 a ex:State ;
+    ex:spatialEntityId "SP-ST-005" ;
+    ex:displayName "State Territory AE" ;
+    ex:stateCode "AE" .
+
+ex:state_006 a ex:State ;
+    ex:spatialEntityId "SP-ST-006" ;
+    ex:displayName "State Territory AF" ;
+    ex:stateCode "AF" .
+
+ex:state_007 a ex:State ;
+    ex:spatialEntityId "SP-ST-007" ;
+    ex:displayName "State Territory AG" ;
+    ex:stateCode "AG" .
+
+ex:state_008 a ex:State ;
+    ex:spatialEntityId "SP-ST-008" ;
+    ex:displayName "State Territory AH" ;
+    ex:stateCode "AH" .
+
+ex:state_009 a ex:State ;
+    ex:spatialEntityId "SP-ST-009" ;
+    ex:displayName "State Territory AI" ;
+    ex:stateCode "AI" .
+
+ex:state_010 a ex:State ;
+    ex:spatialEntityId "SP-ST-010" ;
+    ex:displayName "State Territory AJ" ;
+    ex:stateCode "AJ" .
+
+ex:state_011 a ex:State ;
+    ex:spatialEntityId "SP-ST-011" ;
+    ex:displayName "State Territory AK" ;
+    ex:stateCode "AK" .
+
+ex:state_012 a ex:State ;
+    ex:spatialEntityId "SP-ST-012" ;
+    ex:displayName "State Territory AL" ;
+    ex:stateCode "AL" .
+
+ex:state_013 a ex:State ;
+    ex:spatialEntityId "SP-ST-013" ;
+    ex:displayName "State Territory AM" ;
+    ex:stateCode "AM" .
+
+ex:state_014 a ex:State ;
+    ex:spatialEntityId "SP-ST-014" ;
+    ex:displayName "State Territory AN" ;
+    ex:stateCode "AN" .
+
+ex:state_015 a ex:State ;
+    ex:spatialEntityId "SP-ST-015" ;
+    ex:displayName "State Territory AO" ;
+    ex:stateCode "AO" .
+
+ex:state_016 a ex:State ;
+    ex:spatialEntityId "SP-ST-016" ;
+    ex:displayName "State Territory AP" ;
+    ex:stateCode "AP" .
+
+ex:state_017 a ex:State ;
+    ex:spatialEntityId "SP-ST-017" ;
+    ex:displayName "State Territory AQ" ;
+    ex:stateCode "AQ" .
+
+ex:state_018 a ex:State ;
+    ex:spatialEntityId "SP-ST-018" ;
+    ex:displayName "State Territory AR" ;
+    ex:stateCode "AR" .
+
+ex:state_019 a ex:State ;
+    ex:spatialEntityId "SP-ST-019" ;
+    ex:displayName "State Territory AS" ;
+    ex:stateCode "AS" .
+
+ex:state_020 a ex:State ;
+    ex:spatialEntityId "SP-ST-020" ;
+    ex:displayName "State Territory AT" ;
+    ex:stateCode "AT" .
+
+ex:state_021 a ex:State ;
+    ex:spatialEntityId "SP-ST-021" ;
+    ex:displayName "State Territory AU" ;
+    ex:stateCode "AU" .
+
+ex:state_022 a ex:State ;
+    ex:spatialEntityId "SP-ST-022" ;
+    ex:displayName "State Territory AV" ;
+    ex:stateCode "AV" .
+
+ex:state_023 a ex:State ;
+    ex:spatialEntityId "SP-ST-023" ;
+    ex:displayName "State Territory AW" ;
+    ex:stateCode "AW" .
+
+ex:state_024 a ex:State ;
+    ex:spatialEntityId "SP-ST-024" ;
+    ex:displayName "State Territory AX" ;
+    ex:stateCode "AX" .
+
+ex:state_025 a ex:State ;
+    ex:spatialEntityId "SP-ST-025" ;
+    ex:displayName "State Territory AY" ;
+    ex:stateCode "AY" .
+
+ex:state_026 a ex:State ;
+    ex:spatialEntityId "SP-ST-026" ;
+    ex:displayName "State Territory AZ" ;
+    ex:stateCode "AZ" .
+
+ex:state_027 a ex:State ;
+    ex:spatialEntityId "SP-ST-027" ;
+    ex:displayName "State Territory BA" ;
+    ex:stateCode "BA" .
+
+ex:state_028 a ex:State ;
+    ex:spatialEntityId "SP-ST-028" ;
+    ex:displayName "State Territory BB" ;
+    ex:stateCode "BB" .
+
+ex:state_029 a ex:State ;
+    ex:spatialEntityId "SP-ST-029" ;
+    ex:displayName "State Territory BC" ;
+    ex:stateCode "BC" .
+
+ex:state_030 a ex:State ;
+    ex:spatialEntityId "SP-ST-030" ;
+    ex:displayName "State Territory BD" ;
+    ex:stateCode "BD" .
+
+ex:city_001 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0001" ;
+    ex:displayName "Urban Center #001" ;
+    ex:postalCode "10001" ;
+    ex:populationCount 68500 .
+
+ex:state_001 ex:stateContainsCity ex:city_001 .
+
+ex:city_002 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0002" ;
+    ex:displayName "Urban Center #002" ;
+    ex:postalCode "10002" ;
+    ex:populationCount 87000 .
+
+ex:state_002 ex:stateContainsCity ex:city_002 .
+
+ex:city_003 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0003" ;
+    ex:displayName "Urban Center #003" ;
+    ex:postalCode "10003" ;
+    ex:populationCount 105500 .
+
+ex:state_003 ex:stateContainsCity ex:city_003 .
+
+ex:city_004 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0004" ;
+    ex:displayName "Urban Center #004" ;
+    ex:postalCode "10004" ;
+    ex:populationCount 124000 .
+
+ex:state_004 ex:stateContainsCity ex:city_004 .
+
+ex:city_005 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0005" ;
+    ex:displayName "Urban Center #005" ;
+    ex:postalCode "10005" ;
+    ex:populationCount 142500 .
+
+ex:state_005 ex:stateContainsCity ex:city_005 .
+
+ex:city_006 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0006" ;
+    ex:displayName "Urban Center #006" ;
+    ex:postalCode "10006" ;
+    ex:populationCount 161000 .
+
+ex:state_006 ex:stateContainsCity ex:city_006 .
+
+ex:city_007 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0007" ;
+    ex:displayName "Urban Center #007" ;
+    ex:postalCode "10007" ;
+    ex:populationCount 179500 .
+
+ex:state_007 ex:stateContainsCity ex:city_007 .
+
+ex:city_008 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0008" ;
+    ex:displayName "Urban Center #008" ;
+    ex:postalCode "10008" ;
+    ex:populationCount 198000 .
+
+ex:state_008 ex:stateContainsCity ex:city_008 .
+
+ex:city_009 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0009" ;
+    ex:displayName "Urban Center #009" ;
+    ex:postalCode "10009" ;
+    ex:populationCount 216500 .
+
+ex:state_009 ex:stateContainsCity ex:city_009 .
+
+ex:city_010 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0010" ;
+    ex:displayName "Urban Center #010" ;
+    ex:postalCode "10010" ;
+    ex:populationCount 235000 .
+
+ex:state_010 ex:stateContainsCity ex:city_010 .
+
+ex:city_011 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0011" ;
+    ex:displayName "Urban Center #011" ;
+    ex:postalCode "10011" ;
+    ex:populationCount 253500 .
+
+ex:state_011 ex:stateContainsCity ex:city_011 .
+
+ex:city_012 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0012" ;
+    ex:displayName "Urban Center #012" ;
+    ex:postalCode "10012" ;
+    ex:populationCount 272000 .
+
+ex:state_012 ex:stateContainsCity ex:city_012 .
+
+ex:city_013 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0013" ;
+    ex:displayName "Urban Center #013" ;
+    ex:postalCode "10013" ;
+    ex:populationCount 290500 .
+
+ex:state_013 ex:stateContainsCity ex:city_013 .
+
+ex:city_014 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0014" ;
+    ex:displayName "Urban Center #014" ;
+    ex:postalCode "10014" ;
+    ex:populationCount 309000 .
+
+ex:state_014 ex:stateContainsCity ex:city_014 .
+
+ex:city_015 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0015" ;
+    ex:displayName "Urban Center #015" ;
+    ex:postalCode "10015" ;
+    ex:populationCount 327500 .
+
+ex:state_015 ex:stateContainsCity ex:city_015 .
+
+ex:city_016 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0016" ;
+    ex:displayName "Urban Center #016" ;
+    ex:postalCode "10016" ;
+    ex:populationCount 346000 .
+
+ex:state_016 ex:stateContainsCity ex:city_016 .
+
+ex:city_017 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0017" ;
+    ex:displayName "Urban Center #017" ;
+    ex:postalCode "10017" ;
+    ex:populationCount 364500 .
+
+ex:state_017 ex:stateContainsCity ex:city_017 .
+
+ex:city_018 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0018" ;
+    ex:displayName "Urban Center #018" ;
+    ex:postalCode "10018" ;
+    ex:populationCount 383000 .
+
+ex:state_018 ex:stateContainsCity ex:city_018 .
+
+ex:city_019 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0019" ;
+    ex:displayName "Urban Center #019" ;
+    ex:postalCode "10019" ;
+    ex:populationCount 401500 .
+
+ex:state_019 ex:stateContainsCity ex:city_019 .
+
+ex:city_020 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0020" ;
+    ex:displayName "Urban Center #020" ;
+    ex:postalCode "10020" ;
+    ex:populationCount 420000 .
+
+ex:state_020 ex:stateContainsCity ex:city_020 .
+
+ex:city_021 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0021" ;
+    ex:displayName "Urban Center #021" ;
+    ex:postalCode "10021" ;
+    ex:populationCount 438500 .
+
+ex:state_021 ex:stateContainsCity ex:city_021 .
+
+ex:city_022 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0022" ;
+    ex:displayName "Urban Center #022" ;
+    ex:postalCode "10022" ;
+    ex:populationCount 457000 .
+
+ex:state_022 ex:stateContainsCity ex:city_022 .
+
+ex:city_023 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0023" ;
+    ex:displayName "Urban Center #023" ;
+    ex:postalCode "10023" ;
+    ex:populationCount 475500 .
+
+ex:state_023 ex:stateContainsCity ex:city_023 .
+
+ex:city_024 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0024" ;
+    ex:displayName "Urban Center #024" ;
+    ex:postalCode "10024" ;
+    ex:populationCount 494000 .
+
+ex:state_024 ex:stateContainsCity ex:city_024 .
+
+ex:city_025 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0025" ;
+    ex:displayName "Urban Center #025" ;
+    ex:postalCode "10025" ;
+    ex:populationCount 512500 .
+
+ex:state_025 ex:stateContainsCity ex:city_025 .
+
+ex:city_026 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0026" ;
+    ex:displayName "Urban Center #026" ;
+    ex:postalCode "10026" ;
+    ex:populationCount 531000 .
+
+ex:state_026 ex:stateContainsCity ex:city_026 .
+
+ex:city_027 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0027" ;
+    ex:displayName "Urban Center #027" ;
+    ex:postalCode "10027" ;
+    ex:populationCount 549500 .
+
+ex:state_027 ex:stateContainsCity ex:city_027 .
+
+ex:city_028 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0028" ;
+    ex:displayName "Urban Center #028" ;
+    ex:postalCode "10028" ;
+    ex:populationCount 568000 .
+
+ex:state_028 ex:stateContainsCity ex:city_028 .
+
+ex:city_029 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0029" ;
+    ex:displayName "Urban Center #029" ;
+    ex:postalCode "10029" ;
+    ex:populationCount 586500 .
+
+ex:state_029 ex:stateContainsCity ex:city_029 .
+
+ex:city_030 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0030" ;
+    ex:displayName "Urban Center #030" ;
+    ex:postalCode "10030" ;
+    ex:populationCount 605000 .
+
+ex:state_030 ex:stateContainsCity ex:city_030 .
+
+ex:city_031 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0031" ;
+    ex:displayName "Urban Center #031" ;
+    ex:postalCode "10031" ;
+    ex:populationCount 623500 .
+
+ex:state_001 ex:stateContainsCity ex:city_031 .
+
+ex:city_032 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0032" ;
+    ex:displayName "Urban Center #032" ;
+    ex:postalCode "10032" ;
+    ex:populationCount 642000 .
+
+ex:state_002 ex:stateContainsCity ex:city_032 .
+
+ex:city_033 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0033" ;
+    ex:displayName "Urban Center #033" ;
+    ex:postalCode "10033" ;
+    ex:populationCount 660500 .
+
+ex:state_003 ex:stateContainsCity ex:city_033 .
+
+ex:city_034 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0034" ;
+    ex:displayName "Urban Center #034" ;
+    ex:postalCode "10034" ;
+    ex:populationCount 679000 .
+
+ex:state_004 ex:stateContainsCity ex:city_034 .
+
+ex:city_035 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0035" ;
+    ex:displayName "Urban Center #035" ;
+    ex:postalCode "10035" ;
+    ex:populationCount 697500 .
+
+ex:state_005 ex:stateContainsCity ex:city_035 .
+
+ex:city_036 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0036" ;
+    ex:displayName "Urban Center #036" ;
+    ex:postalCode "10036" ;
+    ex:populationCount 716000 .
+
+ex:state_006 ex:stateContainsCity ex:city_036 .
+
+ex:city_037 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0037" ;
+    ex:displayName "Urban Center #037" ;
+    ex:postalCode "10037" ;
+    ex:populationCount 734500 .
+
+ex:state_007 ex:stateContainsCity ex:city_037 .
+
+ex:city_038 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0038" ;
+    ex:displayName "Urban Center #038" ;
+    ex:postalCode "10038" ;
+    ex:populationCount 753000 .
+
+ex:state_008 ex:stateContainsCity ex:city_038 .
+
+ex:city_039 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0039" ;
+    ex:displayName "Urban Center #039" ;
+    ex:postalCode "10039" ;
+    ex:populationCount 771500 .
+
+ex:state_009 ex:stateContainsCity ex:city_039 .
+
+ex:city_040 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0040" ;
+    ex:displayName "Urban Center #040" ;
+    ex:postalCode "10040" ;
+    ex:populationCount 790000 .
+
+ex:state_010 ex:stateContainsCity ex:city_040 .
+
+ex:city_041 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0041" ;
+    ex:displayName "Urban Center #041" ;
+    ex:postalCode "10041" ;
+    ex:populationCount 808500 .
+
+ex:state_011 ex:stateContainsCity ex:city_041 .
+
+ex:city_042 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0042" ;
+    ex:displayName "Urban Center #042" ;
+    ex:postalCode "10042" ;
+    ex:populationCount 827000 .
+
+ex:state_012 ex:stateContainsCity ex:city_042 .
+
+ex:city_043 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0043" ;
+    ex:displayName "Urban Center #043" ;
+    ex:postalCode "10043" ;
+    ex:populationCount 845500 .
+
+ex:state_013 ex:stateContainsCity ex:city_043 .
+
+ex:city_044 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0044" ;
+    ex:displayName "Urban Center #044" ;
+    ex:postalCode "10044" ;
+    ex:populationCount 864000 .
+
+ex:state_014 ex:stateContainsCity ex:city_044 .
+
+ex:city_045 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0045" ;
+    ex:displayName "Urban Center #045" ;
+    ex:postalCode "10045" ;
+    ex:populationCount 882500 .
+
+ex:state_015 ex:stateContainsCity ex:city_045 .
+
+ex:city_046 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0046" ;
+    ex:displayName "Urban Center #046" ;
+    ex:postalCode "10046" ;
+    ex:populationCount 901000 .
+
+ex:state_016 ex:stateContainsCity ex:city_046 .
+
+ex:city_047 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0047" ;
+    ex:displayName "Urban Center #047" ;
+    ex:postalCode "10047" ;
+    ex:populationCount 919500 .
+
+ex:state_017 ex:stateContainsCity ex:city_047 .
+
+ex:city_048 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0048" ;
+    ex:displayName "Urban Center #048" ;
+    ex:postalCode "10048" ;
+    ex:populationCount 938000 .
+
+ex:state_018 ex:stateContainsCity ex:city_048 .
+
+ex:city_049 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0049" ;
+    ex:displayName "Urban Center #049" ;
+    ex:postalCode "10049" ;
+    ex:populationCount 956500 .
+
+ex:state_019 ex:stateContainsCity ex:city_049 .
+
+ex:city_050 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0050" ;
+    ex:displayName "Urban Center #050" ;
+    ex:postalCode "10050" ;
+    ex:populationCount 975000 .
+
+ex:state_020 ex:stateContainsCity ex:city_050 .
+
+ex:city_051 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0051" ;
+    ex:displayName "Urban Center #051" ;
+    ex:postalCode "10051" ;
+    ex:populationCount 993500 .
+
+ex:state_021 ex:stateContainsCity ex:city_051 .
+
+ex:city_052 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0052" ;
+    ex:displayName "Urban Center #052" ;
+    ex:postalCode "10052" ;
+    ex:populationCount 1012000 .
+
+ex:state_022 ex:stateContainsCity ex:city_052 .
+
+ex:city_053 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0053" ;
+    ex:displayName "Urban Center #053" ;
+    ex:postalCode "10053" ;
+    ex:populationCount 1030500 .
+
+ex:state_023 ex:stateContainsCity ex:city_053 .
+
+ex:city_054 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0054" ;
+    ex:displayName "Urban Center #054" ;
+    ex:postalCode "10054" ;
+    ex:populationCount 1049000 .
+
+ex:state_024 ex:stateContainsCity ex:city_054 .
+
+ex:city_055 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0055" ;
+    ex:displayName "Urban Center #055" ;
+    ex:postalCode "10055" ;
+    ex:populationCount 1067500 .
+
+ex:state_025 ex:stateContainsCity ex:city_055 .
+
+ex:city_056 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0056" ;
+    ex:displayName "Urban Center #056" ;
+    ex:postalCode "10056" ;
+    ex:populationCount 1086000 .
+
+ex:state_026 ex:stateContainsCity ex:city_056 .
+
+ex:city_057 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0057" ;
+    ex:displayName "Urban Center #057" ;
+    ex:postalCode "10057" ;
+    ex:populationCount 1104500 .
+
+ex:state_027 ex:stateContainsCity ex:city_057 .
+
+ex:city_058 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0058" ;
+    ex:displayName "Urban Center #058" ;
+    ex:postalCode "10058" ;
+    ex:populationCount 1123000 .
+
+ex:state_028 ex:stateContainsCity ex:city_058 .
+
+ex:city_059 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0059" ;
+    ex:displayName "Urban Center #059" ;
+    ex:postalCode "10059" ;
+    ex:populationCount 1141500 .
+
+ex:state_029 ex:stateContainsCity ex:city_059 .
+
+ex:city_060 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0060" ;
+    ex:displayName "Urban Center #060" ;
+    ex:postalCode "10060" ;
+    ex:populationCount 1160000 .
+
+ex:state_030 ex:stateContainsCity ex:city_060 .
+
+ex:city_061 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0061" ;
+    ex:displayName "Urban Center #061" ;
+    ex:postalCode "10061" ;
+    ex:populationCount 1178500 .
+
+ex:state_001 ex:stateContainsCity ex:city_061 .
+
+ex:city_062 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0062" ;
+    ex:displayName "Urban Center #062" ;
+    ex:postalCode "10062" ;
+    ex:populationCount 1197000 .
+
+ex:state_002 ex:stateContainsCity ex:city_062 .
+
+ex:city_063 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0063" ;
+    ex:displayName "Urban Center #063" ;
+    ex:postalCode "10063" ;
+    ex:populationCount 1215500 .
+
+ex:state_003 ex:stateContainsCity ex:city_063 .
+
+ex:city_064 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0064" ;
+    ex:displayName "Urban Center #064" ;
+    ex:postalCode "10064" ;
+    ex:populationCount 1234000 .
+
+ex:state_004 ex:stateContainsCity ex:city_064 .
+
+ex:city_065 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0065" ;
+    ex:displayName "Urban Center #065" ;
+    ex:postalCode "10065" ;
+    ex:populationCount 1252500 .
+
+ex:state_005 ex:stateContainsCity ex:city_065 .
+
+ex:city_066 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0066" ;
+    ex:displayName "Urban Center #066" ;
+    ex:postalCode "10066" ;
+    ex:populationCount 1271000 .
+
+ex:state_006 ex:stateContainsCity ex:city_066 .
+
+ex:city_067 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0067" ;
+    ex:displayName "Urban Center #067" ;
+    ex:postalCode "10067" ;
+    ex:populationCount 1289500 .
+
+ex:state_007 ex:stateContainsCity ex:city_067 .
+
+ex:city_068 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0068" ;
+    ex:displayName "Urban Center #068" ;
+    ex:postalCode "10068" ;
+    ex:populationCount 1308000 .
+
+ex:state_008 ex:stateContainsCity ex:city_068 .
+
+ex:city_069 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0069" ;
+    ex:displayName "Urban Center #069" ;
+    ex:postalCode "10069" ;
+    ex:populationCount 1326500 .
+
+ex:state_009 ex:stateContainsCity ex:city_069 .
+
+ex:city_070 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0070" ;
+    ex:displayName "Urban Center #070" ;
+    ex:postalCode "10070" ;
+    ex:populationCount 1345000 .
+
+ex:state_010 ex:stateContainsCity ex:city_070 .
+
+ex:city_071 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0071" ;
+    ex:displayName "Urban Center #071" ;
+    ex:postalCode "10071" ;
+    ex:populationCount 1363500 .
+
+ex:state_011 ex:stateContainsCity ex:city_071 .
+
+ex:city_072 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0072" ;
+    ex:displayName "Urban Center #072" ;
+    ex:postalCode "10072" ;
+    ex:populationCount 1382000 .
+
+ex:state_012 ex:stateContainsCity ex:city_072 .
+
+ex:city_073 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0073" ;
+    ex:displayName "Urban Center #073" ;
+    ex:postalCode "10073" ;
+    ex:populationCount 1400500 .
+
+ex:state_013 ex:stateContainsCity ex:city_073 .
+
+ex:city_074 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0074" ;
+    ex:displayName "Urban Center #074" ;
+    ex:postalCode "10074" ;
+    ex:populationCount 1419000 .
+
+ex:state_014 ex:stateContainsCity ex:city_074 .
+
+ex:city_075 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0075" ;
+    ex:displayName "Urban Center #075" ;
+    ex:postalCode "10075" ;
+    ex:populationCount 1437500 .
+
+ex:state_015 ex:stateContainsCity ex:city_075 .
+
+ex:city_076 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0076" ;
+    ex:displayName "Urban Center #076" ;
+    ex:postalCode "10076" ;
+    ex:populationCount 1456000 .
+
+ex:state_016 ex:stateContainsCity ex:city_076 .
+
+ex:city_077 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0077" ;
+    ex:displayName "Urban Center #077" ;
+    ex:postalCode "10077" ;
+    ex:populationCount 1474500 .
+
+ex:state_017 ex:stateContainsCity ex:city_077 .
+
+ex:city_078 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0078" ;
+    ex:displayName "Urban Center #078" ;
+    ex:postalCode "10078" ;
+    ex:populationCount 1493000 .
+
+ex:state_018 ex:stateContainsCity ex:city_078 .
+
+ex:city_079 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0079" ;
+    ex:displayName "Urban Center #079" ;
+    ex:postalCode "10079" ;
+    ex:populationCount 1511500 .
+
+ex:state_019 ex:stateContainsCity ex:city_079 .
+
+ex:city_080 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0080" ;
+    ex:displayName "Urban Center #080" ;
+    ex:postalCode "10080" ;
+    ex:populationCount 1530000 .
+
+ex:state_020 ex:stateContainsCity ex:city_080 .
+
+ex:city_081 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0081" ;
+    ex:displayName "Urban Center #081" ;
+    ex:postalCode "10081" ;
+    ex:populationCount 1548500 .
+
+ex:state_021 ex:stateContainsCity ex:city_081 .
+
+ex:city_082 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0082" ;
+    ex:displayName "Urban Center #082" ;
+    ex:postalCode "10082" ;
+    ex:populationCount 1567000 .
+
+ex:state_022 ex:stateContainsCity ex:city_082 .
+
+ex:city_083 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0083" ;
+    ex:displayName "Urban Center #083" ;
+    ex:postalCode "10083" ;
+    ex:populationCount 1585500 .
+
+ex:state_023 ex:stateContainsCity ex:city_083 .
+
+ex:city_084 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0084" ;
+    ex:displayName "Urban Center #084" ;
+    ex:postalCode "10084" ;
+    ex:populationCount 1604000 .
+
+ex:state_024 ex:stateContainsCity ex:city_084 .
+
+ex:city_085 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0085" ;
+    ex:displayName "Urban Center #085" ;
+    ex:postalCode "10085" ;
+    ex:populationCount 1622500 .
+
+ex:state_025 ex:stateContainsCity ex:city_085 .
+
+ex:city_086 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0086" ;
+    ex:displayName "Urban Center #086" ;
+    ex:postalCode "10086" ;
+    ex:populationCount 1641000 .
+
+ex:state_026 ex:stateContainsCity ex:city_086 .
+
+ex:city_087 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0087" ;
+    ex:displayName "Urban Center #087" ;
+    ex:postalCode "10087" ;
+    ex:populationCount 1659500 .
+
+ex:state_027 ex:stateContainsCity ex:city_087 .
+
+ex:city_088 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0088" ;
+    ex:displayName "Urban Center #088" ;
+    ex:postalCode "10088" ;
+    ex:populationCount 1678000 .
+
+ex:state_028 ex:stateContainsCity ex:city_088 .
+
+ex:city_089 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0089" ;
+    ex:displayName "Urban Center #089" ;
+    ex:postalCode "10089" ;
+    ex:populationCount 1696500 .
+
+ex:state_029 ex:stateContainsCity ex:city_089 .
+
+ex:city_090 a ex:City ;
+    ex:spatialEntityId "SP-CTY-0090" ;
+    ex:displayName "Urban Center #090" ;
+    ex:postalCode "10090" ;
+    ex:populationCount 1715000 .
+
+ex:state_030 ex:stateContainsCity ex:city_090 .

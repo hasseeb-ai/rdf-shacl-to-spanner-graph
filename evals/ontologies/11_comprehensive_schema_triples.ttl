@@ -1,0 +1,1701 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/comprehensive/> .
+
+# ABox Instance Triples for 11_comprehensive_schema
+
+ex:corp_001 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0001" ;
+    ex:legalName "Global Tech Corporation #001" .
+
+ex:corp_002 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0002" ;
+    ex:legalName "Global Tech Corporation #002" .
+
+ex:corp_003 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0003" ;
+    ex:legalName "Global Tech Corporation #003" .
+
+ex:corp_004 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0004" ;
+    ex:legalName "Global Tech Corporation #004" .
+
+ex:corp_005 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0005" ;
+    ex:legalName "Global Tech Corporation #005" .
+
+ex:corp_006 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0006" ;
+    ex:legalName "Global Tech Corporation #006" .
+
+ex:corp_007 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0007" ;
+    ex:legalName "Global Tech Corporation #007" .
+
+ex:corp_008 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0008" ;
+    ex:legalName "Global Tech Corporation #008" .
+
+ex:corp_009 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0009" ;
+    ex:legalName "Global Tech Corporation #009" .
+
+ex:corp_010 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0010" ;
+    ex:legalName "Global Tech Corporation #010" .
+
+ex:corp_011 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0011" ;
+    ex:legalName "Global Tech Corporation #011" .
+
+ex:corp_012 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0012" ;
+    ex:legalName "Global Tech Corporation #012" .
+
+ex:corp_013 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0013" ;
+    ex:legalName "Global Tech Corporation #013" .
+
+ex:corp_014 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0014" ;
+    ex:legalName "Global Tech Corporation #014" .
+
+ex:corp_015 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0015" ;
+    ex:legalName "Global Tech Corporation #015" .
+
+ex:corp_016 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0016" ;
+    ex:legalName "Global Tech Corporation #016" .
+
+ex:corp_017 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0017" ;
+    ex:legalName "Global Tech Corporation #017" .
+
+ex:corp_018 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0018" ;
+    ex:legalName "Global Tech Corporation #018" .
+
+ex:corp_019 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0019" ;
+    ex:legalName "Global Tech Corporation #019" .
+
+ex:corp_020 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0020" ;
+    ex:legalName "Global Tech Corporation #020" .
+
+ex:corp_021 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0021" ;
+    ex:legalName "Global Tech Corporation #021" .
+
+ex:corp_022 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0022" ;
+    ex:legalName "Global Tech Corporation #022" .
+
+ex:corp_023 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0023" ;
+    ex:legalName "Global Tech Corporation #023" .
+
+ex:corp_024 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0024" ;
+    ex:legalName "Global Tech Corporation #024" .
+
+ex:corp_025 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0025" ;
+    ex:legalName "Global Tech Corporation #025" .
+
+ex:corp_026 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0026" ;
+    ex:legalName "Global Tech Corporation #026" .
+
+ex:corp_027 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0027" ;
+    ex:legalName "Global Tech Corporation #027" .
+
+ex:corp_028 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0028" ;
+    ex:legalName "Global Tech Corporation #028" .
+
+ex:corp_029 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0029" ;
+    ex:legalName "Global Tech Corporation #029" .
+
+ex:corp_030 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0030" ;
+    ex:legalName "Global Tech Corporation #030" .
+
+ex:corp_031 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0031" ;
+    ex:legalName "Global Tech Corporation #031" .
+
+ex:corp_032 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0032" ;
+    ex:legalName "Global Tech Corporation #032" .
+
+ex:corp_033 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0033" ;
+    ex:legalName "Global Tech Corporation #033" .
+
+ex:corp_034 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0034" ;
+    ex:legalName "Global Tech Corporation #034" .
+
+ex:corp_035 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0035" ;
+    ex:legalName "Global Tech Corporation #035" .
+
+ex:corp_036 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0036" ;
+    ex:legalName "Global Tech Corporation #036" .
+
+ex:corp_037 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0037" ;
+    ex:legalName "Global Tech Corporation #037" .
+
+ex:corp_038 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0038" ;
+    ex:legalName "Global Tech Corporation #038" .
+
+ex:corp_039 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0039" ;
+    ex:legalName "Global Tech Corporation #039" .
+
+ex:corp_040 a ex:Corporation ;
+    ex:entityIdentifier "ENT-CORP-0040" ;
+    ex:legalName "Global Tech Corporation #040" .
+
+ex:ngo_001 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0001" ;
+    ex:legalName "Open Standards Foundation #001" .
+
+ex:ngo_002 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0002" ;
+    ex:legalName "Open Standards Foundation #002" .
+
+ex:ngo_003 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0003" ;
+    ex:legalName "Open Standards Foundation #003" .
+
+ex:ngo_004 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0004" ;
+    ex:legalName "Open Standards Foundation #004" .
+
+ex:ngo_005 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0005" ;
+    ex:legalName "Open Standards Foundation #005" .
+
+ex:ngo_006 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0006" ;
+    ex:legalName "Open Standards Foundation #006" .
+
+ex:ngo_007 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0007" ;
+    ex:legalName "Open Standards Foundation #007" .
+
+ex:ngo_008 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0008" ;
+    ex:legalName "Open Standards Foundation #008" .
+
+ex:ngo_009 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0009" ;
+    ex:legalName "Open Standards Foundation #009" .
+
+ex:ngo_010 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0010" ;
+    ex:legalName "Open Standards Foundation #010" .
+
+ex:ngo_011 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0011" ;
+    ex:legalName "Open Standards Foundation #011" .
+
+ex:ngo_012 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0012" ;
+    ex:legalName "Open Standards Foundation #012" .
+
+ex:ngo_013 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0013" ;
+    ex:legalName "Open Standards Foundation #013" .
+
+ex:ngo_014 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0014" ;
+    ex:legalName "Open Standards Foundation #014" .
+
+ex:ngo_015 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0015" ;
+    ex:legalName "Open Standards Foundation #015" .
+
+ex:ngo_016 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0016" ;
+    ex:legalName "Open Standards Foundation #016" .
+
+ex:ngo_017 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0017" ;
+    ex:legalName "Open Standards Foundation #017" .
+
+ex:ngo_018 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0018" ;
+    ex:legalName "Open Standards Foundation #018" .
+
+ex:ngo_019 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0019" ;
+    ex:legalName "Open Standards Foundation #019" .
+
+ex:ngo_020 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0020" ;
+    ex:legalName "Open Standards Foundation #020" .
+
+ex:ngo_021 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0021" ;
+    ex:legalName "Open Standards Foundation #021" .
+
+ex:ngo_022 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0022" ;
+    ex:legalName "Open Standards Foundation #022" .
+
+ex:ngo_023 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0023" ;
+    ex:legalName "Open Standards Foundation #023" .
+
+ex:ngo_024 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0024" ;
+    ex:legalName "Open Standards Foundation #024" .
+
+ex:ngo_025 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0025" ;
+    ex:legalName "Open Standards Foundation #025" .
+
+ex:ngo_026 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0026" ;
+    ex:legalName "Open Standards Foundation #026" .
+
+ex:ngo_027 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0027" ;
+    ex:legalName "Open Standards Foundation #027" .
+
+ex:ngo_028 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0028" ;
+    ex:legalName "Open Standards Foundation #028" .
+
+ex:ngo_029 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0029" ;
+    ex:legalName "Open Standards Foundation #029" .
+
+ex:ngo_030 a ex:NonGovernmentalOrg ;
+    ex:entityIdentifier "ENT-NGO-0030" ;
+    ex:legalName "Open Standards Foundation #030" .
+
+ex:dept_001 a ex:Department ;
+    ex:departmentName "Enterprise Department #001" .
+
+ex:dept_001 ex:parentDepartmentOf ex:dept_016 .
+
+ex:dept_002 a ex:Department ;
+    ex:departmentName "Enterprise Department #002" .
+
+ex:dept_002 ex:parentDepartmentOf ex:dept_017 .
+
+ex:dept_003 a ex:Department ;
+    ex:departmentName "Enterprise Department #003" .
+
+ex:dept_003 ex:parentDepartmentOf ex:dept_018 .
+
+ex:dept_004 a ex:Department ;
+    ex:departmentName "Enterprise Department #004" .
+
+ex:dept_004 ex:parentDepartmentOf ex:dept_019 .
+
+ex:dept_005 a ex:Department ;
+    ex:departmentName "Enterprise Department #005" .
+
+ex:dept_005 ex:parentDepartmentOf ex:dept_020 .
+
+ex:dept_006 a ex:Department ;
+    ex:departmentName "Enterprise Department #006" .
+
+ex:dept_006 ex:parentDepartmentOf ex:dept_021 .
+
+ex:dept_007 a ex:Department ;
+    ex:departmentName "Enterprise Department #007" .
+
+ex:dept_007 ex:parentDepartmentOf ex:dept_022 .
+
+ex:dept_008 a ex:Department ;
+    ex:departmentName "Enterprise Department #008" .
+
+ex:dept_008 ex:parentDepartmentOf ex:dept_023 .
+
+ex:dept_009 a ex:Department ;
+    ex:departmentName "Enterprise Department #009" .
+
+ex:dept_009 ex:parentDepartmentOf ex:dept_024 .
+
+ex:dept_010 a ex:Department ;
+    ex:departmentName "Enterprise Department #010" .
+
+ex:dept_010 ex:parentDepartmentOf ex:dept_025 .
+
+ex:dept_011 a ex:Department ;
+    ex:departmentName "Enterprise Department #011" .
+
+ex:dept_011 ex:parentDepartmentOf ex:dept_026 .
+
+ex:dept_012 a ex:Department ;
+    ex:departmentName "Enterprise Department #012" .
+
+ex:dept_012 ex:parentDepartmentOf ex:dept_027 .
+
+ex:dept_013 a ex:Department ;
+    ex:departmentName "Enterprise Department #013" .
+
+ex:dept_013 ex:parentDepartmentOf ex:dept_028 .
+
+ex:dept_014 a ex:Department ;
+    ex:departmentName "Enterprise Department #014" .
+
+ex:dept_014 ex:parentDepartmentOf ex:dept_029 .
+
+ex:dept_015 a ex:Department ;
+    ex:departmentName "Enterprise Department #015" .
+
+ex:dept_015 ex:parentDepartmentOf ex:dept_030 .
+
+ex:dept_016 a ex:Department ;
+    ex:departmentName "Enterprise Department #016" .
+
+ex:dept_016 ex:parentDepartmentOf ex:dept_031 .
+
+ex:dept_017 a ex:Department ;
+    ex:departmentName "Enterprise Department #017" .
+
+ex:dept_017 ex:parentDepartmentOf ex:dept_032 .
+
+ex:dept_018 a ex:Department ;
+    ex:departmentName "Enterprise Department #018" .
+
+ex:dept_018 ex:parentDepartmentOf ex:dept_033 .
+
+ex:dept_019 a ex:Department ;
+    ex:departmentName "Enterprise Department #019" .
+
+ex:dept_019 ex:parentDepartmentOf ex:dept_034 .
+
+ex:dept_020 a ex:Department ;
+    ex:departmentName "Enterprise Department #020" .
+
+ex:dept_020 ex:parentDepartmentOf ex:dept_035 .
+
+ex:dept_021 a ex:Department ;
+    ex:departmentName "Enterprise Department #021" .
+
+ex:dept_021 ex:parentDepartmentOf ex:dept_036 .
+
+ex:dept_022 a ex:Department ;
+    ex:departmentName "Enterprise Department #022" .
+
+ex:dept_022 ex:parentDepartmentOf ex:dept_037 .
+
+ex:dept_023 a ex:Department ;
+    ex:departmentName "Enterprise Department #023" .
+
+ex:dept_023 ex:parentDepartmentOf ex:dept_038 .
+
+ex:dept_024 a ex:Department ;
+    ex:departmentName "Enterprise Department #024" .
+
+ex:dept_024 ex:parentDepartmentOf ex:dept_039 .
+
+ex:dept_025 a ex:Department ;
+    ex:departmentName "Enterprise Department #025" .
+
+ex:dept_025 ex:parentDepartmentOf ex:dept_040 .
+
+ex:dept_026 a ex:Department ;
+    ex:departmentName "Enterprise Department #026" .
+
+ex:dept_026 ex:parentDepartmentOf ex:dept_041 .
+
+ex:dept_027 a ex:Department ;
+    ex:departmentName "Enterprise Department #027" .
+
+ex:dept_027 ex:parentDepartmentOf ex:dept_042 .
+
+ex:dept_028 a ex:Department ;
+    ex:departmentName "Enterprise Department #028" .
+
+ex:dept_028 ex:parentDepartmentOf ex:dept_043 .
+
+ex:dept_029 a ex:Department ;
+    ex:departmentName "Enterprise Department #029" .
+
+ex:dept_029 ex:parentDepartmentOf ex:dept_044 .
+
+ex:dept_030 a ex:Department ;
+    ex:departmentName "Enterprise Department #030" .
+
+ex:dept_030 ex:parentDepartmentOf ex:dept_045 .
+
+ex:dept_031 a ex:Department ;
+    ex:departmentName "Enterprise Department #031" .
+
+ex:dept_032 a ex:Department ;
+    ex:departmentName "Enterprise Department #032" .
+
+ex:dept_033 a ex:Department ;
+    ex:departmentName "Enterprise Department #033" .
+
+ex:dept_034 a ex:Department ;
+    ex:departmentName "Enterprise Department #034" .
+
+ex:dept_035 a ex:Department ;
+    ex:departmentName "Enterprise Department #035" .
+
+ex:dept_036 a ex:Department ;
+    ex:departmentName "Enterprise Department #036" .
+
+ex:dept_037 a ex:Department ;
+    ex:departmentName "Enterprise Department #037" .
+
+ex:dept_038 a ex:Department ;
+    ex:departmentName "Enterprise Department #038" .
+
+ex:dept_039 a ex:Department ;
+    ex:departmentName "Enterprise Department #039" .
+
+ex:dept_040 a ex:Department ;
+    ex:departmentName "Enterprise Department #040" .
+
+ex:dept_041 a ex:Department ;
+    ex:departmentName "Enterprise Department #041" .
+
+ex:dept_042 a ex:Department ;
+    ex:departmentName "Enterprise Department #042" .
+
+ex:dept_043 a ex:Department ;
+    ex:departmentName "Enterprise Department #043" .
+
+ex:dept_044 a ex:Department ;
+    ex:departmentName "Enterprise Department #044" .
+
+ex:dept_045 a ex:Department ;
+    ex:departmentName "Enterprise Department #045" .
+
+ex:staff_001 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0001" ;
+    ex:legalName "Staff Member #001" ;
+    ex:badgeNumber "BDG-S-1001" ;
+    ex:worksForOrganization ex:corp_001 ;
+    ex:collaboratesOnProject ex:staff_002 .
+
+ex:corp_001 ex:employsWorker ex:staff_001 .
+
+ex:staff_002 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0002" ;
+    ex:legalName "Staff Member #002" ;
+    ex:badgeNumber "BDG-S-1002" ;
+    ex:worksForOrganization ex:corp_002 ;
+    ex:collaboratesOnProject ex:staff_003 .
+
+ex:corp_002 ex:employsWorker ex:staff_002 .
+
+ex:staff_003 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0003" ;
+    ex:legalName "Staff Member #003" ;
+    ex:badgeNumber "BDG-S-1003" ;
+    ex:worksForOrganization ex:corp_003 ;
+    ex:collaboratesOnProject ex:staff_004 .
+
+ex:corp_003 ex:employsWorker ex:staff_003 .
+
+ex:staff_004 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0004" ;
+    ex:legalName "Staff Member #004" ;
+    ex:badgeNumber "BDG-S-1004" ;
+    ex:worksForOrganization ex:corp_004 ;
+    ex:collaboratesOnProject ex:staff_005 .
+
+ex:corp_004 ex:employsWorker ex:staff_004 .
+
+ex:staff_005 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0005" ;
+    ex:legalName "Staff Member #005" ;
+    ex:badgeNumber "BDG-S-1005" ;
+    ex:worksForOrganization ex:corp_005 ;
+    ex:collaboratesOnProject ex:staff_006 .
+
+ex:corp_005 ex:employsWorker ex:staff_005 .
+
+ex:staff_006 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0006" ;
+    ex:legalName "Staff Member #006" ;
+    ex:badgeNumber "BDG-S-1006" ;
+    ex:worksForOrganization ex:corp_006 ;
+    ex:collaboratesOnProject ex:staff_007 .
+
+ex:corp_006 ex:employsWorker ex:staff_006 .
+
+ex:staff_007 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0007" ;
+    ex:legalName "Staff Member #007" ;
+    ex:badgeNumber "BDG-S-1007" ;
+    ex:worksForOrganization ex:corp_007 ;
+    ex:collaboratesOnProject ex:staff_008 .
+
+ex:corp_007 ex:employsWorker ex:staff_007 .
+
+ex:staff_008 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0008" ;
+    ex:legalName "Staff Member #008" ;
+    ex:badgeNumber "BDG-S-1008" ;
+    ex:worksForOrganization ex:corp_008 ;
+    ex:collaboratesOnProject ex:staff_009 .
+
+ex:corp_008 ex:employsWorker ex:staff_008 .
+
+ex:staff_009 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0009" ;
+    ex:legalName "Staff Member #009" ;
+    ex:badgeNumber "BDG-S-1009" ;
+    ex:worksForOrganization ex:corp_009 ;
+    ex:collaboratesOnProject ex:staff_010 .
+
+ex:corp_009 ex:employsWorker ex:staff_009 .
+
+ex:staff_010 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0010" ;
+    ex:legalName "Staff Member #010" ;
+    ex:badgeNumber "BDG-S-1010" ;
+    ex:worksForOrganization ex:corp_010 ;
+    ex:collaboratesOnProject ex:staff_011 .
+
+ex:corp_010 ex:employsWorker ex:staff_010 .
+
+ex:staff_011 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0011" ;
+    ex:legalName "Staff Member #011" ;
+    ex:badgeNumber "BDG-S-1011" ;
+    ex:worksForOrganization ex:corp_011 ;
+    ex:collaboratesOnProject ex:staff_012 .
+
+ex:corp_011 ex:employsWorker ex:staff_011 .
+
+ex:staff_012 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0012" ;
+    ex:legalName "Staff Member #012" ;
+    ex:badgeNumber "BDG-S-1012" ;
+    ex:worksForOrganization ex:corp_012 ;
+    ex:collaboratesOnProject ex:staff_013 .
+
+ex:corp_012 ex:employsWorker ex:staff_012 .
+
+ex:staff_013 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0013" ;
+    ex:legalName "Staff Member #013" ;
+    ex:badgeNumber "BDG-S-1013" ;
+    ex:worksForOrganization ex:corp_013 ;
+    ex:collaboratesOnProject ex:staff_014 .
+
+ex:corp_013 ex:employsWorker ex:staff_013 .
+
+ex:staff_014 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0014" ;
+    ex:legalName "Staff Member #014" ;
+    ex:badgeNumber "BDG-S-1014" ;
+    ex:worksForOrganization ex:corp_014 ;
+    ex:collaboratesOnProject ex:staff_015 .
+
+ex:corp_014 ex:employsWorker ex:staff_014 .
+
+ex:staff_015 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0015" ;
+    ex:legalName "Staff Member #015" ;
+    ex:badgeNumber "BDG-S-1015" ;
+    ex:worksForOrganization ex:corp_015 ;
+    ex:collaboratesOnProject ex:staff_016 .
+
+ex:corp_015 ex:employsWorker ex:staff_015 .
+
+ex:staff_016 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0016" ;
+    ex:legalName "Staff Member #016" ;
+    ex:badgeNumber "BDG-S-1016" ;
+    ex:worksForOrganization ex:corp_016 ;
+    ex:collaboratesOnProject ex:staff_017 .
+
+ex:corp_016 ex:employsWorker ex:staff_016 .
+
+ex:staff_017 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0017" ;
+    ex:legalName "Staff Member #017" ;
+    ex:badgeNumber "BDG-S-1017" ;
+    ex:worksForOrganization ex:corp_017 ;
+    ex:collaboratesOnProject ex:staff_018 .
+
+ex:corp_017 ex:employsWorker ex:staff_017 .
+
+ex:staff_018 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0018" ;
+    ex:legalName "Staff Member #018" ;
+    ex:badgeNumber "BDG-S-1018" ;
+    ex:worksForOrganization ex:corp_018 ;
+    ex:collaboratesOnProject ex:staff_019 .
+
+ex:corp_018 ex:employsWorker ex:staff_018 .
+
+ex:staff_019 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0019" ;
+    ex:legalName "Staff Member #019" ;
+    ex:badgeNumber "BDG-S-1019" ;
+    ex:worksForOrganization ex:corp_019 ;
+    ex:collaboratesOnProject ex:staff_020 .
+
+ex:corp_019 ex:employsWorker ex:staff_019 .
+
+ex:staff_020 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0020" ;
+    ex:legalName "Staff Member #020" ;
+    ex:badgeNumber "BDG-S-1020" ;
+    ex:worksForOrganization ex:corp_020 ;
+    ex:collaboratesOnProject ex:staff_021 .
+
+ex:corp_020 ex:employsWorker ex:staff_020 .
+
+ex:staff_021 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0021" ;
+    ex:legalName "Staff Member #021" ;
+    ex:badgeNumber "BDG-S-1021" ;
+    ex:worksForOrganization ex:corp_021 ;
+    ex:collaboratesOnProject ex:staff_022 .
+
+ex:corp_021 ex:employsWorker ex:staff_021 .
+
+ex:staff_022 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0022" ;
+    ex:legalName "Staff Member #022" ;
+    ex:badgeNumber "BDG-S-1022" ;
+    ex:worksForOrganization ex:corp_022 ;
+    ex:collaboratesOnProject ex:staff_023 .
+
+ex:corp_022 ex:employsWorker ex:staff_022 .
+
+ex:staff_023 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0023" ;
+    ex:legalName "Staff Member #023" ;
+    ex:badgeNumber "BDG-S-1023" ;
+    ex:worksForOrganization ex:corp_023 ;
+    ex:collaboratesOnProject ex:staff_024 .
+
+ex:corp_023 ex:employsWorker ex:staff_023 .
+
+ex:staff_024 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0024" ;
+    ex:legalName "Staff Member #024" ;
+    ex:badgeNumber "BDG-S-1024" ;
+    ex:worksForOrganization ex:corp_024 ;
+    ex:collaboratesOnProject ex:staff_025 .
+
+ex:corp_024 ex:employsWorker ex:staff_024 .
+
+ex:staff_025 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0025" ;
+    ex:legalName "Staff Member #025" ;
+    ex:badgeNumber "BDG-S-1025" ;
+    ex:worksForOrganization ex:corp_025 ;
+    ex:collaboratesOnProject ex:staff_026 .
+
+ex:corp_025 ex:employsWorker ex:staff_025 .
+
+ex:staff_026 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0026" ;
+    ex:legalName "Staff Member #026" ;
+    ex:badgeNumber "BDG-S-1026" ;
+    ex:worksForOrganization ex:corp_026 ;
+    ex:collaboratesOnProject ex:staff_027 .
+
+ex:corp_026 ex:employsWorker ex:staff_026 .
+
+ex:staff_027 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0027" ;
+    ex:legalName "Staff Member #027" ;
+    ex:badgeNumber "BDG-S-1027" ;
+    ex:worksForOrganization ex:corp_027 ;
+    ex:collaboratesOnProject ex:staff_028 .
+
+ex:corp_027 ex:employsWorker ex:staff_027 .
+
+ex:staff_028 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0028" ;
+    ex:legalName "Staff Member #028" ;
+    ex:badgeNumber "BDG-S-1028" ;
+    ex:worksForOrganization ex:corp_028 ;
+    ex:collaboratesOnProject ex:staff_029 .
+
+ex:corp_028 ex:employsWorker ex:staff_028 .
+
+ex:staff_029 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0029" ;
+    ex:legalName "Staff Member #029" ;
+    ex:badgeNumber "BDG-S-1029" ;
+    ex:worksForOrganization ex:corp_029 ;
+    ex:collaboratesOnProject ex:staff_030 .
+
+ex:corp_029 ex:employsWorker ex:staff_029 .
+
+ex:staff_030 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0030" ;
+    ex:legalName "Staff Member #030" ;
+    ex:badgeNumber "BDG-S-1030" ;
+    ex:worksForOrganization ex:corp_030 ;
+    ex:collaboratesOnProject ex:staff_031 .
+
+ex:corp_030 ex:employsWorker ex:staff_030 .
+
+ex:staff_031 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0031" ;
+    ex:legalName "Staff Member #031" ;
+    ex:badgeNumber "BDG-S-1031" ;
+    ex:worksForOrganization ex:corp_031 ;
+    ex:collaboratesOnProject ex:staff_032 .
+
+ex:corp_031 ex:employsWorker ex:staff_031 .
+
+ex:staff_032 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0032" ;
+    ex:legalName "Staff Member #032" ;
+    ex:badgeNumber "BDG-S-1032" ;
+    ex:worksForOrganization ex:corp_032 ;
+    ex:collaboratesOnProject ex:staff_033 .
+
+ex:corp_032 ex:employsWorker ex:staff_032 .
+
+ex:staff_033 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0033" ;
+    ex:legalName "Staff Member #033" ;
+    ex:badgeNumber "BDG-S-1033" ;
+    ex:worksForOrganization ex:corp_033 ;
+    ex:collaboratesOnProject ex:staff_034 .
+
+ex:corp_033 ex:employsWorker ex:staff_033 .
+
+ex:staff_034 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0034" ;
+    ex:legalName "Staff Member #034" ;
+    ex:badgeNumber "BDG-S-1034" ;
+    ex:worksForOrganization ex:corp_034 ;
+    ex:collaboratesOnProject ex:staff_035 .
+
+ex:corp_034 ex:employsWorker ex:staff_034 .
+
+ex:staff_035 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0035" ;
+    ex:legalName "Staff Member #035" ;
+    ex:badgeNumber "BDG-S-1035" ;
+    ex:worksForOrganization ex:corp_035 ;
+    ex:collaboratesOnProject ex:staff_036 .
+
+ex:corp_035 ex:employsWorker ex:staff_035 .
+
+ex:staff_036 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0036" ;
+    ex:legalName "Staff Member #036" ;
+    ex:badgeNumber "BDG-S-1036" ;
+    ex:worksForOrganization ex:corp_036 ;
+    ex:collaboratesOnProject ex:staff_037 .
+
+ex:corp_036 ex:employsWorker ex:staff_036 .
+
+ex:staff_037 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0037" ;
+    ex:legalName "Staff Member #037" ;
+    ex:badgeNumber "BDG-S-1037" ;
+    ex:worksForOrganization ex:corp_037 ;
+    ex:collaboratesOnProject ex:staff_038 .
+
+ex:corp_037 ex:employsWorker ex:staff_037 .
+
+ex:staff_038 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0038" ;
+    ex:legalName "Staff Member #038" ;
+    ex:badgeNumber "BDG-S-1038" ;
+    ex:worksForOrganization ex:corp_038 ;
+    ex:collaboratesOnProject ex:staff_039 .
+
+ex:corp_038 ex:employsWorker ex:staff_038 .
+
+ex:staff_039 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0039" ;
+    ex:legalName "Staff Member #039" ;
+    ex:badgeNumber "BDG-S-1039" ;
+    ex:worksForOrganization ex:corp_039 ;
+    ex:collaboratesOnProject ex:staff_040 .
+
+ex:corp_039 ex:employsWorker ex:staff_039 .
+
+ex:staff_040 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0040" ;
+    ex:legalName "Staff Member #040" ;
+    ex:badgeNumber "BDG-S-1040" ;
+    ex:worksForOrganization ex:corp_040 ;
+    ex:collaboratesOnProject ex:staff_041 .
+
+ex:corp_040 ex:employsWorker ex:staff_040 .
+
+ex:staff_041 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0041" ;
+    ex:legalName "Staff Member #041" ;
+    ex:badgeNumber "BDG-S-1041" ;
+    ex:worksForOrganization ex:corp_001 ;
+    ex:collaboratesOnProject ex:staff_042 .
+
+ex:corp_001 ex:employsWorker ex:staff_041 .
+
+ex:staff_042 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0042" ;
+    ex:legalName "Staff Member #042" ;
+    ex:badgeNumber "BDG-S-1042" ;
+    ex:worksForOrganization ex:corp_002 ;
+    ex:collaboratesOnProject ex:staff_043 .
+
+ex:corp_002 ex:employsWorker ex:staff_042 .
+
+ex:staff_043 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0043" ;
+    ex:legalName "Staff Member #043" ;
+    ex:badgeNumber "BDG-S-1043" ;
+    ex:worksForOrganization ex:corp_003 ;
+    ex:collaboratesOnProject ex:staff_044 .
+
+ex:corp_003 ex:employsWorker ex:staff_043 .
+
+ex:staff_044 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0044" ;
+    ex:legalName "Staff Member #044" ;
+    ex:badgeNumber "BDG-S-1044" ;
+    ex:worksForOrganization ex:corp_004 ;
+    ex:collaboratesOnProject ex:staff_045 .
+
+ex:corp_004 ex:employsWorker ex:staff_044 .
+
+ex:staff_045 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0045" ;
+    ex:legalName "Staff Member #045" ;
+    ex:badgeNumber "BDG-S-1045" ;
+    ex:worksForOrganization ex:corp_005 ;
+    ex:collaboratesOnProject ex:staff_046 .
+
+ex:corp_005 ex:employsWorker ex:staff_045 .
+
+ex:staff_046 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0046" ;
+    ex:legalName "Staff Member #046" ;
+    ex:badgeNumber "BDG-S-1046" ;
+    ex:worksForOrganization ex:corp_006 ;
+    ex:collaboratesOnProject ex:staff_047 .
+
+ex:corp_006 ex:employsWorker ex:staff_046 .
+
+ex:staff_047 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0047" ;
+    ex:legalName "Staff Member #047" ;
+    ex:badgeNumber "BDG-S-1047" ;
+    ex:worksForOrganization ex:corp_007 ;
+    ex:collaboratesOnProject ex:staff_048 .
+
+ex:corp_007 ex:employsWorker ex:staff_047 .
+
+ex:staff_048 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0048" ;
+    ex:legalName "Staff Member #048" ;
+    ex:badgeNumber "BDG-S-1048" ;
+    ex:worksForOrganization ex:corp_008 ;
+    ex:collaboratesOnProject ex:staff_049 .
+
+ex:corp_008 ex:employsWorker ex:staff_048 .
+
+ex:staff_049 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0049" ;
+    ex:legalName "Staff Member #049" ;
+    ex:badgeNumber "BDG-S-1049" ;
+    ex:worksForOrganization ex:corp_009 ;
+    ex:collaboratesOnProject ex:staff_050 .
+
+ex:corp_009 ex:employsWorker ex:staff_049 .
+
+ex:staff_050 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0050" ;
+    ex:legalName "Staff Member #050" ;
+    ex:badgeNumber "BDG-S-1050" ;
+    ex:worksForOrganization ex:corp_010 ;
+    ex:collaboratesOnProject ex:staff_051 .
+
+ex:corp_010 ex:employsWorker ex:staff_050 .
+
+ex:staff_051 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0051" ;
+    ex:legalName "Staff Member #051" ;
+    ex:badgeNumber "BDG-S-1051" ;
+    ex:worksForOrganization ex:corp_011 ;
+    ex:collaboratesOnProject ex:staff_052 .
+
+ex:corp_011 ex:employsWorker ex:staff_051 .
+
+ex:staff_052 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0052" ;
+    ex:legalName "Staff Member #052" ;
+    ex:badgeNumber "BDG-S-1052" ;
+    ex:worksForOrganization ex:corp_012 ;
+    ex:collaboratesOnProject ex:staff_053 .
+
+ex:corp_012 ex:employsWorker ex:staff_052 .
+
+ex:staff_053 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0053" ;
+    ex:legalName "Staff Member #053" ;
+    ex:badgeNumber "BDG-S-1053" ;
+    ex:worksForOrganization ex:corp_013 ;
+    ex:collaboratesOnProject ex:staff_054 .
+
+ex:corp_013 ex:employsWorker ex:staff_053 .
+
+ex:staff_054 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0054" ;
+    ex:legalName "Staff Member #054" ;
+    ex:badgeNumber "BDG-S-1054" ;
+    ex:worksForOrganization ex:corp_014 ;
+    ex:collaboratesOnProject ex:staff_055 .
+
+ex:corp_014 ex:employsWorker ex:staff_054 .
+
+ex:staff_055 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0055" ;
+    ex:legalName "Staff Member #055" ;
+    ex:badgeNumber "BDG-S-1055" ;
+    ex:worksForOrganization ex:corp_015 ;
+    ex:collaboratesOnProject ex:staff_056 .
+
+ex:corp_015 ex:employsWorker ex:staff_055 .
+
+ex:staff_056 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0056" ;
+    ex:legalName "Staff Member #056" ;
+    ex:badgeNumber "BDG-S-1056" ;
+    ex:worksForOrganization ex:corp_016 ;
+    ex:collaboratesOnProject ex:staff_057 .
+
+ex:corp_016 ex:employsWorker ex:staff_056 .
+
+ex:staff_057 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0057" ;
+    ex:legalName "Staff Member #057" ;
+    ex:badgeNumber "BDG-S-1057" ;
+    ex:worksForOrganization ex:corp_017 ;
+    ex:collaboratesOnProject ex:staff_058 .
+
+ex:corp_017 ex:employsWorker ex:staff_057 .
+
+ex:staff_058 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0058" ;
+    ex:legalName "Staff Member #058" ;
+    ex:badgeNumber "BDG-S-1058" ;
+    ex:worksForOrganization ex:corp_018 ;
+    ex:collaboratesOnProject ex:staff_059 .
+
+ex:corp_018 ex:employsWorker ex:staff_058 .
+
+ex:staff_059 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0059" ;
+    ex:legalName "Staff Member #059" ;
+    ex:badgeNumber "BDG-S-1059" ;
+    ex:worksForOrganization ex:corp_019 ;
+    ex:collaboratesOnProject ex:staff_060 .
+
+ex:corp_019 ex:employsWorker ex:staff_059 .
+
+ex:staff_060 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0060" ;
+    ex:legalName "Staff Member #060" ;
+    ex:badgeNumber "BDG-S-1060" ;
+    ex:worksForOrganization ex:corp_020 ;
+    ex:collaboratesOnProject ex:staff_061 .
+
+ex:corp_020 ex:employsWorker ex:staff_060 .
+
+ex:staff_061 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0061" ;
+    ex:legalName "Staff Member #061" ;
+    ex:badgeNumber "BDG-S-1061" ;
+    ex:worksForOrganization ex:corp_021 ;
+    ex:collaboratesOnProject ex:staff_062 .
+
+ex:corp_021 ex:employsWorker ex:staff_061 .
+
+ex:staff_062 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0062" ;
+    ex:legalName "Staff Member #062" ;
+    ex:badgeNumber "BDG-S-1062" ;
+    ex:worksForOrganization ex:corp_022 ;
+    ex:collaboratesOnProject ex:staff_063 .
+
+ex:corp_022 ex:employsWorker ex:staff_062 .
+
+ex:staff_063 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0063" ;
+    ex:legalName "Staff Member #063" ;
+    ex:badgeNumber "BDG-S-1063" ;
+    ex:worksForOrganization ex:corp_023 ;
+    ex:collaboratesOnProject ex:staff_064 .
+
+ex:corp_023 ex:employsWorker ex:staff_063 .
+
+ex:staff_064 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0064" ;
+    ex:legalName "Staff Member #064" ;
+    ex:badgeNumber "BDG-S-1064" ;
+    ex:worksForOrganization ex:corp_024 ;
+    ex:collaboratesOnProject ex:staff_065 .
+
+ex:corp_024 ex:employsWorker ex:staff_064 .
+
+ex:staff_065 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0065" ;
+    ex:legalName "Staff Member #065" ;
+    ex:badgeNumber "BDG-S-1065" ;
+    ex:worksForOrganization ex:corp_025 ;
+    ex:collaboratesOnProject ex:staff_066 .
+
+ex:corp_025 ex:employsWorker ex:staff_065 .
+
+ex:staff_066 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0066" ;
+    ex:legalName "Staff Member #066" ;
+    ex:badgeNumber "BDG-S-1066" ;
+    ex:worksForOrganization ex:corp_026 ;
+    ex:collaboratesOnProject ex:staff_067 .
+
+ex:corp_026 ex:employsWorker ex:staff_066 .
+
+ex:staff_067 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0067" ;
+    ex:legalName "Staff Member #067" ;
+    ex:badgeNumber "BDG-S-1067" ;
+    ex:worksForOrganization ex:corp_027 ;
+    ex:collaboratesOnProject ex:staff_068 .
+
+ex:corp_027 ex:employsWorker ex:staff_067 .
+
+ex:staff_068 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0068" ;
+    ex:legalName "Staff Member #068" ;
+    ex:badgeNumber "BDG-S-1068" ;
+    ex:worksForOrganization ex:corp_028 ;
+    ex:collaboratesOnProject ex:staff_069 .
+
+ex:corp_028 ex:employsWorker ex:staff_068 .
+
+ex:staff_069 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0069" ;
+    ex:legalName "Staff Member #069" ;
+    ex:badgeNumber "BDG-S-1069" ;
+    ex:worksForOrganization ex:corp_029 ;
+    ex:collaboratesOnProject ex:staff_070 .
+
+ex:corp_029 ex:employsWorker ex:staff_069 .
+
+ex:staff_070 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0070" ;
+    ex:legalName "Staff Member #070" ;
+    ex:badgeNumber "BDG-S-1070" ;
+    ex:worksForOrganization ex:corp_030 ;
+    ex:collaboratesOnProject ex:staff_071 .
+
+ex:corp_030 ex:employsWorker ex:staff_070 .
+
+ex:staff_071 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0071" ;
+    ex:legalName "Staff Member #071" ;
+    ex:badgeNumber "BDG-S-1071" ;
+    ex:worksForOrganization ex:corp_031 ;
+    ex:collaboratesOnProject ex:staff_072 .
+
+ex:corp_031 ex:employsWorker ex:staff_071 .
+
+ex:staff_072 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0072" ;
+    ex:legalName "Staff Member #072" ;
+    ex:badgeNumber "BDG-S-1072" ;
+    ex:worksForOrganization ex:corp_032 ;
+    ex:collaboratesOnProject ex:staff_073 .
+
+ex:corp_032 ex:employsWorker ex:staff_072 .
+
+ex:staff_073 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0073" ;
+    ex:legalName "Staff Member #073" ;
+    ex:badgeNumber "BDG-S-1073" ;
+    ex:worksForOrganization ex:corp_033 ;
+    ex:collaboratesOnProject ex:staff_074 .
+
+ex:corp_033 ex:employsWorker ex:staff_073 .
+
+ex:staff_074 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0074" ;
+    ex:legalName "Staff Member #074" ;
+    ex:badgeNumber "BDG-S-1074" ;
+    ex:worksForOrganization ex:corp_034 ;
+    ex:collaboratesOnProject ex:staff_075 .
+
+ex:corp_034 ex:employsWorker ex:staff_074 .
+
+ex:staff_075 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0075" ;
+    ex:legalName "Staff Member #075" ;
+    ex:badgeNumber "BDG-S-1075" ;
+    ex:worksForOrganization ex:corp_035 ;
+    ex:collaboratesOnProject ex:staff_076 .
+
+ex:corp_035 ex:employsWorker ex:staff_075 .
+
+ex:staff_076 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0076" ;
+    ex:legalName "Staff Member #076" ;
+    ex:badgeNumber "BDG-S-1076" ;
+    ex:worksForOrganization ex:corp_036 ;
+    ex:collaboratesOnProject ex:staff_077 .
+
+ex:corp_036 ex:employsWorker ex:staff_076 .
+
+ex:staff_077 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0077" ;
+    ex:legalName "Staff Member #077" ;
+    ex:badgeNumber "BDG-S-1077" ;
+    ex:worksForOrganization ex:corp_037 ;
+    ex:collaboratesOnProject ex:staff_078 .
+
+ex:corp_037 ex:employsWorker ex:staff_077 .
+
+ex:staff_078 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0078" ;
+    ex:legalName "Staff Member #078" ;
+    ex:badgeNumber "BDG-S-1078" ;
+    ex:worksForOrganization ex:corp_038 ;
+    ex:collaboratesOnProject ex:staff_079 .
+
+ex:corp_038 ex:employsWorker ex:staff_078 .
+
+ex:staff_079 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0079" ;
+    ex:legalName "Staff Member #079" ;
+    ex:badgeNumber "BDG-S-1079" ;
+    ex:worksForOrganization ex:corp_039 ;
+    ex:collaboratesOnProject ex:staff_080 .
+
+ex:corp_039 ex:employsWorker ex:staff_079 .
+
+ex:staff_080 a ex:RegularStaff ;
+    ex:entityIdentifier "ENT-STF-0080" ;
+    ex:legalName "Staff Member #080" ;
+    ex:badgeNumber "BDG-S-1080" ;
+    ex:worksForOrganization ex:corp_040 ;
+    ex:collaboratesOnProject ex:staff_001 .
+
+ex:corp_040 ex:employsWorker ex:staff_080 .
+
+ex:mgr_001 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0001" ;
+    ex:legalName "Engineering Manager #001" ;
+    ex:badgeNumber "BDG-M-5001" ;
+    ex:specialtyDomain "CLOUD_INFRA" ;
+    ex:managementLevel 2 ;
+    ex:supervisesStaff ex:staff_001, ex:staff_002 .
+
+ex:mgr_002 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0002" ;
+    ex:legalName "Engineering Manager #002" ;
+    ex:badgeNumber "BDG-M-5002" ;
+    ex:specialtyDomain "SECURITY_OPS" ;
+    ex:managementLevel 3 ;
+    ex:supervisesStaff ex:staff_003, ex:staff_004 .
+
+ex:mgr_003 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0003" ;
+    ex:legalName "Engineering Manager #003" ;
+    ex:badgeNumber "BDG-M-5003" ;
+    ex:specialtyDomain "QUANTUM_SYSTEMS" ;
+    ex:managementLevel 4 ;
+    ex:supervisesStaff ex:staff_005, ex:staff_006 .
+
+ex:mgr_004 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0004" ;
+    ex:legalName "Engineering Manager #004" ;
+    ex:badgeNumber "BDG-M-5004" ;
+    ex:specialtyDomain "DATA_PLATFORM" ;
+    ex:managementLevel 1 ;
+    ex:supervisesStaff ex:staff_007, ex:staff_008 .
+
+ex:mgr_005 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0005" ;
+    ex:legalName "Engineering Manager #005" ;
+    ex:badgeNumber "BDG-M-5005" ;
+    ex:specialtyDomain "AI_RESEARCH" ;
+    ex:managementLevel 2 ;
+    ex:supervisesStaff ex:staff_009, ex:staff_010 .
+
+ex:mgr_006 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0006" ;
+    ex:legalName "Engineering Manager #006" ;
+    ex:badgeNumber "BDG-M-5006" ;
+    ex:specialtyDomain "CLOUD_INFRA" ;
+    ex:managementLevel 3 ;
+    ex:supervisesStaff ex:staff_011, ex:staff_012 .
+
+ex:mgr_007 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0007" ;
+    ex:legalName "Engineering Manager #007" ;
+    ex:badgeNumber "BDG-M-5007" ;
+    ex:specialtyDomain "SECURITY_OPS" ;
+    ex:managementLevel 4 ;
+    ex:supervisesStaff ex:staff_013, ex:staff_014 .
+
+ex:mgr_008 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0008" ;
+    ex:legalName "Engineering Manager #008" ;
+    ex:badgeNumber "BDG-M-5008" ;
+    ex:specialtyDomain "QUANTUM_SYSTEMS" ;
+    ex:managementLevel 1 ;
+    ex:supervisesStaff ex:staff_015, ex:staff_016 .
+
+ex:mgr_009 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0009" ;
+    ex:legalName "Engineering Manager #009" ;
+    ex:badgeNumber "BDG-M-5009" ;
+    ex:specialtyDomain "DATA_PLATFORM" ;
+    ex:managementLevel 2 ;
+    ex:supervisesStaff ex:staff_017, ex:staff_018 .
+
+ex:mgr_010 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0010" ;
+    ex:legalName "Engineering Manager #010" ;
+    ex:badgeNumber "BDG-M-5010" ;
+    ex:specialtyDomain "AI_RESEARCH" ;
+    ex:managementLevel 3 ;
+    ex:supervisesStaff ex:staff_019, ex:staff_020 .
+
+ex:mgr_011 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0011" ;
+    ex:legalName "Engineering Manager #011" ;
+    ex:badgeNumber "BDG-M-5011" ;
+    ex:specialtyDomain "CLOUD_INFRA" ;
+    ex:managementLevel 4 ;
+    ex:supervisesStaff ex:staff_021, ex:staff_022 .
+
+ex:mgr_012 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0012" ;
+    ex:legalName "Engineering Manager #012" ;
+    ex:badgeNumber "BDG-M-5012" ;
+    ex:specialtyDomain "SECURITY_OPS" ;
+    ex:managementLevel 1 ;
+    ex:supervisesStaff ex:staff_023, ex:staff_024 .
+
+ex:mgr_013 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0013" ;
+    ex:legalName "Engineering Manager #013" ;
+    ex:badgeNumber "BDG-M-5013" ;
+    ex:specialtyDomain "QUANTUM_SYSTEMS" ;
+    ex:managementLevel 2 ;
+    ex:supervisesStaff ex:staff_025, ex:staff_026 .
+
+ex:mgr_014 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0014" ;
+    ex:legalName "Engineering Manager #014" ;
+    ex:badgeNumber "BDG-M-5014" ;
+    ex:specialtyDomain "DATA_PLATFORM" ;
+    ex:managementLevel 3 ;
+    ex:supervisesStaff ex:staff_027, ex:staff_028 .
+
+ex:mgr_015 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0015" ;
+    ex:legalName "Engineering Manager #015" ;
+    ex:badgeNumber "BDG-M-5015" ;
+    ex:specialtyDomain "AI_RESEARCH" ;
+    ex:managementLevel 4 ;
+    ex:supervisesStaff ex:staff_029, ex:staff_030 .
+
+ex:mgr_016 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0016" ;
+    ex:legalName "Engineering Manager #016" ;
+    ex:badgeNumber "BDG-M-5016" ;
+    ex:specialtyDomain "CLOUD_INFRA" ;
+    ex:managementLevel 1 ;
+    ex:supervisesStaff ex:staff_031, ex:staff_032 .
+
+ex:mgr_017 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0017" ;
+    ex:legalName "Engineering Manager #017" ;
+    ex:badgeNumber "BDG-M-5017" ;
+    ex:specialtyDomain "SECURITY_OPS" ;
+    ex:managementLevel 2 ;
+    ex:supervisesStaff ex:staff_033, ex:staff_034 .
+
+ex:mgr_018 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0018" ;
+    ex:legalName "Engineering Manager #018" ;
+    ex:badgeNumber "BDG-M-5018" ;
+    ex:specialtyDomain "QUANTUM_SYSTEMS" ;
+    ex:managementLevel 3 ;
+    ex:supervisesStaff ex:staff_035, ex:staff_036 .
+
+ex:mgr_019 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0019" ;
+    ex:legalName "Engineering Manager #019" ;
+    ex:badgeNumber "BDG-M-5019" ;
+    ex:specialtyDomain "DATA_PLATFORM" ;
+    ex:managementLevel 4 ;
+    ex:supervisesStaff ex:staff_037, ex:staff_038 .
+
+ex:mgr_020 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0020" ;
+    ex:legalName "Engineering Manager #020" ;
+    ex:badgeNumber "BDG-M-5020" ;
+    ex:specialtyDomain "AI_RESEARCH" ;
+    ex:managementLevel 1 ;
+    ex:supervisesStaff ex:staff_039, ex:staff_040 .
+
+ex:mgr_021 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0021" ;
+    ex:legalName "Engineering Manager #021" ;
+    ex:badgeNumber "BDG-M-5021" ;
+    ex:specialtyDomain "CLOUD_INFRA" ;
+    ex:managementLevel 2 ;
+    ex:supervisesStaff ex:staff_041, ex:staff_042 .
+
+ex:mgr_022 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0022" ;
+    ex:legalName "Engineering Manager #022" ;
+    ex:badgeNumber "BDG-M-5022" ;
+    ex:specialtyDomain "SECURITY_OPS" ;
+    ex:managementLevel 3 ;
+    ex:supervisesStaff ex:staff_043, ex:staff_044 .
+
+ex:mgr_023 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0023" ;
+    ex:legalName "Engineering Manager #023" ;
+    ex:badgeNumber "BDG-M-5023" ;
+    ex:specialtyDomain "QUANTUM_SYSTEMS" ;
+    ex:managementLevel 4 ;
+    ex:supervisesStaff ex:staff_045, ex:staff_046 .
+
+ex:mgr_024 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0024" ;
+    ex:legalName "Engineering Manager #024" ;
+    ex:badgeNumber "BDG-M-5024" ;
+    ex:specialtyDomain "DATA_PLATFORM" ;
+    ex:managementLevel 1 ;
+    ex:supervisesStaff ex:staff_047, ex:staff_048 .
+
+ex:mgr_025 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0025" ;
+    ex:legalName "Engineering Manager #025" ;
+    ex:badgeNumber "BDG-M-5025" ;
+    ex:specialtyDomain "AI_RESEARCH" ;
+    ex:managementLevel 2 ;
+    ex:supervisesStaff ex:staff_049, ex:staff_050 .
+
+ex:mgr_026 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0026" ;
+    ex:legalName "Engineering Manager #026" ;
+    ex:badgeNumber "BDG-M-5026" ;
+    ex:specialtyDomain "CLOUD_INFRA" ;
+    ex:managementLevel 3 ;
+    ex:supervisesStaff ex:staff_051, ex:staff_052 .
+
+ex:mgr_027 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0027" ;
+    ex:legalName "Engineering Manager #027" ;
+    ex:badgeNumber "BDG-M-5027" ;
+    ex:specialtyDomain "SECURITY_OPS" ;
+    ex:managementLevel 4 ;
+    ex:supervisesStaff ex:staff_053, ex:staff_054 .
+
+ex:mgr_028 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0028" ;
+    ex:legalName "Engineering Manager #028" ;
+    ex:badgeNumber "BDG-M-5028" ;
+    ex:specialtyDomain "QUANTUM_SYSTEMS" ;
+    ex:managementLevel 1 ;
+    ex:supervisesStaff ex:staff_055, ex:staff_056 .
+
+ex:mgr_029 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0029" ;
+    ex:legalName "Engineering Manager #029" ;
+    ex:badgeNumber "BDG-M-5029" ;
+    ex:specialtyDomain "DATA_PLATFORM" ;
+    ex:managementLevel 2 ;
+    ex:supervisesStaff ex:staff_057, ex:staff_058 .
+
+ex:mgr_030 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0030" ;
+    ex:legalName "Engineering Manager #030" ;
+    ex:badgeNumber "BDG-M-5030" ;
+    ex:specialtyDomain "AI_RESEARCH" ;
+    ex:managementLevel 3 ;
+    ex:supervisesStaff ex:staff_059, ex:staff_060 .
+
+ex:mgr_031 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0031" ;
+    ex:legalName "Engineering Manager #031" ;
+    ex:badgeNumber "BDG-M-5031" ;
+    ex:specialtyDomain "CLOUD_INFRA" ;
+    ex:managementLevel 4 ;
+    ex:supervisesStaff ex:staff_061, ex:staff_062 .
+
+ex:mgr_032 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0032" ;
+    ex:legalName "Engineering Manager #032" ;
+    ex:badgeNumber "BDG-M-5032" ;
+    ex:specialtyDomain "SECURITY_OPS" ;
+    ex:managementLevel 1 ;
+    ex:supervisesStaff ex:staff_063, ex:staff_064 .
+
+ex:mgr_033 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0033" ;
+    ex:legalName "Engineering Manager #033" ;
+    ex:badgeNumber "BDG-M-5033" ;
+    ex:specialtyDomain "QUANTUM_SYSTEMS" ;
+    ex:managementLevel 2 ;
+    ex:supervisesStaff ex:staff_065, ex:staff_066 .
+
+ex:mgr_034 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0034" ;
+    ex:legalName "Engineering Manager #034" ;
+    ex:badgeNumber "BDG-M-5034" ;
+    ex:specialtyDomain "DATA_PLATFORM" ;
+    ex:managementLevel 3 ;
+    ex:supervisesStaff ex:staff_067, ex:staff_068 .
+
+ex:mgr_035 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0035" ;
+    ex:legalName "Engineering Manager #035" ;
+    ex:badgeNumber "BDG-M-5035" ;
+    ex:specialtyDomain "AI_RESEARCH" ;
+    ex:managementLevel 4 ;
+    ex:supervisesStaff ex:staff_069, ex:staff_070 .
+
+ex:mgr_036 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0036" ;
+    ex:legalName "Engineering Manager #036" ;
+    ex:badgeNumber "BDG-M-5036" ;
+    ex:specialtyDomain "CLOUD_INFRA" ;
+    ex:managementLevel 1 ;
+    ex:supervisesStaff ex:staff_071, ex:staff_072 .
+
+ex:mgr_037 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0037" ;
+    ex:legalName "Engineering Manager #037" ;
+    ex:badgeNumber "BDG-M-5037" ;
+    ex:specialtyDomain "SECURITY_OPS" ;
+    ex:managementLevel 2 ;
+    ex:supervisesStaff ex:staff_073, ex:staff_074 .
+
+ex:mgr_038 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0038" ;
+    ex:legalName "Engineering Manager #038" ;
+    ex:badgeNumber "BDG-M-5038" ;
+    ex:specialtyDomain "QUANTUM_SYSTEMS" ;
+    ex:managementLevel 3 ;
+    ex:supervisesStaff ex:staff_075, ex:staff_076 .
+
+ex:mgr_039 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0039" ;
+    ex:legalName "Engineering Manager #039" ;
+    ex:badgeNumber "BDG-M-5039" ;
+    ex:specialtyDomain "DATA_PLATFORM" ;
+    ex:managementLevel 4 ;
+    ex:supervisesStaff ex:staff_077, ex:staff_078 .
+
+ex:mgr_040 a ex:Manager ;
+    ex:entityIdentifier "ENT-MGR-0040" ;
+    ex:legalName "Engineering Manager #040" ;
+    ex:badgeNumber "BDG-M-5040" ;
+    ex:specialtyDomain "AI_RESEARCH" ;
+    ex:managementLevel 1 ;
+    ex:supervisesStaff ex:staff_079, ex:staff_080 .
+
+ex:asset_001 a ex:DigitalAsset ;
+    ex:appraisalValue 26000.00 .
+
+ex:asset_002 a ex:DigitalAsset ;
+    ex:appraisalValue 280000.00 .
+
+ex:asset_003 a ex:DigitalAsset ;
+    ex:appraisalValue 28000.00 .
+
+ex:asset_004 a ex:DigitalAsset ;
+    ex:appraisalValue 310000.00 .
+
+ex:asset_005 a ex:DigitalAsset ;
+    ex:appraisalValue 30000.00 .
+
+ex:asset_006 a ex:DigitalAsset ;
+    ex:appraisalValue 340000.00 .
+
+ex:asset_007 a ex:DigitalAsset ;
+    ex:appraisalValue 32000.00 .
+
+ex:asset_008 a ex:DigitalAsset ;
+    ex:appraisalValue 370000.00 .
+
+ex:asset_009 a ex:DigitalAsset ;
+    ex:appraisalValue 34000.00 .
+
+ex:asset_010 a ex:DigitalAsset ;
+    ex:appraisalValue 400000.00 .
+
+ex:asset_011 a ex:DigitalAsset ;
+    ex:appraisalValue 36000.00 .
+
+ex:asset_012 a ex:DigitalAsset ;
+    ex:appraisalValue 430000.00 .
+
+ex:asset_013 a ex:DigitalAsset ;
+    ex:appraisalValue 38000.00 .
+
+ex:asset_014 a ex:DigitalAsset ;
+    ex:appraisalValue 460000.00 .
+
+ex:asset_015 a ex:DigitalAsset ;
+    ex:appraisalValue 40000.00 .
+
+ex:asset_016 a ex:DigitalAsset ;
+    ex:appraisalValue 490000.00 .
+
+ex:asset_017 a ex:DigitalAsset ;
+    ex:appraisalValue 42000.00 .
+
+ex:asset_018 a ex:DigitalAsset ;
+    ex:appraisalValue 520000.00 .
+
+ex:asset_019 a ex:DigitalAsset ;
+    ex:appraisalValue 44000.00 .
+
+ex:asset_020 a ex:DigitalAsset ;
+    ex:appraisalValue 550000.00 .
+
+ex:asset_021 a ex:DigitalAsset ;
+    ex:appraisalValue 46000.00 .
+
+ex:asset_022 a ex:DigitalAsset ;
+    ex:appraisalValue 580000.00 .
+
+ex:asset_023 a ex:DigitalAsset ;
+    ex:appraisalValue 48000.00 .
+
+ex:asset_024 a ex:DigitalAsset ;
+    ex:appraisalValue 610000.00 .
+
+ex:asset_025 a ex:DigitalAsset ;
+    ex:appraisalValue 50000.00 .
+
+ex:asset_026 a ex:DigitalAsset ;
+    ex:appraisalValue 640000.00 .
+
+ex:asset_027 a ex:DigitalAsset ;
+    ex:appraisalValue 52000.00 .
+
+ex:asset_028 a ex:DigitalAsset ;
+    ex:appraisalValue 670000.00 .
+
+ex:asset_029 a ex:DigitalAsset ;
+    ex:appraisalValue 54000.00 .
+
+ex:asset_030 a ex:DigitalAsset ;
+    ex:appraisalValue 700000.00 .
+
+ex:asset_031 a ex:DigitalAsset ;
+    ex:appraisalValue 56000.00 .
+
+ex:asset_032 a ex:DigitalAsset ;
+    ex:appraisalValue 730000.00 .
+
+ex:asset_033 a ex:DigitalAsset ;
+    ex:appraisalValue 58000.00 .
+
+ex:asset_034 a ex:DigitalAsset ;
+    ex:appraisalValue 760000.00 .
+
+ex:asset_035 a ex:DigitalAsset ;
+    ex:appraisalValue 60000.00 .
+
+ex:asset_036 a ex:DigitalAsset ;
+    ex:appraisalValue 790000.00 .
+
+ex:asset_037 a ex:DigitalAsset ;
+    ex:appraisalValue 62000.00 .
+
+ex:asset_038 a ex:DigitalAsset ;
+    ex:appraisalValue 820000.00 .
+
+ex:asset_039 a ex:DigitalAsset ;
+    ex:appraisalValue 64000.00 .
+
+ex:asset_040 a ex:DigitalAsset ;
+    ex:appraisalValue 850000.00 .
+
+ex:asset_041 a ex:DigitalAsset ;
+    ex:appraisalValue 66000.00 .
+
+ex:asset_042 a ex:DigitalAsset ;
+    ex:appraisalValue 880000.00 .
+
+ex:asset_043 a ex:DigitalAsset ;
+    ex:appraisalValue 68000.00 .
+
+ex:asset_044 a ex:DigitalAsset ;
+    ex:appraisalValue 910000.00 .
+
+ex:asset_045 a ex:DigitalAsset ;
+    ex:appraisalValue 70000.00 .
+
+ex:asset_046 a ex:DigitalAsset ;
+    ex:appraisalValue 940000.00 .
+
+ex:asset_047 a ex:DigitalAsset ;
+    ex:appraisalValue 72000.00 .
+
+ex:asset_048 a ex:DigitalAsset ;
+    ex:appraisalValue 970000.00 .
+
+ex:asset_049 a ex:DigitalAsset ;
+    ex:appraisalValue 74000.00 .
+
+ex:asset_050 a ex:DigitalAsset ;
+    ex:appraisalValue 1000000.00 .
+
+ex:asset_051 a ex:DigitalAsset ;
+    ex:appraisalValue 76000.00 .
+
+ex:asset_052 a ex:DigitalAsset ;
+    ex:appraisalValue 1030000.00 .
+
+ex:asset_053 a ex:DigitalAsset ;
+    ex:appraisalValue 78000.00 .
+
+ex:asset_054 a ex:DigitalAsset ;
+    ex:appraisalValue 1060000.00 .
+
+ex:asset_055 a ex:DigitalAsset ;
+    ex:appraisalValue 80000.00 .
+
+ex:asset_056 a ex:DigitalAsset ;
+    ex:appraisalValue 1090000.00 .
+
+ex:asset_057 a ex:DigitalAsset ;
+    ex:appraisalValue 82000.00 .
+
+ex:asset_058 a ex:DigitalAsset ;
+    ex:appraisalValue 1120000.00 .
+
+ex:asset_059 a ex:DigitalAsset ;
+    ex:appraisalValue 84000.00 .
+
+ex:asset_060 a ex:DigitalAsset ;
+    ex:appraisalValue 1150000.00 .

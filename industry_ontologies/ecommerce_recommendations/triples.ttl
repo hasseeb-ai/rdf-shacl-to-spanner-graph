@@ -1,0 +1,1851 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/ecommerce/> .
+
+# ABox Instance Triples for ecommerce_recommendations
+
+ex:cat_001 a ex:Category ;
+    ex:categoryName "Catalog Category #001" .
+
+ex:cat_002 a ex:Category ;
+    ex:categoryName "Catalog Category #002" .
+
+ex:cat_003 a ex:Category ;
+    ex:categoryName "Catalog Category #003" .
+
+ex:cat_004 a ex:Category ;
+    ex:categoryName "Catalog Category #004" .
+
+ex:cat_005 a ex:Category ;
+    ex:categoryName "Catalog Category #005" .
+
+ex:cat_006 a ex:Category ;
+    ex:categoryName "Catalog Category #006" ;
+    ex:subCategoryOf ex:cat_001 .
+
+ex:cat_001 ex:parentCategoryOf ex:cat_006 .
+
+ex:cat_007 a ex:Category ;
+    ex:categoryName "Catalog Category #007" ;
+    ex:subCategoryOf ex:cat_002 .
+
+ex:cat_002 ex:parentCategoryOf ex:cat_007 .
+
+ex:cat_008 a ex:Category ;
+    ex:categoryName "Catalog Category #008" ;
+    ex:subCategoryOf ex:cat_003 .
+
+ex:cat_003 ex:parentCategoryOf ex:cat_008 .
+
+ex:cat_009 a ex:Category ;
+    ex:categoryName "Catalog Category #009" ;
+    ex:subCategoryOf ex:cat_004 .
+
+ex:cat_004 ex:parentCategoryOf ex:cat_009 .
+
+ex:cat_010 a ex:Category ;
+    ex:categoryName "Catalog Category #010" ;
+    ex:subCategoryOf ex:cat_005 .
+
+ex:cat_005 ex:parentCategoryOf ex:cat_010 .
+
+ex:cat_011 a ex:Category ;
+    ex:categoryName "Catalog Category #011" ;
+    ex:subCategoryOf ex:cat_001 .
+
+ex:cat_001 ex:parentCategoryOf ex:cat_011 .
+
+ex:cat_012 a ex:Category ;
+    ex:categoryName "Catalog Category #012" ;
+    ex:subCategoryOf ex:cat_002 .
+
+ex:cat_002 ex:parentCategoryOf ex:cat_012 .
+
+ex:cat_013 a ex:Category ;
+    ex:categoryName "Catalog Category #013" ;
+    ex:subCategoryOf ex:cat_003 .
+
+ex:cat_003 ex:parentCategoryOf ex:cat_013 .
+
+ex:cat_014 a ex:Category ;
+    ex:categoryName "Catalog Category #014" ;
+    ex:subCategoryOf ex:cat_004 .
+
+ex:cat_004 ex:parentCategoryOf ex:cat_014 .
+
+ex:cat_015 a ex:Category ;
+    ex:categoryName "Catalog Category #015" ;
+    ex:subCategoryOf ex:cat_005 .
+
+ex:cat_005 ex:parentCategoryOf ex:cat_015 .
+
+ex:cat_016 a ex:Category ;
+    ex:categoryName "Catalog Category #016" ;
+    ex:subCategoryOf ex:cat_006 .
+
+ex:cat_006 ex:parentCategoryOf ex:cat_016 .
+
+ex:cat_017 a ex:Category ;
+    ex:categoryName "Catalog Category #017" ;
+    ex:subCategoryOf ex:cat_007 .
+
+ex:cat_007 ex:parentCategoryOf ex:cat_017 .
+
+ex:cat_018 a ex:Category ;
+    ex:categoryName "Catalog Category #018" ;
+    ex:subCategoryOf ex:cat_008 .
+
+ex:cat_008 ex:parentCategoryOf ex:cat_018 .
+
+ex:cat_019 a ex:Category ;
+    ex:categoryName "Catalog Category #019" ;
+    ex:subCategoryOf ex:cat_009 .
+
+ex:cat_009 ex:parentCategoryOf ex:cat_019 .
+
+ex:cat_020 a ex:Category ;
+    ex:categoryName "Catalog Category #020" ;
+    ex:subCategoryOf ex:cat_010 .
+
+ex:cat_010 ex:parentCategoryOf ex:cat_020 .
+
+ex:cat_021 a ex:Category ;
+    ex:categoryName "Catalog Category #021" ;
+    ex:subCategoryOf ex:cat_011 .
+
+ex:cat_011 ex:parentCategoryOf ex:cat_021 .
+
+ex:cat_022 a ex:Category ;
+    ex:categoryName "Catalog Category #022" ;
+    ex:subCategoryOf ex:cat_012 .
+
+ex:cat_012 ex:parentCategoryOf ex:cat_022 .
+
+ex:cat_023 a ex:Category ;
+    ex:categoryName "Catalog Category #023" ;
+    ex:subCategoryOf ex:cat_013 .
+
+ex:cat_013 ex:parentCategoryOf ex:cat_023 .
+
+ex:cat_024 a ex:Category ;
+    ex:categoryName "Catalog Category #024" ;
+    ex:subCategoryOf ex:cat_014 .
+
+ex:cat_014 ex:parentCategoryOf ex:cat_024 .
+
+ex:cat_025 a ex:Category ;
+    ex:categoryName "Catalog Category #025" ;
+    ex:subCategoryOf ex:cat_015 .
+
+ex:cat_015 ex:parentCategoryOf ex:cat_025 .
+
+ex:cust_001 a ex:Customer ;
+    ex:userId "USR-CUST-0001" ;
+    ex:userName "Shopper #001" .
+
+ex:cust_002 a ex:Customer ;
+    ex:userId "USR-CUST-0002" ;
+    ex:userName "Shopper #002" .
+
+ex:cust_003 a ex:Customer ;
+    ex:userId "USR-CUST-0003" ;
+    ex:userName "Shopper #003" .
+
+ex:cust_004 a ex:Customer ;
+    ex:userId "USR-CUST-0004" ;
+    ex:userName "Shopper #004" .
+
+ex:cust_005 a ex:Customer ;
+    ex:userId "USR-CUST-0005" ;
+    ex:userName "Shopper #005" .
+
+ex:cust_006 a ex:Customer ;
+    ex:userId "USR-CUST-0006" ;
+    ex:userName "Shopper #006" .
+
+ex:cust_007 a ex:Customer ;
+    ex:userId "USR-CUST-0007" ;
+    ex:userName "Shopper #007" .
+
+ex:cust_008 a ex:Customer ;
+    ex:userId "USR-CUST-0008" ;
+    ex:userName "Shopper #008" .
+
+ex:cust_009 a ex:Customer ;
+    ex:userId "USR-CUST-0009" ;
+    ex:userName "Shopper #009" .
+
+ex:cust_010 a ex:Customer ;
+    ex:userId "USR-CUST-0010" ;
+    ex:userName "Shopper #010" .
+
+ex:cust_011 a ex:Customer ;
+    ex:userId "USR-CUST-0011" ;
+    ex:userName "Shopper #011" .
+
+ex:cust_012 a ex:Customer ;
+    ex:userId "USR-CUST-0012" ;
+    ex:userName "Shopper #012" .
+
+ex:cust_013 a ex:Customer ;
+    ex:userId "USR-CUST-0013" ;
+    ex:userName "Shopper #013" .
+
+ex:cust_014 a ex:Customer ;
+    ex:userId "USR-CUST-0014" ;
+    ex:userName "Shopper #014" .
+
+ex:cust_015 a ex:Customer ;
+    ex:userId "USR-CUST-0015" ;
+    ex:userName "Shopper #015" .
+
+ex:cust_016 a ex:Customer ;
+    ex:userId "USR-CUST-0016" ;
+    ex:userName "Shopper #016" .
+
+ex:cust_017 a ex:Customer ;
+    ex:userId "USR-CUST-0017" ;
+    ex:userName "Shopper #017" .
+
+ex:cust_018 a ex:Customer ;
+    ex:userId "USR-CUST-0018" ;
+    ex:userName "Shopper #018" .
+
+ex:cust_019 a ex:Customer ;
+    ex:userId "USR-CUST-0019" ;
+    ex:userName "Shopper #019" .
+
+ex:cust_020 a ex:Customer ;
+    ex:userId "USR-CUST-0020" ;
+    ex:userName "Shopper #020" .
+
+ex:cust_021 a ex:Customer ;
+    ex:userId "USR-CUST-0021" ;
+    ex:userName "Shopper #021" .
+
+ex:cust_022 a ex:Customer ;
+    ex:userId "USR-CUST-0022" ;
+    ex:userName "Shopper #022" .
+
+ex:cust_023 a ex:Customer ;
+    ex:userId "USR-CUST-0023" ;
+    ex:userName "Shopper #023" .
+
+ex:cust_024 a ex:Customer ;
+    ex:userId "USR-CUST-0024" ;
+    ex:userName "Shopper #024" .
+
+ex:cust_025 a ex:Customer ;
+    ex:userId "USR-CUST-0025" ;
+    ex:userName "Shopper #025" .
+
+ex:cust_026 a ex:Customer ;
+    ex:userId "USR-CUST-0026" ;
+    ex:userName "Shopper #026" .
+
+ex:cust_027 a ex:Customer ;
+    ex:userId "USR-CUST-0027" ;
+    ex:userName "Shopper #027" .
+
+ex:cust_028 a ex:Customer ;
+    ex:userId "USR-CUST-0028" ;
+    ex:userName "Shopper #028" .
+
+ex:cust_029 a ex:Customer ;
+    ex:userId "USR-CUST-0029" ;
+    ex:userName "Shopper #029" .
+
+ex:cust_030 a ex:Customer ;
+    ex:userId "USR-CUST-0030" ;
+    ex:userName "Shopper #030" .
+
+ex:cust_031 a ex:Customer ;
+    ex:userId "USR-CUST-0031" ;
+    ex:userName "Shopper #031" .
+
+ex:cust_032 a ex:Customer ;
+    ex:userId "USR-CUST-0032" ;
+    ex:userName "Shopper #032" .
+
+ex:cust_033 a ex:Customer ;
+    ex:userId "USR-CUST-0033" ;
+    ex:userName "Shopper #033" .
+
+ex:cust_034 a ex:Customer ;
+    ex:userId "USR-CUST-0034" ;
+    ex:userName "Shopper #034" .
+
+ex:cust_035 a ex:Customer ;
+    ex:userId "USR-CUST-0035" ;
+    ex:userName "Shopper #035" .
+
+ex:cust_036 a ex:Customer ;
+    ex:userId "USR-CUST-0036" ;
+    ex:userName "Shopper #036" .
+
+ex:cust_037 a ex:Customer ;
+    ex:userId "USR-CUST-0037" ;
+    ex:userName "Shopper #037" .
+
+ex:cust_038 a ex:Customer ;
+    ex:userId "USR-CUST-0038" ;
+    ex:userName "Shopper #038" .
+
+ex:cust_039 a ex:Customer ;
+    ex:userId "USR-CUST-0039" ;
+    ex:userName "Shopper #039" .
+
+ex:cust_040 a ex:Customer ;
+    ex:userId "USR-CUST-0040" ;
+    ex:userName "Shopper #040" .
+
+ex:cust_041 a ex:Customer ;
+    ex:userId "USR-CUST-0041" ;
+    ex:userName "Shopper #041" .
+
+ex:cust_042 a ex:Customer ;
+    ex:userId "USR-CUST-0042" ;
+    ex:userName "Shopper #042" .
+
+ex:cust_043 a ex:Customer ;
+    ex:userId "USR-CUST-0043" ;
+    ex:userName "Shopper #043" .
+
+ex:cust_044 a ex:Customer ;
+    ex:userId "USR-CUST-0044" ;
+    ex:userName "Shopper #044" .
+
+ex:cust_045 a ex:Customer ;
+    ex:userId "USR-CUST-0045" ;
+    ex:userName "Shopper #045" .
+
+ex:cust_046 a ex:Customer ;
+    ex:userId "USR-CUST-0046" ;
+    ex:userName "Shopper #046" .
+
+ex:cust_047 a ex:Customer ;
+    ex:userId "USR-CUST-0047" ;
+    ex:userName "Shopper #047" .
+
+ex:cust_048 a ex:Customer ;
+    ex:userId "USR-CUST-0048" ;
+    ex:userName "Shopper #048" .
+
+ex:cust_049 a ex:Customer ;
+    ex:userId "USR-CUST-0049" ;
+    ex:userName "Shopper #049" .
+
+ex:cust_050 a ex:Customer ;
+    ex:userId "USR-CUST-0050" ;
+    ex:userName "Shopper #050" .
+
+ex:merch_001 a ex:Merchant ;
+    ex:userId "USR-MERCH-0001" ;
+    ex:userName "Marketplace Seller #001" .
+
+ex:merch_002 a ex:Merchant ;
+    ex:userId "USR-MERCH-0002" ;
+    ex:userName "Marketplace Seller #002" .
+
+ex:merch_003 a ex:Merchant ;
+    ex:userId "USR-MERCH-0003" ;
+    ex:userName "Marketplace Seller #003" .
+
+ex:merch_004 a ex:Merchant ;
+    ex:userId "USR-MERCH-0004" ;
+    ex:userName "Marketplace Seller #004" .
+
+ex:merch_005 a ex:Merchant ;
+    ex:userId "USR-MERCH-0005" ;
+    ex:userName "Marketplace Seller #005" .
+
+ex:merch_006 a ex:Merchant ;
+    ex:userId "USR-MERCH-0006" ;
+    ex:userName "Marketplace Seller #006" .
+
+ex:merch_007 a ex:Merchant ;
+    ex:userId "USR-MERCH-0007" ;
+    ex:userName "Marketplace Seller #007" .
+
+ex:merch_008 a ex:Merchant ;
+    ex:userId "USR-MERCH-0008" ;
+    ex:userName "Marketplace Seller #008" .
+
+ex:merch_009 a ex:Merchant ;
+    ex:userId "USR-MERCH-0009" ;
+    ex:userName "Marketplace Seller #009" .
+
+ex:merch_010 a ex:Merchant ;
+    ex:userId "USR-MERCH-0010" ;
+    ex:userName "Marketplace Seller #010" .
+
+ex:merch_011 a ex:Merchant ;
+    ex:userId "USR-MERCH-0011" ;
+    ex:userName "Marketplace Seller #011" .
+
+ex:merch_012 a ex:Merchant ;
+    ex:userId "USR-MERCH-0012" ;
+    ex:userName "Marketplace Seller #012" .
+
+ex:merch_013 a ex:Merchant ;
+    ex:userId "USR-MERCH-0013" ;
+    ex:userName "Marketplace Seller #013" .
+
+ex:merch_014 a ex:Merchant ;
+    ex:userId "USR-MERCH-0014" ;
+    ex:userName "Marketplace Seller #014" .
+
+ex:merch_015 a ex:Merchant ;
+    ex:userId "USR-MERCH-0015" ;
+    ex:userName "Marketplace Seller #015" .
+
+ex:merch_016 a ex:Merchant ;
+    ex:userId "USR-MERCH-0016" ;
+    ex:userName "Marketplace Seller #016" .
+
+ex:merch_017 a ex:Merchant ;
+    ex:userId "USR-MERCH-0017" ;
+    ex:userName "Marketplace Seller #017" .
+
+ex:merch_018 a ex:Merchant ;
+    ex:userId "USR-MERCH-0018" ;
+    ex:userName "Marketplace Seller #018" .
+
+ex:merch_019 a ex:Merchant ;
+    ex:userId "USR-MERCH-0019" ;
+    ex:userName "Marketplace Seller #019" .
+
+ex:merch_020 a ex:Merchant ;
+    ex:userId "USR-MERCH-0020" ;
+    ex:userName "Marketplace Seller #020" .
+
+ex:book_001 a ex:Book ;
+    ex:productPrice 22.49 ;
+    ex:hasCategory ex:cat_001 .
+
+ex:book_002 a ex:Book ;
+    ex:productPrice 24.99 ;
+    ex:hasCategory ex:cat_002 .
+
+ex:book_003 a ex:Book ;
+    ex:productPrice 27.49 ;
+    ex:hasCategory ex:cat_003 .
+
+ex:book_004 a ex:Book ;
+    ex:productPrice 29.99 ;
+    ex:hasCategory ex:cat_004 .
+
+ex:book_005 a ex:Book ;
+    ex:productPrice 32.49 ;
+    ex:hasCategory ex:cat_005 .
+
+ex:book_006 a ex:Book ;
+    ex:productPrice 34.99 ;
+    ex:hasCategory ex:cat_006 .
+
+ex:book_007 a ex:Book ;
+    ex:productPrice 37.49 ;
+    ex:hasCategory ex:cat_007 .
+
+ex:book_008 a ex:Book ;
+    ex:productPrice 39.99 ;
+    ex:hasCategory ex:cat_008 .
+
+ex:book_009 a ex:Book ;
+    ex:productPrice 42.49 ;
+    ex:hasCategory ex:cat_009 .
+
+ex:book_010 a ex:Book ;
+    ex:productPrice 44.99 ;
+    ex:hasCategory ex:cat_010 .
+
+ex:book_011 a ex:Book ;
+    ex:productPrice 47.49 ;
+    ex:hasCategory ex:cat_011 .
+
+ex:book_012 a ex:Book ;
+    ex:productPrice 49.99 ;
+    ex:hasCategory ex:cat_012 .
+
+ex:book_013 a ex:Book ;
+    ex:productPrice 52.49 ;
+    ex:hasCategory ex:cat_013 .
+
+ex:book_014 a ex:Book ;
+    ex:productPrice 54.99 ;
+    ex:hasCategory ex:cat_014 .
+
+ex:book_015 a ex:Book ;
+    ex:productPrice 57.49 ;
+    ex:hasCategory ex:cat_015 .
+
+ex:book_016 a ex:Book ;
+    ex:productPrice 59.99 ;
+    ex:hasCategory ex:cat_016 .
+
+ex:book_017 a ex:Book ;
+    ex:productPrice 62.49 ;
+    ex:hasCategory ex:cat_017 .
+
+ex:book_018 a ex:Book ;
+    ex:productPrice 64.99 ;
+    ex:hasCategory ex:cat_018 .
+
+ex:book_019 a ex:Book ;
+    ex:productPrice 67.49 ;
+    ex:hasCategory ex:cat_019 .
+
+ex:book_020 a ex:Book ;
+    ex:productPrice 69.99 ;
+    ex:hasCategory ex:cat_020 .
+
+ex:book_021 a ex:Book ;
+    ex:productPrice 72.49 ;
+    ex:hasCategory ex:cat_021 .
+
+ex:book_022 a ex:Book ;
+    ex:productPrice 74.99 ;
+    ex:hasCategory ex:cat_022 .
+
+ex:book_023 a ex:Book ;
+    ex:productPrice 77.49 ;
+    ex:hasCategory ex:cat_023 .
+
+ex:book_024 a ex:Book ;
+    ex:productPrice 79.99 ;
+    ex:hasCategory ex:cat_024 .
+
+ex:book_025 a ex:Book ;
+    ex:productPrice 82.49 ;
+    ex:hasCategory ex:cat_025 .
+
+ex:book_026 a ex:Book ;
+    ex:productPrice 84.99 ;
+    ex:hasCategory ex:cat_001 .
+
+ex:book_027 a ex:Book ;
+    ex:productPrice 87.49 ;
+    ex:hasCategory ex:cat_002 .
+
+ex:book_028 a ex:Book ;
+    ex:productPrice 89.99 ;
+    ex:hasCategory ex:cat_003 .
+
+ex:book_029 a ex:Book ;
+    ex:productPrice 92.49 ;
+    ex:hasCategory ex:cat_004 .
+
+ex:book_030 a ex:Book ;
+    ex:productPrice 94.99 ;
+    ex:hasCategory ex:cat_005 .
+
+ex:book_031 a ex:Book ;
+    ex:productPrice 97.49 ;
+    ex:hasCategory ex:cat_006 .
+
+ex:book_032 a ex:Book ;
+    ex:productPrice 99.99 ;
+    ex:hasCategory ex:cat_007 .
+
+ex:book_033 a ex:Book ;
+    ex:productPrice 102.49 ;
+    ex:hasCategory ex:cat_008 .
+
+ex:book_034 a ex:Book ;
+    ex:productPrice 104.99 ;
+    ex:hasCategory ex:cat_009 .
+
+ex:book_035 a ex:Book ;
+    ex:productPrice 107.49 ;
+    ex:hasCategory ex:cat_010 .
+
+ex:elec_001 a ex:Electronics ;
+    ex:productPrice 164.99 ;
+    ex:hasCategory ex:cat_007 ;
+    ex:frequentlyBoughtWith ex:book_001 .
+
+ex:elec_002 a ex:Electronics ;
+    ex:productPrice 179.99 ;
+    ex:hasCategory ex:cat_008 ;
+    ex:frequentlyBoughtWith ex:book_002 .
+
+ex:elec_003 a ex:Electronics ;
+    ex:productPrice 194.99 ;
+    ex:hasCategory ex:cat_009 ;
+    ex:frequentlyBoughtWith ex:book_003 .
+
+ex:elec_004 a ex:Electronics ;
+    ex:productPrice 209.99 ;
+    ex:hasCategory ex:cat_010 ;
+    ex:frequentlyBoughtWith ex:book_004 .
+
+ex:elec_005 a ex:Electronics ;
+    ex:productPrice 224.99 ;
+    ex:hasCategory ex:cat_011 ;
+    ex:frequentlyBoughtWith ex:book_005 .
+
+ex:elec_006 a ex:Electronics ;
+    ex:productPrice 239.99 ;
+    ex:hasCategory ex:cat_012 ;
+    ex:frequentlyBoughtWith ex:book_006 .
+
+ex:elec_007 a ex:Electronics ;
+    ex:productPrice 254.99 ;
+    ex:hasCategory ex:cat_013 ;
+    ex:frequentlyBoughtWith ex:book_007 .
+
+ex:elec_008 a ex:Electronics ;
+    ex:productPrice 269.99 ;
+    ex:hasCategory ex:cat_014 ;
+    ex:frequentlyBoughtWith ex:book_008 .
+
+ex:elec_009 a ex:Electronics ;
+    ex:productPrice 284.99 ;
+    ex:hasCategory ex:cat_015 ;
+    ex:frequentlyBoughtWith ex:book_009 .
+
+ex:elec_010 a ex:Electronics ;
+    ex:productPrice 299.99 ;
+    ex:hasCategory ex:cat_016 ;
+    ex:frequentlyBoughtWith ex:book_010 .
+
+ex:elec_011 a ex:Electronics ;
+    ex:productPrice 314.99 ;
+    ex:hasCategory ex:cat_017 ;
+    ex:frequentlyBoughtWith ex:book_011 .
+
+ex:elec_012 a ex:Electronics ;
+    ex:productPrice 329.99 ;
+    ex:hasCategory ex:cat_018 ;
+    ex:frequentlyBoughtWith ex:book_012 .
+
+ex:elec_013 a ex:Electronics ;
+    ex:productPrice 344.99 ;
+    ex:hasCategory ex:cat_019 ;
+    ex:frequentlyBoughtWith ex:book_013 .
+
+ex:elec_014 a ex:Electronics ;
+    ex:productPrice 359.99 ;
+    ex:hasCategory ex:cat_020 ;
+    ex:frequentlyBoughtWith ex:book_014 .
+
+ex:elec_015 a ex:Electronics ;
+    ex:productPrice 374.99 ;
+    ex:hasCategory ex:cat_021 ;
+    ex:frequentlyBoughtWith ex:book_015 .
+
+ex:elec_016 a ex:Electronics ;
+    ex:productPrice 389.99 ;
+    ex:hasCategory ex:cat_022 ;
+    ex:frequentlyBoughtWith ex:book_016 .
+
+ex:elec_017 a ex:Electronics ;
+    ex:productPrice 404.99 ;
+    ex:hasCategory ex:cat_023 ;
+    ex:frequentlyBoughtWith ex:book_017 .
+
+ex:elec_018 a ex:Electronics ;
+    ex:productPrice 419.99 ;
+    ex:hasCategory ex:cat_024 ;
+    ex:frequentlyBoughtWith ex:book_018 .
+
+ex:elec_019 a ex:Electronics ;
+    ex:productPrice 434.99 ;
+    ex:hasCategory ex:cat_025 ;
+    ex:frequentlyBoughtWith ex:book_019 .
+
+ex:elec_020 a ex:Electronics ;
+    ex:productPrice 449.99 ;
+    ex:hasCategory ex:cat_001 ;
+    ex:frequentlyBoughtWith ex:book_020 .
+
+ex:elec_021 a ex:Electronics ;
+    ex:productPrice 464.99 ;
+    ex:hasCategory ex:cat_002 ;
+    ex:frequentlyBoughtWith ex:book_021 .
+
+ex:elec_022 a ex:Electronics ;
+    ex:productPrice 479.99 ;
+    ex:hasCategory ex:cat_003 ;
+    ex:frequentlyBoughtWith ex:book_022 .
+
+ex:elec_023 a ex:Electronics ;
+    ex:productPrice 494.99 ;
+    ex:hasCategory ex:cat_004 ;
+    ex:frequentlyBoughtWith ex:book_023 .
+
+ex:elec_024 a ex:Electronics ;
+    ex:productPrice 509.99 ;
+    ex:hasCategory ex:cat_005 ;
+    ex:frequentlyBoughtWith ex:book_024 .
+
+ex:elec_025 a ex:Electronics ;
+    ex:productPrice 524.99 ;
+    ex:hasCategory ex:cat_006 ;
+    ex:frequentlyBoughtWith ex:book_025 .
+
+ex:elec_026 a ex:Electronics ;
+    ex:productPrice 539.99 ;
+    ex:hasCategory ex:cat_007 ;
+    ex:frequentlyBoughtWith ex:book_026 .
+
+ex:elec_027 a ex:Electronics ;
+    ex:productPrice 554.99 ;
+    ex:hasCategory ex:cat_008 ;
+    ex:frequentlyBoughtWith ex:book_027 .
+
+ex:elec_028 a ex:Electronics ;
+    ex:productPrice 569.99 ;
+    ex:hasCategory ex:cat_009 ;
+    ex:frequentlyBoughtWith ex:book_028 .
+
+ex:elec_029 a ex:Electronics ;
+    ex:productPrice 584.99 ;
+    ex:hasCategory ex:cat_010 ;
+    ex:frequentlyBoughtWith ex:book_029 .
+
+ex:elec_030 a ex:Electronics ;
+    ex:productPrice 599.99 ;
+    ex:hasCategory ex:cat_011 ;
+    ex:frequentlyBoughtWith ex:book_030 .
+
+ex:elec_031 a ex:Electronics ;
+    ex:productPrice 614.99 ;
+    ex:hasCategory ex:cat_012 ;
+    ex:frequentlyBoughtWith ex:book_031 .
+
+ex:elec_032 a ex:Electronics ;
+    ex:productPrice 629.99 ;
+    ex:hasCategory ex:cat_013 ;
+    ex:frequentlyBoughtWith ex:book_032 .
+
+ex:elec_033 a ex:Electronics ;
+    ex:productPrice 644.99 ;
+    ex:hasCategory ex:cat_014 ;
+    ex:frequentlyBoughtWith ex:book_033 .
+
+ex:elec_034 a ex:Electronics ;
+    ex:productPrice 659.99 ;
+    ex:hasCategory ex:cat_015 ;
+    ex:frequentlyBoughtWith ex:book_034 .
+
+ex:elec_035 a ex:Electronics ;
+    ex:productPrice 674.99 ;
+    ex:hasCategory ex:cat_016 ;
+    ex:frequentlyBoughtWith ex:book_035 .
+
+ex:cloth_001 a ex:Clothing ;
+    ex:productPrice 43.99 ;
+    ex:hasCategory ex:cat_012 ;
+    ex:frequentlyBoughtWith ex:elec_001 .
+
+ex:cloth_002 a ex:Clothing ;
+    ex:productPrice 47.99 ;
+    ex:hasCategory ex:cat_013 ;
+    ex:frequentlyBoughtWith ex:elec_002 .
+
+ex:cloth_003 a ex:Clothing ;
+    ex:productPrice 51.99 ;
+    ex:hasCategory ex:cat_014 ;
+    ex:frequentlyBoughtWith ex:elec_003 .
+
+ex:cloth_004 a ex:Clothing ;
+    ex:productPrice 55.99 ;
+    ex:hasCategory ex:cat_015 ;
+    ex:frequentlyBoughtWith ex:elec_004 .
+
+ex:cloth_005 a ex:Clothing ;
+    ex:productPrice 59.99 ;
+    ex:hasCategory ex:cat_016 ;
+    ex:frequentlyBoughtWith ex:elec_005 .
+
+ex:cloth_006 a ex:Clothing ;
+    ex:productPrice 63.99 ;
+    ex:hasCategory ex:cat_017 ;
+    ex:frequentlyBoughtWith ex:elec_006 .
+
+ex:cloth_007 a ex:Clothing ;
+    ex:productPrice 67.99 ;
+    ex:hasCategory ex:cat_018 ;
+    ex:frequentlyBoughtWith ex:elec_007 .
+
+ex:cloth_008 a ex:Clothing ;
+    ex:productPrice 71.99 ;
+    ex:hasCategory ex:cat_019 ;
+    ex:frequentlyBoughtWith ex:elec_008 .
+
+ex:cloth_009 a ex:Clothing ;
+    ex:productPrice 75.99 ;
+    ex:hasCategory ex:cat_020 ;
+    ex:frequentlyBoughtWith ex:elec_009 .
+
+ex:cloth_010 a ex:Clothing ;
+    ex:productPrice 79.99 ;
+    ex:hasCategory ex:cat_021 ;
+    ex:frequentlyBoughtWith ex:elec_010 .
+
+ex:cloth_011 a ex:Clothing ;
+    ex:productPrice 83.99 ;
+    ex:hasCategory ex:cat_022 ;
+    ex:frequentlyBoughtWith ex:elec_011 .
+
+ex:cloth_012 a ex:Clothing ;
+    ex:productPrice 87.99 ;
+    ex:hasCategory ex:cat_023 ;
+    ex:frequentlyBoughtWith ex:elec_012 .
+
+ex:cloth_013 a ex:Clothing ;
+    ex:productPrice 91.99 ;
+    ex:hasCategory ex:cat_024 ;
+    ex:frequentlyBoughtWith ex:elec_013 .
+
+ex:cloth_014 a ex:Clothing ;
+    ex:productPrice 95.99 ;
+    ex:hasCategory ex:cat_025 ;
+    ex:frequentlyBoughtWith ex:elec_014 .
+
+ex:cloth_015 a ex:Clothing ;
+    ex:productPrice 99.99 ;
+    ex:hasCategory ex:cat_001 ;
+    ex:frequentlyBoughtWith ex:elec_015 .
+
+ex:cloth_016 a ex:Clothing ;
+    ex:productPrice 103.99 ;
+    ex:hasCategory ex:cat_002 ;
+    ex:frequentlyBoughtWith ex:elec_016 .
+
+ex:cloth_017 a ex:Clothing ;
+    ex:productPrice 107.99 ;
+    ex:hasCategory ex:cat_003 ;
+    ex:frequentlyBoughtWith ex:elec_017 .
+
+ex:cloth_018 a ex:Clothing ;
+    ex:productPrice 111.99 ;
+    ex:hasCategory ex:cat_004 ;
+    ex:frequentlyBoughtWith ex:elec_018 .
+
+ex:cloth_019 a ex:Clothing ;
+    ex:productPrice 115.99 ;
+    ex:hasCategory ex:cat_005 ;
+    ex:frequentlyBoughtWith ex:elec_019 .
+
+ex:cloth_020 a ex:Clothing ;
+    ex:productPrice 119.99 ;
+    ex:hasCategory ex:cat_006 ;
+    ex:frequentlyBoughtWith ex:elec_020 .
+
+ex:cloth_021 a ex:Clothing ;
+    ex:productPrice 123.99 ;
+    ex:hasCategory ex:cat_007 ;
+    ex:frequentlyBoughtWith ex:elec_021 .
+
+ex:cloth_022 a ex:Clothing ;
+    ex:productPrice 127.99 ;
+    ex:hasCategory ex:cat_008 ;
+    ex:frequentlyBoughtWith ex:elec_022 .
+
+ex:cloth_023 a ex:Clothing ;
+    ex:productPrice 131.99 ;
+    ex:hasCategory ex:cat_009 ;
+    ex:frequentlyBoughtWith ex:elec_023 .
+
+ex:cloth_024 a ex:Clothing ;
+    ex:productPrice 135.99 ;
+    ex:hasCategory ex:cat_010 ;
+    ex:frequentlyBoughtWith ex:elec_024 .
+
+ex:cloth_025 a ex:Clothing ;
+    ex:productPrice 139.99 ;
+    ex:hasCategory ex:cat_011 ;
+    ex:frequentlyBoughtWith ex:elec_025 .
+
+ex:cloth_026 a ex:Clothing ;
+    ex:productPrice 143.99 ;
+    ex:hasCategory ex:cat_012 ;
+    ex:frequentlyBoughtWith ex:elec_026 .
+
+ex:cloth_027 a ex:Clothing ;
+    ex:productPrice 147.99 ;
+    ex:hasCategory ex:cat_013 ;
+    ex:frequentlyBoughtWith ex:elec_027 .
+
+ex:cloth_028 a ex:Clothing ;
+    ex:productPrice 151.99 ;
+    ex:hasCategory ex:cat_014 ;
+    ex:frequentlyBoughtWith ex:elec_028 .
+
+ex:cloth_029 a ex:Clothing ;
+    ex:productPrice 155.99 ;
+    ex:hasCategory ex:cat_015 ;
+    ex:frequentlyBoughtWith ex:elec_029 .
+
+ex:cloth_030 a ex:Clothing ;
+    ex:productPrice 159.99 ;
+    ex:hasCategory ex:cat_016 ;
+    ex:frequentlyBoughtWith ex:elec_030 .
+
+ex:cloth_031 a ex:Clothing ;
+    ex:productPrice 163.99 ;
+    ex:hasCategory ex:cat_017 ;
+    ex:frequentlyBoughtWith ex:elec_031 .
+
+ex:cloth_032 a ex:Clothing ;
+    ex:productPrice 167.99 ;
+    ex:hasCategory ex:cat_018 ;
+    ex:frequentlyBoughtWith ex:elec_032 .
+
+ex:cloth_033 a ex:Clothing ;
+    ex:productPrice 171.99 ;
+    ex:hasCategory ex:cat_019 ;
+    ex:frequentlyBoughtWith ex:elec_033 .
+
+ex:cloth_034 a ex:Clothing ;
+    ex:productPrice 175.99 ;
+    ex:hasCategory ex:cat_020 ;
+    ex:frequentlyBoughtWith ex:elec_034 .
+
+ex:cloth_035 a ex:Clothing ;
+    ex:productPrice 179.99 ;
+    ex:hasCategory ex:cat_021 ;
+    ex:frequentlyBoughtWith ex:elec_035 .
+
+ex:order_001 a ex:Order ;
+    ex:orderId "ORD-2025-00001" ;
+    ex:orderDate "2025-04-02T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_001, ex:elec_002 .
+
+ex:cust_001 ex:placedOrder ex:order_001 .
+
+ex:order_002 a ex:Order ;
+    ex:orderId "ORD-2025-00002" ;
+    ex:orderDate "2025-04-03T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_002, ex:elec_003 .
+
+ex:cust_002 ex:placedOrder ex:order_002 .
+
+ex:order_003 a ex:Order ;
+    ex:orderId "ORD-2025-00003" ;
+    ex:orderDate "2025-04-04T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_003, ex:elec_004 .
+
+ex:cust_003 ex:placedOrder ex:order_003 .
+
+ex:order_004 a ex:Order ;
+    ex:orderId "ORD-2025-00004" ;
+    ex:orderDate "2025-04-05T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_004, ex:elec_005 .
+
+ex:cust_004 ex:placedOrder ex:order_004 .
+
+ex:order_005 a ex:Order ;
+    ex:orderId "ORD-2025-00005" ;
+    ex:orderDate "2025-04-06T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_005, ex:elec_006 .
+
+ex:cust_005 ex:placedOrder ex:order_005 .
+
+ex:order_006 a ex:Order ;
+    ex:orderId "ORD-2025-00006" ;
+    ex:orderDate "2025-04-07T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_006, ex:elec_007 .
+
+ex:cust_006 ex:placedOrder ex:order_006 .
+
+ex:order_007 a ex:Order ;
+    ex:orderId "ORD-2025-00007" ;
+    ex:orderDate "2025-04-08T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_007, ex:elec_008 .
+
+ex:cust_007 ex:placedOrder ex:order_007 .
+
+ex:order_008 a ex:Order ;
+    ex:orderId "ORD-2025-00008" ;
+    ex:orderDate "2025-04-09T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_008, ex:elec_009 .
+
+ex:cust_008 ex:placedOrder ex:order_008 .
+
+ex:order_009 a ex:Order ;
+    ex:orderId "ORD-2025-00009" ;
+    ex:orderDate "2025-04-10T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_009, ex:elec_010 .
+
+ex:cust_009 ex:placedOrder ex:order_009 .
+
+ex:order_010 a ex:Order ;
+    ex:orderId "ORD-2025-00010" ;
+    ex:orderDate "2025-04-11T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_010, ex:elec_011 .
+
+ex:cust_010 ex:placedOrder ex:order_010 .
+
+ex:order_011 a ex:Order ;
+    ex:orderId "ORD-2025-00011" ;
+    ex:orderDate "2025-04-12T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_011, ex:elec_012 .
+
+ex:cust_011 ex:placedOrder ex:order_011 .
+
+ex:order_012 a ex:Order ;
+    ex:orderId "ORD-2025-00012" ;
+    ex:orderDate "2025-04-13T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_012, ex:elec_013 .
+
+ex:cust_012 ex:placedOrder ex:order_012 .
+
+ex:order_013 a ex:Order ;
+    ex:orderId "ORD-2025-00013" ;
+    ex:orderDate "2025-04-14T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_013, ex:elec_014 .
+
+ex:cust_013 ex:placedOrder ex:order_013 .
+
+ex:order_014 a ex:Order ;
+    ex:orderId "ORD-2025-00014" ;
+    ex:orderDate "2025-04-15T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_014, ex:elec_015 .
+
+ex:cust_014 ex:placedOrder ex:order_014 .
+
+ex:order_015 a ex:Order ;
+    ex:orderId "ORD-2025-00015" ;
+    ex:orderDate "2025-04-16T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_015, ex:elec_016 .
+
+ex:cust_015 ex:placedOrder ex:order_015 .
+
+ex:order_016 a ex:Order ;
+    ex:orderId "ORD-2025-00016" ;
+    ex:orderDate "2025-04-17T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_016, ex:elec_017 .
+
+ex:cust_016 ex:placedOrder ex:order_016 .
+
+ex:order_017 a ex:Order ;
+    ex:orderId "ORD-2025-00017" ;
+    ex:orderDate "2025-04-18T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_017, ex:elec_018 .
+
+ex:cust_017 ex:placedOrder ex:order_017 .
+
+ex:order_018 a ex:Order ;
+    ex:orderId "ORD-2025-00018" ;
+    ex:orderDate "2025-04-19T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_018, ex:elec_019 .
+
+ex:cust_018 ex:placedOrder ex:order_018 .
+
+ex:order_019 a ex:Order ;
+    ex:orderId "ORD-2025-00019" ;
+    ex:orderDate "2025-04-20T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_019, ex:elec_020 .
+
+ex:cust_019 ex:placedOrder ex:order_019 .
+
+ex:order_020 a ex:Order ;
+    ex:orderId "ORD-2025-00020" ;
+    ex:orderDate "2025-04-21T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_020, ex:elec_021 .
+
+ex:cust_020 ex:placedOrder ex:order_020 .
+
+ex:order_021 a ex:Order ;
+    ex:orderId "ORD-2025-00021" ;
+    ex:orderDate "2025-04-22T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_021, ex:elec_022 .
+
+ex:cust_021 ex:placedOrder ex:order_021 .
+
+ex:order_022 a ex:Order ;
+    ex:orderId "ORD-2025-00022" ;
+    ex:orderDate "2025-04-23T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_022, ex:elec_023 .
+
+ex:cust_022 ex:placedOrder ex:order_022 .
+
+ex:order_023 a ex:Order ;
+    ex:orderId "ORD-2025-00023" ;
+    ex:orderDate "2025-04-24T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_023, ex:elec_024 .
+
+ex:cust_023 ex:placedOrder ex:order_023 .
+
+ex:order_024 a ex:Order ;
+    ex:orderId "ORD-2025-00024" ;
+    ex:orderDate "2025-04-25T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_024, ex:elec_025 .
+
+ex:cust_024 ex:placedOrder ex:order_024 .
+
+ex:order_025 a ex:Order ;
+    ex:orderId "ORD-2025-00025" ;
+    ex:orderDate "2025-04-26T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_025, ex:elec_026 .
+
+ex:cust_025 ex:placedOrder ex:order_025 .
+
+ex:order_026 a ex:Order ;
+    ex:orderId "ORD-2025-00026" ;
+    ex:orderDate "2025-04-27T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_026, ex:elec_027 .
+
+ex:cust_026 ex:placedOrder ex:order_026 .
+
+ex:order_027 a ex:Order ;
+    ex:orderId "ORD-2025-00027" ;
+    ex:orderDate "2025-04-28T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_027, ex:elec_028 .
+
+ex:cust_027 ex:placedOrder ex:order_027 .
+
+ex:order_028 a ex:Order ;
+    ex:orderId "ORD-2025-00028" ;
+    ex:orderDate "2025-04-01T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_028, ex:elec_029 .
+
+ex:cust_028 ex:placedOrder ex:order_028 .
+
+ex:order_029 a ex:Order ;
+    ex:orderId "ORD-2025-00029" ;
+    ex:orderDate "2025-04-02T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_029, ex:elec_030 .
+
+ex:cust_029 ex:placedOrder ex:order_029 .
+
+ex:order_030 a ex:Order ;
+    ex:orderId "ORD-2025-00030" ;
+    ex:orderDate "2025-04-03T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_030, ex:elec_031 .
+
+ex:cust_030 ex:placedOrder ex:order_030 .
+
+ex:order_031 a ex:Order ;
+    ex:orderId "ORD-2025-00031" ;
+    ex:orderDate "2025-04-04T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_031, ex:elec_032 .
+
+ex:cust_031 ex:placedOrder ex:order_031 .
+
+ex:order_032 a ex:Order ;
+    ex:orderId "ORD-2025-00032" ;
+    ex:orderDate "2025-04-05T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_032, ex:elec_033 .
+
+ex:cust_032 ex:placedOrder ex:order_032 .
+
+ex:order_033 a ex:Order ;
+    ex:orderId "ORD-2025-00033" ;
+    ex:orderDate "2025-04-06T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_033, ex:elec_034 .
+
+ex:cust_033 ex:placedOrder ex:order_033 .
+
+ex:order_034 a ex:Order ;
+    ex:orderId "ORD-2025-00034" ;
+    ex:orderDate "2025-04-07T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_034, ex:elec_035 .
+
+ex:cust_034 ex:placedOrder ex:order_034 .
+
+ex:order_035 a ex:Order ;
+    ex:orderId "ORD-2025-00035" ;
+    ex:orderDate "2025-04-08T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_035, ex:elec_001 .
+
+ex:cust_035 ex:placedOrder ex:order_035 .
+
+ex:order_036 a ex:Order ;
+    ex:orderId "ORD-2025-00036" ;
+    ex:orderDate "2025-04-09T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_001, ex:elec_002 .
+
+ex:cust_036 ex:placedOrder ex:order_036 .
+
+ex:order_037 a ex:Order ;
+    ex:orderId "ORD-2025-00037" ;
+    ex:orderDate "2025-04-10T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_002, ex:elec_003 .
+
+ex:cust_037 ex:placedOrder ex:order_037 .
+
+ex:order_038 a ex:Order ;
+    ex:orderId "ORD-2025-00038" ;
+    ex:orderDate "2025-04-11T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_003, ex:elec_004 .
+
+ex:cust_038 ex:placedOrder ex:order_038 .
+
+ex:order_039 a ex:Order ;
+    ex:orderId "ORD-2025-00039" ;
+    ex:orderDate "2025-04-12T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_004, ex:elec_005 .
+
+ex:cust_039 ex:placedOrder ex:order_039 .
+
+ex:order_040 a ex:Order ;
+    ex:orderId "ORD-2025-00040" ;
+    ex:orderDate "2025-04-13T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_005, ex:elec_006 .
+
+ex:cust_040 ex:placedOrder ex:order_040 .
+
+ex:order_041 a ex:Order ;
+    ex:orderId "ORD-2025-00041" ;
+    ex:orderDate "2025-04-14T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_006, ex:elec_007 .
+
+ex:cust_041 ex:placedOrder ex:order_041 .
+
+ex:order_042 a ex:Order ;
+    ex:orderId "ORD-2025-00042" ;
+    ex:orderDate "2025-04-15T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_007, ex:elec_008 .
+
+ex:cust_042 ex:placedOrder ex:order_042 .
+
+ex:order_043 a ex:Order ;
+    ex:orderId "ORD-2025-00043" ;
+    ex:orderDate "2025-04-16T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_008, ex:elec_009 .
+
+ex:cust_043 ex:placedOrder ex:order_043 .
+
+ex:order_044 a ex:Order ;
+    ex:orderId "ORD-2025-00044" ;
+    ex:orderDate "2025-04-17T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_009, ex:elec_010 .
+
+ex:cust_044 ex:placedOrder ex:order_044 .
+
+ex:order_045 a ex:Order ;
+    ex:orderId "ORD-2025-00045" ;
+    ex:orderDate "2025-04-18T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_010, ex:elec_011 .
+
+ex:cust_045 ex:placedOrder ex:order_045 .
+
+ex:order_046 a ex:Order ;
+    ex:orderId "ORD-2025-00046" ;
+    ex:orderDate "2025-04-19T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_011, ex:elec_012 .
+
+ex:cust_046 ex:placedOrder ex:order_046 .
+
+ex:order_047 a ex:Order ;
+    ex:orderId "ORD-2025-00047" ;
+    ex:orderDate "2025-04-20T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_012, ex:elec_013 .
+
+ex:cust_047 ex:placedOrder ex:order_047 .
+
+ex:order_048 a ex:Order ;
+    ex:orderId "ORD-2025-00048" ;
+    ex:orderDate "2025-04-21T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_013, ex:elec_014 .
+
+ex:cust_048 ex:placedOrder ex:order_048 .
+
+ex:order_049 a ex:Order ;
+    ex:orderId "ORD-2025-00049" ;
+    ex:orderDate "2025-04-22T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_014, ex:elec_015 .
+
+ex:cust_049 ex:placedOrder ex:order_049 .
+
+ex:order_050 a ex:Order ;
+    ex:orderId "ORD-2025-00050" ;
+    ex:orderDate "2025-04-23T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_015, ex:elec_016 .
+
+ex:cust_050 ex:placedOrder ex:order_050 .
+
+ex:order_051 a ex:Order ;
+    ex:orderId "ORD-2025-00051" ;
+    ex:orderDate "2025-04-24T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_016, ex:elec_017 .
+
+ex:cust_001 ex:placedOrder ex:order_051 .
+
+ex:order_052 a ex:Order ;
+    ex:orderId "ORD-2025-00052" ;
+    ex:orderDate "2025-04-25T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_017, ex:elec_018 .
+
+ex:cust_002 ex:placedOrder ex:order_052 .
+
+ex:order_053 a ex:Order ;
+    ex:orderId "ORD-2025-00053" ;
+    ex:orderDate "2025-04-26T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_018, ex:elec_019 .
+
+ex:cust_003 ex:placedOrder ex:order_053 .
+
+ex:order_054 a ex:Order ;
+    ex:orderId "ORD-2025-00054" ;
+    ex:orderDate "2025-04-27T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_019, ex:elec_020 .
+
+ex:cust_004 ex:placedOrder ex:order_054 .
+
+ex:order_055 a ex:Order ;
+    ex:orderId "ORD-2025-00055" ;
+    ex:orderDate "2025-04-28T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_020, ex:elec_021 .
+
+ex:cust_005 ex:placedOrder ex:order_055 .
+
+ex:order_056 a ex:Order ;
+    ex:orderId "ORD-2025-00056" ;
+    ex:orderDate "2025-04-01T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_021, ex:elec_022 .
+
+ex:cust_006 ex:placedOrder ex:order_056 .
+
+ex:order_057 a ex:Order ;
+    ex:orderId "ORD-2025-00057" ;
+    ex:orderDate "2025-04-02T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_022, ex:elec_023 .
+
+ex:cust_007 ex:placedOrder ex:order_057 .
+
+ex:order_058 a ex:Order ;
+    ex:orderId "ORD-2025-00058" ;
+    ex:orderDate "2025-04-03T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_023, ex:elec_024 .
+
+ex:cust_008 ex:placedOrder ex:order_058 .
+
+ex:order_059 a ex:Order ;
+    ex:orderId "ORD-2025-00059" ;
+    ex:orderDate "2025-04-04T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_024, ex:elec_025 .
+
+ex:cust_009 ex:placedOrder ex:order_059 .
+
+ex:order_060 a ex:Order ;
+    ex:orderId "ORD-2025-00060" ;
+    ex:orderDate "2025-04-05T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_025, ex:elec_026 .
+
+ex:cust_010 ex:placedOrder ex:order_060 .
+
+ex:order_061 a ex:Order ;
+    ex:orderId "ORD-2025-00061" ;
+    ex:orderDate "2025-04-06T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_026, ex:elec_027 .
+
+ex:cust_011 ex:placedOrder ex:order_061 .
+
+ex:order_062 a ex:Order ;
+    ex:orderId "ORD-2025-00062" ;
+    ex:orderDate "2025-04-07T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_027, ex:elec_028 .
+
+ex:cust_012 ex:placedOrder ex:order_062 .
+
+ex:order_063 a ex:Order ;
+    ex:orderId "ORD-2025-00063" ;
+    ex:orderDate "2025-04-08T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_028, ex:elec_029 .
+
+ex:cust_013 ex:placedOrder ex:order_063 .
+
+ex:order_064 a ex:Order ;
+    ex:orderId "ORD-2025-00064" ;
+    ex:orderDate "2025-04-09T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_029, ex:elec_030 .
+
+ex:cust_014 ex:placedOrder ex:order_064 .
+
+ex:order_065 a ex:Order ;
+    ex:orderId "ORD-2025-00065" ;
+    ex:orderDate "2025-04-10T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_030, ex:elec_031 .
+
+ex:cust_015 ex:placedOrder ex:order_065 .
+
+ex:order_066 a ex:Order ;
+    ex:orderId "ORD-2025-00066" ;
+    ex:orderDate "2025-04-11T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_031, ex:elec_032 .
+
+ex:cust_016 ex:placedOrder ex:order_066 .
+
+ex:order_067 a ex:Order ;
+    ex:orderId "ORD-2025-00067" ;
+    ex:orderDate "2025-04-12T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_032, ex:elec_033 .
+
+ex:cust_017 ex:placedOrder ex:order_067 .
+
+ex:order_068 a ex:Order ;
+    ex:orderId "ORD-2025-00068" ;
+    ex:orderDate "2025-04-13T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_033, ex:elec_034 .
+
+ex:cust_018 ex:placedOrder ex:order_068 .
+
+ex:order_069 a ex:Order ;
+    ex:orderId "ORD-2025-00069" ;
+    ex:orderDate "2025-04-14T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_034, ex:elec_035 .
+
+ex:cust_019 ex:placedOrder ex:order_069 .
+
+ex:order_070 a ex:Order ;
+    ex:orderId "ORD-2025-00070" ;
+    ex:orderDate "2025-04-15T16:20:00Z"^^xsd:dateTime ;
+    ex:orderContains ex:book_035, ex:elec_001 .
+
+ex:cust_020 ex:placedOrder ex:order_070 .
+
+ex:review_001 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #001 with rating 2/5." ;
+    ex:reviewedBy ex:cust_001 ;
+    ex:reviewFor ex:elec_001 .
+
+ex:review_002 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #002 with rating 3/5." ;
+    ex:reviewedBy ex:cust_002 ;
+    ex:reviewFor ex:cloth_002 .
+
+ex:review_003 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #003 with rating 4/5." ;
+    ex:reviewedBy ex:cust_003 ;
+    ex:reviewFor ex:book_003 .
+
+ex:review_004 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #004 with rating 5/5." ;
+    ex:reviewedBy ex:cust_004 ;
+    ex:reviewFor ex:elec_004 .
+
+ex:review_005 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #005 with rating 1/5." ;
+    ex:reviewedBy ex:cust_005 ;
+    ex:reviewFor ex:cloth_005 .
+
+ex:review_006 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #006 with rating 2/5." ;
+    ex:reviewedBy ex:cust_006 ;
+    ex:reviewFor ex:book_006 .
+
+ex:review_007 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #007 with rating 3/5." ;
+    ex:reviewedBy ex:cust_007 ;
+    ex:reviewFor ex:elec_007 .
+
+ex:review_008 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #008 with rating 4/5." ;
+    ex:reviewedBy ex:cust_008 ;
+    ex:reviewFor ex:cloth_008 .
+
+ex:review_009 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #009 with rating 5/5." ;
+    ex:reviewedBy ex:cust_009 ;
+    ex:reviewFor ex:book_009 .
+
+ex:review_010 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #010 with rating 1/5." ;
+    ex:reviewedBy ex:cust_010 ;
+    ex:reviewFor ex:elec_010 .
+
+ex:review_011 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #011 with rating 2/5." ;
+    ex:reviewedBy ex:cust_011 ;
+    ex:reviewFor ex:cloth_011 .
+
+ex:review_012 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #012 with rating 3/5." ;
+    ex:reviewedBy ex:cust_012 ;
+    ex:reviewFor ex:book_012 .
+
+ex:review_013 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #013 with rating 4/5." ;
+    ex:reviewedBy ex:cust_013 ;
+    ex:reviewFor ex:elec_013 .
+
+ex:review_014 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #014 with rating 5/5." ;
+    ex:reviewedBy ex:cust_014 ;
+    ex:reviewFor ex:cloth_014 .
+
+ex:review_015 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #015 with rating 1/5." ;
+    ex:reviewedBy ex:cust_015 ;
+    ex:reviewFor ex:book_015 .
+
+ex:review_016 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #016 with rating 2/5." ;
+    ex:reviewedBy ex:cust_016 ;
+    ex:reviewFor ex:elec_016 .
+
+ex:review_017 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #017 with rating 3/5." ;
+    ex:reviewedBy ex:cust_017 ;
+    ex:reviewFor ex:cloth_017 .
+
+ex:review_018 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #018 with rating 4/5." ;
+    ex:reviewedBy ex:cust_018 ;
+    ex:reviewFor ex:book_018 .
+
+ex:review_019 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #019 with rating 5/5." ;
+    ex:reviewedBy ex:cust_019 ;
+    ex:reviewFor ex:elec_019 .
+
+ex:review_020 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #020 with rating 1/5." ;
+    ex:reviewedBy ex:cust_020 ;
+    ex:reviewFor ex:cloth_020 .
+
+ex:review_021 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #021 with rating 2/5." ;
+    ex:reviewedBy ex:cust_021 ;
+    ex:reviewFor ex:book_021 .
+
+ex:review_022 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #022 with rating 3/5." ;
+    ex:reviewedBy ex:cust_022 ;
+    ex:reviewFor ex:elec_022 .
+
+ex:review_023 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #023 with rating 4/5." ;
+    ex:reviewedBy ex:cust_023 ;
+    ex:reviewFor ex:cloth_023 .
+
+ex:review_024 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #024 with rating 5/5." ;
+    ex:reviewedBy ex:cust_024 ;
+    ex:reviewFor ex:book_024 .
+
+ex:review_025 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #025 with rating 1/5." ;
+    ex:reviewedBy ex:cust_025 ;
+    ex:reviewFor ex:elec_025 .
+
+ex:review_026 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #026 with rating 2/5." ;
+    ex:reviewedBy ex:cust_026 ;
+    ex:reviewFor ex:cloth_026 .
+
+ex:review_027 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #027 with rating 3/5." ;
+    ex:reviewedBy ex:cust_027 ;
+    ex:reviewFor ex:book_027 .
+
+ex:review_028 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #028 with rating 4/5." ;
+    ex:reviewedBy ex:cust_028 ;
+    ex:reviewFor ex:elec_028 .
+
+ex:review_029 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #029 with rating 5/5." ;
+    ex:reviewedBy ex:cust_029 ;
+    ex:reviewFor ex:cloth_029 .
+
+ex:review_030 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #030 with rating 1/5." ;
+    ex:reviewedBy ex:cust_030 ;
+    ex:reviewFor ex:book_030 .
+
+ex:review_031 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #031 with rating 2/5." ;
+    ex:reviewedBy ex:cust_031 ;
+    ex:reviewFor ex:elec_031 .
+
+ex:review_032 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #032 with rating 3/5." ;
+    ex:reviewedBy ex:cust_032 ;
+    ex:reviewFor ex:cloth_032 .
+
+ex:review_033 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #033 with rating 4/5." ;
+    ex:reviewedBy ex:cust_033 ;
+    ex:reviewFor ex:book_033 .
+
+ex:review_034 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #034 with rating 5/5." ;
+    ex:reviewedBy ex:cust_034 ;
+    ex:reviewFor ex:elec_034 .
+
+ex:review_035 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #035 with rating 1/5." ;
+    ex:reviewedBy ex:cust_035 ;
+    ex:reviewFor ex:cloth_035 .
+
+ex:review_036 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #036 with rating 2/5." ;
+    ex:reviewedBy ex:cust_036 ;
+    ex:reviewFor ex:book_001 .
+
+ex:review_037 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #037 with rating 3/5." ;
+    ex:reviewedBy ex:cust_037 ;
+    ex:reviewFor ex:elec_002 .
+
+ex:review_038 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #038 with rating 4/5." ;
+    ex:reviewedBy ex:cust_038 ;
+    ex:reviewFor ex:cloth_003 .
+
+ex:review_039 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #039 with rating 5/5." ;
+    ex:reviewedBy ex:cust_039 ;
+    ex:reviewFor ex:book_004 .
+
+ex:review_040 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #040 with rating 1/5." ;
+    ex:reviewedBy ex:cust_040 ;
+    ex:reviewFor ex:elec_005 .
+
+ex:review_041 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #041 with rating 2/5." ;
+    ex:reviewedBy ex:cust_041 ;
+    ex:reviewFor ex:cloth_006 .
+
+ex:review_042 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #042 with rating 3/5." ;
+    ex:reviewedBy ex:cust_042 ;
+    ex:reviewFor ex:book_007 .
+
+ex:review_043 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #043 with rating 4/5." ;
+    ex:reviewedBy ex:cust_043 ;
+    ex:reviewFor ex:elec_008 .
+
+ex:review_044 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #044 with rating 5/5." ;
+    ex:reviewedBy ex:cust_044 ;
+    ex:reviewFor ex:cloth_009 .
+
+ex:review_045 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #045 with rating 1/5." ;
+    ex:reviewedBy ex:cust_045 ;
+    ex:reviewFor ex:book_010 .
+
+ex:review_046 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #046 with rating 2/5." ;
+    ex:reviewedBy ex:cust_046 ;
+    ex:reviewFor ex:elec_011 .
+
+ex:review_047 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #047 with rating 3/5." ;
+    ex:reviewedBy ex:cust_047 ;
+    ex:reviewFor ex:cloth_012 .
+
+ex:review_048 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #048 with rating 4/5." ;
+    ex:reviewedBy ex:cust_048 ;
+    ex:reviewFor ex:book_013 .
+
+ex:review_049 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #049 with rating 5/5." ;
+    ex:reviewedBy ex:cust_049 ;
+    ex:reviewFor ex:elec_014 .
+
+ex:review_050 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #050 with rating 1/5." ;
+    ex:reviewedBy ex:cust_050 ;
+    ex:reviewFor ex:cloth_015 .
+
+ex:review_051 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #051 with rating 2/5." ;
+    ex:reviewedBy ex:cust_001 ;
+    ex:reviewFor ex:book_016 .
+
+ex:review_052 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #052 with rating 3/5." ;
+    ex:reviewedBy ex:cust_002 ;
+    ex:reviewFor ex:elec_017 .
+
+ex:review_053 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #053 with rating 4/5." ;
+    ex:reviewedBy ex:cust_003 ;
+    ex:reviewFor ex:cloth_018 .
+
+ex:review_054 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #054 with rating 5/5." ;
+    ex:reviewedBy ex:cust_004 ;
+    ex:reviewFor ex:book_019 .
+
+ex:review_055 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #055 with rating 1/5." ;
+    ex:reviewedBy ex:cust_005 ;
+    ex:reviewFor ex:elec_020 .
+
+ex:review_056 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #056 with rating 2/5." ;
+    ex:reviewedBy ex:cust_006 ;
+    ex:reviewFor ex:cloth_021 .
+
+ex:review_057 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #057 with rating 3/5." ;
+    ex:reviewedBy ex:cust_007 ;
+    ex:reviewFor ex:book_022 .
+
+ex:review_058 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #058 with rating 4/5." ;
+    ex:reviewedBy ex:cust_008 ;
+    ex:reviewFor ex:elec_023 .
+
+ex:review_059 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #059 with rating 5/5." ;
+    ex:reviewedBy ex:cust_009 ;
+    ex:reviewFor ex:cloth_024 .
+
+ex:review_060 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #060 with rating 1/5." ;
+    ex:reviewedBy ex:cust_010 ;
+    ex:reviewFor ex:book_025 .
+
+ex:review_061 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #061 with rating 2/5." ;
+    ex:reviewedBy ex:cust_011 ;
+    ex:reviewFor ex:elec_026 .
+
+ex:review_062 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #062 with rating 3/5." ;
+    ex:reviewedBy ex:cust_012 ;
+    ex:reviewFor ex:cloth_027 .
+
+ex:review_063 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #063 with rating 4/5." ;
+    ex:reviewedBy ex:cust_013 ;
+    ex:reviewFor ex:book_028 .
+
+ex:review_064 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #064 with rating 5/5." ;
+    ex:reviewedBy ex:cust_014 ;
+    ex:reviewFor ex:elec_029 .
+
+ex:review_065 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #065 with rating 1/5." ;
+    ex:reviewedBy ex:cust_015 ;
+    ex:reviewFor ex:cloth_030 .
+
+ex:review_066 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #066 with rating 2/5." ;
+    ex:reviewedBy ex:cust_016 ;
+    ex:reviewFor ex:book_031 .
+
+ex:review_067 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #067 with rating 3/5." ;
+    ex:reviewedBy ex:cust_017 ;
+    ex:reviewFor ex:elec_032 .
+
+ex:review_068 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #068 with rating 4/5." ;
+    ex:reviewedBy ex:cust_018 ;
+    ex:reviewFor ex:cloth_033 .
+
+ex:review_069 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #069 with rating 5/5." ;
+    ex:reviewedBy ex:cust_019 ;
+    ex:reviewFor ex:book_034 .
+
+ex:review_070 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #070 with rating 1/5." ;
+    ex:reviewedBy ex:cust_020 ;
+    ex:reviewFor ex:elec_035 .
+
+ex:review_071 a ex:Review ;
+    ex:ratingValue 2 ;
+    ex:reviewText "Verified customer review #071 with rating 2/5." ;
+    ex:reviewedBy ex:cust_021 ;
+    ex:reviewFor ex:cloth_001 .
+
+ex:review_072 a ex:Review ;
+    ex:ratingValue 3 ;
+    ex:reviewText "Verified customer review #072 with rating 3/5." ;
+    ex:reviewedBy ex:cust_022 ;
+    ex:reviewFor ex:book_002 .
+
+ex:review_073 a ex:Review ;
+    ex:ratingValue 4 ;
+    ex:reviewText "Verified customer review #073 with rating 4/5." ;
+    ex:reviewedBy ex:cust_023 ;
+    ex:reviewFor ex:elec_003 .
+
+ex:review_074 a ex:Review ;
+    ex:ratingValue 5 ;
+    ex:reviewText "Verified customer review #074 with rating 5/5." ;
+    ex:reviewedBy ex:cust_024 ;
+    ex:reviewFor ex:cloth_004 .
+
+ex:review_075 a ex:Review ;
+    ex:ratingValue 1 ;
+    ex:reviewText "Verified customer review #075 with rating 1/5." ;
+    ex:reviewedBy ex:cust_025 ;
+    ex:reviewFor ex:book_005 .

@@ -1,0 +1,2316 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/social/> .
+
+# ABox Instance Triples for social_fraud (with Reified Transfer & Device Usage Metadata)
+
+ex:device_001 a ex:Device ;
+    ex:deviceId "DEV-FP-00001" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_002 a ex:Device ;
+    ex:deviceId "DEV-FP-00002" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_003 a ex:Device ;
+    ex:deviceId "DEV-FP-00003" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_004 a ex:Device ;
+    ex:deviceId "DEV-FP-00004" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_005 a ex:Device ;
+    ex:deviceId "DEV-FP-00005" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_006 a ex:Device ;
+    ex:deviceId "DEV-FP-00006" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_007 a ex:Device ;
+    ex:deviceId "DEV-FP-00007" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_008 a ex:Device ;
+    ex:deviceId "DEV-FP-00008" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_009 a ex:Device ;
+    ex:deviceId "DEV-FP-00009" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_010 a ex:Device ;
+    ex:deviceId "DEV-FP-00010" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_011 a ex:Device ;
+    ex:deviceId "DEV-FP-00011" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_012 a ex:Device ;
+    ex:deviceId "DEV-FP-00012" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_013 a ex:Device ;
+    ex:deviceId "DEV-FP-00013" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_014 a ex:Device ;
+    ex:deviceId "DEV-FP-00014" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_015 a ex:Device ;
+    ex:deviceId "DEV-FP-00015" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_016 a ex:Device ;
+    ex:deviceId "DEV-FP-00016" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_017 a ex:Device ;
+    ex:deviceId "DEV-FP-00017" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_018 a ex:Device ;
+    ex:deviceId "DEV-FP-00018" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_019 a ex:Device ;
+    ex:deviceId "DEV-FP-00019" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_020 a ex:Device ;
+    ex:deviceId "DEV-FP-00020" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_021 a ex:Device ;
+    ex:deviceId "DEV-FP-00021" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_022 a ex:Device ;
+    ex:deviceId "DEV-FP-00022" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_023 a ex:Device ;
+    ex:deviceId "DEV-FP-00023" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_024 a ex:Device ;
+    ex:deviceId "DEV-FP-00024" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_025 a ex:Device ;
+    ex:deviceId "DEV-FP-00025" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_026 a ex:Device ;
+    ex:deviceId "DEV-FP-00026" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_027 a ex:Device ;
+    ex:deviceId "DEV-FP-00027" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_028 a ex:Device ;
+    ex:deviceId "DEV-FP-00028" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_029 a ex:Device ;
+    ex:deviceId "DEV-FP-00029" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_030 a ex:Device ;
+    ex:deviceId "DEV-FP-00030" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_031 a ex:Device ;
+    ex:deviceId "DEV-FP-00031" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_032 a ex:Device ;
+    ex:deviceId "DEV-FP-00032" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_033 a ex:Device ;
+    ex:deviceId "DEV-FP-00033" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_034 a ex:Device ;
+    ex:deviceId "DEV-FP-00034" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_035 a ex:Device ;
+    ex:deviceId "DEV-FP-00035" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_036 a ex:Device ;
+    ex:deviceId "DEV-FP-00036" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_037 a ex:Device ;
+    ex:deviceId "DEV-FP-00037" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_038 a ex:Device ;
+    ex:deviceId "DEV-FP-00038" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_039 a ex:Device ;
+    ex:deviceId "DEV-FP-00039" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_040 a ex:Device ;
+    ex:deviceId "DEV-FP-00040" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_041 a ex:Device ;
+    ex:deviceId "DEV-FP-00041" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_042 a ex:Device ;
+    ex:deviceId "DEV-FP-00042" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_043 a ex:Device ;
+    ex:deviceId "DEV-FP-00043" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_044 a ex:Device ;
+    ex:deviceId "DEV-FP-00044" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_045 a ex:Device ;
+    ex:deviceId "DEV-FP-00045" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_046 a ex:Device ;
+    ex:deviceId "DEV-FP-00046" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:device_047 a ex:Device ;
+    ex:deviceId "DEV-FP-00047" ;
+    ex:deviceType "TABLET_APP" .
+
+ex:device_048 a ex:Device ;
+    ex:deviceId "DEV-FP-00048" ;
+    ex:deviceType "IOS_MOBILE" .
+
+ex:device_049 a ex:Device ;
+    ex:deviceId "DEV-FP-00049" ;
+    ex:deviceType "ANDROID_MOBILE" .
+
+ex:device_050 a ex:Device ;
+    ex:deviceId "DEV-FP-00050" ;
+    ex:deviceType "WEB_BROWSER" .
+
+ex:ip_001 a ex:IPAddress ;
+    ex:ipValue "192.0.2.1" ;
+    ex:linkedToIP ex:ip_002 .
+
+ex:ip_002 a ex:IPAddress ;
+    ex:ipValue "192.0.2.2" ;
+    ex:linkedToIP ex:ip_003 .
+
+ex:ip_003 a ex:IPAddress ;
+    ex:ipValue "192.0.2.3" ;
+    ex:linkedToIP ex:ip_004 .
+
+ex:ip_004 a ex:IPAddress ;
+    ex:ipValue "192.0.2.4" ;
+    ex:linkedToIP ex:ip_005 .
+
+ex:ip_005 a ex:IPAddress ;
+    ex:ipValue "192.0.2.5" ;
+    ex:linkedToIP ex:ip_006 .
+
+ex:ip_006 a ex:IPAddress ;
+    ex:ipValue "192.0.2.6" ;
+    ex:linkedToIP ex:ip_007 .
+
+ex:ip_007 a ex:IPAddress ;
+    ex:ipValue "192.0.2.7" ;
+    ex:linkedToIP ex:ip_008 .
+
+ex:ip_008 a ex:IPAddress ;
+    ex:ipValue "192.0.2.8" ;
+    ex:linkedToIP ex:ip_009 .
+
+ex:ip_009 a ex:IPAddress ;
+    ex:ipValue "192.0.2.9" ;
+    ex:linkedToIP ex:ip_010 .
+
+ex:ip_010 a ex:IPAddress ;
+    ex:ipValue "192.0.2.10" ;
+    ex:linkedToIP ex:ip_011 .
+
+ex:ip_011 a ex:IPAddress ;
+    ex:ipValue "192.0.2.11" ;
+    ex:linkedToIP ex:ip_012 .
+
+ex:ip_012 a ex:IPAddress ;
+    ex:ipValue "192.0.2.12" ;
+    ex:linkedToIP ex:ip_013 .
+
+ex:ip_013 a ex:IPAddress ;
+    ex:ipValue "192.0.2.13" ;
+    ex:linkedToIP ex:ip_014 .
+
+ex:ip_014 a ex:IPAddress ;
+    ex:ipValue "192.0.2.14" ;
+    ex:linkedToIP ex:ip_015 .
+
+ex:ip_015 a ex:IPAddress ;
+    ex:ipValue "192.0.2.15" ;
+    ex:linkedToIP ex:ip_016 .
+
+ex:ip_016 a ex:IPAddress ;
+    ex:ipValue "192.0.2.16" ;
+    ex:linkedToIP ex:ip_017 .
+
+ex:ip_017 a ex:IPAddress ;
+    ex:ipValue "192.0.2.17" ;
+    ex:linkedToIP ex:ip_018 .
+
+ex:ip_018 a ex:IPAddress ;
+    ex:ipValue "192.0.2.18" ;
+    ex:linkedToIP ex:ip_019 .
+
+ex:ip_019 a ex:IPAddress ;
+    ex:ipValue "192.0.2.19" ;
+    ex:linkedToIP ex:ip_020 .
+
+ex:ip_020 a ex:IPAddress ;
+    ex:ipValue "192.0.2.20" ;
+    ex:linkedToIP ex:ip_021 .
+
+ex:ip_021 a ex:IPAddress ;
+    ex:ipValue "192.0.2.21" ;
+    ex:linkedToIP ex:ip_022 .
+
+ex:ip_022 a ex:IPAddress ;
+    ex:ipValue "192.0.2.22" ;
+    ex:linkedToIP ex:ip_023 .
+
+ex:ip_023 a ex:IPAddress ;
+    ex:ipValue "192.0.2.23" ;
+    ex:linkedToIP ex:ip_024 .
+
+ex:ip_024 a ex:IPAddress ;
+    ex:ipValue "192.0.2.24" ;
+    ex:linkedToIP ex:ip_025 .
+
+ex:ip_025 a ex:IPAddress ;
+    ex:ipValue "192.0.2.25" ;
+    ex:linkedToIP ex:ip_026 .
+
+ex:ip_026 a ex:IPAddress ;
+    ex:ipValue "192.0.2.26" ;
+    ex:linkedToIP ex:ip_027 .
+
+ex:ip_027 a ex:IPAddress ;
+    ex:ipValue "192.0.2.27" ;
+    ex:linkedToIP ex:ip_028 .
+
+ex:ip_028 a ex:IPAddress ;
+    ex:ipValue "192.0.2.28" ;
+    ex:linkedToIP ex:ip_029 .
+
+ex:ip_029 a ex:IPAddress ;
+    ex:ipValue "192.0.2.29" ;
+    ex:linkedToIP ex:ip_030 .
+
+ex:ip_030 a ex:IPAddress ;
+    ex:ipValue "192.0.2.30" ;
+    ex:linkedToIP ex:ip_031 .
+
+ex:ip_031 a ex:IPAddress ;
+    ex:ipValue "192.0.2.31" ;
+    ex:linkedToIP ex:ip_032 .
+
+ex:ip_032 a ex:IPAddress ;
+    ex:ipValue "192.0.2.32" ;
+    ex:linkedToIP ex:ip_033 .
+
+ex:ip_033 a ex:IPAddress ;
+    ex:ipValue "192.0.2.33" ;
+    ex:linkedToIP ex:ip_034 .
+
+ex:ip_034 a ex:IPAddress ;
+    ex:ipValue "192.0.2.34" ;
+    ex:linkedToIP ex:ip_035 .
+
+ex:ip_035 a ex:IPAddress ;
+    ex:ipValue "192.0.2.35" ;
+    ex:linkedToIP ex:ip_036 .
+
+ex:ip_036 a ex:IPAddress ;
+    ex:ipValue "192.0.2.36" ;
+    ex:linkedToIP ex:ip_037 .
+
+ex:ip_037 a ex:IPAddress ;
+    ex:ipValue "192.0.2.37" ;
+    ex:linkedToIP ex:ip_038 .
+
+ex:ip_038 a ex:IPAddress ;
+    ex:ipValue "192.0.2.38" ;
+    ex:linkedToIP ex:ip_039 .
+
+ex:ip_039 a ex:IPAddress ;
+    ex:ipValue "192.0.2.39" ;
+    ex:linkedToIP ex:ip_040 .
+
+ex:ip_040 a ex:IPAddress ;
+    ex:ipValue "192.0.2.40" ;
+    ex:linkedToIP ex:ip_041 .
+
+ex:ip_041 a ex:IPAddress ;
+    ex:ipValue "192.0.2.41" ;
+    ex:linkedToIP ex:ip_042 .
+
+ex:ip_042 a ex:IPAddress ;
+    ex:ipValue "192.0.2.42" ;
+    ex:linkedToIP ex:ip_043 .
+
+ex:ip_043 a ex:IPAddress ;
+    ex:ipValue "192.0.2.43" ;
+    ex:linkedToIP ex:ip_044 .
+
+ex:ip_044 a ex:IPAddress ;
+    ex:ipValue "192.0.2.44" ;
+    ex:linkedToIP ex:ip_045 .
+
+ex:ip_045 a ex:IPAddress ;
+    ex:ipValue "192.0.2.45" ;
+    ex:linkedToIP ex:ip_046 .
+
+ex:ip_046 a ex:IPAddress ;
+    ex:ipValue "192.0.2.46" ;
+    ex:linkedToIP ex:ip_047 .
+
+ex:ip_047 a ex:IPAddress ;
+    ex:ipValue "192.0.2.47" ;
+    ex:linkedToIP ex:ip_048 .
+
+ex:ip_048 a ex:IPAddress ;
+    ex:ipValue "192.0.2.48" ;
+    ex:linkedToIP ex:ip_049 .
+
+ex:ip_049 a ex:IPAddress ;
+    ex:ipValue "192.0.2.49" ;
+    ex:linkedToIP ex:ip_050 .
+
+ex:ip_050 a ex:IPAddress ;
+    ex:ipValue "192.0.2.50" ;
+    ex:linkedToIP ex:ip_001 .
+
+ex:phone_001 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0101-1001" .
+
+ex:phone_002 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0102-1002" .
+
+ex:phone_003 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0103-1003" .
+
+ex:phone_004 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0104-1004" .
+
+ex:phone_005 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0105-1005" .
+
+ex:phone_006 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0106-1006" .
+
+ex:phone_007 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0107-1007" .
+
+ex:phone_008 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0108-1008" .
+
+ex:phone_009 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0109-1009" .
+
+ex:phone_010 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0110-1010" .
+
+ex:phone_011 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0111-1011" .
+
+ex:phone_012 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0112-1012" .
+
+ex:phone_013 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0113-1013" .
+
+ex:phone_014 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0114-1014" .
+
+ex:phone_015 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0115-1015" .
+
+ex:phone_016 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0116-1016" .
+
+ex:phone_017 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0117-1017" .
+
+ex:phone_018 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0118-1018" .
+
+ex:phone_019 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0119-1019" .
+
+ex:phone_020 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0120-1020" .
+
+ex:phone_021 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0121-1021" .
+
+ex:phone_022 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0122-1022" .
+
+ex:phone_023 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0123-1023" .
+
+ex:phone_024 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0124-1024" .
+
+ex:phone_025 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0125-1025" .
+
+ex:phone_026 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0126-1026" .
+
+ex:phone_027 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0127-1027" .
+
+ex:phone_028 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0128-1028" .
+
+ex:phone_029 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0129-1029" .
+
+ex:phone_030 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0130-1030" .
+
+ex:phone_031 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0131-1031" .
+
+ex:phone_032 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0132-1032" .
+
+ex:phone_033 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0133-1033" .
+
+ex:phone_034 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0134-1034" .
+
+ex:phone_035 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0135-1035" .
+
+ex:phone_036 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0136-1036" .
+
+ex:phone_037 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0137-1037" .
+
+ex:phone_038 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0138-1038" .
+
+ex:phone_039 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0139-1039" .
+
+ex:phone_040 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0140-1040" .
+
+ex:phone_041 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0141-1041" .
+
+ex:phone_042 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0142-1042" .
+
+ex:phone_043 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0143-1043" .
+
+ex:phone_044 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0144-1044" .
+
+ex:phone_045 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0145-1045" .
+
+ex:phone_046 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0146-1046" .
+
+ex:phone_047 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0147-1047" .
+
+ex:phone_048 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0148-1048" .
+
+ex:phone_049 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0149-1049" .
+
+ex:phone_050 a ex:PhoneNumber ;
+    ex:phoneValue "+1-555-0150-1050" .
+
+ex:account_001 a ex:Account ;
+    ex:accountId "ACC-SOC-00001" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_001 ;
+    ex:usedIP ex:ip_001 ;
+    ex:usedPhone ex:phone_001 ;
+    ex:transferredTo ex:account_002 .
+
+ex:stmt_transfer_001 a rdf:Statement ;
+    rdf:subject ex:account_001 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_002 ;
+    ex:amount 365.75 ;
+    ex:timestamp "2025-06-02T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_001 a rdf:Statement ;
+    rdf:subject ex:account_001 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_001 ;
+    ex:firstUsed "2025-01-02T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-02T15:40:00Z"^^xsd:dateTime .
+
+ex:account_002 a ex:Account ;
+    ex:accountId "ACC-SOC-00002" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_002 ;
+    ex:usedIP ex:ip_002 ;
+    ex:usedPhone ex:phone_002 ;
+    ex:transferredTo ex:account_003 .
+
+ex:stmt_transfer_002 a rdf:Statement ;
+    rdf:subject ex:account_002 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_003 ;
+    ex:amount 481.50 ;
+    ex:timestamp "2025-06-03T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_002 a rdf:Statement ;
+    rdf:subject ex:account_002 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_002 ;
+    ex:firstUsed "2025-01-03T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-03T15:40:00Z"^^xsd:dateTime .
+
+ex:account_003 a ex:Account ;
+    ex:accountId "ACC-SOC-00003" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_003 ;
+    ex:usedIP ex:ip_003 ;
+    ex:usedPhone ex:phone_003 ;
+    ex:transferredTo ex:account_004 .
+
+ex:stmt_transfer_003 a rdf:Statement ;
+    rdf:subject ex:account_003 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_004 ;
+    ex:amount 597.25 ;
+    ex:timestamp "2025-06-04T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_003 a rdf:Statement ;
+    rdf:subject ex:account_003 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_003 ;
+    ex:firstUsed "2025-01-04T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-04T15:40:00Z"^^xsd:dateTime .
+
+ex:account_004 a ex:Account ;
+    ex:accountId "ACC-SOC-00004" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_004 ;
+    ex:usedIP ex:ip_004 ;
+    ex:usedPhone ex:phone_004 ;
+    ex:transferredTo ex:account_005 .
+
+ex:stmt_transfer_004 a rdf:Statement ;
+    rdf:subject ex:account_004 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_005 ;
+    ex:amount 713.00 ;
+    ex:timestamp "2025-06-05T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_004 a rdf:Statement ;
+    rdf:subject ex:account_004 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_004 ;
+    ex:firstUsed "2025-01-05T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-05T15:40:00Z"^^xsd:dateTime .
+
+ex:account_005 a ex:Account ;
+    ex:accountId "ACC-SOC-00005" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_005 ;
+    ex:usedIP ex:ip_005 ;
+    ex:usedPhone ex:phone_005 ;
+    ex:transferredTo ex:account_006 .
+
+ex:stmt_transfer_005 a rdf:Statement ;
+    rdf:subject ex:account_005 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_006 ;
+    ex:amount 828.75 ;
+    ex:timestamp "2025-06-06T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_005 a rdf:Statement ;
+    rdf:subject ex:account_005 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_005 ;
+    ex:firstUsed "2025-01-06T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-06T15:40:00Z"^^xsd:dateTime .
+
+ex:account_006 a ex:Account ;
+    ex:accountId "ACC-SOC-00006" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_006 ;
+    ex:usedIP ex:ip_006 ;
+    ex:usedPhone ex:phone_006 ;
+    ex:transferredTo ex:account_007 .
+
+ex:stmt_transfer_006 a rdf:Statement ;
+    rdf:subject ex:account_006 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_007 ;
+    ex:amount 944.50 ;
+    ex:timestamp "2025-06-07T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_006 a rdf:Statement ;
+    rdf:subject ex:account_006 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_006 ;
+    ex:firstUsed "2025-01-07T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-07T15:40:00Z"^^xsd:dateTime .
+
+ex:account_007 a ex:Account ;
+    ex:accountId "ACC-SOC-00007" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_007 ;
+    ex:usedIP ex:ip_007 ;
+    ex:usedPhone ex:phone_007 ;
+    ex:transferredTo ex:account_008 .
+
+ex:stmt_transfer_007 a rdf:Statement ;
+    rdf:subject ex:account_007 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_008 ;
+    ex:amount 1060.25 ;
+    ex:timestamp "2025-06-08T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_007 a rdf:Statement ;
+    rdf:subject ex:account_007 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_007 ;
+    ex:firstUsed "2025-01-08T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-08T15:40:00Z"^^xsd:dateTime .
+
+ex:account_008 a ex:Account ;
+    ex:accountId "ACC-SOC-00008" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_008 ;
+    ex:usedIP ex:ip_008 ;
+    ex:usedPhone ex:phone_008 ;
+    ex:transferredTo ex:account_009 .
+
+ex:stmt_transfer_008 a rdf:Statement ;
+    rdf:subject ex:account_008 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_009 ;
+    ex:amount 1176.00 ;
+    ex:timestamp "2025-06-09T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_008 a rdf:Statement ;
+    rdf:subject ex:account_008 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_008 ;
+    ex:firstUsed "2025-01-09T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-09T15:40:00Z"^^xsd:dateTime .
+
+ex:account_009 a ex:Account ;
+    ex:accountId "ACC-SOC-00009" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_009 ;
+    ex:usedIP ex:ip_009 ;
+    ex:usedPhone ex:phone_009 ;
+    ex:transferredTo ex:account_010 .
+
+ex:stmt_transfer_009 a rdf:Statement ;
+    rdf:subject ex:account_009 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_010 ;
+    ex:amount 1291.75 ;
+    ex:timestamp "2025-06-10T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_009 a rdf:Statement ;
+    rdf:subject ex:account_009 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_009 ;
+    ex:firstUsed "2025-01-10T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-10T15:40:00Z"^^xsd:dateTime .
+
+ex:account_010 a ex:Account ;
+    ex:accountId "ACC-SOC-00010" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_010 ;
+    ex:usedIP ex:ip_010 ;
+    ex:usedPhone ex:phone_010 ;
+    ex:transferredTo ex:account_011 .
+
+ex:stmt_transfer_010 a rdf:Statement ;
+    rdf:subject ex:account_010 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_011 ;
+    ex:amount 1407.50 ;
+    ex:timestamp "2025-06-11T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_010 a rdf:Statement ;
+    rdf:subject ex:account_010 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_010 ;
+    ex:firstUsed "2025-01-11T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-11T15:40:00Z"^^xsd:dateTime .
+
+ex:account_011 a ex:Account ;
+    ex:accountId "ACC-SOC-00011" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_011 ;
+    ex:usedIP ex:ip_011 ;
+    ex:usedPhone ex:phone_011 ;
+    ex:transferredTo ex:account_012 .
+
+ex:stmt_transfer_011 a rdf:Statement ;
+    rdf:subject ex:account_011 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_012 ;
+    ex:amount 1523.25 ;
+    ex:timestamp "2025-06-12T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_011 a rdf:Statement ;
+    rdf:subject ex:account_011 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_011 ;
+    ex:firstUsed "2025-01-12T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-12T15:40:00Z"^^xsd:dateTime .
+
+ex:account_012 a ex:Account ;
+    ex:accountId "ACC-SOC-00012" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_012 ;
+    ex:usedIP ex:ip_012 ;
+    ex:usedPhone ex:phone_012 ;
+    ex:transferredTo ex:account_013 .
+
+ex:stmt_transfer_012 a rdf:Statement ;
+    rdf:subject ex:account_012 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_013 ;
+    ex:amount 1639.00 ;
+    ex:timestamp "2025-06-13T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_012 a rdf:Statement ;
+    rdf:subject ex:account_012 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_012 ;
+    ex:firstUsed "2025-01-13T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-13T15:40:00Z"^^xsd:dateTime .
+
+ex:account_013 a ex:Account ;
+    ex:accountId "ACC-SOC-00013" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_013 ;
+    ex:usedIP ex:ip_013 ;
+    ex:usedPhone ex:phone_013 ;
+    ex:transferredTo ex:account_014 .
+
+ex:stmt_transfer_013 a rdf:Statement ;
+    rdf:subject ex:account_013 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_014 ;
+    ex:amount 1754.75 ;
+    ex:timestamp "2025-06-14T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_013 a rdf:Statement ;
+    rdf:subject ex:account_013 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_013 ;
+    ex:firstUsed "2025-01-14T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-14T15:40:00Z"^^xsd:dateTime .
+
+ex:account_014 a ex:Account ;
+    ex:accountId "ACC-SOC-00014" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_014 ;
+    ex:usedIP ex:ip_014 ;
+    ex:usedPhone ex:phone_014 ;
+    ex:transferredTo ex:account_015 .
+
+ex:stmt_transfer_014 a rdf:Statement ;
+    rdf:subject ex:account_014 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_015 ;
+    ex:amount 1870.50 ;
+    ex:timestamp "2025-06-15T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_014 a rdf:Statement ;
+    rdf:subject ex:account_014 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_014 ;
+    ex:firstUsed "2025-01-15T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-15T15:40:00Z"^^xsd:dateTime .
+
+ex:account_015 a ex:Account ;
+    ex:accountId "ACC-SOC-00015" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_015 ;
+    ex:usedIP ex:ip_015 ;
+    ex:usedPhone ex:phone_015 ;
+    ex:transferredTo ex:account_016 .
+
+ex:stmt_transfer_015 a rdf:Statement ;
+    rdf:subject ex:account_015 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_016 ;
+    ex:amount 1986.25 ;
+    ex:timestamp "2025-06-16T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_015 a rdf:Statement ;
+    rdf:subject ex:account_015 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_015 ;
+    ex:firstUsed "2025-01-16T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-16T15:40:00Z"^^xsd:dateTime .
+
+ex:account_016 a ex:Account ;
+    ex:accountId "ACC-SOC-00016" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_016 ;
+    ex:usedIP ex:ip_016 ;
+    ex:usedPhone ex:phone_016 ;
+    ex:transferredTo ex:account_017 .
+
+ex:stmt_transfer_016 a rdf:Statement ;
+    rdf:subject ex:account_016 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_017 ;
+    ex:amount 2102.00 ;
+    ex:timestamp "2025-06-17T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_016 a rdf:Statement ;
+    rdf:subject ex:account_016 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_016 ;
+    ex:firstUsed "2025-01-17T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-17T15:40:00Z"^^xsd:dateTime .
+
+ex:account_017 a ex:Account ;
+    ex:accountId "ACC-SOC-00017" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_017 ;
+    ex:usedIP ex:ip_017 ;
+    ex:usedPhone ex:phone_017 ;
+    ex:transferredTo ex:account_018 .
+
+ex:stmt_transfer_017 a rdf:Statement ;
+    rdf:subject ex:account_017 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_018 ;
+    ex:amount 2217.75 ;
+    ex:timestamp "2025-06-18T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_017 a rdf:Statement ;
+    rdf:subject ex:account_017 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_017 ;
+    ex:firstUsed "2025-01-18T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-18T15:40:00Z"^^xsd:dateTime .
+
+ex:account_018 a ex:Account ;
+    ex:accountId "ACC-SOC-00018" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_018 ;
+    ex:usedIP ex:ip_018 ;
+    ex:usedPhone ex:phone_018 ;
+    ex:transferredTo ex:account_019 .
+
+ex:stmt_transfer_018 a rdf:Statement ;
+    rdf:subject ex:account_018 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_019 ;
+    ex:amount 2333.50 ;
+    ex:timestamp "2025-06-19T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_018 a rdf:Statement ;
+    rdf:subject ex:account_018 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_018 ;
+    ex:firstUsed "2025-01-19T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-19T15:40:00Z"^^xsd:dateTime .
+
+ex:account_019 a ex:Account ;
+    ex:accountId "ACC-SOC-00019" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_019 ;
+    ex:usedIP ex:ip_019 ;
+    ex:usedPhone ex:phone_019 ;
+    ex:transferredTo ex:account_020 .
+
+ex:stmt_transfer_019 a rdf:Statement ;
+    rdf:subject ex:account_019 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_020 ;
+    ex:amount 2449.25 ;
+    ex:timestamp "2025-06-20T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_019 a rdf:Statement ;
+    rdf:subject ex:account_019 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_019 ;
+    ex:firstUsed "2025-01-20T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-20T15:40:00Z"^^xsd:dateTime .
+
+ex:account_020 a ex:Account ;
+    ex:accountId "ACC-SOC-00020" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_020 ;
+    ex:usedIP ex:ip_020 ;
+    ex:usedPhone ex:phone_020 ;
+    ex:transferredTo ex:account_021 .
+
+ex:stmt_transfer_020 a rdf:Statement ;
+    rdf:subject ex:account_020 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_021 ;
+    ex:amount 2565.00 ;
+    ex:timestamp "2025-06-21T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_020 a rdf:Statement ;
+    rdf:subject ex:account_020 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_020 ;
+    ex:firstUsed "2025-01-21T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-21T15:40:00Z"^^xsd:dateTime .
+
+ex:account_021 a ex:Account ;
+    ex:accountId "ACC-SOC-00021" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_021 ;
+    ex:usedIP ex:ip_021 ;
+    ex:usedPhone ex:phone_021 ;
+    ex:transferredTo ex:account_022 .
+
+ex:stmt_transfer_021 a rdf:Statement ;
+    rdf:subject ex:account_021 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_022 ;
+    ex:amount 2680.75 ;
+    ex:timestamp "2025-06-22T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_021 a rdf:Statement ;
+    rdf:subject ex:account_021 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_021 ;
+    ex:firstUsed "2025-01-22T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-22T15:40:00Z"^^xsd:dateTime .
+
+ex:account_022 a ex:Account ;
+    ex:accountId "ACC-SOC-00022" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_022 ;
+    ex:usedIP ex:ip_022 ;
+    ex:usedPhone ex:phone_022 ;
+    ex:transferredTo ex:account_023 .
+
+ex:stmt_transfer_022 a rdf:Statement ;
+    rdf:subject ex:account_022 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_023 ;
+    ex:amount 2796.50 ;
+    ex:timestamp "2025-06-23T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_022 a rdf:Statement ;
+    rdf:subject ex:account_022 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_022 ;
+    ex:firstUsed "2025-01-23T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-23T15:40:00Z"^^xsd:dateTime .
+
+ex:account_023 a ex:Account ;
+    ex:accountId "ACC-SOC-00023" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_023 ;
+    ex:usedIP ex:ip_023 ;
+    ex:usedPhone ex:phone_023 ;
+    ex:transferredTo ex:account_024 .
+
+ex:stmt_transfer_023 a rdf:Statement ;
+    rdf:subject ex:account_023 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_024 ;
+    ex:amount 2912.25 ;
+    ex:timestamp "2025-06-24T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_023 a rdf:Statement ;
+    rdf:subject ex:account_023 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_023 ;
+    ex:firstUsed "2025-01-24T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-24T15:40:00Z"^^xsd:dateTime .
+
+ex:account_024 a ex:Account ;
+    ex:accountId "ACC-SOC-00024" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_024 ;
+    ex:usedIP ex:ip_024 ;
+    ex:usedPhone ex:phone_024 ;
+    ex:transferredTo ex:account_025 .
+
+ex:stmt_transfer_024 a rdf:Statement ;
+    rdf:subject ex:account_024 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_025 ;
+    ex:amount 3028.00 ;
+    ex:timestamp "2025-06-25T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_024 a rdf:Statement ;
+    rdf:subject ex:account_024 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_024 ;
+    ex:firstUsed "2025-01-25T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-25T15:40:00Z"^^xsd:dateTime .
+
+ex:account_025 a ex:Account ;
+    ex:accountId "ACC-SOC-00025" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_025 ;
+    ex:usedIP ex:ip_025 ;
+    ex:usedPhone ex:phone_025 ;
+    ex:transferredTo ex:account_026 .
+
+ex:stmt_transfer_025 a rdf:Statement ;
+    rdf:subject ex:account_025 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_026 ;
+    ex:amount 3143.75 ;
+    ex:timestamp "2025-06-26T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_025 a rdf:Statement ;
+    rdf:subject ex:account_025 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_025 ;
+    ex:firstUsed "2025-01-26T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-26T15:40:00Z"^^xsd:dateTime .
+
+ex:account_026 a ex:Account ;
+    ex:accountId "ACC-SOC-00026" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_026 ;
+    ex:usedIP ex:ip_026 ;
+    ex:usedPhone ex:phone_026 ;
+    ex:transferredTo ex:account_027 .
+
+ex:stmt_transfer_026 a rdf:Statement ;
+    rdf:subject ex:account_026 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_027 ;
+    ex:amount 3259.50 ;
+    ex:timestamp "2025-06-27T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_026 a rdf:Statement ;
+    rdf:subject ex:account_026 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_026 ;
+    ex:firstUsed "2025-01-27T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-27T15:40:00Z"^^xsd:dateTime .
+
+ex:account_027 a ex:Account ;
+    ex:accountId "ACC-SOC-00027" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_027 ;
+    ex:usedIP ex:ip_027 ;
+    ex:usedPhone ex:phone_027 ;
+    ex:transferredTo ex:account_028 .
+
+ex:stmt_transfer_027 a rdf:Statement ;
+    rdf:subject ex:account_027 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_028 ;
+    ex:amount 3375.25 ;
+    ex:timestamp "2025-06-28T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_027 a rdf:Statement ;
+    rdf:subject ex:account_027 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_027 ;
+    ex:firstUsed "2025-01-28T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-28T15:40:00Z"^^xsd:dateTime .
+
+ex:account_028 a ex:Account ;
+    ex:accountId "ACC-SOC-00028" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_028 ;
+    ex:usedIP ex:ip_028 ;
+    ex:usedPhone ex:phone_028 ;
+    ex:transferredTo ex:account_029 .
+
+ex:stmt_transfer_028 a rdf:Statement ;
+    rdf:subject ex:account_028 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_029 ;
+    ex:amount 3491.00 ;
+    ex:timestamp "2025-06-01T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_028 a rdf:Statement ;
+    rdf:subject ex:account_028 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_028 ;
+    ex:firstUsed "2025-01-01T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-01T15:40:00Z"^^xsd:dateTime .
+
+ex:account_029 a ex:Account ;
+    ex:accountId "ACC-SOC-00029" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_029 ;
+    ex:usedIP ex:ip_029 ;
+    ex:usedPhone ex:phone_029 ;
+    ex:transferredTo ex:account_030 .
+
+ex:stmt_transfer_029 a rdf:Statement ;
+    rdf:subject ex:account_029 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_030 ;
+    ex:amount 3606.75 ;
+    ex:timestamp "2025-06-02T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_029 a rdf:Statement ;
+    rdf:subject ex:account_029 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_029 ;
+    ex:firstUsed "2025-01-02T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-02T15:40:00Z"^^xsd:dateTime .
+
+ex:account_030 a ex:Account ;
+    ex:accountId "ACC-SOC-00030" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_030 ;
+    ex:usedIP ex:ip_030 ;
+    ex:usedPhone ex:phone_030 ;
+    ex:transferredTo ex:account_031 .
+
+ex:stmt_transfer_030 a rdf:Statement ;
+    rdf:subject ex:account_030 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_031 ;
+    ex:amount 3722.50 ;
+    ex:timestamp "2025-06-03T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_030 a rdf:Statement ;
+    rdf:subject ex:account_030 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_030 ;
+    ex:firstUsed "2025-01-03T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-03T15:40:00Z"^^xsd:dateTime .
+
+ex:account_031 a ex:Account ;
+    ex:accountId "ACC-SOC-00031" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_031 ;
+    ex:usedIP ex:ip_031 ;
+    ex:usedPhone ex:phone_031 ;
+    ex:transferredTo ex:account_032 .
+
+ex:stmt_transfer_031 a rdf:Statement ;
+    rdf:subject ex:account_031 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_032 ;
+    ex:amount 3838.25 ;
+    ex:timestamp "2025-06-04T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_031 a rdf:Statement ;
+    rdf:subject ex:account_031 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_031 ;
+    ex:firstUsed "2025-01-04T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-04T15:40:00Z"^^xsd:dateTime .
+
+ex:account_032 a ex:Account ;
+    ex:accountId "ACC-SOC-00032" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_032 ;
+    ex:usedIP ex:ip_032 ;
+    ex:usedPhone ex:phone_032 ;
+    ex:transferredTo ex:account_033 .
+
+ex:stmt_transfer_032 a rdf:Statement ;
+    rdf:subject ex:account_032 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_033 ;
+    ex:amount 3954.00 ;
+    ex:timestamp "2025-06-05T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_032 a rdf:Statement ;
+    rdf:subject ex:account_032 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_032 ;
+    ex:firstUsed "2025-01-05T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-05T15:40:00Z"^^xsd:dateTime .
+
+ex:account_033 a ex:Account ;
+    ex:accountId "ACC-SOC-00033" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_033 ;
+    ex:usedIP ex:ip_033 ;
+    ex:usedPhone ex:phone_033 ;
+    ex:transferredTo ex:account_034 .
+
+ex:stmt_transfer_033 a rdf:Statement ;
+    rdf:subject ex:account_033 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_034 ;
+    ex:amount 4069.75 ;
+    ex:timestamp "2025-06-06T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_033 a rdf:Statement ;
+    rdf:subject ex:account_033 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_033 ;
+    ex:firstUsed "2025-01-06T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-06T15:40:00Z"^^xsd:dateTime .
+
+ex:account_034 a ex:Account ;
+    ex:accountId "ACC-SOC-00034" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_034 ;
+    ex:usedIP ex:ip_034 ;
+    ex:usedPhone ex:phone_034 ;
+    ex:transferredTo ex:account_035 .
+
+ex:stmt_transfer_034 a rdf:Statement ;
+    rdf:subject ex:account_034 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_035 ;
+    ex:amount 4185.50 ;
+    ex:timestamp "2025-06-07T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_034 a rdf:Statement ;
+    rdf:subject ex:account_034 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_034 ;
+    ex:firstUsed "2025-01-07T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-07T15:40:00Z"^^xsd:dateTime .
+
+ex:account_035 a ex:Account ;
+    ex:accountId "ACC-SOC-00035" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_035 ;
+    ex:usedIP ex:ip_035 ;
+    ex:usedPhone ex:phone_035 ;
+    ex:transferredTo ex:account_036 .
+
+ex:stmt_transfer_035 a rdf:Statement ;
+    rdf:subject ex:account_035 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_036 ;
+    ex:amount 4301.25 ;
+    ex:timestamp "2025-06-08T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_035 a rdf:Statement ;
+    rdf:subject ex:account_035 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_035 ;
+    ex:firstUsed "2025-01-08T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-08T15:40:00Z"^^xsd:dateTime .
+
+ex:account_036 a ex:Account ;
+    ex:accountId "ACC-SOC-00036" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_036 ;
+    ex:usedIP ex:ip_036 ;
+    ex:usedPhone ex:phone_036 ;
+    ex:transferredTo ex:account_037 .
+
+ex:stmt_transfer_036 a rdf:Statement ;
+    rdf:subject ex:account_036 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_037 ;
+    ex:amount 4417.00 ;
+    ex:timestamp "2025-06-09T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_036 a rdf:Statement ;
+    rdf:subject ex:account_036 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_036 ;
+    ex:firstUsed "2025-01-09T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-09T15:40:00Z"^^xsd:dateTime .
+
+ex:account_037 a ex:Account ;
+    ex:accountId "ACC-SOC-00037" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_037 ;
+    ex:usedIP ex:ip_037 ;
+    ex:usedPhone ex:phone_037 ;
+    ex:transferredTo ex:account_038 .
+
+ex:stmt_transfer_037 a rdf:Statement ;
+    rdf:subject ex:account_037 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_038 ;
+    ex:amount 4532.75 ;
+    ex:timestamp "2025-06-10T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_037 a rdf:Statement ;
+    rdf:subject ex:account_037 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_037 ;
+    ex:firstUsed "2025-01-10T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-10T15:40:00Z"^^xsd:dateTime .
+
+ex:account_038 a ex:Account ;
+    ex:accountId "ACC-SOC-00038" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_038 ;
+    ex:usedIP ex:ip_038 ;
+    ex:usedPhone ex:phone_038 ;
+    ex:transferredTo ex:account_039 .
+
+ex:stmt_transfer_038 a rdf:Statement ;
+    rdf:subject ex:account_038 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_039 ;
+    ex:amount 4648.50 ;
+    ex:timestamp "2025-06-11T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_038 a rdf:Statement ;
+    rdf:subject ex:account_038 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_038 ;
+    ex:firstUsed "2025-01-11T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-11T15:40:00Z"^^xsd:dateTime .
+
+ex:account_039 a ex:Account ;
+    ex:accountId "ACC-SOC-00039" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_039 ;
+    ex:usedIP ex:ip_039 ;
+    ex:usedPhone ex:phone_039 ;
+    ex:transferredTo ex:account_040 .
+
+ex:stmt_transfer_039 a rdf:Statement ;
+    rdf:subject ex:account_039 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_040 ;
+    ex:amount 4764.25 ;
+    ex:timestamp "2025-06-12T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_039 a rdf:Statement ;
+    rdf:subject ex:account_039 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_039 ;
+    ex:firstUsed "2025-01-12T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-12T15:40:00Z"^^xsd:dateTime .
+
+ex:account_040 a ex:Account ;
+    ex:accountId "ACC-SOC-00040" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_040 ;
+    ex:usedIP ex:ip_040 ;
+    ex:usedPhone ex:phone_040 ;
+    ex:transferredTo ex:account_041 .
+
+ex:stmt_transfer_040 a rdf:Statement ;
+    rdf:subject ex:account_040 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_041 ;
+    ex:amount 4880.00 ;
+    ex:timestamp "2025-06-13T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_040 a rdf:Statement ;
+    rdf:subject ex:account_040 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_040 ;
+    ex:firstUsed "2025-01-13T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-13T15:40:00Z"^^xsd:dateTime .
+
+ex:account_041 a ex:Account ;
+    ex:accountId "ACC-SOC-00041" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_041 ;
+    ex:usedIP ex:ip_041 ;
+    ex:usedPhone ex:phone_041 ;
+    ex:transferredTo ex:account_042 .
+
+ex:stmt_transfer_041 a rdf:Statement ;
+    rdf:subject ex:account_041 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_042 ;
+    ex:amount 4995.75 ;
+    ex:timestamp "2025-06-14T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_041 a rdf:Statement ;
+    rdf:subject ex:account_041 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_041 ;
+    ex:firstUsed "2025-01-14T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-14T15:40:00Z"^^xsd:dateTime .
+
+ex:account_042 a ex:Account ;
+    ex:accountId "ACC-SOC-00042" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_042 ;
+    ex:usedIP ex:ip_042 ;
+    ex:usedPhone ex:phone_042 ;
+    ex:transferredTo ex:account_043 .
+
+ex:stmt_transfer_042 a rdf:Statement ;
+    rdf:subject ex:account_042 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_043 ;
+    ex:amount 5111.50 ;
+    ex:timestamp "2025-06-15T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_042 a rdf:Statement ;
+    rdf:subject ex:account_042 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_042 ;
+    ex:firstUsed "2025-01-15T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-15T15:40:00Z"^^xsd:dateTime .
+
+ex:account_043 a ex:Account ;
+    ex:accountId "ACC-SOC-00043" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_043 ;
+    ex:usedIP ex:ip_043 ;
+    ex:usedPhone ex:phone_043 ;
+    ex:transferredTo ex:account_044 .
+
+ex:stmt_transfer_043 a rdf:Statement ;
+    rdf:subject ex:account_043 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_044 ;
+    ex:amount 5227.25 ;
+    ex:timestamp "2025-06-16T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_043 a rdf:Statement ;
+    rdf:subject ex:account_043 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_043 ;
+    ex:firstUsed "2025-01-16T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-16T15:40:00Z"^^xsd:dateTime .
+
+ex:account_044 a ex:Account ;
+    ex:accountId "ACC-SOC-00044" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_044 ;
+    ex:usedIP ex:ip_044 ;
+    ex:usedPhone ex:phone_044 ;
+    ex:transferredTo ex:account_045 .
+
+ex:stmt_transfer_044 a rdf:Statement ;
+    rdf:subject ex:account_044 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_045 ;
+    ex:amount 5343.00 ;
+    ex:timestamp "2025-06-17T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_044 a rdf:Statement ;
+    rdf:subject ex:account_044 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_044 ;
+    ex:firstUsed "2025-01-17T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-17T15:40:00Z"^^xsd:dateTime .
+
+ex:account_045 a ex:Account ;
+    ex:accountId "ACC-SOC-00045" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_045 ;
+    ex:usedIP ex:ip_045 ;
+    ex:usedPhone ex:phone_045 ;
+    ex:transferredTo ex:account_046 .
+
+ex:stmt_transfer_045 a rdf:Statement ;
+    rdf:subject ex:account_045 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_046 ;
+    ex:amount 5458.75 ;
+    ex:timestamp "2025-06-18T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_045 a rdf:Statement ;
+    rdf:subject ex:account_045 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_045 ;
+    ex:firstUsed "2025-01-18T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-18T15:40:00Z"^^xsd:dateTime .
+
+ex:account_046 a ex:Account ;
+    ex:accountId "ACC-SOC-00046" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_046 ;
+    ex:usedIP ex:ip_046 ;
+    ex:usedPhone ex:phone_046 ;
+    ex:transferredTo ex:account_047 .
+
+ex:stmt_transfer_046 a rdf:Statement ;
+    rdf:subject ex:account_046 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_047 ;
+    ex:amount 5574.50 ;
+    ex:timestamp "2025-06-19T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_046 a rdf:Statement ;
+    rdf:subject ex:account_046 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_046 ;
+    ex:firstUsed "2025-01-19T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-19T15:40:00Z"^^xsd:dateTime .
+
+ex:account_047 a ex:Account ;
+    ex:accountId "ACC-SOC-00047" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_047 ;
+    ex:usedIP ex:ip_047 ;
+    ex:usedPhone ex:phone_047 ;
+    ex:transferredTo ex:account_048 .
+
+ex:stmt_transfer_047 a rdf:Statement ;
+    rdf:subject ex:account_047 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_048 ;
+    ex:amount 5690.25 ;
+    ex:timestamp "2025-06-20T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_047 a rdf:Statement ;
+    rdf:subject ex:account_047 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_047 ;
+    ex:firstUsed "2025-01-20T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-20T15:40:00Z"^^xsd:dateTime .
+
+ex:account_048 a ex:Account ;
+    ex:accountId "ACC-SOC-00048" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_048 ;
+    ex:usedIP ex:ip_048 ;
+    ex:usedPhone ex:phone_048 ;
+    ex:transferredTo ex:account_049 .
+
+ex:stmt_transfer_048 a rdf:Statement ;
+    rdf:subject ex:account_048 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_049 ;
+    ex:amount 5806.00 ;
+    ex:timestamp "2025-06-21T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_048 a rdf:Statement ;
+    rdf:subject ex:account_048 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_048 ;
+    ex:firstUsed "2025-01-21T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-21T15:40:00Z"^^xsd:dateTime .
+
+ex:account_049 a ex:Account ;
+    ex:accountId "ACC-SOC-00049" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_049 ;
+    ex:usedIP ex:ip_049 ;
+    ex:usedPhone ex:phone_049 ;
+    ex:transferredTo ex:account_050 .
+
+ex:stmt_transfer_049 a rdf:Statement ;
+    rdf:subject ex:account_049 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_050 ;
+    ex:amount 5921.75 ;
+    ex:timestamp "2025-06-22T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_049 a rdf:Statement ;
+    rdf:subject ex:account_049 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_049 ;
+    ex:firstUsed "2025-01-22T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-22T15:40:00Z"^^xsd:dateTime .
+
+ex:account_050 a ex:Account ;
+    ex:accountId "ACC-SOC-00050" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_050 ;
+    ex:usedIP ex:ip_050 ;
+    ex:usedPhone ex:phone_050 ;
+    ex:transferredTo ex:account_051 .
+
+ex:stmt_transfer_050 a rdf:Statement ;
+    rdf:subject ex:account_050 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_051 ;
+    ex:amount 6037.50 ;
+    ex:timestamp "2025-06-23T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_050 a rdf:Statement ;
+    rdf:subject ex:account_050 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_050 ;
+    ex:firstUsed "2025-01-23T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-23T15:40:00Z"^^xsd:dateTime .
+
+ex:account_051 a ex:Account ;
+    ex:accountId "ACC-SOC-00051" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_001 ;
+    ex:usedIP ex:ip_001 ;
+    ex:usedPhone ex:phone_001 ;
+    ex:transferredTo ex:account_052 .
+
+ex:stmt_transfer_051 a rdf:Statement ;
+    rdf:subject ex:account_051 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_052 ;
+    ex:amount 6153.25 ;
+    ex:timestamp "2025-06-24T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_051 a rdf:Statement ;
+    rdf:subject ex:account_051 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_001 ;
+    ex:firstUsed "2025-01-24T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-24T15:40:00Z"^^xsd:dateTime .
+
+ex:account_052 a ex:Account ;
+    ex:accountId "ACC-SOC-00052" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_002 ;
+    ex:usedIP ex:ip_002 ;
+    ex:usedPhone ex:phone_002 ;
+    ex:transferredTo ex:account_053 .
+
+ex:stmt_transfer_052 a rdf:Statement ;
+    rdf:subject ex:account_052 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_053 ;
+    ex:amount 6269.00 ;
+    ex:timestamp "2025-06-25T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_052 a rdf:Statement ;
+    rdf:subject ex:account_052 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_002 ;
+    ex:firstUsed "2025-01-25T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-25T15:40:00Z"^^xsd:dateTime .
+
+ex:account_053 a ex:Account ;
+    ex:accountId "ACC-SOC-00053" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_003 ;
+    ex:usedIP ex:ip_003 ;
+    ex:usedPhone ex:phone_003 ;
+    ex:transferredTo ex:account_054 .
+
+ex:stmt_transfer_053 a rdf:Statement ;
+    rdf:subject ex:account_053 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_054 ;
+    ex:amount 6384.75 ;
+    ex:timestamp "2025-06-26T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_053 a rdf:Statement ;
+    rdf:subject ex:account_053 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_003 ;
+    ex:firstUsed "2025-01-26T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-26T15:40:00Z"^^xsd:dateTime .
+
+ex:account_054 a ex:Account ;
+    ex:accountId "ACC-SOC-00054" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_004 ;
+    ex:usedIP ex:ip_004 ;
+    ex:usedPhone ex:phone_004 ;
+    ex:transferredTo ex:account_055 .
+
+ex:stmt_transfer_054 a rdf:Statement ;
+    rdf:subject ex:account_054 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_055 ;
+    ex:amount 6500.50 ;
+    ex:timestamp "2025-06-27T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_054 a rdf:Statement ;
+    rdf:subject ex:account_054 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_004 ;
+    ex:firstUsed "2025-01-27T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-27T15:40:00Z"^^xsd:dateTime .
+
+ex:account_055 a ex:Account ;
+    ex:accountId "ACC-SOC-00055" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_005 ;
+    ex:usedIP ex:ip_005 ;
+    ex:usedPhone ex:phone_005 ;
+    ex:transferredTo ex:account_056 .
+
+ex:stmt_transfer_055 a rdf:Statement ;
+    rdf:subject ex:account_055 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_056 ;
+    ex:amount 6616.25 ;
+    ex:timestamp "2025-06-28T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_055 a rdf:Statement ;
+    rdf:subject ex:account_055 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_005 ;
+    ex:firstUsed "2025-01-28T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-28T15:40:00Z"^^xsd:dateTime .
+
+ex:account_056 a ex:Account ;
+    ex:accountId "ACC-SOC-00056" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_006 ;
+    ex:usedIP ex:ip_006 ;
+    ex:usedPhone ex:phone_006 ;
+    ex:transferredTo ex:account_057 .
+
+ex:stmt_transfer_056 a rdf:Statement ;
+    rdf:subject ex:account_056 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_057 ;
+    ex:amount 6732.00 ;
+    ex:timestamp "2025-06-01T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_056 a rdf:Statement ;
+    rdf:subject ex:account_056 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_006 ;
+    ex:firstUsed "2025-01-01T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-01T15:40:00Z"^^xsd:dateTime .
+
+ex:account_057 a ex:Account ;
+    ex:accountId "ACC-SOC-00057" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_007 ;
+    ex:usedIP ex:ip_007 ;
+    ex:usedPhone ex:phone_007 ;
+    ex:transferredTo ex:account_058 .
+
+ex:stmt_transfer_057 a rdf:Statement ;
+    rdf:subject ex:account_057 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_058 ;
+    ex:amount 6847.75 ;
+    ex:timestamp "2025-06-02T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_057 a rdf:Statement ;
+    rdf:subject ex:account_057 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_007 ;
+    ex:firstUsed "2025-01-02T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-02T15:40:00Z"^^xsd:dateTime .
+
+ex:account_058 a ex:Account ;
+    ex:accountId "ACC-SOC-00058" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_008 ;
+    ex:usedIP ex:ip_008 ;
+    ex:usedPhone ex:phone_008 ;
+    ex:transferredTo ex:account_059 .
+
+ex:stmt_transfer_058 a rdf:Statement ;
+    rdf:subject ex:account_058 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_059 ;
+    ex:amount 6963.50 ;
+    ex:timestamp "2025-06-03T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_058 a rdf:Statement ;
+    rdf:subject ex:account_058 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_008 ;
+    ex:firstUsed "2025-01-03T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-03T15:40:00Z"^^xsd:dateTime .
+
+ex:account_059 a ex:Account ;
+    ex:accountId "ACC-SOC-00059" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_009 ;
+    ex:usedIP ex:ip_009 ;
+    ex:usedPhone ex:phone_009 ;
+    ex:transferredTo ex:account_060 .
+
+ex:stmt_transfer_059 a rdf:Statement ;
+    rdf:subject ex:account_059 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_060 ;
+    ex:amount 7079.25 ;
+    ex:timestamp "2025-06-04T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_059 a rdf:Statement ;
+    rdf:subject ex:account_059 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_009 ;
+    ex:firstUsed "2025-01-04T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-04T15:40:00Z"^^xsd:dateTime .
+
+ex:account_060 a ex:Account ;
+    ex:accountId "ACC-SOC-00060" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_010 ;
+    ex:usedIP ex:ip_010 ;
+    ex:usedPhone ex:phone_010 ;
+    ex:transferredTo ex:account_061 .
+
+ex:stmt_transfer_060 a rdf:Statement ;
+    rdf:subject ex:account_060 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_061 ;
+    ex:amount 7195.00 ;
+    ex:timestamp "2025-06-05T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_060 a rdf:Statement ;
+    rdf:subject ex:account_060 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_010 ;
+    ex:firstUsed "2025-01-05T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-05T15:40:00Z"^^xsd:dateTime .
+
+ex:account_061 a ex:Account ;
+    ex:accountId "ACC-SOC-00061" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_011 ;
+    ex:usedIP ex:ip_011 ;
+    ex:usedPhone ex:phone_011 ;
+    ex:transferredTo ex:account_062 .
+
+ex:stmt_transfer_061 a rdf:Statement ;
+    rdf:subject ex:account_061 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_062 ;
+    ex:amount 7310.75 ;
+    ex:timestamp "2025-06-06T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_061 a rdf:Statement ;
+    rdf:subject ex:account_061 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_011 ;
+    ex:firstUsed "2025-01-06T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-06T15:40:00Z"^^xsd:dateTime .
+
+ex:account_062 a ex:Account ;
+    ex:accountId "ACC-SOC-00062" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_012 ;
+    ex:usedIP ex:ip_012 ;
+    ex:usedPhone ex:phone_012 ;
+    ex:transferredTo ex:account_063 .
+
+ex:stmt_transfer_062 a rdf:Statement ;
+    rdf:subject ex:account_062 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_063 ;
+    ex:amount 7426.50 ;
+    ex:timestamp "2025-06-07T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_062 a rdf:Statement ;
+    rdf:subject ex:account_062 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_012 ;
+    ex:firstUsed "2025-01-07T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-07T15:40:00Z"^^xsd:dateTime .
+
+ex:account_063 a ex:Account ;
+    ex:accountId "ACC-SOC-00063" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_013 ;
+    ex:usedIP ex:ip_013 ;
+    ex:usedPhone ex:phone_013 ;
+    ex:transferredTo ex:account_064 .
+
+ex:stmt_transfer_063 a rdf:Statement ;
+    rdf:subject ex:account_063 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_064 ;
+    ex:amount 7542.25 ;
+    ex:timestamp "2025-06-08T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_063 a rdf:Statement ;
+    rdf:subject ex:account_063 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_013 ;
+    ex:firstUsed "2025-01-08T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-08T15:40:00Z"^^xsd:dateTime .
+
+ex:account_064 a ex:Account ;
+    ex:accountId "ACC-SOC-00064" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_014 ;
+    ex:usedIP ex:ip_014 ;
+    ex:usedPhone ex:phone_014 ;
+    ex:transferredTo ex:account_065 .
+
+ex:stmt_transfer_064 a rdf:Statement ;
+    rdf:subject ex:account_064 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_065 ;
+    ex:amount 7658.00 ;
+    ex:timestamp "2025-06-09T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_064 a rdf:Statement ;
+    rdf:subject ex:account_064 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_014 ;
+    ex:firstUsed "2025-01-09T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-09T15:40:00Z"^^xsd:dateTime .
+
+ex:account_065 a ex:Account ;
+    ex:accountId "ACC-SOC-00065" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_015 ;
+    ex:usedIP ex:ip_015 ;
+    ex:usedPhone ex:phone_015 ;
+    ex:transferredTo ex:account_066 .
+
+ex:stmt_transfer_065 a rdf:Statement ;
+    rdf:subject ex:account_065 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_066 ;
+    ex:amount 7773.75 ;
+    ex:timestamp "2025-06-10T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_065 a rdf:Statement ;
+    rdf:subject ex:account_065 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_015 ;
+    ex:firstUsed "2025-01-10T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-10T15:40:00Z"^^xsd:dateTime .
+
+ex:account_066 a ex:Account ;
+    ex:accountId "ACC-SOC-00066" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_016 ;
+    ex:usedIP ex:ip_016 ;
+    ex:usedPhone ex:phone_016 ;
+    ex:transferredTo ex:account_067 .
+
+ex:stmt_transfer_066 a rdf:Statement ;
+    rdf:subject ex:account_066 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_067 ;
+    ex:amount 7889.50 ;
+    ex:timestamp "2025-06-11T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_066 a rdf:Statement ;
+    rdf:subject ex:account_066 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_016 ;
+    ex:firstUsed "2025-01-11T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-11T15:40:00Z"^^xsd:dateTime .
+
+ex:account_067 a ex:Account ;
+    ex:accountId "ACC-SOC-00067" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_017 ;
+    ex:usedIP ex:ip_017 ;
+    ex:usedPhone ex:phone_017 ;
+    ex:transferredTo ex:account_068 .
+
+ex:stmt_transfer_067 a rdf:Statement ;
+    rdf:subject ex:account_067 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_068 ;
+    ex:amount 8005.25 ;
+    ex:timestamp "2025-06-12T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_067 a rdf:Statement ;
+    rdf:subject ex:account_067 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_017 ;
+    ex:firstUsed "2025-01-12T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-12T15:40:00Z"^^xsd:dateTime .
+
+ex:account_068 a ex:Account ;
+    ex:accountId "ACC-SOC-00068" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_018 ;
+    ex:usedIP ex:ip_018 ;
+    ex:usedPhone ex:phone_018 ;
+    ex:transferredTo ex:account_069 .
+
+ex:stmt_transfer_068 a rdf:Statement ;
+    rdf:subject ex:account_068 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_069 ;
+    ex:amount 8121.00 ;
+    ex:timestamp "2025-06-13T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_068 a rdf:Statement ;
+    rdf:subject ex:account_068 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_018 ;
+    ex:firstUsed "2025-01-13T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-13T15:40:00Z"^^xsd:dateTime .
+
+ex:account_069 a ex:Account ;
+    ex:accountId "ACC-SOC-00069" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_019 ;
+    ex:usedIP ex:ip_019 ;
+    ex:usedPhone ex:phone_019 ;
+    ex:transferredTo ex:account_070 .
+
+ex:stmt_transfer_069 a rdf:Statement ;
+    rdf:subject ex:account_069 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_070 ;
+    ex:amount 8236.75 ;
+    ex:timestamp "2025-06-14T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_069 a rdf:Statement ;
+    rdf:subject ex:account_069 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_019 ;
+    ex:firstUsed "2025-01-14T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-14T15:40:00Z"^^xsd:dateTime .
+
+ex:account_070 a ex:Account ;
+    ex:accountId "ACC-SOC-00070" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_020 ;
+    ex:usedIP ex:ip_020 ;
+    ex:usedPhone ex:phone_020 ;
+    ex:transferredTo ex:account_071 .
+
+ex:stmt_transfer_070 a rdf:Statement ;
+    rdf:subject ex:account_070 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_071 ;
+    ex:amount 8352.50 ;
+    ex:timestamp "2025-06-15T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_070 a rdf:Statement ;
+    rdf:subject ex:account_070 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_020 ;
+    ex:firstUsed "2025-01-15T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-15T15:40:00Z"^^xsd:dateTime .
+
+ex:account_071 a ex:Account ;
+    ex:accountId "ACC-SOC-00071" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_021 ;
+    ex:usedIP ex:ip_021 ;
+    ex:usedPhone ex:phone_021 ;
+    ex:transferredTo ex:account_072 .
+
+ex:stmt_transfer_071 a rdf:Statement ;
+    rdf:subject ex:account_071 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_072 ;
+    ex:amount 8468.25 ;
+    ex:timestamp "2025-06-16T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_071 a rdf:Statement ;
+    rdf:subject ex:account_071 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_021 ;
+    ex:firstUsed "2025-01-16T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-16T15:40:00Z"^^xsd:dateTime .
+
+ex:account_072 a ex:Account ;
+    ex:accountId "ACC-SOC-00072" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_022 ;
+    ex:usedIP ex:ip_022 ;
+    ex:usedPhone ex:phone_022 ;
+    ex:transferredTo ex:account_073 .
+
+ex:stmt_transfer_072 a rdf:Statement ;
+    rdf:subject ex:account_072 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_073 ;
+    ex:amount 8584.00 ;
+    ex:timestamp "2025-06-17T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_072 a rdf:Statement ;
+    rdf:subject ex:account_072 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_022 ;
+    ex:firstUsed "2025-01-17T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-17T15:40:00Z"^^xsd:dateTime .
+
+ex:account_073 a ex:Account ;
+    ex:accountId "ACC-SOC-00073" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_023 ;
+    ex:usedIP ex:ip_023 ;
+    ex:usedPhone ex:phone_023 ;
+    ex:transferredTo ex:account_074 .
+
+ex:stmt_transfer_073 a rdf:Statement ;
+    rdf:subject ex:account_073 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_074 ;
+    ex:amount 8699.75 ;
+    ex:timestamp "2025-06-18T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_073 a rdf:Statement ;
+    rdf:subject ex:account_073 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_023 ;
+    ex:firstUsed "2025-01-18T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-18T15:40:00Z"^^xsd:dateTime .
+
+ex:account_074 a ex:Account ;
+    ex:accountId "ACC-SOC-00074" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_024 ;
+    ex:usedIP ex:ip_024 ;
+    ex:usedPhone ex:phone_024 ;
+    ex:transferredTo ex:account_075 .
+
+ex:stmt_transfer_074 a rdf:Statement ;
+    rdf:subject ex:account_074 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_075 ;
+    ex:amount 8815.50 ;
+    ex:timestamp "2025-06-19T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_074 a rdf:Statement ;
+    rdf:subject ex:account_074 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_024 ;
+    ex:firstUsed "2025-01-19T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-19T15:40:00Z"^^xsd:dateTime .
+
+ex:account_075 a ex:Account ;
+    ex:accountId "ACC-SOC-00075" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_025 ;
+    ex:usedIP ex:ip_025 ;
+    ex:usedPhone ex:phone_025 ;
+    ex:transferredTo ex:account_076 .
+
+ex:stmt_transfer_075 a rdf:Statement ;
+    rdf:subject ex:account_075 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_076 ;
+    ex:amount 8931.25 ;
+    ex:timestamp "2025-06-20T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_075 a rdf:Statement ;
+    rdf:subject ex:account_075 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_025 ;
+    ex:firstUsed "2025-01-20T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-20T15:40:00Z"^^xsd:dateTime .
+
+ex:account_076 a ex:Account ;
+    ex:accountId "ACC-SOC-00076" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_026 ;
+    ex:usedIP ex:ip_026 ;
+    ex:usedPhone ex:phone_026 ;
+    ex:transferredTo ex:account_077 .
+
+ex:stmt_transfer_076 a rdf:Statement ;
+    rdf:subject ex:account_076 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_077 ;
+    ex:amount 9047.00 ;
+    ex:timestamp "2025-06-21T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_076 a rdf:Statement ;
+    rdf:subject ex:account_076 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_026 ;
+    ex:firstUsed "2025-01-21T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-21T15:40:00Z"^^xsd:dateTime .
+
+ex:account_077 a ex:Account ;
+    ex:accountId "ACC-SOC-00077" ;
+    ex:accountStatus "FLAGGED" ;
+    ex:usedDevice ex:device_027 ;
+    ex:usedIP ex:ip_027 ;
+    ex:usedPhone ex:phone_027 ;
+    ex:transferredTo ex:account_078 .
+
+ex:stmt_transfer_077 a rdf:Statement ;
+    rdf:subject ex:account_077 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_078 ;
+    ex:amount 9162.75 ;
+    ex:timestamp "2025-06-22T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_077 a rdf:Statement ;
+    rdf:subject ex:account_077 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_027 ;
+    ex:firstUsed "2025-01-22T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-22T15:40:00Z"^^xsd:dateTime .
+
+ex:account_078 a ex:Account ;
+    ex:accountId "ACC-SOC-00078" ;
+    ex:accountStatus "UNDER_REVIEW" ;
+    ex:usedDevice ex:device_028 ;
+    ex:usedIP ex:ip_028 ;
+    ex:usedPhone ex:phone_028 ;
+    ex:transferredTo ex:account_079 .
+
+ex:stmt_transfer_078 a rdf:Statement ;
+    rdf:subject ex:account_078 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_079 ;
+    ex:amount 9278.50 ;
+    ex:timestamp "2025-06-23T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_078 a rdf:Statement ;
+    rdf:subject ex:account_078 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_028 ;
+    ex:firstUsed "2025-01-23T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-23T15:40:00Z"^^xsd:dateTime .
+
+ex:account_079 a ex:Account ;
+    ex:accountId "ACC-SOC-00079" ;
+    ex:accountStatus "VERIFIED" ;
+    ex:usedDevice ex:device_029 ;
+    ex:usedIP ex:ip_029 ;
+    ex:usedPhone ex:phone_029 ;
+    ex:transferredTo ex:account_080 .
+
+ex:stmt_transfer_079 a rdf:Statement ;
+    rdf:subject ex:account_079 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_080 ;
+    ex:amount 9394.25 ;
+    ex:timestamp "2025-06-24T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_079 a rdf:Statement ;
+    rdf:subject ex:account_079 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_029 ;
+    ex:firstUsed "2025-01-24T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-24T15:40:00Z"^^xsd:dateTime .
+
+ex:account_080 a ex:Account ;
+    ex:accountId "ACC-SOC-00080" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:usedDevice ex:device_030 ;
+    ex:usedIP ex:ip_030 ;
+    ex:usedPhone ex:phone_030 ;
+    ex:transferredTo ex:account_001 .
+
+ex:stmt_transfer_080 a rdf:Statement ;
+    rdf:subject ex:account_080 ;
+    rdf:predicate ex:transferredTo ;
+    rdf:object ex:account_001 ;
+    ex:amount 9510.00 ;
+    ex:timestamp "2025-06-25T15:45:00Z"^^xsd:dateTime .
+
+ex:stmt_dev_use_080 a rdf:Statement ;
+    rdf:subject ex:account_080 ;
+    rdf:predicate ex:usedDevice ;
+    rdf:object ex:device_030 ;
+    ex:firstUsed "2025-01-25T08:00:00Z"^^xsd:dateTime ;
+    ex:lastUsed "2025-06-25T15:40:00Z"^^xsd:dateTime .

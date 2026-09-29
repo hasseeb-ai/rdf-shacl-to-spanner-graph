@@ -1,0 +1,1686 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/nary#> .
+
+# ABox Instance Triples for 12_n_ary_relations
+
+ex:person_001 a ex:Person ;
+    ex:personId "PER-0001" ;
+    ex:fullName "Professional #001" .
+
+ex:person_002 a ex:Person ;
+    ex:personId "PER-0002" ;
+    ex:fullName "Professional #002" .
+
+ex:person_003 a ex:Person ;
+    ex:personId "PER-0003" ;
+    ex:fullName "Professional #003" .
+
+ex:person_004 a ex:Person ;
+    ex:personId "PER-0004" ;
+    ex:fullName "Professional #004" .
+
+ex:person_005 a ex:Person ;
+    ex:personId "PER-0005" ;
+    ex:fullName "Professional #005" .
+
+ex:person_006 a ex:Person ;
+    ex:personId "PER-0006" ;
+    ex:fullName "Professional #006" .
+
+ex:person_007 a ex:Person ;
+    ex:personId "PER-0007" ;
+    ex:fullName "Professional #007" .
+
+ex:person_008 a ex:Person ;
+    ex:personId "PER-0008" ;
+    ex:fullName "Professional #008" .
+
+ex:person_009 a ex:Person ;
+    ex:personId "PER-0009" ;
+    ex:fullName "Professional #009" .
+
+ex:person_010 a ex:Person ;
+    ex:personId "PER-0010" ;
+    ex:fullName "Professional #010" .
+
+ex:person_011 a ex:Person ;
+    ex:personId "PER-0011" ;
+    ex:fullName "Professional #011" .
+
+ex:person_012 a ex:Person ;
+    ex:personId "PER-0012" ;
+    ex:fullName "Professional #012" .
+
+ex:person_013 a ex:Person ;
+    ex:personId "PER-0013" ;
+    ex:fullName "Professional #013" .
+
+ex:person_014 a ex:Person ;
+    ex:personId "PER-0014" ;
+    ex:fullName "Professional #014" .
+
+ex:person_015 a ex:Person ;
+    ex:personId "PER-0015" ;
+    ex:fullName "Professional #015" .
+
+ex:person_016 a ex:Person ;
+    ex:personId "PER-0016" ;
+    ex:fullName "Professional #016" .
+
+ex:person_017 a ex:Person ;
+    ex:personId "PER-0017" ;
+    ex:fullName "Professional #017" .
+
+ex:person_018 a ex:Person ;
+    ex:personId "PER-0018" ;
+    ex:fullName "Professional #018" .
+
+ex:person_019 a ex:Person ;
+    ex:personId "PER-0019" ;
+    ex:fullName "Professional #019" .
+
+ex:person_020 a ex:Person ;
+    ex:personId "PER-0020" ;
+    ex:fullName "Professional #020" .
+
+ex:person_021 a ex:Person ;
+    ex:personId "PER-0021" ;
+    ex:fullName "Professional #021" .
+
+ex:person_022 a ex:Person ;
+    ex:personId "PER-0022" ;
+    ex:fullName "Professional #022" .
+
+ex:person_023 a ex:Person ;
+    ex:personId "PER-0023" ;
+    ex:fullName "Professional #023" .
+
+ex:person_024 a ex:Person ;
+    ex:personId "PER-0024" ;
+    ex:fullName "Professional #024" .
+
+ex:person_025 a ex:Person ;
+    ex:personId "PER-0025" ;
+    ex:fullName "Professional #025" .
+
+ex:person_026 a ex:Person ;
+    ex:personId "PER-0026" ;
+    ex:fullName "Professional #026" .
+
+ex:person_027 a ex:Person ;
+    ex:personId "PER-0027" ;
+    ex:fullName "Professional #027" .
+
+ex:person_028 a ex:Person ;
+    ex:personId "PER-0028" ;
+    ex:fullName "Professional #028" .
+
+ex:person_029 a ex:Person ;
+    ex:personId "PER-0029" ;
+    ex:fullName "Professional #029" .
+
+ex:person_030 a ex:Person ;
+    ex:personId "PER-0030" ;
+    ex:fullName "Professional #030" .
+
+ex:person_031 a ex:Person ;
+    ex:personId "PER-0031" ;
+    ex:fullName "Professional #031" .
+
+ex:person_032 a ex:Person ;
+    ex:personId "PER-0032" ;
+    ex:fullName "Professional #032" .
+
+ex:person_033 a ex:Person ;
+    ex:personId "PER-0033" ;
+    ex:fullName "Professional #033" .
+
+ex:person_034 a ex:Person ;
+    ex:personId "PER-0034" ;
+    ex:fullName "Professional #034" .
+
+ex:person_035 a ex:Person ;
+    ex:personId "PER-0035" ;
+    ex:fullName "Professional #035" .
+
+ex:person_036 a ex:Person ;
+    ex:personId "PER-0036" ;
+    ex:fullName "Professional #036" .
+
+ex:person_037 a ex:Person ;
+    ex:personId "PER-0037" ;
+    ex:fullName "Professional #037" .
+
+ex:person_038 a ex:Person ;
+    ex:personId "PER-0038" ;
+    ex:fullName "Professional #038" .
+
+ex:person_039 a ex:Person ;
+    ex:personId "PER-0039" ;
+    ex:fullName "Professional #039" .
+
+ex:person_040 a ex:Person ;
+    ex:personId "PER-0040" ;
+    ex:fullName "Professional #040" .
+
+ex:person_041 a ex:Person ;
+    ex:personId "PER-0041" ;
+    ex:fullName "Professional #041" .
+
+ex:person_042 a ex:Person ;
+    ex:personId "PER-0042" ;
+    ex:fullName "Professional #042" .
+
+ex:person_043 a ex:Person ;
+    ex:personId "PER-0043" ;
+    ex:fullName "Professional #043" .
+
+ex:person_044 a ex:Person ;
+    ex:personId "PER-0044" ;
+    ex:fullName "Professional #044" .
+
+ex:person_045 a ex:Person ;
+    ex:personId "PER-0045" ;
+    ex:fullName "Professional #045" .
+
+ex:person_046 a ex:Person ;
+    ex:personId "PER-0046" ;
+    ex:fullName "Professional #046" .
+
+ex:person_047 a ex:Person ;
+    ex:personId "PER-0047" ;
+    ex:fullName "Professional #047" .
+
+ex:person_048 a ex:Person ;
+    ex:personId "PER-0048" ;
+    ex:fullName "Professional #048" .
+
+ex:person_049 a ex:Person ;
+    ex:personId "PER-0049" ;
+    ex:fullName "Professional #049" .
+
+ex:person_050 a ex:Person ;
+    ex:personId "PER-0050" ;
+    ex:fullName "Professional #050" .
+
+ex:person_051 a ex:Person ;
+    ex:personId "PER-0051" ;
+    ex:fullName "Professional #051" .
+
+ex:person_052 a ex:Person ;
+    ex:personId "PER-0052" ;
+    ex:fullName "Professional #052" .
+
+ex:person_053 a ex:Person ;
+    ex:personId "PER-0053" ;
+    ex:fullName "Professional #053" .
+
+ex:person_054 a ex:Person ;
+    ex:personId "PER-0054" ;
+    ex:fullName "Professional #054" .
+
+ex:person_055 a ex:Person ;
+    ex:personId "PER-0055" ;
+    ex:fullName "Professional #055" .
+
+ex:person_056 a ex:Person ;
+    ex:personId "PER-0056" ;
+    ex:fullName "Professional #056" .
+
+ex:person_057 a ex:Person ;
+    ex:personId "PER-0057" ;
+    ex:fullName "Professional #057" .
+
+ex:person_058 a ex:Person ;
+    ex:personId "PER-0058" ;
+    ex:fullName "Professional #058" .
+
+ex:person_059 a ex:Person ;
+    ex:personId "PER-0059" ;
+    ex:fullName "Professional #059" .
+
+ex:person_060 a ex:Person ;
+    ex:personId "PER-0060" ;
+    ex:fullName "Professional #060" .
+
+ex:person_061 a ex:Person ;
+    ex:personId "PER-0061" ;
+    ex:fullName "Professional #061" .
+
+ex:person_062 a ex:Person ;
+    ex:personId "PER-0062" ;
+    ex:fullName "Professional #062" .
+
+ex:person_063 a ex:Person ;
+    ex:personId "PER-0063" ;
+    ex:fullName "Professional #063" .
+
+ex:person_064 a ex:Person ;
+    ex:personId "PER-0064" ;
+    ex:fullName "Professional #064" .
+
+ex:person_065 a ex:Person ;
+    ex:personId "PER-0065" ;
+    ex:fullName "Professional #065" .
+
+ex:person_066 a ex:Person ;
+    ex:personId "PER-0066" ;
+    ex:fullName "Professional #066" .
+
+ex:person_067 a ex:Person ;
+    ex:personId "PER-0067" ;
+    ex:fullName "Professional #067" .
+
+ex:person_068 a ex:Person ;
+    ex:personId "PER-0068" ;
+    ex:fullName "Professional #068" .
+
+ex:person_069 a ex:Person ;
+    ex:personId "PER-0069" ;
+    ex:fullName "Professional #069" .
+
+ex:person_070 a ex:Person ;
+    ex:personId "PER-0070" ;
+    ex:fullName "Professional #070" .
+
+ex:person_071 a ex:Person ;
+    ex:personId "PER-0071" ;
+    ex:fullName "Professional #071" .
+
+ex:person_072 a ex:Person ;
+    ex:personId "PER-0072" ;
+    ex:fullName "Professional #072" .
+
+ex:person_073 a ex:Person ;
+    ex:personId "PER-0073" ;
+    ex:fullName "Professional #073" .
+
+ex:person_074 a ex:Person ;
+    ex:personId "PER-0074" ;
+    ex:fullName "Professional #074" .
+
+ex:person_075 a ex:Person ;
+    ex:personId "PER-0075" ;
+    ex:fullName "Professional #075" .
+
+ex:person_076 a ex:Person ;
+    ex:personId "PER-0076" ;
+    ex:fullName "Professional #076" .
+
+ex:person_077 a ex:Person ;
+    ex:personId "PER-0077" ;
+    ex:fullName "Professional #077" .
+
+ex:person_078 a ex:Person ;
+    ex:personId "PER-0078" ;
+    ex:fullName "Professional #078" .
+
+ex:person_079 a ex:Person ;
+    ex:personId "PER-0079" ;
+    ex:fullName "Professional #079" .
+
+ex:person_080 a ex:Person ;
+    ex:personId "PER-0080" ;
+    ex:fullName "Professional #080" .
+
+ex:company_001 a ex:Company ;
+    ex:companyId "COMP-0001" ;
+    ex:companyName "Enterprise Corp #001" .
+
+ex:company_002 a ex:Company ;
+    ex:companyId "COMP-0002" ;
+    ex:companyName "Enterprise Corp #002" .
+
+ex:company_003 a ex:Company ;
+    ex:companyId "COMP-0003" ;
+    ex:companyName "Enterprise Corp #003" .
+
+ex:company_004 a ex:Company ;
+    ex:companyId "COMP-0004" ;
+    ex:companyName "Enterprise Corp #004" .
+
+ex:company_005 a ex:Company ;
+    ex:companyId "COMP-0005" ;
+    ex:companyName "Enterprise Corp #005" .
+
+ex:company_006 a ex:Company ;
+    ex:companyId "COMP-0006" ;
+    ex:companyName "Enterprise Corp #006" .
+
+ex:company_007 a ex:Company ;
+    ex:companyId "COMP-0007" ;
+    ex:companyName "Enterprise Corp #007" .
+
+ex:company_008 a ex:Company ;
+    ex:companyId "COMP-0008" ;
+    ex:companyName "Enterprise Corp #008" .
+
+ex:company_009 a ex:Company ;
+    ex:companyId "COMP-0009" ;
+    ex:companyName "Enterprise Corp #009" .
+
+ex:company_010 a ex:Company ;
+    ex:companyId "COMP-0010" ;
+    ex:companyName "Enterprise Corp #010" .
+
+ex:company_011 a ex:Company ;
+    ex:companyId "COMP-0011" ;
+    ex:companyName "Enterprise Corp #011" .
+
+ex:company_012 a ex:Company ;
+    ex:companyId "COMP-0012" ;
+    ex:companyName "Enterprise Corp #012" .
+
+ex:company_013 a ex:Company ;
+    ex:companyId "COMP-0013" ;
+    ex:companyName "Enterprise Corp #013" .
+
+ex:company_014 a ex:Company ;
+    ex:companyId "COMP-0014" ;
+    ex:companyName "Enterprise Corp #014" .
+
+ex:company_015 a ex:Company ;
+    ex:companyId "COMP-0015" ;
+    ex:companyName "Enterprise Corp #015" .
+
+ex:company_016 a ex:Company ;
+    ex:companyId "COMP-0016" ;
+    ex:companyName "Enterprise Corp #016" .
+
+ex:company_017 a ex:Company ;
+    ex:companyId "COMP-0017" ;
+    ex:companyName "Enterprise Corp #017" .
+
+ex:company_018 a ex:Company ;
+    ex:companyId "COMP-0018" ;
+    ex:companyName "Enterprise Corp #018" .
+
+ex:company_019 a ex:Company ;
+    ex:companyId "COMP-0019" ;
+    ex:companyName "Enterprise Corp #019" .
+
+ex:company_020 a ex:Company ;
+    ex:companyId "COMP-0020" ;
+    ex:companyName "Enterprise Corp #020" .
+
+ex:company_021 a ex:Company ;
+    ex:companyId "COMP-0021" ;
+    ex:companyName "Enterprise Corp #021" .
+
+ex:company_022 a ex:Company ;
+    ex:companyId "COMP-0022" ;
+    ex:companyName "Enterprise Corp #022" .
+
+ex:company_023 a ex:Company ;
+    ex:companyId "COMP-0023" ;
+    ex:companyName "Enterprise Corp #023" .
+
+ex:company_024 a ex:Company ;
+    ex:companyId "COMP-0024" ;
+    ex:companyName "Enterprise Corp #024" .
+
+ex:company_025 a ex:Company ;
+    ex:companyId "COMP-0025" ;
+    ex:companyName "Enterprise Corp #025" .
+
+ex:company_026 a ex:Company ;
+    ex:companyId "COMP-0026" ;
+    ex:companyName "Enterprise Corp #026" .
+
+ex:company_027 a ex:Company ;
+    ex:companyId "COMP-0027" ;
+    ex:companyName "Enterprise Corp #027" .
+
+ex:company_028 a ex:Company ;
+    ex:companyId "COMP-0028" ;
+    ex:companyName "Enterprise Corp #028" .
+
+ex:company_029 a ex:Company ;
+    ex:companyId "COMP-0029" ;
+    ex:companyName "Enterprise Corp #029" .
+
+ex:company_030 a ex:Company ;
+    ex:companyId "COMP-0030" ;
+    ex:companyName "Enterprise Corp #030" .
+
+ex:company_031 a ex:Company ;
+    ex:companyId "COMP-0031" ;
+    ex:companyName "Enterprise Corp #031" .
+
+ex:company_032 a ex:Company ;
+    ex:companyId "COMP-0032" ;
+    ex:companyName "Enterprise Corp #032" .
+
+ex:company_033 a ex:Company ;
+    ex:companyId "COMP-0033" ;
+    ex:companyName "Enterprise Corp #033" .
+
+ex:company_034 a ex:Company ;
+    ex:companyId "COMP-0034" ;
+    ex:companyName "Enterprise Corp #034" .
+
+ex:company_035 a ex:Company ;
+    ex:companyId "COMP-0035" ;
+    ex:companyName "Enterprise Corp #035" .
+
+ex:company_036 a ex:Company ;
+    ex:companyId "COMP-0036" ;
+    ex:companyName "Enterprise Corp #036" .
+
+ex:company_037 a ex:Company ;
+    ex:companyId "COMP-0037" ;
+    ex:companyName "Enterprise Corp #037" .
+
+ex:company_038 a ex:Company ;
+    ex:companyId "COMP-0038" ;
+    ex:companyName "Enterprise Corp #038" .
+
+ex:company_039 a ex:Company ;
+    ex:companyId "COMP-0039" ;
+    ex:companyName "Enterprise Corp #039" .
+
+ex:company_040 a ex:Company ;
+    ex:companyId "COMP-0040" ;
+    ex:companyName "Enterprise Corp #040" .
+
+ex:employment_001 a ex:Employment ;
+    ex:employmentId "EMP-REL-0001" ;
+    ex:hasEmployee ex:person_001 ;
+    ex:hasEmployer ex:company_001 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 98500.00 ;
+    ex:startDate "2019-02-02"^^xsd:date ;
+    ex:endDate "2021-02-02"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_002 a ex:Employment ;
+    ex:employmentId "EMP-REL-0002" ;
+    ex:hasEmployee ex:person_002 ;
+    ex:hasEmployer ex:company_002 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 102000.00 ;
+    ex:startDate "2020-03-03"^^xsd:date ;
+    ex:endDate "2022-03-03"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_003 a ex:Employment ;
+    ex:employmentId "EMP-REL-0003" ;
+    ex:hasEmployee ex:person_003 ;
+    ex:hasEmployer ex:company_003 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 105500.00 ;
+    ex:startDate "2021-04-04"^^xsd:date ;
+    ex:endDate "2023-04-04"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_004 a ex:Employment ;
+    ex:employmentId "EMP-REL-0004" ;
+    ex:hasEmployee ex:person_004 ;
+    ex:hasEmployer ex:company_004 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 109000.00 ;
+    ex:startDate "2022-05-05"^^xsd:date ;
+    ex:endDate "2024-05-05"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_005 a ex:Employment ;
+    ex:employmentId "EMP-REL-0005" ;
+    ex:hasEmployee ex:person_005 ;
+    ex:hasEmployer ex:company_005 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 112500.00 ;
+    ex:startDate "2018-06-06"^^xsd:date ;
+    ex:endDate "2020-06-06"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_006 a ex:Employment ;
+    ex:employmentId "EMP-REL-0006" ;
+    ex:hasEmployee ex:person_006 ;
+    ex:hasEmployer ex:company_006 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 116000.00 ;
+    ex:startDate "2019-07-07"^^xsd:date ;
+    ex:endDate "2021-07-07"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_007 a ex:Employment ;
+    ex:employmentId "EMP-REL-0007" ;
+    ex:hasEmployee ex:person_007 ;
+    ex:hasEmployer ex:company_007 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 119500.00 ;
+    ex:startDate "2020-08-08"^^xsd:date ;
+    ex:endDate "2022-08-08"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_008 a ex:Employment ;
+    ex:employmentId "EMP-REL-0008" ;
+    ex:hasEmployee ex:person_008 ;
+    ex:hasEmployer ex:company_008 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 123000.00 ;
+    ex:startDate "2021-09-09"^^xsd:date ;
+    ex:endDate "2023-09-09"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_009 a ex:Employment ;
+    ex:employmentId "EMP-REL-0009" ;
+    ex:hasEmployee ex:person_009 ;
+    ex:hasEmployer ex:company_009 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 126500.00 ;
+    ex:startDate "2022-10-10"^^xsd:date ;
+    ex:endDate "2024-10-10"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_010 a ex:Employment ;
+    ex:employmentId "EMP-REL-0010" ;
+    ex:hasEmployee ex:person_010 ;
+    ex:hasEmployer ex:company_010 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 130000.00 ;
+    ex:startDate "2018-11-11"^^xsd:date ;
+    ex:endDate "2020-11-11"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_011 a ex:Employment ;
+    ex:employmentId "EMP-REL-0011" ;
+    ex:hasEmployee ex:person_011 ;
+    ex:hasEmployer ex:company_011 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 133500.00 ;
+    ex:startDate "2019-12-12"^^xsd:date ;
+    ex:endDate "2021-12-12"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_012 a ex:Employment ;
+    ex:employmentId "EMP-REL-0012" ;
+    ex:hasEmployee ex:person_012 ;
+    ex:hasEmployer ex:company_012 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 137000.00 ;
+    ex:startDate "2020-01-13"^^xsd:date ;
+    ex:endDate "2022-01-13"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_013 a ex:Employment ;
+    ex:employmentId "EMP-REL-0013" ;
+    ex:hasEmployee ex:person_013 ;
+    ex:hasEmployer ex:company_013 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 140500.00 ;
+    ex:startDate "2021-02-14"^^xsd:date ;
+    ex:endDate "2023-02-14"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_014 a ex:Employment ;
+    ex:employmentId "EMP-REL-0014" ;
+    ex:hasEmployee ex:person_014 ;
+    ex:hasEmployer ex:company_014 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 144000.00 ;
+    ex:startDate "2022-03-15"^^xsd:date ;
+    ex:endDate "2024-03-15"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_015 a ex:Employment ;
+    ex:employmentId "EMP-REL-0015" ;
+    ex:hasEmployee ex:person_015 ;
+    ex:hasEmployer ex:company_015 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 147500.00 ;
+    ex:startDate "2018-04-16"^^xsd:date ;
+    ex:endDate "2020-04-16"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_016 a ex:Employment ;
+    ex:employmentId "EMP-REL-0016" ;
+    ex:hasEmployee ex:person_016 ;
+    ex:hasEmployer ex:company_016 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 151000.00 ;
+    ex:startDate "2019-05-17"^^xsd:date ;
+    ex:endDate "2021-05-17"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_017 a ex:Employment ;
+    ex:employmentId "EMP-REL-0017" ;
+    ex:hasEmployee ex:person_017 ;
+    ex:hasEmployer ex:company_017 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 154500.00 ;
+    ex:startDate "2020-06-18"^^xsd:date ;
+    ex:endDate "2022-06-18"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_018 a ex:Employment ;
+    ex:employmentId "EMP-REL-0018" ;
+    ex:hasEmployee ex:person_018 ;
+    ex:hasEmployer ex:company_018 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 158000.00 ;
+    ex:startDate "2021-07-19"^^xsd:date ;
+    ex:endDate "2023-07-19"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_019 a ex:Employment ;
+    ex:employmentId "EMP-REL-0019" ;
+    ex:hasEmployee ex:person_019 ;
+    ex:hasEmployer ex:company_019 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 161500.00 ;
+    ex:startDate "2022-08-20"^^xsd:date ;
+    ex:endDate "2024-08-20"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_020 a ex:Employment ;
+    ex:employmentId "EMP-REL-0020" ;
+    ex:hasEmployee ex:person_020 ;
+    ex:hasEmployer ex:company_020 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 165000.00 ;
+    ex:startDate "2018-09-21"^^xsd:date ;
+    ex:endDate "2020-09-21"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_021 a ex:Employment ;
+    ex:employmentId "EMP-REL-0021" ;
+    ex:hasEmployee ex:person_021 ;
+    ex:hasEmployer ex:company_021 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 168500.00 ;
+    ex:startDate "2019-10-22"^^xsd:date ;
+    ex:endDate "2021-10-22"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_022 a ex:Employment ;
+    ex:employmentId "EMP-REL-0022" ;
+    ex:hasEmployee ex:person_022 ;
+    ex:hasEmployer ex:company_022 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 172000.00 ;
+    ex:startDate "2020-11-23"^^xsd:date ;
+    ex:endDate "2022-11-23"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_023 a ex:Employment ;
+    ex:employmentId "EMP-REL-0023" ;
+    ex:hasEmployee ex:person_023 ;
+    ex:hasEmployer ex:company_023 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 175500.00 ;
+    ex:startDate "2021-12-24"^^xsd:date ;
+    ex:endDate "2023-12-24"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_024 a ex:Employment ;
+    ex:employmentId "EMP-REL-0024" ;
+    ex:hasEmployee ex:person_024 ;
+    ex:hasEmployer ex:company_024 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 179000.00 ;
+    ex:startDate "2022-01-25"^^xsd:date ;
+    ex:endDate "2024-01-25"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_025 a ex:Employment ;
+    ex:employmentId "EMP-REL-0025" ;
+    ex:hasEmployee ex:person_025 ;
+    ex:hasEmployer ex:company_025 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 182500.00 ;
+    ex:startDate "2018-02-26"^^xsd:date ;
+    ex:endDate "2020-02-26"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_026 a ex:Employment ;
+    ex:employmentId "EMP-REL-0026" ;
+    ex:hasEmployee ex:person_026 ;
+    ex:hasEmployer ex:company_026 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 186000.00 ;
+    ex:startDate "2019-03-27"^^xsd:date ;
+    ex:endDate "2021-03-27"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_027 a ex:Employment ;
+    ex:employmentId "EMP-REL-0027" ;
+    ex:hasEmployee ex:person_027 ;
+    ex:hasEmployer ex:company_027 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 189500.00 ;
+    ex:startDate "2020-04-28"^^xsd:date ;
+    ex:endDate "2022-04-28"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_028 a ex:Employment ;
+    ex:employmentId "EMP-REL-0028" ;
+    ex:hasEmployee ex:person_028 ;
+    ex:hasEmployer ex:company_028 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 193000.00 ;
+    ex:startDate "2021-05-01"^^xsd:date ;
+    ex:endDate "2023-05-01"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_029 a ex:Employment ;
+    ex:employmentId "EMP-REL-0029" ;
+    ex:hasEmployee ex:person_029 ;
+    ex:hasEmployer ex:company_029 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 196500.00 ;
+    ex:startDate "2022-06-02"^^xsd:date ;
+    ex:endDate "2024-06-02"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_030 a ex:Employment ;
+    ex:employmentId "EMP-REL-0030" ;
+    ex:hasEmployee ex:person_030 ;
+    ex:hasEmployer ex:company_030 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 200000.00 ;
+    ex:startDate "2018-07-03"^^xsd:date ;
+    ex:endDate "2020-07-03"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_031 a ex:Employment ;
+    ex:employmentId "EMP-REL-0031" ;
+    ex:hasEmployee ex:person_031 ;
+    ex:hasEmployer ex:company_031 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 203500.00 ;
+    ex:startDate "2019-08-04"^^xsd:date ;
+    ex:endDate "2021-08-04"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_032 a ex:Employment ;
+    ex:employmentId "EMP-REL-0032" ;
+    ex:hasEmployee ex:person_032 ;
+    ex:hasEmployer ex:company_032 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 207000.00 ;
+    ex:startDate "2020-09-05"^^xsd:date ;
+    ex:endDate "2022-09-05"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_033 a ex:Employment ;
+    ex:employmentId "EMP-REL-0033" ;
+    ex:hasEmployee ex:person_033 ;
+    ex:hasEmployer ex:company_033 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 210500.00 ;
+    ex:startDate "2021-10-06"^^xsd:date ;
+    ex:endDate "2023-10-06"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_034 a ex:Employment ;
+    ex:employmentId "EMP-REL-0034" ;
+    ex:hasEmployee ex:person_034 ;
+    ex:hasEmployer ex:company_034 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 214000.00 ;
+    ex:startDate "2022-11-07"^^xsd:date ;
+    ex:endDate "2024-11-07"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_035 a ex:Employment ;
+    ex:employmentId "EMP-REL-0035" ;
+    ex:hasEmployee ex:person_035 ;
+    ex:hasEmployer ex:company_035 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 217500.00 ;
+    ex:startDate "2018-12-08"^^xsd:date ;
+    ex:endDate "2020-12-08"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_036 a ex:Employment ;
+    ex:employmentId "EMP-REL-0036" ;
+    ex:hasEmployee ex:person_036 ;
+    ex:hasEmployer ex:company_036 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 221000.00 ;
+    ex:startDate "2019-01-09"^^xsd:date ;
+    ex:endDate "2021-01-09"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_037 a ex:Employment ;
+    ex:employmentId "EMP-REL-0037" ;
+    ex:hasEmployee ex:person_037 ;
+    ex:hasEmployer ex:company_037 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 224500.00 ;
+    ex:startDate "2020-02-10"^^xsd:date ;
+    ex:endDate "2022-02-10"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_038 a ex:Employment ;
+    ex:employmentId "EMP-REL-0038" ;
+    ex:hasEmployee ex:person_038 ;
+    ex:hasEmployer ex:company_038 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 228000.00 ;
+    ex:startDate "2021-03-11"^^xsd:date ;
+    ex:endDate "2023-03-11"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_039 a ex:Employment ;
+    ex:employmentId "EMP-REL-0039" ;
+    ex:hasEmployee ex:person_039 ;
+    ex:hasEmployer ex:company_039 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 231500.00 ;
+    ex:startDate "2022-04-12"^^xsd:date ;
+    ex:endDate "2024-04-12"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_040 a ex:Employment ;
+    ex:employmentId "EMP-REL-0040" ;
+    ex:hasEmployee ex:person_040 ;
+    ex:hasEmployer ex:company_040 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 235000.00 ;
+    ex:startDate "2018-05-13"^^xsd:date ;
+    ex:endDate "2020-05-13"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_041 a ex:Employment ;
+    ex:employmentId "EMP-REL-0041" ;
+    ex:hasEmployee ex:person_041 ;
+    ex:hasEmployer ex:company_001 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 238500.00 ;
+    ex:startDate "2019-06-14"^^xsd:date ;
+    ex:endDate "2021-06-14"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_042 a ex:Employment ;
+    ex:employmentId "EMP-REL-0042" ;
+    ex:hasEmployee ex:person_042 ;
+    ex:hasEmployer ex:company_002 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 242000.00 ;
+    ex:startDate "2020-07-15"^^xsd:date ;
+    ex:endDate "2022-07-15"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_043 a ex:Employment ;
+    ex:employmentId "EMP-REL-0043" ;
+    ex:hasEmployee ex:person_043 ;
+    ex:hasEmployer ex:company_003 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 245500.00 ;
+    ex:startDate "2021-08-16"^^xsd:date ;
+    ex:endDate "2023-08-16"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_044 a ex:Employment ;
+    ex:employmentId "EMP-REL-0044" ;
+    ex:hasEmployee ex:person_044 ;
+    ex:hasEmployer ex:company_004 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 249000.00 ;
+    ex:startDate "2022-09-17"^^xsd:date ;
+    ex:endDate "2024-09-17"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_045 a ex:Employment ;
+    ex:employmentId "EMP-REL-0045" ;
+    ex:hasEmployee ex:person_045 ;
+    ex:hasEmployer ex:company_005 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 252500.00 ;
+    ex:startDate "2018-10-18"^^xsd:date ;
+    ex:endDate "2020-10-18"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_046 a ex:Employment ;
+    ex:employmentId "EMP-REL-0046" ;
+    ex:hasEmployee ex:person_046 ;
+    ex:hasEmployer ex:company_006 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 256000.00 ;
+    ex:startDate "2019-11-19"^^xsd:date ;
+    ex:endDate "2021-11-19"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_047 a ex:Employment ;
+    ex:employmentId "EMP-REL-0047" ;
+    ex:hasEmployee ex:person_047 ;
+    ex:hasEmployer ex:company_007 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 259500.00 ;
+    ex:startDate "2020-12-20"^^xsd:date ;
+    ex:endDate "2022-12-20"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_048 a ex:Employment ;
+    ex:employmentId "EMP-REL-0048" ;
+    ex:hasEmployee ex:person_048 ;
+    ex:hasEmployer ex:company_008 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 263000.00 ;
+    ex:startDate "2021-01-21"^^xsd:date ;
+    ex:endDate "2023-01-21"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_049 a ex:Employment ;
+    ex:employmentId "EMP-REL-0049" ;
+    ex:hasEmployee ex:person_049 ;
+    ex:hasEmployer ex:company_009 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 266500.00 ;
+    ex:startDate "2022-02-22"^^xsd:date ;
+    ex:endDate "2024-02-22"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_050 a ex:Employment ;
+    ex:employmentId "EMP-REL-0050" ;
+    ex:hasEmployee ex:person_050 ;
+    ex:hasEmployer ex:company_010 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 95000.00 ;
+    ex:startDate "2018-03-23"^^xsd:date ;
+    ex:endDate "2020-03-23"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_051 a ex:Employment ;
+    ex:employmentId "EMP-REL-0051" ;
+    ex:hasEmployee ex:person_051 ;
+    ex:hasEmployer ex:company_011 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 98500.00 ;
+    ex:startDate "2019-04-24"^^xsd:date ;
+    ex:endDate "2021-04-24"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_052 a ex:Employment ;
+    ex:employmentId "EMP-REL-0052" ;
+    ex:hasEmployee ex:person_052 ;
+    ex:hasEmployer ex:company_012 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 102000.00 ;
+    ex:startDate "2020-05-25"^^xsd:date ;
+    ex:endDate "2022-05-25"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_053 a ex:Employment ;
+    ex:employmentId "EMP-REL-0053" ;
+    ex:hasEmployee ex:person_053 ;
+    ex:hasEmployer ex:company_013 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 105500.00 ;
+    ex:startDate "2021-06-26"^^xsd:date ;
+    ex:endDate "2023-06-26"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_054 a ex:Employment ;
+    ex:employmentId "EMP-REL-0054" ;
+    ex:hasEmployee ex:person_054 ;
+    ex:hasEmployer ex:company_014 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 109000.00 ;
+    ex:startDate "2022-07-27"^^xsd:date ;
+    ex:endDate "2024-07-27"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_055 a ex:Employment ;
+    ex:employmentId "EMP-REL-0055" ;
+    ex:hasEmployee ex:person_055 ;
+    ex:hasEmployer ex:company_015 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 112500.00 ;
+    ex:startDate "2018-08-28"^^xsd:date ;
+    ex:endDate "2020-08-28"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_056 a ex:Employment ;
+    ex:employmentId "EMP-REL-0056" ;
+    ex:hasEmployee ex:person_056 ;
+    ex:hasEmployer ex:company_016 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 116000.00 ;
+    ex:startDate "2019-09-01"^^xsd:date ;
+    ex:endDate "2021-09-01"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_057 a ex:Employment ;
+    ex:employmentId "EMP-REL-0057" ;
+    ex:hasEmployee ex:person_057 ;
+    ex:hasEmployer ex:company_017 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 119500.00 ;
+    ex:startDate "2020-10-02"^^xsd:date ;
+    ex:endDate "2022-10-02"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_058 a ex:Employment ;
+    ex:employmentId "EMP-REL-0058" ;
+    ex:hasEmployee ex:person_058 ;
+    ex:hasEmployer ex:company_018 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 123000.00 ;
+    ex:startDate "2021-11-03"^^xsd:date ;
+    ex:endDate "2023-11-03"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_059 a ex:Employment ;
+    ex:employmentId "EMP-REL-0059" ;
+    ex:hasEmployee ex:person_059 ;
+    ex:hasEmployer ex:company_019 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 126500.00 ;
+    ex:startDate "2022-12-04"^^xsd:date ;
+    ex:endDate "2024-12-04"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_060 a ex:Employment ;
+    ex:employmentId "EMP-REL-0060" ;
+    ex:hasEmployee ex:person_060 ;
+    ex:hasEmployer ex:company_020 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 130000.00 ;
+    ex:startDate "2018-01-05"^^xsd:date ;
+    ex:endDate "2020-01-05"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_061 a ex:Employment ;
+    ex:employmentId "EMP-REL-0061" ;
+    ex:hasEmployee ex:person_061 ;
+    ex:hasEmployer ex:company_021 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 133500.00 ;
+    ex:startDate "2019-02-06"^^xsd:date ;
+    ex:endDate "2021-02-06"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_062 a ex:Employment ;
+    ex:employmentId "EMP-REL-0062" ;
+    ex:hasEmployee ex:person_062 ;
+    ex:hasEmployer ex:company_022 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 137000.00 ;
+    ex:startDate "2020-03-07"^^xsd:date ;
+    ex:endDate "2022-03-07"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_063 a ex:Employment ;
+    ex:employmentId "EMP-REL-0063" ;
+    ex:hasEmployee ex:person_063 ;
+    ex:hasEmployer ex:company_023 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 140500.00 ;
+    ex:startDate "2021-04-08"^^xsd:date ;
+    ex:endDate "2023-04-08"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_064 a ex:Employment ;
+    ex:employmentId "EMP-REL-0064" ;
+    ex:hasEmployee ex:person_064 ;
+    ex:hasEmployer ex:company_024 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 144000.00 ;
+    ex:startDate "2022-05-09"^^xsd:date ;
+    ex:endDate "2024-05-09"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_065 a ex:Employment ;
+    ex:employmentId "EMP-REL-0065" ;
+    ex:hasEmployee ex:person_065 ;
+    ex:hasEmployer ex:company_025 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 147500.00 ;
+    ex:startDate "2018-06-10"^^xsd:date ;
+    ex:endDate "2020-06-10"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_066 a ex:Employment ;
+    ex:employmentId "EMP-REL-0066" ;
+    ex:hasEmployee ex:person_066 ;
+    ex:hasEmployer ex:company_026 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 151000.00 ;
+    ex:startDate "2019-07-11"^^xsd:date ;
+    ex:endDate "2021-07-11"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_067 a ex:Employment ;
+    ex:employmentId "EMP-REL-0067" ;
+    ex:hasEmployee ex:person_067 ;
+    ex:hasEmployer ex:company_027 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 154500.00 ;
+    ex:startDate "2020-08-12"^^xsd:date ;
+    ex:endDate "2022-08-12"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_068 a ex:Employment ;
+    ex:employmentId "EMP-REL-0068" ;
+    ex:hasEmployee ex:person_068 ;
+    ex:hasEmployer ex:company_028 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 158000.00 ;
+    ex:startDate "2021-09-13"^^xsd:date ;
+    ex:endDate "2023-09-13"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_069 a ex:Employment ;
+    ex:employmentId "EMP-REL-0069" ;
+    ex:hasEmployee ex:person_069 ;
+    ex:hasEmployer ex:company_029 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 161500.00 ;
+    ex:startDate "2022-10-14"^^xsd:date ;
+    ex:endDate "2024-10-14"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_070 a ex:Employment ;
+    ex:employmentId "EMP-REL-0070" ;
+    ex:hasEmployee ex:person_070 ;
+    ex:hasEmployer ex:company_030 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 165000.00 ;
+    ex:startDate "2018-11-15"^^xsd:date ;
+    ex:endDate "2020-11-15"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_071 a ex:Employment ;
+    ex:employmentId "EMP-REL-0071" ;
+    ex:hasEmployee ex:person_071 ;
+    ex:hasEmployer ex:company_031 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 168500.00 ;
+    ex:startDate "2019-12-16"^^xsd:date ;
+    ex:endDate "2021-12-16"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_072 a ex:Employment ;
+    ex:employmentId "EMP-REL-0072" ;
+    ex:hasEmployee ex:person_072 ;
+    ex:hasEmployer ex:company_032 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 172000.00 ;
+    ex:startDate "2020-01-17"^^xsd:date ;
+    ex:endDate "2022-01-17"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_073 a ex:Employment ;
+    ex:employmentId "EMP-REL-0073" ;
+    ex:hasEmployee ex:person_073 ;
+    ex:hasEmployer ex:company_033 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 175500.00 ;
+    ex:startDate "2021-02-18"^^xsd:date ;
+    ex:endDate "2023-02-18"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_074 a ex:Employment ;
+    ex:employmentId "EMP-REL-0074" ;
+    ex:hasEmployee ex:person_074 ;
+    ex:hasEmployer ex:company_034 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 179000.00 ;
+    ex:startDate "2022-03-19"^^xsd:date ;
+    ex:endDate "2024-03-19"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_075 a ex:Employment ;
+    ex:employmentId "EMP-REL-0075" ;
+    ex:hasEmployee ex:person_075 ;
+    ex:hasEmployer ex:company_035 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 182500.00 ;
+    ex:startDate "2018-04-20"^^xsd:date ;
+    ex:endDate "2020-04-20"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_076 a ex:Employment ;
+    ex:employmentId "EMP-REL-0076" ;
+    ex:hasEmployee ex:person_076 ;
+    ex:hasEmployer ex:company_036 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 186000.00 ;
+    ex:startDate "2019-05-21"^^xsd:date ;
+    ex:endDate "2021-05-21"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_077 a ex:Employment ;
+    ex:employmentId "EMP-REL-0077" ;
+    ex:hasEmployee ex:person_077 ;
+    ex:hasEmployer ex:company_037 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 189500.00 ;
+    ex:startDate "2020-06-22"^^xsd:date ;
+    ex:endDate "2022-06-22"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_078 a ex:Employment ;
+    ex:employmentId "EMP-REL-0078" ;
+    ex:hasEmployee ex:person_078 ;
+    ex:hasEmployer ex:company_038 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 193000.00 ;
+    ex:startDate "2021-07-23"^^xsd:date ;
+    ex:endDate "2023-07-23"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_079 a ex:Employment ;
+    ex:employmentId "EMP-REL-0079" ;
+    ex:hasEmployee ex:person_079 ;
+    ex:hasEmployer ex:company_039 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 196500.00 ;
+    ex:startDate "2022-08-24"^^xsd:date ;
+    ex:endDate "2024-08-24"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_080 a ex:Employment ;
+    ex:employmentId "EMP-REL-0080" ;
+    ex:hasEmployee ex:person_080 ;
+    ex:hasEmployer ex:company_040 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 200000.00 ;
+    ex:startDate "2018-09-25"^^xsd:date ;
+    ex:endDate "2020-09-25"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_081 a ex:Employment ;
+    ex:employmentId "EMP-REL-0081" ;
+    ex:hasEmployee ex:person_001 ;
+    ex:hasEmployer ex:company_001 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 203500.00 ;
+    ex:startDate "2019-10-26"^^xsd:date ;
+    ex:endDate "2021-10-26"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_082 a ex:Employment ;
+    ex:employmentId "EMP-REL-0082" ;
+    ex:hasEmployee ex:person_002 ;
+    ex:hasEmployer ex:company_002 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 207000.00 ;
+    ex:startDate "2020-11-27"^^xsd:date ;
+    ex:endDate "2022-11-27"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_083 a ex:Employment ;
+    ex:employmentId "EMP-REL-0083" ;
+    ex:hasEmployee ex:person_003 ;
+    ex:hasEmployer ex:company_003 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 210500.00 ;
+    ex:startDate "2021-12-28"^^xsd:date ;
+    ex:endDate "2023-12-28"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_084 a ex:Employment ;
+    ex:employmentId "EMP-REL-0084" ;
+    ex:hasEmployee ex:person_004 ;
+    ex:hasEmployer ex:company_004 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 214000.00 ;
+    ex:startDate "2022-01-01"^^xsd:date ;
+    ex:endDate "2024-01-01"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_085 a ex:Employment ;
+    ex:employmentId "EMP-REL-0085" ;
+    ex:hasEmployee ex:person_005 ;
+    ex:hasEmployer ex:company_005 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 217500.00 ;
+    ex:startDate "2018-02-02"^^xsd:date ;
+    ex:endDate "2020-02-02"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_086 a ex:Employment ;
+    ex:employmentId "EMP-REL-0086" ;
+    ex:hasEmployee ex:person_006 ;
+    ex:hasEmployer ex:company_006 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 221000.00 ;
+    ex:startDate "2019-03-03"^^xsd:date ;
+    ex:endDate "2021-03-03"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_087 a ex:Employment ;
+    ex:employmentId "EMP-REL-0087" ;
+    ex:hasEmployee ex:person_007 ;
+    ex:hasEmployer ex:company_007 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 224500.00 ;
+    ex:startDate "2020-04-04"^^xsd:date ;
+    ex:endDate "2022-04-04"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_088 a ex:Employment ;
+    ex:employmentId "EMP-REL-0088" ;
+    ex:hasEmployee ex:person_008 ;
+    ex:hasEmployer ex:company_008 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 228000.00 ;
+    ex:startDate "2021-05-05"^^xsd:date ;
+    ex:endDate "2023-05-05"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_089 a ex:Employment ;
+    ex:employmentId "EMP-REL-0089" ;
+    ex:hasEmployee ex:person_009 ;
+    ex:hasEmployer ex:company_009 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 231500.00 ;
+    ex:startDate "2022-06-06"^^xsd:date ;
+    ex:endDate "2024-06-06"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_090 a ex:Employment ;
+    ex:employmentId "EMP-REL-0090" ;
+    ex:hasEmployee ex:person_010 ;
+    ex:hasEmployer ex:company_010 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 235000.00 ;
+    ex:startDate "2018-07-07"^^xsd:date ;
+    ex:endDate "2020-07-07"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_091 a ex:Employment ;
+    ex:employmentId "EMP-REL-0091" ;
+    ex:hasEmployee ex:person_011 ;
+    ex:hasEmployer ex:company_011 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 238500.00 ;
+    ex:startDate "2019-08-08"^^xsd:date ;
+    ex:endDate "2021-08-08"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_092 a ex:Employment ;
+    ex:employmentId "EMP-REL-0092" ;
+    ex:hasEmployee ex:person_012 ;
+    ex:hasEmployer ex:company_012 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 242000.00 ;
+    ex:startDate "2020-09-09"^^xsd:date ;
+    ex:endDate "2022-09-09"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_093 a ex:Employment ;
+    ex:employmentId "EMP-REL-0093" ;
+    ex:hasEmployee ex:person_013 ;
+    ex:hasEmployer ex:company_013 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 245500.00 ;
+    ex:startDate "2021-10-10"^^xsd:date ;
+    ex:endDate "2023-10-10"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_094 a ex:Employment ;
+    ex:employmentId "EMP-REL-0094" ;
+    ex:hasEmployee ex:person_014 ;
+    ex:hasEmployer ex:company_014 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 249000.00 ;
+    ex:startDate "2022-11-11"^^xsd:date ;
+    ex:endDate "2024-11-11"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_095 a ex:Employment ;
+    ex:employmentId "EMP-REL-0095" ;
+    ex:hasEmployee ex:person_015 ;
+    ex:hasEmployer ex:company_015 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 252500.00 ;
+    ex:startDate "2018-12-12"^^xsd:date ;
+    ex:endDate "2020-12-12"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_096 a ex:Employment ;
+    ex:employmentId "EMP-REL-0096" ;
+    ex:hasEmployee ex:person_016 ;
+    ex:hasEmployer ex:company_016 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 256000.00 ;
+    ex:startDate "2019-01-13"^^xsd:date ;
+    ex:endDate "2021-01-13"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_097 a ex:Employment ;
+    ex:employmentId "EMP-REL-0097" ;
+    ex:hasEmployee ex:person_017 ;
+    ex:hasEmployer ex:company_017 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 259500.00 ;
+    ex:startDate "2020-02-14"^^xsd:date ;
+    ex:endDate "2022-02-14"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_098 a ex:Employment ;
+    ex:employmentId "EMP-REL-0098" ;
+    ex:hasEmployee ex:person_018 ;
+    ex:hasEmployer ex:company_018 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 263000.00 ;
+    ex:startDate "2021-03-15"^^xsd:date ;
+    ex:endDate "2023-03-15"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_099 a ex:Employment ;
+    ex:employmentId "EMP-REL-0099" ;
+    ex:hasEmployee ex:person_019 ;
+    ex:hasEmployer ex:company_019 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 266500.00 ;
+    ex:startDate "2022-04-16"^^xsd:date ;
+    ex:endDate "2024-04-16"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_100 a ex:Employment ;
+    ex:employmentId "EMP-REL-0100" ;
+    ex:hasEmployee ex:person_020 ;
+    ex:hasEmployer ex:company_020 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 95000.00 ;
+    ex:startDate "2018-05-17"^^xsd:date ;
+    ex:endDate "2020-05-17"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_101 a ex:Employment ;
+    ex:employmentId "EMP-REL-0101" ;
+    ex:hasEmployee ex:person_021 ;
+    ex:hasEmployer ex:company_021 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 98500.00 ;
+    ex:startDate "2019-06-18"^^xsd:date ;
+    ex:endDate "2021-06-18"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_102 a ex:Employment ;
+    ex:employmentId "EMP-REL-0102" ;
+    ex:hasEmployee ex:person_022 ;
+    ex:hasEmployer ex:company_022 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 102000.00 ;
+    ex:startDate "2020-07-19"^^xsd:date ;
+    ex:endDate "2022-07-19"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_103 a ex:Employment ;
+    ex:employmentId "EMP-REL-0103" ;
+    ex:hasEmployee ex:person_023 ;
+    ex:hasEmployer ex:company_023 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 105500.00 ;
+    ex:startDate "2021-08-20"^^xsd:date ;
+    ex:endDate "2023-08-20"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_104 a ex:Employment ;
+    ex:employmentId "EMP-REL-0104" ;
+    ex:hasEmployee ex:person_024 ;
+    ex:hasEmployer ex:company_024 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 109000.00 ;
+    ex:startDate "2022-09-21"^^xsd:date ;
+    ex:endDate "2024-09-21"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_105 a ex:Employment ;
+    ex:employmentId "EMP-REL-0105" ;
+    ex:hasEmployee ex:person_025 ;
+    ex:hasEmployer ex:company_025 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 112500.00 ;
+    ex:startDate "2018-10-22"^^xsd:date ;
+    ex:endDate "2020-10-22"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_106 a ex:Employment ;
+    ex:employmentId "EMP-REL-0106" ;
+    ex:hasEmployee ex:person_026 ;
+    ex:hasEmployer ex:company_026 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 116000.00 ;
+    ex:startDate "2019-11-23"^^xsd:date ;
+    ex:endDate "2021-11-23"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_107 a ex:Employment ;
+    ex:employmentId "EMP-REL-0107" ;
+    ex:hasEmployee ex:person_027 ;
+    ex:hasEmployer ex:company_027 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 119500.00 ;
+    ex:startDate "2020-12-24"^^xsd:date ;
+    ex:endDate "2022-12-24"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_108 a ex:Employment ;
+    ex:employmentId "EMP-REL-0108" ;
+    ex:hasEmployee ex:person_028 ;
+    ex:hasEmployer ex:company_028 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 123000.00 ;
+    ex:startDate "2021-01-25"^^xsd:date ;
+    ex:endDate "2023-01-25"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_109 a ex:Employment ;
+    ex:employmentId "EMP-REL-0109" ;
+    ex:hasEmployee ex:person_029 ;
+    ex:hasEmployer ex:company_029 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 126500.00 ;
+    ex:startDate "2022-02-26"^^xsd:date ;
+    ex:endDate "2024-02-26"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_110 a ex:Employment ;
+    ex:employmentId "EMP-REL-0110" ;
+    ex:hasEmployee ex:person_030 ;
+    ex:hasEmployer ex:company_030 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 130000.00 ;
+    ex:startDate "2018-03-27"^^xsd:date ;
+    ex:endDate "2020-03-27"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_111 a ex:Employment ;
+    ex:employmentId "EMP-REL-0111" ;
+    ex:hasEmployee ex:person_031 ;
+    ex:hasEmployer ex:company_031 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 133500.00 ;
+    ex:startDate "2019-04-28"^^xsd:date ;
+    ex:endDate "2021-04-28"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_112 a ex:Employment ;
+    ex:employmentId "EMP-REL-0112" ;
+    ex:hasEmployee ex:person_032 ;
+    ex:hasEmployer ex:company_032 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 137000.00 ;
+    ex:startDate "2020-05-01"^^xsd:date ;
+    ex:endDate "2022-05-01"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_113 a ex:Employment ;
+    ex:employmentId "EMP-REL-0113" ;
+    ex:hasEmployee ex:person_033 ;
+    ex:hasEmployer ex:company_033 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 140500.00 ;
+    ex:startDate "2021-06-02"^^xsd:date ;
+    ex:endDate "2023-06-02"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_114 a ex:Employment ;
+    ex:employmentId "EMP-REL-0114" ;
+    ex:hasEmployee ex:person_034 ;
+    ex:hasEmployer ex:company_034 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 144000.00 ;
+    ex:startDate "2022-07-03"^^xsd:date ;
+    ex:endDate "2024-07-03"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_115 a ex:Employment ;
+    ex:employmentId "EMP-REL-0115" ;
+    ex:hasEmployee ex:person_035 ;
+    ex:hasEmployer ex:company_035 ;
+    ex:jobTitle "Principal Architect" ;
+    ex:salaryAmount 147500.00 ;
+    ex:startDate "2018-08-04"^^xsd:date ;
+    ex:endDate "2020-08-04"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_116 a ex:Employment ;
+    ex:employmentId "EMP-REL-0116" ;
+    ex:hasEmployee ex:person_036 ;
+    ex:hasEmployer ex:company_036 ;
+    ex:jobTitle "Data Scientist" ;
+    ex:salaryAmount 151000.00 ;
+    ex:startDate "2019-09-05"^^xsd:date ;
+    ex:endDate "2021-09-05"^^xsd:date ;
+    ex:isFullTime false .
+
+ex:employment_117 a ex:Employment ;
+    ex:employmentId "EMP-REL-0117" ;
+    ex:hasEmployee ex:person_037 ;
+    ex:hasEmployer ex:company_037 ;
+    ex:jobTitle "Product Manager" ;
+    ex:salaryAmount 154500.00 ;
+    ex:startDate "2020-10-06"^^xsd:date ;
+    ex:endDate "2022-10-06"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_118 a ex:Employment ;
+    ex:employmentId "EMP-REL-0118" ;
+    ex:hasEmployee ex:person_038 ;
+    ex:hasEmployer ex:company_038 ;
+    ex:jobTitle "Site Reliability Engineer" ;
+    ex:salaryAmount 158000.00 ;
+    ex:startDate "2021-11-07"^^xsd:date ;
+    ex:endDate "2023-11-07"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_119 a ex:Employment ;
+    ex:employmentId "EMP-REL-0119" ;
+    ex:hasEmployee ex:person_039 ;
+    ex:hasEmployer ex:company_039 ;
+    ex:jobTitle "Security Analyst" ;
+    ex:salaryAmount 161500.00 ;
+    ex:startDate "2022-12-08"^^xsd:date ;
+    ex:endDate "2024-12-08"^^xsd:date ;
+    ex:isFullTime true .
+
+ex:employment_120 a ex:Employment ;
+    ex:employmentId "EMP-REL-0120" ;
+    ex:hasEmployee ex:person_040 ;
+    ex:hasEmployer ex:company_040 ;
+    ex:jobTitle "Staff Software Engineer" ;
+    ex:salaryAmount 165000.00 ;
+    ex:startDate "2018-01-09"^^xsd:date ;
+    ex:endDate "2020-01-09"^^xsd:date ;
+    ex:isFullTime false .

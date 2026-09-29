@@ -1,0 +1,1266 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/knowledgebase/> .
+
+# ABox Instance Triples for knowledgebase
+
+ex:author_001 a ex:Author ;
+    ex:username "kb_editor_001" .
+
+ex:author_002 a ex:Author ;
+    ex:username "kb_editor_002" .
+
+ex:author_003 a ex:Author ;
+    ex:username "kb_editor_003" .
+
+ex:author_004 a ex:Author ;
+    ex:username "kb_editor_004" .
+
+ex:author_005 a ex:Author ;
+    ex:username "kb_editor_005" .
+
+ex:author_006 a ex:Author ;
+    ex:username "kb_editor_006" .
+
+ex:author_007 a ex:Author ;
+    ex:username "kb_editor_007" .
+
+ex:author_008 a ex:Author ;
+    ex:username "kb_editor_008" .
+
+ex:author_009 a ex:Author ;
+    ex:username "kb_editor_009" .
+
+ex:author_010 a ex:Author ;
+    ex:username "kb_editor_010" .
+
+ex:author_011 a ex:Author ;
+    ex:username "kb_editor_011" .
+
+ex:author_012 a ex:Author ;
+    ex:username "kb_editor_012" .
+
+ex:author_013 a ex:Author ;
+    ex:username "kb_editor_013" .
+
+ex:author_014 a ex:Author ;
+    ex:username "kb_editor_014" .
+
+ex:author_015 a ex:Author ;
+    ex:username "kb_editor_015" .
+
+ex:author_016 a ex:Author ;
+    ex:username "kb_editor_016" .
+
+ex:author_017 a ex:Author ;
+    ex:username "kb_editor_017" .
+
+ex:author_018 a ex:Author ;
+    ex:username "kb_editor_018" .
+
+ex:author_019 a ex:Author ;
+    ex:username "kb_editor_019" .
+
+ex:author_020 a ex:Author ;
+    ex:username "kb_editor_020" .
+
+ex:author_021 a ex:Author ;
+    ex:username "kb_editor_021" .
+
+ex:author_022 a ex:Author ;
+    ex:username "kb_editor_022" .
+
+ex:author_023 a ex:Author ;
+    ex:username "kb_editor_023" .
+
+ex:author_024 a ex:Author ;
+    ex:username "kb_editor_024" .
+
+ex:author_025 a ex:Author ;
+    ex:username "kb_editor_025" .
+
+ex:author_026 a ex:Author ;
+    ex:username "kb_editor_026" .
+
+ex:author_027 a ex:Author ;
+    ex:username "kb_editor_027" .
+
+ex:author_028 a ex:Author ;
+    ex:username "kb_editor_028" .
+
+ex:author_029 a ex:Author ;
+    ex:username "kb_editor_029" .
+
+ex:author_030 a ex:Author ;
+    ex:username "kb_editor_030" .
+
+ex:author_031 a ex:Author ;
+    ex:username "kb_editor_031" .
+
+ex:author_032 a ex:Author ;
+    ex:username "kb_editor_032" .
+
+ex:author_033 a ex:Author ;
+    ex:username "kb_editor_033" .
+
+ex:author_034 a ex:Author ;
+    ex:username "kb_editor_034" .
+
+ex:author_035 a ex:Author ;
+    ex:username "kb_editor_035" .
+
+ex:author_036 a ex:Author ;
+    ex:username "kb_editor_036" .
+
+ex:author_037 a ex:Author ;
+    ex:username "kb_editor_037" .
+
+ex:author_038 a ex:Author ;
+    ex:username "kb_editor_038" .
+
+ex:author_039 a ex:Author ;
+    ex:username "kb_editor_039" .
+
+ex:author_040 a ex:Author ;
+    ex:username "kb_editor_040" .
+
+ex:author_041 a ex:Author ;
+    ex:username "kb_editor_041" .
+
+ex:author_042 a ex:Author ;
+    ex:username "kb_editor_042" .
+
+ex:author_043 a ex:Author ;
+    ex:username "kb_editor_043" .
+
+ex:author_044 a ex:Author ;
+    ex:username "kb_editor_044" .
+
+ex:author_045 a ex:Author ;
+    ex:username "kb_editor_045" .
+
+ex:author_046 a ex:Author ;
+    ex:username "kb_editor_046" .
+
+ex:author_047 a ex:Author ;
+    ex:username "kb_editor_047" .
+
+ex:author_048 a ex:Author ;
+    ex:username "kb_editor_048" .
+
+ex:author_049 a ex:Author ;
+    ex:username "kb_editor_049" .
+
+ex:author_050 a ex:Author ;
+    ex:username "kb_editor_050" .
+
+ex:cat_001 a ex:Category ;
+    ex:categoryName "Knowledge Topic #001" .
+
+ex:cat_002 a ex:Category ;
+    ex:categoryName "Knowledge Topic #002" .
+
+ex:cat_003 a ex:Category ;
+    ex:categoryName "Knowledge Topic #003" .
+
+ex:cat_004 a ex:Category ;
+    ex:categoryName "Knowledge Topic #004" .
+
+ex:cat_005 a ex:Category ;
+    ex:categoryName "Knowledge Topic #005" .
+
+ex:cat_006 a ex:Category ;
+    ex:categoryName "Knowledge Topic #006" .
+
+ex:cat_007 a ex:Category ;
+    ex:categoryName "Knowledge Topic #007" .
+
+ex:cat_008 a ex:Category ;
+    ex:categoryName "Knowledge Topic #008" .
+
+ex:cat_009 a ex:Category ;
+    ex:categoryName "Knowledge Topic #009" .
+
+ex:cat_010 a ex:Category ;
+    ex:categoryName "Knowledge Topic #010" .
+
+ex:cat_011 a ex:Category ;
+    ex:categoryName "Knowledge Topic #011" ;
+    ex:subCategoryOf ex:cat_001 .
+
+ex:cat_012 a ex:Category ;
+    ex:categoryName "Knowledge Topic #012" ;
+    ex:subCategoryOf ex:cat_002 .
+
+ex:cat_013 a ex:Category ;
+    ex:categoryName "Knowledge Topic #013" ;
+    ex:subCategoryOf ex:cat_003 .
+
+ex:cat_014 a ex:Category ;
+    ex:categoryName "Knowledge Topic #014" ;
+    ex:subCategoryOf ex:cat_004 .
+
+ex:cat_015 a ex:Category ;
+    ex:categoryName "Knowledge Topic #015" ;
+    ex:subCategoryOf ex:cat_005 .
+
+ex:cat_016 a ex:Category ;
+    ex:categoryName "Knowledge Topic #016" ;
+    ex:subCategoryOf ex:cat_006 .
+
+ex:cat_017 a ex:Category ;
+    ex:categoryName "Knowledge Topic #017" ;
+    ex:subCategoryOf ex:cat_007 .
+
+ex:cat_018 a ex:Category ;
+    ex:categoryName "Knowledge Topic #018" ;
+    ex:subCategoryOf ex:cat_008 .
+
+ex:cat_019 a ex:Category ;
+    ex:categoryName "Knowledge Topic #019" ;
+    ex:subCategoryOf ex:cat_009 .
+
+ex:cat_020 a ex:Category ;
+    ex:categoryName "Knowledge Topic #020" ;
+    ex:subCategoryOf ex:cat_010 .
+
+ex:cat_021 a ex:Category ;
+    ex:categoryName "Knowledge Topic #021" ;
+    ex:subCategoryOf ex:cat_001 .
+
+ex:cat_022 a ex:Category ;
+    ex:categoryName "Knowledge Topic #022" ;
+    ex:subCategoryOf ex:cat_002 .
+
+ex:cat_023 a ex:Category ;
+    ex:categoryName "Knowledge Topic #023" ;
+    ex:subCategoryOf ex:cat_003 .
+
+ex:cat_024 a ex:Category ;
+    ex:categoryName "Knowledge Topic #024" ;
+    ex:subCategoryOf ex:cat_004 .
+
+ex:cat_025 a ex:Category ;
+    ex:categoryName "Knowledge Topic #025" ;
+    ex:subCategoryOf ex:cat_005 .
+
+ex:cat_026 a ex:Category ;
+    ex:categoryName "Knowledge Topic #026" ;
+    ex:subCategoryOf ex:cat_011 .
+
+ex:cat_027 a ex:Category ;
+    ex:categoryName "Knowledge Topic #027" ;
+    ex:subCategoryOf ex:cat_012 .
+
+ex:cat_028 a ex:Category ;
+    ex:categoryName "Knowledge Topic #028" ;
+    ex:subCategoryOf ex:cat_013 .
+
+ex:cat_029 a ex:Category ;
+    ex:categoryName "Knowledge Topic #029" ;
+    ex:subCategoryOf ex:cat_014 .
+
+ex:cat_030 a ex:Category ;
+    ex:categoryName "Knowledge Topic #030" ;
+    ex:subCategoryOf ex:cat_015 .
+
+ex:cat_031 a ex:Category ;
+    ex:categoryName "Knowledge Topic #031" ;
+    ex:subCategoryOf ex:cat_016 .
+
+ex:cat_032 a ex:Category ;
+    ex:categoryName "Knowledge Topic #032" ;
+    ex:subCategoryOf ex:cat_017 .
+
+ex:cat_033 a ex:Category ;
+    ex:categoryName "Knowledge Topic #033" ;
+    ex:subCategoryOf ex:cat_018 .
+
+ex:cat_034 a ex:Category ;
+    ex:categoryName "Knowledge Topic #034" ;
+    ex:subCategoryOf ex:cat_019 .
+
+ex:cat_035 a ex:Category ;
+    ex:categoryName "Knowledge Topic #035" ;
+    ex:subCategoryOf ex:cat_020 .
+
+ex:cat_036 a ex:Category ;
+    ex:categoryName "Knowledge Topic #036" ;
+    ex:subCategoryOf ex:cat_021 .
+
+ex:cat_037 a ex:Category ;
+    ex:categoryName "Knowledge Topic #037" ;
+    ex:subCategoryOf ex:cat_022 .
+
+ex:cat_038 a ex:Category ;
+    ex:categoryName "Knowledge Topic #038" ;
+    ex:subCategoryOf ex:cat_023 .
+
+ex:cat_039 a ex:Category ;
+    ex:categoryName "Knowledge Topic #039" ;
+    ex:subCategoryOf ex:cat_024 .
+
+ex:cat_040 a ex:Category ;
+    ex:categoryName "Knowledge Topic #040" ;
+    ex:subCategoryOf ex:cat_025 .
+
+ex:article_001 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #001" ;
+    ex:wordCount 970 ;
+    ex:hasAuthor ex:author_001 ;
+    ex:categorizedUnder ex:cat_001 ;
+    ex:references ex:article_002 ;
+    ex:linkedWith ex:article_006 .
+
+ex:article_002 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #002" ;
+    ex:wordCount 1090 ;
+    ex:hasAuthor ex:author_002 ;
+    ex:categorizedUnder ex:cat_002 ;
+    ex:references ex:article_003 ;
+    ex:linkedWith ex:article_007 .
+
+ex:article_003 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #003" ;
+    ex:wordCount 1210 ;
+    ex:hasAuthor ex:author_003 ;
+    ex:categorizedUnder ex:cat_003 ;
+    ex:references ex:article_004 ;
+    ex:linkedWith ex:article_008 .
+
+ex:article_004 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #004" ;
+    ex:wordCount 1330 ;
+    ex:hasAuthor ex:author_004 ;
+    ex:categorizedUnder ex:cat_004 ;
+    ex:references ex:article_005 ;
+    ex:linkedWith ex:article_009 .
+
+ex:article_005 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #005" ;
+    ex:wordCount 1450 ;
+    ex:hasAuthor ex:author_005 ;
+    ex:categorizedUnder ex:cat_005 ;
+    ex:references ex:article_006 ;
+    ex:linkedWith ex:article_010 .
+
+ex:article_006 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #006" ;
+    ex:wordCount 1570 ;
+    ex:hasAuthor ex:author_006 ;
+    ex:categorizedUnder ex:cat_006 ;
+    ex:references ex:article_007 ;
+    ex:linkedWith ex:article_011 .
+
+ex:article_007 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #007" ;
+    ex:wordCount 1690 ;
+    ex:hasAuthor ex:author_007 ;
+    ex:categorizedUnder ex:cat_007 ;
+    ex:references ex:article_008 ;
+    ex:linkedWith ex:article_012 .
+
+ex:article_008 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #008" ;
+    ex:wordCount 1810 ;
+    ex:hasAuthor ex:author_008 ;
+    ex:categorizedUnder ex:cat_008 ;
+    ex:references ex:article_009 ;
+    ex:linkedWith ex:article_013 .
+
+ex:article_009 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #009" ;
+    ex:wordCount 1930 ;
+    ex:hasAuthor ex:author_009 ;
+    ex:categorizedUnder ex:cat_009 ;
+    ex:references ex:article_010 ;
+    ex:linkedWith ex:article_014 .
+
+ex:article_010 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #010" ;
+    ex:wordCount 2050 ;
+    ex:hasAuthor ex:author_010 ;
+    ex:categorizedUnder ex:cat_010 ;
+    ex:references ex:article_011 ;
+    ex:linkedWith ex:article_015 .
+
+ex:article_011 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #011" ;
+    ex:wordCount 2170 ;
+    ex:hasAuthor ex:author_011 ;
+    ex:categorizedUnder ex:cat_011 ;
+    ex:references ex:article_012 ;
+    ex:linkedWith ex:article_016 .
+
+ex:article_012 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #012" ;
+    ex:wordCount 2290 ;
+    ex:hasAuthor ex:author_012 ;
+    ex:categorizedUnder ex:cat_012 ;
+    ex:references ex:article_013 ;
+    ex:linkedWith ex:article_017 .
+
+ex:article_013 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #013" ;
+    ex:wordCount 2410 ;
+    ex:hasAuthor ex:author_013 ;
+    ex:categorizedUnder ex:cat_013 ;
+    ex:references ex:article_014 ;
+    ex:linkedWith ex:article_018 .
+
+ex:article_014 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #014" ;
+    ex:wordCount 2530 ;
+    ex:hasAuthor ex:author_014 ;
+    ex:categorizedUnder ex:cat_014 ;
+    ex:references ex:article_015 ;
+    ex:linkedWith ex:article_019 .
+
+ex:article_015 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #015" ;
+    ex:wordCount 2650 ;
+    ex:hasAuthor ex:author_015 ;
+    ex:categorizedUnder ex:cat_015 ;
+    ex:references ex:article_016 ;
+    ex:linkedWith ex:article_020 .
+
+ex:article_016 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #016" ;
+    ex:wordCount 2770 ;
+    ex:hasAuthor ex:author_016 ;
+    ex:categorizedUnder ex:cat_016 ;
+    ex:references ex:article_017 ;
+    ex:linkedWith ex:article_021 .
+
+ex:article_017 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #017" ;
+    ex:wordCount 2890 ;
+    ex:hasAuthor ex:author_017 ;
+    ex:categorizedUnder ex:cat_017 ;
+    ex:references ex:article_018 ;
+    ex:linkedWith ex:article_022 .
+
+ex:article_018 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #018" ;
+    ex:wordCount 3010 ;
+    ex:hasAuthor ex:author_018 ;
+    ex:categorizedUnder ex:cat_018 ;
+    ex:references ex:article_019 ;
+    ex:linkedWith ex:article_023 .
+
+ex:article_019 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #019" ;
+    ex:wordCount 3130 ;
+    ex:hasAuthor ex:author_019 ;
+    ex:categorizedUnder ex:cat_019 ;
+    ex:references ex:article_020 ;
+    ex:linkedWith ex:article_024 .
+
+ex:article_020 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #020" ;
+    ex:wordCount 3250 ;
+    ex:hasAuthor ex:author_020 ;
+    ex:categorizedUnder ex:cat_020 ;
+    ex:references ex:article_021 ;
+    ex:linkedWith ex:article_025 .
+
+ex:article_021 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #021" ;
+    ex:wordCount 3370 ;
+    ex:hasAuthor ex:author_021 ;
+    ex:categorizedUnder ex:cat_021 ;
+    ex:references ex:article_022 ;
+    ex:linkedWith ex:article_026 .
+
+ex:article_022 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #022" ;
+    ex:wordCount 3490 ;
+    ex:hasAuthor ex:author_022 ;
+    ex:categorizedUnder ex:cat_022 ;
+    ex:references ex:article_023 ;
+    ex:linkedWith ex:article_027 .
+
+ex:article_023 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #023" ;
+    ex:wordCount 3610 ;
+    ex:hasAuthor ex:author_023 ;
+    ex:categorizedUnder ex:cat_023 ;
+    ex:references ex:article_024 ;
+    ex:linkedWith ex:article_028 .
+
+ex:article_024 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #024" ;
+    ex:wordCount 3730 ;
+    ex:hasAuthor ex:author_024 ;
+    ex:categorizedUnder ex:cat_024 ;
+    ex:references ex:article_025 ;
+    ex:linkedWith ex:article_029 .
+
+ex:article_025 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #025" ;
+    ex:wordCount 3850 ;
+    ex:hasAuthor ex:author_025 ;
+    ex:categorizedUnder ex:cat_025 ;
+    ex:references ex:article_026 ;
+    ex:linkedWith ex:article_030 .
+
+ex:article_026 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #026" ;
+    ex:wordCount 3970 ;
+    ex:hasAuthor ex:author_026 ;
+    ex:categorizedUnder ex:cat_026 ;
+    ex:references ex:article_027 ;
+    ex:linkedWith ex:article_031 .
+
+ex:article_027 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #027" ;
+    ex:wordCount 4090 ;
+    ex:hasAuthor ex:author_027 ;
+    ex:categorizedUnder ex:cat_027 ;
+    ex:references ex:article_028 ;
+    ex:linkedWith ex:article_032 .
+
+ex:article_028 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #028" ;
+    ex:wordCount 4210 ;
+    ex:hasAuthor ex:author_028 ;
+    ex:categorizedUnder ex:cat_028 ;
+    ex:references ex:article_029 ;
+    ex:linkedWith ex:article_033 .
+
+ex:article_029 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #029" ;
+    ex:wordCount 4330 ;
+    ex:hasAuthor ex:author_029 ;
+    ex:categorizedUnder ex:cat_029 ;
+    ex:references ex:article_030 ;
+    ex:linkedWith ex:article_034 .
+
+ex:article_030 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #030" ;
+    ex:wordCount 850 ;
+    ex:hasAuthor ex:author_030 ;
+    ex:categorizedUnder ex:cat_030 ;
+    ex:references ex:article_031 ;
+    ex:linkedWith ex:article_035 .
+
+ex:article_031 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #031" ;
+    ex:wordCount 970 ;
+    ex:hasAuthor ex:author_031 ;
+    ex:categorizedUnder ex:cat_031 ;
+    ex:references ex:article_032 ;
+    ex:linkedWith ex:article_036 .
+
+ex:article_032 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #032" ;
+    ex:wordCount 1090 ;
+    ex:hasAuthor ex:author_032 ;
+    ex:categorizedUnder ex:cat_032 ;
+    ex:references ex:article_033 ;
+    ex:linkedWith ex:article_037 .
+
+ex:article_033 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #033" ;
+    ex:wordCount 1210 ;
+    ex:hasAuthor ex:author_033 ;
+    ex:categorizedUnder ex:cat_033 ;
+    ex:references ex:article_034 ;
+    ex:linkedWith ex:article_038 .
+
+ex:article_034 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #034" ;
+    ex:wordCount 1330 ;
+    ex:hasAuthor ex:author_034 ;
+    ex:categorizedUnder ex:cat_034 ;
+    ex:references ex:article_035 ;
+    ex:linkedWith ex:article_039 .
+
+ex:article_035 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #035" ;
+    ex:wordCount 1450 ;
+    ex:hasAuthor ex:author_035 ;
+    ex:categorizedUnder ex:cat_035 ;
+    ex:references ex:article_036 ;
+    ex:linkedWith ex:article_040 .
+
+ex:article_036 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #036" ;
+    ex:wordCount 1570 ;
+    ex:hasAuthor ex:author_036 ;
+    ex:categorizedUnder ex:cat_036 ;
+    ex:references ex:article_037 ;
+    ex:linkedWith ex:article_041 .
+
+ex:article_037 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #037" ;
+    ex:wordCount 1690 ;
+    ex:hasAuthor ex:author_037 ;
+    ex:categorizedUnder ex:cat_037 ;
+    ex:references ex:article_038 ;
+    ex:linkedWith ex:article_042 .
+
+ex:article_038 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #038" ;
+    ex:wordCount 1810 ;
+    ex:hasAuthor ex:author_038 ;
+    ex:categorizedUnder ex:cat_038 ;
+    ex:references ex:article_039 ;
+    ex:linkedWith ex:article_043 .
+
+ex:article_039 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #039" ;
+    ex:wordCount 1930 ;
+    ex:hasAuthor ex:author_039 ;
+    ex:categorizedUnder ex:cat_039 ;
+    ex:references ex:article_040 ;
+    ex:linkedWith ex:article_044 .
+
+ex:article_040 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #040" ;
+    ex:wordCount 2050 ;
+    ex:hasAuthor ex:author_040 ;
+    ex:categorizedUnder ex:cat_040 ;
+    ex:references ex:article_041 ;
+    ex:linkedWith ex:article_045 .
+
+ex:article_041 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #041" ;
+    ex:wordCount 2170 ;
+    ex:hasAuthor ex:author_041 ;
+    ex:categorizedUnder ex:cat_001 ;
+    ex:references ex:article_042 ;
+    ex:linkedWith ex:article_046 .
+
+ex:article_042 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #042" ;
+    ex:wordCount 2290 ;
+    ex:hasAuthor ex:author_042 ;
+    ex:categorizedUnder ex:cat_002 ;
+    ex:references ex:article_043 ;
+    ex:linkedWith ex:article_047 .
+
+ex:article_043 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #043" ;
+    ex:wordCount 2410 ;
+    ex:hasAuthor ex:author_043 ;
+    ex:categorizedUnder ex:cat_003 ;
+    ex:references ex:article_044 ;
+    ex:linkedWith ex:article_048 .
+
+ex:article_044 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #044" ;
+    ex:wordCount 2530 ;
+    ex:hasAuthor ex:author_044 ;
+    ex:categorizedUnder ex:cat_004 ;
+    ex:references ex:article_045 ;
+    ex:linkedWith ex:article_049 .
+
+ex:article_045 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #045" ;
+    ex:wordCount 2650 ;
+    ex:hasAuthor ex:author_045 ;
+    ex:categorizedUnder ex:cat_005 ;
+    ex:references ex:article_046 ;
+    ex:linkedWith ex:article_050 .
+
+ex:article_046 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #046" ;
+    ex:wordCount 2770 ;
+    ex:hasAuthor ex:author_046 ;
+    ex:categorizedUnder ex:cat_006 ;
+    ex:references ex:article_047 ;
+    ex:linkedWith ex:article_051 .
+
+ex:article_047 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #047" ;
+    ex:wordCount 2890 ;
+    ex:hasAuthor ex:author_047 ;
+    ex:categorizedUnder ex:cat_007 ;
+    ex:references ex:article_048 ;
+    ex:linkedWith ex:article_052 .
+
+ex:article_048 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #048" ;
+    ex:wordCount 3010 ;
+    ex:hasAuthor ex:author_048 ;
+    ex:categorizedUnder ex:cat_008 ;
+    ex:references ex:article_049 ;
+    ex:linkedWith ex:article_053 .
+
+ex:article_049 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #049" ;
+    ex:wordCount 3130 ;
+    ex:hasAuthor ex:author_049 ;
+    ex:categorizedUnder ex:cat_009 ;
+    ex:references ex:article_050 ;
+    ex:linkedWith ex:article_054 .
+
+ex:article_050 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #050" ;
+    ex:wordCount 3250 ;
+    ex:hasAuthor ex:author_050 ;
+    ex:categorizedUnder ex:cat_010 ;
+    ex:references ex:article_051 ;
+    ex:linkedWith ex:article_055 .
+
+ex:article_051 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #051" ;
+    ex:wordCount 3370 ;
+    ex:hasAuthor ex:author_001 ;
+    ex:categorizedUnder ex:cat_011 ;
+    ex:references ex:article_052 ;
+    ex:linkedWith ex:article_056 .
+
+ex:article_052 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #052" ;
+    ex:wordCount 3490 ;
+    ex:hasAuthor ex:author_002 ;
+    ex:categorizedUnder ex:cat_012 ;
+    ex:references ex:article_053 ;
+    ex:linkedWith ex:article_057 .
+
+ex:article_053 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #053" ;
+    ex:wordCount 3610 ;
+    ex:hasAuthor ex:author_003 ;
+    ex:categorizedUnder ex:cat_013 ;
+    ex:references ex:article_054 ;
+    ex:linkedWith ex:article_058 .
+
+ex:article_054 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #054" ;
+    ex:wordCount 3730 ;
+    ex:hasAuthor ex:author_004 ;
+    ex:categorizedUnder ex:cat_014 ;
+    ex:references ex:article_055 ;
+    ex:linkedWith ex:article_059 .
+
+ex:article_055 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #055" ;
+    ex:wordCount 3850 ;
+    ex:hasAuthor ex:author_005 ;
+    ex:categorizedUnder ex:cat_015 ;
+    ex:references ex:article_056 ;
+    ex:linkedWith ex:article_060 .
+
+ex:article_056 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #056" ;
+    ex:wordCount 3970 ;
+    ex:hasAuthor ex:author_006 ;
+    ex:categorizedUnder ex:cat_016 ;
+    ex:references ex:article_057 ;
+    ex:linkedWith ex:article_061 .
+
+ex:article_057 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #057" ;
+    ex:wordCount 4090 ;
+    ex:hasAuthor ex:author_007 ;
+    ex:categorizedUnder ex:cat_017 ;
+    ex:references ex:article_058 ;
+    ex:linkedWith ex:article_062 .
+
+ex:article_058 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #058" ;
+    ex:wordCount 4210 ;
+    ex:hasAuthor ex:author_008 ;
+    ex:categorizedUnder ex:cat_018 ;
+    ex:references ex:article_059 ;
+    ex:linkedWith ex:article_063 .
+
+ex:article_059 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #059" ;
+    ex:wordCount 4330 ;
+    ex:hasAuthor ex:author_009 ;
+    ex:categorizedUnder ex:cat_019 ;
+    ex:references ex:article_060 ;
+    ex:linkedWith ex:article_064 .
+
+ex:article_060 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #060" ;
+    ex:wordCount 850 ;
+    ex:hasAuthor ex:author_010 ;
+    ex:categorizedUnder ex:cat_020 ;
+    ex:references ex:article_061 ;
+    ex:linkedWith ex:article_065 .
+
+ex:article_061 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #061" ;
+    ex:wordCount 970 ;
+    ex:hasAuthor ex:author_011 ;
+    ex:categorizedUnder ex:cat_021 ;
+    ex:references ex:article_062 ;
+    ex:linkedWith ex:article_066 .
+
+ex:article_062 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #062" ;
+    ex:wordCount 1090 ;
+    ex:hasAuthor ex:author_012 ;
+    ex:categorizedUnder ex:cat_022 ;
+    ex:references ex:article_063 ;
+    ex:linkedWith ex:article_067 .
+
+ex:article_063 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #063" ;
+    ex:wordCount 1210 ;
+    ex:hasAuthor ex:author_013 ;
+    ex:categorizedUnder ex:cat_023 ;
+    ex:references ex:article_064 ;
+    ex:linkedWith ex:article_068 .
+
+ex:article_064 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #064" ;
+    ex:wordCount 1330 ;
+    ex:hasAuthor ex:author_014 ;
+    ex:categorizedUnder ex:cat_024 ;
+    ex:references ex:article_065 ;
+    ex:linkedWith ex:article_069 .
+
+ex:article_065 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #065" ;
+    ex:wordCount 1450 ;
+    ex:hasAuthor ex:author_015 ;
+    ex:categorizedUnder ex:cat_025 ;
+    ex:references ex:article_066 ;
+    ex:linkedWith ex:article_070 .
+
+ex:article_066 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #066" ;
+    ex:wordCount 1570 ;
+    ex:hasAuthor ex:author_016 ;
+    ex:categorizedUnder ex:cat_026 ;
+    ex:references ex:article_067 ;
+    ex:linkedWith ex:article_071 .
+
+ex:article_067 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #067" ;
+    ex:wordCount 1690 ;
+    ex:hasAuthor ex:author_017 ;
+    ex:categorizedUnder ex:cat_027 ;
+    ex:references ex:article_068 ;
+    ex:linkedWith ex:article_072 .
+
+ex:article_068 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #068" ;
+    ex:wordCount 1810 ;
+    ex:hasAuthor ex:author_018 ;
+    ex:categorizedUnder ex:cat_028 ;
+    ex:references ex:article_069 ;
+    ex:linkedWith ex:article_073 .
+
+ex:article_069 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #069" ;
+    ex:wordCount 1930 ;
+    ex:hasAuthor ex:author_019 ;
+    ex:categorizedUnder ex:cat_029 ;
+    ex:references ex:article_070 ;
+    ex:linkedWith ex:article_074 .
+
+ex:article_070 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #070" ;
+    ex:wordCount 2050 ;
+    ex:hasAuthor ex:author_020 ;
+    ex:categorizedUnder ex:cat_030 ;
+    ex:references ex:article_071 ;
+    ex:linkedWith ex:article_075 .
+
+ex:article_071 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #071" ;
+    ex:wordCount 2170 ;
+    ex:hasAuthor ex:author_021 ;
+    ex:categorizedUnder ex:cat_031 ;
+    ex:references ex:article_072 ;
+    ex:linkedWith ex:article_076 .
+
+ex:article_072 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #072" ;
+    ex:wordCount 2290 ;
+    ex:hasAuthor ex:author_022 ;
+    ex:categorizedUnder ex:cat_032 ;
+    ex:references ex:article_073 ;
+    ex:linkedWith ex:article_077 .
+
+ex:article_073 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #073" ;
+    ex:wordCount 2410 ;
+    ex:hasAuthor ex:author_023 ;
+    ex:categorizedUnder ex:cat_033 ;
+    ex:references ex:article_074 ;
+    ex:linkedWith ex:article_078 .
+
+ex:article_074 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #074" ;
+    ex:wordCount 2530 ;
+    ex:hasAuthor ex:author_024 ;
+    ex:categorizedUnder ex:cat_034 ;
+    ex:references ex:article_075 ;
+    ex:linkedWith ex:article_079 .
+
+ex:article_075 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #075" ;
+    ex:wordCount 2650 ;
+    ex:hasAuthor ex:author_025 ;
+    ex:categorizedUnder ex:cat_035 ;
+    ex:references ex:article_076 ;
+    ex:linkedWith ex:article_080 .
+
+ex:article_076 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #076" ;
+    ex:wordCount 2770 ;
+    ex:hasAuthor ex:author_026 ;
+    ex:categorizedUnder ex:cat_036 ;
+    ex:references ex:article_077 ;
+    ex:linkedWith ex:article_081 .
+
+ex:article_077 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #077" ;
+    ex:wordCount 2890 ;
+    ex:hasAuthor ex:author_027 ;
+    ex:categorizedUnder ex:cat_037 ;
+    ex:references ex:article_078 ;
+    ex:linkedWith ex:article_082 .
+
+ex:article_078 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #078" ;
+    ex:wordCount 3010 ;
+    ex:hasAuthor ex:author_028 ;
+    ex:categorizedUnder ex:cat_038 ;
+    ex:references ex:article_079 ;
+    ex:linkedWith ex:article_083 .
+
+ex:article_079 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #079" ;
+    ex:wordCount 3130 ;
+    ex:hasAuthor ex:author_029 ;
+    ex:categorizedUnder ex:cat_039 ;
+    ex:references ex:article_080 ;
+    ex:linkedWith ex:article_084 .
+
+ex:article_080 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #080" ;
+    ex:wordCount 3250 ;
+    ex:hasAuthor ex:author_030 ;
+    ex:categorizedUnder ex:cat_040 ;
+    ex:references ex:article_081 ;
+    ex:linkedWith ex:article_085 .
+
+ex:article_081 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #081" ;
+    ex:wordCount 3370 ;
+    ex:hasAuthor ex:author_031 ;
+    ex:categorizedUnder ex:cat_001 ;
+    ex:references ex:article_082 ;
+    ex:linkedWith ex:article_086 .
+
+ex:article_082 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #082" ;
+    ex:wordCount 3490 ;
+    ex:hasAuthor ex:author_032 ;
+    ex:categorizedUnder ex:cat_002 ;
+    ex:references ex:article_083 ;
+    ex:linkedWith ex:article_087 .
+
+ex:article_083 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #083" ;
+    ex:wordCount 3610 ;
+    ex:hasAuthor ex:author_033 ;
+    ex:categorizedUnder ex:cat_003 ;
+    ex:references ex:article_084 ;
+    ex:linkedWith ex:article_088 .
+
+ex:article_084 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #084" ;
+    ex:wordCount 3730 ;
+    ex:hasAuthor ex:author_034 ;
+    ex:categorizedUnder ex:cat_004 ;
+    ex:references ex:article_085 ;
+    ex:linkedWith ex:article_089 .
+
+ex:article_085 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #085" ;
+    ex:wordCount 3850 ;
+    ex:hasAuthor ex:author_035 ;
+    ex:categorizedUnder ex:cat_005 ;
+    ex:references ex:article_086 ;
+    ex:linkedWith ex:article_090 .
+
+ex:article_086 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #086" ;
+    ex:wordCount 3970 ;
+    ex:hasAuthor ex:author_036 ;
+    ex:categorizedUnder ex:cat_006 ;
+    ex:references ex:article_087 ;
+    ex:linkedWith ex:article_091 .
+
+ex:article_087 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #087" ;
+    ex:wordCount 4090 ;
+    ex:hasAuthor ex:author_037 ;
+    ex:categorizedUnder ex:cat_007 ;
+    ex:references ex:article_088 ;
+    ex:linkedWith ex:article_092 .
+
+ex:article_088 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #088" ;
+    ex:wordCount 4210 ;
+    ex:hasAuthor ex:author_038 ;
+    ex:categorizedUnder ex:cat_008 ;
+    ex:references ex:article_089 ;
+    ex:linkedWith ex:article_093 .
+
+ex:article_089 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #089" ;
+    ex:wordCount 4330 ;
+    ex:hasAuthor ex:author_039 ;
+    ex:categorizedUnder ex:cat_009 ;
+    ex:references ex:article_090 ;
+    ex:linkedWith ex:article_094 .
+
+ex:article_090 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #090" ;
+    ex:wordCount 850 ;
+    ex:hasAuthor ex:author_040 ;
+    ex:categorizedUnder ex:cat_010 ;
+    ex:references ex:article_091 ;
+    ex:linkedWith ex:article_095 .
+
+ex:article_091 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #091" ;
+    ex:wordCount 970 ;
+    ex:hasAuthor ex:author_041 ;
+    ex:categorizedUnder ex:cat_011 ;
+    ex:references ex:article_092 ;
+    ex:linkedWith ex:article_096 .
+
+ex:article_092 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #092" ;
+    ex:wordCount 1090 ;
+    ex:hasAuthor ex:author_042 ;
+    ex:categorizedUnder ex:cat_012 ;
+    ex:references ex:article_093 ;
+    ex:linkedWith ex:article_097 .
+
+ex:article_093 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #093" ;
+    ex:wordCount 1210 ;
+    ex:hasAuthor ex:author_043 ;
+    ex:categorizedUnder ex:cat_013 ;
+    ex:references ex:article_094 ;
+    ex:linkedWith ex:article_098 .
+
+ex:article_094 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #094" ;
+    ex:wordCount 1330 ;
+    ex:hasAuthor ex:author_044 ;
+    ex:categorizedUnder ex:cat_014 ;
+    ex:references ex:article_095 ;
+    ex:linkedWith ex:article_099 .
+
+ex:article_095 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #095" ;
+    ex:wordCount 1450 ;
+    ex:hasAuthor ex:author_045 ;
+    ex:categorizedUnder ex:cat_015 ;
+    ex:references ex:article_096 ;
+    ex:linkedWith ex:article_100 .
+
+ex:article_096 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #096" ;
+    ex:wordCount 1570 ;
+    ex:hasAuthor ex:author_046 ;
+    ex:categorizedUnder ex:cat_016 ;
+    ex:references ex:article_097 ;
+    ex:linkedWith ex:article_101 .
+
+ex:article_097 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #097" ;
+    ex:wordCount 1690 ;
+    ex:hasAuthor ex:author_047 ;
+    ex:categorizedUnder ex:cat_017 ;
+    ex:references ex:article_098 ;
+    ex:linkedWith ex:article_102 .
+
+ex:article_098 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #098" ;
+    ex:wordCount 1810 ;
+    ex:hasAuthor ex:author_048 ;
+    ex:categorizedUnder ex:cat_018 ;
+    ex:references ex:article_099 ;
+    ex:linkedWith ex:article_103 .
+
+ex:article_099 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #099" ;
+    ex:wordCount 1930 ;
+    ex:hasAuthor ex:author_049 ;
+    ex:categorizedUnder ex:cat_019 ;
+    ex:references ex:article_100 ;
+    ex:linkedWith ex:article_104 .
+
+ex:article_100 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #100" ;
+    ex:wordCount 2050 ;
+    ex:hasAuthor ex:author_050 ;
+    ex:categorizedUnder ex:cat_020 ;
+    ex:references ex:article_101 ;
+    ex:linkedWith ex:article_105 .
+
+ex:article_101 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #101" ;
+    ex:wordCount 2170 ;
+    ex:hasAuthor ex:author_001 ;
+    ex:categorizedUnder ex:cat_021 ;
+    ex:references ex:article_102 ;
+    ex:linkedWith ex:article_106 .
+
+ex:article_102 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #102" ;
+    ex:wordCount 2290 ;
+    ex:hasAuthor ex:author_002 ;
+    ex:categorizedUnder ex:cat_022 ;
+    ex:references ex:article_103 ;
+    ex:linkedWith ex:article_107 .
+
+ex:article_103 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #103" ;
+    ex:wordCount 2410 ;
+    ex:hasAuthor ex:author_003 ;
+    ex:categorizedUnder ex:cat_023 ;
+    ex:references ex:article_104 ;
+    ex:linkedWith ex:article_108 .
+
+ex:article_104 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #104" ;
+    ex:wordCount 2530 ;
+    ex:hasAuthor ex:author_004 ;
+    ex:categorizedUnder ex:cat_024 ;
+    ex:references ex:article_105 ;
+    ex:linkedWith ex:article_109 .
+
+ex:article_105 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #105" ;
+    ex:wordCount 2650 ;
+    ex:hasAuthor ex:author_005 ;
+    ex:categorizedUnder ex:cat_025 ;
+    ex:references ex:article_106 ;
+    ex:linkedWith ex:article_110 .
+
+ex:article_106 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #106" ;
+    ex:wordCount 2770 ;
+    ex:hasAuthor ex:author_006 ;
+    ex:categorizedUnder ex:cat_026 ;
+    ex:references ex:article_107 ;
+    ex:linkedWith ex:article_111 .
+
+ex:article_107 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #107" ;
+    ex:wordCount 2890 ;
+    ex:hasAuthor ex:author_007 ;
+    ex:categorizedUnder ex:cat_027 ;
+    ex:references ex:article_108 ;
+    ex:linkedWith ex:article_112 .
+
+ex:article_108 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #108" ;
+    ex:wordCount 3010 ;
+    ex:hasAuthor ex:author_008 ;
+    ex:categorizedUnder ex:cat_028 ;
+    ex:references ex:article_109 ;
+    ex:linkedWith ex:article_113 .
+
+ex:article_109 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #109" ;
+    ex:wordCount 3130 ;
+    ex:hasAuthor ex:author_009 ;
+    ex:categorizedUnder ex:cat_029 ;
+    ex:references ex:article_110 ;
+    ex:linkedWith ex:article_114 .
+
+ex:article_110 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #110" ;
+    ex:wordCount 3250 ;
+    ex:hasAuthor ex:author_010 ;
+    ex:categorizedUnder ex:cat_030 ;
+    ex:references ex:article_111 ;
+    ex:linkedWith ex:article_115 .
+
+ex:article_111 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #111" ;
+    ex:wordCount 3370 ;
+    ex:hasAuthor ex:author_011 ;
+    ex:categorizedUnder ex:cat_031 ;
+    ex:references ex:article_112 ;
+    ex:linkedWith ex:article_116 .
+
+ex:article_112 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #112" ;
+    ex:wordCount 3490 ;
+    ex:hasAuthor ex:author_012 ;
+    ex:categorizedUnder ex:cat_032 ;
+    ex:references ex:article_113 ;
+    ex:linkedWith ex:article_117 .
+
+ex:article_113 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #113" ;
+    ex:wordCount 3610 ;
+    ex:hasAuthor ex:author_013 ;
+    ex:categorizedUnder ex:cat_033 ;
+    ex:references ex:article_114 ;
+    ex:linkedWith ex:article_118 .
+
+ex:article_114 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #114" ;
+    ex:wordCount 3730 ;
+    ex:hasAuthor ex:author_014 ;
+    ex:categorizedUnder ex:cat_034 ;
+    ex:references ex:article_115 ;
+    ex:linkedWith ex:article_119 .
+
+ex:article_115 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #115" ;
+    ex:wordCount 3850 ;
+    ex:hasAuthor ex:author_015 ;
+    ex:categorizedUnder ex:cat_035 ;
+    ex:references ex:article_116 ;
+    ex:linkedWith ex:article_120 .
+
+ex:article_116 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #116" ;
+    ex:wordCount 3970 ;
+    ex:hasAuthor ex:author_016 ;
+    ex:categorizedUnder ex:cat_036 ;
+    ex:references ex:article_117 ;
+    ex:linkedWith ex:article_001 .
+
+ex:article_117 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #117" ;
+    ex:wordCount 4090 ;
+    ex:hasAuthor ex:author_017 ;
+    ex:categorizedUnder ex:cat_037 ;
+    ex:references ex:article_118 ;
+    ex:linkedWith ex:article_002 .
+
+ex:article_118 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #118" ;
+    ex:wordCount 4210 ;
+    ex:hasAuthor ex:author_018 ;
+    ex:categorizedUnder ex:cat_038 ;
+    ex:references ex:article_119 ;
+    ex:linkedWith ex:article_003 .
+
+ex:article_119 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #119" ;
+    ex:wordCount 4330 ;
+    ex:hasAuthor ex:author_019 ;
+    ex:categorizedUnder ex:cat_039 ;
+    ex:references ex:article_120 ;
+    ex:linkedWith ex:article_004 .
+
+ex:article_120 a ex:Article ;
+    ex:title "Encyclopedia Technical Article #120" ;
+    ex:wordCount 850 ;
+    ex:hasAuthor ex:author_020 ;
+    ex:categorizedUnder ex:cat_040 ;
+    ex:references ex:article_001 ;
+    ex:linkedWith ex:article_005 .

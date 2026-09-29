@@ -1,0 +1,1267 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/propchain#> .
+
+# ABox Instance Triples for 14_property_chains
+# Person -> worksAt -> Facility -> locatedInCity -> City -> inCountry -> Country
+
+ex:country_001 a ex:Country ;
+    ex:countryId "CTRY-001" .
+
+ex:country_002 a ex:Country ;
+    ex:countryId "CTRY-002" .
+
+ex:country_003 a ex:Country ;
+    ex:countryId "CTRY-003" .
+
+ex:country_004 a ex:Country ;
+    ex:countryId "CTRY-004" .
+
+ex:country_005 a ex:Country ;
+    ex:countryId "CTRY-005" .
+
+ex:country_006 a ex:Country ;
+    ex:countryId "CTRY-006" .
+
+ex:country_007 a ex:Country ;
+    ex:countryId "CTRY-007" .
+
+ex:country_008 a ex:Country ;
+    ex:countryId "CTRY-008" .
+
+ex:country_009 a ex:Country ;
+    ex:countryId "CTRY-009" .
+
+ex:country_010 a ex:Country ;
+    ex:countryId "CTRY-010" .
+
+ex:country_011 a ex:Country ;
+    ex:countryId "CTRY-011" .
+
+ex:country_012 a ex:Country ;
+    ex:countryId "CTRY-012" .
+
+ex:country_013 a ex:Country ;
+    ex:countryId "CTRY-013" .
+
+ex:country_014 a ex:Country ;
+    ex:countryId "CTRY-014" .
+
+ex:country_015 a ex:Country ;
+    ex:countryId "CTRY-015" .
+
+ex:country_016 a ex:Country ;
+    ex:countryId "CTRY-016" .
+
+ex:country_017 a ex:Country ;
+    ex:countryId "CTRY-017" .
+
+ex:country_018 a ex:Country ;
+    ex:countryId "CTRY-018" .
+
+ex:country_019 a ex:Country ;
+    ex:countryId "CTRY-019" .
+
+ex:country_020 a ex:Country ;
+    ex:countryId "CTRY-020" .
+
+ex:city_001 a ex:City ;
+    ex:cityId "CITY-001" ;
+    ex:inCountry ex:country_001 .
+
+ex:city_002 a ex:City ;
+    ex:cityId "CITY-002" ;
+    ex:inCountry ex:country_002 .
+
+ex:city_003 a ex:City ;
+    ex:cityId "CITY-003" ;
+    ex:inCountry ex:country_003 .
+
+ex:city_004 a ex:City ;
+    ex:cityId "CITY-004" ;
+    ex:inCountry ex:country_004 .
+
+ex:city_005 a ex:City ;
+    ex:cityId "CITY-005" ;
+    ex:inCountry ex:country_005 .
+
+ex:city_006 a ex:City ;
+    ex:cityId "CITY-006" ;
+    ex:inCountry ex:country_006 .
+
+ex:city_007 a ex:City ;
+    ex:cityId "CITY-007" ;
+    ex:inCountry ex:country_007 .
+
+ex:city_008 a ex:City ;
+    ex:cityId "CITY-008" ;
+    ex:inCountry ex:country_008 .
+
+ex:city_009 a ex:City ;
+    ex:cityId "CITY-009" ;
+    ex:inCountry ex:country_009 .
+
+ex:city_010 a ex:City ;
+    ex:cityId "CITY-010" ;
+    ex:inCountry ex:country_010 .
+
+ex:city_011 a ex:City ;
+    ex:cityId "CITY-011" ;
+    ex:inCountry ex:country_011 .
+
+ex:city_012 a ex:City ;
+    ex:cityId "CITY-012" ;
+    ex:inCountry ex:country_012 .
+
+ex:city_013 a ex:City ;
+    ex:cityId "CITY-013" ;
+    ex:inCountry ex:country_013 .
+
+ex:city_014 a ex:City ;
+    ex:cityId "CITY-014" ;
+    ex:inCountry ex:country_014 .
+
+ex:city_015 a ex:City ;
+    ex:cityId "CITY-015" ;
+    ex:inCountry ex:country_015 .
+
+ex:city_016 a ex:City ;
+    ex:cityId "CITY-016" ;
+    ex:inCountry ex:country_016 .
+
+ex:city_017 a ex:City ;
+    ex:cityId "CITY-017" ;
+    ex:inCountry ex:country_017 .
+
+ex:city_018 a ex:City ;
+    ex:cityId "CITY-018" ;
+    ex:inCountry ex:country_018 .
+
+ex:city_019 a ex:City ;
+    ex:cityId "CITY-019" ;
+    ex:inCountry ex:country_019 .
+
+ex:city_020 a ex:City ;
+    ex:cityId "CITY-020" ;
+    ex:inCountry ex:country_020 .
+
+ex:city_021 a ex:City ;
+    ex:cityId "CITY-021" ;
+    ex:inCountry ex:country_001 .
+
+ex:city_022 a ex:City ;
+    ex:cityId "CITY-022" ;
+    ex:inCountry ex:country_002 .
+
+ex:city_023 a ex:City ;
+    ex:cityId "CITY-023" ;
+    ex:inCountry ex:country_003 .
+
+ex:city_024 a ex:City ;
+    ex:cityId "CITY-024" ;
+    ex:inCountry ex:country_004 .
+
+ex:city_025 a ex:City ;
+    ex:cityId "CITY-025" ;
+    ex:inCountry ex:country_005 .
+
+ex:city_026 a ex:City ;
+    ex:cityId "CITY-026" ;
+    ex:inCountry ex:country_006 .
+
+ex:city_027 a ex:City ;
+    ex:cityId "CITY-027" ;
+    ex:inCountry ex:country_007 .
+
+ex:city_028 a ex:City ;
+    ex:cityId "CITY-028" ;
+    ex:inCountry ex:country_008 .
+
+ex:city_029 a ex:City ;
+    ex:cityId "CITY-029" ;
+    ex:inCountry ex:country_009 .
+
+ex:city_030 a ex:City ;
+    ex:cityId "CITY-030" ;
+    ex:inCountry ex:country_010 .
+
+ex:city_031 a ex:City ;
+    ex:cityId "CITY-031" ;
+    ex:inCountry ex:country_011 .
+
+ex:city_032 a ex:City ;
+    ex:cityId "CITY-032" ;
+    ex:inCountry ex:country_012 .
+
+ex:city_033 a ex:City ;
+    ex:cityId "CITY-033" ;
+    ex:inCountry ex:country_013 .
+
+ex:city_034 a ex:City ;
+    ex:cityId "CITY-034" ;
+    ex:inCountry ex:country_014 .
+
+ex:city_035 a ex:City ;
+    ex:cityId "CITY-035" ;
+    ex:inCountry ex:country_015 .
+
+ex:city_036 a ex:City ;
+    ex:cityId "CITY-036" ;
+    ex:inCountry ex:country_016 .
+
+ex:city_037 a ex:City ;
+    ex:cityId "CITY-037" ;
+    ex:inCountry ex:country_017 .
+
+ex:city_038 a ex:City ;
+    ex:cityId "CITY-038" ;
+    ex:inCountry ex:country_018 .
+
+ex:city_039 a ex:City ;
+    ex:cityId "CITY-039" ;
+    ex:inCountry ex:country_019 .
+
+ex:city_040 a ex:City ;
+    ex:cityId "CITY-040" ;
+    ex:inCountry ex:country_020 .
+
+ex:city_041 a ex:City ;
+    ex:cityId "CITY-041" ;
+    ex:inCountry ex:country_001 .
+
+ex:city_042 a ex:City ;
+    ex:cityId "CITY-042" ;
+    ex:inCountry ex:country_002 .
+
+ex:city_043 a ex:City ;
+    ex:cityId "CITY-043" ;
+    ex:inCountry ex:country_003 .
+
+ex:city_044 a ex:City ;
+    ex:cityId "CITY-044" ;
+    ex:inCountry ex:country_004 .
+
+ex:city_045 a ex:City ;
+    ex:cityId "CITY-045" ;
+    ex:inCountry ex:country_005 .
+
+ex:city_046 a ex:City ;
+    ex:cityId "CITY-046" ;
+    ex:inCountry ex:country_006 .
+
+ex:city_047 a ex:City ;
+    ex:cityId "CITY-047" ;
+    ex:inCountry ex:country_007 .
+
+ex:city_048 a ex:City ;
+    ex:cityId "CITY-048" ;
+    ex:inCountry ex:country_008 .
+
+ex:city_049 a ex:City ;
+    ex:cityId "CITY-049" ;
+    ex:inCountry ex:country_009 .
+
+ex:city_050 a ex:City ;
+    ex:cityId "CITY-050" ;
+    ex:inCountry ex:country_010 .
+
+ex:org_001 a ex:Organization ;
+    ex:orgId "ORG-001" .
+
+ex:org_002 a ex:Organization ;
+    ex:orgId "ORG-002" .
+
+ex:org_003 a ex:Organization ;
+    ex:orgId "ORG-003" .
+
+ex:org_004 a ex:Organization ;
+    ex:orgId "ORG-004" .
+
+ex:org_005 a ex:Organization ;
+    ex:orgId "ORG-005" .
+
+ex:org_006 a ex:Organization ;
+    ex:orgId "ORG-006" .
+
+ex:org_007 a ex:Organization ;
+    ex:orgId "ORG-007" .
+
+ex:org_008 a ex:Organization ;
+    ex:orgId "ORG-008" .
+
+ex:org_009 a ex:Organization ;
+    ex:orgId "ORG-009" .
+
+ex:org_010 a ex:Organization ;
+    ex:orgId "ORG-010" .
+
+ex:org_011 a ex:Organization ;
+    ex:orgId "ORG-011" .
+
+ex:org_012 a ex:Organization ;
+    ex:orgId "ORG-012" .
+
+ex:org_013 a ex:Organization ;
+    ex:orgId "ORG-013" .
+
+ex:org_014 a ex:Organization ;
+    ex:orgId "ORG-014" .
+
+ex:org_015 a ex:Organization ;
+    ex:orgId "ORG-015" .
+
+ex:org_016 a ex:Organization ;
+    ex:orgId "ORG-016" .
+
+ex:org_017 a ex:Organization ;
+    ex:orgId "ORG-017" .
+
+ex:org_018 a ex:Organization ;
+    ex:orgId "ORG-018" .
+
+ex:org_019 a ex:Organization ;
+    ex:orgId "ORG-019" .
+
+ex:org_020 a ex:Organization ;
+    ex:orgId "ORG-020" .
+
+ex:org_021 a ex:Organization ;
+    ex:orgId "ORG-021" .
+
+ex:org_022 a ex:Organization ;
+    ex:orgId "ORG-022" .
+
+ex:org_023 a ex:Organization ;
+    ex:orgId "ORG-023" .
+
+ex:org_024 a ex:Organization ;
+    ex:orgId "ORG-024" .
+
+ex:org_025 a ex:Organization ;
+    ex:orgId "ORG-025" .
+
+ex:org_026 a ex:Organization ;
+    ex:orgId "ORG-026" .
+
+ex:org_027 a ex:Organization ;
+    ex:orgId "ORG-027" .
+
+ex:org_028 a ex:Organization ;
+    ex:orgId "ORG-028" .
+
+ex:org_029 a ex:Organization ;
+    ex:orgId "ORG-029" .
+
+ex:org_030 a ex:Organization ;
+    ex:orgId "ORG-030" .
+
+ex:org_031 a ex:Organization ;
+    ex:orgId "ORG-031" .
+
+ex:org_032 a ex:Organization ;
+    ex:orgId "ORG-032" .
+
+ex:org_033 a ex:Organization ;
+    ex:orgId "ORG-033" .
+
+ex:org_034 a ex:Organization ;
+    ex:orgId "ORG-034" .
+
+ex:org_035 a ex:Organization ;
+    ex:orgId "ORG-035" .
+
+ex:org_036 a ex:Organization ;
+    ex:orgId "ORG-036" .
+
+ex:org_037 a ex:Organization ;
+    ex:orgId "ORG-037" .
+
+ex:org_038 a ex:Organization ;
+    ex:orgId "ORG-038" .
+
+ex:org_039 a ex:Organization ;
+    ex:orgId "ORG-039" .
+
+ex:org_040 a ex:Organization ;
+    ex:orgId "ORG-040" .
+
+ex:facility_001 a ex:Facility ;
+    ex:facilityId "FAC-001" ;
+    ex:facilityOf ex:org_001 ;
+    ex:locatedInCity ex:city_001 .
+
+ex:facility_002 a ex:Facility ;
+    ex:facilityId "FAC-002" ;
+    ex:facilityOf ex:org_002 ;
+    ex:locatedInCity ex:city_002 .
+
+ex:facility_003 a ex:Facility ;
+    ex:facilityId "FAC-003" ;
+    ex:facilityOf ex:org_003 ;
+    ex:locatedInCity ex:city_003 .
+
+ex:facility_004 a ex:Facility ;
+    ex:facilityId "FAC-004" ;
+    ex:facilityOf ex:org_004 ;
+    ex:locatedInCity ex:city_004 .
+
+ex:facility_005 a ex:Facility ;
+    ex:facilityId "FAC-005" ;
+    ex:facilityOf ex:org_005 ;
+    ex:locatedInCity ex:city_005 .
+
+ex:facility_006 a ex:Facility ;
+    ex:facilityId "FAC-006" ;
+    ex:facilityOf ex:org_006 ;
+    ex:locatedInCity ex:city_006 .
+
+ex:facility_007 a ex:Facility ;
+    ex:facilityId "FAC-007" ;
+    ex:facilityOf ex:org_007 ;
+    ex:locatedInCity ex:city_007 .
+
+ex:facility_008 a ex:Facility ;
+    ex:facilityId "FAC-008" ;
+    ex:facilityOf ex:org_008 ;
+    ex:locatedInCity ex:city_008 .
+
+ex:facility_009 a ex:Facility ;
+    ex:facilityId "FAC-009" ;
+    ex:facilityOf ex:org_009 ;
+    ex:locatedInCity ex:city_009 .
+
+ex:facility_010 a ex:Facility ;
+    ex:facilityId "FAC-010" ;
+    ex:facilityOf ex:org_010 ;
+    ex:locatedInCity ex:city_010 .
+
+ex:facility_011 a ex:Facility ;
+    ex:facilityId "FAC-011" ;
+    ex:facilityOf ex:org_011 ;
+    ex:locatedInCity ex:city_011 .
+
+ex:facility_012 a ex:Facility ;
+    ex:facilityId "FAC-012" ;
+    ex:facilityOf ex:org_012 ;
+    ex:locatedInCity ex:city_012 .
+
+ex:facility_013 a ex:Facility ;
+    ex:facilityId "FAC-013" ;
+    ex:facilityOf ex:org_013 ;
+    ex:locatedInCity ex:city_013 .
+
+ex:facility_014 a ex:Facility ;
+    ex:facilityId "FAC-014" ;
+    ex:facilityOf ex:org_014 ;
+    ex:locatedInCity ex:city_014 .
+
+ex:facility_015 a ex:Facility ;
+    ex:facilityId "FAC-015" ;
+    ex:facilityOf ex:org_015 ;
+    ex:locatedInCity ex:city_015 .
+
+ex:facility_016 a ex:Facility ;
+    ex:facilityId "FAC-016" ;
+    ex:facilityOf ex:org_016 ;
+    ex:locatedInCity ex:city_016 .
+
+ex:facility_017 a ex:Facility ;
+    ex:facilityId "FAC-017" ;
+    ex:facilityOf ex:org_017 ;
+    ex:locatedInCity ex:city_017 .
+
+ex:facility_018 a ex:Facility ;
+    ex:facilityId "FAC-018" ;
+    ex:facilityOf ex:org_018 ;
+    ex:locatedInCity ex:city_018 .
+
+ex:facility_019 a ex:Facility ;
+    ex:facilityId "FAC-019" ;
+    ex:facilityOf ex:org_019 ;
+    ex:locatedInCity ex:city_019 .
+
+ex:facility_020 a ex:Facility ;
+    ex:facilityId "FAC-020" ;
+    ex:facilityOf ex:org_020 ;
+    ex:locatedInCity ex:city_020 .
+
+ex:facility_021 a ex:Facility ;
+    ex:facilityId "FAC-021" ;
+    ex:facilityOf ex:org_021 ;
+    ex:locatedInCity ex:city_021 .
+
+ex:facility_022 a ex:Facility ;
+    ex:facilityId "FAC-022" ;
+    ex:facilityOf ex:org_022 ;
+    ex:locatedInCity ex:city_022 .
+
+ex:facility_023 a ex:Facility ;
+    ex:facilityId "FAC-023" ;
+    ex:facilityOf ex:org_023 ;
+    ex:locatedInCity ex:city_023 .
+
+ex:facility_024 a ex:Facility ;
+    ex:facilityId "FAC-024" ;
+    ex:facilityOf ex:org_024 ;
+    ex:locatedInCity ex:city_024 .
+
+ex:facility_025 a ex:Facility ;
+    ex:facilityId "FAC-025" ;
+    ex:facilityOf ex:org_025 ;
+    ex:locatedInCity ex:city_025 .
+
+ex:facility_026 a ex:Facility ;
+    ex:facilityId "FAC-026" ;
+    ex:facilityOf ex:org_026 ;
+    ex:locatedInCity ex:city_026 .
+
+ex:facility_027 a ex:Facility ;
+    ex:facilityId "FAC-027" ;
+    ex:facilityOf ex:org_027 ;
+    ex:locatedInCity ex:city_027 .
+
+ex:facility_028 a ex:Facility ;
+    ex:facilityId "FAC-028" ;
+    ex:facilityOf ex:org_028 ;
+    ex:locatedInCity ex:city_028 .
+
+ex:facility_029 a ex:Facility ;
+    ex:facilityId "FAC-029" ;
+    ex:facilityOf ex:org_029 ;
+    ex:locatedInCity ex:city_029 .
+
+ex:facility_030 a ex:Facility ;
+    ex:facilityId "FAC-030" ;
+    ex:facilityOf ex:org_030 ;
+    ex:locatedInCity ex:city_030 .
+
+ex:facility_031 a ex:Facility ;
+    ex:facilityId "FAC-031" ;
+    ex:facilityOf ex:org_031 ;
+    ex:locatedInCity ex:city_031 .
+
+ex:facility_032 a ex:Facility ;
+    ex:facilityId "FAC-032" ;
+    ex:facilityOf ex:org_032 ;
+    ex:locatedInCity ex:city_032 .
+
+ex:facility_033 a ex:Facility ;
+    ex:facilityId "FAC-033" ;
+    ex:facilityOf ex:org_033 ;
+    ex:locatedInCity ex:city_033 .
+
+ex:facility_034 a ex:Facility ;
+    ex:facilityId "FAC-034" ;
+    ex:facilityOf ex:org_034 ;
+    ex:locatedInCity ex:city_034 .
+
+ex:facility_035 a ex:Facility ;
+    ex:facilityId "FAC-035" ;
+    ex:facilityOf ex:org_035 ;
+    ex:locatedInCity ex:city_035 .
+
+ex:facility_036 a ex:Facility ;
+    ex:facilityId "FAC-036" ;
+    ex:facilityOf ex:org_036 ;
+    ex:locatedInCity ex:city_036 .
+
+ex:facility_037 a ex:Facility ;
+    ex:facilityId "FAC-037" ;
+    ex:facilityOf ex:org_037 ;
+    ex:locatedInCity ex:city_037 .
+
+ex:facility_038 a ex:Facility ;
+    ex:facilityId "FAC-038" ;
+    ex:facilityOf ex:org_038 ;
+    ex:locatedInCity ex:city_038 .
+
+ex:facility_039 a ex:Facility ;
+    ex:facilityId "FAC-039" ;
+    ex:facilityOf ex:org_039 ;
+    ex:locatedInCity ex:city_039 .
+
+ex:facility_040 a ex:Facility ;
+    ex:facilityId "FAC-040" ;
+    ex:facilityOf ex:org_040 ;
+    ex:locatedInCity ex:city_040 .
+
+ex:facility_041 a ex:Facility ;
+    ex:facilityId "FAC-041" ;
+    ex:facilityOf ex:org_001 ;
+    ex:locatedInCity ex:city_041 .
+
+ex:facility_042 a ex:Facility ;
+    ex:facilityId "FAC-042" ;
+    ex:facilityOf ex:org_002 ;
+    ex:locatedInCity ex:city_042 .
+
+ex:facility_043 a ex:Facility ;
+    ex:facilityId "FAC-043" ;
+    ex:facilityOf ex:org_003 ;
+    ex:locatedInCity ex:city_043 .
+
+ex:facility_044 a ex:Facility ;
+    ex:facilityId "FAC-044" ;
+    ex:facilityOf ex:org_004 ;
+    ex:locatedInCity ex:city_044 .
+
+ex:facility_045 a ex:Facility ;
+    ex:facilityId "FAC-045" ;
+    ex:facilityOf ex:org_005 ;
+    ex:locatedInCity ex:city_045 .
+
+ex:facility_046 a ex:Facility ;
+    ex:facilityId "FAC-046" ;
+    ex:facilityOf ex:org_006 ;
+    ex:locatedInCity ex:city_046 .
+
+ex:facility_047 a ex:Facility ;
+    ex:facilityId "FAC-047" ;
+    ex:facilityOf ex:org_007 ;
+    ex:locatedInCity ex:city_047 .
+
+ex:facility_048 a ex:Facility ;
+    ex:facilityId "FAC-048" ;
+    ex:facilityOf ex:org_008 ;
+    ex:locatedInCity ex:city_048 .
+
+ex:facility_049 a ex:Facility ;
+    ex:facilityId "FAC-049" ;
+    ex:facilityOf ex:org_009 ;
+    ex:locatedInCity ex:city_049 .
+
+ex:facility_050 a ex:Facility ;
+    ex:facilityId "FAC-050" ;
+    ex:facilityOf ex:org_010 ;
+    ex:locatedInCity ex:city_050 .
+
+ex:facility_051 a ex:Facility ;
+    ex:facilityId "FAC-051" ;
+    ex:facilityOf ex:org_011 ;
+    ex:locatedInCity ex:city_001 .
+
+ex:facility_052 a ex:Facility ;
+    ex:facilityId "FAC-052" ;
+    ex:facilityOf ex:org_012 ;
+    ex:locatedInCity ex:city_002 .
+
+ex:facility_053 a ex:Facility ;
+    ex:facilityId "FAC-053" ;
+    ex:facilityOf ex:org_013 ;
+    ex:locatedInCity ex:city_003 .
+
+ex:facility_054 a ex:Facility ;
+    ex:facilityId "FAC-054" ;
+    ex:facilityOf ex:org_014 ;
+    ex:locatedInCity ex:city_004 .
+
+ex:facility_055 a ex:Facility ;
+    ex:facilityId "FAC-055" ;
+    ex:facilityOf ex:org_015 ;
+    ex:locatedInCity ex:city_005 .
+
+ex:facility_056 a ex:Facility ;
+    ex:facilityId "FAC-056" ;
+    ex:facilityOf ex:org_016 ;
+    ex:locatedInCity ex:city_006 .
+
+ex:facility_057 a ex:Facility ;
+    ex:facilityId "FAC-057" ;
+    ex:facilityOf ex:org_017 ;
+    ex:locatedInCity ex:city_007 .
+
+ex:facility_058 a ex:Facility ;
+    ex:facilityId "FAC-058" ;
+    ex:facilityOf ex:org_018 ;
+    ex:locatedInCity ex:city_008 .
+
+ex:facility_059 a ex:Facility ;
+    ex:facilityId "FAC-059" ;
+    ex:facilityOf ex:org_019 ;
+    ex:locatedInCity ex:city_009 .
+
+ex:facility_060 a ex:Facility ;
+    ex:facilityId "FAC-060" ;
+    ex:facilityOf ex:org_020 ;
+    ex:locatedInCity ex:city_010 .
+
+ex:facility_061 a ex:Facility ;
+    ex:facilityId "FAC-061" ;
+    ex:facilityOf ex:org_021 ;
+    ex:locatedInCity ex:city_011 .
+
+ex:facility_062 a ex:Facility ;
+    ex:facilityId "FAC-062" ;
+    ex:facilityOf ex:org_022 ;
+    ex:locatedInCity ex:city_012 .
+
+ex:facility_063 a ex:Facility ;
+    ex:facilityId "FAC-063" ;
+    ex:facilityOf ex:org_023 ;
+    ex:locatedInCity ex:city_013 .
+
+ex:facility_064 a ex:Facility ;
+    ex:facilityId "FAC-064" ;
+    ex:facilityOf ex:org_024 ;
+    ex:locatedInCity ex:city_014 .
+
+ex:facility_065 a ex:Facility ;
+    ex:facilityId "FAC-065" ;
+    ex:facilityOf ex:org_025 ;
+    ex:locatedInCity ex:city_015 .
+
+ex:facility_066 a ex:Facility ;
+    ex:facilityId "FAC-066" ;
+    ex:facilityOf ex:org_026 ;
+    ex:locatedInCity ex:city_016 .
+
+ex:facility_067 a ex:Facility ;
+    ex:facilityId "FAC-067" ;
+    ex:facilityOf ex:org_027 ;
+    ex:locatedInCity ex:city_017 .
+
+ex:facility_068 a ex:Facility ;
+    ex:facilityId "FAC-068" ;
+    ex:facilityOf ex:org_028 ;
+    ex:locatedInCity ex:city_018 .
+
+ex:facility_069 a ex:Facility ;
+    ex:facilityId "FAC-069" ;
+    ex:facilityOf ex:org_029 ;
+    ex:locatedInCity ex:city_019 .
+
+ex:facility_070 a ex:Facility ;
+    ex:facilityId "FAC-070" ;
+    ex:facilityOf ex:org_030 ;
+    ex:locatedInCity ex:city_020 .
+
+ex:facility_071 a ex:Facility ;
+    ex:facilityId "FAC-071" ;
+    ex:facilityOf ex:org_031 ;
+    ex:locatedInCity ex:city_021 .
+
+ex:facility_072 a ex:Facility ;
+    ex:facilityId "FAC-072" ;
+    ex:facilityOf ex:org_032 ;
+    ex:locatedInCity ex:city_022 .
+
+ex:facility_073 a ex:Facility ;
+    ex:facilityId "FAC-073" ;
+    ex:facilityOf ex:org_033 ;
+    ex:locatedInCity ex:city_023 .
+
+ex:facility_074 a ex:Facility ;
+    ex:facilityId "FAC-074" ;
+    ex:facilityOf ex:org_034 ;
+    ex:locatedInCity ex:city_024 .
+
+ex:facility_075 a ex:Facility ;
+    ex:facilityId "FAC-075" ;
+    ex:facilityOf ex:org_035 ;
+    ex:locatedInCity ex:city_025 .
+
+ex:facility_076 a ex:Facility ;
+    ex:facilityId "FAC-076" ;
+    ex:facilityOf ex:org_036 ;
+    ex:locatedInCity ex:city_026 .
+
+ex:facility_077 a ex:Facility ;
+    ex:facilityId "FAC-077" ;
+    ex:facilityOf ex:org_037 ;
+    ex:locatedInCity ex:city_027 .
+
+ex:facility_078 a ex:Facility ;
+    ex:facilityId "FAC-078" ;
+    ex:facilityOf ex:org_038 ;
+    ex:locatedInCity ex:city_028 .
+
+ex:facility_079 a ex:Facility ;
+    ex:facilityId "FAC-079" ;
+    ex:facilityOf ex:org_039 ;
+    ex:locatedInCity ex:city_029 .
+
+ex:facility_080 a ex:Facility ;
+    ex:facilityId "FAC-080" ;
+    ex:facilityOf ex:org_040 ;
+    ex:locatedInCity ex:city_030 .
+
+ex:person_001 a ex:Person ;
+    ex:personId "PER-0001" ;
+    ex:worksAt ex:facility_001 .
+
+ex:person_002 a ex:Person ;
+    ex:personId "PER-0002" ;
+    ex:worksAt ex:facility_002 .
+
+ex:person_003 a ex:Person ;
+    ex:personId "PER-0003" ;
+    ex:worksAt ex:facility_003 .
+
+ex:person_004 a ex:Person ;
+    ex:personId "PER-0004" ;
+    ex:worksAt ex:facility_004 .
+
+ex:person_005 a ex:Person ;
+    ex:personId "PER-0005" ;
+    ex:worksAt ex:facility_005 .
+
+ex:person_006 a ex:Person ;
+    ex:personId "PER-0006" ;
+    ex:worksAt ex:facility_006 .
+
+ex:person_007 a ex:Person ;
+    ex:personId "PER-0007" ;
+    ex:worksAt ex:facility_007 .
+
+ex:person_008 a ex:Person ;
+    ex:personId "PER-0008" ;
+    ex:worksAt ex:facility_008 .
+
+ex:person_009 a ex:Person ;
+    ex:personId "PER-0009" ;
+    ex:worksAt ex:facility_009 .
+
+ex:person_010 a ex:Person ;
+    ex:personId "PER-0010" ;
+    ex:worksAt ex:facility_010 .
+
+ex:person_011 a ex:Person ;
+    ex:personId "PER-0011" ;
+    ex:worksAt ex:facility_011 .
+
+ex:person_012 a ex:Person ;
+    ex:personId "PER-0012" ;
+    ex:worksAt ex:facility_012 .
+
+ex:person_013 a ex:Person ;
+    ex:personId "PER-0013" ;
+    ex:worksAt ex:facility_013 .
+
+ex:person_014 a ex:Person ;
+    ex:personId "PER-0014" ;
+    ex:worksAt ex:facility_014 .
+
+ex:person_015 a ex:Person ;
+    ex:personId "PER-0015" ;
+    ex:worksAt ex:facility_015 .
+
+ex:person_016 a ex:Person ;
+    ex:personId "PER-0016" ;
+    ex:worksAt ex:facility_016 .
+
+ex:person_017 a ex:Person ;
+    ex:personId "PER-0017" ;
+    ex:worksAt ex:facility_017 .
+
+ex:person_018 a ex:Person ;
+    ex:personId "PER-0018" ;
+    ex:worksAt ex:facility_018 .
+
+ex:person_019 a ex:Person ;
+    ex:personId "PER-0019" ;
+    ex:worksAt ex:facility_019 .
+
+ex:person_020 a ex:Person ;
+    ex:personId "PER-0020" ;
+    ex:worksAt ex:facility_020 .
+
+ex:person_021 a ex:Person ;
+    ex:personId "PER-0021" ;
+    ex:worksAt ex:facility_021 .
+
+ex:person_022 a ex:Person ;
+    ex:personId "PER-0022" ;
+    ex:worksAt ex:facility_022 .
+
+ex:person_023 a ex:Person ;
+    ex:personId "PER-0023" ;
+    ex:worksAt ex:facility_023 .
+
+ex:person_024 a ex:Person ;
+    ex:personId "PER-0024" ;
+    ex:worksAt ex:facility_024 .
+
+ex:person_025 a ex:Person ;
+    ex:personId "PER-0025" ;
+    ex:worksAt ex:facility_025 .
+
+ex:person_026 a ex:Person ;
+    ex:personId "PER-0026" ;
+    ex:worksAt ex:facility_026 .
+
+ex:person_027 a ex:Person ;
+    ex:personId "PER-0027" ;
+    ex:worksAt ex:facility_027 .
+
+ex:person_028 a ex:Person ;
+    ex:personId "PER-0028" ;
+    ex:worksAt ex:facility_028 .
+
+ex:person_029 a ex:Person ;
+    ex:personId "PER-0029" ;
+    ex:worksAt ex:facility_029 .
+
+ex:person_030 a ex:Person ;
+    ex:personId "PER-0030" ;
+    ex:worksAt ex:facility_030 .
+
+ex:person_031 a ex:Person ;
+    ex:personId "PER-0031" ;
+    ex:worksAt ex:facility_031 .
+
+ex:person_032 a ex:Person ;
+    ex:personId "PER-0032" ;
+    ex:worksAt ex:facility_032 .
+
+ex:person_033 a ex:Person ;
+    ex:personId "PER-0033" ;
+    ex:worksAt ex:facility_033 .
+
+ex:person_034 a ex:Person ;
+    ex:personId "PER-0034" ;
+    ex:worksAt ex:facility_034 .
+
+ex:person_035 a ex:Person ;
+    ex:personId "PER-0035" ;
+    ex:worksAt ex:facility_035 .
+
+ex:person_036 a ex:Person ;
+    ex:personId "PER-0036" ;
+    ex:worksAt ex:facility_036 .
+
+ex:person_037 a ex:Person ;
+    ex:personId "PER-0037" ;
+    ex:worksAt ex:facility_037 .
+
+ex:person_038 a ex:Person ;
+    ex:personId "PER-0038" ;
+    ex:worksAt ex:facility_038 .
+
+ex:person_039 a ex:Person ;
+    ex:personId "PER-0039" ;
+    ex:worksAt ex:facility_039 .
+
+ex:person_040 a ex:Person ;
+    ex:personId "PER-0040" ;
+    ex:worksAt ex:facility_040 .
+
+ex:person_041 a ex:Person ;
+    ex:personId "PER-0041" ;
+    ex:worksAt ex:facility_041 .
+
+ex:person_042 a ex:Person ;
+    ex:personId "PER-0042" ;
+    ex:worksAt ex:facility_042 .
+
+ex:person_043 a ex:Person ;
+    ex:personId "PER-0043" ;
+    ex:worksAt ex:facility_043 .
+
+ex:person_044 a ex:Person ;
+    ex:personId "PER-0044" ;
+    ex:worksAt ex:facility_044 .
+
+ex:person_045 a ex:Person ;
+    ex:personId "PER-0045" ;
+    ex:worksAt ex:facility_045 .
+
+ex:person_046 a ex:Person ;
+    ex:personId "PER-0046" ;
+    ex:worksAt ex:facility_046 .
+
+ex:person_047 a ex:Person ;
+    ex:personId "PER-0047" ;
+    ex:worksAt ex:facility_047 .
+
+ex:person_048 a ex:Person ;
+    ex:personId "PER-0048" ;
+    ex:worksAt ex:facility_048 .
+
+ex:person_049 a ex:Person ;
+    ex:personId "PER-0049" ;
+    ex:worksAt ex:facility_049 .
+
+ex:person_050 a ex:Person ;
+    ex:personId "PER-0050" ;
+    ex:worksAt ex:facility_050 .
+
+ex:person_051 a ex:Person ;
+    ex:personId "PER-0051" ;
+    ex:worksAt ex:facility_051 .
+
+ex:person_052 a ex:Person ;
+    ex:personId "PER-0052" ;
+    ex:worksAt ex:facility_052 .
+
+ex:person_053 a ex:Person ;
+    ex:personId "PER-0053" ;
+    ex:worksAt ex:facility_053 .
+
+ex:person_054 a ex:Person ;
+    ex:personId "PER-0054" ;
+    ex:worksAt ex:facility_054 .
+
+ex:person_055 a ex:Person ;
+    ex:personId "PER-0055" ;
+    ex:worksAt ex:facility_055 .
+
+ex:person_056 a ex:Person ;
+    ex:personId "PER-0056" ;
+    ex:worksAt ex:facility_056 .
+
+ex:person_057 a ex:Person ;
+    ex:personId "PER-0057" ;
+    ex:worksAt ex:facility_057 .
+
+ex:person_058 a ex:Person ;
+    ex:personId "PER-0058" ;
+    ex:worksAt ex:facility_058 .
+
+ex:person_059 a ex:Person ;
+    ex:personId "PER-0059" ;
+    ex:worksAt ex:facility_059 .
+
+ex:person_060 a ex:Person ;
+    ex:personId "PER-0060" ;
+    ex:worksAt ex:facility_060 .
+
+ex:person_061 a ex:Person ;
+    ex:personId "PER-0061" ;
+    ex:worksAt ex:facility_061 .
+
+ex:person_062 a ex:Person ;
+    ex:personId "PER-0062" ;
+    ex:worksAt ex:facility_062 .
+
+ex:person_063 a ex:Person ;
+    ex:personId "PER-0063" ;
+    ex:worksAt ex:facility_063 .
+
+ex:person_064 a ex:Person ;
+    ex:personId "PER-0064" ;
+    ex:worksAt ex:facility_064 .
+
+ex:person_065 a ex:Person ;
+    ex:personId "PER-0065" ;
+    ex:worksAt ex:facility_065 .
+
+ex:person_066 a ex:Person ;
+    ex:personId "PER-0066" ;
+    ex:worksAt ex:facility_066 .
+
+ex:person_067 a ex:Person ;
+    ex:personId "PER-0067" ;
+    ex:worksAt ex:facility_067 .
+
+ex:person_068 a ex:Person ;
+    ex:personId "PER-0068" ;
+    ex:worksAt ex:facility_068 .
+
+ex:person_069 a ex:Person ;
+    ex:personId "PER-0069" ;
+    ex:worksAt ex:facility_069 .
+
+ex:person_070 a ex:Person ;
+    ex:personId "PER-0070" ;
+    ex:worksAt ex:facility_070 .
+
+ex:person_071 a ex:Person ;
+    ex:personId "PER-0071" ;
+    ex:worksAt ex:facility_071 .
+
+ex:person_072 a ex:Person ;
+    ex:personId "PER-0072" ;
+    ex:worksAt ex:facility_072 .
+
+ex:person_073 a ex:Person ;
+    ex:personId "PER-0073" ;
+    ex:worksAt ex:facility_073 .
+
+ex:person_074 a ex:Person ;
+    ex:personId "PER-0074" ;
+    ex:worksAt ex:facility_074 .
+
+ex:person_075 a ex:Person ;
+    ex:personId "PER-0075" ;
+    ex:worksAt ex:facility_075 .
+
+ex:person_076 a ex:Person ;
+    ex:personId "PER-0076" ;
+    ex:worksAt ex:facility_076 .
+
+ex:person_077 a ex:Person ;
+    ex:personId "PER-0077" ;
+    ex:worksAt ex:facility_077 .
+
+ex:person_078 a ex:Person ;
+    ex:personId "PER-0078" ;
+    ex:worksAt ex:facility_078 .
+
+ex:person_079 a ex:Person ;
+    ex:personId "PER-0079" ;
+    ex:worksAt ex:facility_079 .
+
+ex:person_080 a ex:Person ;
+    ex:personId "PER-0080" ;
+    ex:worksAt ex:facility_080 .
+
+ex:person_081 a ex:Person ;
+    ex:personId "PER-0081" ;
+    ex:worksAt ex:facility_001 .
+
+ex:person_082 a ex:Person ;
+    ex:personId "PER-0082" ;
+    ex:worksAt ex:facility_002 .
+
+ex:person_083 a ex:Person ;
+    ex:personId "PER-0083" ;
+    ex:worksAt ex:facility_003 .
+
+ex:person_084 a ex:Person ;
+    ex:personId "PER-0084" ;
+    ex:worksAt ex:facility_004 .
+
+ex:person_085 a ex:Person ;
+    ex:personId "PER-0085" ;
+    ex:worksAt ex:facility_005 .
+
+ex:person_086 a ex:Person ;
+    ex:personId "PER-0086" ;
+    ex:worksAt ex:facility_006 .
+
+ex:person_087 a ex:Person ;
+    ex:personId "PER-0087" ;
+    ex:worksAt ex:facility_007 .
+
+ex:person_088 a ex:Person ;
+    ex:personId "PER-0088" ;
+    ex:worksAt ex:facility_008 .
+
+ex:person_089 a ex:Person ;
+    ex:personId "PER-0089" ;
+    ex:worksAt ex:facility_009 .
+
+ex:person_090 a ex:Person ;
+    ex:personId "PER-0090" ;
+    ex:worksAt ex:facility_010 .
+
+ex:person_091 a ex:Person ;
+    ex:personId "PER-0091" ;
+    ex:worksAt ex:facility_011 .
+
+ex:person_092 a ex:Person ;
+    ex:personId "PER-0092" ;
+    ex:worksAt ex:facility_012 .
+
+ex:person_093 a ex:Person ;
+    ex:personId "PER-0093" ;
+    ex:worksAt ex:facility_013 .
+
+ex:person_094 a ex:Person ;
+    ex:personId "PER-0094" ;
+    ex:worksAt ex:facility_014 .
+
+ex:person_095 a ex:Person ;
+    ex:personId "PER-0095" ;
+    ex:worksAt ex:facility_015 .
+
+ex:person_096 a ex:Person ;
+    ex:personId "PER-0096" ;
+    ex:worksAt ex:facility_016 .
+
+ex:person_097 a ex:Person ;
+    ex:personId "PER-0097" ;
+    ex:worksAt ex:facility_017 .
+
+ex:person_098 a ex:Person ;
+    ex:personId "PER-0098" ;
+    ex:worksAt ex:facility_018 .
+
+ex:person_099 a ex:Person ;
+    ex:personId "PER-0099" ;
+    ex:worksAt ex:facility_019 .
+
+ex:person_100 a ex:Person ;
+    ex:personId "PER-0100" ;
+    ex:worksAt ex:facility_020 .
+
+ex:person_101 a ex:Person ;
+    ex:personId "PER-0101" ;
+    ex:worksAt ex:facility_021 .
+
+ex:person_102 a ex:Person ;
+    ex:personId "PER-0102" ;
+    ex:worksAt ex:facility_022 .
+
+ex:person_103 a ex:Person ;
+    ex:personId "PER-0103" ;
+    ex:worksAt ex:facility_023 .
+
+ex:person_104 a ex:Person ;
+    ex:personId "PER-0104" ;
+    ex:worksAt ex:facility_024 .
+
+ex:person_105 a ex:Person ;
+    ex:personId "PER-0105" ;
+    ex:worksAt ex:facility_025 .
+
+ex:person_106 a ex:Person ;
+    ex:personId "PER-0106" ;
+    ex:worksAt ex:facility_026 .
+
+ex:person_107 a ex:Person ;
+    ex:personId "PER-0107" ;
+    ex:worksAt ex:facility_027 .
+
+ex:person_108 a ex:Person ;
+    ex:personId "PER-0108" ;
+    ex:worksAt ex:facility_028 .
+
+ex:person_109 a ex:Person ;
+    ex:personId "PER-0109" ;
+    ex:worksAt ex:facility_029 .
+
+ex:person_110 a ex:Person ;
+    ex:personId "PER-0110" ;
+    ex:worksAt ex:facility_030 .
+
+ex:person_111 a ex:Person ;
+    ex:personId "PER-0111" ;
+    ex:worksAt ex:facility_031 .
+
+ex:person_112 a ex:Person ;
+    ex:personId "PER-0112" ;
+    ex:worksAt ex:facility_032 .
+
+ex:person_113 a ex:Person ;
+    ex:personId "PER-0113" ;
+    ex:worksAt ex:facility_033 .
+
+ex:person_114 a ex:Person ;
+    ex:personId "PER-0114" ;
+    ex:worksAt ex:facility_034 .
+
+ex:person_115 a ex:Person ;
+    ex:personId "PER-0115" ;
+    ex:worksAt ex:facility_035 .
+
+ex:person_116 a ex:Person ;
+    ex:personId "PER-0116" ;
+    ex:worksAt ex:facility_036 .
+
+ex:person_117 a ex:Person ;
+    ex:personId "PER-0117" ;
+    ex:worksAt ex:facility_037 .
+
+ex:person_118 a ex:Person ;
+    ex:personId "PER-0118" ;
+    ex:worksAt ex:facility_038 .
+
+ex:person_119 a ex:Person ;
+    ex:personId "PER-0119" ;
+    ex:worksAt ex:facility_039 .
+
+ex:person_120 a ex:Person ;
+    ex:personId "PER-0120" ;
+    ex:worksAt ex:facility_040 .

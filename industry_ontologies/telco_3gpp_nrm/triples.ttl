@@ -1,0 +1,1826 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix nrm:  <http://example.org/3gpp/nrm#> .
+
+# ABox Instance Triples for telco_3gpp_nrm
+
+nrm:subnet_slice_001 a nrm:NetworkSliceSubnet .
+
+nrm:slice_001 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-001" ;
+    nrm:sst 2 ;
+    nrm:sd "SD-000001" ;
+    nrm:guaranteedLatencyMs "2.70"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_001 .
+
+nrm:subnet_slice_002 a nrm:NetworkSliceSubnet .
+
+nrm:slice_002 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-002" ;
+    nrm:sst 3 ;
+    nrm:sd "SD-000002" ;
+    nrm:guaranteedLatencyMs "3.90"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_002 .
+
+nrm:subnet_slice_003 a nrm:NetworkSliceSubnet .
+
+nrm:slice_003 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-003" ;
+    nrm:sst 4 ;
+    nrm:sd "SD-000003" ;
+    nrm:guaranteedLatencyMs "5.10"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_003 .
+
+nrm:subnet_slice_004 a nrm:NetworkSliceSubnet .
+
+nrm:slice_004 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-004" ;
+    nrm:sst 1 ;
+    nrm:sd "SD-000004" ;
+    nrm:guaranteedLatencyMs "6.30"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_004 .
+
+nrm:subnet_slice_005 a nrm:NetworkSliceSubnet .
+
+nrm:slice_005 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-005" ;
+    nrm:sst 2 ;
+    nrm:sd "SD-000005" ;
+    nrm:guaranteedLatencyMs "7.50"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_005 .
+
+nrm:subnet_slice_006 a nrm:NetworkSliceSubnet .
+
+nrm:slice_006 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-006" ;
+    nrm:sst 3 ;
+    nrm:sd "SD-000006" ;
+    nrm:guaranteedLatencyMs "8.70"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_006 .
+
+nrm:subnet_slice_007 a nrm:NetworkSliceSubnet .
+
+nrm:slice_007 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-007" ;
+    nrm:sst 4 ;
+    nrm:sd "SD-000007" ;
+    nrm:guaranteedLatencyMs "9.90"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_007 .
+
+nrm:subnet_slice_008 a nrm:NetworkSliceSubnet .
+
+nrm:slice_008 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-008" ;
+    nrm:sst 1 ;
+    nrm:sd "SD-000008" ;
+    nrm:guaranteedLatencyMs "11.10"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_008 .
+
+nrm:subnet_slice_009 a nrm:NetworkSliceSubnet .
+
+nrm:slice_009 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-009" ;
+    nrm:sst 2 ;
+    nrm:sd "SD-000009" ;
+    nrm:guaranteedLatencyMs "12.30"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_009 .
+
+nrm:subnet_slice_010 a nrm:NetworkSliceSubnet .
+
+nrm:slice_010 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-010" ;
+    nrm:sst 3 ;
+    nrm:sd "SD-00000A" ;
+    nrm:guaranteedLatencyMs "1.50"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_010 .
+
+nrm:subnet_slice_011 a nrm:NetworkSliceSubnet .
+
+nrm:slice_011 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-011" ;
+    nrm:sst 4 ;
+    nrm:sd "SD-00000B" ;
+    nrm:guaranteedLatencyMs "2.70"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_011 .
+
+nrm:subnet_slice_012 a nrm:NetworkSliceSubnet .
+
+nrm:slice_012 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-012" ;
+    nrm:sst 1 ;
+    nrm:sd "SD-00000C" ;
+    nrm:guaranteedLatencyMs "3.90"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_012 .
+
+nrm:subnet_slice_013 a nrm:NetworkSliceSubnet .
+
+nrm:slice_013 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-013" ;
+    nrm:sst 2 ;
+    nrm:sd "SD-00000D" ;
+    nrm:guaranteedLatencyMs "5.10"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_013 .
+
+nrm:subnet_slice_014 a nrm:NetworkSliceSubnet .
+
+nrm:slice_014 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-014" ;
+    nrm:sst 3 ;
+    nrm:sd "SD-00000E" ;
+    nrm:guaranteedLatencyMs "6.30"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_014 .
+
+nrm:subnet_slice_015 a nrm:NetworkSliceSubnet .
+
+nrm:slice_015 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-015" ;
+    nrm:sst 4 ;
+    nrm:sd "SD-00000F" ;
+    nrm:guaranteedLatencyMs "7.50"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_015 .
+
+nrm:subnet_slice_016 a nrm:NetworkSliceSubnet .
+
+nrm:slice_016 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-016" ;
+    nrm:sst 1 ;
+    nrm:sd "SD-000010" ;
+    nrm:guaranteedLatencyMs "8.70"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_016 .
+
+nrm:subnet_slice_017 a nrm:NetworkSliceSubnet .
+
+nrm:slice_017 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-017" ;
+    nrm:sst 2 ;
+    nrm:sd "SD-000011" ;
+    nrm:guaranteedLatencyMs "9.90"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_017 .
+
+nrm:subnet_slice_018 a nrm:NetworkSliceSubnet .
+
+nrm:slice_018 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-018" ;
+    nrm:sst 3 ;
+    nrm:sd "SD-000012" ;
+    nrm:guaranteedLatencyMs "11.10"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_018 .
+
+nrm:subnet_slice_019 a nrm:NetworkSliceSubnet .
+
+nrm:slice_019 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-019" ;
+    nrm:sst 4 ;
+    nrm:sd "SD-000013" ;
+    nrm:guaranteedLatencyMs "12.30"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_019 .
+
+nrm:subnet_slice_020 a nrm:NetworkSliceSubnet .
+
+nrm:slice_020 a nrm:NetworkSlice ;
+    nrm:sliceId "SLICE-5G-020" ;
+    nrm:sst 1 ;
+    nrm:sd "SD-000014" ;
+    nrm:guaranteedLatencyMs "1.50"^^xsd:double ;
+    nrm:allocatesSliceSubnet nrm:subnet_slice_020 .
+
+nrm:subnetwork_001 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-001" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001" ;
+    nrm:administrativeState "LOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_002 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-002" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_003 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-003" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003" ;
+    nrm:administrativeState "LOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_004 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-004" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_005 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-005" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005" ;
+    nrm:administrativeState "LOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_006 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-006" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:parentSubNetwork nrm:subnetwork_001 .
+
+nrm:subnetwork_007 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-007" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007" ;
+    nrm:administrativeState "LOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:parentSubNetwork nrm:subnetwork_002 .
+
+nrm:subnetwork_008 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-008" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:parentSubNetwork nrm:subnetwork_003 .
+
+nrm:subnetwork_009 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-009" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009" ;
+    nrm:administrativeState "LOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:parentSubNetwork nrm:subnetwork_004 .
+
+nrm:subnetwork_010 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-010" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:parentSubNetwork nrm:subnetwork_005 .
+
+nrm:subnetwork_011 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-011" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011" ;
+    nrm:administrativeState "LOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:parentSubNetwork nrm:subnetwork_001 .
+
+nrm:subnetwork_012 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-012" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:parentSubNetwork nrm:subnetwork_002 .
+
+nrm:subnetwork_013 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-013" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013" ;
+    nrm:administrativeState "LOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:parentSubNetwork nrm:subnetwork_003 .
+
+nrm:subnetwork_014 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-014" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:parentSubNetwork nrm:subnetwork_004 .
+
+nrm:subnetwork_015 a nrm:SubNetwork ;
+    nrm:subNetworkId "SN-015" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015" ;
+    nrm:administrativeState "LOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:parentSubNetwork nrm:subnetwork_005 .
+
+nrm:me_001 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-001" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=001" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_001 nrm:containsManagedElement nrm:me_001 .
+
+nrm:me_002 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-002" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=002" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_002 nrm:containsManagedElement nrm:me_002 .
+
+nrm:me_003 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-003" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=003" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_003 nrm:containsManagedElement nrm:me_003 .
+
+nrm:me_004 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-004" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=004" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_004 nrm:containsManagedElement nrm:me_004 .
+
+nrm:me_005 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-005" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=005" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_005 nrm:containsManagedElement nrm:me_005 .
+
+nrm:me_006 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-006" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=006" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_006 nrm:containsManagedElement nrm:me_006 .
+
+nrm:me_007 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-007" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=007" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_007 nrm:containsManagedElement nrm:me_007 .
+
+nrm:me_008 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-008" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=008" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_008 nrm:containsManagedElement nrm:me_008 .
+
+nrm:me_009 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-009" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=009" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_009 nrm:containsManagedElement nrm:me_009 .
+
+nrm:me_010 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-010" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=010" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_010 nrm:containsManagedElement nrm:me_010 .
+
+nrm:me_011 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-011" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=011" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_011 nrm:containsManagedElement nrm:me_011 .
+
+nrm:me_012 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-012" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=012" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_012 nrm:containsManagedElement nrm:me_012 .
+
+nrm:me_013 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-013" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=013" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_013 nrm:containsManagedElement nrm:me_013 .
+
+nrm:me_014 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-014" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=014" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_014 nrm:containsManagedElement nrm:me_014 .
+
+nrm:me_015 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-015" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=015" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_015 nrm:containsManagedElement nrm:me_015 .
+
+nrm:me_016 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-016" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=016" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_001 nrm:containsManagedElement nrm:me_016 .
+
+nrm:me_017 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-017" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=017" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_002 nrm:containsManagedElement nrm:me_017 .
+
+nrm:me_018 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-018" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=018" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_003 nrm:containsManagedElement nrm:me_018 .
+
+nrm:me_019 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-019" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=019" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_004 nrm:containsManagedElement nrm:me_019 .
+
+nrm:me_020 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-020" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=020" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_005 nrm:containsManagedElement nrm:me_020 .
+
+nrm:me_021 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-021" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=021" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_006 nrm:containsManagedElement nrm:me_021 .
+
+nrm:me_022 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-022" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=022" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_007 nrm:containsManagedElement nrm:me_022 .
+
+nrm:me_023 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-023" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=023" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_008 nrm:containsManagedElement nrm:me_023 .
+
+nrm:me_024 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-024" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=024" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_009 nrm:containsManagedElement nrm:me_024 .
+
+nrm:me_025 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-025" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=025" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_010 nrm:containsManagedElement nrm:me_025 .
+
+nrm:me_026 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-026" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=026" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_011 nrm:containsManagedElement nrm:me_026 .
+
+nrm:me_027 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-027" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=027" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_012 nrm:containsManagedElement nrm:me_027 .
+
+nrm:me_028 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-028" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=028" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_013 nrm:containsManagedElement nrm:me_028 .
+
+nrm:me_029 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-029" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=029" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_014 nrm:containsManagedElement nrm:me_029 .
+
+nrm:me_030 a nrm:ManagedElement ;
+    nrm:elementName "5G-Node-Chassis-030" ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=030" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" .
+
+nrm:subnetwork_015 nrm:containsManagedElement nrm:me_030 .
+
+nrm:amf_001 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=001,AMFFunction=001" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_001 .
+
+nrm:smf_001 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=001,SMFFunction=001" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_001 .
+
+nrm:upf_001 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=001,UPFFunction=001" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_001 .
+
+nrm:me_001 nrm:containsManagedFunction nrm:amf_001, nrm:smf_001, nrm:upf_001 .
+
+nrm:amf_002 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=002,AMFFunction=002" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_002 .
+
+nrm:smf_002 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=002,SMFFunction=002" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_002 .
+
+nrm:upf_002 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=002,UPFFunction=002" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_002 .
+
+nrm:me_002 nrm:containsManagedFunction nrm:amf_002, nrm:smf_002, nrm:upf_002 .
+
+nrm:amf_003 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=003,AMFFunction=003" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_003 .
+
+nrm:smf_003 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=003,SMFFunction=003" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_003 .
+
+nrm:upf_003 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=003,UPFFunction=003" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_003 .
+
+nrm:me_003 nrm:containsManagedFunction nrm:amf_003, nrm:smf_003, nrm:upf_003 .
+
+nrm:amf_004 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=004,AMFFunction=004" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_004 .
+
+nrm:smf_004 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=004,SMFFunction=004" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_004 .
+
+nrm:upf_004 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=004,UPFFunction=004" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_004 .
+
+nrm:me_004 nrm:containsManagedFunction nrm:amf_004, nrm:smf_004, nrm:upf_004 .
+
+nrm:amf_005 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=005,AMFFunction=005" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_005 .
+
+nrm:smf_005 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=005,SMFFunction=005" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_005 .
+
+nrm:upf_005 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=005,UPFFunction=005" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_005 .
+
+nrm:me_005 nrm:containsManagedFunction nrm:amf_005, nrm:smf_005, nrm:upf_005 .
+
+nrm:amf_006 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=006,AMFFunction=006" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_006 .
+
+nrm:smf_006 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=006,SMFFunction=006" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_006 .
+
+nrm:upf_006 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=006,UPFFunction=006" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_006 .
+
+nrm:me_006 nrm:containsManagedFunction nrm:amf_006, nrm:smf_006, nrm:upf_006 .
+
+nrm:amf_007 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=007,AMFFunction=007" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_007 .
+
+nrm:smf_007 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=007,SMFFunction=007" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_007 .
+
+nrm:upf_007 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=007,UPFFunction=007" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_007 .
+
+nrm:me_007 nrm:containsManagedFunction nrm:amf_007, nrm:smf_007, nrm:upf_007 .
+
+nrm:amf_008 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=008,AMFFunction=008" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_008 .
+
+nrm:smf_008 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=008,SMFFunction=008" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_008 .
+
+nrm:upf_008 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=008,UPFFunction=008" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_008 .
+
+nrm:me_008 nrm:containsManagedFunction nrm:amf_008, nrm:smf_008, nrm:upf_008 .
+
+nrm:amf_009 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=009,AMFFunction=009" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_009 .
+
+nrm:smf_009 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=009,SMFFunction=009" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_009 .
+
+nrm:upf_009 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=009,UPFFunction=009" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_009 .
+
+nrm:me_009 nrm:containsManagedFunction nrm:amf_009, nrm:smf_009, nrm:upf_009 .
+
+nrm:amf_010 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=010,AMFFunction=010" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_010 .
+
+nrm:smf_010 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=010,SMFFunction=010" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_010 .
+
+nrm:upf_010 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=010,UPFFunction=010" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_010 .
+
+nrm:me_010 nrm:containsManagedFunction nrm:amf_010, nrm:smf_010, nrm:upf_010 .
+
+nrm:amf_011 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=011,AMFFunction=011" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_011 .
+
+nrm:smf_011 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=011,SMFFunction=011" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_011 .
+
+nrm:upf_011 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=011,UPFFunction=011" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_011 .
+
+nrm:me_011 nrm:containsManagedFunction nrm:amf_011, nrm:smf_011, nrm:upf_011 .
+
+nrm:amf_012 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=012,AMFFunction=012" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_012 .
+
+nrm:smf_012 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=012,SMFFunction=012" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_012 .
+
+nrm:upf_012 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=012,UPFFunction=012" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_012 .
+
+nrm:me_012 nrm:containsManagedFunction nrm:amf_012, nrm:smf_012, nrm:upf_012 .
+
+nrm:amf_013 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=013,AMFFunction=013" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_013 .
+
+nrm:smf_013 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=013,SMFFunction=013" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_013 .
+
+nrm:upf_013 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=013,UPFFunction=013" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_013 .
+
+nrm:me_013 nrm:containsManagedFunction nrm:amf_013, nrm:smf_013, nrm:upf_013 .
+
+nrm:amf_014 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=014,AMFFunction=014" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_014 .
+
+nrm:smf_014 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=014,SMFFunction=014" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_014 .
+
+nrm:upf_014 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=014,UPFFunction=014" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_014 .
+
+nrm:me_014 nrm:containsManagedFunction nrm:amf_014, nrm:smf_014, nrm:upf_014 .
+
+nrm:amf_015 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=015,AMFFunction=015" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_015 .
+
+nrm:smf_015 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=015,SMFFunction=015" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_015 .
+
+nrm:upf_015 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=015,UPFFunction=015" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_015 .
+
+nrm:me_015 nrm:containsManagedFunction nrm:amf_015, nrm:smf_015, nrm:upf_015 .
+
+nrm:amf_016 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=016,AMFFunction=016" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_016 .
+
+nrm:smf_016 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=016,SMFFunction=016" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_016 .
+
+nrm:upf_016 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=016,UPFFunction=016" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_016 .
+
+nrm:me_016 nrm:containsManagedFunction nrm:amf_016, nrm:smf_016, nrm:upf_016 .
+
+nrm:amf_017 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=017,AMFFunction=017" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_017 .
+
+nrm:smf_017 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=017,SMFFunction=017" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_017 .
+
+nrm:upf_017 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=017,UPFFunction=017" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_017 .
+
+nrm:me_017 nrm:containsManagedFunction nrm:amf_017, nrm:smf_017, nrm:upf_017 .
+
+nrm:amf_018 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=018,AMFFunction=018" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_018 .
+
+nrm:smf_018 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=018,SMFFunction=018" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_018 .
+
+nrm:upf_018 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=018,UPFFunction=018" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_018 .
+
+nrm:me_018 nrm:containsManagedFunction nrm:amf_018, nrm:smf_018, nrm:upf_018 .
+
+nrm:amf_019 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=019,AMFFunction=019" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_019 .
+
+nrm:smf_019 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=019,SMFFunction=019" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_019 .
+
+nrm:upf_019 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=019,UPFFunction=019" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_019 .
+
+nrm:me_019 nrm:containsManagedFunction nrm:amf_019, nrm:smf_019, nrm:upf_019 .
+
+nrm:amf_020 a nrm:AMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=020,AMFFunction=020" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_020 .
+
+nrm:smf_020 a nrm:SMFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=020,SMFFunction=020" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_020 .
+
+nrm:upf_020 a nrm:UPFFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=020,UPFFunction=020" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:servesSlice nrm:slice_020 .
+
+nrm:me_020 nrm:containsManagedFunction nrm:amf_020, nrm:smf_020, nrm:upf_020 .
+
+nrm:du_001 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=001,GNBDUFunction=001" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 4 ;
+    nrm:servesSlice nrm:slice_001 .
+
+nrm:cuup_001 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=001,GNBCUUPFunction=001" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "32.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_001 ;
+    nrm:servesSlice nrm:slice_001 .
+
+nrm:cucp_001 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=001,GNBCUCPFunction=001" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100001 ;
+    nrm:mcc "310" ;
+    nrm:mnc "261" ;
+    nrm:controlsDU nrm:du_001 ;
+    nrm:controlsCUUP nrm:cuup_001 ;
+    nrm:xnInterfaceWith nrm:cucp_002 ;
+    nrm:connectsToAMF nrm:amf_001 ;
+    nrm:servesSlice nrm:slice_001 .
+
+nrm:me_001 nrm:containsManagedFunction nrm:cucp_001, nrm:cuup_001, nrm:du_001 .
+
+nrm:du_002 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=002,GNBDUFunction=002" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 5 ;
+    nrm:servesSlice nrm:slice_002 .
+
+nrm:cuup_002 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=002,GNBCUUPFunction=002" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "40.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_002 ;
+    nrm:servesSlice nrm:slice_002 .
+
+nrm:cucp_002 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=002,GNBCUCPFunction=002" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100002 ;
+    nrm:mcc "310" ;
+    nrm:mnc "262" ;
+    nrm:controlsDU nrm:du_002 ;
+    nrm:controlsCUUP nrm:cuup_002 ;
+    nrm:xnInterfaceWith nrm:cucp_003 ;
+    nrm:connectsToAMF nrm:amf_002 ;
+    nrm:servesSlice nrm:slice_002 .
+
+nrm:me_002 nrm:containsManagedFunction nrm:cucp_002, nrm:cuup_002, nrm:du_002 .
+
+nrm:du_003 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=003,GNBDUFunction=003" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 6 ;
+    nrm:servesSlice nrm:slice_003 .
+
+nrm:cuup_003 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=003,GNBCUUPFunction=003" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "47.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_003 ;
+    nrm:servesSlice nrm:slice_003 .
+
+nrm:cucp_003 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=003,GNBCUCPFunction=003" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100003 ;
+    nrm:mcc "310" ;
+    nrm:mnc "263" ;
+    nrm:controlsDU nrm:du_003 ;
+    nrm:controlsCUUP nrm:cuup_003 ;
+    nrm:xnInterfaceWith nrm:cucp_004 ;
+    nrm:connectsToAMF nrm:amf_003 ;
+    nrm:servesSlice nrm:slice_003 .
+
+nrm:me_003 nrm:containsManagedFunction nrm:cucp_003, nrm:cuup_003, nrm:du_003 .
+
+nrm:du_004 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=004,GNBDUFunction=004" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 7 ;
+    nrm:servesSlice nrm:slice_004 .
+
+nrm:cuup_004 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=004,GNBCUUPFunction=004" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "55.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_004 ;
+    nrm:servesSlice nrm:slice_004 .
+
+nrm:cucp_004 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=004,GNBCUCPFunction=004" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100004 ;
+    nrm:mcc "310" ;
+    nrm:mnc "264" ;
+    nrm:controlsDU nrm:du_004 ;
+    nrm:controlsCUUP nrm:cuup_004 ;
+    nrm:xnInterfaceWith nrm:cucp_005 ;
+    nrm:connectsToAMF nrm:amf_004 ;
+    nrm:servesSlice nrm:slice_004 .
+
+nrm:me_004 nrm:containsManagedFunction nrm:cucp_004, nrm:cuup_004, nrm:du_004 .
+
+nrm:du_005 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=005,GNBDUFunction=005" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 8 ;
+    nrm:servesSlice nrm:slice_005 .
+
+nrm:cuup_005 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=005,GNBCUUPFunction=005" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "62.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_005 ;
+    nrm:servesSlice nrm:slice_005 .
+
+nrm:cucp_005 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=005,GNBCUCPFunction=005" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100005 ;
+    nrm:mcc "310" ;
+    nrm:mnc "265" ;
+    nrm:controlsDU nrm:du_005 ;
+    nrm:controlsCUUP nrm:cuup_005 ;
+    nrm:xnInterfaceWith nrm:cucp_006 ;
+    nrm:connectsToAMF nrm:amf_005 ;
+    nrm:servesSlice nrm:slice_005 .
+
+nrm:me_005 nrm:containsManagedFunction nrm:cucp_005, nrm:cuup_005, nrm:du_005 .
+
+nrm:du_006 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=006,GNBDUFunction=006" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 3 ;
+    nrm:servesSlice nrm:slice_006 .
+
+nrm:cuup_006 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=006,GNBCUUPFunction=006" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "70.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_006 ;
+    nrm:servesSlice nrm:slice_006 .
+
+nrm:cucp_006 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=006,GNBCUCPFunction=006" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100006 ;
+    nrm:mcc "310" ;
+    nrm:mnc "266" ;
+    nrm:controlsDU nrm:du_006 ;
+    nrm:controlsCUUP nrm:cuup_006 ;
+    nrm:xnInterfaceWith nrm:cucp_007 ;
+    nrm:connectsToAMF nrm:amf_006 ;
+    nrm:servesSlice nrm:slice_006 .
+
+nrm:me_006 nrm:containsManagedFunction nrm:cucp_006, nrm:cuup_006, nrm:du_006 .
+
+nrm:du_007 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=007,GNBDUFunction=007" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 4 ;
+    nrm:servesSlice nrm:slice_007 .
+
+nrm:cuup_007 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=007,GNBCUUPFunction=007" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "77.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_007 ;
+    nrm:servesSlice nrm:slice_007 .
+
+nrm:cucp_007 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=007,GNBCUCPFunction=007" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100007 ;
+    nrm:mcc "310" ;
+    nrm:mnc "267" ;
+    nrm:controlsDU nrm:du_007 ;
+    nrm:controlsCUUP nrm:cuup_007 ;
+    nrm:xnInterfaceWith nrm:cucp_008 ;
+    nrm:connectsToAMF nrm:amf_007 ;
+    nrm:servesSlice nrm:slice_007 .
+
+nrm:me_007 nrm:containsManagedFunction nrm:cucp_007, nrm:cuup_007, nrm:du_007 .
+
+nrm:du_008 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=008,GNBDUFunction=008" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 5 ;
+    nrm:servesSlice nrm:slice_008 .
+
+nrm:cuup_008 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=008,GNBCUUPFunction=008" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "85.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_008 ;
+    nrm:servesSlice nrm:slice_008 .
+
+nrm:cucp_008 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=008,GNBCUCPFunction=008" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100008 ;
+    nrm:mcc "310" ;
+    nrm:mnc "268" ;
+    nrm:controlsDU nrm:du_008 ;
+    nrm:controlsCUUP nrm:cuup_008 ;
+    nrm:xnInterfaceWith nrm:cucp_009 ;
+    nrm:connectsToAMF nrm:amf_008 ;
+    nrm:servesSlice nrm:slice_008 .
+
+nrm:me_008 nrm:containsManagedFunction nrm:cucp_008, nrm:cuup_008, nrm:du_008 .
+
+nrm:du_009 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=009,GNBDUFunction=009" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 6 ;
+    nrm:servesSlice nrm:slice_009 .
+
+nrm:cuup_009 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=009,GNBCUUPFunction=009" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "92.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_009 ;
+    nrm:servesSlice nrm:slice_009 .
+
+nrm:cucp_009 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=009,GNBCUCPFunction=009" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100009 ;
+    nrm:mcc "310" ;
+    nrm:mnc "269" ;
+    nrm:controlsDU nrm:du_009 ;
+    nrm:controlsCUUP nrm:cuup_009 ;
+    nrm:xnInterfaceWith nrm:cucp_010 ;
+    nrm:connectsToAMF nrm:amf_009 ;
+    nrm:servesSlice nrm:slice_009 .
+
+nrm:me_009 nrm:containsManagedFunction nrm:cucp_009, nrm:cuup_009, nrm:du_009 .
+
+nrm:du_010 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=010,GNBDUFunction=010" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 7 ;
+    nrm:servesSlice nrm:slice_010 .
+
+nrm:cuup_010 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=010,GNBCUUPFunction=010" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "25.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_010 ;
+    nrm:servesSlice nrm:slice_010 .
+
+nrm:cucp_010 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=010,GNBCUCPFunction=010" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100010 ;
+    nrm:mcc "310" ;
+    nrm:mnc "260" ;
+    nrm:controlsDU nrm:du_010 ;
+    nrm:controlsCUUP nrm:cuup_010 ;
+    nrm:xnInterfaceWith nrm:cucp_011 ;
+    nrm:connectsToAMF nrm:amf_010 ;
+    nrm:servesSlice nrm:slice_010 .
+
+nrm:me_010 nrm:containsManagedFunction nrm:cucp_010, nrm:cuup_010, nrm:du_010 .
+
+nrm:du_011 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=011,GNBDUFunction=011" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 8 ;
+    nrm:servesSlice nrm:slice_011 .
+
+nrm:cuup_011 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=011,GNBCUUPFunction=011" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "32.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_011 ;
+    nrm:servesSlice nrm:slice_011 .
+
+nrm:cucp_011 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=011,GNBCUCPFunction=011" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100011 ;
+    nrm:mcc "310" ;
+    nrm:mnc "261" ;
+    nrm:controlsDU nrm:du_011 ;
+    nrm:controlsCUUP nrm:cuup_011 ;
+    nrm:xnInterfaceWith nrm:cucp_012 ;
+    nrm:connectsToAMF nrm:amf_011 ;
+    nrm:servesSlice nrm:slice_011 .
+
+nrm:me_011 nrm:containsManagedFunction nrm:cucp_011, nrm:cuup_011, nrm:du_011 .
+
+nrm:du_012 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=012,GNBDUFunction=012" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 3 ;
+    nrm:servesSlice nrm:slice_012 .
+
+nrm:cuup_012 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=012,GNBCUUPFunction=012" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "40.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_012 ;
+    nrm:servesSlice nrm:slice_012 .
+
+nrm:cucp_012 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=012,GNBCUCPFunction=012" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100012 ;
+    nrm:mcc "310" ;
+    nrm:mnc "262" ;
+    nrm:controlsDU nrm:du_012 ;
+    nrm:controlsCUUP nrm:cuup_012 ;
+    nrm:xnInterfaceWith nrm:cucp_013 ;
+    nrm:connectsToAMF nrm:amf_012 ;
+    nrm:servesSlice nrm:slice_012 .
+
+nrm:me_012 nrm:containsManagedFunction nrm:cucp_012, nrm:cuup_012, nrm:du_012 .
+
+nrm:du_013 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=013,GNBDUFunction=013" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 4 ;
+    nrm:servesSlice nrm:slice_013 .
+
+nrm:cuup_013 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=013,GNBCUUPFunction=013" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "47.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_013 ;
+    nrm:servesSlice nrm:slice_013 .
+
+nrm:cucp_013 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=013,GNBCUCPFunction=013" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100013 ;
+    nrm:mcc "310" ;
+    nrm:mnc "263" ;
+    nrm:controlsDU nrm:du_013 ;
+    nrm:controlsCUUP nrm:cuup_013 ;
+    nrm:xnInterfaceWith nrm:cucp_014 ;
+    nrm:connectsToAMF nrm:amf_013 ;
+    nrm:servesSlice nrm:slice_013 .
+
+nrm:me_013 nrm:containsManagedFunction nrm:cucp_013, nrm:cuup_013, nrm:du_013 .
+
+nrm:du_014 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=014,GNBDUFunction=014" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 5 ;
+    nrm:servesSlice nrm:slice_014 .
+
+nrm:cuup_014 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=014,GNBCUUPFunction=014" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "55.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_014 ;
+    nrm:servesSlice nrm:slice_014 .
+
+nrm:cucp_014 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=014,GNBCUCPFunction=014" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100014 ;
+    nrm:mcc "310" ;
+    nrm:mnc "264" ;
+    nrm:controlsDU nrm:du_014 ;
+    nrm:controlsCUUP nrm:cuup_014 ;
+    nrm:xnInterfaceWith nrm:cucp_015 ;
+    nrm:connectsToAMF nrm:amf_014 ;
+    nrm:servesSlice nrm:slice_014 .
+
+nrm:me_014 nrm:containsManagedFunction nrm:cucp_014, nrm:cuup_014, nrm:du_014 .
+
+nrm:du_015 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=015,GNBDUFunction=015" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 6 ;
+    nrm:servesSlice nrm:slice_015 .
+
+nrm:cuup_015 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=015,GNBCUUPFunction=015" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "62.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_015 ;
+    nrm:servesSlice nrm:slice_015 .
+
+nrm:cucp_015 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=015,GNBCUCPFunction=015" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100015 ;
+    nrm:mcc "310" ;
+    nrm:mnc "265" ;
+    nrm:controlsDU nrm:du_015 ;
+    nrm:controlsCUUP nrm:cuup_015 ;
+    nrm:xnInterfaceWith nrm:cucp_016 ;
+    nrm:connectsToAMF nrm:amf_015 ;
+    nrm:servesSlice nrm:slice_015 .
+
+nrm:me_015 nrm:containsManagedFunction nrm:cucp_015, nrm:cuup_015, nrm:du_015 .
+
+nrm:du_016 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=016,GNBDUFunction=016" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 7 ;
+    nrm:servesSlice nrm:slice_016 .
+
+nrm:cuup_016 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=016,GNBCUUPFunction=016" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "70.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_016 ;
+    nrm:servesSlice nrm:slice_016 .
+
+nrm:cucp_016 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=001,ManagedElement=016,GNBCUCPFunction=016" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100016 ;
+    nrm:mcc "310" ;
+    nrm:mnc "266" ;
+    nrm:controlsDU nrm:du_016 ;
+    nrm:controlsCUUP nrm:cuup_016 ;
+    nrm:xnInterfaceWith nrm:cucp_017 ;
+    nrm:connectsToAMF nrm:amf_016 ;
+    nrm:servesSlice nrm:slice_016 .
+
+nrm:me_016 nrm:containsManagedFunction nrm:cucp_016, nrm:cuup_016, nrm:du_016 .
+
+nrm:du_017 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=017,GNBDUFunction=017" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 8 ;
+    nrm:servesSlice nrm:slice_017 .
+
+nrm:cuup_017 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=017,GNBCUUPFunction=017" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "77.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_017 ;
+    nrm:servesSlice nrm:slice_017 .
+
+nrm:cucp_017 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=002,ManagedElement=017,GNBCUCPFunction=017" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100017 ;
+    nrm:mcc "310" ;
+    nrm:mnc "267" ;
+    nrm:controlsDU nrm:du_017 ;
+    nrm:controlsCUUP nrm:cuup_017 ;
+    nrm:xnInterfaceWith nrm:cucp_018 ;
+    nrm:connectsToAMF nrm:amf_017 ;
+    nrm:servesSlice nrm:slice_017 .
+
+nrm:me_017 nrm:containsManagedFunction nrm:cucp_017, nrm:cuup_017, nrm:du_017 .
+
+nrm:du_018 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=018,GNBDUFunction=018" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 3 ;
+    nrm:servesSlice nrm:slice_018 .
+
+nrm:cuup_018 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=018,GNBCUUPFunction=018" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "85.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_018 ;
+    nrm:servesSlice nrm:slice_018 .
+
+nrm:cucp_018 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=003,ManagedElement=018,GNBCUCPFunction=018" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100018 ;
+    nrm:mcc "310" ;
+    nrm:mnc "268" ;
+    nrm:controlsDU nrm:du_018 ;
+    nrm:controlsCUUP nrm:cuup_018 ;
+    nrm:xnInterfaceWith nrm:cucp_019 ;
+    nrm:connectsToAMF nrm:amf_018 ;
+    nrm:servesSlice nrm:slice_018 .
+
+nrm:me_018 nrm:containsManagedFunction nrm:cucp_018, nrm:cuup_018, nrm:du_018 .
+
+nrm:du_019 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=019,GNBDUFunction=019" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 4 ;
+    nrm:servesSlice nrm:slice_019 .
+
+nrm:cuup_019 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=019,GNBCUUPFunction=019" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "92.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_019 ;
+    nrm:servesSlice nrm:slice_019 .
+
+nrm:cucp_019 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=004,ManagedElement=019,GNBCUCPFunction=019" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100019 ;
+    nrm:mcc "310" ;
+    nrm:mnc "269" ;
+    nrm:controlsDU nrm:du_019 ;
+    nrm:controlsCUUP nrm:cuup_019 ;
+    nrm:xnInterfaceWith nrm:cucp_020 ;
+    nrm:connectsToAMF nrm:amf_019 ;
+    nrm:servesSlice nrm:slice_019 .
+
+nrm:me_019 nrm:containsManagedFunction nrm:cucp_019, nrm:cuup_019, nrm:du_019 .
+
+nrm:du_020 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=020,GNBDUFunction=020" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 5 ;
+    nrm:servesSlice nrm:slice_020 .
+
+nrm:cuup_020 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=020,GNBCUUPFunction=020" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "25.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_020 ;
+    nrm:servesSlice nrm:slice_020 .
+
+nrm:cucp_020 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=005,ManagedElement=020,GNBCUCPFunction=020" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100020 ;
+    nrm:mcc "310" ;
+    nrm:mnc "260" ;
+    nrm:controlsDU nrm:du_020 ;
+    nrm:controlsCUUP nrm:cuup_020 ;
+    nrm:xnInterfaceWith nrm:cucp_021 ;
+    nrm:connectsToAMF nrm:amf_020 ;
+    nrm:servesSlice nrm:slice_020 .
+
+nrm:me_020 nrm:containsManagedFunction nrm:cucp_020, nrm:cuup_020, nrm:du_020 .
+
+nrm:du_021 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=021,GNBDUFunction=021" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 6 ;
+    nrm:servesSlice nrm:slice_001 .
+
+nrm:cuup_021 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=021,GNBCUUPFunction=021" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "32.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_001 ;
+    nrm:servesSlice nrm:slice_001 .
+
+nrm:cucp_021 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=006,ManagedElement=021,GNBCUCPFunction=021" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100021 ;
+    nrm:mcc "310" ;
+    nrm:mnc "261" ;
+    nrm:controlsDU nrm:du_021 ;
+    nrm:controlsCUUP nrm:cuup_021 ;
+    nrm:xnInterfaceWith nrm:cucp_022 ;
+    nrm:connectsToAMF nrm:amf_001 ;
+    nrm:servesSlice nrm:slice_001 .
+
+nrm:me_021 nrm:containsManagedFunction nrm:cucp_021, nrm:cuup_021, nrm:du_021 .
+
+nrm:du_022 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=022,GNBDUFunction=022" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 7 ;
+    nrm:servesSlice nrm:slice_002 .
+
+nrm:cuup_022 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=022,GNBCUUPFunction=022" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "40.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_002 ;
+    nrm:servesSlice nrm:slice_002 .
+
+nrm:cucp_022 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=007,ManagedElement=022,GNBCUCPFunction=022" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100022 ;
+    nrm:mcc "310" ;
+    nrm:mnc "262" ;
+    nrm:controlsDU nrm:du_022 ;
+    nrm:controlsCUUP nrm:cuup_022 ;
+    nrm:xnInterfaceWith nrm:cucp_023 ;
+    nrm:connectsToAMF nrm:amf_002 ;
+    nrm:servesSlice nrm:slice_002 .
+
+nrm:me_022 nrm:containsManagedFunction nrm:cucp_022, nrm:cuup_022, nrm:du_022 .
+
+nrm:du_023 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=023,GNBDUFunction=023" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 8 ;
+    nrm:servesSlice nrm:slice_003 .
+
+nrm:cuup_023 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=023,GNBCUUPFunction=023" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "47.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_003 ;
+    nrm:servesSlice nrm:slice_003 .
+
+nrm:cucp_023 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=008,ManagedElement=023,GNBCUCPFunction=023" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100023 ;
+    nrm:mcc "310" ;
+    nrm:mnc "263" ;
+    nrm:controlsDU nrm:du_023 ;
+    nrm:controlsCUUP nrm:cuup_023 ;
+    nrm:xnInterfaceWith nrm:cucp_024 ;
+    nrm:connectsToAMF nrm:amf_003 ;
+    nrm:servesSlice nrm:slice_003 .
+
+nrm:me_023 nrm:containsManagedFunction nrm:cucp_023, nrm:cuup_023, nrm:du_023 .
+
+nrm:du_024 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=024,GNBDUFunction=024" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 3 ;
+    nrm:servesSlice nrm:slice_004 .
+
+nrm:cuup_024 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=024,GNBCUUPFunction=024" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "55.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_004 ;
+    nrm:servesSlice nrm:slice_004 .
+
+nrm:cucp_024 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=009,ManagedElement=024,GNBCUCPFunction=024" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100024 ;
+    nrm:mcc "310" ;
+    nrm:mnc "264" ;
+    nrm:controlsDU nrm:du_024 ;
+    nrm:controlsCUUP nrm:cuup_024 ;
+    nrm:xnInterfaceWith nrm:cucp_025 ;
+    nrm:connectsToAMF nrm:amf_004 ;
+    nrm:servesSlice nrm:slice_004 .
+
+nrm:me_024 nrm:containsManagedFunction nrm:cucp_024, nrm:cuup_024, nrm:du_024 .
+
+nrm:du_025 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=025,GNBDUFunction=025" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 4 ;
+    nrm:servesSlice nrm:slice_005 .
+
+nrm:cuup_025 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=025,GNBCUUPFunction=025" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "62.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_005 ;
+    nrm:servesSlice nrm:slice_005 .
+
+nrm:cucp_025 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=010,ManagedElement=025,GNBCUCPFunction=025" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100025 ;
+    nrm:mcc "310" ;
+    nrm:mnc "265" ;
+    nrm:controlsDU nrm:du_025 ;
+    nrm:controlsCUUP nrm:cuup_025 ;
+    nrm:xnInterfaceWith nrm:cucp_026 ;
+    nrm:connectsToAMF nrm:amf_005 ;
+    nrm:servesSlice nrm:slice_005 .
+
+nrm:me_025 nrm:containsManagedFunction nrm:cucp_025, nrm:cuup_025, nrm:du_025 .
+
+nrm:du_026 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=026,GNBDUFunction=026" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 5 ;
+    nrm:servesSlice nrm:slice_006 .
+
+nrm:cuup_026 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=026,GNBCUUPFunction=026" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "70.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_006 ;
+    nrm:servesSlice nrm:slice_006 .
+
+nrm:cucp_026 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=011,ManagedElement=026,GNBCUCPFunction=026" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100026 ;
+    nrm:mcc "310" ;
+    nrm:mnc "266" ;
+    nrm:controlsDU nrm:du_026 ;
+    nrm:controlsCUUP nrm:cuup_026 ;
+    nrm:xnInterfaceWith nrm:cucp_027 ;
+    nrm:connectsToAMF nrm:amf_006 ;
+    nrm:servesSlice nrm:slice_006 .
+
+nrm:me_026 nrm:containsManagedFunction nrm:cucp_026, nrm:cuup_026, nrm:du_026 .
+
+nrm:du_027 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=027,GNBDUFunction=027" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 6 ;
+    nrm:servesSlice nrm:slice_007 .
+
+nrm:cuup_027 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=027,GNBCUUPFunction=027" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "77.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_007 ;
+    nrm:servesSlice nrm:slice_007 .
+
+nrm:cucp_027 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=012,ManagedElement=027,GNBCUCPFunction=027" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100027 ;
+    nrm:mcc "310" ;
+    nrm:mnc "267" ;
+    nrm:controlsDU nrm:du_027 ;
+    nrm:controlsCUUP nrm:cuup_027 ;
+    nrm:xnInterfaceWith nrm:cucp_028 ;
+    nrm:connectsToAMF nrm:amf_007 ;
+    nrm:servesSlice nrm:slice_007 .
+
+nrm:me_027 nrm:containsManagedFunction nrm:cucp_027, nrm:cuup_027, nrm:du_027 .
+
+nrm:du_028 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=028,GNBDUFunction=028" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 7 ;
+    nrm:servesSlice nrm:slice_008 .
+
+nrm:cuup_028 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=028,GNBCUUPFunction=028" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "85.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_008 ;
+    nrm:servesSlice nrm:slice_008 .
+
+nrm:cucp_028 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=013,ManagedElement=028,GNBCUCPFunction=028" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100028 ;
+    nrm:mcc "310" ;
+    nrm:mnc "268" ;
+    nrm:controlsDU nrm:du_028 ;
+    nrm:controlsCUUP nrm:cuup_028 ;
+    nrm:xnInterfaceWith nrm:cucp_029 ;
+    nrm:connectsToAMF nrm:amf_008 ;
+    nrm:servesSlice nrm:slice_008 .
+
+nrm:me_028 nrm:containsManagedFunction nrm:cucp_028, nrm:cuup_028, nrm:du_028 .
+
+nrm:du_029 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=029,GNBDUFunction=029" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 8 ;
+    nrm:servesSlice nrm:slice_009 .
+
+nrm:cuup_029 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=029,GNBCUUPFunction=029" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "92.5"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_009 ;
+    nrm:servesSlice nrm:slice_009 .
+
+nrm:cucp_029 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=014,ManagedElement=029,GNBCUCPFunction=029" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100029 ;
+    nrm:mcc "310" ;
+    nrm:mnc "269" ;
+    nrm:controlsDU nrm:du_029 ;
+    nrm:controlsCUUP nrm:cuup_029 ;
+    nrm:xnInterfaceWith nrm:cucp_030 ;
+    nrm:connectsToAMF nrm:amf_009 ;
+    nrm:servesSlice nrm:slice_009 .
+
+nrm:me_029 nrm:containsManagedFunction nrm:cucp_029, nrm:cuup_029, nrm:du_029 .
+
+nrm:du_030 a nrm:GNBDUFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=030,GNBDUFunction=030" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:cellCount 3 ;
+    nrm:servesSlice nrm:slice_010 .
+
+nrm:cuup_030 a nrm:GNBCUUPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=030,GNBCUUPFunction=030" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:maxThroughputGbps "25.0"^^xsd:double ;
+    nrm:connectsToUPF nrm:upf_010 ;
+    nrm:servesSlice nrm:slice_010 .
+
+nrm:cucp_030 a nrm:GNBCUCPFunction ;
+    nrm:dn "DC=operator.example.org,SubNetwork=015,ManagedElement=030,GNBCUCPFunction=030" ;
+    nrm:administrativeState "UNLOCKED" ;
+    nrm:operationalState "ENABLED" ;
+    nrm:gNBId 100030 ;
+    nrm:mcc "310" ;
+    nrm:mnc "260" ;
+    nrm:controlsDU nrm:du_030 ;
+    nrm:controlsCUUP nrm:cuup_030 ;
+    nrm:xnInterfaceWith nrm:cucp_001 ;
+    nrm:connectsToAMF nrm:amf_010 ;
+    nrm:servesSlice nrm:slice_010 .
+
+nrm:me_030 nrm:containsManagedFunction nrm:cucp_030, nrm:cuup_030, nrm:du_030 .

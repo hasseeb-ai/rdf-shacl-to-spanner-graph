@@ -1,0 +1,1691 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/supplychain/> .
+
+# ABox Instance Triples for supply_chain
+
+ex:wh_001 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-001" .
+
+ex:wh_002 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-002" .
+
+ex:wh_003 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-003" .
+
+ex:wh_004 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-004" .
+
+ex:wh_005 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-005" .
+
+ex:wh_006 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-006" .
+
+ex:wh_007 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-007" .
+
+ex:wh_008 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-008" .
+
+ex:wh_009 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-009" .
+
+ex:wh_010 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-010" .
+
+ex:wh_011 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-011" .
+
+ex:wh_012 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-012" .
+
+ex:wh_013 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-013" .
+
+ex:wh_014 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-014" .
+
+ex:wh_015 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-015" .
+
+ex:wh_016 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-016" .
+
+ex:wh_017 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-017" .
+
+ex:wh_018 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-018" .
+
+ex:wh_019 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-019" .
+
+ex:wh_020 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-020" .
+
+ex:wh_021 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-021" .
+
+ex:wh_022 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-022" .
+
+ex:wh_023 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-023" .
+
+ex:wh_024 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-024" .
+
+ex:wh_025 a ex:Warehouse ;
+    ex:locationCode "LOC-WH-025" .
+
+ex:plant_001 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-001" ;
+    ex:connectedTo ex:wh_001 .
+
+ex:plant_002 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-002" ;
+    ex:connectedTo ex:wh_002 .
+
+ex:plant_003 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-003" ;
+    ex:connectedTo ex:wh_003 .
+
+ex:plant_004 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-004" ;
+    ex:connectedTo ex:wh_004 .
+
+ex:plant_005 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-005" ;
+    ex:connectedTo ex:wh_005 .
+
+ex:plant_006 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-006" ;
+    ex:connectedTo ex:wh_006 .
+
+ex:plant_007 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-007" ;
+    ex:connectedTo ex:wh_007 .
+
+ex:plant_008 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-008" ;
+    ex:connectedTo ex:wh_008 .
+
+ex:plant_009 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-009" ;
+    ex:connectedTo ex:wh_009 .
+
+ex:plant_010 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-010" ;
+    ex:connectedTo ex:wh_010 .
+
+ex:plant_011 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-011" ;
+    ex:connectedTo ex:wh_011 .
+
+ex:plant_012 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-012" ;
+    ex:connectedTo ex:wh_012 .
+
+ex:plant_013 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-013" ;
+    ex:connectedTo ex:wh_013 .
+
+ex:plant_014 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-014" ;
+    ex:connectedTo ex:wh_014 .
+
+ex:plant_015 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-015" ;
+    ex:connectedTo ex:wh_015 .
+
+ex:plant_016 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-016" ;
+    ex:connectedTo ex:wh_016 .
+
+ex:plant_017 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-017" ;
+    ex:connectedTo ex:wh_017 .
+
+ex:plant_018 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-018" ;
+    ex:connectedTo ex:wh_018 .
+
+ex:plant_019 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-019" ;
+    ex:connectedTo ex:wh_019 .
+
+ex:plant_020 a ex:ManufacturingPlant ;
+    ex:locationCode "LOC-PLT-020" ;
+    ex:connectedTo ex:wh_020 .
+
+ex:sup_fac_001 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-001" ;
+    ex:connectedTo ex:plant_001 .
+
+ex:sup_fac_002 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-002" ;
+    ex:connectedTo ex:plant_002 .
+
+ex:sup_fac_003 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-003" ;
+    ex:connectedTo ex:plant_003 .
+
+ex:sup_fac_004 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-004" ;
+    ex:connectedTo ex:plant_004 .
+
+ex:sup_fac_005 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-005" ;
+    ex:connectedTo ex:plant_005 .
+
+ex:sup_fac_006 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-006" ;
+    ex:connectedTo ex:plant_006 .
+
+ex:sup_fac_007 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-007" ;
+    ex:connectedTo ex:plant_007 .
+
+ex:sup_fac_008 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-008" ;
+    ex:connectedTo ex:plant_008 .
+
+ex:sup_fac_009 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-009" ;
+    ex:connectedTo ex:plant_009 .
+
+ex:sup_fac_010 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-010" ;
+    ex:connectedTo ex:plant_010 .
+
+ex:sup_fac_011 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-011" ;
+    ex:connectedTo ex:plant_011 .
+
+ex:sup_fac_012 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-012" ;
+    ex:connectedTo ex:plant_012 .
+
+ex:sup_fac_013 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-013" ;
+    ex:connectedTo ex:plant_013 .
+
+ex:sup_fac_014 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-014" ;
+    ex:connectedTo ex:plant_014 .
+
+ex:sup_fac_015 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-015" ;
+    ex:connectedTo ex:plant_015 .
+
+ex:sup_fac_016 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-016" ;
+    ex:connectedTo ex:plant_016 .
+
+ex:sup_fac_017 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-017" ;
+    ex:connectedTo ex:plant_017 .
+
+ex:sup_fac_018 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-018" ;
+    ex:connectedTo ex:plant_018 .
+
+ex:sup_fac_019 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-019" ;
+    ex:connectedTo ex:plant_019 .
+
+ex:sup_fac_020 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-020" ;
+    ex:connectedTo ex:plant_020 .
+
+ex:sup_fac_021 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-021" ;
+    ex:connectedTo ex:plant_001 .
+
+ex:sup_fac_022 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-022" ;
+    ex:connectedTo ex:plant_002 .
+
+ex:sup_fac_023 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-023" ;
+    ex:connectedTo ex:plant_003 .
+
+ex:sup_fac_024 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-024" ;
+    ex:connectedTo ex:plant_004 .
+
+ex:sup_fac_025 a ex:SupplierFacility ;
+    ex:locationCode "LOC-SUP-025" ;
+    ex:connectedTo ex:plant_005 .
+
+ex:raw_001 a ex:RawMaterial ;
+    ex:unitCost 145.00 ;
+    ex:quantityInStock 520 ;
+    ex:storedIn ex:wh_001 ;
+    ex:suppliedBy ex:sup_fac_001 ;
+    ex:partOf ex:sub_asm_001 .
+
+ex:sub_asm_001 ex:hasPart ex:raw_001 .
+
+ex:raw_002 a ex:RawMaterial ;
+    ex:unitCost 170.00 ;
+    ex:quantityInStock 540 ;
+    ex:storedIn ex:wh_002 ;
+    ex:suppliedBy ex:sup_fac_002 ;
+    ex:partOf ex:sub_asm_002 .
+
+ex:sub_asm_002 ex:hasPart ex:raw_002 .
+
+ex:raw_003 a ex:RawMaterial ;
+    ex:unitCost 195.00 ;
+    ex:quantityInStock 560 ;
+    ex:storedIn ex:wh_003 ;
+    ex:suppliedBy ex:sup_fac_003 ;
+    ex:partOf ex:sub_asm_003 .
+
+ex:sub_asm_003 ex:hasPart ex:raw_003 .
+
+ex:raw_004 a ex:RawMaterial ;
+    ex:unitCost 220.00 ;
+    ex:quantityInStock 580 ;
+    ex:storedIn ex:wh_004 ;
+    ex:suppliedBy ex:sup_fac_004 ;
+    ex:partOf ex:sub_asm_004 .
+
+ex:sub_asm_004 ex:hasPart ex:raw_004 .
+
+ex:raw_005 a ex:RawMaterial ;
+    ex:unitCost 245.00 ;
+    ex:quantityInStock 600 ;
+    ex:storedIn ex:wh_005 ;
+    ex:suppliedBy ex:sup_fac_005 ;
+    ex:partOf ex:sub_asm_005 .
+
+ex:sub_asm_005 ex:hasPart ex:raw_005 .
+
+ex:raw_006 a ex:RawMaterial ;
+    ex:unitCost 270.00 ;
+    ex:quantityInStock 620 ;
+    ex:storedIn ex:wh_006 ;
+    ex:suppliedBy ex:sup_fac_006 ;
+    ex:partOf ex:sub_asm_006 .
+
+ex:sub_asm_006 ex:hasPart ex:raw_006 .
+
+ex:raw_007 a ex:RawMaterial ;
+    ex:unitCost 295.00 ;
+    ex:quantityInStock 640 ;
+    ex:storedIn ex:wh_007 ;
+    ex:suppliedBy ex:sup_fac_007 ;
+    ex:partOf ex:sub_asm_007 .
+
+ex:sub_asm_007 ex:hasPart ex:raw_007 .
+
+ex:raw_008 a ex:RawMaterial ;
+    ex:unitCost 320.00 ;
+    ex:quantityInStock 660 ;
+    ex:storedIn ex:wh_008 ;
+    ex:suppliedBy ex:sup_fac_008 ;
+    ex:partOf ex:sub_asm_008 .
+
+ex:sub_asm_008 ex:hasPart ex:raw_008 .
+
+ex:raw_009 a ex:RawMaterial ;
+    ex:unitCost 345.00 ;
+    ex:quantityInStock 680 ;
+    ex:storedIn ex:wh_009 ;
+    ex:suppliedBy ex:sup_fac_009 ;
+    ex:partOf ex:sub_asm_009 .
+
+ex:sub_asm_009 ex:hasPart ex:raw_009 .
+
+ex:raw_010 a ex:RawMaterial ;
+    ex:unitCost 370.00 ;
+    ex:quantityInStock 700 ;
+    ex:storedIn ex:wh_010 ;
+    ex:suppliedBy ex:sup_fac_010 ;
+    ex:partOf ex:sub_asm_010 .
+
+ex:sub_asm_010 ex:hasPart ex:raw_010 .
+
+ex:raw_011 a ex:RawMaterial ;
+    ex:unitCost 395.00 ;
+    ex:quantityInStock 720 ;
+    ex:storedIn ex:wh_011 ;
+    ex:suppliedBy ex:sup_fac_011 ;
+    ex:partOf ex:sub_asm_011 .
+
+ex:sub_asm_011 ex:hasPart ex:raw_011 .
+
+ex:raw_012 a ex:RawMaterial ;
+    ex:unitCost 420.00 ;
+    ex:quantityInStock 740 ;
+    ex:storedIn ex:wh_012 ;
+    ex:suppliedBy ex:sup_fac_012 ;
+    ex:partOf ex:sub_asm_012 .
+
+ex:sub_asm_012 ex:hasPart ex:raw_012 .
+
+ex:raw_013 a ex:RawMaterial ;
+    ex:unitCost 445.00 ;
+    ex:quantityInStock 760 ;
+    ex:storedIn ex:wh_013 ;
+    ex:suppliedBy ex:sup_fac_013 ;
+    ex:partOf ex:sub_asm_013 .
+
+ex:sub_asm_013 ex:hasPart ex:raw_013 .
+
+ex:raw_014 a ex:RawMaterial ;
+    ex:unitCost 470.00 ;
+    ex:quantityInStock 780 ;
+    ex:storedIn ex:wh_014 ;
+    ex:suppliedBy ex:sup_fac_014 ;
+    ex:partOf ex:sub_asm_014 .
+
+ex:sub_asm_014 ex:hasPart ex:raw_014 .
+
+ex:raw_015 a ex:RawMaterial ;
+    ex:unitCost 495.00 ;
+    ex:quantityInStock 800 ;
+    ex:storedIn ex:wh_015 ;
+    ex:suppliedBy ex:sup_fac_015 ;
+    ex:partOf ex:sub_asm_015 .
+
+ex:sub_asm_015 ex:hasPart ex:raw_015 .
+
+ex:raw_016 a ex:RawMaterial ;
+    ex:unitCost 520.00 ;
+    ex:quantityInStock 820 ;
+    ex:storedIn ex:wh_016 ;
+    ex:suppliedBy ex:sup_fac_016 ;
+    ex:partOf ex:sub_asm_016 .
+
+ex:sub_asm_016 ex:hasPart ex:raw_016 .
+
+ex:raw_017 a ex:RawMaterial ;
+    ex:unitCost 545.00 ;
+    ex:quantityInStock 840 ;
+    ex:storedIn ex:wh_017 ;
+    ex:suppliedBy ex:sup_fac_017 ;
+    ex:partOf ex:sub_asm_017 .
+
+ex:sub_asm_017 ex:hasPart ex:raw_017 .
+
+ex:raw_018 a ex:RawMaterial ;
+    ex:unitCost 570.00 ;
+    ex:quantityInStock 860 ;
+    ex:storedIn ex:wh_018 ;
+    ex:suppliedBy ex:sup_fac_018 ;
+    ex:partOf ex:sub_asm_018 .
+
+ex:sub_asm_018 ex:hasPart ex:raw_018 .
+
+ex:raw_019 a ex:RawMaterial ;
+    ex:unitCost 595.00 ;
+    ex:quantityInStock 880 ;
+    ex:storedIn ex:wh_019 ;
+    ex:suppliedBy ex:sup_fac_019 ;
+    ex:partOf ex:sub_asm_019 .
+
+ex:sub_asm_019 ex:hasPart ex:raw_019 .
+
+ex:raw_020 a ex:RawMaterial ;
+    ex:unitCost 620.00 ;
+    ex:quantityInStock 900 ;
+    ex:storedIn ex:wh_020 ;
+    ex:suppliedBy ex:sup_fac_020 ;
+    ex:partOf ex:sub_asm_020 .
+
+ex:sub_asm_020 ex:hasPart ex:raw_020 .
+
+ex:raw_021 a ex:RawMaterial ;
+    ex:unitCost 645.00 ;
+    ex:quantityInStock 920 ;
+    ex:storedIn ex:wh_021 ;
+    ex:suppliedBy ex:sup_fac_021 ;
+    ex:partOf ex:sub_asm_021 .
+
+ex:sub_asm_021 ex:hasPart ex:raw_021 .
+
+ex:raw_022 a ex:RawMaterial ;
+    ex:unitCost 670.00 ;
+    ex:quantityInStock 940 ;
+    ex:storedIn ex:wh_022 ;
+    ex:suppliedBy ex:sup_fac_022 ;
+    ex:partOf ex:sub_asm_022 .
+
+ex:sub_asm_022 ex:hasPart ex:raw_022 .
+
+ex:raw_023 a ex:RawMaterial ;
+    ex:unitCost 695.00 ;
+    ex:quantityInStock 960 ;
+    ex:storedIn ex:wh_023 ;
+    ex:suppliedBy ex:sup_fac_023 ;
+    ex:partOf ex:sub_asm_023 .
+
+ex:sub_asm_023 ex:hasPart ex:raw_023 .
+
+ex:raw_024 a ex:RawMaterial ;
+    ex:unitCost 720.00 ;
+    ex:quantityInStock 980 ;
+    ex:storedIn ex:wh_024 ;
+    ex:suppliedBy ex:sup_fac_024 ;
+    ex:partOf ex:sub_asm_024 .
+
+ex:sub_asm_024 ex:hasPart ex:raw_024 .
+
+ex:raw_025 a ex:RawMaterial ;
+    ex:unitCost 745.00 ;
+    ex:quantityInStock 1000 ;
+    ex:storedIn ex:wh_025 ;
+    ex:suppliedBy ex:sup_fac_025 ;
+    ex:partOf ex:sub_asm_025 .
+
+ex:sub_asm_025 ex:hasPart ex:raw_025 .
+
+ex:raw_026 a ex:RawMaterial ;
+    ex:unitCost 770.00 ;
+    ex:quantityInStock 1020 ;
+    ex:storedIn ex:wh_001 ;
+    ex:suppliedBy ex:sup_fac_001 ;
+    ex:partOf ex:sub_asm_026 .
+
+ex:sub_asm_026 ex:hasPart ex:raw_026 .
+
+ex:raw_027 a ex:RawMaterial ;
+    ex:unitCost 795.00 ;
+    ex:quantityInStock 1040 ;
+    ex:storedIn ex:wh_002 ;
+    ex:suppliedBy ex:sup_fac_002 ;
+    ex:partOf ex:sub_asm_027 .
+
+ex:sub_asm_027 ex:hasPart ex:raw_027 .
+
+ex:raw_028 a ex:RawMaterial ;
+    ex:unitCost 820.00 ;
+    ex:quantityInStock 1060 ;
+    ex:storedIn ex:wh_003 ;
+    ex:suppliedBy ex:sup_fac_003 ;
+    ex:partOf ex:sub_asm_028 .
+
+ex:sub_asm_028 ex:hasPart ex:raw_028 .
+
+ex:raw_029 a ex:RawMaterial ;
+    ex:unitCost 845.00 ;
+    ex:quantityInStock 1080 ;
+    ex:storedIn ex:wh_004 ;
+    ex:suppliedBy ex:sup_fac_004 ;
+    ex:partOf ex:sub_asm_029 .
+
+ex:sub_asm_029 ex:hasPart ex:raw_029 .
+
+ex:raw_030 a ex:RawMaterial ;
+    ex:unitCost 870.00 ;
+    ex:quantityInStock 1100 ;
+    ex:storedIn ex:wh_005 ;
+    ex:suppliedBy ex:sup_fac_005 ;
+    ex:partOf ex:sub_asm_030 .
+
+ex:sub_asm_030 ex:hasPart ex:raw_030 .
+
+ex:raw_031 a ex:RawMaterial ;
+    ex:unitCost 895.00 ;
+    ex:quantityInStock 1120 ;
+    ex:storedIn ex:wh_006 ;
+    ex:suppliedBy ex:sup_fac_006 ;
+    ex:partOf ex:sub_asm_031 .
+
+ex:sub_asm_031 ex:hasPart ex:raw_031 .
+
+ex:raw_032 a ex:RawMaterial ;
+    ex:unitCost 920.00 ;
+    ex:quantityInStock 1140 ;
+    ex:storedIn ex:wh_007 ;
+    ex:suppliedBy ex:sup_fac_007 ;
+    ex:partOf ex:sub_asm_032 .
+
+ex:sub_asm_032 ex:hasPart ex:raw_032 .
+
+ex:raw_033 a ex:RawMaterial ;
+    ex:unitCost 945.00 ;
+    ex:quantityInStock 1160 ;
+    ex:storedIn ex:wh_008 ;
+    ex:suppliedBy ex:sup_fac_008 ;
+    ex:partOf ex:sub_asm_033 .
+
+ex:sub_asm_033 ex:hasPart ex:raw_033 .
+
+ex:raw_034 a ex:RawMaterial ;
+    ex:unitCost 970.00 ;
+    ex:quantityInStock 1180 ;
+    ex:storedIn ex:wh_009 ;
+    ex:suppliedBy ex:sup_fac_009 ;
+    ex:partOf ex:sub_asm_034 .
+
+ex:sub_asm_034 ex:hasPart ex:raw_034 .
+
+ex:raw_035 a ex:RawMaterial ;
+    ex:unitCost 995.00 ;
+    ex:quantityInStock 1200 ;
+    ex:storedIn ex:wh_010 ;
+    ex:suppliedBy ex:sup_fac_010 ;
+    ex:partOf ex:sub_asm_035 .
+
+ex:sub_asm_035 ex:hasPart ex:raw_035 .
+
+ex:raw_036 a ex:RawMaterial ;
+    ex:unitCost 1020.00 ;
+    ex:quantityInStock 1220 ;
+    ex:storedIn ex:wh_011 ;
+    ex:suppliedBy ex:sup_fac_011 ;
+    ex:partOf ex:sub_asm_036 .
+
+ex:sub_asm_036 ex:hasPart ex:raw_036 .
+
+ex:raw_037 a ex:RawMaterial ;
+    ex:unitCost 1045.00 ;
+    ex:quantityInStock 1240 ;
+    ex:storedIn ex:wh_012 ;
+    ex:suppliedBy ex:sup_fac_012 ;
+    ex:partOf ex:sub_asm_037 .
+
+ex:sub_asm_037 ex:hasPart ex:raw_037 .
+
+ex:raw_038 a ex:RawMaterial ;
+    ex:unitCost 1070.00 ;
+    ex:quantityInStock 1260 ;
+    ex:storedIn ex:wh_013 ;
+    ex:suppliedBy ex:sup_fac_013 ;
+    ex:partOf ex:sub_asm_038 .
+
+ex:sub_asm_038 ex:hasPart ex:raw_038 .
+
+ex:raw_039 a ex:RawMaterial ;
+    ex:unitCost 1095.00 ;
+    ex:quantityInStock 1280 ;
+    ex:storedIn ex:wh_014 ;
+    ex:suppliedBy ex:sup_fac_014 ;
+    ex:partOf ex:sub_asm_039 .
+
+ex:sub_asm_039 ex:hasPart ex:raw_039 .
+
+ex:raw_040 a ex:RawMaterial ;
+    ex:unitCost 1120.00 ;
+    ex:quantityInStock 1300 ;
+    ex:storedIn ex:wh_015 ;
+    ex:suppliedBy ex:sup_fac_015 ;
+    ex:partOf ex:sub_asm_040 .
+
+ex:sub_asm_040 ex:hasPart ex:raw_040 .
+
+ex:raw_041 a ex:RawMaterial ;
+    ex:unitCost 1145.00 ;
+    ex:quantityInStock 1320 ;
+    ex:storedIn ex:wh_016 ;
+    ex:suppliedBy ex:sup_fac_016 ;
+    ex:partOf ex:sub_asm_001 .
+
+ex:sub_asm_001 ex:hasPart ex:raw_041 .
+
+ex:raw_042 a ex:RawMaterial ;
+    ex:unitCost 1170.00 ;
+    ex:quantityInStock 1340 ;
+    ex:storedIn ex:wh_017 ;
+    ex:suppliedBy ex:sup_fac_017 ;
+    ex:partOf ex:sub_asm_002 .
+
+ex:sub_asm_002 ex:hasPart ex:raw_042 .
+
+ex:raw_043 a ex:RawMaterial ;
+    ex:unitCost 1195.00 ;
+    ex:quantityInStock 1360 ;
+    ex:storedIn ex:wh_018 ;
+    ex:suppliedBy ex:sup_fac_018 ;
+    ex:partOf ex:sub_asm_003 .
+
+ex:sub_asm_003 ex:hasPart ex:raw_043 .
+
+ex:raw_044 a ex:RawMaterial ;
+    ex:unitCost 1220.00 ;
+    ex:quantityInStock 1380 ;
+    ex:storedIn ex:wh_019 ;
+    ex:suppliedBy ex:sup_fac_019 ;
+    ex:partOf ex:sub_asm_004 .
+
+ex:sub_asm_004 ex:hasPart ex:raw_044 .
+
+ex:raw_045 a ex:RawMaterial ;
+    ex:unitCost 1245.00 ;
+    ex:quantityInStock 1400 ;
+    ex:storedIn ex:wh_020 ;
+    ex:suppliedBy ex:sup_fac_020 ;
+    ex:partOf ex:sub_asm_005 .
+
+ex:sub_asm_005 ex:hasPart ex:raw_045 .
+
+ex:sub_asm_001 a ex:SubAssembly ;
+    ex:unitCost 1910.00 ;
+    ex:quantityInStock 210 ;
+    ex:storedIn ex:wh_002 ;
+    ex:partOf ex:fin_prod_001 .
+
+ex:fin_prod_001 ex:hasPart ex:sub_asm_001 .
+
+ex:sub_asm_002 a ex:SubAssembly ;
+    ex:unitCost 2020.00 ;
+    ex:quantityInStock 220 ;
+    ex:storedIn ex:wh_003 ;
+    ex:partOf ex:fin_prod_002 .
+
+ex:fin_prod_002 ex:hasPart ex:sub_asm_002 .
+
+ex:sub_asm_003 a ex:SubAssembly ;
+    ex:unitCost 2130.00 ;
+    ex:quantityInStock 230 ;
+    ex:storedIn ex:wh_004 ;
+    ex:partOf ex:fin_prod_003 .
+
+ex:fin_prod_003 ex:hasPart ex:sub_asm_003 .
+
+ex:sub_asm_004 a ex:SubAssembly ;
+    ex:unitCost 2240.00 ;
+    ex:quantityInStock 240 ;
+    ex:storedIn ex:wh_005 ;
+    ex:partOf ex:fin_prod_004 .
+
+ex:fin_prod_004 ex:hasPart ex:sub_asm_004 .
+
+ex:sub_asm_005 a ex:SubAssembly ;
+    ex:unitCost 2350.00 ;
+    ex:quantityInStock 250 ;
+    ex:storedIn ex:wh_006 ;
+    ex:partOf ex:fin_prod_005 .
+
+ex:fin_prod_005 ex:hasPart ex:sub_asm_005 .
+
+ex:sub_asm_006 a ex:SubAssembly ;
+    ex:unitCost 2460.00 ;
+    ex:quantityInStock 260 ;
+    ex:storedIn ex:wh_007 ;
+    ex:partOf ex:fin_prod_006 .
+
+ex:fin_prod_006 ex:hasPart ex:sub_asm_006 .
+
+ex:sub_asm_007 a ex:SubAssembly ;
+    ex:unitCost 2570.00 ;
+    ex:quantityInStock 270 ;
+    ex:storedIn ex:wh_008 ;
+    ex:partOf ex:fin_prod_007 .
+
+ex:fin_prod_007 ex:hasPart ex:sub_asm_007 .
+
+ex:sub_asm_008 a ex:SubAssembly ;
+    ex:unitCost 2680.00 ;
+    ex:quantityInStock 280 ;
+    ex:storedIn ex:wh_009 ;
+    ex:partOf ex:fin_prod_008 .
+
+ex:fin_prod_008 ex:hasPart ex:sub_asm_008 .
+
+ex:sub_asm_009 a ex:SubAssembly ;
+    ex:unitCost 2790.00 ;
+    ex:quantityInStock 290 ;
+    ex:storedIn ex:wh_010 ;
+    ex:partOf ex:fin_prod_009 .
+
+ex:fin_prod_009 ex:hasPart ex:sub_asm_009 .
+
+ex:sub_asm_010 a ex:SubAssembly ;
+    ex:unitCost 2900.00 ;
+    ex:quantityInStock 300 ;
+    ex:storedIn ex:wh_011 ;
+    ex:partOf ex:fin_prod_010 .
+
+ex:fin_prod_010 ex:hasPart ex:sub_asm_010 .
+
+ex:sub_asm_011 a ex:SubAssembly ;
+    ex:unitCost 3010.00 ;
+    ex:quantityInStock 310 ;
+    ex:storedIn ex:wh_012 ;
+    ex:partOf ex:fin_prod_011 .
+
+ex:fin_prod_011 ex:hasPart ex:sub_asm_011 .
+
+ex:sub_asm_012 a ex:SubAssembly ;
+    ex:unitCost 3120.00 ;
+    ex:quantityInStock 320 ;
+    ex:storedIn ex:wh_013 ;
+    ex:partOf ex:fin_prod_012 .
+
+ex:fin_prod_012 ex:hasPart ex:sub_asm_012 .
+
+ex:sub_asm_013 a ex:SubAssembly ;
+    ex:unitCost 3230.00 ;
+    ex:quantityInStock 330 ;
+    ex:storedIn ex:wh_014 ;
+    ex:partOf ex:fin_prod_013 .
+
+ex:fin_prod_013 ex:hasPart ex:sub_asm_013 .
+
+ex:sub_asm_014 a ex:SubAssembly ;
+    ex:unitCost 3340.00 ;
+    ex:quantityInStock 340 ;
+    ex:storedIn ex:wh_015 ;
+    ex:partOf ex:fin_prod_014 .
+
+ex:fin_prod_014 ex:hasPart ex:sub_asm_014 .
+
+ex:sub_asm_015 a ex:SubAssembly ;
+    ex:unitCost 3450.00 ;
+    ex:quantityInStock 350 ;
+    ex:storedIn ex:wh_016 ;
+    ex:partOf ex:fin_prod_015 .
+
+ex:fin_prod_015 ex:hasPart ex:sub_asm_015 .
+
+ex:sub_asm_016 a ex:SubAssembly ;
+    ex:unitCost 3560.00 ;
+    ex:quantityInStock 360 ;
+    ex:storedIn ex:wh_017 ;
+    ex:partOf ex:fin_prod_016 .
+
+ex:fin_prod_016 ex:hasPart ex:sub_asm_016 .
+
+ex:sub_asm_017 a ex:SubAssembly ;
+    ex:unitCost 3670.00 ;
+    ex:quantityInStock 370 ;
+    ex:storedIn ex:wh_018 ;
+    ex:partOf ex:fin_prod_017 .
+
+ex:fin_prod_017 ex:hasPart ex:sub_asm_017 .
+
+ex:sub_asm_018 a ex:SubAssembly ;
+    ex:unitCost 3780.00 ;
+    ex:quantityInStock 380 ;
+    ex:storedIn ex:wh_019 ;
+    ex:partOf ex:fin_prod_018 .
+
+ex:fin_prod_018 ex:hasPart ex:sub_asm_018 .
+
+ex:sub_asm_019 a ex:SubAssembly ;
+    ex:unitCost 3890.00 ;
+    ex:quantityInStock 390 ;
+    ex:storedIn ex:wh_020 ;
+    ex:partOf ex:fin_prod_019 .
+
+ex:fin_prod_019 ex:hasPart ex:sub_asm_019 .
+
+ex:sub_asm_020 a ex:SubAssembly ;
+    ex:unitCost 4000.00 ;
+    ex:quantityInStock 400 ;
+    ex:storedIn ex:wh_021 ;
+    ex:partOf ex:fin_prod_020 .
+
+ex:fin_prod_020 ex:hasPart ex:sub_asm_020 .
+
+ex:sub_asm_021 a ex:SubAssembly ;
+    ex:unitCost 4110.00 ;
+    ex:quantityInStock 410 ;
+    ex:storedIn ex:wh_022 ;
+    ex:partOf ex:fin_prod_021 .
+
+ex:fin_prod_021 ex:hasPart ex:sub_asm_021 .
+
+ex:sub_asm_022 a ex:SubAssembly ;
+    ex:unitCost 4220.00 ;
+    ex:quantityInStock 420 ;
+    ex:storedIn ex:wh_023 ;
+    ex:partOf ex:fin_prod_022 .
+
+ex:fin_prod_022 ex:hasPart ex:sub_asm_022 .
+
+ex:sub_asm_023 a ex:SubAssembly ;
+    ex:unitCost 4330.00 ;
+    ex:quantityInStock 430 ;
+    ex:storedIn ex:wh_024 ;
+    ex:partOf ex:fin_prod_023 .
+
+ex:fin_prod_023 ex:hasPart ex:sub_asm_023 .
+
+ex:sub_asm_024 a ex:SubAssembly ;
+    ex:unitCost 4440.00 ;
+    ex:quantityInStock 440 ;
+    ex:storedIn ex:wh_025 ;
+    ex:partOf ex:fin_prod_024 .
+
+ex:fin_prod_024 ex:hasPart ex:sub_asm_024 .
+
+ex:sub_asm_025 a ex:SubAssembly ;
+    ex:unitCost 4550.00 ;
+    ex:quantityInStock 450 ;
+    ex:storedIn ex:wh_001 ;
+    ex:partOf ex:fin_prod_025 .
+
+ex:fin_prod_025 ex:hasPart ex:sub_asm_025 .
+
+ex:sub_asm_026 a ex:SubAssembly ;
+    ex:unitCost 4660.00 ;
+    ex:quantityInStock 460 ;
+    ex:storedIn ex:wh_002 ;
+    ex:partOf ex:fin_prod_026 .
+
+ex:fin_prod_026 ex:hasPart ex:sub_asm_026 .
+
+ex:sub_asm_027 a ex:SubAssembly ;
+    ex:unitCost 4770.00 ;
+    ex:quantityInStock 470 ;
+    ex:storedIn ex:wh_003 ;
+    ex:partOf ex:fin_prod_027 .
+
+ex:fin_prod_027 ex:hasPart ex:sub_asm_027 .
+
+ex:sub_asm_028 a ex:SubAssembly ;
+    ex:unitCost 4880.00 ;
+    ex:quantityInStock 480 ;
+    ex:storedIn ex:wh_004 ;
+    ex:partOf ex:fin_prod_028 .
+
+ex:fin_prod_028 ex:hasPart ex:sub_asm_028 .
+
+ex:sub_asm_029 a ex:SubAssembly ;
+    ex:unitCost 4990.00 ;
+    ex:quantityInStock 490 ;
+    ex:storedIn ex:wh_005 ;
+    ex:partOf ex:fin_prod_029 .
+
+ex:fin_prod_029 ex:hasPart ex:sub_asm_029 .
+
+ex:sub_asm_030 a ex:SubAssembly ;
+    ex:unitCost 5100.00 ;
+    ex:quantityInStock 500 ;
+    ex:storedIn ex:wh_006 ;
+    ex:partOf ex:fin_prod_030 .
+
+ex:fin_prod_030 ex:hasPart ex:sub_asm_030 .
+
+ex:sub_asm_031 a ex:SubAssembly ;
+    ex:unitCost 5210.00 ;
+    ex:quantityInStock 510 ;
+    ex:storedIn ex:wh_007 ;
+    ex:partOf ex:fin_prod_031 .
+
+ex:fin_prod_031 ex:hasPart ex:sub_asm_031 .
+
+ex:sub_asm_032 a ex:SubAssembly ;
+    ex:unitCost 5320.00 ;
+    ex:quantityInStock 520 ;
+    ex:storedIn ex:wh_008 ;
+    ex:partOf ex:fin_prod_032 .
+
+ex:fin_prod_032 ex:hasPart ex:sub_asm_032 .
+
+ex:sub_asm_033 a ex:SubAssembly ;
+    ex:unitCost 5430.00 ;
+    ex:quantityInStock 530 ;
+    ex:storedIn ex:wh_009 ;
+    ex:partOf ex:fin_prod_033 .
+
+ex:fin_prod_033 ex:hasPart ex:sub_asm_033 .
+
+ex:sub_asm_034 a ex:SubAssembly ;
+    ex:unitCost 5540.00 ;
+    ex:quantityInStock 540 ;
+    ex:storedIn ex:wh_010 ;
+    ex:partOf ex:fin_prod_034 .
+
+ex:fin_prod_034 ex:hasPart ex:sub_asm_034 .
+
+ex:sub_asm_035 a ex:SubAssembly ;
+    ex:unitCost 5650.00 ;
+    ex:quantityInStock 550 ;
+    ex:storedIn ex:wh_011 ;
+    ex:partOf ex:fin_prod_035 .
+
+ex:fin_prod_035 ex:hasPart ex:sub_asm_035 .
+
+ex:sub_asm_036 a ex:SubAssembly ;
+    ex:unitCost 5760.00 ;
+    ex:quantityInStock 560 ;
+    ex:storedIn ex:wh_012 ;
+    ex:partOf ex:fin_prod_036 .
+
+ex:fin_prod_036 ex:hasPart ex:sub_asm_036 .
+
+ex:sub_asm_037 a ex:SubAssembly ;
+    ex:unitCost 5870.00 ;
+    ex:quantityInStock 570 ;
+    ex:storedIn ex:wh_013 ;
+    ex:partOf ex:fin_prod_037 .
+
+ex:fin_prod_037 ex:hasPart ex:sub_asm_037 .
+
+ex:sub_asm_038 a ex:SubAssembly ;
+    ex:unitCost 5980.00 ;
+    ex:quantityInStock 580 ;
+    ex:storedIn ex:wh_014 ;
+    ex:partOf ex:fin_prod_038 .
+
+ex:fin_prod_038 ex:hasPart ex:sub_asm_038 .
+
+ex:sub_asm_039 a ex:SubAssembly ;
+    ex:unitCost 6090.00 ;
+    ex:quantityInStock 590 ;
+    ex:storedIn ex:wh_015 ;
+    ex:partOf ex:fin_prod_039 .
+
+ex:fin_prod_039 ex:hasPart ex:sub_asm_039 .
+
+ex:sub_asm_040 a ex:SubAssembly ;
+    ex:unitCost 6200.00 ;
+    ex:quantityInStock 600 ;
+    ex:storedIn ex:wh_016 ;
+    ex:partOf ex:fin_prod_040 .
+
+ex:fin_prod_040 ex:hasPart ex:sub_asm_040 .
+
+ex:fin_prod_001 a ex:FinishedProduct ;
+    ex:unitCost 3240.00 ;
+    ex:quantityInStock 85 ;
+    ex:storedIn ex:wh_005 ;
+    ex:manufacturedAt ex:plant_001 .
+
+ex:fin_prod_002 a ex:FinishedProduct ;
+    ex:unitCost 8000.00 ;
+    ex:quantityInStock 90 ;
+    ex:storedIn ex:wh_006 ;
+    ex:manufacturedAt ex:plant_002 .
+
+ex:fin_prod_003 a ex:FinishedProduct ;
+    ex:unitCost 3320.00 ;
+    ex:quantityInStock 95 ;
+    ex:storedIn ex:wh_007 ;
+    ex:manufacturedAt ex:plant_003 .
+
+ex:fin_prod_004 a ex:FinishedProduct ;
+    ex:unitCost 8500.00 ;
+    ex:quantityInStock 100 ;
+    ex:storedIn ex:wh_008 ;
+    ex:manufacturedAt ex:plant_004 .
+
+ex:fin_prod_005 a ex:FinishedProduct ;
+    ex:unitCost 3400.00 ;
+    ex:quantityInStock 105 ;
+    ex:storedIn ex:wh_009 ;
+    ex:manufacturedAt ex:plant_005 .
+
+ex:fin_prod_006 a ex:FinishedProduct ;
+    ex:unitCost 9000.00 ;
+    ex:quantityInStock 110 ;
+    ex:storedIn ex:wh_010 ;
+    ex:manufacturedAt ex:plant_006 .
+
+ex:fin_prod_007 a ex:FinishedProduct ;
+    ex:unitCost 3480.00 ;
+    ex:quantityInStock 115 ;
+    ex:storedIn ex:wh_011 ;
+    ex:manufacturedAt ex:plant_007 .
+
+ex:fin_prod_008 a ex:FinishedProduct ;
+    ex:unitCost 9500.00 ;
+    ex:quantityInStock 120 ;
+    ex:storedIn ex:wh_012 ;
+    ex:manufacturedAt ex:plant_008 .
+
+ex:fin_prod_009 a ex:FinishedProduct ;
+    ex:unitCost 3560.00 ;
+    ex:quantityInStock 125 ;
+    ex:storedIn ex:wh_013 ;
+    ex:manufacturedAt ex:plant_009 .
+
+ex:fin_prod_010 a ex:FinishedProduct ;
+    ex:unitCost 10000.00 ;
+    ex:quantityInStock 130 ;
+    ex:storedIn ex:wh_014 ;
+    ex:manufacturedAt ex:plant_010 .
+
+ex:fin_prod_011 a ex:FinishedProduct ;
+    ex:unitCost 3640.00 ;
+    ex:quantityInStock 135 ;
+    ex:storedIn ex:wh_015 ;
+    ex:manufacturedAt ex:plant_011 .
+
+ex:fin_prod_012 a ex:FinishedProduct ;
+    ex:unitCost 10500.00 ;
+    ex:quantityInStock 140 ;
+    ex:storedIn ex:wh_016 ;
+    ex:manufacturedAt ex:plant_012 .
+
+ex:fin_prod_013 a ex:FinishedProduct ;
+    ex:unitCost 3720.00 ;
+    ex:quantityInStock 145 ;
+    ex:storedIn ex:wh_017 ;
+    ex:manufacturedAt ex:plant_013 .
+
+ex:fin_prod_014 a ex:FinishedProduct ;
+    ex:unitCost 11000.00 ;
+    ex:quantityInStock 150 ;
+    ex:storedIn ex:wh_018 ;
+    ex:manufacturedAt ex:plant_014 .
+
+ex:fin_prod_015 a ex:FinishedProduct ;
+    ex:unitCost 3800.00 ;
+    ex:quantityInStock 155 ;
+    ex:storedIn ex:wh_019 ;
+    ex:manufacturedAt ex:plant_015 .
+
+ex:fin_prod_016 a ex:FinishedProduct ;
+    ex:unitCost 11500.00 ;
+    ex:quantityInStock 160 ;
+    ex:storedIn ex:wh_020 ;
+    ex:manufacturedAt ex:plant_016 .
+
+ex:fin_prod_017 a ex:FinishedProduct ;
+    ex:unitCost 3880.00 ;
+    ex:quantityInStock 165 ;
+    ex:storedIn ex:wh_021 ;
+    ex:manufacturedAt ex:plant_017 .
+
+ex:fin_prod_018 a ex:FinishedProduct ;
+    ex:unitCost 12000.00 ;
+    ex:quantityInStock 170 ;
+    ex:storedIn ex:wh_022 ;
+    ex:manufacturedAt ex:plant_018 .
+
+ex:fin_prod_019 a ex:FinishedProduct ;
+    ex:unitCost 3960.00 ;
+    ex:quantityInStock 175 ;
+    ex:storedIn ex:wh_023 ;
+    ex:manufacturedAt ex:plant_019 .
+
+ex:fin_prod_020 a ex:FinishedProduct ;
+    ex:unitCost 12500.00 ;
+    ex:quantityInStock 180 ;
+    ex:storedIn ex:wh_024 ;
+    ex:manufacturedAt ex:plant_020 .
+
+ex:fin_prod_021 a ex:FinishedProduct ;
+    ex:unitCost 4040.00 ;
+    ex:quantityInStock 185 ;
+    ex:storedIn ex:wh_025 ;
+    ex:manufacturedAt ex:plant_001 .
+
+ex:fin_prod_022 a ex:FinishedProduct ;
+    ex:unitCost 13000.00 ;
+    ex:quantityInStock 190 ;
+    ex:storedIn ex:wh_001 ;
+    ex:manufacturedAt ex:plant_002 .
+
+ex:fin_prod_023 a ex:FinishedProduct ;
+    ex:unitCost 4120.00 ;
+    ex:quantityInStock 195 ;
+    ex:storedIn ex:wh_002 ;
+    ex:manufacturedAt ex:plant_003 .
+
+ex:fin_prod_024 a ex:FinishedProduct ;
+    ex:unitCost 13500.00 ;
+    ex:quantityInStock 200 ;
+    ex:storedIn ex:wh_003 ;
+    ex:manufacturedAt ex:plant_004 .
+
+ex:fin_prod_025 a ex:FinishedProduct ;
+    ex:unitCost 4200.00 ;
+    ex:quantityInStock 205 ;
+    ex:storedIn ex:wh_004 ;
+    ex:manufacturedAt ex:plant_005 .
+
+ex:fin_prod_026 a ex:FinishedProduct ;
+    ex:unitCost 14000.00 ;
+    ex:quantityInStock 210 ;
+    ex:storedIn ex:wh_005 ;
+    ex:manufacturedAt ex:plant_006 .
+
+ex:fin_prod_027 a ex:FinishedProduct ;
+    ex:unitCost 4280.00 ;
+    ex:quantityInStock 215 ;
+    ex:storedIn ex:wh_006 ;
+    ex:manufacturedAt ex:plant_007 .
+
+ex:fin_prod_028 a ex:FinishedProduct ;
+    ex:unitCost 14500.00 ;
+    ex:quantityInStock 220 ;
+    ex:storedIn ex:wh_007 ;
+    ex:manufacturedAt ex:plant_008 .
+
+ex:fin_prod_029 a ex:FinishedProduct ;
+    ex:unitCost 4360.00 ;
+    ex:quantityInStock 225 ;
+    ex:storedIn ex:wh_008 ;
+    ex:manufacturedAt ex:plant_009 .
+
+ex:fin_prod_030 a ex:FinishedProduct ;
+    ex:unitCost 15000.00 ;
+    ex:quantityInStock 230 ;
+    ex:storedIn ex:wh_009 ;
+    ex:manufacturedAt ex:plant_010 .
+
+ex:fin_prod_031 a ex:FinishedProduct ;
+    ex:unitCost 4440.00 ;
+    ex:quantityInStock 235 ;
+    ex:storedIn ex:wh_010 ;
+    ex:manufacturedAt ex:plant_011 .
+
+ex:fin_prod_032 a ex:FinishedProduct ;
+    ex:unitCost 15500.00 ;
+    ex:quantityInStock 240 ;
+    ex:storedIn ex:wh_011 ;
+    ex:manufacturedAt ex:plant_012 .
+
+ex:fin_prod_033 a ex:FinishedProduct ;
+    ex:unitCost 4520.00 ;
+    ex:quantityInStock 245 ;
+    ex:storedIn ex:wh_012 ;
+    ex:manufacturedAt ex:plant_013 .
+
+ex:fin_prod_034 a ex:FinishedProduct ;
+    ex:unitCost 16000.00 ;
+    ex:quantityInStock 250 ;
+    ex:storedIn ex:wh_013 ;
+    ex:manufacturedAt ex:plant_014 .
+
+ex:fin_prod_035 a ex:FinishedProduct ;
+    ex:unitCost 4600.00 ;
+    ex:quantityInStock 255 ;
+    ex:storedIn ex:wh_014 ;
+    ex:manufacturedAt ex:plant_015 .
+
+ex:fin_prod_036 a ex:FinishedProduct ;
+    ex:unitCost 16500.00 ;
+    ex:quantityInStock 260 ;
+    ex:storedIn ex:wh_015 ;
+    ex:manufacturedAt ex:plant_016 .
+
+ex:fin_prod_037 a ex:FinishedProduct ;
+    ex:unitCost 4680.00 ;
+    ex:quantityInStock 265 ;
+    ex:storedIn ex:wh_016 ;
+    ex:manufacturedAt ex:plant_017 .
+
+ex:fin_prod_038 a ex:FinishedProduct ;
+    ex:unitCost 17000.00 ;
+    ex:quantityInStock 270 ;
+    ex:storedIn ex:wh_017 ;
+    ex:manufacturedAt ex:plant_018 .
+
+ex:fin_prod_039 a ex:FinishedProduct ;
+    ex:unitCost 4760.00 ;
+    ex:quantityInStock 275 ;
+    ex:storedIn ex:wh_018 ;
+    ex:manufacturedAt ex:plant_019 .
+
+ex:fin_prod_040 a ex:FinishedProduct ;
+    ex:unitCost 17500.00 ;
+    ex:quantityInStock 280 ;
+    ex:storedIn ex:wh_019 ;
+    ex:manufacturedAt ex:plant_020 .
+
+ex:carrier_001 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #001" .
+
+ex:carrier_002 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #002" .
+
+ex:carrier_003 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #003" .
+
+ex:carrier_004 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #004" .
+
+ex:carrier_005 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #005" .
+
+ex:carrier_006 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #006" .
+
+ex:carrier_007 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #007" .
+
+ex:carrier_008 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #008" .
+
+ex:carrier_009 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #009" .
+
+ex:carrier_010 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #010" .
+
+ex:carrier_011 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #011" .
+
+ex:carrier_012 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #012" .
+
+ex:carrier_013 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #013" .
+
+ex:carrier_014 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #014" .
+
+ex:carrier_015 a ex:Carrier ;
+    ex:carrierName "Global Freight Carrier #015" .
+
+ex:shipment_001 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00001" ;
+    ex:shipmentDate "2025-05-02T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_001 ;
+    ex:origin ex:plant_001 ;
+    ex:destination ex:wh_001 .
+
+ex:shipment_002 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00002" ;
+    ex:shipmentDate "2025-05-03T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_002 ;
+    ex:origin ex:plant_002 ;
+    ex:destination ex:wh_002 .
+
+ex:shipment_003 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00003" ;
+    ex:shipmentDate "2025-05-04T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_003 ;
+    ex:origin ex:plant_003 ;
+    ex:destination ex:wh_003 .
+
+ex:shipment_004 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00004" ;
+    ex:shipmentDate "2025-05-05T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_004 ;
+    ex:origin ex:plant_004 ;
+    ex:destination ex:wh_004 .
+
+ex:shipment_005 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00005" ;
+    ex:shipmentDate "2025-05-06T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_005 ;
+    ex:origin ex:plant_005 ;
+    ex:destination ex:wh_005 .
+
+ex:shipment_006 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00006" ;
+    ex:shipmentDate "2025-05-07T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_006 ;
+    ex:origin ex:plant_006 ;
+    ex:destination ex:wh_006 .
+
+ex:shipment_007 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00007" ;
+    ex:shipmentDate "2025-05-08T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_007 ;
+    ex:origin ex:plant_007 ;
+    ex:destination ex:wh_007 .
+
+ex:shipment_008 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00008" ;
+    ex:shipmentDate "2025-05-09T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_008 ;
+    ex:origin ex:plant_008 ;
+    ex:destination ex:wh_008 .
+
+ex:shipment_009 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00009" ;
+    ex:shipmentDate "2025-05-10T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_009 ;
+    ex:origin ex:plant_009 ;
+    ex:destination ex:wh_009 .
+
+ex:shipment_010 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00010" ;
+    ex:shipmentDate "2025-05-11T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_010 ;
+    ex:origin ex:plant_010 ;
+    ex:destination ex:wh_010 .
+
+ex:shipment_011 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00011" ;
+    ex:shipmentDate "2025-05-12T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_011 ;
+    ex:origin ex:plant_011 ;
+    ex:destination ex:wh_011 .
+
+ex:shipment_012 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00012" ;
+    ex:shipmentDate "2025-05-13T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_012 ;
+    ex:origin ex:plant_012 ;
+    ex:destination ex:wh_012 .
+
+ex:shipment_013 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00013" ;
+    ex:shipmentDate "2025-05-14T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_013 ;
+    ex:origin ex:plant_013 ;
+    ex:destination ex:wh_013 .
+
+ex:shipment_014 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00014" ;
+    ex:shipmentDate "2025-05-15T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_014 ;
+    ex:origin ex:plant_014 ;
+    ex:destination ex:wh_014 .
+
+ex:shipment_015 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00015" ;
+    ex:shipmentDate "2025-05-16T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_015 ;
+    ex:origin ex:plant_015 ;
+    ex:destination ex:wh_015 .
+
+ex:shipment_016 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00016" ;
+    ex:shipmentDate "2025-05-17T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_001 ;
+    ex:origin ex:plant_016 ;
+    ex:destination ex:wh_016 .
+
+ex:shipment_017 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00017" ;
+    ex:shipmentDate "2025-05-18T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_002 ;
+    ex:origin ex:plant_017 ;
+    ex:destination ex:wh_017 .
+
+ex:shipment_018 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00018" ;
+    ex:shipmentDate "2025-05-19T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_003 ;
+    ex:origin ex:plant_018 ;
+    ex:destination ex:wh_018 .
+
+ex:shipment_019 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00019" ;
+    ex:shipmentDate "2025-05-20T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_004 ;
+    ex:origin ex:plant_019 ;
+    ex:destination ex:wh_019 .
+
+ex:shipment_020 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00020" ;
+    ex:shipmentDate "2025-05-21T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_005 ;
+    ex:origin ex:plant_020 ;
+    ex:destination ex:wh_020 .
+
+ex:shipment_021 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00021" ;
+    ex:shipmentDate "2025-05-22T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_006 ;
+    ex:origin ex:plant_001 ;
+    ex:destination ex:wh_021 .
+
+ex:shipment_022 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00022" ;
+    ex:shipmentDate "2025-05-23T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_007 ;
+    ex:origin ex:plant_002 ;
+    ex:destination ex:wh_022 .
+
+ex:shipment_023 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00023" ;
+    ex:shipmentDate "2025-05-24T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_008 ;
+    ex:origin ex:plant_003 ;
+    ex:destination ex:wh_023 .
+
+ex:shipment_024 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00024" ;
+    ex:shipmentDate "2025-05-25T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_009 ;
+    ex:origin ex:plant_004 ;
+    ex:destination ex:wh_024 .
+
+ex:shipment_025 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00025" ;
+    ex:shipmentDate "2025-05-26T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_010 ;
+    ex:origin ex:plant_005 ;
+    ex:destination ex:wh_025 .
+
+ex:shipment_026 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00026" ;
+    ex:shipmentDate "2025-05-27T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_011 ;
+    ex:origin ex:plant_006 ;
+    ex:destination ex:wh_001 .
+
+ex:shipment_027 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00027" ;
+    ex:shipmentDate "2025-05-28T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_012 ;
+    ex:origin ex:plant_007 ;
+    ex:destination ex:wh_002 .
+
+ex:shipment_028 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00028" ;
+    ex:shipmentDate "2025-05-01T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_013 ;
+    ex:origin ex:plant_008 ;
+    ex:destination ex:wh_003 .
+
+ex:shipment_029 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00029" ;
+    ex:shipmentDate "2025-05-02T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_014 ;
+    ex:origin ex:plant_009 ;
+    ex:destination ex:wh_004 .
+
+ex:shipment_030 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00030" ;
+    ex:shipmentDate "2025-05-03T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_015 ;
+    ex:origin ex:plant_010 ;
+    ex:destination ex:wh_005 .
+
+ex:shipment_031 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00031" ;
+    ex:shipmentDate "2025-05-04T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_001 ;
+    ex:origin ex:plant_011 ;
+    ex:destination ex:wh_006 .
+
+ex:shipment_032 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00032" ;
+    ex:shipmentDate "2025-05-05T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_002 ;
+    ex:origin ex:plant_012 ;
+    ex:destination ex:wh_007 .
+
+ex:shipment_033 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00033" ;
+    ex:shipmentDate "2025-05-06T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_003 ;
+    ex:origin ex:plant_013 ;
+    ex:destination ex:wh_008 .
+
+ex:shipment_034 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00034" ;
+    ex:shipmentDate "2025-05-07T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_004 ;
+    ex:origin ex:plant_014 ;
+    ex:destination ex:wh_009 .
+
+ex:shipment_035 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00035" ;
+    ex:shipmentDate "2025-05-08T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_005 ;
+    ex:origin ex:plant_015 ;
+    ex:destination ex:wh_010 .
+
+ex:shipment_036 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00036" ;
+    ex:shipmentDate "2025-05-09T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_006 ;
+    ex:origin ex:plant_016 ;
+    ex:destination ex:wh_011 .
+
+ex:shipment_037 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00037" ;
+    ex:shipmentDate "2025-05-10T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_007 ;
+    ex:origin ex:plant_017 ;
+    ex:destination ex:wh_012 .
+
+ex:shipment_038 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00038" ;
+    ex:shipmentDate "2025-05-11T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_008 ;
+    ex:origin ex:plant_018 ;
+    ex:destination ex:wh_013 .
+
+ex:shipment_039 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00039" ;
+    ex:shipmentDate "2025-05-12T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_009 ;
+    ex:origin ex:plant_019 ;
+    ex:destination ex:wh_014 .
+
+ex:shipment_040 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00040" ;
+    ex:shipmentDate "2025-05-13T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_010 ;
+    ex:origin ex:plant_020 ;
+    ex:destination ex:wh_015 .
+
+ex:shipment_041 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00041" ;
+    ex:shipmentDate "2025-05-14T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_011 ;
+    ex:origin ex:plant_001 ;
+    ex:destination ex:wh_016 .
+
+ex:shipment_042 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00042" ;
+    ex:shipmentDate "2025-05-15T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_012 ;
+    ex:origin ex:plant_002 ;
+    ex:destination ex:wh_017 .
+
+ex:shipment_043 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00043" ;
+    ex:shipmentDate "2025-05-16T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_013 ;
+    ex:origin ex:plant_003 ;
+    ex:destination ex:wh_018 .
+
+ex:shipment_044 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00044" ;
+    ex:shipmentDate "2025-05-17T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_014 ;
+    ex:origin ex:plant_004 ;
+    ex:destination ex:wh_019 .
+
+ex:shipment_045 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00045" ;
+    ex:shipmentDate "2025-05-18T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_015 ;
+    ex:origin ex:plant_005 ;
+    ex:destination ex:wh_020 .
+
+ex:shipment_046 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00046" ;
+    ex:shipmentDate "2025-05-19T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_001 ;
+    ex:origin ex:plant_006 ;
+    ex:destination ex:wh_021 .
+
+ex:shipment_047 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00047" ;
+    ex:shipmentDate "2025-05-20T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_002 ;
+    ex:origin ex:plant_007 ;
+    ex:destination ex:wh_022 .
+
+ex:shipment_048 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00048" ;
+    ex:shipmentDate "2025-05-21T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_003 ;
+    ex:origin ex:plant_008 ;
+    ex:destination ex:wh_023 .
+
+ex:shipment_049 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00049" ;
+    ex:shipmentDate "2025-05-22T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_004 ;
+    ex:origin ex:plant_009 ;
+    ex:destination ex:wh_024 .
+
+ex:shipment_050 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00050" ;
+    ex:shipmentDate "2025-05-23T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_005 ;
+    ex:origin ex:plant_010 ;
+    ex:destination ex:wh_025 .
+
+ex:shipment_051 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00051" ;
+    ex:shipmentDate "2025-05-24T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_006 ;
+    ex:origin ex:plant_011 ;
+    ex:destination ex:wh_001 .
+
+ex:shipment_052 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00052" ;
+    ex:shipmentDate "2025-05-25T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_007 ;
+    ex:origin ex:plant_012 ;
+    ex:destination ex:wh_002 .
+
+ex:shipment_053 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00053" ;
+    ex:shipmentDate "2025-05-26T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_008 ;
+    ex:origin ex:plant_013 ;
+    ex:destination ex:wh_003 .
+
+ex:shipment_054 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00054" ;
+    ex:shipmentDate "2025-05-27T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_009 ;
+    ex:origin ex:plant_014 ;
+    ex:destination ex:wh_004 .
+
+ex:shipment_055 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00055" ;
+    ex:shipmentDate "2025-05-28T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_010 ;
+    ex:origin ex:plant_015 ;
+    ex:destination ex:wh_005 .
+
+ex:shipment_056 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00056" ;
+    ex:shipmentDate "2025-05-01T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_011 ;
+    ex:origin ex:plant_016 ;
+    ex:destination ex:wh_006 .
+
+ex:shipment_057 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00057" ;
+    ex:shipmentDate "2025-05-02T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_012 ;
+    ex:origin ex:plant_017 ;
+    ex:destination ex:wh_007 .
+
+ex:shipment_058 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00058" ;
+    ex:shipmentDate "2025-05-03T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_013 ;
+    ex:origin ex:plant_018 ;
+    ex:destination ex:wh_008 .
+
+ex:shipment_059 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00059" ;
+    ex:shipmentDate "2025-05-04T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_014 ;
+    ex:origin ex:plant_019 ;
+    ex:destination ex:wh_009 .
+
+ex:shipment_060 a ex:Shipment ;
+    ex:shipmentTrackingNumber "TRK-SC-2025-00060" ;
+    ex:shipmentDate "2025-05-05T09:00:00Z"^^xsd:dateTime ;
+    ex:shippedVia ex:carrier_015 ;
+    ex:origin ex:plant_020 ;
+    ex:destination ex:wh_010 .

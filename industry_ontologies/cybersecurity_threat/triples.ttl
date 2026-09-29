@@ -1,0 +1,2281 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/cybersecurity/> .
+
+# ABox Instance Triples for cybersecurity_threat
+
+ex:ip_001 a ex:IPAddress ;
+    ex:ipString "10.10.2.5" .
+
+ex:ip_002 a ex:IPAddress ;
+    ex:ipString "10.10.3.8" .
+
+ex:ip_003 a ex:IPAddress ;
+    ex:ipString "10.10.4.11" .
+
+ex:ip_004 a ex:IPAddress ;
+    ex:ipString "10.10.5.14" .
+
+ex:ip_005 a ex:IPAddress ;
+    ex:ipString "10.10.6.17" .
+
+ex:ip_006 a ex:IPAddress ;
+    ex:ipString "10.10.7.20" .
+
+ex:ip_007 a ex:IPAddress ;
+    ex:ipString "10.10.8.23" .
+
+ex:ip_008 a ex:IPAddress ;
+    ex:ipString "10.10.9.26" .
+
+ex:ip_009 a ex:IPAddress ;
+    ex:ipString "10.10.10.29" .
+
+ex:ip_010 a ex:IPAddress ;
+    ex:ipString "10.10.11.32" .
+
+ex:ip_011 a ex:IPAddress ;
+    ex:ipString "10.10.12.35" .
+
+ex:ip_012 a ex:IPAddress ;
+    ex:ipString "10.10.13.38" .
+
+ex:ip_013 a ex:IPAddress ;
+    ex:ipString "10.10.14.41" .
+
+ex:ip_014 a ex:IPAddress ;
+    ex:ipString "10.10.15.44" .
+
+ex:ip_015 a ex:IPAddress ;
+    ex:ipString "10.10.16.47" .
+
+ex:ip_016 a ex:IPAddress ;
+    ex:ipString "10.10.17.50" .
+
+ex:ip_017 a ex:IPAddress ;
+    ex:ipString "10.10.18.53" .
+
+ex:ip_018 a ex:IPAddress ;
+    ex:ipString "10.10.19.56" .
+
+ex:ip_019 a ex:IPAddress ;
+    ex:ipString "10.10.20.59" .
+
+ex:ip_020 a ex:IPAddress ;
+    ex:ipString "10.10.21.62" .
+
+ex:ip_021 a ex:IPAddress ;
+    ex:ipString "10.10.22.65" .
+
+ex:ip_022 a ex:IPAddress ;
+    ex:ipString "10.10.23.68" .
+
+ex:ip_023 a ex:IPAddress ;
+    ex:ipString "10.10.24.71" .
+
+ex:ip_024 a ex:IPAddress ;
+    ex:ipString "10.10.25.74" .
+
+ex:ip_025 a ex:IPAddress ;
+    ex:ipString "10.11.1.77" .
+
+ex:ip_026 a ex:IPAddress ;
+    ex:ipString "10.11.2.80" .
+
+ex:ip_027 a ex:IPAddress ;
+    ex:ipString "10.11.3.83" .
+
+ex:ip_028 a ex:IPAddress ;
+    ex:ipString "10.11.4.86" .
+
+ex:ip_029 a ex:IPAddress ;
+    ex:ipString "10.11.5.89" .
+
+ex:ip_030 a ex:IPAddress ;
+    ex:ipString "10.11.6.92" .
+
+ex:ip_031 a ex:IPAddress ;
+    ex:ipString "10.11.7.95" .
+
+ex:ip_032 a ex:IPAddress ;
+    ex:ipString "10.11.8.98" .
+
+ex:ip_033 a ex:IPAddress ;
+    ex:ipString "10.11.9.101" .
+
+ex:ip_034 a ex:IPAddress ;
+    ex:ipString "10.11.10.104" .
+
+ex:ip_035 a ex:IPAddress ;
+    ex:ipString "10.11.11.107" .
+
+ex:ip_036 a ex:IPAddress ;
+    ex:ipString "10.11.12.110" .
+
+ex:ip_037 a ex:IPAddress ;
+    ex:ipString "10.11.13.113" .
+
+ex:ip_038 a ex:IPAddress ;
+    ex:ipString "10.11.14.116" .
+
+ex:ip_039 a ex:IPAddress ;
+    ex:ipString "10.11.15.119" .
+
+ex:ip_040 a ex:IPAddress ;
+    ex:ipString "10.11.16.122" .
+
+ex:ip_041 a ex:IPAddress ;
+    ex:ipString "10.11.17.125" .
+
+ex:ip_042 a ex:IPAddress ;
+    ex:ipString "10.11.18.128" .
+
+ex:ip_043 a ex:IPAddress ;
+    ex:ipString "10.11.19.131" .
+
+ex:ip_044 a ex:IPAddress ;
+    ex:ipString "10.11.20.134" .
+
+ex:ip_045 a ex:IPAddress ;
+    ex:ipString "10.11.21.137" .
+
+ex:ip_046 a ex:IPAddress ;
+    ex:ipString "10.11.22.140" .
+
+ex:ip_047 a ex:IPAddress ;
+    ex:ipString "10.11.23.143" .
+
+ex:ip_048 a ex:IPAddress ;
+    ex:ipString "10.11.24.146" .
+
+ex:ip_049 a ex:IPAddress ;
+    ex:ipString "10.11.25.149" .
+
+ex:ip_050 a ex:IPAddress ;
+    ex:ipString "10.12.1.152" .
+
+ex:ip_051 a ex:IPAddress ;
+    ex:ipString "10.12.2.155" .
+
+ex:ip_052 a ex:IPAddress ;
+    ex:ipString "10.12.3.158" .
+
+ex:ip_053 a ex:IPAddress ;
+    ex:ipString "10.12.4.161" .
+
+ex:ip_054 a ex:IPAddress ;
+    ex:ipString "10.12.5.164" .
+
+ex:ip_055 a ex:IPAddress ;
+    ex:ipString "10.12.6.167" .
+
+ex:ip_056 a ex:IPAddress ;
+    ex:ipString "10.12.7.170" .
+
+ex:ip_057 a ex:IPAddress ;
+    ex:ipString "10.12.8.173" .
+
+ex:ip_058 a ex:IPAddress ;
+    ex:ipString "10.12.9.176" .
+
+ex:ip_059 a ex:IPAddress ;
+    ex:ipString "10.12.10.179" .
+
+ex:ip_060 a ex:IPAddress ;
+    ex:ipString "10.12.11.182" .
+
+ex:ip_061 a ex:IPAddress ;
+    ex:ipString "10.12.12.185" .
+
+ex:ip_062 a ex:IPAddress ;
+    ex:ipString "10.12.13.188" .
+
+ex:ip_063 a ex:IPAddress ;
+    ex:ipString "10.12.14.191" .
+
+ex:ip_064 a ex:IPAddress ;
+    ex:ipString "10.12.15.194" .
+
+ex:ip_065 a ex:IPAddress ;
+    ex:ipString "10.12.16.197" .
+
+ex:ip_066 a ex:IPAddress ;
+    ex:ipString "10.12.17.200" .
+
+ex:ip_067 a ex:IPAddress ;
+    ex:ipString "10.12.18.203" .
+
+ex:ip_068 a ex:IPAddress ;
+    ex:ipString "10.12.19.206" .
+
+ex:ip_069 a ex:IPAddress ;
+    ex:ipString "10.12.20.209" .
+
+ex:ip_070 a ex:IPAddress ;
+    ex:ipString "10.12.21.212" .
+
+ex:ip_071 a ex:IPAddress ;
+    ex:ipString "10.12.22.215" .
+
+ex:ip_072 a ex:IPAddress ;
+    ex:ipString "10.12.23.218" .
+
+ex:ip_073 a ex:IPAddress ;
+    ex:ipString "10.12.24.221" .
+
+ex:ip_074 a ex:IPAddress ;
+    ex:ipString "10.12.25.224" .
+
+ex:ip_075 a ex:IPAddress ;
+    ex:ipString "10.13.1.227" .
+
+ex:ip_076 a ex:IPAddress ;
+    ex:ipString "10.13.2.230" .
+
+ex:ip_077 a ex:IPAddress ;
+    ex:ipString "10.13.3.233" .
+
+ex:ip_078 a ex:IPAddress ;
+    ex:ipString "10.13.4.236" .
+
+ex:ip_079 a ex:IPAddress ;
+    ex:ipString "10.13.5.239" .
+
+ex:ip_080 a ex:IPAddress ;
+    ex:ipString "10.13.6.242" .
+
+ex:ip_081 a ex:IPAddress ;
+    ex:ipString "10.13.7.245" .
+
+ex:ip_082 a ex:IPAddress ;
+    ex:ipString "10.13.8.248" .
+
+ex:ip_083 a ex:IPAddress ;
+    ex:ipString "10.13.9.251" .
+
+ex:ip_084 a ex:IPAddress ;
+    ex:ipString "10.13.10.4" .
+
+ex:ip_085 a ex:IPAddress ;
+    ex:ipString "10.13.11.7" .
+
+ex:ip_086 a ex:IPAddress ;
+    ex:ipString "10.13.12.10" .
+
+ex:ip_087 a ex:IPAddress ;
+    ex:ipString "10.13.13.13" .
+
+ex:ip_088 a ex:IPAddress ;
+    ex:ipString "10.13.14.16" .
+
+ex:ip_089 a ex:IPAddress ;
+    ex:ipString "10.13.15.19" .
+
+ex:ip_090 a ex:IPAddress ;
+    ex:ipString "10.13.16.22" .
+
+ex:ip_091 a ex:IPAddress ;
+    ex:ipString "10.13.17.25" .
+
+ex:ip_092 a ex:IPAddress ;
+    ex:ipString "10.13.18.28" .
+
+ex:ip_093 a ex:IPAddress ;
+    ex:ipString "10.13.19.31" .
+
+ex:ip_094 a ex:IPAddress ;
+    ex:ipString "10.13.20.34" .
+
+ex:ip_095 a ex:IPAddress ;
+    ex:ipString "10.13.21.37" .
+
+ex:ip_096 a ex:IPAddress ;
+    ex:ipString "10.13.22.40" .
+
+ex:ip_097 a ex:IPAddress ;
+    ex:ipString "10.13.23.43" .
+
+ex:ip_098 a ex:IPAddress ;
+    ex:ipString "10.13.24.46" .
+
+ex:ip_099 a ex:IPAddress ;
+    ex:ipString "10.13.25.49" .
+
+ex:ip_100 a ex:IPAddress ;
+    ex:ipString "10.14.1.52" .
+
+ex:vuln_001 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20001" ;
+    ex:cvssScore 5.4 .
+
+ex:vuln_002 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20002" ;
+    ex:cvssScore 6.3 .
+
+ex:vuln_003 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20003" ;
+    ex:cvssScore 7.2 .
+
+ex:vuln_004 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20004" ;
+    ex:cvssScore 8.1 .
+
+ex:vuln_005 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20005" ;
+    ex:cvssScore 9.0 .
+
+ex:vuln_006 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20006" ;
+    ex:cvssScore 4.5 .
+
+ex:vuln_007 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20007" ;
+    ex:cvssScore 5.4 .
+
+ex:vuln_008 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20008" ;
+    ex:cvssScore 6.3 .
+
+ex:vuln_009 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20009" ;
+    ex:cvssScore 7.2 .
+
+ex:vuln_010 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20010" ;
+    ex:cvssScore 8.1 .
+
+ex:vuln_011 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20011" ;
+    ex:cvssScore 9.0 .
+
+ex:vuln_012 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20012" ;
+    ex:cvssScore 4.5 .
+
+ex:vuln_013 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20013" ;
+    ex:cvssScore 5.4 .
+
+ex:vuln_014 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20014" ;
+    ex:cvssScore 6.3 .
+
+ex:vuln_015 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20015" ;
+    ex:cvssScore 7.2 .
+
+ex:vuln_016 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20016" ;
+    ex:cvssScore 8.1 .
+
+ex:vuln_017 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20017" ;
+    ex:cvssScore 9.0 .
+
+ex:vuln_018 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20018" ;
+    ex:cvssScore 4.5 .
+
+ex:vuln_019 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20019" ;
+    ex:cvssScore 5.4 .
+
+ex:vuln_020 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20020" ;
+    ex:cvssScore 6.3 .
+
+ex:vuln_021 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20021" ;
+    ex:cvssScore 7.2 .
+
+ex:vuln_022 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20022" ;
+    ex:cvssScore 8.1 .
+
+ex:vuln_023 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20023" ;
+    ex:cvssScore 9.0 .
+
+ex:vuln_024 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20024" ;
+    ex:cvssScore 4.5 .
+
+ex:vuln_025 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20025" ;
+    ex:cvssScore 5.4 .
+
+ex:vuln_026 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20026" ;
+    ex:cvssScore 6.3 .
+
+ex:vuln_027 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20027" ;
+    ex:cvssScore 7.2 .
+
+ex:vuln_028 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20028" ;
+    ex:cvssScore 8.1 .
+
+ex:vuln_029 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20029" ;
+    ex:cvssScore 9.0 .
+
+ex:vuln_030 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20030" ;
+    ex:cvssScore 4.5 .
+
+ex:vuln_031 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20031" ;
+    ex:cvssScore 5.4 .
+
+ex:vuln_032 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20032" ;
+    ex:cvssScore 6.3 .
+
+ex:vuln_033 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20033" ;
+    ex:cvssScore 7.2 .
+
+ex:vuln_034 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20034" ;
+    ex:cvssScore 8.1 .
+
+ex:vuln_035 a ex:Vulnerability ;
+    ex:cveId "CVE-2025-20035" ;
+    ex:cvssScore 9.0 .
+
+ex:actor_001 a ex:ThreatActor ;
+    ex:actorName "APT-Group-01" ;
+    ex:exploits ex:vuln_001 .
+
+ex:actor_002 a ex:ThreatActor ;
+    ex:actorName "APT-Group-02" ;
+    ex:exploits ex:vuln_002 .
+
+ex:actor_003 a ex:ThreatActor ;
+    ex:actorName "APT-Group-03" ;
+    ex:exploits ex:vuln_003 .
+
+ex:actor_004 a ex:ThreatActor ;
+    ex:actorName "APT-Group-04" ;
+    ex:exploits ex:vuln_004 .
+
+ex:actor_005 a ex:ThreatActor ;
+    ex:actorName "APT-Group-05" ;
+    ex:exploits ex:vuln_005 .
+
+ex:actor_006 a ex:ThreatActor ;
+    ex:actorName "APT-Group-06" ;
+    ex:exploits ex:vuln_006 .
+
+ex:actor_007 a ex:ThreatActor ;
+    ex:actorName "APT-Group-07" ;
+    ex:exploits ex:vuln_007 .
+
+ex:actor_008 a ex:ThreatActor ;
+    ex:actorName "APT-Group-08" ;
+    ex:exploits ex:vuln_008 .
+
+ex:actor_009 a ex:ThreatActor ;
+    ex:actorName "APT-Group-09" ;
+    ex:exploits ex:vuln_009 .
+
+ex:actor_010 a ex:ThreatActor ;
+    ex:actorName "APT-Group-10" ;
+    ex:exploits ex:vuln_010 .
+
+ex:actor_011 a ex:ThreatActor ;
+    ex:actorName "APT-Group-11" ;
+    ex:exploits ex:vuln_011 .
+
+ex:actor_012 a ex:ThreatActor ;
+    ex:actorName "APT-Group-12" ;
+    ex:exploits ex:vuln_012 .
+
+ex:actor_013 a ex:ThreatActor ;
+    ex:actorName "APT-Group-13" ;
+    ex:exploits ex:vuln_013 .
+
+ex:actor_014 a ex:ThreatActor ;
+    ex:actorName "APT-Group-14" ;
+    ex:exploits ex:vuln_014 .
+
+ex:actor_015 a ex:ThreatActor ;
+    ex:actorName "APT-Group-15" ;
+    ex:exploits ex:vuln_015 .
+
+ex:actor_016 a ex:ThreatActor ;
+    ex:actorName "APT-Group-16" ;
+    ex:exploits ex:vuln_016 .
+
+ex:actor_017 a ex:ThreatActor ;
+    ex:actorName "APT-Group-17" ;
+    ex:exploits ex:vuln_017 .
+
+ex:actor_018 a ex:ThreatActor ;
+    ex:actorName "APT-Group-18" ;
+    ex:exploits ex:vuln_018 .
+
+ex:actor_019 a ex:ThreatActor ;
+    ex:actorName "APT-Group-19" ;
+    ex:exploits ex:vuln_019 .
+
+ex:actor_020 a ex:ThreatActor ;
+    ex:actorName "APT-Group-20" ;
+    ex:exploits ex:vuln_020 .
+
+ex:alert_001 a ex:SecurityAlert ;
+    ex:severityScore 5 .
+
+ex:alert_002 a ex:SecurityAlert ;
+    ex:severityScore 6 .
+
+ex:alert_003 a ex:SecurityAlert ;
+    ex:severityScore 10 .
+
+ex:alert_004 a ex:SecurityAlert ;
+    ex:severityScore 8 .
+
+ex:alert_005 a ex:SecurityAlert ;
+    ex:severityScore 4 .
+
+ex:alert_006 a ex:SecurityAlert ;
+    ex:severityScore 9 .
+
+ex:alert_007 a ex:SecurityAlert ;
+    ex:severityScore 6 .
+
+ex:alert_008 a ex:SecurityAlert ;
+    ex:severityScore 7 .
+
+ex:alert_009 a ex:SecurityAlert ;
+    ex:severityScore 10 .
+
+ex:alert_010 a ex:SecurityAlert ;
+    ex:severityScore 4 .
+
+ex:alert_011 a ex:SecurityAlert ;
+    ex:severityScore 5 .
+
+ex:alert_012 a ex:SecurityAlert ;
+    ex:severityScore 9 .
+
+ex:alert_013 a ex:SecurityAlert ;
+    ex:severityScore 7 .
+
+ex:alert_014 a ex:SecurityAlert ;
+    ex:severityScore 8 .
+
+ex:alert_015 a ex:SecurityAlert ;
+    ex:severityScore 10 .
+
+ex:alert_016 a ex:SecurityAlert ;
+    ex:severityScore 5 .
+
+ex:alert_017 a ex:SecurityAlert ;
+    ex:severityScore 6 .
+
+ex:alert_018 a ex:SecurityAlert ;
+    ex:severityScore 9 .
+
+ex:alert_019 a ex:SecurityAlert ;
+    ex:severityScore 8 .
+
+ex:alert_020 a ex:SecurityAlert ;
+    ex:severityScore 4 .
+
+ex:alert_021 a ex:SecurityAlert ;
+    ex:severityScore 10 .
+
+ex:alert_022 a ex:SecurityAlert ;
+    ex:severityScore 6 .
+
+ex:alert_023 a ex:SecurityAlert ;
+    ex:severityScore 7 .
+
+ex:alert_024 a ex:SecurityAlert ;
+    ex:severityScore 9 .
+
+ex:alert_025 a ex:SecurityAlert ;
+    ex:severityScore 4 .
+
+ex:alert_026 a ex:SecurityAlert ;
+    ex:severityScore 5 .
+
+ex:alert_027 a ex:SecurityAlert ;
+    ex:severityScore 10 .
+
+ex:alert_028 a ex:SecurityAlert ;
+    ex:severityScore 7 .
+
+ex:alert_029 a ex:SecurityAlert ;
+    ex:severityScore 8 .
+
+ex:alert_030 a ex:SecurityAlert ;
+    ex:severityScore 9 .
+
+ex:alert_031 a ex:SecurityAlert ;
+    ex:severityScore 5 .
+
+ex:alert_032 a ex:SecurityAlert ;
+    ex:severityScore 6 .
+
+ex:alert_033 a ex:SecurityAlert ;
+    ex:severityScore 10 .
+
+ex:alert_034 a ex:SecurityAlert ;
+    ex:severityScore 8 .
+
+ex:alert_035 a ex:SecurityAlert ;
+    ex:severityScore 4 .
+
+ex:alert_036 a ex:SecurityAlert ;
+    ex:severityScore 9 .
+
+ex:alert_037 a ex:SecurityAlert ;
+    ex:severityScore 6 .
+
+ex:alert_038 a ex:SecurityAlert ;
+    ex:severityScore 7 .
+
+ex:alert_039 a ex:SecurityAlert ;
+    ex:severityScore 10 .
+
+ex:alert_040 a ex:SecurityAlert ;
+    ex:severityScore 4 .
+
+ex:alert_041 a ex:SecurityAlert ;
+    ex:severityScore 5 .
+
+ex:alert_042 a ex:SecurityAlert ;
+    ex:severityScore 9 .
+
+ex:alert_043 a ex:SecurityAlert ;
+    ex:severityScore 7 .
+
+ex:alert_044 a ex:SecurityAlert ;
+    ex:severityScore 8 .
+
+ex:alert_045 a ex:SecurityAlert ;
+    ex:severityScore 10 .
+
+ex:alert_046 a ex:SecurityAlert ;
+    ex:severityScore 5 .
+
+ex:alert_047 a ex:SecurityAlert ;
+    ex:severityScore 6 .
+
+ex:alert_048 a ex:SecurityAlert ;
+    ex:severityScore 9 .
+
+ex:alert_049 a ex:SecurityAlert ;
+    ex:severityScore 8 .
+
+ex:alert_050 a ex:SecurityAlert ;
+    ex:severityScore 4 .
+
+ex:gateway_001 a ex:Gateway .
+
+ex:gateway_002 a ex:Gateway .
+
+ex:gateway_003 a ex:Gateway .
+
+ex:gateway_004 a ex:Gateway .
+
+ex:gateway_005 a ex:Gateway .
+
+ex:gateway_006 a ex:Gateway .
+
+ex:gateway_007 a ex:Gateway .
+
+ex:gateway_008 a ex:Gateway .
+
+ex:gateway_009 a ex:Gateway .
+
+ex:gateway_010 a ex:Gateway .
+
+ex:gateway_011 a ex:Gateway .
+
+ex:gateway_012 a ex:Gateway .
+
+ex:gateway_013 a ex:Gateway .
+
+ex:gateway_014 a ex:Gateway .
+
+ex:gateway_015 a ex:Gateway .
+
+ex:gateway_016 a ex:Gateway .
+
+ex:gateway_017 a ex:Gateway .
+
+ex:gateway_018 a ex:Gateway .
+
+ex:gateway_019 a ex:Gateway .
+
+ex:gateway_020 a ex:Gateway .
+
+ex:server_001 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:01" ;
+    ex:hasIPAddress ex:ip_001 ;
+    ex:hasVulnerability ex:vuln_001 ;
+    ex:compromisedBy ex:actor_001 ;
+    ex:triggeredAlert ex:alert_001 .
+
+ex:ip_001 ex:ipBelongsTo ex:server_001 .
+
+ex:server_002 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:02" ;
+    ex:hasIPAddress ex:ip_002 ;
+    ex:hasVulnerability ex:vuln_002 ;
+    ex:compromisedBy ex:actor_002 ;
+    ex:triggeredAlert ex:alert_002 .
+
+ex:ip_002 ex:ipBelongsTo ex:server_002 .
+
+ex:server_003 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:03" ;
+    ex:hasIPAddress ex:ip_003 ;
+    ex:hasVulnerability ex:vuln_003 ;
+    ex:compromisedBy ex:actor_003 ;
+    ex:triggeredAlert ex:alert_003 .
+
+ex:ip_003 ex:ipBelongsTo ex:server_003 .
+
+ex:server_004 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:04" ;
+    ex:hasIPAddress ex:ip_004 ;
+    ex:hasVulnerability ex:vuln_004 ;
+    ex:compromisedBy ex:actor_004 ;
+    ex:triggeredAlert ex:alert_004 .
+
+ex:ip_004 ex:ipBelongsTo ex:server_004 .
+
+ex:server_005 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:05" ;
+    ex:hasIPAddress ex:ip_005 ;
+    ex:hasVulnerability ex:vuln_005 ;
+    ex:compromisedBy ex:actor_005 ;
+    ex:triggeredAlert ex:alert_005 .
+
+ex:ip_005 ex:ipBelongsTo ex:server_005 .
+
+ex:server_006 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:06" ;
+    ex:hasIPAddress ex:ip_006 ;
+    ex:hasVulnerability ex:vuln_006 ;
+    ex:compromisedBy ex:actor_006 ;
+    ex:triggeredAlert ex:alert_006 .
+
+ex:ip_006 ex:ipBelongsTo ex:server_006 .
+
+ex:server_007 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:07" ;
+    ex:hasIPAddress ex:ip_007 ;
+    ex:hasVulnerability ex:vuln_007 ;
+    ex:compromisedBy ex:actor_007 ;
+    ex:triggeredAlert ex:alert_007 .
+
+ex:ip_007 ex:ipBelongsTo ex:server_007 .
+
+ex:server_008 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:08" ;
+    ex:hasIPAddress ex:ip_008 ;
+    ex:hasVulnerability ex:vuln_008 ;
+    ex:compromisedBy ex:actor_008 ;
+    ex:triggeredAlert ex:alert_008 .
+
+ex:ip_008 ex:ipBelongsTo ex:server_008 .
+
+ex:server_009 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:09" ;
+    ex:hasIPAddress ex:ip_009 ;
+    ex:hasVulnerability ex:vuln_009 ;
+    ex:compromisedBy ex:actor_009 ;
+    ex:triggeredAlert ex:alert_009 .
+
+ex:ip_009 ex:ipBelongsTo ex:server_009 .
+
+ex:server_010 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:0A" ;
+    ex:hasIPAddress ex:ip_010 ;
+    ex:hasVulnerability ex:vuln_010 ;
+    ex:compromisedBy ex:actor_010 ;
+    ex:triggeredAlert ex:alert_010 .
+
+ex:ip_010 ex:ipBelongsTo ex:server_010 .
+
+ex:server_011 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:0B" ;
+    ex:hasIPAddress ex:ip_011 ;
+    ex:hasVulnerability ex:vuln_011 ;
+    ex:compromisedBy ex:actor_011 ;
+    ex:triggeredAlert ex:alert_011 .
+
+ex:ip_011 ex:ipBelongsTo ex:server_011 .
+
+ex:server_012 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:0C" ;
+    ex:hasIPAddress ex:ip_012 ;
+    ex:hasVulnerability ex:vuln_012 ;
+    ex:compromisedBy ex:actor_012 ;
+    ex:triggeredAlert ex:alert_012 .
+
+ex:ip_012 ex:ipBelongsTo ex:server_012 .
+
+ex:server_013 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:0D" ;
+    ex:hasIPAddress ex:ip_013 ;
+    ex:hasVulnerability ex:vuln_013 ;
+    ex:compromisedBy ex:actor_013 ;
+    ex:triggeredAlert ex:alert_013 .
+
+ex:ip_013 ex:ipBelongsTo ex:server_013 .
+
+ex:server_014 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:0E" ;
+    ex:hasIPAddress ex:ip_014 ;
+    ex:hasVulnerability ex:vuln_014 ;
+    ex:compromisedBy ex:actor_014 ;
+    ex:triggeredAlert ex:alert_014 .
+
+ex:ip_014 ex:ipBelongsTo ex:server_014 .
+
+ex:server_015 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:0F" ;
+    ex:hasIPAddress ex:ip_015 ;
+    ex:hasVulnerability ex:vuln_015 ;
+    ex:compromisedBy ex:actor_015 ;
+    ex:triggeredAlert ex:alert_015 .
+
+ex:ip_015 ex:ipBelongsTo ex:server_015 .
+
+ex:server_016 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:10" ;
+    ex:hasIPAddress ex:ip_016 ;
+    ex:hasVulnerability ex:vuln_016 ;
+    ex:compromisedBy ex:actor_016 ;
+    ex:triggeredAlert ex:alert_016 .
+
+ex:ip_016 ex:ipBelongsTo ex:server_016 .
+
+ex:server_017 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:11" ;
+    ex:hasIPAddress ex:ip_017 ;
+    ex:hasVulnerability ex:vuln_017 ;
+    ex:compromisedBy ex:actor_017 ;
+    ex:triggeredAlert ex:alert_017 .
+
+ex:ip_017 ex:ipBelongsTo ex:server_017 .
+
+ex:server_018 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:12" ;
+    ex:hasIPAddress ex:ip_018 ;
+    ex:hasVulnerability ex:vuln_018 ;
+    ex:compromisedBy ex:actor_018 ;
+    ex:triggeredAlert ex:alert_018 .
+
+ex:ip_018 ex:ipBelongsTo ex:server_018 .
+
+ex:server_019 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:13" ;
+    ex:hasIPAddress ex:ip_019 ;
+    ex:hasVulnerability ex:vuln_019 ;
+    ex:compromisedBy ex:actor_019 ;
+    ex:triggeredAlert ex:alert_019 .
+
+ex:ip_019 ex:ipBelongsTo ex:server_019 .
+
+ex:server_020 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:14" ;
+    ex:hasIPAddress ex:ip_020 ;
+    ex:hasVulnerability ex:vuln_020 ;
+    ex:compromisedBy ex:actor_020 ;
+    ex:triggeredAlert ex:alert_020 .
+
+ex:ip_020 ex:ipBelongsTo ex:server_020 .
+
+ex:server_021 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:15" ;
+    ex:hasIPAddress ex:ip_021 ;
+    ex:hasVulnerability ex:vuln_021 ;
+    ex:compromisedBy ex:actor_001 ;
+    ex:triggeredAlert ex:alert_021 .
+
+ex:ip_021 ex:ipBelongsTo ex:server_021 .
+
+ex:server_022 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:16" ;
+    ex:hasIPAddress ex:ip_022 ;
+    ex:hasVulnerability ex:vuln_022 ;
+    ex:compromisedBy ex:actor_002 ;
+    ex:triggeredAlert ex:alert_022 .
+
+ex:ip_022 ex:ipBelongsTo ex:server_022 .
+
+ex:server_023 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:17" ;
+    ex:hasIPAddress ex:ip_023 ;
+    ex:hasVulnerability ex:vuln_023 ;
+    ex:compromisedBy ex:actor_003 ;
+    ex:triggeredAlert ex:alert_023 .
+
+ex:ip_023 ex:ipBelongsTo ex:server_023 .
+
+ex:server_024 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:18" ;
+    ex:hasIPAddress ex:ip_024 ;
+    ex:hasVulnerability ex:vuln_024 ;
+    ex:compromisedBy ex:actor_004 ;
+    ex:triggeredAlert ex:alert_024 .
+
+ex:ip_024 ex:ipBelongsTo ex:server_024 .
+
+ex:server_025 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:19" ;
+    ex:hasIPAddress ex:ip_025 ;
+    ex:hasVulnerability ex:vuln_025 ;
+    ex:compromisedBy ex:actor_005 ;
+    ex:triggeredAlert ex:alert_025 .
+
+ex:ip_025 ex:ipBelongsTo ex:server_025 .
+
+ex:server_026 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:1A" ;
+    ex:hasIPAddress ex:ip_026 ;
+    ex:hasVulnerability ex:vuln_026 ;
+    ex:compromisedBy ex:actor_006 ;
+    ex:triggeredAlert ex:alert_026 .
+
+ex:ip_026 ex:ipBelongsTo ex:server_026 .
+
+ex:server_027 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:1B" ;
+    ex:hasIPAddress ex:ip_027 ;
+    ex:hasVulnerability ex:vuln_027 ;
+    ex:compromisedBy ex:actor_007 ;
+    ex:triggeredAlert ex:alert_027 .
+
+ex:ip_027 ex:ipBelongsTo ex:server_027 .
+
+ex:server_028 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:1C" ;
+    ex:hasIPAddress ex:ip_028 ;
+    ex:hasVulnerability ex:vuln_028 ;
+    ex:compromisedBy ex:actor_008 ;
+    ex:triggeredAlert ex:alert_028 .
+
+ex:ip_028 ex:ipBelongsTo ex:server_028 .
+
+ex:server_029 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:1D" ;
+    ex:hasIPAddress ex:ip_029 ;
+    ex:hasVulnerability ex:vuln_029 ;
+    ex:compromisedBy ex:actor_009 ;
+    ex:triggeredAlert ex:alert_029 .
+
+ex:ip_029 ex:ipBelongsTo ex:server_029 .
+
+ex:server_030 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:1E" ;
+    ex:hasIPAddress ex:ip_030 ;
+    ex:hasVulnerability ex:vuln_030 ;
+    ex:compromisedBy ex:actor_010 ;
+    ex:triggeredAlert ex:alert_030 .
+
+ex:ip_030 ex:ipBelongsTo ex:server_030 .
+
+ex:server_031 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:1F" ;
+    ex:hasIPAddress ex:ip_031 ;
+    ex:hasVulnerability ex:vuln_031 ;
+    ex:compromisedBy ex:actor_011 ;
+    ex:triggeredAlert ex:alert_031 .
+
+ex:ip_031 ex:ipBelongsTo ex:server_031 .
+
+ex:server_032 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:20" ;
+    ex:hasIPAddress ex:ip_032 ;
+    ex:hasVulnerability ex:vuln_032 ;
+    ex:compromisedBy ex:actor_012 ;
+    ex:triggeredAlert ex:alert_032 .
+
+ex:ip_032 ex:ipBelongsTo ex:server_032 .
+
+ex:server_033 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:21" ;
+    ex:hasIPAddress ex:ip_033 ;
+    ex:hasVulnerability ex:vuln_033 ;
+    ex:compromisedBy ex:actor_013 ;
+    ex:triggeredAlert ex:alert_033 .
+
+ex:ip_033 ex:ipBelongsTo ex:server_033 .
+
+ex:server_034 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:22" ;
+    ex:hasIPAddress ex:ip_034 ;
+    ex:hasVulnerability ex:vuln_034 ;
+    ex:compromisedBy ex:actor_014 ;
+    ex:triggeredAlert ex:alert_034 .
+
+ex:ip_034 ex:ipBelongsTo ex:server_034 .
+
+ex:server_035 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:23" ;
+    ex:hasIPAddress ex:ip_035 ;
+    ex:hasVulnerability ex:vuln_035 ;
+    ex:compromisedBy ex:actor_015 ;
+    ex:triggeredAlert ex:alert_035 .
+
+ex:ip_035 ex:ipBelongsTo ex:server_035 .
+
+ex:server_036 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:24" ;
+    ex:hasIPAddress ex:ip_036 ;
+    ex:hasVulnerability ex:vuln_001 ;
+    ex:compromisedBy ex:actor_016 ;
+    ex:triggeredAlert ex:alert_036 .
+
+ex:ip_036 ex:ipBelongsTo ex:server_036 .
+
+ex:server_037 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:25" ;
+    ex:hasIPAddress ex:ip_037 ;
+    ex:hasVulnerability ex:vuln_002 ;
+    ex:compromisedBy ex:actor_017 ;
+    ex:triggeredAlert ex:alert_037 .
+
+ex:ip_037 ex:ipBelongsTo ex:server_037 .
+
+ex:server_038 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:26" ;
+    ex:hasIPAddress ex:ip_038 ;
+    ex:hasVulnerability ex:vuln_003 ;
+    ex:compromisedBy ex:actor_018 ;
+    ex:triggeredAlert ex:alert_038 .
+
+ex:ip_038 ex:ipBelongsTo ex:server_038 .
+
+ex:server_039 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:27" ;
+    ex:hasIPAddress ex:ip_039 ;
+    ex:hasVulnerability ex:vuln_004 ;
+    ex:compromisedBy ex:actor_019 ;
+    ex:triggeredAlert ex:alert_039 .
+
+ex:ip_039 ex:ipBelongsTo ex:server_039 .
+
+ex:server_040 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:28" ;
+    ex:hasIPAddress ex:ip_040 ;
+    ex:hasVulnerability ex:vuln_005 ;
+    ex:compromisedBy ex:actor_020 ;
+    ex:triggeredAlert ex:alert_040 .
+
+ex:ip_040 ex:ipBelongsTo ex:server_040 .
+
+ex:server_041 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:29" ;
+    ex:hasIPAddress ex:ip_041 ;
+    ex:hasVulnerability ex:vuln_006 ;
+    ex:compromisedBy ex:actor_001 ;
+    ex:triggeredAlert ex:alert_041 .
+
+ex:ip_041 ex:ipBelongsTo ex:server_041 .
+
+ex:server_042 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:2A" ;
+    ex:hasIPAddress ex:ip_042 ;
+    ex:hasVulnerability ex:vuln_007 ;
+    ex:compromisedBy ex:actor_002 ;
+    ex:triggeredAlert ex:alert_042 .
+
+ex:ip_042 ex:ipBelongsTo ex:server_042 .
+
+ex:server_043 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:2B" ;
+    ex:hasIPAddress ex:ip_043 ;
+    ex:hasVulnerability ex:vuln_008 ;
+    ex:compromisedBy ex:actor_003 ;
+    ex:triggeredAlert ex:alert_043 .
+
+ex:ip_043 ex:ipBelongsTo ex:server_043 .
+
+ex:server_044 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:2C" ;
+    ex:hasIPAddress ex:ip_044 ;
+    ex:hasVulnerability ex:vuln_009 ;
+    ex:compromisedBy ex:actor_004 ;
+    ex:triggeredAlert ex:alert_044 .
+
+ex:ip_044 ex:ipBelongsTo ex:server_044 .
+
+ex:server_045 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:2D" ;
+    ex:hasIPAddress ex:ip_045 ;
+    ex:hasVulnerability ex:vuln_010 ;
+    ex:compromisedBy ex:actor_005 ;
+    ex:triggeredAlert ex:alert_045 .
+
+ex:ip_045 ex:ipBelongsTo ex:server_045 .
+
+ex:server_046 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:2E" ;
+    ex:hasIPAddress ex:ip_046 ;
+    ex:hasVulnerability ex:vuln_011 ;
+    ex:compromisedBy ex:actor_006 ;
+    ex:triggeredAlert ex:alert_046 .
+
+ex:ip_046 ex:ipBelongsTo ex:server_046 .
+
+ex:server_047 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:2F" ;
+    ex:hasIPAddress ex:ip_047 ;
+    ex:hasVulnerability ex:vuln_012 ;
+    ex:compromisedBy ex:actor_007 ;
+    ex:triggeredAlert ex:alert_047 .
+
+ex:ip_047 ex:ipBelongsTo ex:server_047 .
+
+ex:server_048 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:30" ;
+    ex:hasIPAddress ex:ip_048 ;
+    ex:hasVulnerability ex:vuln_013 ;
+    ex:compromisedBy ex:actor_008 ;
+    ex:triggeredAlert ex:alert_048 .
+
+ex:ip_048 ex:ipBelongsTo ex:server_048 .
+
+ex:server_049 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:31" ;
+    ex:hasIPAddress ex:ip_049 ;
+    ex:hasVulnerability ex:vuln_014 ;
+    ex:compromisedBy ex:actor_009 ;
+    ex:triggeredAlert ex:alert_049 .
+
+ex:ip_049 ex:ipBelongsTo ex:server_049 .
+
+ex:server_050 a ex:Server ;
+    ex:macAddress "00:1A:2B:3C:01:32" ;
+    ex:hasIPAddress ex:ip_050 ;
+    ex:hasVulnerability ex:vuln_015 ;
+    ex:compromisedBy ex:actor_010 ;
+    ex:triggeredAlert ex:alert_050 .
+
+ex:ip_050 ex:ipBelongsTo ex:server_050 .
+
+ex:workstation_001 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:01" ;
+    ex:hasIPAddress ex:ip_051 ;
+    ex:hasVulnerability ex:vuln_002 ;
+    ex:compromisedBy ex:actor_002 ;
+    ex:triggeredAlert ex:alert_002 .
+
+ex:ip_051 ex:ipBelongsTo ex:workstation_001 .
+
+ex:workstation_002 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:02" ;
+    ex:hasIPAddress ex:ip_052 ;
+    ex:hasVulnerability ex:vuln_003 ;
+    ex:compromisedBy ex:actor_003 ;
+    ex:triggeredAlert ex:alert_003 .
+
+ex:ip_052 ex:ipBelongsTo ex:workstation_002 .
+
+ex:workstation_003 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:03" ;
+    ex:hasIPAddress ex:ip_053 ;
+    ex:hasVulnerability ex:vuln_004 ;
+    ex:compromisedBy ex:actor_004 ;
+    ex:triggeredAlert ex:alert_004 .
+
+ex:ip_053 ex:ipBelongsTo ex:workstation_003 .
+
+ex:workstation_004 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:04" ;
+    ex:hasIPAddress ex:ip_054 ;
+    ex:hasVulnerability ex:vuln_005 ;
+    ex:compromisedBy ex:actor_005 ;
+    ex:triggeredAlert ex:alert_005 .
+
+ex:ip_054 ex:ipBelongsTo ex:workstation_004 .
+
+ex:workstation_005 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:05" ;
+    ex:hasIPAddress ex:ip_055 ;
+    ex:hasVulnerability ex:vuln_006 ;
+    ex:compromisedBy ex:actor_006 ;
+    ex:triggeredAlert ex:alert_006 .
+
+ex:ip_055 ex:ipBelongsTo ex:workstation_005 .
+
+ex:workstation_006 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:06" ;
+    ex:hasIPAddress ex:ip_056 ;
+    ex:hasVulnerability ex:vuln_007 ;
+    ex:compromisedBy ex:actor_007 ;
+    ex:triggeredAlert ex:alert_007 .
+
+ex:ip_056 ex:ipBelongsTo ex:workstation_006 .
+
+ex:workstation_007 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:07" ;
+    ex:hasIPAddress ex:ip_057 ;
+    ex:hasVulnerability ex:vuln_008 ;
+    ex:compromisedBy ex:actor_008 ;
+    ex:triggeredAlert ex:alert_008 .
+
+ex:ip_057 ex:ipBelongsTo ex:workstation_007 .
+
+ex:workstation_008 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:08" ;
+    ex:hasIPAddress ex:ip_058 ;
+    ex:hasVulnerability ex:vuln_009 ;
+    ex:compromisedBy ex:actor_009 ;
+    ex:triggeredAlert ex:alert_009 .
+
+ex:ip_058 ex:ipBelongsTo ex:workstation_008 .
+
+ex:workstation_009 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:09" ;
+    ex:hasIPAddress ex:ip_059 ;
+    ex:hasVulnerability ex:vuln_010 ;
+    ex:compromisedBy ex:actor_010 ;
+    ex:triggeredAlert ex:alert_010 .
+
+ex:ip_059 ex:ipBelongsTo ex:workstation_009 .
+
+ex:workstation_010 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:0A" ;
+    ex:hasIPAddress ex:ip_060 ;
+    ex:hasVulnerability ex:vuln_011 ;
+    ex:compromisedBy ex:actor_011 ;
+    ex:triggeredAlert ex:alert_011 .
+
+ex:ip_060 ex:ipBelongsTo ex:workstation_010 .
+
+ex:workstation_011 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:0B" ;
+    ex:hasIPAddress ex:ip_061 ;
+    ex:hasVulnerability ex:vuln_012 ;
+    ex:compromisedBy ex:actor_012 ;
+    ex:triggeredAlert ex:alert_012 .
+
+ex:ip_061 ex:ipBelongsTo ex:workstation_011 .
+
+ex:workstation_012 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:0C" ;
+    ex:hasIPAddress ex:ip_062 ;
+    ex:hasVulnerability ex:vuln_013 ;
+    ex:compromisedBy ex:actor_013 ;
+    ex:triggeredAlert ex:alert_013 .
+
+ex:ip_062 ex:ipBelongsTo ex:workstation_012 .
+
+ex:workstation_013 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:0D" ;
+    ex:hasIPAddress ex:ip_063 ;
+    ex:hasVulnerability ex:vuln_014 ;
+    ex:compromisedBy ex:actor_014 ;
+    ex:triggeredAlert ex:alert_014 .
+
+ex:ip_063 ex:ipBelongsTo ex:workstation_013 .
+
+ex:workstation_014 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:0E" ;
+    ex:hasIPAddress ex:ip_064 ;
+    ex:hasVulnerability ex:vuln_015 ;
+    ex:compromisedBy ex:actor_015 ;
+    ex:triggeredAlert ex:alert_015 .
+
+ex:ip_064 ex:ipBelongsTo ex:workstation_014 .
+
+ex:workstation_015 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:0F" ;
+    ex:hasIPAddress ex:ip_065 ;
+    ex:hasVulnerability ex:vuln_016 ;
+    ex:compromisedBy ex:actor_016 ;
+    ex:triggeredAlert ex:alert_016 .
+
+ex:ip_065 ex:ipBelongsTo ex:workstation_015 .
+
+ex:workstation_016 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:10" ;
+    ex:hasIPAddress ex:ip_066 ;
+    ex:hasVulnerability ex:vuln_017 ;
+    ex:compromisedBy ex:actor_017 ;
+    ex:triggeredAlert ex:alert_017 .
+
+ex:ip_066 ex:ipBelongsTo ex:workstation_016 .
+
+ex:workstation_017 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:11" ;
+    ex:hasIPAddress ex:ip_067 ;
+    ex:hasVulnerability ex:vuln_018 ;
+    ex:compromisedBy ex:actor_018 ;
+    ex:triggeredAlert ex:alert_018 .
+
+ex:ip_067 ex:ipBelongsTo ex:workstation_017 .
+
+ex:workstation_018 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:12" ;
+    ex:hasIPAddress ex:ip_068 ;
+    ex:hasVulnerability ex:vuln_019 ;
+    ex:compromisedBy ex:actor_019 ;
+    ex:triggeredAlert ex:alert_019 .
+
+ex:ip_068 ex:ipBelongsTo ex:workstation_018 .
+
+ex:workstation_019 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:13" ;
+    ex:hasIPAddress ex:ip_069 ;
+    ex:hasVulnerability ex:vuln_020 ;
+    ex:compromisedBy ex:actor_020 ;
+    ex:triggeredAlert ex:alert_020 .
+
+ex:ip_069 ex:ipBelongsTo ex:workstation_019 .
+
+ex:workstation_020 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:14" ;
+    ex:hasIPAddress ex:ip_070 ;
+    ex:hasVulnerability ex:vuln_021 ;
+    ex:compromisedBy ex:actor_001 ;
+    ex:triggeredAlert ex:alert_021 .
+
+ex:ip_070 ex:ipBelongsTo ex:workstation_020 .
+
+ex:workstation_021 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:15" ;
+    ex:hasIPAddress ex:ip_071 ;
+    ex:hasVulnerability ex:vuln_022 ;
+    ex:compromisedBy ex:actor_002 ;
+    ex:triggeredAlert ex:alert_022 .
+
+ex:ip_071 ex:ipBelongsTo ex:workstation_021 .
+
+ex:workstation_022 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:16" ;
+    ex:hasIPAddress ex:ip_072 ;
+    ex:hasVulnerability ex:vuln_023 ;
+    ex:compromisedBy ex:actor_003 ;
+    ex:triggeredAlert ex:alert_023 .
+
+ex:ip_072 ex:ipBelongsTo ex:workstation_022 .
+
+ex:workstation_023 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:17" ;
+    ex:hasIPAddress ex:ip_073 ;
+    ex:hasVulnerability ex:vuln_024 ;
+    ex:compromisedBy ex:actor_004 ;
+    ex:triggeredAlert ex:alert_024 .
+
+ex:ip_073 ex:ipBelongsTo ex:workstation_023 .
+
+ex:workstation_024 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:18" ;
+    ex:hasIPAddress ex:ip_074 ;
+    ex:hasVulnerability ex:vuln_025 ;
+    ex:compromisedBy ex:actor_005 ;
+    ex:triggeredAlert ex:alert_025 .
+
+ex:ip_074 ex:ipBelongsTo ex:workstation_024 .
+
+ex:workstation_025 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:19" ;
+    ex:hasIPAddress ex:ip_075 ;
+    ex:hasVulnerability ex:vuln_026 ;
+    ex:compromisedBy ex:actor_006 ;
+    ex:triggeredAlert ex:alert_026 .
+
+ex:ip_075 ex:ipBelongsTo ex:workstation_025 .
+
+ex:workstation_026 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:1A" ;
+    ex:hasIPAddress ex:ip_076 ;
+    ex:hasVulnerability ex:vuln_027 ;
+    ex:compromisedBy ex:actor_007 ;
+    ex:triggeredAlert ex:alert_027 .
+
+ex:ip_076 ex:ipBelongsTo ex:workstation_026 .
+
+ex:workstation_027 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:1B" ;
+    ex:hasIPAddress ex:ip_077 ;
+    ex:hasVulnerability ex:vuln_028 ;
+    ex:compromisedBy ex:actor_008 ;
+    ex:triggeredAlert ex:alert_028 .
+
+ex:ip_077 ex:ipBelongsTo ex:workstation_027 .
+
+ex:workstation_028 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:1C" ;
+    ex:hasIPAddress ex:ip_078 ;
+    ex:hasVulnerability ex:vuln_029 ;
+    ex:compromisedBy ex:actor_009 ;
+    ex:triggeredAlert ex:alert_029 .
+
+ex:ip_078 ex:ipBelongsTo ex:workstation_028 .
+
+ex:workstation_029 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:1D" ;
+    ex:hasIPAddress ex:ip_079 ;
+    ex:hasVulnerability ex:vuln_030 ;
+    ex:compromisedBy ex:actor_010 ;
+    ex:triggeredAlert ex:alert_030 .
+
+ex:ip_079 ex:ipBelongsTo ex:workstation_029 .
+
+ex:workstation_030 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:1E" ;
+    ex:hasIPAddress ex:ip_080 ;
+    ex:hasVulnerability ex:vuln_031 ;
+    ex:compromisedBy ex:actor_011 ;
+    ex:triggeredAlert ex:alert_031 .
+
+ex:ip_080 ex:ipBelongsTo ex:workstation_030 .
+
+ex:workstation_031 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:1F" ;
+    ex:hasIPAddress ex:ip_081 ;
+    ex:hasVulnerability ex:vuln_032 ;
+    ex:compromisedBy ex:actor_012 ;
+    ex:triggeredAlert ex:alert_032 .
+
+ex:ip_081 ex:ipBelongsTo ex:workstation_031 .
+
+ex:workstation_032 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:20" ;
+    ex:hasIPAddress ex:ip_082 ;
+    ex:hasVulnerability ex:vuln_033 ;
+    ex:compromisedBy ex:actor_013 ;
+    ex:triggeredAlert ex:alert_033 .
+
+ex:ip_082 ex:ipBelongsTo ex:workstation_032 .
+
+ex:workstation_033 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:21" ;
+    ex:hasIPAddress ex:ip_083 ;
+    ex:hasVulnerability ex:vuln_034 ;
+    ex:compromisedBy ex:actor_014 ;
+    ex:triggeredAlert ex:alert_034 .
+
+ex:ip_083 ex:ipBelongsTo ex:workstation_033 .
+
+ex:workstation_034 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:22" ;
+    ex:hasIPAddress ex:ip_084 ;
+    ex:hasVulnerability ex:vuln_035 ;
+    ex:compromisedBy ex:actor_015 ;
+    ex:triggeredAlert ex:alert_035 .
+
+ex:ip_084 ex:ipBelongsTo ex:workstation_034 .
+
+ex:workstation_035 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:23" ;
+    ex:hasIPAddress ex:ip_085 ;
+    ex:hasVulnerability ex:vuln_001 ;
+    ex:compromisedBy ex:actor_016 ;
+    ex:triggeredAlert ex:alert_036 .
+
+ex:ip_085 ex:ipBelongsTo ex:workstation_035 .
+
+ex:workstation_036 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:24" ;
+    ex:hasIPAddress ex:ip_086 ;
+    ex:hasVulnerability ex:vuln_002 ;
+    ex:compromisedBy ex:actor_017 ;
+    ex:triggeredAlert ex:alert_037 .
+
+ex:ip_086 ex:ipBelongsTo ex:workstation_036 .
+
+ex:workstation_037 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:25" ;
+    ex:hasIPAddress ex:ip_087 ;
+    ex:hasVulnerability ex:vuln_003 ;
+    ex:compromisedBy ex:actor_018 ;
+    ex:triggeredAlert ex:alert_038 .
+
+ex:ip_087 ex:ipBelongsTo ex:workstation_037 .
+
+ex:workstation_038 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:26" ;
+    ex:hasIPAddress ex:ip_088 ;
+    ex:hasVulnerability ex:vuln_004 ;
+    ex:compromisedBy ex:actor_019 ;
+    ex:triggeredAlert ex:alert_039 .
+
+ex:ip_088 ex:ipBelongsTo ex:workstation_038 .
+
+ex:workstation_039 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:27" ;
+    ex:hasIPAddress ex:ip_089 ;
+    ex:hasVulnerability ex:vuln_005 ;
+    ex:compromisedBy ex:actor_020 ;
+    ex:triggeredAlert ex:alert_040 .
+
+ex:ip_089 ex:ipBelongsTo ex:workstation_039 .
+
+ex:workstation_040 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:28" ;
+    ex:hasIPAddress ex:ip_090 ;
+    ex:hasVulnerability ex:vuln_006 ;
+    ex:compromisedBy ex:actor_001 ;
+    ex:triggeredAlert ex:alert_041 .
+
+ex:ip_090 ex:ipBelongsTo ex:workstation_040 .
+
+ex:workstation_041 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:29" ;
+    ex:hasIPAddress ex:ip_091 ;
+    ex:hasVulnerability ex:vuln_007 ;
+    ex:compromisedBy ex:actor_002 ;
+    ex:triggeredAlert ex:alert_042 .
+
+ex:ip_091 ex:ipBelongsTo ex:workstation_041 .
+
+ex:workstation_042 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:2A" ;
+    ex:hasIPAddress ex:ip_092 ;
+    ex:hasVulnerability ex:vuln_008 ;
+    ex:compromisedBy ex:actor_003 ;
+    ex:triggeredAlert ex:alert_043 .
+
+ex:ip_092 ex:ipBelongsTo ex:workstation_042 .
+
+ex:workstation_043 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:2B" ;
+    ex:hasIPAddress ex:ip_093 ;
+    ex:hasVulnerability ex:vuln_009 ;
+    ex:compromisedBy ex:actor_004 ;
+    ex:triggeredAlert ex:alert_044 .
+
+ex:ip_093 ex:ipBelongsTo ex:workstation_043 .
+
+ex:workstation_044 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:2C" ;
+    ex:hasIPAddress ex:ip_094 ;
+    ex:hasVulnerability ex:vuln_010 ;
+    ex:compromisedBy ex:actor_005 ;
+    ex:triggeredAlert ex:alert_045 .
+
+ex:ip_094 ex:ipBelongsTo ex:workstation_044 .
+
+ex:workstation_045 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:2D" ;
+    ex:hasIPAddress ex:ip_095 ;
+    ex:hasVulnerability ex:vuln_011 ;
+    ex:compromisedBy ex:actor_006 ;
+    ex:triggeredAlert ex:alert_046 .
+
+ex:ip_095 ex:ipBelongsTo ex:workstation_045 .
+
+ex:workstation_046 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:2E" ;
+    ex:hasIPAddress ex:ip_096 ;
+    ex:hasVulnerability ex:vuln_012 ;
+    ex:compromisedBy ex:actor_007 ;
+    ex:triggeredAlert ex:alert_047 .
+
+ex:ip_096 ex:ipBelongsTo ex:workstation_046 .
+
+ex:workstation_047 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:2F" ;
+    ex:hasIPAddress ex:ip_097 ;
+    ex:hasVulnerability ex:vuln_013 ;
+    ex:compromisedBy ex:actor_008 ;
+    ex:triggeredAlert ex:alert_048 .
+
+ex:ip_097 ex:ipBelongsTo ex:workstation_047 .
+
+ex:workstation_048 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:30" ;
+    ex:hasIPAddress ex:ip_098 ;
+    ex:hasVulnerability ex:vuln_014 ;
+    ex:compromisedBy ex:actor_009 ;
+    ex:triggeredAlert ex:alert_049 .
+
+ex:ip_098 ex:ipBelongsTo ex:workstation_048 .
+
+ex:workstation_049 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:31" ;
+    ex:hasIPAddress ex:ip_099 ;
+    ex:hasVulnerability ex:vuln_015 ;
+    ex:compromisedBy ex:actor_010 ;
+    ex:triggeredAlert ex:alert_050 .
+
+ex:ip_099 ex:ipBelongsTo ex:workstation_049 .
+
+ex:workstation_050 a ex:Workstation ;
+    ex:macAddress "00:1A:2B:3C:02:32" ;
+    ex:hasIPAddress ex:ip_100 ;
+    ex:hasVulnerability ex:vuln_016 ;
+    ex:compromisedBy ex:actor_011 ;
+    ex:triggeredAlert ex:alert_001 .
+
+ex:ip_100 ex:ipBelongsTo ex:workstation_050 .
+
+ex:server_001 ex:communicatedWith ex:server_002, ex:workstation_001 .
+ex:workstation_001 ex:communicatedWith ex:workstation_002 .
+
+ex:server_002 ex:communicatedWith ex:server_003, ex:workstation_002 .
+ex:workstation_002 ex:communicatedWith ex:workstation_003 .
+
+ex:server_003 ex:communicatedWith ex:server_004, ex:workstation_003 .
+ex:workstation_003 ex:communicatedWith ex:workstation_004 .
+
+ex:server_004 ex:communicatedWith ex:server_005, ex:workstation_004 .
+ex:workstation_004 ex:communicatedWith ex:workstation_005 .
+
+ex:server_005 ex:communicatedWith ex:server_006, ex:workstation_005 .
+ex:workstation_005 ex:communicatedWith ex:workstation_006 .
+
+ex:server_006 ex:communicatedWith ex:server_007, ex:workstation_006 .
+ex:workstation_006 ex:communicatedWith ex:workstation_007 .
+
+ex:server_007 ex:communicatedWith ex:server_008, ex:workstation_007 .
+ex:workstation_007 ex:communicatedWith ex:workstation_008 .
+
+ex:server_008 ex:communicatedWith ex:server_009, ex:workstation_008 .
+ex:workstation_008 ex:communicatedWith ex:workstation_009 .
+
+ex:server_009 ex:communicatedWith ex:server_010, ex:workstation_009 .
+ex:workstation_009 ex:communicatedWith ex:workstation_010 .
+
+ex:server_010 ex:communicatedWith ex:server_011, ex:workstation_010 .
+ex:workstation_010 ex:communicatedWith ex:workstation_011 .
+
+ex:server_011 ex:communicatedWith ex:server_012, ex:workstation_011 .
+ex:workstation_011 ex:communicatedWith ex:workstation_012 .
+
+ex:server_012 ex:communicatedWith ex:server_013, ex:workstation_012 .
+ex:workstation_012 ex:communicatedWith ex:workstation_013 .
+
+ex:server_013 ex:communicatedWith ex:server_014, ex:workstation_013 .
+ex:workstation_013 ex:communicatedWith ex:workstation_014 .
+
+ex:server_014 ex:communicatedWith ex:server_015, ex:workstation_014 .
+ex:workstation_014 ex:communicatedWith ex:workstation_015 .
+
+ex:server_015 ex:communicatedWith ex:server_016, ex:workstation_015 .
+ex:workstation_015 ex:communicatedWith ex:workstation_016 .
+
+ex:server_016 ex:communicatedWith ex:server_017, ex:workstation_016 .
+ex:workstation_016 ex:communicatedWith ex:workstation_017 .
+
+ex:server_017 ex:communicatedWith ex:server_018, ex:workstation_017 .
+ex:workstation_017 ex:communicatedWith ex:workstation_018 .
+
+ex:server_018 ex:communicatedWith ex:server_019, ex:workstation_018 .
+ex:workstation_018 ex:communicatedWith ex:workstation_019 .
+
+ex:server_019 ex:communicatedWith ex:server_020, ex:workstation_019 .
+ex:workstation_019 ex:communicatedWith ex:workstation_020 .
+
+ex:server_020 ex:communicatedWith ex:server_021, ex:workstation_020 .
+ex:workstation_020 ex:communicatedWith ex:workstation_021 .
+
+ex:server_021 ex:communicatedWith ex:server_022, ex:workstation_021 .
+ex:workstation_021 ex:communicatedWith ex:workstation_022 .
+
+ex:server_022 ex:communicatedWith ex:server_023, ex:workstation_022 .
+ex:workstation_022 ex:communicatedWith ex:workstation_023 .
+
+ex:server_023 ex:communicatedWith ex:server_024, ex:workstation_023 .
+ex:workstation_023 ex:communicatedWith ex:workstation_024 .
+
+ex:server_024 ex:communicatedWith ex:server_025, ex:workstation_024 .
+ex:workstation_024 ex:communicatedWith ex:workstation_025 .
+
+ex:server_025 ex:communicatedWith ex:server_026, ex:workstation_025 .
+ex:workstation_025 ex:communicatedWith ex:workstation_026 .
+
+ex:server_026 ex:communicatedWith ex:server_027, ex:workstation_026 .
+ex:workstation_026 ex:communicatedWith ex:workstation_027 .
+
+ex:server_027 ex:communicatedWith ex:server_028, ex:workstation_027 .
+ex:workstation_027 ex:communicatedWith ex:workstation_028 .
+
+ex:server_028 ex:communicatedWith ex:server_029, ex:workstation_028 .
+ex:workstation_028 ex:communicatedWith ex:workstation_029 .
+
+ex:server_029 ex:communicatedWith ex:server_030, ex:workstation_029 .
+ex:workstation_029 ex:communicatedWith ex:workstation_030 .
+
+ex:server_030 ex:communicatedWith ex:server_031, ex:workstation_030 .
+ex:workstation_030 ex:communicatedWith ex:workstation_031 .
+
+ex:server_031 ex:communicatedWith ex:server_032, ex:workstation_031 .
+ex:workstation_031 ex:communicatedWith ex:workstation_032 .
+
+ex:server_032 ex:communicatedWith ex:server_033, ex:workstation_032 .
+ex:workstation_032 ex:communicatedWith ex:workstation_033 .
+
+ex:server_033 ex:communicatedWith ex:server_034, ex:workstation_033 .
+ex:workstation_033 ex:communicatedWith ex:workstation_034 .
+
+ex:server_034 ex:communicatedWith ex:server_035, ex:workstation_034 .
+ex:workstation_034 ex:communicatedWith ex:workstation_035 .
+
+ex:server_035 ex:communicatedWith ex:server_036, ex:workstation_035 .
+ex:workstation_035 ex:communicatedWith ex:workstation_036 .
+
+ex:server_036 ex:communicatedWith ex:server_037, ex:workstation_036 .
+ex:workstation_036 ex:communicatedWith ex:workstation_037 .
+
+ex:server_037 ex:communicatedWith ex:server_038, ex:workstation_037 .
+ex:workstation_037 ex:communicatedWith ex:workstation_038 .
+
+ex:server_038 ex:communicatedWith ex:server_039, ex:workstation_038 .
+ex:workstation_038 ex:communicatedWith ex:workstation_039 .
+
+ex:server_039 ex:communicatedWith ex:server_040, ex:workstation_039 .
+ex:workstation_039 ex:communicatedWith ex:workstation_040 .
+
+ex:server_040 ex:communicatedWith ex:server_041, ex:workstation_040 .
+ex:workstation_040 ex:communicatedWith ex:workstation_041 .
+
+ex:server_041 ex:communicatedWith ex:server_042, ex:workstation_041 .
+ex:workstation_041 ex:communicatedWith ex:workstation_042 .
+
+ex:server_042 ex:communicatedWith ex:server_043, ex:workstation_042 .
+ex:workstation_042 ex:communicatedWith ex:workstation_043 .
+
+ex:server_043 ex:communicatedWith ex:server_044, ex:workstation_043 .
+ex:workstation_043 ex:communicatedWith ex:workstation_044 .
+
+ex:server_044 ex:communicatedWith ex:server_045, ex:workstation_044 .
+ex:workstation_044 ex:communicatedWith ex:workstation_045 .
+
+ex:server_045 ex:communicatedWith ex:server_046, ex:workstation_045 .
+ex:workstation_045 ex:communicatedWith ex:workstation_046 .
+
+ex:server_046 ex:communicatedWith ex:server_047, ex:workstation_046 .
+ex:workstation_046 ex:communicatedWith ex:workstation_047 .
+
+ex:server_047 ex:communicatedWith ex:server_048, ex:workstation_047 .
+ex:workstation_047 ex:communicatedWith ex:workstation_048 .
+
+ex:server_048 ex:communicatedWith ex:server_049, ex:workstation_048 .
+ex:workstation_048 ex:communicatedWith ex:workstation_049 .
+
+ex:server_049 ex:communicatedWith ex:server_050, ex:workstation_049 .
+ex:workstation_049 ex:communicatedWith ex:workstation_050 .
+
+ex:server_050 ex:communicatedWith ex:server_001, ex:workstation_050 .
+ex:workstation_050 ex:communicatedWith ex:workstation_001 .
+
+ex:proc_001 a ex:SystemProcess ;
+    ex:processId 1017 .
+
+ex:proc_002 a ex:SystemProcess ;
+    ex:processId 1034 .
+
+ex:proc_003 a ex:SystemProcess ;
+    ex:processId 1051 .
+
+ex:proc_004 a ex:SystemProcess ;
+    ex:processId 1068 .
+
+ex:proc_005 a ex:SystemProcess ;
+    ex:processId 1085 .
+
+ex:proc_006 a ex:SystemProcess ;
+    ex:processId 1102 .
+
+ex:proc_007 a ex:SystemProcess ;
+    ex:processId 1119 .
+
+ex:proc_008 a ex:SystemProcess ;
+    ex:processId 1136 .
+
+ex:proc_009 a ex:SystemProcess ;
+    ex:processId 1153 .
+
+ex:proc_010 a ex:SystemProcess ;
+    ex:processId 1170 .
+
+ex:proc_011 a ex:SystemProcess ;
+    ex:processId 1187 .
+
+ex:proc_012 a ex:SystemProcess ;
+    ex:processId 1204 .
+
+ex:proc_013 a ex:SystemProcess ;
+    ex:processId 1221 .
+
+ex:proc_014 a ex:SystemProcess ;
+    ex:processId 1238 .
+
+ex:proc_015 a ex:SystemProcess ;
+    ex:processId 1255 .
+
+ex:proc_016 a ex:SystemProcess ;
+    ex:processId 1272 .
+
+ex:proc_001 ex:parentProcessOf ex:proc_016 .
+ex:proc_016 ex:childProcessOf ex:proc_001 .
+
+ex:proc_017 a ex:SystemProcess ;
+    ex:processId 1289 .
+
+ex:proc_002 ex:parentProcessOf ex:proc_017 .
+ex:proc_017 ex:childProcessOf ex:proc_002 .
+
+ex:proc_018 a ex:SystemProcess ;
+    ex:processId 1306 .
+
+ex:proc_003 ex:parentProcessOf ex:proc_018 .
+ex:proc_018 ex:childProcessOf ex:proc_003 .
+
+ex:proc_019 a ex:SystemProcess ;
+    ex:processId 1323 .
+
+ex:proc_004 ex:parentProcessOf ex:proc_019 .
+ex:proc_019 ex:childProcessOf ex:proc_004 .
+
+ex:proc_020 a ex:SystemProcess ;
+    ex:processId 1340 .
+
+ex:proc_005 ex:parentProcessOf ex:proc_020 .
+ex:proc_020 ex:childProcessOf ex:proc_005 .
+
+ex:proc_021 a ex:SystemProcess ;
+    ex:processId 1357 .
+
+ex:proc_006 ex:parentProcessOf ex:proc_021 .
+ex:proc_021 ex:childProcessOf ex:proc_006 .
+
+ex:proc_022 a ex:SystemProcess ;
+    ex:processId 1374 .
+
+ex:proc_007 ex:parentProcessOf ex:proc_022 .
+ex:proc_022 ex:childProcessOf ex:proc_007 .
+
+ex:proc_023 a ex:SystemProcess ;
+    ex:processId 1391 .
+
+ex:proc_008 ex:parentProcessOf ex:proc_023 .
+ex:proc_023 ex:childProcessOf ex:proc_008 .
+
+ex:proc_024 a ex:SystemProcess ;
+    ex:processId 1408 .
+
+ex:proc_009 ex:parentProcessOf ex:proc_024 .
+ex:proc_024 ex:childProcessOf ex:proc_009 .
+
+ex:proc_025 a ex:SystemProcess ;
+    ex:processId 1425 .
+
+ex:proc_010 ex:parentProcessOf ex:proc_025 .
+ex:proc_025 ex:childProcessOf ex:proc_010 .
+
+ex:proc_026 a ex:SystemProcess ;
+    ex:processId 1442 .
+
+ex:proc_011 ex:parentProcessOf ex:proc_026 .
+ex:proc_026 ex:childProcessOf ex:proc_011 .
+
+ex:proc_027 a ex:SystemProcess ;
+    ex:processId 1459 .
+
+ex:proc_012 ex:parentProcessOf ex:proc_027 .
+ex:proc_027 ex:childProcessOf ex:proc_012 .
+
+ex:proc_028 a ex:SystemProcess ;
+    ex:processId 1476 .
+
+ex:proc_013 ex:parentProcessOf ex:proc_028 .
+ex:proc_028 ex:childProcessOf ex:proc_013 .
+
+ex:proc_029 a ex:SystemProcess ;
+    ex:processId 1493 .
+
+ex:proc_014 ex:parentProcessOf ex:proc_029 .
+ex:proc_029 ex:childProcessOf ex:proc_014 .
+
+ex:proc_030 a ex:SystemProcess ;
+    ex:processId 1510 .
+
+ex:proc_015 ex:parentProcessOf ex:proc_030 .
+ex:proc_030 ex:childProcessOf ex:proc_015 .
+
+ex:proc_031 a ex:SystemProcess ;
+    ex:processId 1527 .
+
+ex:proc_001 ex:parentProcessOf ex:proc_031 .
+ex:proc_031 ex:childProcessOf ex:proc_001 .
+
+ex:proc_032 a ex:SystemProcess ;
+    ex:processId 1544 .
+
+ex:proc_002 ex:parentProcessOf ex:proc_032 .
+ex:proc_032 ex:childProcessOf ex:proc_002 .
+
+ex:proc_033 a ex:SystemProcess ;
+    ex:processId 1561 .
+
+ex:proc_003 ex:parentProcessOf ex:proc_033 .
+ex:proc_033 ex:childProcessOf ex:proc_003 .
+
+ex:proc_034 a ex:SystemProcess ;
+    ex:processId 1578 .
+
+ex:proc_004 ex:parentProcessOf ex:proc_034 .
+ex:proc_034 ex:childProcessOf ex:proc_004 .
+
+ex:proc_035 a ex:SystemProcess ;
+    ex:processId 1595 .
+
+ex:proc_005 ex:parentProcessOf ex:proc_035 .
+ex:proc_035 ex:childProcessOf ex:proc_005 .
+
+ex:proc_036 a ex:SystemProcess ;
+    ex:processId 1612 .
+
+ex:proc_016 ex:parentProcessOf ex:proc_036 .
+ex:proc_036 ex:childProcessOf ex:proc_016 .
+
+ex:proc_037 a ex:SystemProcess ;
+    ex:processId 1629 .
+
+ex:proc_017 ex:parentProcessOf ex:proc_037 .
+ex:proc_037 ex:childProcessOf ex:proc_017 .
+
+ex:proc_038 a ex:SystemProcess ;
+    ex:processId 1646 .
+
+ex:proc_018 ex:parentProcessOf ex:proc_038 .
+ex:proc_038 ex:childProcessOf ex:proc_018 .
+
+ex:proc_039 a ex:SystemProcess ;
+    ex:processId 1663 .
+
+ex:proc_019 ex:parentProcessOf ex:proc_039 .
+ex:proc_039 ex:childProcessOf ex:proc_019 .
+
+ex:proc_040 a ex:SystemProcess ;
+    ex:processId 1680 .
+
+ex:proc_020 ex:parentProcessOf ex:proc_040 .
+ex:proc_040 ex:childProcessOf ex:proc_020 .
+
+ex:proc_041 a ex:SystemProcess ;
+    ex:processId 1697 .
+
+ex:proc_021 ex:parentProcessOf ex:proc_041 .
+ex:proc_041 ex:childProcessOf ex:proc_021 .
+
+ex:proc_042 a ex:SystemProcess ;
+    ex:processId 1714 .
+
+ex:proc_022 ex:parentProcessOf ex:proc_042 .
+ex:proc_042 ex:childProcessOf ex:proc_022 .
+
+ex:proc_043 a ex:SystemProcess ;
+    ex:processId 1731 .
+
+ex:proc_023 ex:parentProcessOf ex:proc_043 .
+ex:proc_043 ex:childProcessOf ex:proc_023 .
+
+ex:proc_044 a ex:SystemProcess ;
+    ex:processId 1748 .
+
+ex:proc_024 ex:parentProcessOf ex:proc_044 .
+ex:proc_044 ex:childProcessOf ex:proc_024 .
+
+ex:proc_045 a ex:SystemProcess ;
+    ex:processId 1765 .
+
+ex:proc_025 ex:parentProcessOf ex:proc_045 .
+ex:proc_045 ex:childProcessOf ex:proc_025 .
+
+ex:proc_046 a ex:SystemProcess ;
+    ex:processId 1782 .
+
+ex:proc_026 ex:parentProcessOf ex:proc_046 .
+ex:proc_046 ex:childProcessOf ex:proc_026 .
+
+ex:proc_047 a ex:SystemProcess ;
+    ex:processId 1799 .
+
+ex:proc_027 ex:parentProcessOf ex:proc_047 .
+ex:proc_047 ex:childProcessOf ex:proc_027 .
+
+ex:proc_048 a ex:SystemProcess ;
+    ex:processId 1816 .
+
+ex:proc_028 ex:parentProcessOf ex:proc_048 .
+ex:proc_048 ex:childProcessOf ex:proc_028 .
+
+ex:proc_049 a ex:SystemProcess ;
+    ex:processId 1833 .
+
+ex:proc_029 ex:parentProcessOf ex:proc_049 .
+ex:proc_049 ex:childProcessOf ex:proc_029 .
+
+ex:proc_050 a ex:SystemProcess ;
+    ex:processId 1850 .
+
+ex:proc_030 ex:parentProcessOf ex:proc_050 .
+ex:proc_050 ex:childProcessOf ex:proc_030 .
+
+ex:proc_051 a ex:SystemProcess ;
+    ex:processId 1867 .
+
+ex:proc_031 ex:parentProcessOf ex:proc_051 .
+ex:proc_051 ex:childProcessOf ex:proc_031 .
+
+ex:proc_052 a ex:SystemProcess ;
+    ex:processId 1884 .
+
+ex:proc_032 ex:parentProcessOf ex:proc_052 .
+ex:proc_052 ex:childProcessOf ex:proc_032 .
+
+ex:proc_053 a ex:SystemProcess ;
+    ex:processId 1901 .
+
+ex:proc_033 ex:parentProcessOf ex:proc_053 .
+ex:proc_053 ex:childProcessOf ex:proc_033 .
+
+ex:proc_054 a ex:SystemProcess ;
+    ex:processId 1918 .
+
+ex:proc_034 ex:parentProcessOf ex:proc_054 .
+ex:proc_054 ex:childProcessOf ex:proc_034 .
+
+ex:proc_055 a ex:SystemProcess ;
+    ex:processId 1935 .
+
+ex:proc_035 ex:parentProcessOf ex:proc_055 .
+ex:proc_055 ex:childProcessOf ex:proc_035 .
+
+ex:proc_056 a ex:SystemProcess ;
+    ex:processId 1952 .
+
+ex:proc_016 ex:parentProcessOf ex:proc_056 .
+ex:proc_056 ex:childProcessOf ex:proc_016 .
+
+ex:proc_057 a ex:SystemProcess ;
+    ex:processId 1969 .
+
+ex:proc_017 ex:parentProcessOf ex:proc_057 .
+ex:proc_057 ex:childProcessOf ex:proc_017 .
+
+ex:proc_058 a ex:SystemProcess ;
+    ex:processId 1986 .
+
+ex:proc_018 ex:parentProcessOf ex:proc_058 .
+ex:proc_058 ex:childProcessOf ex:proc_018 .
+
+ex:proc_059 a ex:SystemProcess ;
+    ex:processId 2003 .
+
+ex:proc_019 ex:parentProcessOf ex:proc_059 .
+ex:proc_059 ex:childProcessOf ex:proc_019 .
+
+ex:proc_060 a ex:SystemProcess ;
+    ex:processId 2020 .
+
+ex:proc_020 ex:parentProcessOf ex:proc_060 .
+ex:proc_060 ex:childProcessOf ex:proc_020 .
+
+ex:user_001 a ex:UserAccount ;
+    ex:username "sec_operator_001" ;
+    ex:loggedInFrom ex:server_001, ex:workstation_002 .
+
+ex:user_002 a ex:UserAccount ;
+    ex:username "sec_operator_002" ;
+    ex:loggedInFrom ex:server_002, ex:workstation_003 .
+
+ex:user_003 a ex:UserAccount ;
+    ex:username "sec_operator_003" ;
+    ex:loggedInFrom ex:server_003, ex:workstation_004 .
+
+ex:user_004 a ex:UserAccount ;
+    ex:username "sec_operator_004" ;
+    ex:loggedInFrom ex:server_004, ex:workstation_005 .
+
+ex:user_005 a ex:UserAccount ;
+    ex:username "sec_operator_005" ;
+    ex:loggedInFrom ex:server_005, ex:workstation_006 .
+
+ex:user_006 a ex:UserAccount ;
+    ex:username "sec_operator_006" ;
+    ex:loggedInFrom ex:server_006, ex:workstation_007 .
+
+ex:user_007 a ex:UserAccount ;
+    ex:username "sec_operator_007" ;
+    ex:loggedInFrom ex:server_007, ex:workstation_008 .
+
+ex:user_008 a ex:UserAccount ;
+    ex:username "sec_operator_008" ;
+    ex:loggedInFrom ex:server_008, ex:workstation_009 .
+
+ex:user_009 a ex:UserAccount ;
+    ex:username "sec_operator_009" ;
+    ex:loggedInFrom ex:server_009, ex:workstation_010 .
+
+ex:user_010 a ex:UserAccount ;
+    ex:username "sec_operator_010" ;
+    ex:loggedInFrom ex:server_010, ex:workstation_011 .
+
+ex:user_011 a ex:UserAccount ;
+    ex:username "sec_operator_011" ;
+    ex:loggedInFrom ex:server_011, ex:workstation_012 .
+
+ex:user_012 a ex:UserAccount ;
+    ex:username "sec_operator_012" ;
+    ex:loggedInFrom ex:server_012, ex:workstation_013 .
+
+ex:user_013 a ex:UserAccount ;
+    ex:username "sec_operator_013" ;
+    ex:loggedInFrom ex:server_013, ex:workstation_014 .
+
+ex:user_014 a ex:UserAccount ;
+    ex:username "sec_operator_014" ;
+    ex:loggedInFrom ex:server_014, ex:workstation_015 .
+
+ex:user_015 a ex:UserAccount ;
+    ex:username "sec_operator_015" ;
+    ex:loggedInFrom ex:server_015, ex:workstation_016 .
+
+ex:user_016 a ex:UserAccount ;
+    ex:username "sec_operator_016" ;
+    ex:loggedInFrom ex:server_016, ex:workstation_017 .
+
+ex:user_017 a ex:UserAccount ;
+    ex:username "sec_operator_017" ;
+    ex:loggedInFrom ex:server_017, ex:workstation_018 .
+
+ex:user_018 a ex:UserAccount ;
+    ex:username "sec_operator_018" ;
+    ex:loggedInFrom ex:server_018, ex:workstation_019 .
+
+ex:user_019 a ex:UserAccount ;
+    ex:username "sec_operator_019" ;
+    ex:loggedInFrom ex:server_019, ex:workstation_020 .
+
+ex:user_020 a ex:UserAccount ;
+    ex:username "sec_operator_020" ;
+    ex:loggedInFrom ex:server_020, ex:workstation_021 .
+
+ex:user_021 a ex:UserAccount ;
+    ex:username "sec_operator_021" ;
+    ex:loggedInFrom ex:server_021, ex:workstation_022 .
+
+ex:user_022 a ex:UserAccount ;
+    ex:username "sec_operator_022" ;
+    ex:loggedInFrom ex:server_022, ex:workstation_023 .
+
+ex:user_023 a ex:UserAccount ;
+    ex:username "sec_operator_023" ;
+    ex:loggedInFrom ex:server_023, ex:workstation_024 .
+
+ex:user_024 a ex:UserAccount ;
+    ex:username "sec_operator_024" ;
+    ex:loggedInFrom ex:server_024, ex:workstation_025 .
+
+ex:user_025 a ex:UserAccount ;
+    ex:username "sec_operator_025" ;
+    ex:loggedInFrom ex:server_025, ex:workstation_026 .
+
+ex:user_026 a ex:UserAccount ;
+    ex:username "sec_operator_026" ;
+    ex:loggedInFrom ex:server_026, ex:workstation_027 .
+
+ex:user_027 a ex:UserAccount ;
+    ex:username "sec_operator_027" ;
+    ex:loggedInFrom ex:server_027, ex:workstation_028 .
+
+ex:user_028 a ex:UserAccount ;
+    ex:username "sec_operator_028" ;
+    ex:loggedInFrom ex:server_028, ex:workstation_029 .
+
+ex:user_029 a ex:UserAccount ;
+    ex:username "sec_operator_029" ;
+    ex:loggedInFrom ex:server_029, ex:workstation_030 .
+
+ex:user_030 a ex:UserAccount ;
+    ex:username "sec_operator_030" ;
+    ex:loggedInFrom ex:server_030, ex:workstation_031 .
+
+ex:user_031 a ex:UserAccount ;
+    ex:username "sec_operator_031" ;
+    ex:loggedInFrom ex:server_031, ex:workstation_032 .
+
+ex:user_032 a ex:UserAccount ;
+    ex:username "sec_operator_032" ;
+    ex:loggedInFrom ex:server_032, ex:workstation_033 .
+
+ex:user_033 a ex:UserAccount ;
+    ex:username "sec_operator_033" ;
+    ex:loggedInFrom ex:server_033, ex:workstation_034 .
+
+ex:user_034 a ex:UserAccount ;
+    ex:username "sec_operator_034" ;
+    ex:loggedInFrom ex:server_034, ex:workstation_035 .
+
+ex:user_035 a ex:UserAccount ;
+    ex:username "sec_operator_035" ;
+    ex:loggedInFrom ex:server_035, ex:workstation_036 .
+
+ex:user_036 a ex:UserAccount ;
+    ex:username "sec_operator_036" ;
+    ex:loggedInFrom ex:server_036, ex:workstation_037 .
+
+ex:user_037 a ex:UserAccount ;
+    ex:username "sec_operator_037" ;
+    ex:loggedInFrom ex:server_037, ex:workstation_038 .
+
+ex:user_038 a ex:UserAccount ;
+    ex:username "sec_operator_038" ;
+    ex:loggedInFrom ex:server_038, ex:workstation_039 .
+
+ex:user_039 a ex:UserAccount ;
+    ex:username "sec_operator_039" ;
+    ex:loggedInFrom ex:server_039, ex:workstation_040 .
+
+ex:user_040 a ex:UserAccount ;
+    ex:username "sec_operator_040" ;
+    ex:loggedInFrom ex:server_040, ex:workstation_041 .
+
+ex:user_041 a ex:UserAccount ;
+    ex:username "sec_operator_041" ;
+    ex:loggedInFrom ex:server_041, ex:workstation_042 .
+
+ex:user_042 a ex:UserAccount ;
+    ex:username "sec_operator_042" ;
+    ex:loggedInFrom ex:server_042, ex:workstation_043 .
+
+ex:user_043 a ex:UserAccount ;
+    ex:username "sec_operator_043" ;
+    ex:loggedInFrom ex:server_043, ex:workstation_044 .
+
+ex:user_044 a ex:UserAccount ;
+    ex:username "sec_operator_044" ;
+    ex:loggedInFrom ex:server_044, ex:workstation_045 .
+
+ex:user_045 a ex:UserAccount ;
+    ex:username "sec_operator_045" ;
+    ex:loggedInFrom ex:server_045, ex:workstation_046 .
+
+ex:user_046 a ex:UserAccount ;
+    ex:username "sec_operator_046" ;
+    ex:loggedInFrom ex:server_046, ex:workstation_047 .
+
+ex:user_047 a ex:UserAccount ;
+    ex:username "sec_operator_047" ;
+    ex:loggedInFrom ex:server_047, ex:workstation_048 .
+
+ex:user_048 a ex:UserAccount ;
+    ex:username "sec_operator_048" ;
+    ex:loggedInFrom ex:server_048, ex:workstation_049 .
+
+ex:user_049 a ex:UserAccount ;
+    ex:username "sec_operator_049" ;
+    ex:loggedInFrom ex:server_049, ex:workstation_050 .
+
+ex:user_050 a ex:UserAccount ;
+    ex:username "sec_operator_050" ;
+    ex:loggedInFrom ex:server_050, ex:workstation_001 .

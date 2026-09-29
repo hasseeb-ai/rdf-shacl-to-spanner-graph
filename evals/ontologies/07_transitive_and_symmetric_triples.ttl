@@ -1,0 +1,1161 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/transitive_symmetric/> .
+
+# ABox Instance Triples for 07_transitive_symmetric
+
+ex:dept_001 a ex:Department ;
+    ex:departmentName "Research Department #001" ;
+    ex:budgetCode "BDG-ROOT-001" .
+
+ex:dept_002 a ex:Department ;
+    ex:departmentName "Research Department #002" ;
+    ex:budgetCode "BDG-ROOT-002" .
+
+ex:dept_003 a ex:Department ;
+    ex:departmentName "Research Department #003" ;
+    ex:budgetCode "BDG-ROOT-003" .
+
+ex:dept_004 a ex:Department ;
+    ex:departmentName "Research Department #004" ;
+    ex:budgetCode "BDG-ROOT-004" .
+
+ex:dept_005 a ex:Department ;
+    ex:departmentName "Research Department #005" ;
+    ex:budgetCode "BDG-ROOT-005" .
+
+ex:dept_006 a ex:Department ;
+    ex:departmentName "Research Department #006" ;
+    ex:budgetCode "BDG-ROOT-006" .
+
+ex:dept_007 a ex:Department ;
+    ex:departmentName "Research Department #007" ;
+    ex:budgetCode "BDG-ROOT-007" .
+
+ex:dept_008 a ex:Department ;
+    ex:departmentName "Research Department #008" ;
+    ex:budgetCode "BDG-ROOT-008" .
+
+ex:dept_009 a ex:Department ;
+    ex:departmentName "Research Department #009" ;
+    ex:budgetCode "BDG-ROOT-009" .
+
+ex:dept_010 a ex:Department ;
+    ex:departmentName "Research Department #010" ;
+    ex:budgetCode "BDG-ROOT-010" .
+
+ex:dept_011 a ex:Department ;
+    ex:departmentName "Research Department #011" ;
+    ex:budgetCode "BDG-ROOT-011" .
+
+ex:dept_012 a ex:Department ;
+    ex:departmentName "Research Department #012" ;
+    ex:budgetCode "BDG-ROOT-012" .
+
+ex:dept_013 a ex:Department ;
+    ex:departmentName "Research Department #013" ;
+    ex:budgetCode "BDG-ROOT-013" .
+
+ex:dept_014 a ex:Department ;
+    ex:departmentName "Research Department #014" ;
+    ex:budgetCode "BDG-ROOT-014" .
+
+ex:dept_015 a ex:Department ;
+    ex:departmentName "Research Department #015" ;
+    ex:budgetCode "BDG-ROOT-015" .
+
+ex:dept_016 a ex:Department ;
+    ex:departmentName "Research Department #016" ;
+    ex:budgetCode "BDG-L2-016" ;
+    ex:subDepartmentOf ex:dept_001 .
+
+ex:dept_017 a ex:Department ;
+    ex:departmentName "Research Department #017" ;
+    ex:budgetCode "BDG-L2-017" ;
+    ex:subDepartmentOf ex:dept_002 .
+
+ex:dept_018 a ex:Department ;
+    ex:departmentName "Research Department #018" ;
+    ex:budgetCode "BDG-L2-018" ;
+    ex:subDepartmentOf ex:dept_003 .
+
+ex:dept_019 a ex:Department ;
+    ex:departmentName "Research Department #019" ;
+    ex:budgetCode "BDG-L2-019" ;
+    ex:subDepartmentOf ex:dept_004 .
+
+ex:dept_020 a ex:Department ;
+    ex:departmentName "Research Department #020" ;
+    ex:budgetCode "BDG-L2-020" ;
+    ex:subDepartmentOf ex:dept_005 .
+
+ex:dept_021 a ex:Department ;
+    ex:departmentName "Research Department #021" ;
+    ex:budgetCode "BDG-L2-021" ;
+    ex:subDepartmentOf ex:dept_006 .
+
+ex:dept_022 a ex:Department ;
+    ex:departmentName "Research Department #022" ;
+    ex:budgetCode "BDG-L2-022" ;
+    ex:subDepartmentOf ex:dept_007 .
+
+ex:dept_023 a ex:Department ;
+    ex:departmentName "Research Department #023" ;
+    ex:budgetCode "BDG-L2-023" ;
+    ex:subDepartmentOf ex:dept_008 .
+
+ex:dept_024 a ex:Department ;
+    ex:departmentName "Research Department #024" ;
+    ex:budgetCode "BDG-L2-024" ;
+    ex:subDepartmentOf ex:dept_009 .
+
+ex:dept_025 a ex:Department ;
+    ex:departmentName "Research Department #025" ;
+    ex:budgetCode "BDG-L2-025" ;
+    ex:subDepartmentOf ex:dept_010 .
+
+ex:dept_026 a ex:Department ;
+    ex:departmentName "Research Department #026" ;
+    ex:budgetCode "BDG-L2-026" ;
+    ex:subDepartmentOf ex:dept_011 .
+
+ex:dept_027 a ex:Department ;
+    ex:departmentName "Research Department #027" ;
+    ex:budgetCode "BDG-L2-027" ;
+    ex:subDepartmentOf ex:dept_012 .
+
+ex:dept_028 a ex:Department ;
+    ex:departmentName "Research Department #028" ;
+    ex:budgetCode "BDG-L2-028" ;
+    ex:subDepartmentOf ex:dept_013 .
+
+ex:dept_029 a ex:Department ;
+    ex:departmentName "Research Department #029" ;
+    ex:budgetCode "BDG-L2-029" ;
+    ex:subDepartmentOf ex:dept_014 .
+
+ex:dept_030 a ex:Department ;
+    ex:departmentName "Research Department #030" ;
+    ex:budgetCode "BDG-L2-030" ;
+    ex:subDepartmentOf ex:dept_015 .
+
+ex:dept_031 a ex:Department ;
+    ex:departmentName "Research Department #031" ;
+    ex:budgetCode "BDG-L3-031" ;
+    ex:subDepartmentOf ex:dept_016 .
+
+ex:dept_032 a ex:Department ;
+    ex:departmentName "Research Department #032" ;
+    ex:budgetCode "BDG-L3-032" ;
+    ex:subDepartmentOf ex:dept_017 .
+
+ex:dept_033 a ex:Department ;
+    ex:departmentName "Research Department #033" ;
+    ex:budgetCode "BDG-L3-033" ;
+    ex:subDepartmentOf ex:dept_018 .
+
+ex:dept_034 a ex:Department ;
+    ex:departmentName "Research Department #034" ;
+    ex:budgetCode "BDG-L3-034" ;
+    ex:subDepartmentOf ex:dept_019 .
+
+ex:dept_035 a ex:Department ;
+    ex:departmentName "Research Department #035" ;
+    ex:budgetCode "BDG-L3-035" ;
+    ex:subDepartmentOf ex:dept_020 .
+
+ex:dept_036 a ex:Department ;
+    ex:departmentName "Research Department #036" ;
+    ex:budgetCode "BDG-L3-036" ;
+    ex:subDepartmentOf ex:dept_021 .
+
+ex:dept_037 a ex:Department ;
+    ex:departmentName "Research Department #037" ;
+    ex:budgetCode "BDG-L3-037" ;
+    ex:subDepartmentOf ex:dept_022 .
+
+ex:dept_038 a ex:Department ;
+    ex:departmentName "Research Department #038" ;
+    ex:budgetCode "BDG-L3-038" ;
+    ex:subDepartmentOf ex:dept_023 .
+
+ex:dept_039 a ex:Department ;
+    ex:departmentName "Research Department #039" ;
+    ex:budgetCode "BDG-L3-039" ;
+    ex:subDepartmentOf ex:dept_024 .
+
+ex:dept_040 a ex:Department ;
+    ex:departmentName "Research Department #040" ;
+    ex:budgetCode "BDG-L3-040" ;
+    ex:subDepartmentOf ex:dept_025 .
+
+ex:dept_041 a ex:Department ;
+    ex:departmentName "Research Department #041" ;
+    ex:budgetCode "BDG-L3-041" ;
+    ex:subDepartmentOf ex:dept_026 .
+
+ex:dept_042 a ex:Department ;
+    ex:departmentName "Research Department #042" ;
+    ex:budgetCode "BDG-L3-042" ;
+    ex:subDepartmentOf ex:dept_027 .
+
+ex:dept_043 a ex:Department ;
+    ex:departmentName "Research Department #043" ;
+    ex:budgetCode "BDG-L3-043" ;
+    ex:subDepartmentOf ex:dept_028 .
+
+ex:dept_044 a ex:Department ;
+    ex:departmentName "Research Department #044" ;
+    ex:budgetCode "BDG-L3-044" ;
+    ex:subDepartmentOf ex:dept_029 .
+
+ex:dept_045 a ex:Department ;
+    ex:departmentName "Research Department #045" ;
+    ex:budgetCode "BDG-L3-045" ;
+    ex:subDepartmentOf ex:dept_030 .
+
+ex:div_001 a ex:Division ;
+    ex:departmentName "Specialized Division #001" ;
+    ex:budgetCode "BDG-DIV-001" ;
+    ex:subDepartmentOf ex:dept_001 .
+
+ex:div_002 a ex:Division ;
+    ex:departmentName "Specialized Division #002" ;
+    ex:budgetCode "BDG-DIV-002" ;
+    ex:subDepartmentOf ex:dept_002 .
+
+ex:div_003 a ex:Division ;
+    ex:departmentName "Specialized Division #003" ;
+    ex:budgetCode "BDG-DIV-003" ;
+    ex:subDepartmentOf ex:dept_003 .
+
+ex:div_004 a ex:Division ;
+    ex:departmentName "Specialized Division #004" ;
+    ex:budgetCode "BDG-DIV-004" ;
+    ex:subDepartmentOf ex:dept_004 .
+
+ex:div_005 a ex:Division ;
+    ex:departmentName "Specialized Division #005" ;
+    ex:budgetCode "BDG-DIV-005" ;
+    ex:subDepartmentOf ex:dept_005 .
+
+ex:div_006 a ex:Division ;
+    ex:departmentName "Specialized Division #006" ;
+    ex:budgetCode "BDG-DIV-006" ;
+    ex:subDepartmentOf ex:dept_006 .
+
+ex:div_007 a ex:Division ;
+    ex:departmentName "Specialized Division #007" ;
+    ex:budgetCode "BDG-DIV-007" ;
+    ex:subDepartmentOf ex:dept_007 .
+
+ex:div_008 a ex:Division ;
+    ex:departmentName "Specialized Division #008" ;
+    ex:budgetCode "BDG-DIV-008" ;
+    ex:subDepartmentOf ex:dept_008 .
+
+ex:div_009 a ex:Division ;
+    ex:departmentName "Specialized Division #009" ;
+    ex:budgetCode "BDG-DIV-009" ;
+    ex:subDepartmentOf ex:dept_009 .
+
+ex:div_010 a ex:Division ;
+    ex:departmentName "Specialized Division #010" ;
+    ex:budgetCode "BDG-DIV-010" ;
+    ex:subDepartmentOf ex:dept_010 .
+
+ex:div_011 a ex:Division ;
+    ex:departmentName "Specialized Division #011" ;
+    ex:budgetCode "BDG-DIV-011" ;
+    ex:subDepartmentOf ex:dept_011 .
+
+ex:div_012 a ex:Division ;
+    ex:departmentName "Specialized Division #012" ;
+    ex:budgetCode "BDG-DIV-012" ;
+    ex:subDepartmentOf ex:dept_012 .
+
+ex:div_013 a ex:Division ;
+    ex:departmentName "Specialized Division #013" ;
+    ex:budgetCode "BDG-DIV-013" ;
+    ex:subDepartmentOf ex:dept_013 .
+
+ex:div_014 a ex:Division ;
+    ex:departmentName "Specialized Division #014" ;
+    ex:budgetCode "BDG-DIV-014" ;
+    ex:subDepartmentOf ex:dept_014 .
+
+ex:div_015 a ex:Division ;
+    ex:departmentName "Specialized Division #015" ;
+    ex:budgetCode "BDG-DIV-015" ;
+    ex:subDepartmentOf ex:dept_015 .
+
+ex:div_016 a ex:Division ;
+    ex:departmentName "Specialized Division #016" ;
+    ex:budgetCode "BDG-DIV-016" ;
+    ex:subDepartmentOf ex:dept_016 .
+
+ex:div_017 a ex:Division ;
+    ex:departmentName "Specialized Division #017" ;
+    ex:budgetCode "BDG-DIV-017" ;
+    ex:subDepartmentOf ex:dept_017 .
+
+ex:div_018 a ex:Division ;
+    ex:departmentName "Specialized Division #018" ;
+    ex:budgetCode "BDG-DIV-018" ;
+    ex:subDepartmentOf ex:dept_018 .
+
+ex:div_019 a ex:Division ;
+    ex:departmentName "Specialized Division #019" ;
+    ex:budgetCode "BDG-DIV-019" ;
+    ex:subDepartmentOf ex:dept_019 .
+
+ex:div_020 a ex:Division ;
+    ex:departmentName "Specialized Division #020" ;
+    ex:budgetCode "BDG-DIV-020" ;
+    ex:subDepartmentOf ex:dept_020 .
+
+ex:div_021 a ex:Division ;
+    ex:departmentName "Specialized Division #021" ;
+    ex:budgetCode "BDG-DIV-021" ;
+    ex:subDepartmentOf ex:dept_021 .
+
+ex:div_022 a ex:Division ;
+    ex:departmentName "Specialized Division #022" ;
+    ex:budgetCode "BDG-DIV-022" ;
+    ex:subDepartmentOf ex:dept_022 .
+
+ex:div_023 a ex:Division ;
+    ex:departmentName "Specialized Division #023" ;
+    ex:budgetCode "BDG-DIV-023" ;
+    ex:subDepartmentOf ex:dept_023 .
+
+ex:div_024 a ex:Division ;
+    ex:departmentName "Specialized Division #024" ;
+    ex:budgetCode "BDG-DIV-024" ;
+    ex:subDepartmentOf ex:dept_024 .
+
+ex:div_025 a ex:Division ;
+    ex:departmentName "Specialized Division #025" ;
+    ex:budgetCode "BDG-DIV-025" ;
+    ex:subDepartmentOf ex:dept_025 .
+
+ex:div_026 a ex:Division ;
+    ex:departmentName "Specialized Division #026" ;
+    ex:budgetCode "BDG-DIV-026" ;
+    ex:subDepartmentOf ex:dept_026 .
+
+ex:div_027 a ex:Division ;
+    ex:departmentName "Specialized Division #027" ;
+    ex:budgetCode "BDG-DIV-027" ;
+    ex:subDepartmentOf ex:dept_027 .
+
+ex:div_028 a ex:Division ;
+    ex:departmentName "Specialized Division #028" ;
+    ex:budgetCode "BDG-DIV-028" ;
+    ex:subDepartmentOf ex:dept_028 .
+
+ex:div_029 a ex:Division ;
+    ex:departmentName "Specialized Division #029" ;
+    ex:budgetCode "BDG-DIV-029" ;
+    ex:subDepartmentOf ex:dept_029 .
+
+ex:div_030 a ex:Division ;
+    ex:departmentName "Specialized Division #030" ;
+    ex:budgetCode "BDG-DIV-030" ;
+    ex:subDepartmentOf ex:dept_030 .
+
+ex:div_031 a ex:Division ;
+    ex:departmentName "Specialized Division #031" ;
+    ex:budgetCode "BDG-DIV-031" ;
+    ex:subDepartmentOf ex:dept_031 .
+
+ex:div_032 a ex:Division ;
+    ex:departmentName "Specialized Division #032" ;
+    ex:budgetCode "BDG-DIV-032" ;
+    ex:subDepartmentOf ex:dept_032 .
+
+ex:div_033 a ex:Division ;
+    ex:departmentName "Specialized Division #033" ;
+    ex:budgetCode "BDG-DIV-033" ;
+    ex:subDepartmentOf ex:dept_033 .
+
+ex:div_034 a ex:Division ;
+    ex:departmentName "Specialized Division #034" ;
+    ex:budgetCode "BDG-DIV-034" ;
+    ex:subDepartmentOf ex:dept_034 .
+
+ex:div_035 a ex:Division ;
+    ex:departmentName "Specialized Division #035" ;
+    ex:budgetCode "BDG-DIV-035" ;
+    ex:subDepartmentOf ex:dept_035 .
+
+ex:div_036 a ex:Division ;
+    ex:departmentName "Specialized Division #036" ;
+    ex:budgetCode "BDG-DIV-036" ;
+    ex:subDepartmentOf ex:dept_036 .
+
+ex:div_037 a ex:Division ;
+    ex:departmentName "Specialized Division #037" ;
+    ex:budgetCode "BDG-DIV-037" ;
+    ex:subDepartmentOf ex:dept_037 .
+
+ex:div_038 a ex:Division ;
+    ex:departmentName "Specialized Division #038" ;
+    ex:budgetCode "BDG-DIV-038" ;
+    ex:subDepartmentOf ex:dept_038 .
+
+ex:div_039 a ex:Division ;
+    ex:departmentName "Specialized Division #039" ;
+    ex:budgetCode "BDG-DIV-039" ;
+    ex:subDepartmentOf ex:dept_039 .
+
+ex:div_040 a ex:Division ;
+    ex:departmentName "Specialized Division #040" ;
+    ex:budgetCode "BDG-DIV-040" ;
+    ex:subDepartmentOf ex:dept_040 .
+
+ex:div_041 a ex:Division ;
+    ex:departmentName "Specialized Division #041" ;
+    ex:budgetCode "BDG-DIV-041" ;
+    ex:subDepartmentOf ex:dept_041 .
+
+ex:div_042 a ex:Division ;
+    ex:departmentName "Specialized Division #042" ;
+    ex:budgetCode "BDG-DIV-042" ;
+    ex:subDepartmentOf ex:dept_042 .
+
+ex:div_043 a ex:Division ;
+    ex:departmentName "Specialized Division #043" ;
+    ex:budgetCode "BDG-DIV-043" ;
+    ex:subDepartmentOf ex:dept_043 .
+
+ex:div_044 a ex:Division ;
+    ex:departmentName "Specialized Division #044" ;
+    ex:budgetCode "BDG-DIV-044" ;
+    ex:subDepartmentOf ex:dept_044 .
+
+ex:div_045 a ex:Division ;
+    ex:departmentName "Specialized Division #045" ;
+    ex:budgetCode "BDG-DIV-045" ;
+    ex:subDepartmentOf ex:dept_045 .
+
+ex:researcher_001 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #001" ;
+    ex:orcidId "0000-0002-1001-2001" ;
+    ex:memberOfDepartment ex:dept_001 ;
+    ex:collaboratesWith ex:researcher_002, ex:researcher_008 .
+
+ex:researcher_002 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #002" ;
+    ex:orcidId "0000-0002-1002-2002" ;
+    ex:memberOfDepartment ex:dept_002 ;
+    ex:collaboratesWith ex:researcher_003, ex:researcher_009 .
+
+ex:researcher_003 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #003" ;
+    ex:orcidId "0000-0002-1003-2003" ;
+    ex:memberOfDepartment ex:dept_003 ;
+    ex:collaboratesWith ex:researcher_004, ex:researcher_010 .
+
+ex:researcher_004 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #004" ;
+    ex:orcidId "0000-0002-1004-2004" ;
+    ex:memberOfDepartment ex:dept_004 ;
+    ex:collaboratesWith ex:researcher_005, ex:researcher_011 .
+
+ex:researcher_005 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #005" ;
+    ex:orcidId "0000-0002-1005-2005" ;
+    ex:memberOfDepartment ex:dept_005 ;
+    ex:collaboratesWith ex:researcher_006, ex:researcher_012 .
+
+ex:researcher_006 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #006" ;
+    ex:orcidId "0000-0002-1006-2006" ;
+    ex:memberOfDepartment ex:dept_006 ;
+    ex:collaboratesWith ex:researcher_007, ex:researcher_013 .
+
+ex:researcher_007 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #007" ;
+    ex:orcidId "0000-0002-1007-2007" ;
+    ex:memberOfDepartment ex:dept_007 ;
+    ex:collaboratesWith ex:researcher_008, ex:researcher_014 .
+
+ex:researcher_008 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #008" ;
+    ex:orcidId "0000-0002-1008-2008" ;
+    ex:memberOfDepartment ex:dept_008 ;
+    ex:collaboratesWith ex:researcher_009, ex:researcher_015 .
+
+ex:researcher_009 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #009" ;
+    ex:orcidId "0000-0002-1009-2009" ;
+    ex:memberOfDepartment ex:dept_009 ;
+    ex:collaboratesWith ex:researcher_010, ex:researcher_016 .
+
+ex:researcher_010 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #010" ;
+    ex:orcidId "0000-0002-1010-2010" ;
+    ex:memberOfDepartment ex:dept_010 ;
+    ex:collaboratesWith ex:researcher_011, ex:researcher_017 .
+
+ex:researcher_011 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #011" ;
+    ex:orcidId "0000-0002-1011-2011" ;
+    ex:memberOfDepartment ex:dept_011 ;
+    ex:collaboratesWith ex:researcher_012, ex:researcher_018 .
+
+ex:researcher_012 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #012" ;
+    ex:orcidId "0000-0002-1012-2012" ;
+    ex:memberOfDepartment ex:dept_012 ;
+    ex:collaboratesWith ex:researcher_013, ex:researcher_019 .
+
+ex:researcher_013 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #013" ;
+    ex:orcidId "0000-0002-1013-2013" ;
+    ex:memberOfDepartment ex:dept_013 ;
+    ex:collaboratesWith ex:researcher_014, ex:researcher_020 .
+
+ex:researcher_014 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #014" ;
+    ex:orcidId "0000-0002-1014-2014" ;
+    ex:memberOfDepartment ex:dept_014 ;
+    ex:collaboratesWith ex:researcher_015, ex:researcher_021 .
+
+ex:researcher_015 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #015" ;
+    ex:orcidId "0000-0002-1015-2015" ;
+    ex:memberOfDepartment ex:dept_015 ;
+    ex:collaboratesWith ex:researcher_016, ex:researcher_022 .
+
+ex:researcher_016 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #016" ;
+    ex:orcidId "0000-0002-1016-2016" ;
+    ex:memberOfDepartment ex:dept_016 ;
+    ex:collaboratesWith ex:researcher_017, ex:researcher_023 .
+
+ex:researcher_017 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #017" ;
+    ex:orcidId "0000-0002-1017-2017" ;
+    ex:memberOfDepartment ex:dept_017 ;
+    ex:collaboratesWith ex:researcher_018, ex:researcher_024 .
+
+ex:researcher_018 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #018" ;
+    ex:orcidId "0000-0002-1018-2018" ;
+    ex:memberOfDepartment ex:dept_018 ;
+    ex:collaboratesWith ex:researcher_019, ex:researcher_025 .
+
+ex:researcher_019 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #019" ;
+    ex:orcidId "0000-0002-1019-2019" ;
+    ex:memberOfDepartment ex:dept_019 ;
+    ex:collaboratesWith ex:researcher_020, ex:researcher_026 .
+
+ex:researcher_020 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #020" ;
+    ex:orcidId "0000-0002-1020-2020" ;
+    ex:memberOfDepartment ex:dept_020 ;
+    ex:collaboratesWith ex:researcher_021, ex:researcher_027 .
+
+ex:researcher_021 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #021" ;
+    ex:orcidId "0000-0002-1021-2021" ;
+    ex:memberOfDepartment ex:dept_021 ;
+    ex:collaboratesWith ex:researcher_022, ex:researcher_028 .
+
+ex:researcher_022 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #022" ;
+    ex:orcidId "0000-0002-1022-2022" ;
+    ex:memberOfDepartment ex:dept_022 ;
+    ex:collaboratesWith ex:researcher_023, ex:researcher_029 .
+
+ex:researcher_023 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #023" ;
+    ex:orcidId "0000-0002-1023-2023" ;
+    ex:memberOfDepartment ex:dept_023 ;
+    ex:collaboratesWith ex:researcher_024, ex:researcher_030 .
+
+ex:researcher_024 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #024" ;
+    ex:orcidId "0000-0002-1024-2024" ;
+    ex:memberOfDepartment ex:dept_024 ;
+    ex:collaboratesWith ex:researcher_025, ex:researcher_031 .
+
+ex:researcher_025 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #025" ;
+    ex:orcidId "0000-0002-1025-2025" ;
+    ex:memberOfDepartment ex:dept_025 ;
+    ex:collaboratesWith ex:researcher_026, ex:researcher_032 .
+
+ex:researcher_026 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #026" ;
+    ex:orcidId "0000-0002-1026-2026" ;
+    ex:memberOfDepartment ex:dept_026 ;
+    ex:collaboratesWith ex:researcher_027, ex:researcher_033 .
+
+ex:researcher_027 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #027" ;
+    ex:orcidId "0000-0002-1027-2027" ;
+    ex:memberOfDepartment ex:dept_027 ;
+    ex:collaboratesWith ex:researcher_028, ex:researcher_034 .
+
+ex:researcher_028 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #028" ;
+    ex:orcidId "0000-0002-1028-2028" ;
+    ex:memberOfDepartment ex:dept_028 ;
+    ex:collaboratesWith ex:researcher_029, ex:researcher_035 .
+
+ex:researcher_029 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #029" ;
+    ex:orcidId "0000-0002-1029-2029" ;
+    ex:memberOfDepartment ex:dept_029 ;
+    ex:collaboratesWith ex:researcher_030, ex:researcher_036 .
+
+ex:researcher_030 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #030" ;
+    ex:orcidId "0000-0002-1030-2030" ;
+    ex:memberOfDepartment ex:dept_030 ;
+    ex:collaboratesWith ex:researcher_031, ex:researcher_037 .
+
+ex:researcher_031 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #031" ;
+    ex:orcidId "0000-0002-1031-2031" ;
+    ex:memberOfDepartment ex:dept_031 ;
+    ex:collaboratesWith ex:researcher_032, ex:researcher_038 .
+
+ex:researcher_032 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #032" ;
+    ex:orcidId "0000-0002-1032-2032" ;
+    ex:memberOfDepartment ex:dept_032 ;
+    ex:collaboratesWith ex:researcher_033, ex:researcher_039 .
+
+ex:researcher_033 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #033" ;
+    ex:orcidId "0000-0002-1033-2033" ;
+    ex:memberOfDepartment ex:dept_033 ;
+    ex:collaboratesWith ex:researcher_034, ex:researcher_040 .
+
+ex:researcher_034 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #034" ;
+    ex:orcidId "0000-0002-1034-2034" ;
+    ex:memberOfDepartment ex:dept_034 ;
+    ex:collaboratesWith ex:researcher_035, ex:researcher_041 .
+
+ex:researcher_035 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #035" ;
+    ex:orcidId "0000-0002-1035-2035" ;
+    ex:memberOfDepartment ex:dept_035 ;
+    ex:collaboratesWith ex:researcher_036, ex:researcher_042 .
+
+ex:researcher_036 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #036" ;
+    ex:orcidId "0000-0002-1036-2036" ;
+    ex:memberOfDepartment ex:dept_036 ;
+    ex:collaboratesWith ex:researcher_037, ex:researcher_043 .
+
+ex:researcher_037 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #037" ;
+    ex:orcidId "0000-0002-1037-2037" ;
+    ex:memberOfDepartment ex:dept_037 ;
+    ex:collaboratesWith ex:researcher_038, ex:researcher_044 .
+
+ex:researcher_038 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #038" ;
+    ex:orcidId "0000-0002-1038-2038" ;
+    ex:memberOfDepartment ex:dept_038 ;
+    ex:collaboratesWith ex:researcher_039, ex:researcher_045 .
+
+ex:researcher_039 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #039" ;
+    ex:orcidId "0000-0002-1039-2039" ;
+    ex:memberOfDepartment ex:dept_039 ;
+    ex:collaboratesWith ex:researcher_040, ex:researcher_046 .
+
+ex:researcher_040 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #040" ;
+    ex:orcidId "0000-0002-1040-2040" ;
+    ex:memberOfDepartment ex:dept_040 ;
+    ex:collaboratesWith ex:researcher_041, ex:researcher_047 .
+
+ex:researcher_041 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #041" ;
+    ex:orcidId "0000-0002-1041-2041" ;
+    ex:memberOfDepartment ex:dept_041 ;
+    ex:collaboratesWith ex:researcher_042, ex:researcher_048 .
+
+ex:researcher_042 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #042" ;
+    ex:orcidId "0000-0002-1042-2042" ;
+    ex:memberOfDepartment ex:dept_042 ;
+    ex:collaboratesWith ex:researcher_043, ex:researcher_049 .
+
+ex:researcher_043 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #043" ;
+    ex:orcidId "0000-0002-1043-2043" ;
+    ex:memberOfDepartment ex:dept_043 ;
+    ex:collaboratesWith ex:researcher_044, ex:researcher_050 .
+
+ex:researcher_044 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #044" ;
+    ex:orcidId "0000-0002-1044-2044" ;
+    ex:memberOfDepartment ex:dept_044 ;
+    ex:collaboratesWith ex:researcher_045, ex:researcher_051 .
+
+ex:researcher_045 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #045" ;
+    ex:orcidId "0000-0002-1045-2045" ;
+    ex:memberOfDepartment ex:dept_045 ;
+    ex:collaboratesWith ex:researcher_046, ex:researcher_052 .
+
+ex:researcher_046 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #046" ;
+    ex:orcidId "0000-0002-1046-2046" ;
+    ex:memberOfDepartment ex:dept_001 ;
+    ex:collaboratesWith ex:researcher_047, ex:researcher_053 .
+
+ex:researcher_047 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #047" ;
+    ex:orcidId "0000-0002-1047-2047" ;
+    ex:memberOfDepartment ex:dept_002 ;
+    ex:collaboratesWith ex:researcher_048, ex:researcher_054 .
+
+ex:researcher_048 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #048" ;
+    ex:orcidId "0000-0002-1048-2048" ;
+    ex:memberOfDepartment ex:dept_003 ;
+    ex:collaboratesWith ex:researcher_049, ex:researcher_055 .
+
+ex:researcher_049 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #049" ;
+    ex:orcidId "0000-0002-1049-2049" ;
+    ex:memberOfDepartment ex:dept_004 ;
+    ex:collaboratesWith ex:researcher_050, ex:researcher_056 .
+
+ex:researcher_050 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #050" ;
+    ex:orcidId "0000-0002-1050-2050" ;
+    ex:memberOfDepartment ex:dept_005 ;
+    ex:collaboratesWith ex:researcher_051, ex:researcher_057 .
+
+ex:researcher_051 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #051" ;
+    ex:orcidId "0000-0002-1051-2051" ;
+    ex:memberOfDepartment ex:dept_006 ;
+    ex:collaboratesWith ex:researcher_052, ex:researcher_058 .
+
+ex:researcher_052 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #052" ;
+    ex:orcidId "0000-0002-1052-2052" ;
+    ex:memberOfDepartment ex:dept_007 ;
+    ex:collaboratesWith ex:researcher_053, ex:researcher_059 .
+
+ex:researcher_053 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #053" ;
+    ex:orcidId "0000-0002-1053-2053" ;
+    ex:memberOfDepartment ex:dept_008 ;
+    ex:collaboratesWith ex:researcher_054, ex:researcher_060 .
+
+ex:researcher_054 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #054" ;
+    ex:orcidId "0000-0002-1054-2054" ;
+    ex:memberOfDepartment ex:dept_009 ;
+    ex:collaboratesWith ex:researcher_055, ex:researcher_061 .
+
+ex:researcher_055 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #055" ;
+    ex:orcidId "0000-0002-1055-2055" ;
+    ex:memberOfDepartment ex:dept_010 ;
+    ex:collaboratesWith ex:researcher_056, ex:researcher_062 .
+
+ex:researcher_056 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #056" ;
+    ex:orcidId "0000-0002-1056-2056" ;
+    ex:memberOfDepartment ex:dept_011 ;
+    ex:collaboratesWith ex:researcher_057, ex:researcher_063 .
+
+ex:researcher_057 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #057" ;
+    ex:orcidId "0000-0002-1057-2057" ;
+    ex:memberOfDepartment ex:dept_012 ;
+    ex:collaboratesWith ex:researcher_058, ex:researcher_064 .
+
+ex:researcher_058 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #058" ;
+    ex:orcidId "0000-0002-1058-2058" ;
+    ex:memberOfDepartment ex:dept_013 ;
+    ex:collaboratesWith ex:researcher_059, ex:researcher_065 .
+
+ex:researcher_059 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #059" ;
+    ex:orcidId "0000-0002-1059-2059" ;
+    ex:memberOfDepartment ex:dept_014 ;
+    ex:collaboratesWith ex:researcher_060, ex:researcher_066 .
+
+ex:researcher_060 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #060" ;
+    ex:orcidId "0000-0002-1060-2060" ;
+    ex:memberOfDepartment ex:dept_015 ;
+    ex:collaboratesWith ex:researcher_061, ex:researcher_067 .
+
+ex:researcher_061 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #061" ;
+    ex:orcidId "0000-0002-1061-2061" ;
+    ex:memberOfDepartment ex:dept_016 ;
+    ex:collaboratesWith ex:researcher_062, ex:researcher_068 .
+
+ex:researcher_062 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #062" ;
+    ex:orcidId "0000-0002-1062-2062" ;
+    ex:memberOfDepartment ex:dept_017 ;
+    ex:collaboratesWith ex:researcher_063, ex:researcher_069 .
+
+ex:researcher_063 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #063" ;
+    ex:orcidId "0000-0002-1063-2063" ;
+    ex:memberOfDepartment ex:dept_018 ;
+    ex:collaboratesWith ex:researcher_064, ex:researcher_070 .
+
+ex:researcher_064 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #064" ;
+    ex:orcidId "0000-0002-1064-2064" ;
+    ex:memberOfDepartment ex:dept_019 ;
+    ex:collaboratesWith ex:researcher_065, ex:researcher_071 .
+
+ex:researcher_065 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #065" ;
+    ex:orcidId "0000-0002-1065-2065" ;
+    ex:memberOfDepartment ex:dept_020 ;
+    ex:collaboratesWith ex:researcher_066, ex:researcher_072 .
+
+ex:researcher_066 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #066" ;
+    ex:orcidId "0000-0002-1066-2066" ;
+    ex:memberOfDepartment ex:dept_021 ;
+    ex:collaboratesWith ex:researcher_067, ex:researcher_073 .
+
+ex:researcher_067 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #067" ;
+    ex:orcidId "0000-0002-1067-2067" ;
+    ex:memberOfDepartment ex:dept_022 ;
+    ex:collaboratesWith ex:researcher_068, ex:researcher_074 .
+
+ex:researcher_068 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #068" ;
+    ex:orcidId "0000-0002-1068-2068" ;
+    ex:memberOfDepartment ex:dept_023 ;
+    ex:collaboratesWith ex:researcher_069, ex:researcher_075 .
+
+ex:researcher_069 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #069" ;
+    ex:orcidId "0000-0002-1069-2069" ;
+    ex:memberOfDepartment ex:dept_024 ;
+    ex:collaboratesWith ex:researcher_070, ex:researcher_076 .
+
+ex:researcher_070 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #070" ;
+    ex:orcidId "0000-0002-1070-2070" ;
+    ex:memberOfDepartment ex:dept_025 ;
+    ex:collaboratesWith ex:researcher_071, ex:researcher_077 .
+
+ex:researcher_071 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #071" ;
+    ex:orcidId "0000-0002-1071-2071" ;
+    ex:memberOfDepartment ex:dept_026 ;
+    ex:collaboratesWith ex:researcher_072, ex:researcher_078 .
+
+ex:researcher_072 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #072" ;
+    ex:orcidId "0000-0002-1072-2072" ;
+    ex:memberOfDepartment ex:dept_027 ;
+    ex:collaboratesWith ex:researcher_073, ex:researcher_079 .
+
+ex:researcher_073 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #073" ;
+    ex:orcidId "0000-0002-1073-2073" ;
+    ex:memberOfDepartment ex:dept_028 ;
+    ex:collaboratesWith ex:researcher_074, ex:researcher_080 .
+
+ex:researcher_074 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #074" ;
+    ex:orcidId "0000-0002-1074-2074" ;
+    ex:memberOfDepartment ex:dept_029 ;
+    ex:collaboratesWith ex:researcher_075, ex:researcher_081 .
+
+ex:researcher_075 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #075" ;
+    ex:orcidId "0000-0002-1075-2075" ;
+    ex:memberOfDepartment ex:dept_030 ;
+    ex:collaboratesWith ex:researcher_076, ex:researcher_082 .
+
+ex:researcher_076 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #076" ;
+    ex:orcidId "0000-0002-1076-2076" ;
+    ex:memberOfDepartment ex:dept_031 ;
+    ex:collaboratesWith ex:researcher_077, ex:researcher_083 .
+
+ex:researcher_077 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #077" ;
+    ex:orcidId "0000-0002-1077-2077" ;
+    ex:memberOfDepartment ex:dept_032 ;
+    ex:collaboratesWith ex:researcher_078, ex:researcher_084 .
+
+ex:researcher_078 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #078" ;
+    ex:orcidId "0000-0002-1078-2078" ;
+    ex:memberOfDepartment ex:dept_033 ;
+    ex:collaboratesWith ex:researcher_079, ex:researcher_085 .
+
+ex:researcher_079 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #079" ;
+    ex:orcidId "0000-0002-1079-2079" ;
+    ex:memberOfDepartment ex:dept_034 ;
+    ex:collaboratesWith ex:researcher_080, ex:researcher_086 .
+
+ex:researcher_080 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #080" ;
+    ex:orcidId "0000-0002-1080-2080" ;
+    ex:memberOfDepartment ex:dept_035 ;
+    ex:collaboratesWith ex:researcher_081, ex:researcher_087 .
+
+ex:researcher_081 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #081" ;
+    ex:orcidId "0000-0002-1081-2081" ;
+    ex:memberOfDepartment ex:dept_036 ;
+    ex:collaboratesWith ex:researcher_082, ex:researcher_088 .
+
+ex:researcher_082 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #082" ;
+    ex:orcidId "0000-0002-1082-2082" ;
+    ex:memberOfDepartment ex:dept_037 ;
+    ex:collaboratesWith ex:researcher_083, ex:researcher_089 .
+
+ex:researcher_083 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #083" ;
+    ex:orcidId "0000-0002-1083-2083" ;
+    ex:memberOfDepartment ex:dept_038 ;
+    ex:collaboratesWith ex:researcher_084, ex:researcher_090 .
+
+ex:researcher_084 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #084" ;
+    ex:orcidId "0000-0002-1084-2084" ;
+    ex:memberOfDepartment ex:dept_039 ;
+    ex:collaboratesWith ex:researcher_085, ex:researcher_091 .
+
+ex:researcher_085 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #085" ;
+    ex:orcidId "0000-0002-1085-2085" ;
+    ex:memberOfDepartment ex:dept_040 ;
+    ex:collaboratesWith ex:researcher_086, ex:researcher_092 .
+
+ex:researcher_086 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #086" ;
+    ex:orcidId "0000-0002-1086-2086" ;
+    ex:memberOfDepartment ex:dept_041 ;
+    ex:collaboratesWith ex:researcher_087, ex:researcher_093 .
+
+ex:researcher_087 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #087" ;
+    ex:orcidId "0000-0002-1087-2087" ;
+    ex:memberOfDepartment ex:dept_042 ;
+    ex:collaboratesWith ex:researcher_088, ex:researcher_094 .
+
+ex:researcher_088 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #088" ;
+    ex:orcidId "0000-0002-1088-2088" ;
+    ex:memberOfDepartment ex:dept_043 ;
+    ex:collaboratesWith ex:researcher_089, ex:researcher_095 .
+
+ex:researcher_089 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #089" ;
+    ex:orcidId "0000-0002-1089-2089" ;
+    ex:memberOfDepartment ex:dept_044 ;
+    ex:collaboratesWith ex:researcher_090, ex:researcher_096 .
+
+ex:researcher_090 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #090" ;
+    ex:orcidId "0000-0002-1090-2090" ;
+    ex:memberOfDepartment ex:dept_045 ;
+    ex:collaboratesWith ex:researcher_091, ex:researcher_097 .
+
+ex:researcher_091 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #091" ;
+    ex:orcidId "0000-0002-1091-2091" ;
+    ex:memberOfDepartment ex:dept_001 ;
+    ex:collaboratesWith ex:researcher_092, ex:researcher_098 .
+
+ex:researcher_092 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #092" ;
+    ex:orcidId "0000-0002-1092-2092" ;
+    ex:memberOfDepartment ex:dept_002 ;
+    ex:collaboratesWith ex:researcher_093, ex:researcher_099 .
+
+ex:researcher_093 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #093" ;
+    ex:orcidId "0000-0002-1093-2093" ;
+    ex:memberOfDepartment ex:dept_003 ;
+    ex:collaboratesWith ex:researcher_094, ex:researcher_100 .
+
+ex:researcher_094 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #094" ;
+    ex:orcidId "0000-0002-1094-2094" ;
+    ex:memberOfDepartment ex:dept_004 ;
+    ex:collaboratesWith ex:researcher_095, ex:researcher_101 .
+
+ex:researcher_095 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #095" ;
+    ex:orcidId "0000-0002-1095-2095" ;
+    ex:memberOfDepartment ex:dept_005 ;
+    ex:collaboratesWith ex:researcher_096, ex:researcher_102 .
+
+ex:researcher_096 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #096" ;
+    ex:orcidId "0000-0002-1096-2096" ;
+    ex:memberOfDepartment ex:dept_006 ;
+    ex:collaboratesWith ex:researcher_097, ex:researcher_103 .
+
+ex:researcher_097 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #097" ;
+    ex:orcidId "0000-0002-1097-2097" ;
+    ex:memberOfDepartment ex:dept_007 ;
+    ex:collaboratesWith ex:researcher_098, ex:researcher_104 .
+
+ex:researcher_098 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #098" ;
+    ex:orcidId "0000-0002-1098-2098" ;
+    ex:memberOfDepartment ex:dept_008 ;
+    ex:collaboratesWith ex:researcher_099, ex:researcher_105 .
+
+ex:researcher_099 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #099" ;
+    ex:orcidId "0000-0002-1099-2099" ;
+    ex:memberOfDepartment ex:dept_009 ;
+    ex:collaboratesWith ex:researcher_100, ex:researcher_106 .
+
+ex:researcher_100 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #100" ;
+    ex:orcidId "0000-0002-1100-2100" ;
+    ex:memberOfDepartment ex:dept_010 ;
+    ex:collaboratesWith ex:researcher_101, ex:researcher_107 .
+
+ex:researcher_101 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #101" ;
+    ex:orcidId "0000-0002-1101-2101" ;
+    ex:memberOfDepartment ex:dept_011 ;
+    ex:collaboratesWith ex:researcher_102, ex:researcher_108 .
+
+ex:researcher_102 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #102" ;
+    ex:orcidId "0000-0002-1102-2102" ;
+    ex:memberOfDepartment ex:dept_012 ;
+    ex:collaboratesWith ex:researcher_103, ex:researcher_109 .
+
+ex:researcher_103 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #103" ;
+    ex:orcidId "0000-0002-1103-2103" ;
+    ex:memberOfDepartment ex:dept_013 ;
+    ex:collaboratesWith ex:researcher_104, ex:researcher_110 .
+
+ex:researcher_104 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #104" ;
+    ex:orcidId "0000-0002-1104-2104" ;
+    ex:memberOfDepartment ex:dept_014 ;
+    ex:collaboratesWith ex:researcher_105, ex:researcher_111 .
+
+ex:researcher_105 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #105" ;
+    ex:orcidId "0000-0002-1105-2105" ;
+    ex:memberOfDepartment ex:dept_015 ;
+    ex:collaboratesWith ex:researcher_106, ex:researcher_112 .
+
+ex:researcher_106 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #106" ;
+    ex:orcidId "0000-0002-1106-2106" ;
+    ex:memberOfDepartment ex:dept_016 ;
+    ex:collaboratesWith ex:researcher_107, ex:researcher_113 .
+
+ex:researcher_107 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #107" ;
+    ex:orcidId "0000-0002-1107-2107" ;
+    ex:memberOfDepartment ex:dept_017 ;
+    ex:collaboratesWith ex:researcher_108, ex:researcher_114 .
+
+ex:researcher_108 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #108" ;
+    ex:orcidId "0000-0002-1108-2108" ;
+    ex:memberOfDepartment ex:dept_018 ;
+    ex:collaboratesWith ex:researcher_109, ex:researcher_115 .
+
+ex:researcher_109 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #109" ;
+    ex:orcidId "0000-0002-1109-2109" ;
+    ex:memberOfDepartment ex:dept_019 ;
+    ex:collaboratesWith ex:researcher_110, ex:researcher_116 .
+
+ex:researcher_110 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #110" ;
+    ex:orcidId "0000-0002-1110-2110" ;
+    ex:memberOfDepartment ex:dept_020 ;
+    ex:collaboratesWith ex:researcher_111, ex:researcher_117 .
+
+ex:researcher_111 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #111" ;
+    ex:orcidId "0000-0002-1111-2111" ;
+    ex:memberOfDepartment ex:dept_021 ;
+    ex:collaboratesWith ex:researcher_112, ex:researcher_118 .
+
+ex:researcher_112 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #112" ;
+    ex:orcidId "0000-0002-1112-2112" ;
+    ex:memberOfDepartment ex:dept_022 ;
+    ex:collaboratesWith ex:researcher_113, ex:researcher_119 .
+
+ex:researcher_113 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #113" ;
+    ex:orcidId "0000-0002-1113-2113" ;
+    ex:memberOfDepartment ex:dept_023 ;
+    ex:collaboratesWith ex:researcher_114, ex:researcher_120 .
+
+ex:researcher_114 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #114" ;
+    ex:orcidId "0000-0002-1114-2114" ;
+    ex:memberOfDepartment ex:dept_024 ;
+    ex:collaboratesWith ex:researcher_115, ex:researcher_001 .
+
+ex:researcher_115 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #115" ;
+    ex:orcidId "0000-0002-1115-2115" ;
+    ex:memberOfDepartment ex:dept_025 ;
+    ex:collaboratesWith ex:researcher_116, ex:researcher_002 .
+
+ex:researcher_116 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #116" ;
+    ex:orcidId "0000-0002-1116-2116" ;
+    ex:memberOfDepartment ex:dept_026 ;
+    ex:collaboratesWith ex:researcher_117, ex:researcher_003 .
+
+ex:researcher_117 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #117" ;
+    ex:orcidId "0000-0002-1117-2117" ;
+    ex:memberOfDepartment ex:dept_027 ;
+    ex:collaboratesWith ex:researcher_118, ex:researcher_004 .
+
+ex:researcher_118 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #118" ;
+    ex:orcidId "0000-0002-1118-2118" ;
+    ex:memberOfDepartment ex:dept_028 ;
+    ex:collaboratesWith ex:researcher_119, ex:researcher_005 .
+
+ex:researcher_119 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #119" ;
+    ex:orcidId "0000-0002-1119-2119" ;
+    ex:memberOfDepartment ex:dept_029 ;
+    ex:collaboratesWith ex:researcher_120, ex:researcher_006 .
+
+ex:researcher_120 a ex:Researcher ;
+    ex:researcherName "Dr. Researcher #120" ;
+    ex:orcidId "0000-0002-1120-2120" ;
+    ex:memberOfDepartment ex:dept_030 ;
+    ex:collaboratesWith ex:researcher_001, ex:researcher_007 .

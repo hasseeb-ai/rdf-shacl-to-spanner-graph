@@ -1,0 +1,1646 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/smartcity/> .
+
+# ABox Instance Triples for smart_city_iot
+
+ex:zone_001 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #001" .
+
+ex:zone_002 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #002" .
+
+ex:zone_003 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #003" .
+
+ex:zone_004 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #004" .
+
+ex:zone_005 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #005" .
+
+ex:zone_006 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #006" .
+
+ex:zone_007 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #007" .
+
+ex:zone_008 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #008" .
+
+ex:zone_009 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #009" .
+
+ex:zone_010 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #010" .
+
+ex:zone_011 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #011" .
+
+ex:zone_012 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #012" .
+
+ex:zone_013 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #013" .
+
+ex:zone_014 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #014" .
+
+ex:zone_015 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #015" .
+
+ex:zone_016 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #016" .
+
+ex:zone_017 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #017" .
+
+ex:zone_018 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #018" .
+
+ex:zone_019 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #019" .
+
+ex:zone_020 a ex:CityZone ;
+    ex:spatialName "Metropolitan District Zone #020" .
+
+ex:building_001 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #001" ;
+    ex:containedIn ex:zone_001 ;
+    ex:sharesMicrogridWith ex:building_002 .
+
+ex:zone_001 ex:containsSpace ex:building_001 .
+
+ex:building_002 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #002" ;
+    ex:containedIn ex:zone_002 ;
+    ex:sharesMicrogridWith ex:building_003 .
+
+ex:zone_002 ex:containsSpace ex:building_002 .
+
+ex:building_003 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #003" ;
+    ex:containedIn ex:zone_003 ;
+    ex:sharesMicrogridWith ex:building_004 .
+
+ex:zone_003 ex:containsSpace ex:building_003 .
+
+ex:building_004 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #004" ;
+    ex:containedIn ex:zone_004 ;
+    ex:sharesMicrogridWith ex:building_005 .
+
+ex:zone_004 ex:containsSpace ex:building_004 .
+
+ex:building_005 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #005" ;
+    ex:containedIn ex:zone_005 ;
+    ex:sharesMicrogridWith ex:building_006 .
+
+ex:zone_005 ex:containsSpace ex:building_005 .
+
+ex:building_006 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #006" ;
+    ex:containedIn ex:zone_006 ;
+    ex:sharesMicrogridWith ex:building_007 .
+
+ex:zone_006 ex:containsSpace ex:building_006 .
+
+ex:building_007 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #007" ;
+    ex:containedIn ex:zone_007 ;
+    ex:sharesMicrogridWith ex:building_008 .
+
+ex:zone_007 ex:containsSpace ex:building_007 .
+
+ex:building_008 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #008" ;
+    ex:containedIn ex:zone_008 ;
+    ex:sharesMicrogridWith ex:building_009 .
+
+ex:zone_008 ex:containsSpace ex:building_008 .
+
+ex:building_009 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #009" ;
+    ex:containedIn ex:zone_009 ;
+    ex:sharesMicrogridWith ex:building_010 .
+
+ex:zone_009 ex:containsSpace ex:building_009 .
+
+ex:building_010 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #010" ;
+    ex:containedIn ex:zone_010 ;
+    ex:sharesMicrogridWith ex:building_011 .
+
+ex:zone_010 ex:containsSpace ex:building_010 .
+
+ex:building_011 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #011" ;
+    ex:containedIn ex:zone_011 ;
+    ex:sharesMicrogridWith ex:building_012 .
+
+ex:zone_011 ex:containsSpace ex:building_011 .
+
+ex:building_012 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #012" ;
+    ex:containedIn ex:zone_012 ;
+    ex:sharesMicrogridWith ex:building_013 .
+
+ex:zone_012 ex:containsSpace ex:building_012 .
+
+ex:building_013 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #013" ;
+    ex:containedIn ex:zone_013 ;
+    ex:sharesMicrogridWith ex:building_014 .
+
+ex:zone_013 ex:containsSpace ex:building_013 .
+
+ex:building_014 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #014" ;
+    ex:containedIn ex:zone_014 ;
+    ex:sharesMicrogridWith ex:building_015 .
+
+ex:zone_014 ex:containsSpace ex:building_014 .
+
+ex:building_015 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #015" ;
+    ex:containedIn ex:zone_015 ;
+    ex:sharesMicrogridWith ex:building_016 .
+
+ex:zone_015 ex:containsSpace ex:building_015 .
+
+ex:building_016 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #016" ;
+    ex:containedIn ex:zone_016 ;
+    ex:sharesMicrogridWith ex:building_017 .
+
+ex:zone_016 ex:containsSpace ex:building_016 .
+
+ex:building_017 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #017" ;
+    ex:containedIn ex:zone_017 ;
+    ex:sharesMicrogridWith ex:building_018 .
+
+ex:zone_017 ex:containsSpace ex:building_017 .
+
+ex:building_018 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #018" ;
+    ex:containedIn ex:zone_018 ;
+    ex:sharesMicrogridWith ex:building_019 .
+
+ex:zone_018 ex:containsSpace ex:building_018 .
+
+ex:building_019 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #019" ;
+    ex:containedIn ex:zone_019 ;
+    ex:sharesMicrogridWith ex:building_020 .
+
+ex:zone_019 ex:containsSpace ex:building_019 .
+
+ex:building_020 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #020" ;
+    ex:containedIn ex:zone_020 ;
+    ex:sharesMicrogridWith ex:building_021 .
+
+ex:zone_020 ex:containsSpace ex:building_020 .
+
+ex:building_021 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #021" ;
+    ex:containedIn ex:zone_001 ;
+    ex:sharesMicrogridWith ex:building_022 .
+
+ex:zone_001 ex:containsSpace ex:building_021 .
+
+ex:building_022 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #022" ;
+    ex:containedIn ex:zone_002 ;
+    ex:sharesMicrogridWith ex:building_023 .
+
+ex:zone_002 ex:containsSpace ex:building_022 .
+
+ex:building_023 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #023" ;
+    ex:containedIn ex:zone_003 ;
+    ex:sharesMicrogridWith ex:building_024 .
+
+ex:zone_003 ex:containsSpace ex:building_023 .
+
+ex:building_024 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #024" ;
+    ex:containedIn ex:zone_004 ;
+    ex:sharesMicrogridWith ex:building_025 .
+
+ex:zone_004 ex:containsSpace ex:building_024 .
+
+ex:building_025 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #025" ;
+    ex:containedIn ex:zone_005 ;
+    ex:sharesMicrogridWith ex:building_026 .
+
+ex:zone_005 ex:containsSpace ex:building_025 .
+
+ex:building_026 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #026" ;
+    ex:containedIn ex:zone_006 ;
+    ex:sharesMicrogridWith ex:building_027 .
+
+ex:zone_006 ex:containsSpace ex:building_026 .
+
+ex:building_027 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #027" ;
+    ex:containedIn ex:zone_007 ;
+    ex:sharesMicrogridWith ex:building_028 .
+
+ex:zone_007 ex:containsSpace ex:building_027 .
+
+ex:building_028 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #028" ;
+    ex:containedIn ex:zone_008 ;
+    ex:sharesMicrogridWith ex:building_029 .
+
+ex:zone_008 ex:containsSpace ex:building_028 .
+
+ex:building_029 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #029" ;
+    ex:containedIn ex:zone_009 ;
+    ex:sharesMicrogridWith ex:building_030 .
+
+ex:zone_009 ex:containsSpace ex:building_029 .
+
+ex:building_030 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #030" ;
+    ex:containedIn ex:zone_010 ;
+    ex:sharesMicrogridWith ex:building_031 .
+
+ex:zone_010 ex:containsSpace ex:building_030 .
+
+ex:building_031 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #031" ;
+    ex:containedIn ex:zone_011 ;
+    ex:sharesMicrogridWith ex:building_032 .
+
+ex:zone_011 ex:containsSpace ex:building_031 .
+
+ex:building_032 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #032" ;
+    ex:containedIn ex:zone_012 ;
+    ex:sharesMicrogridWith ex:building_033 .
+
+ex:zone_012 ex:containsSpace ex:building_032 .
+
+ex:building_033 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #033" ;
+    ex:containedIn ex:zone_013 ;
+    ex:sharesMicrogridWith ex:building_034 .
+
+ex:zone_013 ex:containsSpace ex:building_033 .
+
+ex:building_034 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #034" ;
+    ex:containedIn ex:zone_014 ;
+    ex:sharesMicrogridWith ex:building_035 .
+
+ex:zone_014 ex:containsSpace ex:building_034 .
+
+ex:building_035 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #035" ;
+    ex:containedIn ex:zone_015 ;
+    ex:sharesMicrogridWith ex:building_036 .
+
+ex:zone_015 ex:containsSpace ex:building_035 .
+
+ex:building_036 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #036" ;
+    ex:containedIn ex:zone_016 ;
+    ex:sharesMicrogridWith ex:building_037 .
+
+ex:zone_016 ex:containsSpace ex:building_036 .
+
+ex:building_037 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #037" ;
+    ex:containedIn ex:zone_017 ;
+    ex:sharesMicrogridWith ex:building_038 .
+
+ex:zone_017 ex:containsSpace ex:building_037 .
+
+ex:building_038 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #038" ;
+    ex:containedIn ex:zone_018 ;
+    ex:sharesMicrogridWith ex:building_039 .
+
+ex:zone_018 ex:containsSpace ex:building_038 .
+
+ex:building_039 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #039" ;
+    ex:containedIn ex:zone_019 ;
+    ex:sharesMicrogridWith ex:building_040 .
+
+ex:zone_019 ex:containsSpace ex:building_039 .
+
+ex:building_040 a ex:SmartBuilding ;
+    ex:spatialName "Smart Eco-Tower #040" ;
+    ex:containedIn ex:zone_020 ;
+    ex:sharesMicrogridWith ex:building_001 .
+
+ex:zone_020 ex:containsSpace ex:building_040 .
+
+ex:job_001 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0001" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_002 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0002" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_003 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0003" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_004 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0004" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_005 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0005" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_006 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0006" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_007 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0007" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_008 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0008" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_009 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0009" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_010 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0010" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_011 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0011" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_012 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0012" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_013 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0013" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_014 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0014" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_015 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0015" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_016 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0016" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_017 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0017" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_018 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0018" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_019 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0019" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_020 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0020" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_021 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0021" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_022 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0022" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_023 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0023" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_024 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0024" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_025 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0025" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_026 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0026" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_027 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0027" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_028 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0028" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_029 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0029" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_030 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0030" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_031 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0031" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_032 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0032" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_033 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0033" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_034 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0034" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_035 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0035" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_036 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0036" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_037 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0037" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:job_038 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0038" ;
+    ex:jobStatus "COMPLETED" .
+
+ex:job_039 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0039" ;
+    ex:jobStatus "SCHEDULED" .
+
+ex:job_040 a ex:MaintenanceJob ;
+    ex:jobId "MNT-JOB-0040" ;
+    ex:jobStatus "IN_PROGRESS" .
+
+ex:gw_001 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:01" ;
+    ex:installedInBuilding ex:building_001 ;
+    ex:hasMaintenanceJob ex:job_001 .
+
+ex:gw_002 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:02" ;
+    ex:installedInBuilding ex:building_002 ;
+    ex:hasMaintenanceJob ex:job_002 .
+
+ex:gw_003 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:03" ;
+    ex:installedInBuilding ex:building_003 ;
+    ex:hasMaintenanceJob ex:job_003 .
+
+ex:gw_004 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:04" ;
+    ex:installedInBuilding ex:building_004 ;
+    ex:hasMaintenanceJob ex:job_004 .
+
+ex:gw_005 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:05" ;
+    ex:installedInBuilding ex:building_005 ;
+    ex:hasMaintenanceJob ex:job_005 .
+
+ex:gw_006 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:06" ;
+    ex:installedInBuilding ex:building_006 ;
+    ex:hasMaintenanceJob ex:job_006 .
+
+ex:gw_007 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:07" ;
+    ex:installedInBuilding ex:building_007 ;
+    ex:hasMaintenanceJob ex:job_007 .
+
+ex:gw_008 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:08" ;
+    ex:installedInBuilding ex:building_008 ;
+    ex:hasMaintenanceJob ex:job_008 .
+
+ex:gw_009 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:09" ;
+    ex:installedInBuilding ex:building_009 ;
+    ex:hasMaintenanceJob ex:job_009 .
+
+ex:gw_010 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:0A" ;
+    ex:installedInBuilding ex:building_010 ;
+    ex:hasMaintenanceJob ex:job_010 .
+
+ex:gw_011 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:0B" ;
+    ex:installedInBuilding ex:building_011 ;
+    ex:hasMaintenanceJob ex:job_011 .
+
+ex:gw_012 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:0C" ;
+    ex:installedInBuilding ex:building_012 ;
+    ex:hasMaintenanceJob ex:job_012 .
+
+ex:gw_013 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:0D" ;
+    ex:installedInBuilding ex:building_013 ;
+    ex:hasMaintenanceJob ex:job_013 .
+
+ex:gw_014 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:0E" ;
+    ex:installedInBuilding ex:building_014 ;
+    ex:hasMaintenanceJob ex:job_014 .
+
+ex:gw_015 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:0F" ;
+    ex:installedInBuilding ex:building_015 ;
+    ex:hasMaintenanceJob ex:job_015 .
+
+ex:gw_016 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:10" ;
+    ex:installedInBuilding ex:building_016 ;
+    ex:hasMaintenanceJob ex:job_016 .
+
+ex:gw_017 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:11" ;
+    ex:installedInBuilding ex:building_017 ;
+    ex:hasMaintenanceJob ex:job_017 .
+
+ex:gw_018 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:12" ;
+    ex:installedInBuilding ex:building_018 ;
+    ex:hasMaintenanceJob ex:job_018 .
+
+ex:gw_019 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:13" ;
+    ex:installedInBuilding ex:building_019 ;
+    ex:hasMaintenanceJob ex:job_019 .
+
+ex:gw_020 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:14" ;
+    ex:installedInBuilding ex:building_020 ;
+    ex:hasMaintenanceJob ex:job_020 .
+
+ex:gw_021 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:15" ;
+    ex:installedInBuilding ex:building_021 ;
+    ex:hasMaintenanceJob ex:job_021 .
+
+ex:gw_022 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:16" ;
+    ex:installedInBuilding ex:building_022 ;
+    ex:hasMaintenanceJob ex:job_022 .
+
+ex:gw_023 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:17" ;
+    ex:installedInBuilding ex:building_023 ;
+    ex:hasMaintenanceJob ex:job_023 .
+
+ex:gw_024 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:18" ;
+    ex:installedInBuilding ex:building_024 ;
+    ex:hasMaintenanceJob ex:job_024 .
+
+ex:gw_025 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:19" ;
+    ex:installedInBuilding ex:building_025 ;
+    ex:hasMaintenanceJob ex:job_025 .
+
+ex:gw_026 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:1A" ;
+    ex:installedInBuilding ex:building_026 ;
+    ex:hasMaintenanceJob ex:job_026 .
+
+ex:gw_027 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:1B" ;
+    ex:installedInBuilding ex:building_027 ;
+    ex:hasMaintenanceJob ex:job_027 .
+
+ex:gw_028 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:1C" ;
+    ex:installedInBuilding ex:building_028 ;
+    ex:hasMaintenanceJob ex:job_028 .
+
+ex:gw_029 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:1D" ;
+    ex:installedInBuilding ex:building_029 ;
+    ex:hasMaintenanceJob ex:job_029 .
+
+ex:gw_030 a ex:GatewayNode ;
+    ex:macAddress "AA:BB:CC:00:01:1E" ;
+    ex:installedInBuilding ex:building_030 ;
+    ex:hasMaintenanceJob ex:job_030 .
+
+ex:obs_001 a ex:TelemetryObservation ;
+    ex:readingValue 23.70 ;
+    ex:readingTimestamp "2025-05-02T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_001 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:01" ;
+    ex:registeredToGateway ex:gw_001 ;
+    ex:installedInBuilding ex:building_001 ;
+    ex:hasMaintenanceJob ex:job_001 ;
+    ex:recordedObservation ex:obs_001 .
+
+ex:obs_002 a ex:TelemetryObservation ;
+    ex:readingValue 24.90 ;
+    ex:readingTimestamp "2025-05-03T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_002 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:02" ;
+    ex:registeredToGateway ex:gw_002 ;
+    ex:installedInBuilding ex:building_002 ;
+    ex:hasMaintenanceJob ex:job_002 ;
+    ex:recordedObservation ex:obs_002 .
+
+ex:obs_003 a ex:TelemetryObservation ;
+    ex:readingValue 131.80 ;
+    ex:readingTimestamp "2025-05-04T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_003 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:03" ;
+    ex:registeredToGateway ex:gw_003 ;
+    ex:installedInBuilding ex:building_003 ;
+    ex:hasMaintenanceJob ex:job_003 ;
+    ex:recordedObservation ex:obs_003 .
+
+ex:obs_004 a ex:TelemetryObservation ;
+    ex:readingValue 27.30 ;
+    ex:readingTimestamp "2025-05-05T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_004 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:04" ;
+    ex:registeredToGateway ex:gw_004 ;
+    ex:installedInBuilding ex:building_004 ;
+    ex:hasMaintenanceJob ex:job_004 ;
+    ex:recordedObservation ex:obs_004 .
+
+ex:obs_005 a ex:TelemetryObservation ;
+    ex:readingValue 28.50 ;
+    ex:readingTimestamp "2025-05-06T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_005 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:05" ;
+    ex:registeredToGateway ex:gw_005 ;
+    ex:installedInBuilding ex:building_005 ;
+    ex:hasMaintenanceJob ex:job_005 ;
+    ex:recordedObservation ex:obs_005 .
+
+ex:obs_006 a ex:TelemetryObservation ;
+    ex:readingValue 138.10 ;
+    ex:readingTimestamp "2025-05-07T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_006 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:06" ;
+    ex:registeredToGateway ex:gw_006 ;
+    ex:installedInBuilding ex:building_006 ;
+    ex:hasMaintenanceJob ex:job_006 ;
+    ex:recordedObservation ex:obs_006 .
+
+ex:obs_007 a ex:TelemetryObservation ;
+    ex:readingValue 30.90 ;
+    ex:readingTimestamp "2025-05-08T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_007 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:07" ;
+    ex:registeredToGateway ex:gw_007 ;
+    ex:installedInBuilding ex:building_007 ;
+    ex:hasMaintenanceJob ex:job_007 ;
+    ex:recordedObservation ex:obs_007 .
+
+ex:obs_008 a ex:TelemetryObservation ;
+    ex:readingValue 32.10 ;
+    ex:readingTimestamp "2025-05-09T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_008 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:08" ;
+    ex:registeredToGateway ex:gw_008 ;
+    ex:installedInBuilding ex:building_008 ;
+    ex:hasMaintenanceJob ex:job_008 ;
+    ex:recordedObservation ex:obs_008 .
+
+ex:obs_009 a ex:TelemetryObservation ;
+    ex:readingValue 144.40 ;
+    ex:readingTimestamp "2025-05-10T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_009 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:09" ;
+    ex:registeredToGateway ex:gw_009 ;
+    ex:installedInBuilding ex:building_009 ;
+    ex:hasMaintenanceJob ex:job_009 ;
+    ex:recordedObservation ex:obs_009 .
+
+ex:obs_010 a ex:TelemetryObservation ;
+    ex:readingValue 34.50 ;
+    ex:readingTimestamp "2025-05-11T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_010 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:0A" ;
+    ex:registeredToGateway ex:gw_010 ;
+    ex:installedInBuilding ex:building_010 ;
+    ex:hasMaintenanceJob ex:job_010 ;
+    ex:recordedObservation ex:obs_010 .
+
+ex:obs_011 a ex:TelemetryObservation ;
+    ex:readingValue 35.70 ;
+    ex:readingTimestamp "2025-05-12T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_011 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:0B" ;
+    ex:registeredToGateway ex:gw_011 ;
+    ex:installedInBuilding ex:building_011 ;
+    ex:hasMaintenanceJob ex:job_011 ;
+    ex:recordedObservation ex:obs_011 .
+
+ex:obs_012 a ex:TelemetryObservation ;
+    ex:readingValue 150.70 ;
+    ex:readingTimestamp "2025-05-13T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_012 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:0C" ;
+    ex:registeredToGateway ex:gw_012 ;
+    ex:installedInBuilding ex:building_012 ;
+    ex:hasMaintenanceJob ex:job_012 ;
+    ex:recordedObservation ex:obs_012 .
+
+ex:obs_013 a ex:TelemetryObservation ;
+    ex:readingValue 38.10 ;
+    ex:readingTimestamp "2025-05-14T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_013 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:0D" ;
+    ex:registeredToGateway ex:gw_013 ;
+    ex:installedInBuilding ex:building_013 ;
+    ex:hasMaintenanceJob ex:job_013 ;
+    ex:recordedObservation ex:obs_013 .
+
+ex:obs_014 a ex:TelemetryObservation ;
+    ex:readingValue 39.30 ;
+    ex:readingTimestamp "2025-05-15T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_014 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:0E" ;
+    ex:registeredToGateway ex:gw_014 ;
+    ex:installedInBuilding ex:building_014 ;
+    ex:hasMaintenanceJob ex:job_014 ;
+    ex:recordedObservation ex:obs_014 .
+
+ex:obs_015 a ex:TelemetryObservation ;
+    ex:readingValue 157.00 ;
+    ex:readingTimestamp "2025-05-16T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_015 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:0F" ;
+    ex:registeredToGateway ex:gw_015 ;
+    ex:installedInBuilding ex:building_015 ;
+    ex:hasMaintenanceJob ex:job_015 ;
+    ex:recordedObservation ex:obs_015 .
+
+ex:obs_016 a ex:TelemetryObservation ;
+    ex:readingValue 23.70 ;
+    ex:readingTimestamp "2025-05-17T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_016 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:10" ;
+    ex:registeredToGateway ex:gw_016 ;
+    ex:installedInBuilding ex:building_016 ;
+    ex:hasMaintenanceJob ex:job_016 ;
+    ex:recordedObservation ex:obs_016 .
+
+ex:obs_017 a ex:TelemetryObservation ;
+    ex:readingValue 24.90 ;
+    ex:readingTimestamp "2025-05-18T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_017 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:11" ;
+    ex:registeredToGateway ex:gw_017 ;
+    ex:installedInBuilding ex:building_017 ;
+    ex:hasMaintenanceJob ex:job_017 ;
+    ex:recordedObservation ex:obs_017 .
+
+ex:obs_018 a ex:TelemetryObservation ;
+    ex:readingValue 163.30 ;
+    ex:readingTimestamp "2025-05-19T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_018 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:12" ;
+    ex:registeredToGateway ex:gw_018 ;
+    ex:installedInBuilding ex:building_018 ;
+    ex:hasMaintenanceJob ex:job_018 ;
+    ex:recordedObservation ex:obs_018 .
+
+ex:obs_019 a ex:TelemetryObservation ;
+    ex:readingValue 27.30 ;
+    ex:readingTimestamp "2025-05-20T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_019 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:13" ;
+    ex:registeredToGateway ex:gw_019 ;
+    ex:installedInBuilding ex:building_019 ;
+    ex:hasMaintenanceJob ex:job_019 ;
+    ex:recordedObservation ex:obs_019 .
+
+ex:obs_020 a ex:TelemetryObservation ;
+    ex:readingValue 28.50 ;
+    ex:readingTimestamp "2025-05-21T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_020 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:14" ;
+    ex:registeredToGateway ex:gw_020 ;
+    ex:installedInBuilding ex:building_020 ;
+    ex:hasMaintenanceJob ex:job_020 ;
+    ex:recordedObservation ex:obs_020 .
+
+ex:obs_021 a ex:TelemetryObservation ;
+    ex:readingValue 169.60 ;
+    ex:readingTimestamp "2025-05-22T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_021 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:15" ;
+    ex:registeredToGateway ex:gw_021 ;
+    ex:installedInBuilding ex:building_021 ;
+    ex:hasMaintenanceJob ex:job_021 ;
+    ex:recordedObservation ex:obs_021 .
+
+ex:obs_022 a ex:TelemetryObservation ;
+    ex:readingValue 30.90 ;
+    ex:readingTimestamp "2025-05-23T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_022 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:16" ;
+    ex:registeredToGateway ex:gw_022 ;
+    ex:installedInBuilding ex:building_022 ;
+    ex:hasMaintenanceJob ex:job_022 ;
+    ex:recordedObservation ex:obs_022 .
+
+ex:obs_023 a ex:TelemetryObservation ;
+    ex:readingValue 32.10 ;
+    ex:readingTimestamp "2025-05-24T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_023 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:17" ;
+    ex:registeredToGateway ex:gw_023 ;
+    ex:installedInBuilding ex:building_023 ;
+    ex:hasMaintenanceJob ex:job_023 ;
+    ex:recordedObservation ex:obs_023 .
+
+ex:obs_024 a ex:TelemetryObservation ;
+    ex:readingValue 175.90 ;
+    ex:readingTimestamp "2025-05-25T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_024 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:18" ;
+    ex:registeredToGateway ex:gw_024 ;
+    ex:installedInBuilding ex:building_024 ;
+    ex:hasMaintenanceJob ex:job_024 ;
+    ex:recordedObservation ex:obs_024 .
+
+ex:obs_025 a ex:TelemetryObservation ;
+    ex:readingValue 34.50 ;
+    ex:readingTimestamp "2025-05-26T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_025 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:19" ;
+    ex:registeredToGateway ex:gw_025 ;
+    ex:installedInBuilding ex:building_025 ;
+    ex:hasMaintenanceJob ex:job_025 ;
+    ex:recordedObservation ex:obs_025 .
+
+ex:obs_026 a ex:TelemetryObservation ;
+    ex:readingValue 35.70 ;
+    ex:readingTimestamp "2025-05-27T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_026 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:1A" ;
+    ex:registeredToGateway ex:gw_026 ;
+    ex:installedInBuilding ex:building_026 ;
+    ex:hasMaintenanceJob ex:job_026 ;
+    ex:recordedObservation ex:obs_026 .
+
+ex:obs_027 a ex:TelemetryObservation ;
+    ex:readingValue 182.20 ;
+    ex:readingTimestamp "2025-05-28T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_027 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:1B" ;
+    ex:registeredToGateway ex:gw_027 ;
+    ex:installedInBuilding ex:building_027 ;
+    ex:hasMaintenanceJob ex:job_027 ;
+    ex:recordedObservation ex:obs_027 .
+
+ex:obs_028 a ex:TelemetryObservation ;
+    ex:readingValue 38.10 ;
+    ex:readingTimestamp "2025-05-01T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_028 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:1C" ;
+    ex:registeredToGateway ex:gw_028 ;
+    ex:installedInBuilding ex:building_028 ;
+    ex:hasMaintenanceJob ex:job_028 ;
+    ex:recordedObservation ex:obs_028 .
+
+ex:obs_029 a ex:TelemetryObservation ;
+    ex:readingValue 39.30 ;
+    ex:readingTimestamp "2025-05-02T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_029 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:1D" ;
+    ex:registeredToGateway ex:gw_029 ;
+    ex:installedInBuilding ex:building_029 ;
+    ex:hasMaintenanceJob ex:job_029 ;
+    ex:recordedObservation ex:obs_029 .
+
+ex:obs_030 a ex:TelemetryObservation ;
+    ex:readingValue 188.50 ;
+    ex:readingTimestamp "2025-05-03T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_030 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:1E" ;
+    ex:registeredToGateway ex:gw_030 ;
+    ex:installedInBuilding ex:building_030 ;
+    ex:hasMaintenanceJob ex:job_030 ;
+    ex:recordedObservation ex:obs_030 .
+
+ex:obs_031 a ex:TelemetryObservation ;
+    ex:readingValue 23.70 ;
+    ex:readingTimestamp "2025-05-04T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_031 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:1F" ;
+    ex:registeredToGateway ex:gw_001 ;
+    ex:installedInBuilding ex:building_031 ;
+    ex:hasMaintenanceJob ex:job_031 ;
+    ex:recordedObservation ex:obs_031 .
+
+ex:obs_032 a ex:TelemetryObservation ;
+    ex:readingValue 24.90 ;
+    ex:readingTimestamp "2025-05-05T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_032 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:20" ;
+    ex:registeredToGateway ex:gw_002 ;
+    ex:installedInBuilding ex:building_032 ;
+    ex:hasMaintenanceJob ex:job_032 ;
+    ex:recordedObservation ex:obs_032 .
+
+ex:obs_033 a ex:TelemetryObservation ;
+    ex:readingValue 194.80 ;
+    ex:readingTimestamp "2025-05-06T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_033 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:21" ;
+    ex:registeredToGateway ex:gw_003 ;
+    ex:installedInBuilding ex:building_033 ;
+    ex:hasMaintenanceJob ex:job_033 ;
+    ex:recordedObservation ex:obs_033 .
+
+ex:obs_034 a ex:TelemetryObservation ;
+    ex:readingValue 27.30 ;
+    ex:readingTimestamp "2025-05-07T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_034 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:22" ;
+    ex:registeredToGateway ex:gw_004 ;
+    ex:installedInBuilding ex:building_034 ;
+    ex:hasMaintenanceJob ex:job_034 ;
+    ex:recordedObservation ex:obs_034 .
+
+ex:obs_035 a ex:TelemetryObservation ;
+    ex:readingValue 28.50 ;
+    ex:readingTimestamp "2025-05-08T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_035 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:23" ;
+    ex:registeredToGateway ex:gw_005 ;
+    ex:installedInBuilding ex:building_035 ;
+    ex:hasMaintenanceJob ex:job_035 ;
+    ex:recordedObservation ex:obs_035 .
+
+ex:obs_036 a ex:TelemetryObservation ;
+    ex:readingValue 201.10 ;
+    ex:readingTimestamp "2025-05-09T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_036 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:24" ;
+    ex:registeredToGateway ex:gw_006 ;
+    ex:installedInBuilding ex:building_036 ;
+    ex:hasMaintenanceJob ex:job_036 ;
+    ex:recordedObservation ex:obs_036 .
+
+ex:obs_037 a ex:TelemetryObservation ;
+    ex:readingValue 30.90 ;
+    ex:readingTimestamp "2025-05-10T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_037 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:25" ;
+    ex:registeredToGateway ex:gw_007 ;
+    ex:installedInBuilding ex:building_037 ;
+    ex:hasMaintenanceJob ex:job_037 ;
+    ex:recordedObservation ex:obs_037 .
+
+ex:obs_038 a ex:TelemetryObservation ;
+    ex:readingValue 32.10 ;
+    ex:readingTimestamp "2025-05-11T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_038 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:26" ;
+    ex:registeredToGateway ex:gw_008 ;
+    ex:installedInBuilding ex:building_038 ;
+    ex:hasMaintenanceJob ex:job_038 ;
+    ex:recordedObservation ex:obs_038 .
+
+ex:obs_039 a ex:TelemetryObservation ;
+    ex:readingValue 207.40 ;
+    ex:readingTimestamp "2025-05-12T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_039 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:27" ;
+    ex:registeredToGateway ex:gw_009 ;
+    ex:installedInBuilding ex:building_039 ;
+    ex:hasMaintenanceJob ex:job_039 ;
+    ex:recordedObservation ex:obs_039 .
+
+ex:obs_040 a ex:TelemetryObservation ;
+    ex:readingValue 34.50 ;
+    ex:readingTimestamp "2025-05-13T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_040 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:28" ;
+    ex:registeredToGateway ex:gw_010 ;
+    ex:installedInBuilding ex:building_040 ;
+    ex:hasMaintenanceJob ex:job_040 ;
+    ex:recordedObservation ex:obs_040 .
+
+ex:obs_041 a ex:TelemetryObservation ;
+    ex:readingValue 35.70 ;
+    ex:readingTimestamp "2025-05-14T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_041 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:29" ;
+    ex:registeredToGateway ex:gw_011 ;
+    ex:installedInBuilding ex:building_001 ;
+    ex:hasMaintenanceJob ex:job_001 ;
+    ex:recordedObservation ex:obs_041 .
+
+ex:obs_042 a ex:TelemetryObservation ;
+    ex:readingValue 213.70 ;
+    ex:readingTimestamp "2025-05-15T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_042 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:2A" ;
+    ex:registeredToGateway ex:gw_012 ;
+    ex:installedInBuilding ex:building_002 ;
+    ex:hasMaintenanceJob ex:job_002 ;
+    ex:recordedObservation ex:obs_042 .
+
+ex:obs_043 a ex:TelemetryObservation ;
+    ex:readingValue 38.10 ;
+    ex:readingTimestamp "2025-05-16T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_043 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:2B" ;
+    ex:registeredToGateway ex:gw_013 ;
+    ex:installedInBuilding ex:building_003 ;
+    ex:hasMaintenanceJob ex:job_003 ;
+    ex:recordedObservation ex:obs_043 .
+
+ex:obs_044 a ex:TelemetryObservation ;
+    ex:readingValue 39.30 ;
+    ex:readingTimestamp "2025-05-17T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_044 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:2C" ;
+    ex:registeredToGateway ex:gw_014 ;
+    ex:installedInBuilding ex:building_004 ;
+    ex:hasMaintenanceJob ex:job_004 ;
+    ex:recordedObservation ex:obs_044 .
+
+ex:obs_045 a ex:TelemetryObservation ;
+    ex:readingValue 220.00 ;
+    ex:readingTimestamp "2025-05-18T12:00:00Z"^^xsd:dateTime .
+
+ex:temp_sensor_045 a ex:TemperatureSensor ;
+    ex:macAddress "AA:BB:CC:01:02:2D" ;
+    ex:registeredToGateway ex:gw_015 ;
+    ex:installedInBuilding ex:building_005 ;
+    ex:hasMaintenanceJob ex:job_005 ;
+    ex:recordedObservation ex:obs_045 .
+
+ex:obs_046 a ex:TelemetryObservation ;
+    ex:readingValue 66.50 ;
+    ex:readingTimestamp "2025-05-02T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_001 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:01" ;
+    ex:registeredToGateway ex:gw_002 ;
+    ex:installedInBuilding ex:building_002 ;
+    ex:hasMaintenanceJob ex:job_002 ;
+    ex:recordedObservation ex:obs_046 .
+
+ex:obs_047 a ex:TelemetryObservation ;
+    ex:readingValue 147.00 ;
+    ex:readingTimestamp "2025-05-03T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_002 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:02" ;
+    ex:registeredToGateway ex:gw_003 ;
+    ex:installedInBuilding ex:building_003 ;
+    ex:hasMaintenanceJob ex:job_003 ;
+    ex:recordedObservation ex:obs_047 .
+
+ex:obs_048 a ex:TelemetryObservation ;
+    ex:readingValue 69.50 ;
+    ex:readingTimestamp "2025-05-04T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_003 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:03" ;
+    ex:registeredToGateway ex:gw_004 ;
+    ex:installedInBuilding ex:building_004 ;
+    ex:hasMaintenanceJob ex:job_004 ;
+    ex:recordedObservation ex:obs_048 .
+
+ex:obs_049 a ex:TelemetryObservation ;
+    ex:readingValue 154.00 ;
+    ex:readingTimestamp "2025-05-05T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_004 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:04" ;
+    ex:registeredToGateway ex:gw_005 ;
+    ex:installedInBuilding ex:building_005 ;
+    ex:hasMaintenanceJob ex:job_005 ;
+    ex:recordedObservation ex:obs_049 .
+
+ex:obs_050 a ex:TelemetryObservation ;
+    ex:readingValue 72.50 ;
+    ex:readingTimestamp "2025-05-06T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_005 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:05" ;
+    ex:registeredToGateway ex:gw_006 ;
+    ex:installedInBuilding ex:building_006 ;
+    ex:hasMaintenanceJob ex:job_006 ;
+    ex:recordedObservation ex:obs_050 .
+
+ex:obs_051 a ex:TelemetryObservation ;
+    ex:readingValue 161.00 ;
+    ex:readingTimestamp "2025-05-07T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_006 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:06" ;
+    ex:registeredToGateway ex:gw_007 ;
+    ex:installedInBuilding ex:building_007 ;
+    ex:hasMaintenanceJob ex:job_007 ;
+    ex:recordedObservation ex:obs_051 .
+
+ex:obs_052 a ex:TelemetryObservation ;
+    ex:readingValue 75.50 ;
+    ex:readingTimestamp "2025-05-08T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_007 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:07" ;
+    ex:registeredToGateway ex:gw_008 ;
+    ex:installedInBuilding ex:building_008 ;
+    ex:hasMaintenanceJob ex:job_008 ;
+    ex:recordedObservation ex:obs_052 .
+
+ex:obs_053 a ex:TelemetryObservation ;
+    ex:readingValue 168.00 ;
+    ex:readingTimestamp "2025-05-09T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_008 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:08" ;
+    ex:registeredToGateway ex:gw_009 ;
+    ex:installedInBuilding ex:building_009 ;
+    ex:hasMaintenanceJob ex:job_009 ;
+    ex:recordedObservation ex:obs_053 .
+
+ex:obs_054 a ex:TelemetryObservation ;
+    ex:readingValue 78.50 ;
+    ex:readingTimestamp "2025-05-10T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_009 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:09" ;
+    ex:registeredToGateway ex:gw_010 ;
+    ex:installedInBuilding ex:building_010 ;
+    ex:hasMaintenanceJob ex:job_010 ;
+    ex:recordedObservation ex:obs_054 .
+
+ex:obs_055 a ex:TelemetryObservation ;
+    ex:readingValue 175.00 ;
+    ex:readingTimestamp "2025-05-11T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_010 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:0A" ;
+    ex:registeredToGateway ex:gw_011 ;
+    ex:installedInBuilding ex:building_011 ;
+    ex:hasMaintenanceJob ex:job_011 ;
+    ex:recordedObservation ex:obs_055 .
+
+ex:obs_056 a ex:TelemetryObservation ;
+    ex:readingValue 81.50 ;
+    ex:readingTimestamp "2025-05-12T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_011 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:0B" ;
+    ex:registeredToGateway ex:gw_012 ;
+    ex:installedInBuilding ex:building_012 ;
+    ex:hasMaintenanceJob ex:job_012 ;
+    ex:recordedObservation ex:obs_056 .
+
+ex:obs_057 a ex:TelemetryObservation ;
+    ex:readingValue 182.00 ;
+    ex:readingTimestamp "2025-05-13T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_012 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:0C" ;
+    ex:registeredToGateway ex:gw_013 ;
+    ex:installedInBuilding ex:building_013 ;
+    ex:hasMaintenanceJob ex:job_013 ;
+    ex:recordedObservation ex:obs_057 .
+
+ex:obs_058 a ex:TelemetryObservation ;
+    ex:readingValue 84.50 ;
+    ex:readingTimestamp "2025-05-14T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_013 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:0D" ;
+    ex:registeredToGateway ex:gw_014 ;
+    ex:installedInBuilding ex:building_014 ;
+    ex:hasMaintenanceJob ex:job_014 ;
+    ex:recordedObservation ex:obs_058 .
+
+ex:obs_059 a ex:TelemetryObservation ;
+    ex:readingValue 189.00 ;
+    ex:readingTimestamp "2025-05-15T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_014 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:0E" ;
+    ex:registeredToGateway ex:gw_015 ;
+    ex:installedInBuilding ex:building_015 ;
+    ex:hasMaintenanceJob ex:job_015 ;
+    ex:recordedObservation ex:obs_059 .
+
+ex:obs_060 a ex:TelemetryObservation ;
+    ex:readingValue 87.50 ;
+    ex:readingTimestamp "2025-05-16T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_015 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:0F" ;
+    ex:registeredToGateway ex:gw_016 ;
+    ex:installedInBuilding ex:building_016 ;
+    ex:hasMaintenanceJob ex:job_016 ;
+    ex:recordedObservation ex:obs_060 .
+
+ex:obs_061 a ex:TelemetryObservation ;
+    ex:readingValue 196.00 ;
+    ex:readingTimestamp "2025-05-17T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_016 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:10" ;
+    ex:registeredToGateway ex:gw_017 ;
+    ex:installedInBuilding ex:building_017 ;
+    ex:hasMaintenanceJob ex:job_017 ;
+    ex:recordedObservation ex:obs_061 .
+
+ex:obs_062 a ex:TelemetryObservation ;
+    ex:readingValue 90.50 ;
+    ex:readingTimestamp "2025-05-18T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_017 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:11" ;
+    ex:registeredToGateway ex:gw_018 ;
+    ex:installedInBuilding ex:building_018 ;
+    ex:hasMaintenanceJob ex:job_018 ;
+    ex:recordedObservation ex:obs_062 .
+
+ex:obs_063 a ex:TelemetryObservation ;
+    ex:readingValue 203.00 ;
+    ex:readingTimestamp "2025-05-19T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_018 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:12" ;
+    ex:registeredToGateway ex:gw_019 ;
+    ex:installedInBuilding ex:building_019 ;
+    ex:hasMaintenanceJob ex:job_019 ;
+    ex:recordedObservation ex:obs_063 .
+
+ex:obs_064 a ex:TelemetryObservation ;
+    ex:readingValue 93.50 ;
+    ex:readingTimestamp "2025-05-20T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_019 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:13" ;
+    ex:registeredToGateway ex:gw_020 ;
+    ex:installedInBuilding ex:building_020 ;
+    ex:hasMaintenanceJob ex:job_020 ;
+    ex:recordedObservation ex:obs_064 .
+
+ex:obs_065 a ex:TelemetryObservation ;
+    ex:readingValue 210.00 ;
+    ex:readingTimestamp "2025-05-21T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_020 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:14" ;
+    ex:registeredToGateway ex:gw_021 ;
+    ex:installedInBuilding ex:building_021 ;
+    ex:hasMaintenanceJob ex:job_021 ;
+    ex:recordedObservation ex:obs_065 .
+
+ex:obs_066 a ex:TelemetryObservation ;
+    ex:readingValue 66.50 ;
+    ex:readingTimestamp "2025-05-22T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_021 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:15" ;
+    ex:registeredToGateway ex:gw_022 ;
+    ex:installedInBuilding ex:building_022 ;
+    ex:hasMaintenanceJob ex:job_022 ;
+    ex:recordedObservation ex:obs_066 .
+
+ex:obs_067 a ex:TelemetryObservation ;
+    ex:readingValue 217.00 ;
+    ex:readingTimestamp "2025-05-23T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_022 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:16" ;
+    ex:registeredToGateway ex:gw_023 ;
+    ex:installedInBuilding ex:building_023 ;
+    ex:hasMaintenanceJob ex:job_023 ;
+    ex:recordedObservation ex:obs_067 .
+
+ex:obs_068 a ex:TelemetryObservation ;
+    ex:readingValue 69.50 ;
+    ex:readingTimestamp "2025-05-24T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_023 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:17" ;
+    ex:registeredToGateway ex:gw_024 ;
+    ex:installedInBuilding ex:building_024 ;
+    ex:hasMaintenanceJob ex:job_024 ;
+    ex:recordedObservation ex:obs_068 .
+
+ex:obs_069 a ex:TelemetryObservation ;
+    ex:readingValue 224.00 ;
+    ex:readingTimestamp "2025-05-25T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_024 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:18" ;
+    ex:registeredToGateway ex:gw_025 ;
+    ex:installedInBuilding ex:building_025 ;
+    ex:hasMaintenanceJob ex:job_025 ;
+    ex:recordedObservation ex:obs_069 .
+
+ex:obs_070 a ex:TelemetryObservation ;
+    ex:readingValue 72.50 ;
+    ex:readingTimestamp "2025-05-26T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_025 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:19" ;
+    ex:registeredToGateway ex:gw_026 ;
+    ex:installedInBuilding ex:building_026 ;
+    ex:hasMaintenanceJob ex:job_026 ;
+    ex:recordedObservation ex:obs_070 .
+
+ex:obs_071 a ex:TelemetryObservation ;
+    ex:readingValue 231.00 ;
+    ex:readingTimestamp "2025-05-27T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_026 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:1A" ;
+    ex:registeredToGateway ex:gw_027 ;
+    ex:installedInBuilding ex:building_027 ;
+    ex:hasMaintenanceJob ex:job_027 ;
+    ex:recordedObservation ex:obs_071 .
+
+ex:obs_072 a ex:TelemetryObservation ;
+    ex:readingValue 75.50 ;
+    ex:readingTimestamp "2025-05-28T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_027 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:1B" ;
+    ex:registeredToGateway ex:gw_028 ;
+    ex:installedInBuilding ex:building_028 ;
+    ex:hasMaintenanceJob ex:job_028 ;
+    ex:recordedObservation ex:obs_072 .
+
+ex:obs_073 a ex:TelemetryObservation ;
+    ex:readingValue 238.00 ;
+    ex:readingTimestamp "2025-05-01T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_028 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:1C" ;
+    ex:registeredToGateway ex:gw_029 ;
+    ex:installedInBuilding ex:building_029 ;
+    ex:hasMaintenanceJob ex:job_029 ;
+    ex:recordedObservation ex:obs_073 .
+
+ex:obs_074 a ex:TelemetryObservation ;
+    ex:readingValue 78.50 ;
+    ex:readingTimestamp "2025-05-02T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_029 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:1D" ;
+    ex:registeredToGateway ex:gw_030 ;
+    ex:installedInBuilding ex:building_030 ;
+    ex:hasMaintenanceJob ex:job_030 ;
+    ex:recordedObservation ex:obs_074 .
+
+ex:obs_075 a ex:TelemetryObservation ;
+    ex:readingValue 245.00 ;
+    ex:readingTimestamp "2025-05-03T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_030 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:1E" ;
+    ex:registeredToGateway ex:gw_001 ;
+    ex:installedInBuilding ex:building_031 ;
+    ex:hasMaintenanceJob ex:job_031 ;
+    ex:recordedObservation ex:obs_075 .
+
+ex:obs_076 a ex:TelemetryObservation ;
+    ex:readingValue 81.50 ;
+    ex:readingTimestamp "2025-05-04T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_031 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:1F" ;
+    ex:registeredToGateway ex:gw_002 ;
+    ex:installedInBuilding ex:building_032 ;
+    ex:hasMaintenanceJob ex:job_032 ;
+    ex:recordedObservation ex:obs_076 .
+
+ex:obs_077 a ex:TelemetryObservation ;
+    ex:readingValue 252.00 ;
+    ex:readingTimestamp "2025-05-05T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_032 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:20" ;
+    ex:registeredToGateway ex:gw_003 ;
+    ex:installedInBuilding ex:building_033 ;
+    ex:hasMaintenanceJob ex:job_033 ;
+    ex:recordedObservation ex:obs_077 .
+
+ex:obs_078 a ex:TelemetryObservation ;
+    ex:readingValue 84.50 ;
+    ex:readingTimestamp "2025-05-06T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_033 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:21" ;
+    ex:registeredToGateway ex:gw_004 ;
+    ex:installedInBuilding ex:building_034 ;
+    ex:hasMaintenanceJob ex:job_034 ;
+    ex:recordedObservation ex:obs_078 .
+
+ex:obs_079 a ex:TelemetryObservation ;
+    ex:readingValue 259.00 ;
+    ex:readingTimestamp "2025-05-07T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_034 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:22" ;
+    ex:registeredToGateway ex:gw_005 ;
+    ex:installedInBuilding ex:building_035 ;
+    ex:hasMaintenanceJob ex:job_035 ;
+    ex:recordedObservation ex:obs_079 .
+
+ex:obs_080 a ex:TelemetryObservation ;
+    ex:readingValue 87.50 ;
+    ex:readingTimestamp "2025-05-08T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_035 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:23" ;
+    ex:registeredToGateway ex:gw_006 ;
+    ex:installedInBuilding ex:building_036 ;
+    ex:hasMaintenanceJob ex:job_036 ;
+    ex:recordedObservation ex:obs_080 .
+
+ex:obs_081 a ex:TelemetryObservation ;
+    ex:readingValue 266.00 ;
+    ex:readingTimestamp "2025-05-09T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_036 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:24" ;
+    ex:registeredToGateway ex:gw_007 ;
+    ex:installedInBuilding ex:building_037 ;
+    ex:hasMaintenanceJob ex:job_037 ;
+    ex:recordedObservation ex:obs_081 .
+
+ex:obs_082 a ex:TelemetryObservation ;
+    ex:readingValue 90.50 ;
+    ex:readingTimestamp "2025-05-10T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_037 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:25" ;
+    ex:registeredToGateway ex:gw_008 ;
+    ex:installedInBuilding ex:building_038 ;
+    ex:hasMaintenanceJob ex:job_038 ;
+    ex:recordedObservation ex:obs_082 .
+
+ex:obs_083 a ex:TelemetryObservation ;
+    ex:readingValue 273.00 ;
+    ex:readingTimestamp "2025-05-11T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_038 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:26" ;
+    ex:registeredToGateway ex:gw_009 ;
+    ex:installedInBuilding ex:building_039 ;
+    ex:hasMaintenanceJob ex:job_039 ;
+    ex:recordedObservation ex:obs_083 .
+
+ex:obs_084 a ex:TelemetryObservation ;
+    ex:readingValue 93.50 ;
+    ex:readingTimestamp "2025-05-12T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_039 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:27" ;
+    ex:registeredToGateway ex:gw_010 ;
+    ex:installedInBuilding ex:building_040 ;
+    ex:hasMaintenanceJob ex:job_040 ;
+    ex:recordedObservation ex:obs_084 .
+
+ex:obs_085 a ex:TelemetryObservation ;
+    ex:readingValue 280.00 ;
+    ex:readingTimestamp "2025-05-13T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_040 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:28" ;
+    ex:registeredToGateway ex:gw_011 ;
+    ex:installedInBuilding ex:building_001 ;
+    ex:hasMaintenanceJob ex:job_001 ;
+    ex:recordedObservation ex:obs_085 .
+
+ex:obs_086 a ex:TelemetryObservation ;
+    ex:readingValue 66.50 ;
+    ex:readingTimestamp "2025-05-14T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_041 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:29" ;
+    ex:registeredToGateway ex:gw_012 ;
+    ex:installedInBuilding ex:building_002 ;
+    ex:hasMaintenanceJob ex:job_002 ;
+    ex:recordedObservation ex:obs_086 .
+
+ex:obs_087 a ex:TelemetryObservation ;
+    ex:readingValue 287.00 ;
+    ex:readingTimestamp "2025-05-15T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_042 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:2A" ;
+    ex:registeredToGateway ex:gw_013 ;
+    ex:installedInBuilding ex:building_003 ;
+    ex:hasMaintenanceJob ex:job_003 ;
+    ex:recordedObservation ex:obs_087 .
+
+ex:obs_088 a ex:TelemetryObservation ;
+    ex:readingValue 69.50 ;
+    ex:readingTimestamp "2025-05-16T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_043 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:2B" ;
+    ex:registeredToGateway ex:gw_014 ;
+    ex:installedInBuilding ex:building_004 ;
+    ex:hasMaintenanceJob ex:job_004 ;
+    ex:recordedObservation ex:obs_088 .
+
+ex:obs_089 a ex:TelemetryObservation ;
+    ex:readingValue 294.00 ;
+    ex:readingTimestamp "2025-05-17T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_044 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:2C" ;
+    ex:registeredToGateway ex:gw_015 ;
+    ex:installedInBuilding ex:building_005 ;
+    ex:hasMaintenanceJob ex:job_005 ;
+    ex:recordedObservation ex:obs_089 .
+
+ex:obs_090 a ex:TelemetryObservation ;
+    ex:readingValue 72.50 ;
+    ex:readingTimestamp "2025-05-18T18:30:00Z"^^xsd:dateTime .
+
+ex:energy_sensor_045 a ex:EnergySensor ;
+    ex:macAddress "AA:BB:CC:02:03:2D" ;
+    ex:registeredToGateway ex:gw_016 ;
+    ex:installedInBuilding ex:building_006 ;
+    ex:hasMaintenanceJob ex:job_006 ;
+    ex:recordedObservation ex:obs_090 .

@@ -1,0 +1,876 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/subproperties/> .
+
+# ABox Instance Triples for 06_subproperties
+
+ex:tech_proj_001 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #001" .
+
+ex:tech_proj_002 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #002" .
+
+ex:tech_proj_003 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #003" .
+
+ex:tech_proj_004 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #004" .
+
+ex:tech_proj_005 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #005" .
+
+ex:tech_proj_006 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #006" .
+
+ex:tech_proj_007 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #007" .
+
+ex:tech_proj_008 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #008" .
+
+ex:tech_proj_009 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #009" .
+
+ex:tech_proj_010 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #010" .
+
+ex:tech_proj_011 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #011" .
+
+ex:tech_proj_012 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #012" .
+
+ex:tech_proj_013 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #013" .
+
+ex:tech_proj_014 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #014" .
+
+ex:tech_proj_015 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #015" .
+
+ex:tech_proj_016 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #016" .
+
+ex:tech_proj_017 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #017" .
+
+ex:tech_proj_018 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #018" .
+
+ex:tech_proj_019 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #019" .
+
+ex:tech_proj_020 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #020" .
+
+ex:tech_proj_021 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #021" .
+
+ex:tech_proj_022 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #022" .
+
+ex:tech_proj_023 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #023" .
+
+ex:tech_proj_024 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #024" .
+
+ex:tech_proj_025 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #025" .
+
+ex:tech_proj_026 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #026" .
+
+ex:tech_proj_027 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #027" .
+
+ex:tech_proj_028 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #028" .
+
+ex:tech_proj_029 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #029" .
+
+ex:tech_proj_030 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #030" .
+
+ex:tech_proj_031 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #031" .
+
+ex:tech_proj_032 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #032" .
+
+ex:tech_proj_033 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #033" .
+
+ex:tech_proj_034 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #034" .
+
+ex:tech_proj_035 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #035" .
+
+ex:tech_proj_036 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #036" .
+
+ex:tech_proj_037 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #037" .
+
+ex:tech_proj_038 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #038" .
+
+ex:tech_proj_039 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #039" .
+
+ex:tech_proj_040 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #040" .
+
+ex:tech_proj_041 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #041" .
+
+ex:tech_proj_042 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #042" .
+
+ex:tech_proj_043 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #043" .
+
+ex:tech_proj_044 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #044" .
+
+ex:tech_proj_045 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #045" .
+
+ex:tech_proj_046 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #046" .
+
+ex:tech_proj_047 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #047" .
+
+ex:tech_proj_048 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #048" .
+
+ex:tech_proj_049 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #049" .
+
+ex:tech_proj_050 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #050" .
+
+ex:tech_proj_051 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #051" .
+
+ex:tech_proj_052 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #052" .
+
+ex:tech_proj_053 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #053" .
+
+ex:tech_proj_054 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #054" .
+
+ex:tech_proj_055 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #055" .
+
+ex:tech_proj_056 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #056" .
+
+ex:tech_proj_057 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #057" .
+
+ex:tech_proj_058 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #058" .
+
+ex:tech_proj_059 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #059" .
+
+ex:tech_proj_060 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #060" .
+
+ex:tech_proj_061 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #061" .
+
+ex:tech_proj_062 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #062" .
+
+ex:tech_proj_063 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #063" .
+
+ex:tech_proj_064 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #064" .
+
+ex:tech_proj_065 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #065" .
+
+ex:tech_proj_066 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #066" .
+
+ex:tech_proj_067 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #067" .
+
+ex:tech_proj_068 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #068" .
+
+ex:tech_proj_069 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #069" .
+
+ex:tech_proj_070 a ex:TechnicalProject ;
+    ex:initiativeTitle "Distributed Graph Engine Subsystem #070" .
+
+ex:swe_001 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #001" ;
+    ex:gitHandle "dev_handle_001" ;
+    ex:writesCodeFor ex:tech_proj_001, ex:tech_proj_002 ;
+    ex:architectFor ex:tech_proj_007 .
+
+ex:swe_002 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #002" ;
+    ex:gitHandle "dev_handle_002" ;
+    ex:writesCodeFor ex:tech_proj_002, ex:tech_proj_003 ;
+    ex:architectFor ex:tech_proj_008 .
+
+ex:swe_003 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #003" ;
+    ex:gitHandle "dev_handle_003" ;
+    ex:writesCodeFor ex:tech_proj_003, ex:tech_proj_004 ;
+    ex:architectFor ex:tech_proj_009 .
+
+ex:swe_004 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #004" ;
+    ex:gitHandle "dev_handle_004" ;
+    ex:writesCodeFor ex:tech_proj_004, ex:tech_proj_005 ;
+    ex:architectFor ex:tech_proj_010 .
+
+ex:swe_005 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #005" ;
+    ex:gitHandle "dev_handle_005" ;
+    ex:writesCodeFor ex:tech_proj_005, ex:tech_proj_006 ;
+    ex:architectFor ex:tech_proj_011 .
+
+ex:swe_006 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #006" ;
+    ex:gitHandle "dev_handle_006" ;
+    ex:writesCodeFor ex:tech_proj_006, ex:tech_proj_007 ;
+    ex:architectFor ex:tech_proj_012 .
+
+ex:swe_007 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #007" ;
+    ex:gitHandle "dev_handle_007" ;
+    ex:writesCodeFor ex:tech_proj_007, ex:tech_proj_008 ;
+    ex:architectFor ex:tech_proj_013 .
+
+ex:swe_008 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #008" ;
+    ex:gitHandle "dev_handle_008" ;
+    ex:writesCodeFor ex:tech_proj_008, ex:tech_proj_009 ;
+    ex:architectFor ex:tech_proj_014 .
+
+ex:swe_009 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #009" ;
+    ex:gitHandle "dev_handle_009" ;
+    ex:writesCodeFor ex:tech_proj_009, ex:tech_proj_010 ;
+    ex:architectFor ex:tech_proj_015 .
+
+ex:swe_010 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #010" ;
+    ex:gitHandle "dev_handle_010" ;
+    ex:writesCodeFor ex:tech_proj_010, ex:tech_proj_011 ;
+    ex:architectFor ex:tech_proj_016 .
+
+ex:swe_011 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #011" ;
+    ex:gitHandle "dev_handle_011" ;
+    ex:writesCodeFor ex:tech_proj_011, ex:tech_proj_012 ;
+    ex:architectFor ex:tech_proj_017 .
+
+ex:swe_012 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #012" ;
+    ex:gitHandle "dev_handle_012" ;
+    ex:writesCodeFor ex:tech_proj_012, ex:tech_proj_013 ;
+    ex:architectFor ex:tech_proj_018 .
+
+ex:swe_013 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #013" ;
+    ex:gitHandle "dev_handle_013" ;
+    ex:writesCodeFor ex:tech_proj_013, ex:tech_proj_014 ;
+    ex:architectFor ex:tech_proj_019 .
+
+ex:swe_014 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #014" ;
+    ex:gitHandle "dev_handle_014" ;
+    ex:writesCodeFor ex:tech_proj_014, ex:tech_proj_015 ;
+    ex:architectFor ex:tech_proj_020 .
+
+ex:swe_015 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #015" ;
+    ex:gitHandle "dev_handle_015" ;
+    ex:writesCodeFor ex:tech_proj_015, ex:tech_proj_016 ;
+    ex:architectFor ex:tech_proj_021 .
+
+ex:swe_016 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #016" ;
+    ex:gitHandle "dev_handle_016" ;
+    ex:writesCodeFor ex:tech_proj_016, ex:tech_proj_017 ;
+    ex:architectFor ex:tech_proj_022 .
+
+ex:swe_017 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #017" ;
+    ex:gitHandle "dev_handle_017" ;
+    ex:writesCodeFor ex:tech_proj_017, ex:tech_proj_018 ;
+    ex:architectFor ex:tech_proj_023 .
+
+ex:swe_018 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #018" ;
+    ex:gitHandle "dev_handle_018" ;
+    ex:writesCodeFor ex:tech_proj_018, ex:tech_proj_019 ;
+    ex:architectFor ex:tech_proj_024 .
+
+ex:swe_019 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #019" ;
+    ex:gitHandle "dev_handle_019" ;
+    ex:writesCodeFor ex:tech_proj_019, ex:tech_proj_020 ;
+    ex:architectFor ex:tech_proj_025 .
+
+ex:swe_020 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #020" ;
+    ex:gitHandle "dev_handle_020" ;
+    ex:writesCodeFor ex:tech_proj_020, ex:tech_proj_021 ;
+    ex:architectFor ex:tech_proj_026 .
+
+ex:swe_021 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #021" ;
+    ex:gitHandle "dev_handle_021" ;
+    ex:writesCodeFor ex:tech_proj_021, ex:tech_proj_022 ;
+    ex:architectFor ex:tech_proj_027 .
+
+ex:swe_022 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #022" ;
+    ex:gitHandle "dev_handle_022" ;
+    ex:writesCodeFor ex:tech_proj_022, ex:tech_proj_023 ;
+    ex:architectFor ex:tech_proj_028 .
+
+ex:swe_023 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #023" ;
+    ex:gitHandle "dev_handle_023" ;
+    ex:writesCodeFor ex:tech_proj_023, ex:tech_proj_024 ;
+    ex:architectFor ex:tech_proj_029 .
+
+ex:swe_024 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #024" ;
+    ex:gitHandle "dev_handle_024" ;
+    ex:writesCodeFor ex:tech_proj_024, ex:tech_proj_025 ;
+    ex:architectFor ex:tech_proj_030 .
+
+ex:swe_025 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #025" ;
+    ex:gitHandle "dev_handle_025" ;
+    ex:writesCodeFor ex:tech_proj_025, ex:tech_proj_026 ;
+    ex:architectFor ex:tech_proj_031 .
+
+ex:swe_026 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #026" ;
+    ex:gitHandle "dev_handle_026" ;
+    ex:writesCodeFor ex:tech_proj_026, ex:tech_proj_027 ;
+    ex:architectFor ex:tech_proj_032 .
+
+ex:swe_027 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #027" ;
+    ex:gitHandle "dev_handle_027" ;
+    ex:writesCodeFor ex:tech_proj_027, ex:tech_proj_028 ;
+    ex:architectFor ex:tech_proj_033 .
+
+ex:swe_028 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #028" ;
+    ex:gitHandle "dev_handle_028" ;
+    ex:writesCodeFor ex:tech_proj_028, ex:tech_proj_029 ;
+    ex:architectFor ex:tech_proj_034 .
+
+ex:swe_029 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #029" ;
+    ex:gitHandle "dev_handle_029" ;
+    ex:writesCodeFor ex:tech_proj_029, ex:tech_proj_030 ;
+    ex:architectFor ex:tech_proj_035 .
+
+ex:swe_030 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #030" ;
+    ex:gitHandle "dev_handle_030" ;
+    ex:writesCodeFor ex:tech_proj_030, ex:tech_proj_031 ;
+    ex:architectFor ex:tech_proj_036 .
+
+ex:swe_031 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #031" ;
+    ex:gitHandle "dev_handle_031" ;
+    ex:writesCodeFor ex:tech_proj_031, ex:tech_proj_032 ;
+    ex:architectFor ex:tech_proj_037 .
+
+ex:swe_032 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #032" ;
+    ex:gitHandle "dev_handle_032" ;
+    ex:writesCodeFor ex:tech_proj_032, ex:tech_proj_033 ;
+    ex:architectFor ex:tech_proj_038 .
+
+ex:swe_033 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #033" ;
+    ex:gitHandle "dev_handle_033" ;
+    ex:writesCodeFor ex:tech_proj_033, ex:tech_proj_034 ;
+    ex:architectFor ex:tech_proj_039 .
+
+ex:swe_034 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #034" ;
+    ex:gitHandle "dev_handle_034" ;
+    ex:writesCodeFor ex:tech_proj_034, ex:tech_proj_035 ;
+    ex:architectFor ex:tech_proj_040 .
+
+ex:swe_035 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #035" ;
+    ex:gitHandle "dev_handle_035" ;
+    ex:writesCodeFor ex:tech_proj_035, ex:tech_proj_036 ;
+    ex:architectFor ex:tech_proj_041 .
+
+ex:swe_036 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #036" ;
+    ex:gitHandle "dev_handle_036" ;
+    ex:writesCodeFor ex:tech_proj_036, ex:tech_proj_037 ;
+    ex:architectFor ex:tech_proj_042 .
+
+ex:swe_037 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #037" ;
+    ex:gitHandle "dev_handle_037" ;
+    ex:writesCodeFor ex:tech_proj_037, ex:tech_proj_038 ;
+    ex:architectFor ex:tech_proj_043 .
+
+ex:swe_038 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #038" ;
+    ex:gitHandle "dev_handle_038" ;
+    ex:writesCodeFor ex:tech_proj_038, ex:tech_proj_039 ;
+    ex:architectFor ex:tech_proj_044 .
+
+ex:swe_039 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #039" ;
+    ex:gitHandle "dev_handle_039" ;
+    ex:writesCodeFor ex:tech_proj_039, ex:tech_proj_040 ;
+    ex:architectFor ex:tech_proj_045 .
+
+ex:swe_040 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #040" ;
+    ex:gitHandle "dev_handle_040" ;
+    ex:writesCodeFor ex:tech_proj_040, ex:tech_proj_041 ;
+    ex:architectFor ex:tech_proj_046 .
+
+ex:swe_041 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #041" ;
+    ex:gitHandle "dev_handle_041" ;
+    ex:writesCodeFor ex:tech_proj_041, ex:tech_proj_042 ;
+    ex:architectFor ex:tech_proj_047 .
+
+ex:swe_042 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #042" ;
+    ex:gitHandle "dev_handle_042" ;
+    ex:writesCodeFor ex:tech_proj_042, ex:tech_proj_043 ;
+    ex:architectFor ex:tech_proj_048 .
+
+ex:swe_043 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #043" ;
+    ex:gitHandle "dev_handle_043" ;
+    ex:writesCodeFor ex:tech_proj_043, ex:tech_proj_044 ;
+    ex:architectFor ex:tech_proj_049 .
+
+ex:swe_044 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #044" ;
+    ex:gitHandle "dev_handle_044" ;
+    ex:writesCodeFor ex:tech_proj_044, ex:tech_proj_045 ;
+    ex:architectFor ex:tech_proj_050 .
+
+ex:swe_045 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #045" ;
+    ex:gitHandle "dev_handle_045" ;
+    ex:writesCodeFor ex:tech_proj_045, ex:tech_proj_046 ;
+    ex:architectFor ex:tech_proj_051 .
+
+ex:swe_046 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #046" ;
+    ex:gitHandle "dev_handle_046" ;
+    ex:writesCodeFor ex:tech_proj_046, ex:tech_proj_047 ;
+    ex:architectFor ex:tech_proj_052 .
+
+ex:swe_047 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #047" ;
+    ex:gitHandle "dev_handle_047" ;
+    ex:writesCodeFor ex:tech_proj_047, ex:tech_proj_048 ;
+    ex:architectFor ex:tech_proj_053 .
+
+ex:swe_048 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #048" ;
+    ex:gitHandle "dev_handle_048" ;
+    ex:writesCodeFor ex:tech_proj_048, ex:tech_proj_049 ;
+    ex:architectFor ex:tech_proj_054 .
+
+ex:swe_049 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #049" ;
+    ex:gitHandle "dev_handle_049" ;
+    ex:writesCodeFor ex:tech_proj_049, ex:tech_proj_050 ;
+    ex:architectFor ex:tech_proj_055 .
+
+ex:swe_050 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #050" ;
+    ex:gitHandle "dev_handle_050" ;
+    ex:writesCodeFor ex:tech_proj_050, ex:tech_proj_051 ;
+    ex:architectFor ex:tech_proj_056 .
+
+ex:swe_051 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #051" ;
+    ex:gitHandle "dev_handle_051" ;
+    ex:writesCodeFor ex:tech_proj_051, ex:tech_proj_052 ;
+    ex:architectFor ex:tech_proj_057 .
+
+ex:swe_052 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #052" ;
+    ex:gitHandle "dev_handle_052" ;
+    ex:writesCodeFor ex:tech_proj_052, ex:tech_proj_053 ;
+    ex:architectFor ex:tech_proj_058 .
+
+ex:swe_053 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #053" ;
+    ex:gitHandle "dev_handle_053" ;
+    ex:writesCodeFor ex:tech_proj_053, ex:tech_proj_054 ;
+    ex:architectFor ex:tech_proj_059 .
+
+ex:swe_054 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #054" ;
+    ex:gitHandle "dev_handle_054" ;
+    ex:writesCodeFor ex:tech_proj_054, ex:tech_proj_055 ;
+    ex:architectFor ex:tech_proj_060 .
+
+ex:swe_055 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #055" ;
+    ex:gitHandle "dev_handle_055" ;
+    ex:writesCodeFor ex:tech_proj_055, ex:tech_proj_056 ;
+    ex:architectFor ex:tech_proj_061 .
+
+ex:swe_056 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #056" ;
+    ex:gitHandle "dev_handle_056" ;
+    ex:writesCodeFor ex:tech_proj_056, ex:tech_proj_057 ;
+    ex:architectFor ex:tech_proj_062 .
+
+ex:swe_057 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #057" ;
+    ex:gitHandle "dev_handle_057" ;
+    ex:writesCodeFor ex:tech_proj_057, ex:tech_proj_058 ;
+    ex:architectFor ex:tech_proj_063 .
+
+ex:swe_058 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #058" ;
+    ex:gitHandle "dev_handle_058" ;
+    ex:writesCodeFor ex:tech_proj_058, ex:tech_proj_059 ;
+    ex:architectFor ex:tech_proj_064 .
+
+ex:swe_059 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #059" ;
+    ex:gitHandle "dev_handle_059" ;
+    ex:writesCodeFor ex:tech_proj_059, ex:tech_proj_060 ;
+    ex:architectFor ex:tech_proj_065 .
+
+ex:swe_060 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #060" ;
+    ex:gitHandle "dev_handle_060" ;
+    ex:writesCodeFor ex:tech_proj_060, ex:tech_proj_061 ;
+    ex:architectFor ex:tech_proj_066 .
+
+ex:swe_061 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #061" ;
+    ex:gitHandle "dev_handle_061" ;
+    ex:writesCodeFor ex:tech_proj_061, ex:tech_proj_062 ;
+    ex:architectFor ex:tech_proj_067 .
+
+ex:swe_062 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #062" ;
+    ex:gitHandle "dev_handle_062" ;
+    ex:writesCodeFor ex:tech_proj_062, ex:tech_proj_063 ;
+    ex:architectFor ex:tech_proj_068 .
+
+ex:swe_063 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #063" ;
+    ex:gitHandle "dev_handle_063" ;
+    ex:writesCodeFor ex:tech_proj_063, ex:tech_proj_064 ;
+    ex:architectFor ex:tech_proj_069 .
+
+ex:swe_064 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #064" ;
+    ex:gitHandle "dev_handle_064" ;
+    ex:writesCodeFor ex:tech_proj_064, ex:tech_proj_065 ;
+    ex:architectFor ex:tech_proj_070 .
+
+ex:swe_065 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #065" ;
+    ex:gitHandle "dev_handle_065" ;
+    ex:writesCodeFor ex:tech_proj_065, ex:tech_proj_066 ;
+    ex:architectFor ex:tech_proj_001 .
+
+ex:swe_066 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #066" ;
+    ex:gitHandle "dev_handle_066" ;
+    ex:writesCodeFor ex:tech_proj_066, ex:tech_proj_067 ;
+    ex:architectFor ex:tech_proj_002 .
+
+ex:swe_067 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #067" ;
+    ex:gitHandle "dev_handle_067" ;
+    ex:writesCodeFor ex:tech_proj_067, ex:tech_proj_068 ;
+    ex:architectFor ex:tech_proj_003 .
+
+ex:swe_068 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #068" ;
+    ex:gitHandle "dev_handle_068" ;
+    ex:writesCodeFor ex:tech_proj_068, ex:tech_proj_069 ;
+    ex:architectFor ex:tech_proj_004 .
+
+ex:swe_069 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #069" ;
+    ex:gitHandle "dev_handle_069" ;
+    ex:writesCodeFor ex:tech_proj_069, ex:tech_proj_070 ;
+    ex:architectFor ex:tech_proj_005 .
+
+ex:swe_070 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #070" ;
+    ex:gitHandle "dev_handle_070" ;
+    ex:writesCodeFor ex:tech_proj_070, ex:tech_proj_001 ;
+    ex:architectFor ex:tech_proj_006 .
+
+ex:swe_071 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #071" ;
+    ex:gitHandle "dev_handle_071" ;
+    ex:writesCodeFor ex:tech_proj_001, ex:tech_proj_002 ;
+    ex:architectFor ex:tech_proj_007 .
+
+ex:swe_072 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #072" ;
+    ex:gitHandle "dev_handle_072" ;
+    ex:writesCodeFor ex:tech_proj_002, ex:tech_proj_003 ;
+    ex:architectFor ex:tech_proj_008 .
+
+ex:swe_073 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #073" ;
+    ex:gitHandle "dev_handle_073" ;
+    ex:writesCodeFor ex:tech_proj_003, ex:tech_proj_004 ;
+    ex:architectFor ex:tech_proj_009 .
+
+ex:swe_074 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #074" ;
+    ex:gitHandle "dev_handle_074" ;
+    ex:writesCodeFor ex:tech_proj_004, ex:tech_proj_005 ;
+    ex:architectFor ex:tech_proj_010 .
+
+ex:swe_075 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #075" ;
+    ex:gitHandle "dev_handle_075" ;
+    ex:writesCodeFor ex:tech_proj_005, ex:tech_proj_006 ;
+    ex:architectFor ex:tech_proj_011 .
+
+ex:swe_076 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #076" ;
+    ex:gitHandle "dev_handle_076" ;
+    ex:writesCodeFor ex:tech_proj_006, ex:tech_proj_007 ;
+    ex:architectFor ex:tech_proj_012 .
+
+ex:swe_077 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #077" ;
+    ex:gitHandle "dev_handle_077" ;
+    ex:writesCodeFor ex:tech_proj_007, ex:tech_proj_008 ;
+    ex:architectFor ex:tech_proj_013 .
+
+ex:swe_078 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #078" ;
+    ex:gitHandle "dev_handle_078" ;
+    ex:writesCodeFor ex:tech_proj_008, ex:tech_proj_009 ;
+    ex:architectFor ex:tech_proj_014 .
+
+ex:swe_079 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #079" ;
+    ex:gitHandle "dev_handle_079" ;
+    ex:writesCodeFor ex:tech_proj_009, ex:tech_proj_010 ;
+    ex:architectFor ex:tech_proj_015 .
+
+ex:swe_080 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #080" ;
+    ex:gitHandle "dev_handle_080" ;
+    ex:writesCodeFor ex:tech_proj_010, ex:tech_proj_011 ;
+    ex:architectFor ex:tech_proj_016 .
+
+ex:swe_081 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #081" ;
+    ex:gitHandle "dev_handle_081" ;
+    ex:writesCodeFor ex:tech_proj_011, ex:tech_proj_012 ;
+    ex:architectFor ex:tech_proj_017 .
+
+ex:swe_082 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #082" ;
+    ex:gitHandle "dev_handle_082" ;
+    ex:writesCodeFor ex:tech_proj_012, ex:tech_proj_013 ;
+    ex:architectFor ex:tech_proj_018 .
+
+ex:swe_083 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #083" ;
+    ex:gitHandle "dev_handle_083" ;
+    ex:writesCodeFor ex:tech_proj_013, ex:tech_proj_014 ;
+    ex:architectFor ex:tech_proj_019 .
+
+ex:swe_084 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #084" ;
+    ex:gitHandle "dev_handle_084" ;
+    ex:writesCodeFor ex:tech_proj_014, ex:tech_proj_015 ;
+    ex:architectFor ex:tech_proj_020 .
+
+ex:swe_085 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #085" ;
+    ex:gitHandle "dev_handle_085" ;
+    ex:writesCodeFor ex:tech_proj_015, ex:tech_proj_016 ;
+    ex:architectFor ex:tech_proj_021 .
+
+ex:swe_086 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #086" ;
+    ex:gitHandle "dev_handle_086" ;
+    ex:writesCodeFor ex:tech_proj_016, ex:tech_proj_017 ;
+    ex:architectFor ex:tech_proj_022 .
+
+ex:swe_087 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #087" ;
+    ex:gitHandle "dev_handle_087" ;
+    ex:writesCodeFor ex:tech_proj_017, ex:tech_proj_018 ;
+    ex:architectFor ex:tech_proj_023 .
+
+ex:swe_088 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #088" ;
+    ex:gitHandle "dev_handle_088" ;
+    ex:writesCodeFor ex:tech_proj_018, ex:tech_proj_019 ;
+    ex:architectFor ex:tech_proj_024 .
+
+ex:swe_089 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #089" ;
+    ex:gitHandle "dev_handle_089" ;
+    ex:writesCodeFor ex:tech_proj_019, ex:tech_proj_020 ;
+    ex:architectFor ex:tech_proj_025 .
+
+ex:swe_090 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #090" ;
+    ex:gitHandle "dev_handle_090" ;
+    ex:writesCodeFor ex:tech_proj_020, ex:tech_proj_021 ;
+    ex:architectFor ex:tech_proj_026 .
+
+ex:swe_091 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #091" ;
+    ex:gitHandle "dev_handle_091" ;
+    ex:writesCodeFor ex:tech_proj_021, ex:tech_proj_022 ;
+    ex:architectFor ex:tech_proj_027 .
+
+ex:swe_092 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #092" ;
+    ex:gitHandle "dev_handle_092" ;
+    ex:writesCodeFor ex:tech_proj_022, ex:tech_proj_023 ;
+    ex:architectFor ex:tech_proj_028 .
+
+ex:swe_093 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #093" ;
+    ex:gitHandle "dev_handle_093" ;
+    ex:writesCodeFor ex:tech_proj_023, ex:tech_proj_024 ;
+    ex:architectFor ex:tech_proj_029 .
+
+ex:swe_094 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #094" ;
+    ex:gitHandle "dev_handle_094" ;
+    ex:writesCodeFor ex:tech_proj_024, ex:tech_proj_025 ;
+    ex:architectFor ex:tech_proj_030 .
+
+ex:swe_095 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #095" ;
+    ex:gitHandle "dev_handle_095" ;
+    ex:writesCodeFor ex:tech_proj_025, ex:tech_proj_026 ;
+    ex:architectFor ex:tech_proj_031 .
+
+ex:swe_096 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #096" ;
+    ex:gitHandle "dev_handle_096" ;
+    ex:writesCodeFor ex:tech_proj_026, ex:tech_proj_027 ;
+    ex:architectFor ex:tech_proj_032 .
+
+ex:swe_097 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #097" ;
+    ex:gitHandle "dev_handle_097" ;
+    ex:writesCodeFor ex:tech_proj_027, ex:tech_proj_028 ;
+    ex:architectFor ex:tech_proj_033 .
+
+ex:swe_098 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #098" ;
+    ex:gitHandle "dev_handle_098" ;
+    ex:writesCodeFor ex:tech_proj_028, ex:tech_proj_029 ;
+    ex:architectFor ex:tech_proj_034 .
+
+ex:swe_099 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #099" ;
+    ex:gitHandle "dev_handle_099" ;
+    ex:writesCodeFor ex:tech_proj_029, ex:tech_proj_030 ;
+    ex:architectFor ex:tech_proj_035 .
+
+ex:swe_100 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #100" ;
+    ex:gitHandle "dev_handle_100" ;
+    ex:writesCodeFor ex:tech_proj_030, ex:tech_proj_031 ;
+    ex:architectFor ex:tech_proj_036 .
+
+ex:swe_101 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #101" ;
+    ex:gitHandle "dev_handle_101" ;
+    ex:writesCodeFor ex:tech_proj_031, ex:tech_proj_032 ;
+    ex:architectFor ex:tech_proj_037 .
+
+ex:swe_102 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #102" ;
+    ex:gitHandle "dev_handle_102" ;
+    ex:writesCodeFor ex:tech_proj_032, ex:tech_proj_033 ;
+    ex:architectFor ex:tech_proj_038 .
+
+ex:swe_103 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #103" ;
+    ex:gitHandle "dev_handle_103" ;
+    ex:writesCodeFor ex:tech_proj_033, ex:tech_proj_034 ;
+    ex:architectFor ex:tech_proj_039 .
+
+ex:swe_104 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #104" ;
+    ex:gitHandle "dev_handle_104" ;
+    ex:writesCodeFor ex:tech_proj_034, ex:tech_proj_035 ;
+    ex:architectFor ex:tech_proj_040 .
+
+ex:swe_105 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #105" ;
+    ex:gitHandle "dev_handle_105" ;
+    ex:writesCodeFor ex:tech_proj_035, ex:tech_proj_036 ;
+    ex:architectFor ex:tech_proj_041 .
+
+ex:swe_106 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #106" ;
+    ex:gitHandle "dev_handle_106" ;
+    ex:writesCodeFor ex:tech_proj_036, ex:tech_proj_037 ;
+    ex:architectFor ex:tech_proj_042 .
+
+ex:swe_107 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #107" ;
+    ex:gitHandle "dev_handle_107" ;
+    ex:writesCodeFor ex:tech_proj_037, ex:tech_proj_038 ;
+    ex:architectFor ex:tech_proj_043 .
+
+ex:swe_108 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #108" ;
+    ex:gitHandle "dev_handle_108" ;
+    ex:writesCodeFor ex:tech_proj_038, ex:tech_proj_039 ;
+    ex:architectFor ex:tech_proj_044 .
+
+ex:swe_109 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #109" ;
+    ex:gitHandle "dev_handle_109" ;
+    ex:writesCodeFor ex:tech_proj_039, ex:tech_proj_040 ;
+    ex:architectFor ex:tech_proj_045 .
+
+ex:swe_110 a ex:SoftwareEngineer ;
+    ex:professionalName "Engineer #110" ;
+    ex:gitHandle "dev_handle_110" ;
+    ex:writesCodeFor ex:tech_proj_040, ex:tech_proj_041 ;
+    ex:architectFor ex:tech_proj_046 .

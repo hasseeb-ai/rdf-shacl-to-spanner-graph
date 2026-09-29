@@ -1,0 +1,1266 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/object_property_hierarchy/> .
+
+# ABox Instance Triples for 04_object_property_hierarchy
+
+ex:warehouse_001 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-001" .
+
+ex:warehouse_002 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-002" .
+
+ex:warehouse_003 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-003" .
+
+ex:warehouse_004 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-004" .
+
+ex:warehouse_005 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-005" .
+
+ex:warehouse_006 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-006" .
+
+ex:warehouse_007 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-007" .
+
+ex:warehouse_008 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-008" .
+
+ex:warehouse_009 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-009" .
+
+ex:warehouse_010 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-010" .
+
+ex:warehouse_011 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-011" .
+
+ex:warehouse_012 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-012" .
+
+ex:warehouse_013 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-013" .
+
+ex:warehouse_014 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-014" .
+
+ex:warehouse_015 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-015" .
+
+ex:warehouse_016 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-016" .
+
+ex:warehouse_017 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-017" .
+
+ex:warehouse_018 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-018" .
+
+ex:warehouse_019 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-019" .
+
+ex:warehouse_020 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-020" .
+
+ex:warehouse_021 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-021" .
+
+ex:warehouse_022 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-022" .
+
+ex:warehouse_023 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-023" .
+
+ex:warehouse_024 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-024" .
+
+ex:warehouse_025 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-025" .
+
+ex:warehouse_026 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-026" .
+
+ex:warehouse_027 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-027" .
+
+ex:warehouse_028 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-028" .
+
+ex:warehouse_029 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-029" .
+
+ex:warehouse_030 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-030" .
+
+ex:warehouse_031 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-031" .
+
+ex:warehouse_032 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-032" .
+
+ex:warehouse_033 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-033" .
+
+ex:warehouse_034 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-034" .
+
+ex:warehouse_035 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-035" .
+
+ex:warehouse_036 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-036" .
+
+ex:warehouse_037 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-037" .
+
+ex:warehouse_038 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-038" .
+
+ex:warehouse_039 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-039" .
+
+ex:warehouse_040 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-040" .
+
+ex:warehouse_041 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-041" .
+
+ex:warehouse_042 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-042" .
+
+ex:warehouse_043 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-043" .
+
+ex:warehouse_044 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-044" .
+
+ex:warehouse_045 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-045" .
+
+ex:warehouse_046 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-046" .
+
+ex:warehouse_047 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-047" .
+
+ex:warehouse_048 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-048" .
+
+ex:warehouse_049 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-049" .
+
+ex:warehouse_050 a ex:Warehouse ;
+    ex:facilityCode "WH-NA-050" .
+
+ex:retail_hub_001 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-001" .
+
+ex:retail_hub_002 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-002" .
+
+ex:retail_hub_003 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-003" .
+
+ex:retail_hub_004 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-004" .
+
+ex:retail_hub_005 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-005" .
+
+ex:retail_hub_006 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-006" .
+
+ex:retail_hub_007 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-007" .
+
+ex:retail_hub_008 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-008" .
+
+ex:retail_hub_009 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-009" .
+
+ex:retail_hub_010 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-010" .
+
+ex:retail_hub_011 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-011" .
+
+ex:retail_hub_012 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-012" .
+
+ex:retail_hub_013 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-013" .
+
+ex:retail_hub_014 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-014" .
+
+ex:retail_hub_015 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-015" .
+
+ex:retail_hub_016 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-016" .
+
+ex:retail_hub_017 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-017" .
+
+ex:retail_hub_018 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-018" .
+
+ex:retail_hub_019 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-019" .
+
+ex:retail_hub_020 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-020" .
+
+ex:retail_hub_021 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-021" .
+
+ex:retail_hub_022 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-022" .
+
+ex:retail_hub_023 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-023" .
+
+ex:retail_hub_024 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-024" .
+
+ex:retail_hub_025 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-025" .
+
+ex:retail_hub_026 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-026" .
+
+ex:retail_hub_027 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-027" .
+
+ex:retail_hub_028 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-028" .
+
+ex:retail_hub_029 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-029" .
+
+ex:retail_hub_030 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-030" .
+
+ex:retail_hub_031 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-031" .
+
+ex:retail_hub_032 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-032" .
+
+ex:retail_hub_033 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-033" .
+
+ex:retail_hub_034 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-034" .
+
+ex:retail_hub_035 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-035" .
+
+ex:retail_hub_036 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-036" .
+
+ex:retail_hub_037 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-037" .
+
+ex:retail_hub_038 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-038" .
+
+ex:retail_hub_039 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-039" .
+
+ex:retail_hub_040 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-040" .
+
+ex:retail_hub_041 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-041" .
+
+ex:retail_hub_042 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-042" .
+
+ex:retail_hub_043 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-043" .
+
+ex:retail_hub_044 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-044" .
+
+ex:retail_hub_045 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-045" .
+
+ex:retail_hub_046 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-046" .
+
+ex:retail_hub_047 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-047" .
+
+ex:retail_hub_048 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-048" .
+
+ex:retail_hub_049 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-049" .
+
+ex:retail_hub_050 a ex:RetailHub ;
+    ex:facilityCode "RH-EU-050" .
+
+ex:perishable_cargo_001 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #001" .
+
+ex:perishable_cargo_002 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #002" .
+
+ex:perishable_cargo_003 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #003" .
+
+ex:perishable_cargo_004 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #004" .
+
+ex:perishable_cargo_005 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #005" .
+
+ex:perishable_cargo_006 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #006" .
+
+ex:perishable_cargo_007 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #007" .
+
+ex:perishable_cargo_008 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #008" .
+
+ex:perishable_cargo_009 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #009" .
+
+ex:perishable_cargo_010 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #010" .
+
+ex:perishable_cargo_011 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #011" .
+
+ex:perishable_cargo_012 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #012" .
+
+ex:perishable_cargo_013 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #013" .
+
+ex:perishable_cargo_014 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #014" .
+
+ex:perishable_cargo_015 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #015" .
+
+ex:perishable_cargo_016 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #016" .
+
+ex:perishable_cargo_017 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #017" .
+
+ex:perishable_cargo_018 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #018" .
+
+ex:perishable_cargo_019 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #019" .
+
+ex:perishable_cargo_020 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #020" .
+
+ex:perishable_cargo_021 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #021" .
+
+ex:perishable_cargo_022 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #022" .
+
+ex:perishable_cargo_023 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #023" .
+
+ex:perishable_cargo_024 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #024" .
+
+ex:perishable_cargo_025 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #025" .
+
+ex:perishable_cargo_026 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #026" .
+
+ex:perishable_cargo_027 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #027" .
+
+ex:perishable_cargo_028 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #028" .
+
+ex:perishable_cargo_029 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #029" .
+
+ex:perishable_cargo_030 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #030" .
+
+ex:perishable_cargo_031 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #031" .
+
+ex:perishable_cargo_032 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #032" .
+
+ex:perishable_cargo_033 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #033" .
+
+ex:perishable_cargo_034 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #034" .
+
+ex:perishable_cargo_035 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #035" .
+
+ex:perishable_cargo_036 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #036" .
+
+ex:perishable_cargo_037 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #037" .
+
+ex:perishable_cargo_038 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #038" .
+
+ex:perishable_cargo_039 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #039" .
+
+ex:perishable_cargo_040 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #040" .
+
+ex:perishable_cargo_041 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #041" .
+
+ex:perishable_cargo_042 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #042" .
+
+ex:perishable_cargo_043 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #043" .
+
+ex:perishable_cargo_044 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #044" .
+
+ex:perishable_cargo_045 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #045" .
+
+ex:perishable_cargo_046 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #046" .
+
+ex:perishable_cargo_047 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #047" .
+
+ex:perishable_cargo_048 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #048" .
+
+ex:perishable_cargo_049 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #049" .
+
+ex:perishable_cargo_050 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #050" .
+
+ex:perishable_cargo_051 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #051" .
+
+ex:perishable_cargo_052 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #052" .
+
+ex:perishable_cargo_053 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #053" .
+
+ex:perishable_cargo_054 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #054" .
+
+ex:perishable_cargo_055 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #055" .
+
+ex:perishable_cargo_056 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #056" .
+
+ex:perishable_cargo_057 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #057" .
+
+ex:perishable_cargo_058 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #058" .
+
+ex:perishable_cargo_059 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #059" .
+
+ex:perishable_cargo_060 a ex:PerishableCargo ;
+    ex:cargoDescription "Cold-Chain Biologics & Fresh Produce Pallet #060" .
+
+ex:dry_cargo_001 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #001" .
+
+ex:dry_cargo_002 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #002" .
+
+ex:dry_cargo_003 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #003" .
+
+ex:dry_cargo_004 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #004" .
+
+ex:dry_cargo_005 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #005" .
+
+ex:dry_cargo_006 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #006" .
+
+ex:dry_cargo_007 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #007" .
+
+ex:dry_cargo_008 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #008" .
+
+ex:dry_cargo_009 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #009" .
+
+ex:dry_cargo_010 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #010" .
+
+ex:dry_cargo_011 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #011" .
+
+ex:dry_cargo_012 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #012" .
+
+ex:dry_cargo_013 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #013" .
+
+ex:dry_cargo_014 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #014" .
+
+ex:dry_cargo_015 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #015" .
+
+ex:dry_cargo_016 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #016" .
+
+ex:dry_cargo_017 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #017" .
+
+ex:dry_cargo_018 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #018" .
+
+ex:dry_cargo_019 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #019" .
+
+ex:dry_cargo_020 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #020" .
+
+ex:dry_cargo_021 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #021" .
+
+ex:dry_cargo_022 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #022" .
+
+ex:dry_cargo_023 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #023" .
+
+ex:dry_cargo_024 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #024" .
+
+ex:dry_cargo_025 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #025" .
+
+ex:dry_cargo_026 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #026" .
+
+ex:dry_cargo_027 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #027" .
+
+ex:dry_cargo_028 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #028" .
+
+ex:dry_cargo_029 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #029" .
+
+ex:dry_cargo_030 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #030" .
+
+ex:dry_cargo_031 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #031" .
+
+ex:dry_cargo_032 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #032" .
+
+ex:dry_cargo_033 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #033" .
+
+ex:dry_cargo_034 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #034" .
+
+ex:dry_cargo_035 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #035" .
+
+ex:dry_cargo_036 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #036" .
+
+ex:dry_cargo_037 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #037" .
+
+ex:dry_cargo_038 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #038" .
+
+ex:dry_cargo_039 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #039" .
+
+ex:dry_cargo_040 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #040" .
+
+ex:dry_cargo_041 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #041" .
+
+ex:dry_cargo_042 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #042" .
+
+ex:dry_cargo_043 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #043" .
+
+ex:dry_cargo_044 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #044" .
+
+ex:dry_cargo_045 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #045" .
+
+ex:dry_cargo_046 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #046" .
+
+ex:dry_cargo_047 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #047" .
+
+ex:dry_cargo_048 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #048" .
+
+ex:dry_cargo_049 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #049" .
+
+ex:dry_cargo_050 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #050" .
+
+ex:dry_cargo_051 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #051" .
+
+ex:dry_cargo_052 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #052" .
+
+ex:dry_cargo_053 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #053" .
+
+ex:dry_cargo_054 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #054" .
+
+ex:dry_cargo_055 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #055" .
+
+ex:dry_cargo_056 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #056" .
+
+ex:dry_cargo_057 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #057" .
+
+ex:dry_cargo_058 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #058" .
+
+ex:dry_cargo_059 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #059" .
+
+ex:dry_cargo_060 a ex:DryCargo ;
+    ex:cargoDescription "Industrial Components & Non-Perishable Goods Lot #060" .
+
+ex:warehouse_001 ex:storesCargo ex:perishable_cargo_001, ex:dry_cargo_002 .
+ex:retail_hub_001 ex:storesCargo ex:perishable_cargo_002, ex:dry_cargo_001 .
+
+ex:warehouse_002 ex:storesCargo ex:perishable_cargo_002, ex:dry_cargo_003 .
+ex:retail_hub_002 ex:storesCargo ex:perishable_cargo_003, ex:dry_cargo_002 .
+
+ex:warehouse_003 ex:storesCargo ex:perishable_cargo_003, ex:dry_cargo_004 .
+ex:retail_hub_003 ex:storesCargo ex:perishable_cargo_004, ex:dry_cargo_003 .
+
+ex:warehouse_004 ex:storesCargo ex:perishable_cargo_004, ex:dry_cargo_005 .
+ex:retail_hub_004 ex:storesCargo ex:perishable_cargo_005, ex:dry_cargo_004 .
+
+ex:warehouse_005 ex:storesCargo ex:perishable_cargo_005, ex:dry_cargo_006 .
+ex:retail_hub_005 ex:storesCargo ex:perishable_cargo_006, ex:dry_cargo_005 .
+
+ex:warehouse_006 ex:storesCargo ex:perishable_cargo_006, ex:dry_cargo_007 .
+ex:retail_hub_006 ex:storesCargo ex:perishable_cargo_007, ex:dry_cargo_006 .
+
+ex:warehouse_007 ex:storesCargo ex:perishable_cargo_007, ex:dry_cargo_008 .
+ex:retail_hub_007 ex:storesCargo ex:perishable_cargo_008, ex:dry_cargo_007 .
+
+ex:warehouse_008 ex:storesCargo ex:perishable_cargo_008, ex:dry_cargo_009 .
+ex:retail_hub_008 ex:storesCargo ex:perishable_cargo_009, ex:dry_cargo_008 .
+
+ex:warehouse_009 ex:storesCargo ex:perishable_cargo_009, ex:dry_cargo_010 .
+ex:retail_hub_009 ex:storesCargo ex:perishable_cargo_010, ex:dry_cargo_009 .
+
+ex:warehouse_010 ex:storesCargo ex:perishable_cargo_010, ex:dry_cargo_011 .
+ex:retail_hub_010 ex:storesCargo ex:perishable_cargo_011, ex:dry_cargo_010 .
+
+ex:warehouse_011 ex:storesCargo ex:perishable_cargo_011, ex:dry_cargo_012 .
+ex:retail_hub_011 ex:storesCargo ex:perishable_cargo_012, ex:dry_cargo_011 .
+
+ex:warehouse_012 ex:storesCargo ex:perishable_cargo_012, ex:dry_cargo_013 .
+ex:retail_hub_012 ex:storesCargo ex:perishable_cargo_013, ex:dry_cargo_012 .
+
+ex:warehouse_013 ex:storesCargo ex:perishable_cargo_013, ex:dry_cargo_014 .
+ex:retail_hub_013 ex:storesCargo ex:perishable_cargo_014, ex:dry_cargo_013 .
+
+ex:warehouse_014 ex:storesCargo ex:perishable_cargo_014, ex:dry_cargo_015 .
+ex:retail_hub_014 ex:storesCargo ex:perishable_cargo_015, ex:dry_cargo_014 .
+
+ex:warehouse_015 ex:storesCargo ex:perishable_cargo_015, ex:dry_cargo_016 .
+ex:retail_hub_015 ex:storesCargo ex:perishable_cargo_016, ex:dry_cargo_015 .
+
+ex:warehouse_016 ex:storesCargo ex:perishable_cargo_016, ex:dry_cargo_017 .
+ex:retail_hub_016 ex:storesCargo ex:perishable_cargo_017, ex:dry_cargo_016 .
+
+ex:warehouse_017 ex:storesCargo ex:perishable_cargo_017, ex:dry_cargo_018 .
+ex:retail_hub_017 ex:storesCargo ex:perishable_cargo_018, ex:dry_cargo_017 .
+
+ex:warehouse_018 ex:storesCargo ex:perishable_cargo_018, ex:dry_cargo_019 .
+ex:retail_hub_018 ex:storesCargo ex:perishable_cargo_019, ex:dry_cargo_018 .
+
+ex:warehouse_019 ex:storesCargo ex:perishable_cargo_019, ex:dry_cargo_020 .
+ex:retail_hub_019 ex:storesCargo ex:perishable_cargo_020, ex:dry_cargo_019 .
+
+ex:warehouse_020 ex:storesCargo ex:perishable_cargo_020, ex:dry_cargo_021 .
+ex:retail_hub_020 ex:storesCargo ex:perishable_cargo_021, ex:dry_cargo_020 .
+
+ex:warehouse_021 ex:storesCargo ex:perishable_cargo_021, ex:dry_cargo_022 .
+ex:retail_hub_021 ex:storesCargo ex:perishable_cargo_022, ex:dry_cargo_021 .
+
+ex:warehouse_022 ex:storesCargo ex:perishable_cargo_022, ex:dry_cargo_023 .
+ex:retail_hub_022 ex:storesCargo ex:perishable_cargo_023, ex:dry_cargo_022 .
+
+ex:warehouse_023 ex:storesCargo ex:perishable_cargo_023, ex:dry_cargo_024 .
+ex:retail_hub_023 ex:storesCargo ex:perishable_cargo_024, ex:dry_cargo_023 .
+
+ex:warehouse_024 ex:storesCargo ex:perishable_cargo_024, ex:dry_cargo_025 .
+ex:retail_hub_024 ex:storesCargo ex:perishable_cargo_025, ex:dry_cargo_024 .
+
+ex:warehouse_025 ex:storesCargo ex:perishable_cargo_025, ex:dry_cargo_026 .
+ex:retail_hub_025 ex:storesCargo ex:perishable_cargo_026, ex:dry_cargo_025 .
+
+ex:warehouse_026 ex:storesCargo ex:perishable_cargo_026, ex:dry_cargo_027 .
+ex:retail_hub_026 ex:storesCargo ex:perishable_cargo_027, ex:dry_cargo_026 .
+
+ex:warehouse_027 ex:storesCargo ex:perishable_cargo_027, ex:dry_cargo_028 .
+ex:retail_hub_027 ex:storesCargo ex:perishable_cargo_028, ex:dry_cargo_027 .
+
+ex:warehouse_028 ex:storesCargo ex:perishable_cargo_028, ex:dry_cargo_029 .
+ex:retail_hub_028 ex:storesCargo ex:perishable_cargo_029, ex:dry_cargo_028 .
+
+ex:warehouse_029 ex:storesCargo ex:perishable_cargo_029, ex:dry_cargo_030 .
+ex:retail_hub_029 ex:storesCargo ex:perishable_cargo_030, ex:dry_cargo_029 .
+
+ex:warehouse_030 ex:storesCargo ex:perishable_cargo_030, ex:dry_cargo_031 .
+ex:retail_hub_030 ex:storesCargo ex:perishable_cargo_031, ex:dry_cargo_030 .
+
+ex:warehouse_031 ex:storesCargo ex:perishable_cargo_031, ex:dry_cargo_032 .
+ex:retail_hub_031 ex:storesCargo ex:perishable_cargo_032, ex:dry_cargo_031 .
+
+ex:warehouse_032 ex:storesCargo ex:perishable_cargo_032, ex:dry_cargo_033 .
+ex:retail_hub_032 ex:storesCargo ex:perishable_cargo_033, ex:dry_cargo_032 .
+
+ex:warehouse_033 ex:storesCargo ex:perishable_cargo_033, ex:dry_cargo_034 .
+ex:retail_hub_033 ex:storesCargo ex:perishable_cargo_034, ex:dry_cargo_033 .
+
+ex:warehouse_034 ex:storesCargo ex:perishable_cargo_034, ex:dry_cargo_035 .
+ex:retail_hub_034 ex:storesCargo ex:perishable_cargo_035, ex:dry_cargo_034 .
+
+ex:warehouse_035 ex:storesCargo ex:perishable_cargo_035, ex:dry_cargo_036 .
+ex:retail_hub_035 ex:storesCargo ex:perishable_cargo_036, ex:dry_cargo_035 .
+
+ex:warehouse_036 ex:storesCargo ex:perishable_cargo_036, ex:dry_cargo_037 .
+ex:retail_hub_036 ex:storesCargo ex:perishable_cargo_037, ex:dry_cargo_036 .
+
+ex:warehouse_037 ex:storesCargo ex:perishable_cargo_037, ex:dry_cargo_038 .
+ex:retail_hub_037 ex:storesCargo ex:perishable_cargo_038, ex:dry_cargo_037 .
+
+ex:warehouse_038 ex:storesCargo ex:perishable_cargo_038, ex:dry_cargo_039 .
+ex:retail_hub_038 ex:storesCargo ex:perishable_cargo_039, ex:dry_cargo_038 .
+
+ex:warehouse_039 ex:storesCargo ex:perishable_cargo_039, ex:dry_cargo_040 .
+ex:retail_hub_039 ex:storesCargo ex:perishable_cargo_040, ex:dry_cargo_039 .
+
+ex:warehouse_040 ex:storesCargo ex:perishable_cargo_040, ex:dry_cargo_041 .
+ex:retail_hub_040 ex:storesCargo ex:perishable_cargo_041, ex:dry_cargo_040 .
+
+ex:warehouse_041 ex:storesCargo ex:perishable_cargo_041, ex:dry_cargo_042 .
+ex:retail_hub_041 ex:storesCargo ex:perishable_cargo_042, ex:dry_cargo_041 .
+
+ex:warehouse_042 ex:storesCargo ex:perishable_cargo_042, ex:dry_cargo_043 .
+ex:retail_hub_042 ex:storesCargo ex:perishable_cargo_043, ex:dry_cargo_042 .
+
+ex:warehouse_043 ex:storesCargo ex:perishable_cargo_043, ex:dry_cargo_044 .
+ex:retail_hub_043 ex:storesCargo ex:perishable_cargo_044, ex:dry_cargo_043 .
+
+ex:warehouse_044 ex:storesCargo ex:perishable_cargo_044, ex:dry_cargo_045 .
+ex:retail_hub_044 ex:storesCargo ex:perishable_cargo_045, ex:dry_cargo_044 .
+
+ex:warehouse_045 ex:storesCargo ex:perishable_cargo_045, ex:dry_cargo_046 .
+ex:retail_hub_045 ex:storesCargo ex:perishable_cargo_046, ex:dry_cargo_045 .
+
+ex:warehouse_046 ex:storesCargo ex:perishable_cargo_046, ex:dry_cargo_047 .
+ex:retail_hub_046 ex:storesCargo ex:perishable_cargo_047, ex:dry_cargo_046 .
+
+ex:warehouse_047 ex:storesCargo ex:perishable_cargo_047, ex:dry_cargo_048 .
+ex:retail_hub_047 ex:storesCargo ex:perishable_cargo_048, ex:dry_cargo_047 .
+
+ex:warehouse_048 ex:storesCargo ex:perishable_cargo_048, ex:dry_cargo_049 .
+ex:retail_hub_048 ex:storesCargo ex:perishable_cargo_049, ex:dry_cargo_048 .
+
+ex:warehouse_049 ex:storesCargo ex:perishable_cargo_049, ex:dry_cargo_050 .
+ex:retail_hub_049 ex:storesCargo ex:perishable_cargo_050, ex:dry_cargo_049 .
+
+ex:warehouse_050 ex:storesCargo ex:perishable_cargo_050, ex:dry_cargo_051 .
+ex:retail_hub_050 ex:storesCargo ex:perishable_cargo_051, ex:dry_cargo_050 .
+
+ex:distributor_001 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #001" ;
+    ex:operatesAt ex:retail_hub_001, ex:retail_hub_002 .
+
+ex:distributor_002 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #002" ;
+    ex:operatesAt ex:retail_hub_002, ex:retail_hub_003 .
+
+ex:distributor_003 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #003" ;
+    ex:operatesAt ex:retail_hub_003, ex:retail_hub_004 .
+
+ex:distributor_004 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #004" ;
+    ex:operatesAt ex:retail_hub_004, ex:retail_hub_005 .
+
+ex:distributor_005 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #005" ;
+    ex:operatesAt ex:retail_hub_005, ex:retail_hub_006 .
+
+ex:distributor_006 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #006" ;
+    ex:operatesAt ex:retail_hub_006, ex:retail_hub_007 .
+
+ex:distributor_007 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #007" ;
+    ex:operatesAt ex:retail_hub_007, ex:retail_hub_008 .
+
+ex:distributor_008 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #008" ;
+    ex:operatesAt ex:retail_hub_008, ex:retail_hub_009 .
+
+ex:distributor_009 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #009" ;
+    ex:operatesAt ex:retail_hub_009, ex:retail_hub_010 .
+
+ex:distributor_010 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #010" ;
+    ex:operatesAt ex:retail_hub_010, ex:retail_hub_011 .
+
+ex:distributor_011 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #011" ;
+    ex:operatesAt ex:retail_hub_011, ex:retail_hub_012 .
+
+ex:distributor_012 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #012" ;
+    ex:operatesAt ex:retail_hub_012, ex:retail_hub_013 .
+
+ex:distributor_013 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #013" ;
+    ex:operatesAt ex:retail_hub_013, ex:retail_hub_014 .
+
+ex:distributor_014 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #014" ;
+    ex:operatesAt ex:retail_hub_014, ex:retail_hub_015 .
+
+ex:distributor_015 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #015" ;
+    ex:operatesAt ex:retail_hub_015, ex:retail_hub_016 .
+
+ex:distributor_016 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #016" ;
+    ex:operatesAt ex:retail_hub_016, ex:retail_hub_017 .
+
+ex:distributor_017 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #017" ;
+    ex:operatesAt ex:retail_hub_017, ex:retail_hub_018 .
+
+ex:distributor_018 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #018" ;
+    ex:operatesAt ex:retail_hub_018, ex:retail_hub_019 .
+
+ex:distributor_019 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #019" ;
+    ex:operatesAt ex:retail_hub_019, ex:retail_hub_020 .
+
+ex:distributor_020 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #020" ;
+    ex:operatesAt ex:retail_hub_020, ex:retail_hub_021 .
+
+ex:distributor_021 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #021" ;
+    ex:operatesAt ex:retail_hub_021, ex:retail_hub_022 .
+
+ex:distributor_022 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #022" ;
+    ex:operatesAt ex:retail_hub_022, ex:retail_hub_023 .
+
+ex:distributor_023 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #023" ;
+    ex:operatesAt ex:retail_hub_023, ex:retail_hub_024 .
+
+ex:distributor_024 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #024" ;
+    ex:operatesAt ex:retail_hub_024, ex:retail_hub_025 .
+
+ex:distributor_025 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #025" ;
+    ex:operatesAt ex:retail_hub_025, ex:retail_hub_026 .
+
+ex:distributor_026 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #026" ;
+    ex:operatesAt ex:retail_hub_026, ex:retail_hub_027 .
+
+ex:distributor_027 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #027" ;
+    ex:operatesAt ex:retail_hub_027, ex:retail_hub_028 .
+
+ex:distributor_028 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #028" ;
+    ex:operatesAt ex:retail_hub_028, ex:retail_hub_029 .
+
+ex:distributor_029 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #029" ;
+    ex:operatesAt ex:retail_hub_029, ex:retail_hub_030 .
+
+ex:distributor_030 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #030" ;
+    ex:operatesAt ex:retail_hub_030, ex:retail_hub_031 .
+
+ex:distributor_031 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #031" ;
+    ex:operatesAt ex:retail_hub_031, ex:retail_hub_032 .
+
+ex:distributor_032 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #032" ;
+    ex:operatesAt ex:retail_hub_032, ex:retail_hub_033 .
+
+ex:distributor_033 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #033" ;
+    ex:operatesAt ex:retail_hub_033, ex:retail_hub_034 .
+
+ex:distributor_034 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #034" ;
+    ex:operatesAt ex:retail_hub_034, ex:retail_hub_035 .
+
+ex:distributor_035 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #035" ;
+    ex:operatesAt ex:retail_hub_035, ex:retail_hub_036 .
+
+ex:distributor_036 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #036" ;
+    ex:operatesAt ex:retail_hub_036, ex:retail_hub_037 .
+
+ex:distributor_037 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #037" ;
+    ex:operatesAt ex:retail_hub_037, ex:retail_hub_038 .
+
+ex:distributor_038 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #038" ;
+    ex:operatesAt ex:retail_hub_038, ex:retail_hub_039 .
+
+ex:distributor_039 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #039" ;
+    ex:operatesAt ex:retail_hub_039, ex:retail_hub_040 .
+
+ex:distributor_040 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #040" ;
+    ex:operatesAt ex:retail_hub_040, ex:retail_hub_041 .
+
+ex:distributor_041 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #041" ;
+    ex:operatesAt ex:retail_hub_041, ex:retail_hub_042 .
+
+ex:distributor_042 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #042" ;
+    ex:operatesAt ex:retail_hub_042, ex:retail_hub_043 .
+
+ex:distributor_043 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #043" ;
+    ex:operatesAt ex:retail_hub_043, ex:retail_hub_044 .
+
+ex:distributor_044 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #044" ;
+    ex:operatesAt ex:retail_hub_044, ex:retail_hub_045 .
+
+ex:distributor_045 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #045" ;
+    ex:operatesAt ex:retail_hub_045, ex:retail_hub_046 .
+
+ex:distributor_046 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #046" ;
+    ex:operatesAt ex:retail_hub_046, ex:retail_hub_047 .
+
+ex:distributor_047 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #047" ;
+    ex:operatesAt ex:retail_hub_047, ex:retail_hub_048 .
+
+ex:distributor_048 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #048" ;
+    ex:operatesAt ex:retail_hub_048, ex:retail_hub_049 .
+
+ex:distributor_049 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #049" ;
+    ex:operatesAt ex:retail_hub_049, ex:retail_hub_050 .
+
+ex:distributor_050 a ex:Distributor ;
+    ex:orgName "Global Logistics Distributor #050" ;
+    ex:operatesAt ex:retail_hub_050, ex:retail_hub_001 .
+
+ex:supplier_001 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #001" ;
+    ex:operatesAt ex:warehouse_001, ex:warehouse_002 ;
+    ex:suppliesTo ex:distributor_001, ex:distributor_004 .
+
+ex:supplier_002 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #002" ;
+    ex:operatesAt ex:warehouse_002, ex:warehouse_003 ;
+    ex:suppliesTo ex:distributor_002, ex:distributor_005 .
+
+ex:supplier_003 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #003" ;
+    ex:operatesAt ex:warehouse_003, ex:warehouse_004 ;
+    ex:suppliesTo ex:distributor_003, ex:distributor_006 .
+
+ex:supplier_004 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #004" ;
+    ex:operatesAt ex:warehouse_004, ex:warehouse_005 ;
+    ex:suppliesTo ex:distributor_004, ex:distributor_007 .
+
+ex:supplier_005 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #005" ;
+    ex:operatesAt ex:warehouse_005, ex:warehouse_006 ;
+    ex:suppliesTo ex:distributor_005, ex:distributor_008 .
+
+ex:supplier_006 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #006" ;
+    ex:operatesAt ex:warehouse_006, ex:warehouse_007 ;
+    ex:suppliesTo ex:distributor_006, ex:distributor_009 .
+
+ex:supplier_007 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #007" ;
+    ex:operatesAt ex:warehouse_007, ex:warehouse_008 ;
+    ex:suppliesTo ex:distributor_007, ex:distributor_010 .
+
+ex:supplier_008 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #008" ;
+    ex:operatesAt ex:warehouse_008, ex:warehouse_009 ;
+    ex:suppliesTo ex:distributor_008, ex:distributor_011 .
+
+ex:supplier_009 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #009" ;
+    ex:operatesAt ex:warehouse_009, ex:warehouse_010 ;
+    ex:suppliesTo ex:distributor_009, ex:distributor_012 .
+
+ex:supplier_010 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #010" ;
+    ex:operatesAt ex:warehouse_010, ex:warehouse_011 ;
+    ex:suppliesTo ex:distributor_010, ex:distributor_013 .
+
+ex:supplier_011 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #011" ;
+    ex:operatesAt ex:warehouse_011, ex:warehouse_012 ;
+    ex:suppliesTo ex:distributor_011, ex:distributor_014 .
+
+ex:supplier_012 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #012" ;
+    ex:operatesAt ex:warehouse_012, ex:warehouse_013 ;
+    ex:suppliesTo ex:distributor_012, ex:distributor_015 .
+
+ex:supplier_013 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #013" ;
+    ex:operatesAt ex:warehouse_013, ex:warehouse_014 ;
+    ex:suppliesTo ex:distributor_013, ex:distributor_016 .
+
+ex:supplier_014 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #014" ;
+    ex:operatesAt ex:warehouse_014, ex:warehouse_015 ;
+    ex:suppliesTo ex:distributor_014, ex:distributor_017 .
+
+ex:supplier_015 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #015" ;
+    ex:operatesAt ex:warehouse_015, ex:warehouse_016 ;
+    ex:suppliesTo ex:distributor_015, ex:distributor_018 .
+
+ex:supplier_016 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #016" ;
+    ex:operatesAt ex:warehouse_016, ex:warehouse_017 ;
+    ex:suppliesTo ex:distributor_016, ex:distributor_019 .
+
+ex:supplier_017 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #017" ;
+    ex:operatesAt ex:warehouse_017, ex:warehouse_018 ;
+    ex:suppliesTo ex:distributor_017, ex:distributor_020 .
+
+ex:supplier_018 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #018" ;
+    ex:operatesAt ex:warehouse_018, ex:warehouse_019 ;
+    ex:suppliesTo ex:distributor_018, ex:distributor_021 .
+
+ex:supplier_019 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #019" ;
+    ex:operatesAt ex:warehouse_019, ex:warehouse_020 ;
+    ex:suppliesTo ex:distributor_019, ex:distributor_022 .
+
+ex:supplier_020 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #020" ;
+    ex:operatesAt ex:warehouse_020, ex:warehouse_021 ;
+    ex:suppliesTo ex:distributor_020, ex:distributor_023 .
+
+ex:supplier_021 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #021" ;
+    ex:operatesAt ex:warehouse_021, ex:warehouse_022 ;
+    ex:suppliesTo ex:distributor_021, ex:distributor_024 .
+
+ex:supplier_022 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #022" ;
+    ex:operatesAt ex:warehouse_022, ex:warehouse_023 ;
+    ex:suppliesTo ex:distributor_022, ex:distributor_025 .
+
+ex:supplier_023 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #023" ;
+    ex:operatesAt ex:warehouse_023, ex:warehouse_024 ;
+    ex:suppliesTo ex:distributor_023, ex:distributor_026 .
+
+ex:supplier_024 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #024" ;
+    ex:operatesAt ex:warehouse_024, ex:warehouse_025 ;
+    ex:suppliesTo ex:distributor_024, ex:distributor_027 .
+
+ex:supplier_025 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #025" ;
+    ex:operatesAt ex:warehouse_025, ex:warehouse_026 ;
+    ex:suppliesTo ex:distributor_025, ex:distributor_028 .
+
+ex:supplier_026 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #026" ;
+    ex:operatesAt ex:warehouse_026, ex:warehouse_027 ;
+    ex:suppliesTo ex:distributor_026, ex:distributor_029 .
+
+ex:supplier_027 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #027" ;
+    ex:operatesAt ex:warehouse_027, ex:warehouse_028 ;
+    ex:suppliesTo ex:distributor_027, ex:distributor_030 .
+
+ex:supplier_028 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #028" ;
+    ex:operatesAt ex:warehouse_028, ex:warehouse_029 ;
+    ex:suppliesTo ex:distributor_028, ex:distributor_031 .
+
+ex:supplier_029 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #029" ;
+    ex:operatesAt ex:warehouse_029, ex:warehouse_030 ;
+    ex:suppliesTo ex:distributor_029, ex:distributor_032 .
+
+ex:supplier_030 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #030" ;
+    ex:operatesAt ex:warehouse_030, ex:warehouse_031 ;
+    ex:suppliesTo ex:distributor_030, ex:distributor_033 .
+
+ex:supplier_031 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #031" ;
+    ex:operatesAt ex:warehouse_031, ex:warehouse_032 ;
+    ex:suppliesTo ex:distributor_031, ex:distributor_034 .
+
+ex:supplier_032 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #032" ;
+    ex:operatesAt ex:warehouse_032, ex:warehouse_033 ;
+    ex:suppliesTo ex:distributor_032, ex:distributor_035 .
+
+ex:supplier_033 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #033" ;
+    ex:operatesAt ex:warehouse_033, ex:warehouse_034 ;
+    ex:suppliesTo ex:distributor_033, ex:distributor_036 .
+
+ex:supplier_034 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #034" ;
+    ex:operatesAt ex:warehouse_034, ex:warehouse_035 ;
+    ex:suppliesTo ex:distributor_034, ex:distributor_037 .
+
+ex:supplier_035 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #035" ;
+    ex:operatesAt ex:warehouse_035, ex:warehouse_036 ;
+    ex:suppliesTo ex:distributor_035, ex:distributor_038 .
+
+ex:supplier_036 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #036" ;
+    ex:operatesAt ex:warehouse_036, ex:warehouse_037 ;
+    ex:suppliesTo ex:distributor_036, ex:distributor_039 .
+
+ex:supplier_037 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #037" ;
+    ex:operatesAt ex:warehouse_037, ex:warehouse_038 ;
+    ex:suppliesTo ex:distributor_037, ex:distributor_040 .
+
+ex:supplier_038 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #038" ;
+    ex:operatesAt ex:warehouse_038, ex:warehouse_039 ;
+    ex:suppliesTo ex:distributor_038, ex:distributor_041 .
+
+ex:supplier_039 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #039" ;
+    ex:operatesAt ex:warehouse_039, ex:warehouse_040 ;
+    ex:suppliesTo ex:distributor_039, ex:distributor_042 .
+
+ex:supplier_040 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #040" ;
+    ex:operatesAt ex:warehouse_040, ex:warehouse_041 ;
+    ex:suppliesTo ex:distributor_040, ex:distributor_043 .
+
+ex:supplier_041 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #041" ;
+    ex:operatesAt ex:warehouse_041, ex:warehouse_042 ;
+    ex:suppliesTo ex:distributor_041, ex:distributor_044 .
+
+ex:supplier_042 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #042" ;
+    ex:operatesAt ex:warehouse_042, ex:warehouse_043 ;
+    ex:suppliesTo ex:distributor_042, ex:distributor_045 .
+
+ex:supplier_043 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #043" ;
+    ex:operatesAt ex:warehouse_043, ex:warehouse_044 ;
+    ex:suppliesTo ex:distributor_043, ex:distributor_046 .
+
+ex:supplier_044 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #044" ;
+    ex:operatesAt ex:warehouse_044, ex:warehouse_045 ;
+    ex:suppliesTo ex:distributor_044, ex:distributor_047 .
+
+ex:supplier_045 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #045" ;
+    ex:operatesAt ex:warehouse_045, ex:warehouse_046 ;
+    ex:suppliesTo ex:distributor_045, ex:distributor_048 .
+
+ex:supplier_046 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #046" ;
+    ex:operatesAt ex:warehouse_046, ex:warehouse_047 ;
+    ex:suppliesTo ex:distributor_046, ex:distributor_049 .
+
+ex:supplier_047 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #047" ;
+    ex:operatesAt ex:warehouse_047, ex:warehouse_048 ;
+    ex:suppliesTo ex:distributor_047, ex:distributor_050 .
+
+ex:supplier_048 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #048" ;
+    ex:operatesAt ex:warehouse_048, ex:warehouse_049 ;
+    ex:suppliesTo ex:distributor_048, ex:distributor_001 .
+
+ex:supplier_049 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #049" ;
+    ex:operatesAt ex:warehouse_049, ex:warehouse_050 ;
+    ex:suppliesTo ex:distributor_049, ex:distributor_002 .
+
+ex:supplier_050 a ex:Supplier ;
+    ex:orgName "Tier-1 Manufacturing Supplier #050" ;
+    ex:operatesAt ex:warehouse_050, ex:warehouse_001 ;
+    ex:suppliesTo ex:distributor_050, ex:distributor_003 .

@@ -1,0 +1,1806 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/shacl_constraints/> .
+
+# ABox Instance Triples for 10_shacl_advanced_constraints
+
+ex:ind_party_001 a ex:IndividualParty ;
+    rdfs:label "Individual Party #001" .
+
+ex:ind_party_002 a ex:IndividualParty ;
+    rdfs:label "Individual Party #002" .
+
+ex:ind_party_003 a ex:IndividualParty ;
+    rdfs:label "Individual Party #003" .
+
+ex:ind_party_004 a ex:IndividualParty ;
+    rdfs:label "Individual Party #004" .
+
+ex:ind_party_005 a ex:IndividualParty ;
+    rdfs:label "Individual Party #005" .
+
+ex:ind_party_006 a ex:IndividualParty ;
+    rdfs:label "Individual Party #006" .
+
+ex:ind_party_007 a ex:IndividualParty ;
+    rdfs:label "Individual Party #007" .
+
+ex:ind_party_008 a ex:IndividualParty ;
+    rdfs:label "Individual Party #008" .
+
+ex:ind_party_009 a ex:IndividualParty ;
+    rdfs:label "Individual Party #009" .
+
+ex:ind_party_010 a ex:IndividualParty ;
+    rdfs:label "Individual Party #010" .
+
+ex:ind_party_011 a ex:IndividualParty ;
+    rdfs:label "Individual Party #011" .
+
+ex:ind_party_012 a ex:IndividualParty ;
+    rdfs:label "Individual Party #012" .
+
+ex:ind_party_013 a ex:IndividualParty ;
+    rdfs:label "Individual Party #013" .
+
+ex:ind_party_014 a ex:IndividualParty ;
+    rdfs:label "Individual Party #014" .
+
+ex:ind_party_015 a ex:IndividualParty ;
+    rdfs:label "Individual Party #015" .
+
+ex:ind_party_016 a ex:IndividualParty ;
+    rdfs:label "Individual Party #016" .
+
+ex:ind_party_017 a ex:IndividualParty ;
+    rdfs:label "Individual Party #017" .
+
+ex:ind_party_018 a ex:IndividualParty ;
+    rdfs:label "Individual Party #018" .
+
+ex:ind_party_019 a ex:IndividualParty ;
+    rdfs:label "Individual Party #019" .
+
+ex:ind_party_020 a ex:IndividualParty ;
+    rdfs:label "Individual Party #020" .
+
+ex:ind_party_021 a ex:IndividualParty ;
+    rdfs:label "Individual Party #021" .
+
+ex:ind_party_022 a ex:IndividualParty ;
+    rdfs:label "Individual Party #022" .
+
+ex:ind_party_023 a ex:IndividualParty ;
+    rdfs:label "Individual Party #023" .
+
+ex:ind_party_024 a ex:IndividualParty ;
+    rdfs:label "Individual Party #024" .
+
+ex:ind_party_025 a ex:IndividualParty ;
+    rdfs:label "Individual Party #025" .
+
+ex:ind_party_026 a ex:IndividualParty ;
+    rdfs:label "Individual Party #026" .
+
+ex:ind_party_027 a ex:IndividualParty ;
+    rdfs:label "Individual Party #027" .
+
+ex:ind_party_028 a ex:IndividualParty ;
+    rdfs:label "Individual Party #028" .
+
+ex:ind_party_029 a ex:IndividualParty ;
+    rdfs:label "Individual Party #029" .
+
+ex:ind_party_030 a ex:IndividualParty ;
+    rdfs:label "Individual Party #030" .
+
+ex:ind_party_031 a ex:IndividualParty ;
+    rdfs:label "Individual Party #031" .
+
+ex:ind_party_032 a ex:IndividualParty ;
+    rdfs:label "Individual Party #032" .
+
+ex:ind_party_033 a ex:IndividualParty ;
+    rdfs:label "Individual Party #033" .
+
+ex:ind_party_034 a ex:IndividualParty ;
+    rdfs:label "Individual Party #034" .
+
+ex:ind_party_035 a ex:IndividualParty ;
+    rdfs:label "Individual Party #035" .
+
+ex:ind_party_036 a ex:IndividualParty ;
+    rdfs:label "Individual Party #036" .
+
+ex:ind_party_037 a ex:IndividualParty ;
+    rdfs:label "Individual Party #037" .
+
+ex:ind_party_038 a ex:IndividualParty ;
+    rdfs:label "Individual Party #038" .
+
+ex:ind_party_039 a ex:IndividualParty ;
+    rdfs:label "Individual Party #039" .
+
+ex:ind_party_040 a ex:IndividualParty ;
+    rdfs:label "Individual Party #040" .
+
+ex:ind_party_041 a ex:IndividualParty ;
+    rdfs:label "Individual Party #041" .
+
+ex:ind_party_042 a ex:IndividualParty ;
+    rdfs:label "Individual Party #042" .
+
+ex:ind_party_043 a ex:IndividualParty ;
+    rdfs:label "Individual Party #043" .
+
+ex:ind_party_044 a ex:IndividualParty ;
+    rdfs:label "Individual Party #044" .
+
+ex:ind_party_045 a ex:IndividualParty ;
+    rdfs:label "Individual Party #045" .
+
+ex:ind_party_046 a ex:IndividualParty ;
+    rdfs:label "Individual Party #046" .
+
+ex:ind_party_047 a ex:IndividualParty ;
+    rdfs:label "Individual Party #047" .
+
+ex:ind_party_048 a ex:IndividualParty ;
+    rdfs:label "Individual Party #048" .
+
+ex:ind_party_049 a ex:IndividualParty ;
+    rdfs:label "Individual Party #049" .
+
+ex:ind_party_050 a ex:IndividualParty ;
+    rdfs:label "Individual Party #050" .
+
+ex:ind_party_051 a ex:IndividualParty ;
+    rdfs:label "Individual Party #051" .
+
+ex:ind_party_052 a ex:IndividualParty ;
+    rdfs:label "Individual Party #052" .
+
+ex:ind_party_053 a ex:IndividualParty ;
+    rdfs:label "Individual Party #053" .
+
+ex:ind_party_054 a ex:IndividualParty ;
+    rdfs:label "Individual Party #054" .
+
+ex:ind_party_055 a ex:IndividualParty ;
+    rdfs:label "Individual Party #055" .
+
+ex:ind_party_056 a ex:IndividualParty ;
+    rdfs:label "Individual Party #056" .
+
+ex:ind_party_057 a ex:IndividualParty ;
+    rdfs:label "Individual Party #057" .
+
+ex:ind_party_058 a ex:IndividualParty ;
+    rdfs:label "Individual Party #058" .
+
+ex:ind_party_059 a ex:IndividualParty ;
+    rdfs:label "Individual Party #059" .
+
+ex:ind_party_060 a ex:IndividualParty ;
+    rdfs:label "Individual Party #060" .
+
+ex:corp_party_001 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #001" .
+
+ex:corp_party_002 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #002" .
+
+ex:corp_party_003 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #003" .
+
+ex:corp_party_004 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #004" .
+
+ex:corp_party_005 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #005" .
+
+ex:corp_party_006 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #006" .
+
+ex:corp_party_007 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #007" .
+
+ex:corp_party_008 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #008" .
+
+ex:corp_party_009 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #009" .
+
+ex:corp_party_010 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #010" .
+
+ex:corp_party_011 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #011" .
+
+ex:corp_party_012 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #012" .
+
+ex:corp_party_013 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #013" .
+
+ex:corp_party_014 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #014" .
+
+ex:corp_party_015 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #015" .
+
+ex:corp_party_016 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #016" .
+
+ex:corp_party_017 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #017" .
+
+ex:corp_party_018 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #018" .
+
+ex:corp_party_019 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #019" .
+
+ex:corp_party_020 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #020" .
+
+ex:corp_party_021 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #021" .
+
+ex:corp_party_022 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #022" .
+
+ex:corp_party_023 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #023" .
+
+ex:corp_party_024 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #024" .
+
+ex:corp_party_025 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #025" .
+
+ex:corp_party_026 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #026" .
+
+ex:corp_party_027 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #027" .
+
+ex:corp_party_028 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #028" .
+
+ex:corp_party_029 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #029" .
+
+ex:corp_party_030 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #030" .
+
+ex:corp_party_031 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #031" .
+
+ex:corp_party_032 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #032" .
+
+ex:corp_party_033 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #033" .
+
+ex:corp_party_034 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #034" .
+
+ex:corp_party_035 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #035" .
+
+ex:corp_party_036 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #036" .
+
+ex:corp_party_037 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #037" .
+
+ex:corp_party_038 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #038" .
+
+ex:corp_party_039 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #039" .
+
+ex:corp_party_040 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #040" .
+
+ex:corp_party_041 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #041" .
+
+ex:corp_party_042 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #042" .
+
+ex:corp_party_043 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #043" .
+
+ex:corp_party_044 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #044" .
+
+ex:corp_party_045 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #045" .
+
+ex:corp_party_046 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #046" .
+
+ex:corp_party_047 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #047" .
+
+ex:corp_party_048 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #048" .
+
+ex:corp_party_049 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #049" .
+
+ex:corp_party_050 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #050" .
+
+ex:corp_party_051 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #051" .
+
+ex:corp_party_052 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #052" .
+
+ex:corp_party_053 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #053" .
+
+ex:corp_party_054 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #054" .
+
+ex:corp_party_055 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #055" .
+
+ex:corp_party_056 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #056" .
+
+ex:corp_party_057 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #057" .
+
+ex:corp_party_058 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #058" .
+
+ex:corp_party_059 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #059" .
+
+ex:corp_party_060 a ex:CorporateParty ;
+    rdfs:label "Corporate Party #060" .
+
+ex:pay_acct_001 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010001" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_001 ;
+    ex:billingAddress [
+        ex:streetLine "101 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10001" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_002 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010002" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_002 ;
+    ex:billingAddress [
+        ex:streetLine "102 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10002" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_003 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010003" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_003 ;
+    ex:billingAddress [
+        ex:streetLine "103 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10003" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_004 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010004" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_004 ;
+    ex:billingAddress [
+        ex:streetLine "104 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10004" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_005 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010005" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_005 ;
+    ex:billingAddress [
+        ex:streetLine "105 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10005" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_006 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010006" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_006 ;
+    ex:billingAddress [
+        ex:streetLine "106 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10006" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_007 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010007" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_007 ;
+    ex:billingAddress [
+        ex:streetLine "107 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10007" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_008 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010008" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_008 ;
+    ex:billingAddress [
+        ex:streetLine "108 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10008" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_009 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010009" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_009 ;
+    ex:billingAddress [
+        ex:streetLine "109 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10009" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_010 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010010" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_010 ;
+    ex:billingAddress [
+        ex:streetLine "110 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10010" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_011 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010011" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_011 ;
+    ex:billingAddress [
+        ex:streetLine "111 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10011" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_012 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010012" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_012 ;
+    ex:billingAddress [
+        ex:streetLine "112 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10012" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_013 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010013" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_013 ;
+    ex:billingAddress [
+        ex:streetLine "113 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10013" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_014 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010014" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_014 ;
+    ex:billingAddress [
+        ex:streetLine "114 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10014" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_015 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010015" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_015 ;
+    ex:billingAddress [
+        ex:streetLine "115 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10015" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_016 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010016" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_016 ;
+    ex:billingAddress [
+        ex:streetLine "116 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10016" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_017 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010017" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_017 ;
+    ex:billingAddress [
+        ex:streetLine "117 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10017" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_018 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010018" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_018 ;
+    ex:billingAddress [
+        ex:streetLine "118 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10018" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_019 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010019" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_019 ;
+    ex:billingAddress [
+        ex:streetLine "119 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10019" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_020 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010020" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_020 ;
+    ex:billingAddress [
+        ex:streetLine "120 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10020" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_021 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010021" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_021 ;
+    ex:billingAddress [
+        ex:streetLine "121 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10021" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_022 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010022" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_022 ;
+    ex:billingAddress [
+        ex:streetLine "122 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10022" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_023 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010023" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_023 ;
+    ex:billingAddress [
+        ex:streetLine "123 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10023" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_024 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010024" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_024 ;
+    ex:billingAddress [
+        ex:streetLine "124 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10024" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_025 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010025" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_025 ;
+    ex:billingAddress [
+        ex:streetLine "125 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10025" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_026 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010026" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_026 ;
+    ex:billingAddress [
+        ex:streetLine "126 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10026" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_027 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010027" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_027 ;
+    ex:billingAddress [
+        ex:streetLine "127 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10027" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_028 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010028" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_028 ;
+    ex:billingAddress [
+        ex:streetLine "128 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10028" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_029 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010029" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_029 ;
+    ex:billingAddress [
+        ex:streetLine "129 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10029" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_030 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010030" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_030 ;
+    ex:billingAddress [
+        ex:streetLine "130 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10030" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_031 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010031" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_031 ;
+    ex:billingAddress [
+        ex:streetLine "131 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10031" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_032 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010032" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_032 ;
+    ex:billingAddress [
+        ex:streetLine "132 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10032" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_033 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010033" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_033 ;
+    ex:billingAddress [
+        ex:streetLine "133 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10033" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_034 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010034" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_034 ;
+    ex:billingAddress [
+        ex:streetLine "134 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10034" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_035 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010035" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_035 ;
+    ex:billingAddress [
+        ex:streetLine "135 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10035" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_036 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010036" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_036 ;
+    ex:billingAddress [
+        ex:streetLine "136 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10036" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_037 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010037" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_037 ;
+    ex:billingAddress [
+        ex:streetLine "137 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10037" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_038 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010038" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_038 ;
+    ex:billingAddress [
+        ex:streetLine "138 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10038" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_039 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010039" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_039 ;
+    ex:billingAddress [
+        ex:streetLine "139 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10039" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_040 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010040" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_040 ;
+    ex:billingAddress [
+        ex:streetLine "140 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10040" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_041 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010041" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_041 ;
+    ex:billingAddress [
+        ex:streetLine "141 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10041" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_042 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010042" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_042 ;
+    ex:billingAddress [
+        ex:streetLine "142 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10042" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_043 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010043" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_043 ;
+    ex:billingAddress [
+        ex:streetLine "143 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10043" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_044 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010044" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_044 ;
+    ex:billingAddress [
+        ex:streetLine "144 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10044" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_045 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010045" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_045 ;
+    ex:billingAddress [
+        ex:streetLine "145 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10045" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_046 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010046" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_046 ;
+    ex:billingAddress [
+        ex:streetLine "146 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10046" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_047 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010047" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_047 ;
+    ex:billingAddress [
+        ex:streetLine "147 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10047" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_048 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010048" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_048 ;
+    ex:billingAddress [
+        ex:streetLine "148 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10048" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_049 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010049" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_049 ;
+    ex:billingAddress [
+        ex:streetLine "149 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10049" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_050 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010050" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_050 ;
+    ex:billingAddress [
+        ex:streetLine "150 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10050" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_051 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010051" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_051 ;
+    ex:billingAddress [
+        ex:streetLine "151 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10051" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_052 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010052" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_052 ;
+    ex:billingAddress [
+        ex:streetLine "152 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10052" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_053 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010053" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_053 ;
+    ex:billingAddress [
+        ex:streetLine "153 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10053" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_054 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010054" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_054 ;
+    ex:billingAddress [
+        ex:streetLine "154 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10054" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_055 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010055" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_055 ;
+    ex:billingAddress [
+        ex:streetLine "155 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10055" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_056 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010056" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_056 ;
+    ex:billingAddress [
+        ex:streetLine "156 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10056" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_057 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010057" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_057 ;
+    ex:billingAddress [
+        ex:streetLine "157 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10057" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_058 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010058" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_058 ;
+    ex:billingAddress [
+        ex:streetLine "158 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10058" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_059 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010059" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_059 ;
+    ex:billingAddress [
+        ex:streetLine "159 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10059" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_060 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010060" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:ind_party_060 ;
+    ex:billingAddress [
+        ex:streetLine "160 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10060" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_061 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010061" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_001 ;
+    ex:billingAddress [
+        ex:streetLine "161 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10061" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_062 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010062" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_002 ;
+    ex:billingAddress [
+        ex:streetLine "162 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10062" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_063 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010063" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_003 ;
+    ex:billingAddress [
+        ex:streetLine "163 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10063" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_064 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010064" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_004 ;
+    ex:billingAddress [
+        ex:streetLine "164 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10064" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_065 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010065" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_005 ;
+    ex:billingAddress [
+        ex:streetLine "165 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10065" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_066 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010066" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_006 ;
+    ex:billingAddress [
+        ex:streetLine "166 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10066" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_067 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010067" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_007 ;
+    ex:billingAddress [
+        ex:streetLine "167 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10067" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_068 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010068" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_008 ;
+    ex:billingAddress [
+        ex:streetLine "168 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10068" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_069 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010069" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_009 ;
+    ex:billingAddress [
+        ex:streetLine "169 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10069" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_070 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010070" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_010 ;
+    ex:billingAddress [
+        ex:streetLine "170 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10070" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_071 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010071" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_011 ;
+    ex:billingAddress [
+        ex:streetLine "171 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10071" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_072 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010072" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_012 ;
+    ex:billingAddress [
+        ex:streetLine "172 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10072" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_073 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010073" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_013 ;
+    ex:billingAddress [
+        ex:streetLine "173 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10073" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_074 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010074" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_014 ;
+    ex:billingAddress [
+        ex:streetLine "174 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10074" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_075 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010075" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_015 ;
+    ex:billingAddress [
+        ex:streetLine "175 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10075" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_076 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010076" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_016 ;
+    ex:billingAddress [
+        ex:streetLine "176 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10076" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_077 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010077" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_017 ;
+    ex:billingAddress [
+        ex:streetLine "177 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10077" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_078 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010078" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_018 ;
+    ex:billingAddress [
+        ex:streetLine "178 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10078" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_079 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010079" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_019 ;
+    ex:billingAddress [
+        ex:streetLine "179 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10079" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_080 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010080" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_020 ;
+    ex:billingAddress [
+        ex:streetLine "180 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10080" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_081 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010081" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_021 ;
+    ex:billingAddress [
+        ex:streetLine "181 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10081" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_082 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010082" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_022 ;
+    ex:billingAddress [
+        ex:streetLine "182 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10082" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_083 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010083" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_023 ;
+    ex:billingAddress [
+        ex:streetLine "183 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10083" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_084 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010084" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_024 ;
+    ex:billingAddress [
+        ex:streetLine "184 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10084" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_085 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010085" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_025 ;
+    ex:billingAddress [
+        ex:streetLine "185 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10085" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_086 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010086" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_026 ;
+    ex:billingAddress [
+        ex:streetLine "186 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10086" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_087 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010087" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_027 ;
+    ex:billingAddress [
+        ex:streetLine "187 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10087" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_088 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010088" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_028 ;
+    ex:billingAddress [
+        ex:streetLine "188 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10088" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_089 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010089" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_029 ;
+    ex:billingAddress [
+        ex:streetLine "189 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10089" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_090 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010090" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_030 ;
+    ex:billingAddress [
+        ex:streetLine "190 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10090" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_091 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010091" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_031 ;
+    ex:billingAddress [
+        ex:streetLine "191 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10091" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_092 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010092" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_032 ;
+    ex:billingAddress [
+        ex:streetLine "192 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10092" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_093 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010093" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_033 ;
+    ex:billingAddress [
+        ex:streetLine "193 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10093" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_094 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010094" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_034 ;
+    ex:billingAddress [
+        ex:streetLine "194 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10094" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_095 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010095" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_035 ;
+    ex:billingAddress [
+        ex:streetLine "195 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10095" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_096 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010096" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_036 ;
+    ex:billingAddress [
+        ex:streetLine "196 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10096" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_097 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010097" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_037 ;
+    ex:billingAddress [
+        ex:streetLine "197 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10097" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_098 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010098" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_038 ;
+    ex:billingAddress [
+        ex:streetLine "198 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10098" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_099 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010099" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_039 ;
+    ex:billingAddress [
+        ex:streetLine "199 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10099" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_100 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010100" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_040 ;
+    ex:billingAddress [
+        ex:streetLine "200 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10100" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_101 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010101" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_041 ;
+    ex:billingAddress [
+        ex:streetLine "201 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10101" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_102 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010102" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_042 ;
+    ex:billingAddress [
+        ex:streetLine "202 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10102" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_103 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010103" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_043 ;
+    ex:billingAddress [
+        ex:streetLine "203 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10103" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_104 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010104" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_044 ;
+    ex:billingAddress [
+        ex:streetLine "204 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10104" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_105 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010105" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_045 ;
+    ex:billingAddress [
+        ex:streetLine "205 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10105" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_106 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010106" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_046 ;
+    ex:billingAddress [
+        ex:streetLine "206 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10106" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_107 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010107" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_047 ;
+    ex:billingAddress [
+        ex:streetLine "207 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10107" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_108 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010108" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_048 ;
+    ex:billingAddress [
+        ex:streetLine "208 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10108" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_109 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010109" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_049 ;
+    ex:billingAddress [
+        ex:streetLine "209 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10109" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_110 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010110" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_050 ;
+    ex:billingAddress [
+        ex:streetLine "210 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10110" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_111 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010111" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_051 ;
+    ex:billingAddress [
+        ex:streetLine "211 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10111" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_112 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010112" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_052 ;
+    ex:billingAddress [
+        ex:streetLine "212 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10112" ;
+        ex:countryIso "US"
+    ] .
+
+ex:pay_acct_113 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010113" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_053 ;
+    ex:billingAddress [
+        ex:streetLine "213 Financial District Blvd" ;
+        ex:cityName "London" ;
+        ex:postalCode "10113" ;
+        ex:countryIso "GB"
+    ] .
+
+ex:pay_acct_114 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010114" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_054 ;
+    ex:billingAddress [
+        ex:streetLine "214 Financial District Blvd" ;
+        ex:cityName "Frankfurt" ;
+        ex:postalCode "10114" ;
+        ex:countryIso "DE"
+    ] .
+
+ex:pay_acct_115 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010115" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_055 ;
+    ex:billingAddress [
+        ex:streetLine "215 Financial District Blvd" ;
+        ex:cityName "Paris" ;
+        ex:postalCode "10115" ;
+        ex:countryIso "FR"
+    ] .
+
+ex:pay_acct_116 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010116" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_056 ;
+    ex:billingAddress [
+        ex:streetLine "216 Financial District Blvd" ;
+        ex:cityName "Zurich" ;
+        ex:postalCode "10116" ;
+        ex:countryIso "CH"
+    ] .
+
+ex:pay_acct_117 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010117" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_057 ;
+    ex:billingAddress [
+        ex:streetLine "217 Financial District Blvd" ;
+        ex:cityName "Tokyo" ;
+        ex:postalCode "10117" ;
+        ex:countryIso "JP"
+    ] .
+
+ex:pay_acct_118 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010118" ;
+    ex:accountStatus "SUSPENDED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_058 ;
+    ex:billingAddress [
+        ex:streetLine "218 Financial District Blvd" ;
+        ex:cityName "Singapore" ;
+        ex:postalCode "10118" ;
+        ex:countryIso "SG"
+    ] .
+
+ex:pay_acct_119 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010119" ;
+    ex:accountStatus "CLOSED" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_059 ;
+    ex:billingAddress [
+        ex:streetLine "219 Financial District Blvd" ;
+        ex:cityName "Toronto" ;
+        ex:postalCode "10119" ;
+        ex:countryIso "CA"
+    ] .
+
+ex:pay_acct_120 a ex:PaymentAccount ;
+    ex:accountNumber "DE89370400440532010120" ;
+    ex:accountStatus "ACTIVE" ;
+    ex:tierLevel "STANDARD" ;
+    ex:hasOwnerParty ex:corp_party_060 ;
+    ex:billingAddress [
+        ex:streetLine "220 Financial District Blvd" ;
+        ex:cityName "New York" ;
+        ex:postalCode "10120" ;
+        ex:countryIso "US"
+    ] .

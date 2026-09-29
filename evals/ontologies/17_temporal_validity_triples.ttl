@@ -1,0 +1,1746 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/temporal#> .
+
+# ABox Instance Triples for 17_temporal_validity
+
+ex:patient_001 a ex:Patient ;
+    ex:patientId "PAT-0001" ;
+    ex:patientName "Clinical Patient #001" .
+
+ex:patient_002 a ex:Patient ;
+    ex:patientId "PAT-0002" ;
+    ex:patientName "Clinical Patient #002" .
+
+ex:patient_003 a ex:Patient ;
+    ex:patientId "PAT-0003" ;
+    ex:patientName "Clinical Patient #003" .
+
+ex:patient_004 a ex:Patient ;
+    ex:patientId "PAT-0004" ;
+    ex:patientName "Clinical Patient #004" .
+
+ex:patient_005 a ex:Patient ;
+    ex:patientId "PAT-0005" ;
+    ex:patientName "Clinical Patient #005" .
+
+ex:patient_006 a ex:Patient ;
+    ex:patientId "PAT-0006" ;
+    ex:patientName "Clinical Patient #006" .
+
+ex:patient_007 a ex:Patient ;
+    ex:patientId "PAT-0007" ;
+    ex:patientName "Clinical Patient #007" .
+
+ex:patient_008 a ex:Patient ;
+    ex:patientId "PAT-0008" ;
+    ex:patientName "Clinical Patient #008" .
+
+ex:patient_009 a ex:Patient ;
+    ex:patientId "PAT-0009" ;
+    ex:patientName "Clinical Patient #009" .
+
+ex:patient_010 a ex:Patient ;
+    ex:patientId "PAT-0010" ;
+    ex:patientName "Clinical Patient #010" .
+
+ex:patient_011 a ex:Patient ;
+    ex:patientId "PAT-0011" ;
+    ex:patientName "Clinical Patient #011" .
+
+ex:patient_012 a ex:Patient ;
+    ex:patientId "PAT-0012" ;
+    ex:patientName "Clinical Patient #012" .
+
+ex:patient_013 a ex:Patient ;
+    ex:patientId "PAT-0013" ;
+    ex:patientName "Clinical Patient #013" .
+
+ex:patient_014 a ex:Patient ;
+    ex:patientId "PAT-0014" ;
+    ex:patientName "Clinical Patient #014" .
+
+ex:patient_015 a ex:Patient ;
+    ex:patientId "PAT-0015" ;
+    ex:patientName "Clinical Patient #015" .
+
+ex:patient_016 a ex:Patient ;
+    ex:patientId "PAT-0016" ;
+    ex:patientName "Clinical Patient #016" .
+
+ex:patient_017 a ex:Patient ;
+    ex:patientId "PAT-0017" ;
+    ex:patientName "Clinical Patient #017" .
+
+ex:patient_018 a ex:Patient ;
+    ex:patientId "PAT-0018" ;
+    ex:patientName "Clinical Patient #018" .
+
+ex:patient_019 a ex:Patient ;
+    ex:patientId "PAT-0019" ;
+    ex:patientName "Clinical Patient #019" .
+
+ex:patient_020 a ex:Patient ;
+    ex:patientId "PAT-0020" ;
+    ex:patientName "Clinical Patient #020" .
+
+ex:patient_021 a ex:Patient ;
+    ex:patientId "PAT-0021" ;
+    ex:patientName "Clinical Patient #021" .
+
+ex:patient_022 a ex:Patient ;
+    ex:patientId "PAT-0022" ;
+    ex:patientName "Clinical Patient #022" .
+
+ex:patient_023 a ex:Patient ;
+    ex:patientId "PAT-0023" ;
+    ex:patientName "Clinical Patient #023" .
+
+ex:patient_024 a ex:Patient ;
+    ex:patientId "PAT-0024" ;
+    ex:patientName "Clinical Patient #024" .
+
+ex:patient_025 a ex:Patient ;
+    ex:patientId "PAT-0025" ;
+    ex:patientName "Clinical Patient #025" .
+
+ex:patient_026 a ex:Patient ;
+    ex:patientId "PAT-0026" ;
+    ex:patientName "Clinical Patient #026" .
+
+ex:patient_027 a ex:Patient ;
+    ex:patientId "PAT-0027" ;
+    ex:patientName "Clinical Patient #027" .
+
+ex:patient_028 a ex:Patient ;
+    ex:patientId "PAT-0028" ;
+    ex:patientName "Clinical Patient #028" .
+
+ex:patient_029 a ex:Patient ;
+    ex:patientId "PAT-0029" ;
+    ex:patientName "Clinical Patient #029" .
+
+ex:patient_030 a ex:Patient ;
+    ex:patientId "PAT-0030" ;
+    ex:patientName "Clinical Patient #030" .
+
+ex:patient_031 a ex:Patient ;
+    ex:patientId "PAT-0031" ;
+    ex:patientName "Clinical Patient #031" .
+
+ex:patient_032 a ex:Patient ;
+    ex:patientId "PAT-0032" ;
+    ex:patientName "Clinical Patient #032" .
+
+ex:patient_033 a ex:Patient ;
+    ex:patientId "PAT-0033" ;
+    ex:patientName "Clinical Patient #033" .
+
+ex:patient_034 a ex:Patient ;
+    ex:patientId "PAT-0034" ;
+    ex:patientName "Clinical Patient #034" .
+
+ex:patient_035 a ex:Patient ;
+    ex:patientId "PAT-0035" ;
+    ex:patientName "Clinical Patient #035" .
+
+ex:patient_036 a ex:Patient ;
+    ex:patientId "PAT-0036" ;
+    ex:patientName "Clinical Patient #036" .
+
+ex:patient_037 a ex:Patient ;
+    ex:patientId "PAT-0037" ;
+    ex:patientName "Clinical Patient #037" .
+
+ex:patient_038 a ex:Patient ;
+    ex:patientId "PAT-0038" ;
+    ex:patientName "Clinical Patient #038" .
+
+ex:patient_039 a ex:Patient ;
+    ex:patientId "PAT-0039" ;
+    ex:patientName "Clinical Patient #039" .
+
+ex:patient_040 a ex:Patient ;
+    ex:patientId "PAT-0040" ;
+    ex:patientName "Clinical Patient #040" .
+
+ex:patient_041 a ex:Patient ;
+    ex:patientId "PAT-0041" ;
+    ex:patientName "Clinical Patient #041" .
+
+ex:patient_042 a ex:Patient ;
+    ex:patientId "PAT-0042" ;
+    ex:patientName "Clinical Patient #042" .
+
+ex:patient_043 a ex:Patient ;
+    ex:patientId "PAT-0043" ;
+    ex:patientName "Clinical Patient #043" .
+
+ex:patient_044 a ex:Patient ;
+    ex:patientId "PAT-0044" ;
+    ex:patientName "Clinical Patient #044" .
+
+ex:patient_045 a ex:Patient ;
+    ex:patientId "PAT-0045" ;
+    ex:patientName "Clinical Patient #045" .
+
+ex:patient_046 a ex:Patient ;
+    ex:patientId "PAT-0046" ;
+    ex:patientName "Clinical Patient #046" .
+
+ex:patient_047 a ex:Patient ;
+    ex:patientId "PAT-0047" ;
+    ex:patientName "Clinical Patient #047" .
+
+ex:patient_048 a ex:Patient ;
+    ex:patientId "PAT-0048" ;
+    ex:patientName "Clinical Patient #048" .
+
+ex:patient_049 a ex:Patient ;
+    ex:patientId "PAT-0049" ;
+    ex:patientName "Clinical Patient #049" .
+
+ex:patient_050 a ex:Patient ;
+    ex:patientId "PAT-0050" ;
+    ex:patientName "Clinical Patient #050" .
+
+ex:patient_051 a ex:Patient ;
+    ex:patientId "PAT-0051" ;
+    ex:patientName "Clinical Patient #051" .
+
+ex:patient_052 a ex:Patient ;
+    ex:patientId "PAT-0052" ;
+    ex:patientName "Clinical Patient #052" .
+
+ex:patient_053 a ex:Patient ;
+    ex:patientId "PAT-0053" ;
+    ex:patientName "Clinical Patient #053" .
+
+ex:patient_054 a ex:Patient ;
+    ex:patientId "PAT-0054" ;
+    ex:patientName "Clinical Patient #054" .
+
+ex:patient_055 a ex:Patient ;
+    ex:patientId "PAT-0055" ;
+    ex:patientName "Clinical Patient #055" .
+
+ex:patient_056 a ex:Patient ;
+    ex:patientId "PAT-0056" ;
+    ex:patientName "Clinical Patient #056" .
+
+ex:patient_057 a ex:Patient ;
+    ex:patientId "PAT-0057" ;
+    ex:patientName "Clinical Patient #057" .
+
+ex:patient_058 a ex:Patient ;
+    ex:patientId "PAT-0058" ;
+    ex:patientName "Clinical Patient #058" .
+
+ex:patient_059 a ex:Patient ;
+    ex:patientId "PAT-0059" ;
+    ex:patientName "Clinical Patient #059" .
+
+ex:patient_060 a ex:Patient ;
+    ex:patientId "PAT-0060" ;
+    ex:patientName "Clinical Patient #060" .
+
+ex:patient_061 a ex:Patient ;
+    ex:patientId "PAT-0061" ;
+    ex:patientName "Clinical Patient #061" .
+
+ex:patient_062 a ex:Patient ;
+    ex:patientId "PAT-0062" ;
+    ex:patientName "Clinical Patient #062" .
+
+ex:patient_063 a ex:Patient ;
+    ex:patientId "PAT-0063" ;
+    ex:patientName "Clinical Patient #063" .
+
+ex:patient_064 a ex:Patient ;
+    ex:patientId "PAT-0064" ;
+    ex:patientName "Clinical Patient #064" .
+
+ex:patient_065 a ex:Patient ;
+    ex:patientId "PAT-0065" ;
+    ex:patientName "Clinical Patient #065" .
+
+ex:patient_066 a ex:Patient ;
+    ex:patientId "PAT-0066" ;
+    ex:patientName "Clinical Patient #066" .
+
+ex:patient_067 a ex:Patient ;
+    ex:patientId "PAT-0067" ;
+    ex:patientName "Clinical Patient #067" .
+
+ex:patient_068 a ex:Patient ;
+    ex:patientId "PAT-0068" ;
+    ex:patientName "Clinical Patient #068" .
+
+ex:patient_069 a ex:Patient ;
+    ex:patientId "PAT-0069" ;
+    ex:patientName "Clinical Patient #069" .
+
+ex:patient_070 a ex:Patient ;
+    ex:patientId "PAT-0070" ;
+    ex:patientName "Clinical Patient #070" .
+
+ex:patient_071 a ex:Patient ;
+    ex:patientId "PAT-0071" ;
+    ex:patientName "Clinical Patient #071" .
+
+ex:patient_072 a ex:Patient ;
+    ex:patientId "PAT-0072" ;
+    ex:patientName "Clinical Patient #072" .
+
+ex:patient_073 a ex:Patient ;
+    ex:patientId "PAT-0073" ;
+    ex:patientName "Clinical Patient #073" .
+
+ex:patient_074 a ex:Patient ;
+    ex:patientId "PAT-0074" ;
+    ex:patientName "Clinical Patient #074" .
+
+ex:patient_075 a ex:Patient ;
+    ex:patientId "PAT-0075" ;
+    ex:patientName "Clinical Patient #075" .
+
+ex:patient_076 a ex:Patient ;
+    ex:patientId "PAT-0076" ;
+    ex:patientName "Clinical Patient #076" .
+
+ex:patient_077 a ex:Patient ;
+    ex:patientId "PAT-0077" ;
+    ex:patientName "Clinical Patient #077" .
+
+ex:patient_078 a ex:Patient ;
+    ex:patientId "PAT-0078" ;
+    ex:patientName "Clinical Patient #078" .
+
+ex:patient_079 a ex:Patient ;
+    ex:patientId "PAT-0079" ;
+    ex:patientName "Clinical Patient #079" .
+
+ex:patient_080 a ex:Patient ;
+    ex:patientId "PAT-0080" ;
+    ex:patientName "Clinical Patient #080" .
+
+ex:medication_001 a ex:Medication ;
+    ex:medicationId "MED-0001" ;
+    ex:medicationName "Metformin 20mg Formulation" .
+
+ex:medication_002 a ex:Medication ;
+    ex:medicationId "MED-0002" ;
+    ex:medicationName "Lisinopril 30mg Formulation" .
+
+ex:medication_003 a ex:Medication ;
+    ex:medicationId "MED-0003" ;
+    ex:medicationName "Amlodipine 40mg Formulation" .
+
+ex:medication_004 a ex:Medication ;
+    ex:medicationId "MED-0004" ;
+    ex:medicationName "Amoxicillin 10mg Formulation" .
+
+ex:medication_005 a ex:Medication ;
+    ex:medicationId "MED-0005" ;
+    ex:medicationName "Omeprazole 20mg Formulation" .
+
+ex:medication_006 a ex:Medication ;
+    ex:medicationId "MED-0006" ;
+    ex:medicationName "Losartan 30mg Formulation" .
+
+ex:medication_007 a ex:Medication ;
+    ex:medicationId "MED-0007" ;
+    ex:medicationName "Gabapentin 40mg Formulation" .
+
+ex:medication_008 a ex:Medication ;
+    ex:medicationId "MED-0008" ;
+    ex:medicationName "Atorvastatin 10mg Formulation" .
+
+ex:medication_009 a ex:Medication ;
+    ex:medicationId "MED-0009" ;
+    ex:medicationName "Metformin 20mg Formulation" .
+
+ex:medication_010 a ex:Medication ;
+    ex:medicationId "MED-0010" ;
+    ex:medicationName "Lisinopril 30mg Formulation" .
+
+ex:medication_011 a ex:Medication ;
+    ex:medicationId "MED-0011" ;
+    ex:medicationName "Amlodipine 40mg Formulation" .
+
+ex:medication_012 a ex:Medication ;
+    ex:medicationId "MED-0012" ;
+    ex:medicationName "Amoxicillin 10mg Formulation" .
+
+ex:medication_013 a ex:Medication ;
+    ex:medicationId "MED-0013" ;
+    ex:medicationName "Omeprazole 20mg Formulation" .
+
+ex:medication_014 a ex:Medication ;
+    ex:medicationId "MED-0014" ;
+    ex:medicationName "Losartan 30mg Formulation" .
+
+ex:medication_015 a ex:Medication ;
+    ex:medicationId "MED-0015" ;
+    ex:medicationName "Gabapentin 40mg Formulation" .
+
+ex:medication_016 a ex:Medication ;
+    ex:medicationId "MED-0016" ;
+    ex:medicationName "Atorvastatin 10mg Formulation" .
+
+ex:medication_017 a ex:Medication ;
+    ex:medicationId "MED-0017" ;
+    ex:medicationName "Metformin 20mg Formulation" .
+
+ex:medication_018 a ex:Medication ;
+    ex:medicationId "MED-0018" ;
+    ex:medicationName "Lisinopril 30mg Formulation" .
+
+ex:medication_019 a ex:Medication ;
+    ex:medicationId "MED-0019" ;
+    ex:medicationName "Amlodipine 40mg Formulation" .
+
+ex:medication_020 a ex:Medication ;
+    ex:medicationId "MED-0020" ;
+    ex:medicationName "Amoxicillin 10mg Formulation" .
+
+ex:medication_021 a ex:Medication ;
+    ex:medicationId "MED-0021" ;
+    ex:medicationName "Omeprazole 20mg Formulation" .
+
+ex:medication_022 a ex:Medication ;
+    ex:medicationId "MED-0022" ;
+    ex:medicationName "Losartan 30mg Formulation" .
+
+ex:medication_023 a ex:Medication ;
+    ex:medicationId "MED-0023" ;
+    ex:medicationName "Gabapentin 40mg Formulation" .
+
+ex:medication_024 a ex:Medication ;
+    ex:medicationId "MED-0024" ;
+    ex:medicationName "Atorvastatin 10mg Formulation" .
+
+ex:medication_025 a ex:Medication ;
+    ex:medicationId "MED-0025" ;
+    ex:medicationName "Metformin 20mg Formulation" .
+
+ex:medication_026 a ex:Medication ;
+    ex:medicationId "MED-0026" ;
+    ex:medicationName "Lisinopril 30mg Formulation" .
+
+ex:medication_027 a ex:Medication ;
+    ex:medicationId "MED-0027" ;
+    ex:medicationName "Amlodipine 40mg Formulation" .
+
+ex:medication_028 a ex:Medication ;
+    ex:medicationId "MED-0028" ;
+    ex:medicationName "Amoxicillin 10mg Formulation" .
+
+ex:medication_029 a ex:Medication ;
+    ex:medicationId "MED-0029" ;
+    ex:medicationName "Omeprazole 20mg Formulation" .
+
+ex:medication_030 a ex:Medication ;
+    ex:medicationId "MED-0030" ;
+    ex:medicationName "Losartan 30mg Formulation" .
+
+ex:medication_031 a ex:Medication ;
+    ex:medicationId "MED-0031" ;
+    ex:medicationName "Gabapentin 40mg Formulation" .
+
+ex:medication_032 a ex:Medication ;
+    ex:medicationId "MED-0032" ;
+    ex:medicationName "Atorvastatin 10mg Formulation" .
+
+ex:medication_033 a ex:Medication ;
+    ex:medicationId "MED-0033" ;
+    ex:medicationName "Metformin 20mg Formulation" .
+
+ex:medication_034 a ex:Medication ;
+    ex:medicationId "MED-0034" ;
+    ex:medicationName "Lisinopril 30mg Formulation" .
+
+ex:medication_035 a ex:Medication ;
+    ex:medicationId "MED-0035" ;
+    ex:medicationName "Amlodipine 40mg Formulation" .
+
+ex:medication_036 a ex:Medication ;
+    ex:medicationId "MED-0036" ;
+    ex:medicationName "Amoxicillin 10mg Formulation" .
+
+ex:medication_037 a ex:Medication ;
+    ex:medicationId "MED-0037" ;
+    ex:medicationName "Omeprazole 20mg Formulation" .
+
+ex:medication_038 a ex:Medication ;
+    ex:medicationId "MED-0038" ;
+    ex:medicationName "Losartan 30mg Formulation" .
+
+ex:medication_039 a ex:Medication ;
+    ex:medicationId "MED-0039" ;
+    ex:medicationName "Gabapentin 40mg Formulation" .
+
+ex:medication_040 a ex:Medication ;
+    ex:medicationId "MED-0040" ;
+    ex:medicationName "Atorvastatin 10mg Formulation" .
+
+ex:prescription_001 a ex:Prescription ;
+    ex:prescriptionId "RX-00001" ;
+    ex:prescribedFor ex:patient_001 ;
+    ex:dispensesMedication ex:medication_001 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-02-02T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-02T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_002 a ex:Prescription ;
+    ex:prescriptionId "RX-00002" ;
+    ex:prescribedFor ex:patient_002 ;
+    ex:dispensesMedication ex:medication_002 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-03-03T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-03T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_003 a ex:Prescription ;
+    ex:prescriptionId "RX-00003" ;
+    ex:prescribedFor ex:patient_003 ;
+    ex:dispensesMedication ex:medication_003 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-04-04T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-04T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_004 a ex:Prescription ;
+    ex:prescriptionId "RX-00004" ;
+    ex:prescribedFor ex:patient_004 ;
+    ex:dispensesMedication ex:medication_004 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-05-05T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-05T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_005 a ex:Prescription ;
+    ex:prescriptionId "RX-00005" ;
+    ex:prescribedFor ex:patient_005 ;
+    ex:dispensesMedication ex:medication_005 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-06-06T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-06T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_006 a ex:Prescription ;
+    ex:prescriptionId "RX-00006" ;
+    ex:prescribedFor ex:patient_006 ;
+    ex:dispensesMedication ex:medication_006 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-01-07T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-07T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_007 a ex:Prescription ;
+    ex:prescriptionId "RX-00007" ;
+    ex:prescribedFor ex:patient_007 ;
+    ex:dispensesMedication ex:medication_007 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-02-08T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-08T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_008 a ex:Prescription ;
+    ex:prescriptionId "RX-00008" ;
+    ex:prescribedFor ex:patient_008 ;
+    ex:dispensesMedication ex:medication_008 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-03-09T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-09T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_009 a ex:Prescription ;
+    ex:prescriptionId "RX-00009" ;
+    ex:prescribedFor ex:patient_009 ;
+    ex:dispensesMedication ex:medication_009 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-04-10T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-10T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_010 a ex:Prescription ;
+    ex:prescriptionId "RX-00010" ;
+    ex:prescribedFor ex:patient_010 ;
+    ex:dispensesMedication ex:medication_010 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-05-11T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-11T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_011 a ex:Prescription ;
+    ex:prescriptionId "RX-00011" ;
+    ex:prescribedFor ex:patient_011 ;
+    ex:dispensesMedication ex:medication_011 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-06-12T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-12T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_012 a ex:Prescription ;
+    ex:prescriptionId "RX-00012" ;
+    ex:prescribedFor ex:patient_012 ;
+    ex:dispensesMedication ex:medication_012 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-01-13T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-13T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_013 a ex:Prescription ;
+    ex:prescriptionId "RX-00013" ;
+    ex:prescribedFor ex:patient_013 ;
+    ex:dispensesMedication ex:medication_013 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-02-14T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-14T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_014 a ex:Prescription ;
+    ex:prescriptionId "RX-00014" ;
+    ex:prescribedFor ex:patient_014 ;
+    ex:dispensesMedication ex:medication_014 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-03-15T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-15T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_015 a ex:Prescription ;
+    ex:prescriptionId "RX-00015" ;
+    ex:prescribedFor ex:patient_015 ;
+    ex:dispensesMedication ex:medication_015 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-04-16T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-16T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_016 a ex:Prescription ;
+    ex:prescriptionId "RX-00016" ;
+    ex:prescribedFor ex:patient_016 ;
+    ex:dispensesMedication ex:medication_016 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-05-17T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-17T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_017 a ex:Prescription ;
+    ex:prescriptionId "RX-00017" ;
+    ex:prescribedFor ex:patient_017 ;
+    ex:dispensesMedication ex:medication_017 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-06-18T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-18T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_018 a ex:Prescription ;
+    ex:prescriptionId "RX-00018" ;
+    ex:prescribedFor ex:patient_018 ;
+    ex:dispensesMedication ex:medication_018 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-01-19T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-19T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_019 a ex:Prescription ;
+    ex:prescriptionId "RX-00019" ;
+    ex:prescribedFor ex:patient_019 ;
+    ex:dispensesMedication ex:medication_019 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-02-20T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-20T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_020 a ex:Prescription ;
+    ex:prescriptionId "RX-00020" ;
+    ex:prescribedFor ex:patient_020 ;
+    ex:dispensesMedication ex:medication_020 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-03-21T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-21T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_021 a ex:Prescription ;
+    ex:prescriptionId "RX-00021" ;
+    ex:prescribedFor ex:patient_021 ;
+    ex:dispensesMedication ex:medication_021 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-04-22T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-22T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_022 a ex:Prescription ;
+    ex:prescriptionId "RX-00022" ;
+    ex:prescribedFor ex:patient_022 ;
+    ex:dispensesMedication ex:medication_022 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-05-23T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-23T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_023 a ex:Prescription ;
+    ex:prescriptionId "RX-00023" ;
+    ex:prescribedFor ex:patient_023 ;
+    ex:dispensesMedication ex:medication_023 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-06-24T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-24T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_024 a ex:Prescription ;
+    ex:prescriptionId "RX-00024" ;
+    ex:prescribedFor ex:patient_024 ;
+    ex:dispensesMedication ex:medication_024 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-01-25T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-25T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_025 a ex:Prescription ;
+    ex:prescriptionId "RX-00025" ;
+    ex:prescribedFor ex:patient_025 ;
+    ex:dispensesMedication ex:medication_025 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-02-01T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-01T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_026 a ex:Prescription ;
+    ex:prescriptionId "RX-00026" ;
+    ex:prescribedFor ex:patient_026 ;
+    ex:dispensesMedication ex:medication_026 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-03-02T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-02T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_027 a ex:Prescription ;
+    ex:prescriptionId "RX-00027" ;
+    ex:prescribedFor ex:patient_027 ;
+    ex:dispensesMedication ex:medication_027 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-04-03T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-03T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_028 a ex:Prescription ;
+    ex:prescriptionId "RX-00028" ;
+    ex:prescribedFor ex:patient_028 ;
+    ex:dispensesMedication ex:medication_028 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-05-04T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-04T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_029 a ex:Prescription ;
+    ex:prescriptionId "RX-00029" ;
+    ex:prescribedFor ex:patient_029 ;
+    ex:dispensesMedication ex:medication_029 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-06-05T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-05T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_030 a ex:Prescription ;
+    ex:prescriptionId "RX-00030" ;
+    ex:prescribedFor ex:patient_030 ;
+    ex:dispensesMedication ex:medication_030 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-01-06T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-06T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_031 a ex:Prescription ;
+    ex:prescriptionId "RX-00031" ;
+    ex:prescribedFor ex:patient_031 ;
+    ex:dispensesMedication ex:medication_031 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-02-07T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-07T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_032 a ex:Prescription ;
+    ex:prescriptionId "RX-00032" ;
+    ex:prescribedFor ex:patient_032 ;
+    ex:dispensesMedication ex:medication_032 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-03-08T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-08T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_033 a ex:Prescription ;
+    ex:prescriptionId "RX-00033" ;
+    ex:prescribedFor ex:patient_033 ;
+    ex:dispensesMedication ex:medication_033 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-04-09T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-09T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_034 a ex:Prescription ;
+    ex:prescriptionId "RX-00034" ;
+    ex:prescribedFor ex:patient_034 ;
+    ex:dispensesMedication ex:medication_034 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-05-10T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-10T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_035 a ex:Prescription ;
+    ex:prescriptionId "RX-00035" ;
+    ex:prescribedFor ex:patient_035 ;
+    ex:dispensesMedication ex:medication_035 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-06-11T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-11T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_036 a ex:Prescription ;
+    ex:prescriptionId "RX-00036" ;
+    ex:prescribedFor ex:patient_036 ;
+    ex:dispensesMedication ex:medication_036 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-01-12T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-12T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_037 a ex:Prescription ;
+    ex:prescriptionId "RX-00037" ;
+    ex:prescribedFor ex:patient_037 ;
+    ex:dispensesMedication ex:medication_037 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-02-13T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-13T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_038 a ex:Prescription ;
+    ex:prescriptionId "RX-00038" ;
+    ex:prescribedFor ex:patient_038 ;
+    ex:dispensesMedication ex:medication_038 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-03-14T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-14T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_039 a ex:Prescription ;
+    ex:prescriptionId "RX-00039" ;
+    ex:prescribedFor ex:patient_039 ;
+    ex:dispensesMedication ex:medication_039 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-04-15T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-15T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_040 a ex:Prescription ;
+    ex:prescriptionId "RX-00040" ;
+    ex:prescribedFor ex:patient_040 ;
+    ex:dispensesMedication ex:medication_040 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-05-16T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-16T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_041 a ex:Prescription ;
+    ex:prescriptionId "RX-00041" ;
+    ex:prescribedFor ex:patient_041 ;
+    ex:dispensesMedication ex:medication_001 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-06-17T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-17T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_042 a ex:Prescription ;
+    ex:prescriptionId "RX-00042" ;
+    ex:prescribedFor ex:patient_042 ;
+    ex:dispensesMedication ex:medication_002 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-01-18T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-18T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_043 a ex:Prescription ;
+    ex:prescriptionId "RX-00043" ;
+    ex:prescribedFor ex:patient_043 ;
+    ex:dispensesMedication ex:medication_003 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-02-19T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-19T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_044 a ex:Prescription ;
+    ex:prescriptionId "RX-00044" ;
+    ex:prescribedFor ex:patient_044 ;
+    ex:dispensesMedication ex:medication_004 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-03-20T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-20T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_045 a ex:Prescription ;
+    ex:prescriptionId "RX-00045" ;
+    ex:prescribedFor ex:patient_045 ;
+    ex:dispensesMedication ex:medication_005 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-04-21T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-21T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_046 a ex:Prescription ;
+    ex:prescriptionId "RX-00046" ;
+    ex:prescribedFor ex:patient_046 ;
+    ex:dispensesMedication ex:medication_006 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-05-22T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-22T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_047 a ex:Prescription ;
+    ex:prescriptionId "RX-00047" ;
+    ex:prescribedFor ex:patient_047 ;
+    ex:dispensesMedication ex:medication_007 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-06-23T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-23T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_048 a ex:Prescription ;
+    ex:prescriptionId "RX-00048" ;
+    ex:prescribedFor ex:patient_048 ;
+    ex:dispensesMedication ex:medication_008 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-01-24T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-24T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_049 a ex:Prescription ;
+    ex:prescriptionId "RX-00049" ;
+    ex:prescribedFor ex:patient_049 ;
+    ex:dispensesMedication ex:medication_009 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-02-25T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-25T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_050 a ex:Prescription ;
+    ex:prescriptionId "RX-00050" ;
+    ex:prescribedFor ex:patient_050 ;
+    ex:dispensesMedication ex:medication_010 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-03-01T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-01T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_051 a ex:Prescription ;
+    ex:prescriptionId "RX-00051" ;
+    ex:prescribedFor ex:patient_051 ;
+    ex:dispensesMedication ex:medication_011 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-04-02T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-02T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_052 a ex:Prescription ;
+    ex:prescriptionId "RX-00052" ;
+    ex:prescribedFor ex:patient_052 ;
+    ex:dispensesMedication ex:medication_012 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-05-03T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-03T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_053 a ex:Prescription ;
+    ex:prescriptionId "RX-00053" ;
+    ex:prescribedFor ex:patient_053 ;
+    ex:dispensesMedication ex:medication_013 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-06-04T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-04T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_054 a ex:Prescription ;
+    ex:prescriptionId "RX-00054" ;
+    ex:prescribedFor ex:patient_054 ;
+    ex:dispensesMedication ex:medication_014 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-01-05T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-05T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_055 a ex:Prescription ;
+    ex:prescriptionId "RX-00055" ;
+    ex:prescribedFor ex:patient_055 ;
+    ex:dispensesMedication ex:medication_015 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-02-06T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-06T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_056 a ex:Prescription ;
+    ex:prescriptionId "RX-00056" ;
+    ex:prescribedFor ex:patient_056 ;
+    ex:dispensesMedication ex:medication_016 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-03-07T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-07T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_057 a ex:Prescription ;
+    ex:prescriptionId "RX-00057" ;
+    ex:prescribedFor ex:patient_057 ;
+    ex:dispensesMedication ex:medication_017 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-04-08T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-08T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_058 a ex:Prescription ;
+    ex:prescriptionId "RX-00058" ;
+    ex:prescribedFor ex:patient_058 ;
+    ex:dispensesMedication ex:medication_018 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-05-09T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-09T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_059 a ex:Prescription ;
+    ex:prescriptionId "RX-00059" ;
+    ex:prescribedFor ex:patient_059 ;
+    ex:dispensesMedication ex:medication_019 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-06-10T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-10T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_060 a ex:Prescription ;
+    ex:prescriptionId "RX-00060" ;
+    ex:prescribedFor ex:patient_060 ;
+    ex:dispensesMedication ex:medication_020 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-01-11T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-11T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_061 a ex:Prescription ;
+    ex:prescriptionId "RX-00061" ;
+    ex:prescribedFor ex:patient_061 ;
+    ex:dispensesMedication ex:medication_021 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-02-12T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-12T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_062 a ex:Prescription ;
+    ex:prescriptionId "RX-00062" ;
+    ex:prescribedFor ex:patient_062 ;
+    ex:dispensesMedication ex:medication_022 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-03-13T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-13T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_063 a ex:Prescription ;
+    ex:prescriptionId "RX-00063" ;
+    ex:prescribedFor ex:patient_063 ;
+    ex:dispensesMedication ex:medication_023 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-04-14T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-14T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_064 a ex:Prescription ;
+    ex:prescriptionId "RX-00064" ;
+    ex:prescribedFor ex:patient_064 ;
+    ex:dispensesMedication ex:medication_024 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-05-15T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-15T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_065 a ex:Prescription ;
+    ex:prescriptionId "RX-00065" ;
+    ex:prescribedFor ex:patient_065 ;
+    ex:dispensesMedication ex:medication_025 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-06-16T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-16T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_066 a ex:Prescription ;
+    ex:prescriptionId "RX-00066" ;
+    ex:prescribedFor ex:patient_066 ;
+    ex:dispensesMedication ex:medication_026 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-01-17T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-17T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_067 a ex:Prescription ;
+    ex:prescriptionId "RX-00067" ;
+    ex:prescribedFor ex:patient_067 ;
+    ex:dispensesMedication ex:medication_027 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-02-18T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-18T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_068 a ex:Prescription ;
+    ex:prescriptionId "RX-00068" ;
+    ex:prescribedFor ex:patient_068 ;
+    ex:dispensesMedication ex:medication_028 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-03-19T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-19T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_069 a ex:Prescription ;
+    ex:prescriptionId "RX-00069" ;
+    ex:prescribedFor ex:patient_069 ;
+    ex:dispensesMedication ex:medication_029 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-04-20T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-20T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_070 a ex:Prescription ;
+    ex:prescriptionId "RX-00070" ;
+    ex:prescribedFor ex:patient_070 ;
+    ex:dispensesMedication ex:medication_030 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-05-21T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-21T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_071 a ex:Prescription ;
+    ex:prescriptionId "RX-00071" ;
+    ex:prescribedFor ex:patient_071 ;
+    ex:dispensesMedication ex:medication_031 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-06-22T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-22T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_072 a ex:Prescription ;
+    ex:prescriptionId "RX-00072" ;
+    ex:prescribedFor ex:patient_072 ;
+    ex:dispensesMedication ex:medication_032 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-01-23T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-23T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_073 a ex:Prescription ;
+    ex:prescriptionId "RX-00073" ;
+    ex:prescribedFor ex:patient_073 ;
+    ex:dispensesMedication ex:medication_033 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-02-24T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-24T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_074 a ex:Prescription ;
+    ex:prescriptionId "RX-00074" ;
+    ex:prescribedFor ex:patient_074 ;
+    ex:dispensesMedication ex:medication_034 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-03-25T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-25T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_075 a ex:Prescription ;
+    ex:prescriptionId "RX-00075" ;
+    ex:prescribedFor ex:patient_075 ;
+    ex:dispensesMedication ex:medication_035 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-04-01T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-01T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_076 a ex:Prescription ;
+    ex:prescriptionId "RX-00076" ;
+    ex:prescribedFor ex:patient_076 ;
+    ex:dispensesMedication ex:medication_036 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-05-02T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-02T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_077 a ex:Prescription ;
+    ex:prescriptionId "RX-00077" ;
+    ex:prescribedFor ex:patient_077 ;
+    ex:dispensesMedication ex:medication_037 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-06-03T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-03T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_078 a ex:Prescription ;
+    ex:prescriptionId "RX-00078" ;
+    ex:prescribedFor ex:patient_078 ;
+    ex:dispensesMedication ex:medication_038 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-01-04T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-04T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_079 a ex:Prescription ;
+    ex:prescriptionId "RX-00079" ;
+    ex:prescribedFor ex:patient_079 ;
+    ex:dispensesMedication ex:medication_039 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-02-05T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-05T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_080 a ex:Prescription ;
+    ex:prescriptionId "RX-00080" ;
+    ex:prescribedFor ex:patient_080 ;
+    ex:dispensesMedication ex:medication_040 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-03-06T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-06T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_081 a ex:Prescription ;
+    ex:prescriptionId "RX-00081" ;
+    ex:prescribedFor ex:patient_001 ;
+    ex:dispensesMedication ex:medication_001 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-04-07T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-07T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_082 a ex:Prescription ;
+    ex:prescriptionId "RX-00082" ;
+    ex:prescribedFor ex:patient_002 ;
+    ex:dispensesMedication ex:medication_002 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-05-08T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-08T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_083 a ex:Prescription ;
+    ex:prescriptionId "RX-00083" ;
+    ex:prescribedFor ex:patient_003 ;
+    ex:dispensesMedication ex:medication_003 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-06-09T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-09T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_084 a ex:Prescription ;
+    ex:prescriptionId "RX-00084" ;
+    ex:prescribedFor ex:patient_004 ;
+    ex:dispensesMedication ex:medication_004 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-01-10T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-10T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_085 a ex:Prescription ;
+    ex:prescriptionId "RX-00085" ;
+    ex:prescribedFor ex:patient_005 ;
+    ex:dispensesMedication ex:medication_005 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-02-11T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-11T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_086 a ex:Prescription ;
+    ex:prescriptionId "RX-00086" ;
+    ex:prescribedFor ex:patient_006 ;
+    ex:dispensesMedication ex:medication_006 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-03-12T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-12T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_087 a ex:Prescription ;
+    ex:prescriptionId "RX-00087" ;
+    ex:prescribedFor ex:patient_007 ;
+    ex:dispensesMedication ex:medication_007 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-04-13T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-13T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_088 a ex:Prescription ;
+    ex:prescriptionId "RX-00088" ;
+    ex:prescribedFor ex:patient_008 ;
+    ex:dispensesMedication ex:medication_008 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-05-14T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-14T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_089 a ex:Prescription ;
+    ex:prescriptionId "RX-00089" ;
+    ex:prescribedFor ex:patient_009 ;
+    ex:dispensesMedication ex:medication_009 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-06-15T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-15T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_090 a ex:Prescription ;
+    ex:prescriptionId "RX-00090" ;
+    ex:prescribedFor ex:patient_010 ;
+    ex:dispensesMedication ex:medication_010 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-01-16T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-16T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_091 a ex:Prescription ;
+    ex:prescriptionId "RX-00091" ;
+    ex:prescribedFor ex:patient_011 ;
+    ex:dispensesMedication ex:medication_011 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-02-17T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-17T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_092 a ex:Prescription ;
+    ex:prescriptionId "RX-00092" ;
+    ex:prescribedFor ex:patient_012 ;
+    ex:dispensesMedication ex:medication_012 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-03-18T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-18T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_093 a ex:Prescription ;
+    ex:prescriptionId "RX-00093" ;
+    ex:prescribedFor ex:patient_013 ;
+    ex:dispensesMedication ex:medication_013 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-04-19T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-19T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_094 a ex:Prescription ;
+    ex:prescriptionId "RX-00094" ;
+    ex:prescribedFor ex:patient_014 ;
+    ex:dispensesMedication ex:medication_014 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-05-20T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-20T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_095 a ex:Prescription ;
+    ex:prescriptionId "RX-00095" ;
+    ex:prescribedFor ex:patient_015 ;
+    ex:dispensesMedication ex:medication_015 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-06-21T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-21T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_096 a ex:Prescription ;
+    ex:prescriptionId "RX-00096" ;
+    ex:prescribedFor ex:patient_016 ;
+    ex:dispensesMedication ex:medication_016 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-01-22T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-22T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_097 a ex:Prescription ;
+    ex:prescriptionId "RX-00097" ;
+    ex:prescribedFor ex:patient_017 ;
+    ex:dispensesMedication ex:medication_017 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-02-23T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-23T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_098 a ex:Prescription ;
+    ex:prescriptionId "RX-00098" ;
+    ex:prescribedFor ex:patient_018 ;
+    ex:dispensesMedication ex:medication_018 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-03-24T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-24T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_099 a ex:Prescription ;
+    ex:prescriptionId "RX-00099" ;
+    ex:prescribedFor ex:patient_019 ;
+    ex:dispensesMedication ex:medication_019 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-04-25T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-25T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_100 a ex:Prescription ;
+    ex:prescriptionId "RX-00100" ;
+    ex:prescribedFor ex:patient_020 ;
+    ex:dispensesMedication ex:medication_020 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-05-01T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-01T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_101 a ex:Prescription ;
+    ex:prescriptionId "RX-00101" ;
+    ex:prescribedFor ex:patient_021 ;
+    ex:dispensesMedication ex:medication_021 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-06-02T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-02T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_102 a ex:Prescription ;
+    ex:prescriptionId "RX-00102" ;
+    ex:prescribedFor ex:patient_022 ;
+    ex:dispensesMedication ex:medication_022 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-01-03T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-03T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_103 a ex:Prescription ;
+    ex:prescriptionId "RX-00103" ;
+    ex:prescribedFor ex:patient_023 ;
+    ex:dispensesMedication ex:medication_023 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-02-04T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-04T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_104 a ex:Prescription ;
+    ex:prescriptionId "RX-00104" ;
+    ex:prescribedFor ex:patient_024 ;
+    ex:dispensesMedication ex:medication_024 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-03-05T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-05T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_105 a ex:Prescription ;
+    ex:prescriptionId "RX-00105" ;
+    ex:prescribedFor ex:patient_025 ;
+    ex:dispensesMedication ex:medication_025 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-04-06T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-06T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_106 a ex:Prescription ;
+    ex:prescriptionId "RX-00106" ;
+    ex:prescribedFor ex:patient_026 ;
+    ex:dispensesMedication ex:medication_026 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-05-07T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-07T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_107 a ex:Prescription ;
+    ex:prescriptionId "RX-00107" ;
+    ex:prescribedFor ex:patient_027 ;
+    ex:dispensesMedication ex:medication_027 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-06-08T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-08T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_108 a ex:Prescription ;
+    ex:prescriptionId "RX-00108" ;
+    ex:prescribedFor ex:patient_028 ;
+    ex:dispensesMedication ex:medication_028 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-01-09T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-09T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_109 a ex:Prescription ;
+    ex:prescriptionId "RX-00109" ;
+    ex:prescribedFor ex:patient_029 ;
+    ex:dispensesMedication ex:medication_029 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-02-10T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-10T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_110 a ex:Prescription ;
+    ex:prescriptionId "RX-00110" ;
+    ex:prescribedFor ex:patient_030 ;
+    ex:dispensesMedication ex:medication_030 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-03-11T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-11T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_111 a ex:Prescription ;
+    ex:prescriptionId "RX-00111" ;
+    ex:prescribedFor ex:patient_031 ;
+    ex:dispensesMedication ex:medication_031 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-04-12T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-12T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_112 a ex:Prescription ;
+    ex:prescriptionId "RX-00112" ;
+    ex:prescribedFor ex:patient_032 ;
+    ex:dispensesMedication ex:medication_032 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-05-13T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-13T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_113 a ex:Prescription ;
+    ex:prescriptionId "RX-00113" ;
+    ex:prescribedFor ex:patient_033 ;
+    ex:dispensesMedication ex:medication_033 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-06-14T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-14T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_114 a ex:Prescription ;
+    ex:prescriptionId "RX-00114" ;
+    ex:prescribedFor ex:patient_034 ;
+    ex:dispensesMedication ex:medication_034 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-01-15T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-15T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_115 a ex:Prescription ;
+    ex:prescriptionId "RX-00115" ;
+    ex:prescribedFor ex:patient_035 ;
+    ex:dispensesMedication ex:medication_035 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-02-16T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-16T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_116 a ex:Prescription ;
+    ex:prescriptionId "RX-00116" ;
+    ex:prescribedFor ex:patient_036 ;
+    ex:dispensesMedication ex:medication_036 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-03-17T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-17T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_117 a ex:Prescription ;
+    ex:prescriptionId "RX-00117" ;
+    ex:prescribedFor ex:patient_037 ;
+    ex:dispensesMedication ex:medication_037 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-04-18T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-18T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_118 a ex:Prescription ;
+    ex:prescriptionId "RX-00118" ;
+    ex:prescribedFor ex:patient_038 ;
+    ex:dispensesMedication ex:medication_038 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-05-19T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-19T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_119 a ex:Prescription ;
+    ex:prescriptionId "RX-00119" ;
+    ex:prescribedFor ex:patient_039 ;
+    ex:dispensesMedication ex:medication_039 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-06-20T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-20T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_120 a ex:Prescription ;
+    ex:prescriptionId "RX-00120" ;
+    ex:prescribedFor ex:patient_040 ;
+    ex:dispensesMedication ex:medication_040 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-01-21T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-21T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_121 a ex:Prescription ;
+    ex:prescriptionId "RX-00121" ;
+    ex:prescribedFor ex:patient_041 ;
+    ex:dispensesMedication ex:medication_001 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-02-22T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-22T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_122 a ex:Prescription ;
+    ex:prescriptionId "RX-00122" ;
+    ex:prescribedFor ex:patient_042 ;
+    ex:dispensesMedication ex:medication_002 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-03-23T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-23T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_123 a ex:Prescription ;
+    ex:prescriptionId "RX-00123" ;
+    ex:prescribedFor ex:patient_043 ;
+    ex:dispensesMedication ex:medication_003 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-04-24T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-24T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_124 a ex:Prescription ;
+    ex:prescriptionId "RX-00124" ;
+    ex:prescribedFor ex:patient_044 ;
+    ex:dispensesMedication ex:medication_004 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-05-25T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-25T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_125 a ex:Prescription ;
+    ex:prescriptionId "RX-00125" ;
+    ex:prescribedFor ex:patient_045 ;
+    ex:dispensesMedication ex:medication_005 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-06-01T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-01T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_126 a ex:Prescription ;
+    ex:prescriptionId "RX-00126" ;
+    ex:prescribedFor ex:patient_046 ;
+    ex:dispensesMedication ex:medication_006 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-01-02T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-02T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_127 a ex:Prescription ;
+    ex:prescriptionId "RX-00127" ;
+    ex:prescribedFor ex:patient_047 ;
+    ex:dispensesMedication ex:medication_007 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-02-03T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-03T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_128 a ex:Prescription ;
+    ex:prescriptionId "RX-00128" ;
+    ex:prescribedFor ex:patient_048 ;
+    ex:dispensesMedication ex:medication_008 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-03-04T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-04T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_129 a ex:Prescription ;
+    ex:prescriptionId "RX-00129" ;
+    ex:prescribedFor ex:patient_049 ;
+    ex:dispensesMedication ex:medication_009 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-04-05T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-05T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_130 a ex:Prescription ;
+    ex:prescriptionId "RX-00130" ;
+    ex:prescribedFor ex:patient_050 ;
+    ex:dispensesMedication ex:medication_010 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-05-06T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-06T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_131 a ex:Prescription ;
+    ex:prescriptionId "RX-00131" ;
+    ex:prescribedFor ex:patient_051 ;
+    ex:dispensesMedication ex:medication_011 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-06-07T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-07T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_132 a ex:Prescription ;
+    ex:prescriptionId "RX-00132" ;
+    ex:prescribedFor ex:patient_052 ;
+    ex:dispensesMedication ex:medication_012 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-01-08T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-08T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_133 a ex:Prescription ;
+    ex:prescriptionId "RX-00133" ;
+    ex:prescribedFor ex:patient_053 ;
+    ex:dispensesMedication ex:medication_013 ;
+    ex:dosageMg 75.00 ;
+    ex:validFrom "2025-02-09T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-09T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_134 a ex:Prescription ;
+    ex:prescriptionId "RX-00134" ;
+    ex:prescribedFor ex:patient_054 ;
+    ex:dispensesMedication ex:medication_014 ;
+    ex:dosageMg 87.50 ;
+    ex:validFrom "2025-03-10T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-10T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_135 a ex:Prescription ;
+    ex:prescriptionId "RX-00135" ;
+    ex:prescribedFor ex:patient_055 ;
+    ex:dispensesMedication ex:medication_015 ;
+    ex:dosageMg 100.00 ;
+    ex:validFrom "2025-04-11T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-07-11T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_136 a ex:Prescription ;
+    ex:prescriptionId "RX-00136" ;
+    ex:prescribedFor ex:patient_056 ;
+    ex:dispensesMedication ex:medication_016 ;
+    ex:dosageMg 12.50 ;
+    ex:validFrom "2025-05-12T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-08-12T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_137 a ex:Prescription ;
+    ex:prescriptionId "RX-00137" ;
+    ex:prescribedFor ex:patient_057 ;
+    ex:dispensesMedication ex:medication_017 ;
+    ex:dosageMg 25.00 ;
+    ex:validFrom "2025-06-13T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-09-13T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_138 a ex:Prescription ;
+    ex:prescriptionId "RX-00138" ;
+    ex:prescribedFor ex:patient_058 ;
+    ex:dispensesMedication ex:medication_018 ;
+    ex:dosageMg 37.50 ;
+    ex:validFrom "2025-01-14T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-04-14T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive false .
+
+ex:prescription_139 a ex:Prescription ;
+    ex:prescriptionId "RX-00139" ;
+    ex:prescribedFor ex:patient_059 ;
+    ex:dispensesMedication ex:medication_019 ;
+    ex:dosageMg 50.00 ;
+    ex:validFrom "2025-02-15T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-05-15T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .
+
+ex:prescription_140 a ex:Prescription ;
+    ex:prescriptionId "RX-00140" ;
+    ex:prescribedFor ex:patient_060 ;
+    ex:dispensesMedication ex:medication_020 ;
+    ex:dosageMg 62.50 ;
+    ex:validFrom "2025-03-16T08:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2025-06-16T20:00:00Z"^^xsd:dateTime ;
+    ex:isActive true .

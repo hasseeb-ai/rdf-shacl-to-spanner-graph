@@ -1,0 +1,906 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/subpropdag#> .
+
+# ABox Instance Triples for 16_subproperty_dag (Diamond Subproperty Hierarchy)
+
+ex:airport_001 a ex:Airport ;
+    ex:airportCode "AAA" ;
+    ex:airportName "London Metro 1 International Airport (AAA)" ;
+    ex:cityServiced "London Metro 1" .
+
+ex:airport_002 a ex:Airport ;
+    ex:airportCode "AAB" ;
+    ex:airportName "Tokyo Metro 2 International Airport (AAB)" ;
+    ex:cityServiced "Tokyo Metro 2" .
+
+ex:airport_003 a ex:Airport ;
+    ex:airportCode "AAC" ;
+    ex:airportName "Singapore Metro 3 International Airport (AAC)" ;
+    ex:cityServiced "Singapore Metro 3" .
+
+ex:airport_004 a ex:Airport ;
+    ex:airportCode "AAD" ;
+    ex:airportName "Frankfurt Metro 4 International Airport (AAD)" ;
+    ex:cityServiced "Frankfurt Metro 4" .
+
+ex:airport_005 a ex:Airport ;
+    ex:airportCode "ABA" ;
+    ex:airportName "Paris Metro 5 International Airport (ABA)" ;
+    ex:cityServiced "Paris Metro 5" .
+
+ex:airport_006 a ex:Airport ;
+    ex:airportCode "ABB" ;
+    ex:airportName "Dubai Metro 6 International Airport (ABB)" ;
+    ex:cityServiced "Dubai Metro 6" .
+
+ex:airport_007 a ex:Airport ;
+    ex:airportCode "ABC" ;
+    ex:airportName "Sydney Metro 7 International Airport (ABC)" ;
+    ex:cityServiced "Sydney Metro 7" .
+
+ex:airport_008 a ex:Airport ;
+    ex:airportCode "ABD" ;
+    ex:airportName "Toronto Metro 8 International Airport (ABD)" ;
+    ex:cityServiced "Toronto Metro 8" .
+
+ex:airport_009 a ex:Airport ;
+    ex:airportCode "ACA" ;
+    ex:airportName "Zurich Metro 9 International Airport (ACA)" ;
+    ex:cityServiced "Zurich Metro 9" .
+
+ex:airport_010 a ex:Airport ;
+    ex:airportCode "ACB" ;
+    ex:airportName "New York Metro 10 International Airport (ACB)" ;
+    ex:cityServiced "New York Metro 10" .
+
+ex:airport_011 a ex:Airport ;
+    ex:airportCode "ACC" ;
+    ex:airportName "London Metro 11 International Airport (ACC)" ;
+    ex:cityServiced "London Metro 11" .
+
+ex:airport_012 a ex:Airport ;
+    ex:airportCode "ACD" ;
+    ex:airportName "Tokyo Metro 12 International Airport (ACD)" ;
+    ex:cityServiced "Tokyo Metro 12" .
+
+ex:airport_013 a ex:Airport ;
+    ex:airportCode "ADA" ;
+    ex:airportName "Singapore Metro 13 International Airport (ADA)" ;
+    ex:cityServiced "Singapore Metro 13" .
+
+ex:airport_014 a ex:Airport ;
+    ex:airportCode "ADB" ;
+    ex:airportName "Frankfurt Metro 14 International Airport (ADB)" ;
+    ex:cityServiced "Frankfurt Metro 14" .
+
+ex:airport_015 a ex:Airport ;
+    ex:airportCode "ADC" ;
+    ex:airportName "Paris Metro 15 International Airport (ADC)" ;
+    ex:cityServiced "Paris Metro 15" .
+
+ex:airport_016 a ex:Airport ;
+    ex:airportCode "ADD" ;
+    ex:airportName "Dubai Metro 16 International Airport (ADD)" ;
+    ex:cityServiced "Dubai Metro 16" .
+
+ex:airport_017 a ex:Airport ;
+    ex:airportCode "AEA" ;
+    ex:airportName "Sydney Metro 17 International Airport (AEA)" ;
+    ex:cityServiced "Sydney Metro 17" .
+
+ex:airport_018 a ex:Airport ;
+    ex:airportCode "AEB" ;
+    ex:airportName "Toronto Metro 18 International Airport (AEB)" ;
+    ex:cityServiced "Toronto Metro 18" .
+
+ex:airport_019 a ex:Airport ;
+    ex:airportCode "AEC" ;
+    ex:airportName "Zurich Metro 19 International Airport (AEC)" ;
+    ex:cityServiced "Zurich Metro 19" .
+
+ex:airport_020 a ex:Airport ;
+    ex:airportCode "AED" ;
+    ex:airportName "New York Metro 20 International Airport (AED)" ;
+    ex:cityServiced "New York Metro 20" .
+
+ex:airport_021 a ex:Airport ;
+    ex:airportCode "AFA" ;
+    ex:airportName "London Metro 21 International Airport (AFA)" ;
+    ex:cityServiced "London Metro 21" .
+
+ex:airport_022 a ex:Airport ;
+    ex:airportCode "AFB" ;
+    ex:airportName "Tokyo Metro 22 International Airport (AFB)" ;
+    ex:cityServiced "Tokyo Metro 22" .
+
+ex:airport_023 a ex:Airport ;
+    ex:airportCode "AFC" ;
+    ex:airportName "Singapore Metro 23 International Airport (AFC)" ;
+    ex:cityServiced "Singapore Metro 23" .
+
+ex:airport_024 a ex:Airport ;
+    ex:airportCode "AFD" ;
+    ex:airportName "Frankfurt Metro 24 International Airport (AFD)" ;
+    ex:cityServiced "Frankfurt Metro 24" .
+
+ex:airport_025 a ex:Airport ;
+    ex:airportCode "BAA" ;
+    ex:airportName "Paris Metro 25 International Airport (BAA)" ;
+    ex:cityServiced "Paris Metro 25" .
+
+ex:airport_026 a ex:Airport ;
+    ex:airportCode "BAB" ;
+    ex:airportName "Dubai Metro 26 International Airport (BAB)" ;
+    ex:cityServiced "Dubai Metro 26" .
+
+ex:airport_027 a ex:Airport ;
+    ex:airportCode "BAC" ;
+    ex:airportName "Sydney Metro 27 International Airport (BAC)" ;
+    ex:cityServiced "Sydney Metro 27" .
+
+ex:airport_028 a ex:Airport ;
+    ex:airportCode "BAD" ;
+    ex:airportName "Toronto Metro 28 International Airport (BAD)" ;
+    ex:cityServiced "Toronto Metro 28" .
+
+ex:airport_029 a ex:Airport ;
+    ex:airportCode "BBA" ;
+    ex:airportName "Zurich Metro 29 International Airport (BBA)" ;
+    ex:cityServiced "Zurich Metro 29" .
+
+ex:airport_030 a ex:Airport ;
+    ex:airportCode "BBB" ;
+    ex:airportName "New York Metro 30 International Airport (BBB)" ;
+    ex:cityServiced "New York Metro 30" .
+
+ex:airport_031 a ex:Airport ;
+    ex:airportCode "BBC" ;
+    ex:airportName "London Metro 31 International Airport (BBC)" ;
+    ex:cityServiced "London Metro 31" .
+
+ex:airport_032 a ex:Airport ;
+    ex:airportCode "BBD" ;
+    ex:airportName "Tokyo Metro 32 International Airport (BBD)" ;
+    ex:cityServiced "Tokyo Metro 32" .
+
+ex:airport_033 a ex:Airport ;
+    ex:airportCode "BCA" ;
+    ex:airportName "Singapore Metro 33 International Airport (BCA)" ;
+    ex:cityServiced "Singapore Metro 33" .
+
+ex:airport_034 a ex:Airport ;
+    ex:airportCode "BCB" ;
+    ex:airportName "Frankfurt Metro 34 International Airport (BCB)" ;
+    ex:cityServiced "Frankfurt Metro 34" .
+
+ex:airport_035 a ex:Airport ;
+    ex:airportCode "BCC" ;
+    ex:airportName "Paris Metro 35 International Airport (BCC)" ;
+    ex:cityServiced "Paris Metro 35" .
+
+ex:airport_036 a ex:Airport ;
+    ex:airportCode "BCD" ;
+    ex:airportName "Dubai Metro 36 International Airport (BCD)" ;
+    ex:cityServiced "Dubai Metro 36" .
+
+ex:airport_037 a ex:Airport ;
+    ex:airportCode "BDA" ;
+    ex:airportName "Sydney Metro 37 International Airport (BDA)" ;
+    ex:cityServiced "Sydney Metro 37" .
+
+ex:airport_038 a ex:Airport ;
+    ex:airportCode "BDB" ;
+    ex:airportName "Toronto Metro 38 International Airport (BDB)" ;
+    ex:cityServiced "Toronto Metro 38" .
+
+ex:airport_039 a ex:Airport ;
+    ex:airportCode "BDC" ;
+    ex:airportName "Zurich Metro 39 International Airport (BDC)" ;
+    ex:cityServiced "Zurich Metro 39" .
+
+ex:airport_040 a ex:Airport ;
+    ex:airportCode "BDD" ;
+    ex:airportName "New York Metro 40 International Airport (BDD)" ;
+    ex:cityServiced "New York Metro 40" .
+
+ex:airport_041 a ex:Airport ;
+    ex:airportCode "BEA" ;
+    ex:airportName "London Metro 41 International Airport (BEA)" ;
+    ex:cityServiced "London Metro 41" .
+
+ex:airport_042 a ex:Airport ;
+    ex:airportCode "BEB" ;
+    ex:airportName "Tokyo Metro 42 International Airport (BEB)" ;
+    ex:cityServiced "Tokyo Metro 42" .
+
+ex:airport_043 a ex:Airport ;
+    ex:airportCode "BEC" ;
+    ex:airportName "Singapore Metro 43 International Airport (BEC)" ;
+    ex:cityServiced "Singapore Metro 43" .
+
+ex:airport_044 a ex:Airport ;
+    ex:airportCode "BED" ;
+    ex:airportName "Frankfurt Metro 44 International Airport (BED)" ;
+    ex:cityServiced "Frankfurt Metro 44" .
+
+ex:airport_045 a ex:Airport ;
+    ex:airportCode "BFA" ;
+    ex:airportName "Paris Metro 45 International Airport (BFA)" ;
+    ex:cityServiced "Paris Metro 45" .
+
+ex:airport_046 a ex:Airport ;
+    ex:airportCode "BFB" ;
+    ex:airportName "Dubai Metro 46 International Airport (BFB)" ;
+    ex:cityServiced "Dubai Metro 46" .
+
+ex:airport_047 a ex:Airport ;
+    ex:airportCode "BFC" ;
+    ex:airportName "Sydney Metro 47 International Airport (BFC)" ;
+    ex:cityServiced "Sydney Metro 47" .
+
+ex:airport_048 a ex:Airport ;
+    ex:airportCode "BFD" ;
+    ex:airportName "Toronto Metro 48 International Airport (BFD)" ;
+    ex:cityServiced "Toronto Metro 48" .
+
+ex:airport_049 a ex:Airport ;
+    ex:airportCode "CAA" ;
+    ex:airportName "Zurich Metro 49 International Airport (CAA)" ;
+    ex:cityServiced "Zurich Metro 49" .
+
+ex:airport_050 a ex:Airport ;
+    ex:airportCode "CAB" ;
+    ex:airportName "New York Metro 50 International Airport (CAB)" ;
+    ex:cityServiced "New York Metro 50" .
+
+ex:airport_051 a ex:Airport ;
+    ex:airportCode "CAC" ;
+    ex:airportName "London Metro 51 International Airport (CAC)" ;
+    ex:cityServiced "London Metro 51" .
+
+ex:airport_052 a ex:Airport ;
+    ex:airportCode "CAD" ;
+    ex:airportName "Tokyo Metro 52 International Airport (CAD)" ;
+    ex:cityServiced "Tokyo Metro 52" .
+
+ex:airport_053 a ex:Airport ;
+    ex:airportCode "CBA" ;
+    ex:airportName "Singapore Metro 53 International Airport (CBA)" ;
+    ex:cityServiced "Singapore Metro 53" .
+
+ex:airport_054 a ex:Airport ;
+    ex:airportCode "CBB" ;
+    ex:airportName "Frankfurt Metro 54 International Airport (CBB)" ;
+    ex:cityServiced "Frankfurt Metro 54" .
+
+ex:airport_055 a ex:Airport ;
+    ex:airportCode "CBC" ;
+    ex:airportName "Paris Metro 55 International Airport (CBC)" ;
+    ex:cityServiced "Paris Metro 55" .
+
+ex:airport_056 a ex:Airport ;
+    ex:airportCode "CBD" ;
+    ex:airportName "Dubai Metro 56 International Airport (CBD)" ;
+    ex:cityServiced "Dubai Metro 56" .
+
+ex:airport_057 a ex:Airport ;
+    ex:airportCode "CCA" ;
+    ex:airportName "Sydney Metro 57 International Airport (CCA)" ;
+    ex:cityServiced "Sydney Metro 57" .
+
+ex:airport_058 a ex:Airport ;
+    ex:airportCode "CCB" ;
+    ex:airportName "Toronto Metro 58 International Airport (CCB)" ;
+    ex:cityServiced "Toronto Metro 58" .
+
+ex:airport_059 a ex:Airport ;
+    ex:airportCode "CCC" ;
+    ex:airportName "Zurich Metro 59 International Airport (CCC)" ;
+    ex:cityServiced "Zurich Metro 59" .
+
+ex:airport_060 a ex:Airport ;
+    ex:airportCode "CCD" ;
+    ex:airportName "New York Metro 60 International Airport (CCD)" ;
+    ex:cityServiced "New York Metro 60" .
+
+ex:airport_061 a ex:Airport ;
+    ex:airportCode "CDA" ;
+    ex:airportName "London Metro 61 International Airport (CDA)" ;
+    ex:cityServiced "London Metro 61" .
+
+ex:airport_062 a ex:Airport ;
+    ex:airportCode "CDB" ;
+    ex:airportName "Tokyo Metro 62 International Airport (CDB)" ;
+    ex:cityServiced "Tokyo Metro 62" .
+
+ex:airport_063 a ex:Airport ;
+    ex:airportCode "CDC" ;
+    ex:airportName "Singapore Metro 63 International Airport (CDC)" ;
+    ex:cityServiced "Singapore Metro 63" .
+
+ex:airport_064 a ex:Airport ;
+    ex:airportCode "CDD" ;
+    ex:airportName "Frankfurt Metro 64 International Airport (CDD)" ;
+    ex:cityServiced "Frankfurt Metro 64" .
+
+ex:airport_065 a ex:Airport ;
+    ex:airportCode "CEA" ;
+    ex:airportName "Paris Metro 65 International Airport (CEA)" ;
+    ex:cityServiced "Paris Metro 65" .
+
+ex:airport_066 a ex:Airport ;
+    ex:airportCode "CEB" ;
+    ex:airportName "Dubai Metro 66 International Airport (CEB)" ;
+    ex:cityServiced "Dubai Metro 66" .
+
+ex:airport_067 a ex:Airport ;
+    ex:airportCode "CEC" ;
+    ex:airportName "Sydney Metro 67 International Airport (CEC)" ;
+    ex:cityServiced "Sydney Metro 67" .
+
+ex:airport_068 a ex:Airport ;
+    ex:airportCode "CED" ;
+    ex:airportName "Toronto Metro 68 International Airport (CED)" ;
+    ex:cityServiced "Toronto Metro 68" .
+
+ex:airport_069 a ex:Airport ;
+    ex:airportCode "CFA" ;
+    ex:airportName "Zurich Metro 69 International Airport (CFA)" ;
+    ex:cityServiced "Zurich Metro 69" .
+
+ex:airport_070 a ex:Airport ;
+    ex:airportCode "CFB" ;
+    ex:airportName "New York Metro 70 International Airport (CFB)" ;
+    ex:cityServiced "New York Metro 70" .
+
+ex:airport_071 a ex:Airport ;
+    ex:airportCode "CFC" ;
+    ex:airportName "London Metro 71 International Airport (CFC)" ;
+    ex:cityServiced "London Metro 71" .
+
+ex:airport_072 a ex:Airport ;
+    ex:airportCode "CFD" ;
+    ex:airportName "Tokyo Metro 72 International Airport (CFD)" ;
+    ex:cityServiced "Tokyo Metro 72" .
+
+ex:airport_073 a ex:Airport ;
+    ex:airportCode "DAA" ;
+    ex:airportName "Singapore Metro 73 International Airport (DAA)" ;
+    ex:cityServiced "Singapore Metro 73" .
+
+ex:airport_074 a ex:Airport ;
+    ex:airportCode "DAB" ;
+    ex:airportName "Frankfurt Metro 74 International Airport (DAB)" ;
+    ex:cityServiced "Frankfurt Metro 74" .
+
+ex:airport_075 a ex:Airport ;
+    ex:airportCode "DAC" ;
+    ex:airportName "Paris Metro 75 International Airport (DAC)" ;
+    ex:cityServiced "Paris Metro 75" .
+
+ex:airport_076 a ex:Airport ;
+    ex:airportCode "DAD" ;
+    ex:airportName "Dubai Metro 76 International Airport (DAD)" ;
+    ex:cityServiced "Dubai Metro 76" .
+
+ex:airport_077 a ex:Airport ;
+    ex:airportCode "DBA" ;
+    ex:airportName "Sydney Metro 77 International Airport (DBA)" ;
+    ex:cityServiced "Sydney Metro 77" .
+
+ex:airport_078 a ex:Airport ;
+    ex:airportCode "DBB" ;
+    ex:airportName "Toronto Metro 78 International Airport (DBB)" ;
+    ex:cityServiced "Toronto Metro 78" .
+
+ex:airport_079 a ex:Airport ;
+    ex:airportCode "DBC" ;
+    ex:airportName "Zurich Metro 79 International Airport (DBC)" ;
+    ex:cityServiced "Zurich Metro 79" .
+
+ex:airport_080 a ex:Airport ;
+    ex:airportCode "DBD" ;
+    ex:airportName "New York Metro 80 International Airport (DBD)" ;
+    ex:cityServiced "New York Metro 80" .
+
+ex:airport_081 a ex:Airport ;
+    ex:airportCode "DCA" ;
+    ex:airportName "London Metro 81 International Airport (DCA)" ;
+    ex:cityServiced "London Metro 81" .
+
+ex:airport_082 a ex:Airport ;
+    ex:airportCode "DCB" ;
+    ex:airportName "Tokyo Metro 82 International Airport (DCB)" ;
+    ex:cityServiced "Tokyo Metro 82" .
+
+ex:airport_083 a ex:Airport ;
+    ex:airportCode "DCC" ;
+    ex:airportName "Singapore Metro 83 International Airport (DCC)" ;
+    ex:cityServiced "Singapore Metro 83" .
+
+ex:airport_084 a ex:Airport ;
+    ex:airportCode "DCD" ;
+    ex:airportName "Frankfurt Metro 84 International Airport (DCD)" ;
+    ex:cityServiced "Frankfurt Metro 84" .
+
+ex:airport_085 a ex:Airport ;
+    ex:airportCode "DDA" ;
+    ex:airportName "Paris Metro 85 International Airport (DDA)" ;
+    ex:cityServiced "Paris Metro 85" .
+
+ex:airport_086 a ex:Airport ;
+    ex:airportCode "DDB" ;
+    ex:airportName "Dubai Metro 86 International Airport (DDB)" ;
+    ex:cityServiced "Dubai Metro 86" .
+
+ex:airport_087 a ex:Airport ;
+    ex:airportCode "DDC" ;
+    ex:airportName "Sydney Metro 87 International Airport (DDC)" ;
+    ex:cityServiced "Sydney Metro 87" .
+
+ex:airport_088 a ex:Airport ;
+    ex:airportCode "DDD" ;
+    ex:airportName "Toronto Metro 88 International Airport (DDD)" ;
+    ex:cityServiced "Toronto Metro 88" .
+
+ex:airport_089 a ex:Airport ;
+    ex:airportCode "DEA" ;
+    ex:airportName "Zurich Metro 89 International Airport (DEA)" ;
+    ex:cityServiced "Zurich Metro 89" .
+
+ex:airport_090 a ex:Airport ;
+    ex:airportCode "DEB" ;
+    ex:airportName "New York Metro 90 International Airport (DEB)" ;
+    ex:cityServiced "New York Metro 90" .
+
+ex:airport_001 ex:directNonstopCommercialFlight ex:airport_002 ;
+    ex:operatesCommercialRoute ex:airport_005 ;
+    ex:schedulesDirectRoute ex:airport_009 ;
+    ex:connectsTo ex:airport_013 .
+
+ex:airport_002 ex:directNonstopCommercialFlight ex:airport_003 ;
+    ex:operatesCommercialRoute ex:airport_006 ;
+    ex:schedulesDirectRoute ex:airport_010 ;
+    ex:connectsTo ex:airport_014 .
+
+ex:airport_003 ex:directNonstopCommercialFlight ex:airport_004 ;
+    ex:operatesCommercialRoute ex:airport_007 ;
+    ex:schedulesDirectRoute ex:airport_011 ;
+    ex:connectsTo ex:airport_015 .
+
+ex:airport_004 ex:directNonstopCommercialFlight ex:airport_005 ;
+    ex:operatesCommercialRoute ex:airport_008 ;
+    ex:schedulesDirectRoute ex:airport_012 ;
+    ex:connectsTo ex:airport_016 .
+
+ex:airport_005 ex:directNonstopCommercialFlight ex:airport_006 ;
+    ex:operatesCommercialRoute ex:airport_009 ;
+    ex:schedulesDirectRoute ex:airport_013 ;
+    ex:connectsTo ex:airport_017 .
+
+ex:airport_006 ex:directNonstopCommercialFlight ex:airport_007 ;
+    ex:operatesCommercialRoute ex:airport_010 ;
+    ex:schedulesDirectRoute ex:airport_014 ;
+    ex:connectsTo ex:airport_018 .
+
+ex:airport_007 ex:directNonstopCommercialFlight ex:airport_008 ;
+    ex:operatesCommercialRoute ex:airport_011 ;
+    ex:schedulesDirectRoute ex:airport_015 ;
+    ex:connectsTo ex:airport_019 .
+
+ex:airport_008 ex:directNonstopCommercialFlight ex:airport_009 ;
+    ex:operatesCommercialRoute ex:airport_012 ;
+    ex:schedulesDirectRoute ex:airport_016 ;
+    ex:connectsTo ex:airport_020 .
+
+ex:airport_009 ex:directNonstopCommercialFlight ex:airport_010 ;
+    ex:operatesCommercialRoute ex:airport_013 ;
+    ex:schedulesDirectRoute ex:airport_017 ;
+    ex:connectsTo ex:airport_021 .
+
+ex:airport_010 ex:directNonstopCommercialFlight ex:airport_011 ;
+    ex:operatesCommercialRoute ex:airport_014 ;
+    ex:schedulesDirectRoute ex:airport_018 ;
+    ex:connectsTo ex:airport_022 .
+
+ex:airport_011 ex:directNonstopCommercialFlight ex:airport_012 ;
+    ex:operatesCommercialRoute ex:airport_015 ;
+    ex:schedulesDirectRoute ex:airport_019 ;
+    ex:connectsTo ex:airport_023 .
+
+ex:airport_012 ex:directNonstopCommercialFlight ex:airport_013 ;
+    ex:operatesCommercialRoute ex:airport_016 ;
+    ex:schedulesDirectRoute ex:airport_020 ;
+    ex:connectsTo ex:airport_024 .
+
+ex:airport_013 ex:directNonstopCommercialFlight ex:airport_014 ;
+    ex:operatesCommercialRoute ex:airport_017 ;
+    ex:schedulesDirectRoute ex:airport_021 ;
+    ex:connectsTo ex:airport_025 .
+
+ex:airport_014 ex:directNonstopCommercialFlight ex:airport_015 ;
+    ex:operatesCommercialRoute ex:airport_018 ;
+    ex:schedulesDirectRoute ex:airport_022 ;
+    ex:connectsTo ex:airport_026 .
+
+ex:airport_015 ex:directNonstopCommercialFlight ex:airport_016 ;
+    ex:operatesCommercialRoute ex:airport_019 ;
+    ex:schedulesDirectRoute ex:airport_023 ;
+    ex:connectsTo ex:airport_027 .
+
+ex:airport_016 ex:directNonstopCommercialFlight ex:airport_017 ;
+    ex:operatesCommercialRoute ex:airport_020 ;
+    ex:schedulesDirectRoute ex:airport_024 ;
+    ex:connectsTo ex:airport_028 .
+
+ex:airport_017 ex:directNonstopCommercialFlight ex:airport_018 ;
+    ex:operatesCommercialRoute ex:airport_021 ;
+    ex:schedulesDirectRoute ex:airport_025 ;
+    ex:connectsTo ex:airport_029 .
+
+ex:airport_018 ex:directNonstopCommercialFlight ex:airport_019 ;
+    ex:operatesCommercialRoute ex:airport_022 ;
+    ex:schedulesDirectRoute ex:airport_026 ;
+    ex:connectsTo ex:airport_030 .
+
+ex:airport_019 ex:directNonstopCommercialFlight ex:airport_020 ;
+    ex:operatesCommercialRoute ex:airport_023 ;
+    ex:schedulesDirectRoute ex:airport_027 ;
+    ex:connectsTo ex:airport_031 .
+
+ex:airport_020 ex:directNonstopCommercialFlight ex:airport_021 ;
+    ex:operatesCommercialRoute ex:airport_024 ;
+    ex:schedulesDirectRoute ex:airport_028 ;
+    ex:connectsTo ex:airport_032 .
+
+ex:airport_021 ex:directNonstopCommercialFlight ex:airport_022 ;
+    ex:operatesCommercialRoute ex:airport_025 ;
+    ex:schedulesDirectRoute ex:airport_029 ;
+    ex:connectsTo ex:airport_033 .
+
+ex:airport_022 ex:directNonstopCommercialFlight ex:airport_023 ;
+    ex:operatesCommercialRoute ex:airport_026 ;
+    ex:schedulesDirectRoute ex:airport_030 ;
+    ex:connectsTo ex:airport_034 .
+
+ex:airport_023 ex:directNonstopCommercialFlight ex:airport_024 ;
+    ex:operatesCommercialRoute ex:airport_027 ;
+    ex:schedulesDirectRoute ex:airport_031 ;
+    ex:connectsTo ex:airport_035 .
+
+ex:airport_024 ex:directNonstopCommercialFlight ex:airport_025 ;
+    ex:operatesCommercialRoute ex:airport_028 ;
+    ex:schedulesDirectRoute ex:airport_032 ;
+    ex:connectsTo ex:airport_036 .
+
+ex:airport_025 ex:directNonstopCommercialFlight ex:airport_026 ;
+    ex:operatesCommercialRoute ex:airport_029 ;
+    ex:schedulesDirectRoute ex:airport_033 ;
+    ex:connectsTo ex:airport_037 .
+
+ex:airport_026 ex:directNonstopCommercialFlight ex:airport_027 ;
+    ex:operatesCommercialRoute ex:airport_030 ;
+    ex:schedulesDirectRoute ex:airport_034 ;
+    ex:connectsTo ex:airport_038 .
+
+ex:airport_027 ex:directNonstopCommercialFlight ex:airport_028 ;
+    ex:operatesCommercialRoute ex:airport_031 ;
+    ex:schedulesDirectRoute ex:airport_035 ;
+    ex:connectsTo ex:airport_039 .
+
+ex:airport_028 ex:directNonstopCommercialFlight ex:airport_029 ;
+    ex:operatesCommercialRoute ex:airport_032 ;
+    ex:schedulesDirectRoute ex:airport_036 ;
+    ex:connectsTo ex:airport_040 .
+
+ex:airport_029 ex:directNonstopCommercialFlight ex:airport_030 ;
+    ex:operatesCommercialRoute ex:airport_033 ;
+    ex:schedulesDirectRoute ex:airport_037 ;
+    ex:connectsTo ex:airport_041 .
+
+ex:airport_030 ex:directNonstopCommercialFlight ex:airport_031 ;
+    ex:operatesCommercialRoute ex:airport_034 ;
+    ex:schedulesDirectRoute ex:airport_038 ;
+    ex:connectsTo ex:airport_042 .
+
+ex:airport_031 ex:directNonstopCommercialFlight ex:airport_032 ;
+    ex:operatesCommercialRoute ex:airport_035 ;
+    ex:schedulesDirectRoute ex:airport_039 ;
+    ex:connectsTo ex:airport_043 .
+
+ex:airport_032 ex:directNonstopCommercialFlight ex:airport_033 ;
+    ex:operatesCommercialRoute ex:airport_036 ;
+    ex:schedulesDirectRoute ex:airport_040 ;
+    ex:connectsTo ex:airport_044 .
+
+ex:airport_033 ex:directNonstopCommercialFlight ex:airport_034 ;
+    ex:operatesCommercialRoute ex:airport_037 ;
+    ex:schedulesDirectRoute ex:airport_041 ;
+    ex:connectsTo ex:airport_045 .
+
+ex:airport_034 ex:directNonstopCommercialFlight ex:airport_035 ;
+    ex:operatesCommercialRoute ex:airport_038 ;
+    ex:schedulesDirectRoute ex:airport_042 ;
+    ex:connectsTo ex:airport_046 .
+
+ex:airport_035 ex:directNonstopCommercialFlight ex:airport_036 ;
+    ex:operatesCommercialRoute ex:airport_039 ;
+    ex:schedulesDirectRoute ex:airport_043 ;
+    ex:connectsTo ex:airport_047 .
+
+ex:airport_036 ex:directNonstopCommercialFlight ex:airport_037 ;
+    ex:operatesCommercialRoute ex:airport_040 ;
+    ex:schedulesDirectRoute ex:airport_044 ;
+    ex:connectsTo ex:airport_048 .
+
+ex:airport_037 ex:directNonstopCommercialFlight ex:airport_038 ;
+    ex:operatesCommercialRoute ex:airport_041 ;
+    ex:schedulesDirectRoute ex:airport_045 ;
+    ex:connectsTo ex:airport_049 .
+
+ex:airport_038 ex:directNonstopCommercialFlight ex:airport_039 ;
+    ex:operatesCommercialRoute ex:airport_042 ;
+    ex:schedulesDirectRoute ex:airport_046 ;
+    ex:connectsTo ex:airport_050 .
+
+ex:airport_039 ex:directNonstopCommercialFlight ex:airport_040 ;
+    ex:operatesCommercialRoute ex:airport_043 ;
+    ex:schedulesDirectRoute ex:airport_047 ;
+    ex:connectsTo ex:airport_051 .
+
+ex:airport_040 ex:directNonstopCommercialFlight ex:airport_041 ;
+    ex:operatesCommercialRoute ex:airport_044 ;
+    ex:schedulesDirectRoute ex:airport_048 ;
+    ex:connectsTo ex:airport_052 .
+
+ex:airport_041 ex:directNonstopCommercialFlight ex:airport_042 ;
+    ex:operatesCommercialRoute ex:airport_045 ;
+    ex:schedulesDirectRoute ex:airport_049 ;
+    ex:connectsTo ex:airport_053 .
+
+ex:airport_042 ex:directNonstopCommercialFlight ex:airport_043 ;
+    ex:operatesCommercialRoute ex:airport_046 ;
+    ex:schedulesDirectRoute ex:airport_050 ;
+    ex:connectsTo ex:airport_054 .
+
+ex:airport_043 ex:directNonstopCommercialFlight ex:airport_044 ;
+    ex:operatesCommercialRoute ex:airport_047 ;
+    ex:schedulesDirectRoute ex:airport_051 ;
+    ex:connectsTo ex:airport_055 .
+
+ex:airport_044 ex:directNonstopCommercialFlight ex:airport_045 ;
+    ex:operatesCommercialRoute ex:airport_048 ;
+    ex:schedulesDirectRoute ex:airport_052 ;
+    ex:connectsTo ex:airport_056 .
+
+ex:airport_045 ex:directNonstopCommercialFlight ex:airport_046 ;
+    ex:operatesCommercialRoute ex:airport_049 ;
+    ex:schedulesDirectRoute ex:airport_053 ;
+    ex:connectsTo ex:airport_057 .
+
+ex:airport_046 ex:directNonstopCommercialFlight ex:airport_047 ;
+    ex:operatesCommercialRoute ex:airport_050 ;
+    ex:schedulesDirectRoute ex:airport_054 ;
+    ex:connectsTo ex:airport_058 .
+
+ex:airport_047 ex:directNonstopCommercialFlight ex:airport_048 ;
+    ex:operatesCommercialRoute ex:airport_051 ;
+    ex:schedulesDirectRoute ex:airport_055 ;
+    ex:connectsTo ex:airport_059 .
+
+ex:airport_048 ex:directNonstopCommercialFlight ex:airport_049 ;
+    ex:operatesCommercialRoute ex:airport_052 ;
+    ex:schedulesDirectRoute ex:airport_056 ;
+    ex:connectsTo ex:airport_060 .
+
+ex:airport_049 ex:directNonstopCommercialFlight ex:airport_050 ;
+    ex:operatesCommercialRoute ex:airport_053 ;
+    ex:schedulesDirectRoute ex:airport_057 ;
+    ex:connectsTo ex:airport_061 .
+
+ex:airport_050 ex:directNonstopCommercialFlight ex:airport_051 ;
+    ex:operatesCommercialRoute ex:airport_054 ;
+    ex:schedulesDirectRoute ex:airport_058 ;
+    ex:connectsTo ex:airport_062 .
+
+ex:airport_051 ex:directNonstopCommercialFlight ex:airport_052 ;
+    ex:operatesCommercialRoute ex:airport_055 ;
+    ex:schedulesDirectRoute ex:airport_059 ;
+    ex:connectsTo ex:airport_063 .
+
+ex:airport_052 ex:directNonstopCommercialFlight ex:airport_053 ;
+    ex:operatesCommercialRoute ex:airport_056 ;
+    ex:schedulesDirectRoute ex:airport_060 ;
+    ex:connectsTo ex:airport_064 .
+
+ex:airport_053 ex:directNonstopCommercialFlight ex:airport_054 ;
+    ex:operatesCommercialRoute ex:airport_057 ;
+    ex:schedulesDirectRoute ex:airport_061 ;
+    ex:connectsTo ex:airport_065 .
+
+ex:airport_054 ex:directNonstopCommercialFlight ex:airport_055 ;
+    ex:operatesCommercialRoute ex:airport_058 ;
+    ex:schedulesDirectRoute ex:airport_062 ;
+    ex:connectsTo ex:airport_066 .
+
+ex:airport_055 ex:directNonstopCommercialFlight ex:airport_056 ;
+    ex:operatesCommercialRoute ex:airport_059 ;
+    ex:schedulesDirectRoute ex:airport_063 ;
+    ex:connectsTo ex:airport_067 .
+
+ex:airport_056 ex:directNonstopCommercialFlight ex:airport_057 ;
+    ex:operatesCommercialRoute ex:airport_060 ;
+    ex:schedulesDirectRoute ex:airport_064 ;
+    ex:connectsTo ex:airport_068 .
+
+ex:airport_057 ex:directNonstopCommercialFlight ex:airport_058 ;
+    ex:operatesCommercialRoute ex:airport_061 ;
+    ex:schedulesDirectRoute ex:airport_065 ;
+    ex:connectsTo ex:airport_069 .
+
+ex:airport_058 ex:directNonstopCommercialFlight ex:airport_059 ;
+    ex:operatesCommercialRoute ex:airport_062 ;
+    ex:schedulesDirectRoute ex:airport_066 ;
+    ex:connectsTo ex:airport_070 .
+
+ex:airport_059 ex:directNonstopCommercialFlight ex:airport_060 ;
+    ex:operatesCommercialRoute ex:airport_063 ;
+    ex:schedulesDirectRoute ex:airport_067 ;
+    ex:connectsTo ex:airport_071 .
+
+ex:airport_060 ex:directNonstopCommercialFlight ex:airport_061 ;
+    ex:operatesCommercialRoute ex:airport_064 ;
+    ex:schedulesDirectRoute ex:airport_068 ;
+    ex:connectsTo ex:airport_072 .
+
+ex:airport_061 ex:directNonstopCommercialFlight ex:airport_062 ;
+    ex:operatesCommercialRoute ex:airport_065 ;
+    ex:schedulesDirectRoute ex:airport_069 ;
+    ex:connectsTo ex:airport_073 .
+
+ex:airport_062 ex:directNonstopCommercialFlight ex:airport_063 ;
+    ex:operatesCommercialRoute ex:airport_066 ;
+    ex:schedulesDirectRoute ex:airport_070 ;
+    ex:connectsTo ex:airport_074 .
+
+ex:airport_063 ex:directNonstopCommercialFlight ex:airport_064 ;
+    ex:operatesCommercialRoute ex:airport_067 ;
+    ex:schedulesDirectRoute ex:airport_071 ;
+    ex:connectsTo ex:airport_075 .
+
+ex:airport_064 ex:directNonstopCommercialFlight ex:airport_065 ;
+    ex:operatesCommercialRoute ex:airport_068 ;
+    ex:schedulesDirectRoute ex:airport_072 ;
+    ex:connectsTo ex:airport_076 .
+
+ex:airport_065 ex:directNonstopCommercialFlight ex:airport_066 ;
+    ex:operatesCommercialRoute ex:airport_069 ;
+    ex:schedulesDirectRoute ex:airport_073 ;
+    ex:connectsTo ex:airport_077 .
+
+ex:airport_066 ex:directNonstopCommercialFlight ex:airport_067 ;
+    ex:operatesCommercialRoute ex:airport_070 ;
+    ex:schedulesDirectRoute ex:airport_074 ;
+    ex:connectsTo ex:airport_078 .
+
+ex:airport_067 ex:directNonstopCommercialFlight ex:airport_068 ;
+    ex:operatesCommercialRoute ex:airport_071 ;
+    ex:schedulesDirectRoute ex:airport_075 ;
+    ex:connectsTo ex:airport_079 .
+
+ex:airport_068 ex:directNonstopCommercialFlight ex:airport_069 ;
+    ex:operatesCommercialRoute ex:airport_072 ;
+    ex:schedulesDirectRoute ex:airport_076 ;
+    ex:connectsTo ex:airport_080 .
+
+ex:airport_069 ex:directNonstopCommercialFlight ex:airport_070 ;
+    ex:operatesCommercialRoute ex:airport_073 ;
+    ex:schedulesDirectRoute ex:airport_077 ;
+    ex:connectsTo ex:airport_081 .
+
+ex:airport_070 ex:directNonstopCommercialFlight ex:airport_071 ;
+    ex:operatesCommercialRoute ex:airport_074 ;
+    ex:schedulesDirectRoute ex:airport_078 ;
+    ex:connectsTo ex:airport_082 .
+
+ex:airport_071 ex:directNonstopCommercialFlight ex:airport_072 ;
+    ex:operatesCommercialRoute ex:airport_075 ;
+    ex:schedulesDirectRoute ex:airport_079 ;
+    ex:connectsTo ex:airport_083 .
+
+ex:airport_072 ex:directNonstopCommercialFlight ex:airport_073 ;
+    ex:operatesCommercialRoute ex:airport_076 ;
+    ex:schedulesDirectRoute ex:airport_080 ;
+    ex:connectsTo ex:airport_084 .
+
+ex:airport_073 ex:directNonstopCommercialFlight ex:airport_074 ;
+    ex:operatesCommercialRoute ex:airport_077 ;
+    ex:schedulesDirectRoute ex:airport_081 ;
+    ex:connectsTo ex:airport_085 .
+
+ex:airport_074 ex:directNonstopCommercialFlight ex:airport_075 ;
+    ex:operatesCommercialRoute ex:airport_078 ;
+    ex:schedulesDirectRoute ex:airport_082 ;
+    ex:connectsTo ex:airport_086 .
+
+ex:airport_075 ex:directNonstopCommercialFlight ex:airport_076 ;
+    ex:operatesCommercialRoute ex:airport_079 ;
+    ex:schedulesDirectRoute ex:airport_083 ;
+    ex:connectsTo ex:airport_087 .
+
+ex:airport_076 ex:directNonstopCommercialFlight ex:airport_077 ;
+    ex:operatesCommercialRoute ex:airport_080 ;
+    ex:schedulesDirectRoute ex:airport_084 ;
+    ex:connectsTo ex:airport_088 .
+
+ex:airport_077 ex:directNonstopCommercialFlight ex:airport_078 ;
+    ex:operatesCommercialRoute ex:airport_081 ;
+    ex:schedulesDirectRoute ex:airport_085 ;
+    ex:connectsTo ex:airport_089 .
+
+ex:airport_078 ex:directNonstopCommercialFlight ex:airport_079 ;
+    ex:operatesCommercialRoute ex:airport_082 ;
+    ex:schedulesDirectRoute ex:airport_086 ;
+    ex:connectsTo ex:airport_090 .
+
+ex:airport_079 ex:directNonstopCommercialFlight ex:airport_080 ;
+    ex:operatesCommercialRoute ex:airport_083 ;
+    ex:schedulesDirectRoute ex:airport_087 ;
+    ex:connectsTo ex:airport_001 .
+
+ex:airport_080 ex:directNonstopCommercialFlight ex:airport_081 ;
+    ex:operatesCommercialRoute ex:airport_084 ;
+    ex:schedulesDirectRoute ex:airport_088 ;
+    ex:connectsTo ex:airport_002 .
+
+ex:airport_081 ex:directNonstopCommercialFlight ex:airport_082 ;
+    ex:operatesCommercialRoute ex:airport_085 ;
+    ex:schedulesDirectRoute ex:airport_089 ;
+    ex:connectsTo ex:airport_003 .
+
+ex:airport_082 ex:directNonstopCommercialFlight ex:airport_083 ;
+    ex:operatesCommercialRoute ex:airport_086 ;
+    ex:schedulesDirectRoute ex:airport_090 ;
+    ex:connectsTo ex:airport_004 .
+
+ex:airport_083 ex:directNonstopCommercialFlight ex:airport_084 ;
+    ex:operatesCommercialRoute ex:airport_087 ;
+    ex:schedulesDirectRoute ex:airport_001 ;
+    ex:connectsTo ex:airport_005 .
+
+ex:airport_084 ex:directNonstopCommercialFlight ex:airport_085 ;
+    ex:operatesCommercialRoute ex:airport_088 ;
+    ex:schedulesDirectRoute ex:airport_002 ;
+    ex:connectsTo ex:airport_006 .
+
+ex:airport_085 ex:directNonstopCommercialFlight ex:airport_086 ;
+    ex:operatesCommercialRoute ex:airport_089 ;
+    ex:schedulesDirectRoute ex:airport_003 ;
+    ex:connectsTo ex:airport_007 .
+
+ex:airport_086 ex:directNonstopCommercialFlight ex:airport_087 ;
+    ex:operatesCommercialRoute ex:airport_090 ;
+    ex:schedulesDirectRoute ex:airport_004 ;
+    ex:connectsTo ex:airport_008 .
+
+ex:airport_087 ex:directNonstopCommercialFlight ex:airport_088 ;
+    ex:operatesCommercialRoute ex:airport_001 ;
+    ex:schedulesDirectRoute ex:airport_005 ;
+    ex:connectsTo ex:airport_009 .
+
+ex:airport_088 ex:directNonstopCommercialFlight ex:airport_089 ;
+    ex:operatesCommercialRoute ex:airport_002 ;
+    ex:schedulesDirectRoute ex:airport_006 ;
+    ex:connectsTo ex:airport_010 .
+
+ex:airport_089 ex:directNonstopCommercialFlight ex:airport_090 ;
+    ex:operatesCommercialRoute ex:airport_003 ;
+    ex:schedulesDirectRoute ex:airport_007 ;
+    ex:connectsTo ex:airport_011 .
+
+ex:airport_090 ex:directNonstopCommercialFlight ex:airport_001 ;
+    ex:operatesCommercialRoute ex:airport_004 ;
+    ex:schedulesDirectRoute ex:airport_008 ;
+    ex:connectsTo ex:airport_012 .

@@ -1,0 +1,1861 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcsa: <http://dcsa.org/ontology/> .
+
+# ABox Instance Triples for dcsa_shipping
+
+dcsa:loc_001 a dcsa:Location ;
+    dcsa:unLocode "SGSIN" .
+
+dcsa:loc_002 a dcsa:Location ;
+    dcsa:unLocode "CNSHA" .
+
+dcsa:loc_003 a dcsa:Location ;
+    dcsa:unLocode "DEHAM" .
+
+dcsa:loc_004 a dcsa:Location ;
+    dcsa:unLocode "USLAX" .
+
+dcsa:loc_005 a dcsa:Location ;
+    dcsa:unLocode "USNYC" .
+
+dcsa:loc_006 a dcsa:Location ;
+    dcsa:unLocode "BEANR" .
+
+dcsa:loc_007 a dcsa:Location ;
+    dcsa:unLocode "AEDXB" .
+
+dcsa:loc_008 a dcsa:Location ;
+    dcsa:unLocode "JPYOK" .
+
+dcsa:loc_009 a dcsa:Location ;
+    dcsa:unLocode "GBFXT" .
+
+dcsa:loc_010 a dcsa:Location ;
+    dcsa:unLocode "NLRTM" .
+
+dcsa:loc_011 a dcsa:Location ;
+    dcsa:unLocode "SGSIN" .
+
+dcsa:loc_012 a dcsa:Location ;
+    dcsa:unLocode "CNSHA" .
+
+dcsa:loc_013 a dcsa:Location ;
+    dcsa:unLocode "DEHAM" .
+
+dcsa:loc_014 a dcsa:Location ;
+    dcsa:unLocode "USLAX" .
+
+dcsa:loc_015 a dcsa:Location ;
+    dcsa:unLocode "USNYC" .
+
+dcsa:loc_016 a dcsa:Location ;
+    dcsa:unLocode "BEANR" .
+
+dcsa:loc_017 a dcsa:Location ;
+    dcsa:unLocode "AEDXB" .
+
+dcsa:loc_018 a dcsa:Location ;
+    dcsa:unLocode "JPYOK" .
+
+dcsa:loc_019 a dcsa:Location ;
+    dcsa:unLocode "GBFXT" .
+
+dcsa:loc_020 a dcsa:Location ;
+    dcsa:unLocode "NLRTM" .
+
+dcsa:loc_021 a dcsa:Location ;
+    dcsa:unLocode "SGSIN" .
+
+dcsa:loc_022 a dcsa:Location ;
+    dcsa:unLocode "CNSHA" .
+
+dcsa:loc_023 a dcsa:Location ;
+    dcsa:unLocode "DEHAM" .
+
+dcsa:loc_024 a dcsa:Location ;
+    dcsa:unLocode "USLAX" .
+
+dcsa:loc_025 a dcsa:Location ;
+    dcsa:unLocode "USNYC" .
+
+dcsa:loc_026 a dcsa:Location ;
+    dcsa:unLocode "BEANR" .
+
+dcsa:loc_027 a dcsa:Location ;
+    dcsa:unLocode "AEDXB" .
+
+dcsa:loc_028 a dcsa:Location ;
+    dcsa:unLocode "JPYOK" .
+
+dcsa:loc_029 a dcsa:Location ;
+    dcsa:unLocode "GBFXT" .
+
+dcsa:loc_030 a dcsa:Location ;
+    dcsa:unLocode "NLRTM" .
+
+dcsa:facility_001 a dcsa:Facility ;
+    dcsa:unLocode "SGSIN" .
+
+dcsa:facility_002 a dcsa:Facility ;
+    dcsa:unLocode "CNSHA" .
+
+dcsa:facility_003 a dcsa:Facility ;
+    dcsa:unLocode "DEHAM" .
+
+dcsa:facility_004 a dcsa:Facility ;
+    dcsa:unLocode "USLAX" .
+
+dcsa:facility_005 a dcsa:Facility ;
+    dcsa:unLocode "USNYC" .
+
+dcsa:facility_006 a dcsa:Facility ;
+    dcsa:unLocode "BEANR" .
+
+dcsa:facility_007 a dcsa:Facility ;
+    dcsa:unLocode "AEDXB" .
+
+dcsa:facility_008 a dcsa:Facility ;
+    dcsa:unLocode "JPYOK" .
+
+dcsa:facility_009 a dcsa:Facility ;
+    dcsa:unLocode "GBFXT" .
+
+dcsa:facility_010 a dcsa:Facility ;
+    dcsa:unLocode "NLRTM" .
+
+dcsa:facility_011 a dcsa:Facility ;
+    dcsa:unLocode "SGSIN" .
+
+dcsa:facility_012 a dcsa:Facility ;
+    dcsa:unLocode "CNSHA" .
+
+dcsa:facility_013 a dcsa:Facility ;
+    dcsa:unLocode "DEHAM" .
+
+dcsa:facility_014 a dcsa:Facility ;
+    dcsa:unLocode "USLAX" .
+
+dcsa:facility_015 a dcsa:Facility ;
+    dcsa:unLocode "USNYC" .
+
+dcsa:facility_016 a dcsa:Facility ;
+    dcsa:unLocode "BEANR" .
+
+dcsa:facility_017 a dcsa:Facility ;
+    dcsa:unLocode "AEDXB" .
+
+dcsa:facility_018 a dcsa:Facility ;
+    dcsa:unLocode "JPYOK" .
+
+dcsa:facility_019 a dcsa:Facility ;
+    dcsa:unLocode "GBFXT" .
+
+dcsa:facility_020 a dcsa:Facility ;
+    dcsa:unLocode "NLRTM" .
+
+dcsa:vessel_001 a dcsa:Vessel ;
+    dcsa:vesselImo 9300111 ;
+    dcsa:vesselName "MV Ocean Carrier #001" ;
+    dcsa:sharesAllianceWith dcsa:vessel_002 .
+
+dcsa:vessel_002 a dcsa:Vessel ;
+    dcsa:vesselImo 9300222 ;
+    dcsa:vesselName "MV Ocean Carrier #002" ;
+    dcsa:sharesAllianceWith dcsa:vessel_003 .
+
+dcsa:vessel_003 a dcsa:Vessel ;
+    dcsa:vesselImo 9300333 ;
+    dcsa:vesselName "MV Ocean Carrier #003" ;
+    dcsa:sharesAllianceWith dcsa:vessel_004 .
+
+dcsa:vessel_004 a dcsa:Vessel ;
+    dcsa:vesselImo 9300444 ;
+    dcsa:vesselName "MV Ocean Carrier #004" ;
+    dcsa:sharesAllianceWith dcsa:vessel_005 .
+
+dcsa:vessel_005 a dcsa:Vessel ;
+    dcsa:vesselImo 9300555 ;
+    dcsa:vesselName "MV Ocean Carrier #005" ;
+    dcsa:sharesAllianceWith dcsa:vessel_006 .
+
+dcsa:vessel_006 a dcsa:Vessel ;
+    dcsa:vesselImo 9300666 ;
+    dcsa:vesselName "MV Ocean Carrier #006" ;
+    dcsa:sharesAllianceWith dcsa:vessel_007 .
+
+dcsa:vessel_007 a dcsa:Vessel ;
+    dcsa:vesselImo 9300777 ;
+    dcsa:vesselName "MV Ocean Carrier #007" ;
+    dcsa:sharesAllianceWith dcsa:vessel_008 .
+
+dcsa:vessel_008 a dcsa:Vessel ;
+    dcsa:vesselImo 9300888 ;
+    dcsa:vesselName "MV Ocean Carrier #008" ;
+    dcsa:sharesAllianceWith dcsa:vessel_009 .
+
+dcsa:vessel_009 a dcsa:Vessel ;
+    dcsa:vesselImo 9300999 ;
+    dcsa:vesselName "MV Ocean Carrier #009" ;
+    dcsa:sharesAllianceWith dcsa:vessel_010 .
+
+dcsa:vessel_010 a dcsa:Vessel ;
+    dcsa:vesselImo 9301110 ;
+    dcsa:vesselName "MV Ocean Carrier #010" ;
+    dcsa:sharesAllianceWith dcsa:vessel_011 .
+
+dcsa:vessel_011 a dcsa:Vessel ;
+    dcsa:vesselImo 9301221 ;
+    dcsa:vesselName "MV Ocean Carrier #011" ;
+    dcsa:sharesAllianceWith dcsa:vessel_012 .
+
+dcsa:vessel_012 a dcsa:Vessel ;
+    dcsa:vesselImo 9301332 ;
+    dcsa:vesselName "MV Ocean Carrier #012" ;
+    dcsa:sharesAllianceWith dcsa:vessel_013 .
+
+dcsa:vessel_013 a dcsa:Vessel ;
+    dcsa:vesselImo 9301443 ;
+    dcsa:vesselName "MV Ocean Carrier #013" ;
+    dcsa:sharesAllianceWith dcsa:vessel_014 .
+
+dcsa:vessel_014 a dcsa:Vessel ;
+    dcsa:vesselImo 9301554 ;
+    dcsa:vesselName "MV Ocean Carrier #014" ;
+    dcsa:sharesAllianceWith dcsa:vessel_015 .
+
+dcsa:vessel_015 a dcsa:Vessel ;
+    dcsa:vesselImo 9301665 ;
+    dcsa:vesselName "MV Ocean Carrier #015" ;
+    dcsa:sharesAllianceWith dcsa:vessel_016 .
+
+dcsa:vessel_016 a dcsa:Vessel ;
+    dcsa:vesselImo 9301776 ;
+    dcsa:vesselName "MV Ocean Carrier #016" ;
+    dcsa:sharesAllianceWith dcsa:vessel_017 .
+
+dcsa:vessel_017 a dcsa:Vessel ;
+    dcsa:vesselImo 9301887 ;
+    dcsa:vesselName "MV Ocean Carrier #017" ;
+    dcsa:sharesAllianceWith dcsa:vessel_018 .
+
+dcsa:vessel_018 a dcsa:Vessel ;
+    dcsa:vesselImo 9301998 ;
+    dcsa:vesselName "MV Ocean Carrier #018" ;
+    dcsa:sharesAllianceWith dcsa:vessel_019 .
+
+dcsa:vessel_019 a dcsa:Vessel ;
+    dcsa:vesselImo 9302109 ;
+    dcsa:vesselName "MV Ocean Carrier #019" ;
+    dcsa:sharesAllianceWith dcsa:vessel_020 .
+
+dcsa:vessel_020 a dcsa:Vessel ;
+    dcsa:vesselImo 9302220 ;
+    dcsa:vesselName "MV Ocean Carrier #020" ;
+    dcsa:sharesAllianceWith dcsa:vessel_021 .
+
+dcsa:vessel_021 a dcsa:Vessel ;
+    dcsa:vesselImo 9302331 ;
+    dcsa:vesselName "MV Ocean Carrier #021" ;
+    dcsa:sharesAllianceWith dcsa:vessel_022 .
+
+dcsa:vessel_022 a dcsa:Vessel ;
+    dcsa:vesselImo 9302442 ;
+    dcsa:vesselName "MV Ocean Carrier #022" ;
+    dcsa:sharesAllianceWith dcsa:vessel_023 .
+
+dcsa:vessel_023 a dcsa:Vessel ;
+    dcsa:vesselImo 9302553 ;
+    dcsa:vesselName "MV Ocean Carrier #023" ;
+    dcsa:sharesAllianceWith dcsa:vessel_024 .
+
+dcsa:vessel_024 a dcsa:Vessel ;
+    dcsa:vesselImo 9302664 ;
+    dcsa:vesselName "MV Ocean Carrier #024" ;
+    dcsa:sharesAllianceWith dcsa:vessel_025 .
+
+dcsa:vessel_025 a dcsa:Vessel ;
+    dcsa:vesselImo 9302775 ;
+    dcsa:vesselName "MV Ocean Carrier #025" ;
+    dcsa:sharesAllianceWith dcsa:vessel_001 .
+
+dcsa:bol_001 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500001" .
+
+dcsa:container_001 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000017" ;
+    dcsa:containerLinkedToBooking dcsa:booking_001 .
+
+dcsa:booking_001 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00001" ;
+    dcsa:associatedWithBL dcsa:bol_001 ;
+    dcsa:bookingHasContainer dcsa:container_001 .
+
+dcsa:bol_002 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500002" .
+
+dcsa:container_002 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000027" ;
+    dcsa:containerLinkedToBooking dcsa:booking_002 .
+
+dcsa:booking_002 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00002" ;
+    dcsa:associatedWithBL dcsa:bol_002 ;
+    dcsa:bookingHasContainer dcsa:container_002 .
+
+dcsa:bol_003 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500003" .
+
+dcsa:container_003 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000037" ;
+    dcsa:containerLinkedToBooking dcsa:booking_003 .
+
+dcsa:booking_003 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00003" ;
+    dcsa:associatedWithBL dcsa:bol_003 ;
+    dcsa:bookingHasContainer dcsa:container_003 .
+
+dcsa:bol_004 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500004" .
+
+dcsa:container_004 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000047" ;
+    dcsa:containerLinkedToBooking dcsa:booking_004 .
+
+dcsa:booking_004 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00004" ;
+    dcsa:associatedWithBL dcsa:bol_004 ;
+    dcsa:bookingHasContainer dcsa:container_004 .
+
+dcsa:bol_005 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500005" .
+
+dcsa:container_005 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000057" ;
+    dcsa:containerLinkedToBooking dcsa:booking_005 .
+
+dcsa:booking_005 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00005" ;
+    dcsa:associatedWithBL dcsa:bol_005 ;
+    dcsa:bookingHasContainer dcsa:container_005 .
+
+dcsa:bol_006 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500006" .
+
+dcsa:container_006 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000067" ;
+    dcsa:containerLinkedToBooking dcsa:booking_006 .
+
+dcsa:booking_006 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00006" ;
+    dcsa:associatedWithBL dcsa:bol_006 ;
+    dcsa:bookingHasContainer dcsa:container_006 .
+
+dcsa:bol_007 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500007" .
+
+dcsa:container_007 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000077" ;
+    dcsa:containerLinkedToBooking dcsa:booking_007 .
+
+dcsa:booking_007 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00007" ;
+    dcsa:associatedWithBL dcsa:bol_007 ;
+    dcsa:bookingHasContainer dcsa:container_007 .
+
+dcsa:bol_008 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500008" .
+
+dcsa:container_008 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000087" ;
+    dcsa:containerLinkedToBooking dcsa:booking_008 .
+
+dcsa:booking_008 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00008" ;
+    dcsa:associatedWithBL dcsa:bol_008 ;
+    dcsa:bookingHasContainer dcsa:container_008 .
+
+dcsa:bol_009 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500009" .
+
+dcsa:container_009 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000097" ;
+    dcsa:containerLinkedToBooking dcsa:booking_009 .
+
+dcsa:booking_009 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00009" ;
+    dcsa:associatedWithBL dcsa:bol_009 ;
+    dcsa:bookingHasContainer dcsa:container_009 .
+
+dcsa:bol_010 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500010" .
+
+dcsa:container_010 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000107" ;
+    dcsa:containerLinkedToBooking dcsa:booking_010 .
+
+dcsa:booking_010 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00010" ;
+    dcsa:associatedWithBL dcsa:bol_010 ;
+    dcsa:bookingHasContainer dcsa:container_010 .
+
+dcsa:bol_011 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500011" .
+
+dcsa:container_011 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000117" ;
+    dcsa:containerLinkedToBooking dcsa:booking_011 .
+
+dcsa:booking_011 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00011" ;
+    dcsa:associatedWithBL dcsa:bol_011 ;
+    dcsa:bookingHasContainer dcsa:container_011 .
+
+dcsa:bol_012 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500012" .
+
+dcsa:container_012 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000127" ;
+    dcsa:containerLinkedToBooking dcsa:booking_012 .
+
+dcsa:booking_012 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00012" ;
+    dcsa:associatedWithBL dcsa:bol_012 ;
+    dcsa:bookingHasContainer dcsa:container_012 .
+
+dcsa:bol_013 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500013" .
+
+dcsa:container_013 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000137" ;
+    dcsa:containerLinkedToBooking dcsa:booking_013 .
+
+dcsa:booking_013 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00013" ;
+    dcsa:associatedWithBL dcsa:bol_013 ;
+    dcsa:bookingHasContainer dcsa:container_013 .
+
+dcsa:bol_014 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500014" .
+
+dcsa:container_014 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000147" ;
+    dcsa:containerLinkedToBooking dcsa:booking_014 .
+
+dcsa:booking_014 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00014" ;
+    dcsa:associatedWithBL dcsa:bol_014 ;
+    dcsa:bookingHasContainer dcsa:container_014 .
+
+dcsa:bol_015 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500015" .
+
+dcsa:container_015 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000157" ;
+    dcsa:containerLinkedToBooking dcsa:booking_015 .
+
+dcsa:booking_015 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00015" ;
+    dcsa:associatedWithBL dcsa:bol_015 ;
+    dcsa:bookingHasContainer dcsa:container_015 .
+
+dcsa:bol_016 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500016" .
+
+dcsa:container_016 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000167" ;
+    dcsa:containerLinkedToBooking dcsa:booking_016 .
+
+dcsa:booking_016 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00016" ;
+    dcsa:associatedWithBL dcsa:bol_016 ;
+    dcsa:bookingHasContainer dcsa:container_016 .
+
+dcsa:bol_017 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500017" .
+
+dcsa:container_017 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000177" ;
+    dcsa:containerLinkedToBooking dcsa:booking_017 .
+
+dcsa:booking_017 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00017" ;
+    dcsa:associatedWithBL dcsa:bol_017 ;
+    dcsa:bookingHasContainer dcsa:container_017 .
+
+dcsa:bol_018 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500018" .
+
+dcsa:container_018 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000187" ;
+    dcsa:containerLinkedToBooking dcsa:booking_018 .
+
+dcsa:booking_018 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00018" ;
+    dcsa:associatedWithBL dcsa:bol_018 ;
+    dcsa:bookingHasContainer dcsa:container_018 .
+
+dcsa:bol_019 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500019" .
+
+dcsa:container_019 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000197" ;
+    dcsa:containerLinkedToBooking dcsa:booking_019 .
+
+dcsa:booking_019 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00019" ;
+    dcsa:associatedWithBL dcsa:bol_019 ;
+    dcsa:bookingHasContainer dcsa:container_019 .
+
+dcsa:bol_020 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500020" .
+
+dcsa:container_020 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000207" ;
+    dcsa:containerLinkedToBooking dcsa:booking_020 .
+
+dcsa:booking_020 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00020" ;
+    dcsa:associatedWithBL dcsa:bol_020 ;
+    dcsa:bookingHasContainer dcsa:container_020 .
+
+dcsa:bol_021 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500021" .
+
+dcsa:container_021 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000217" ;
+    dcsa:containerLinkedToBooking dcsa:booking_021 .
+
+dcsa:booking_021 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00021" ;
+    dcsa:associatedWithBL dcsa:bol_021 ;
+    dcsa:bookingHasContainer dcsa:container_021 .
+
+dcsa:bol_022 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500022" .
+
+dcsa:container_022 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000227" ;
+    dcsa:containerLinkedToBooking dcsa:booking_022 .
+
+dcsa:booking_022 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00022" ;
+    dcsa:associatedWithBL dcsa:bol_022 ;
+    dcsa:bookingHasContainer dcsa:container_022 .
+
+dcsa:bol_023 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500023" .
+
+dcsa:container_023 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000237" ;
+    dcsa:containerLinkedToBooking dcsa:booking_023 .
+
+dcsa:booking_023 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00023" ;
+    dcsa:associatedWithBL dcsa:bol_023 ;
+    dcsa:bookingHasContainer dcsa:container_023 .
+
+dcsa:bol_024 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500024" .
+
+dcsa:container_024 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000247" ;
+    dcsa:containerLinkedToBooking dcsa:booking_024 .
+
+dcsa:booking_024 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00024" ;
+    dcsa:associatedWithBL dcsa:bol_024 ;
+    dcsa:bookingHasContainer dcsa:container_024 .
+
+dcsa:bol_025 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500025" .
+
+dcsa:container_025 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000257" ;
+    dcsa:containerLinkedToBooking dcsa:booking_025 .
+
+dcsa:booking_025 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00025" ;
+    dcsa:associatedWithBL dcsa:bol_025 ;
+    dcsa:bookingHasContainer dcsa:container_025 .
+
+dcsa:bol_026 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500026" .
+
+dcsa:container_026 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000267" ;
+    dcsa:containerLinkedToBooking dcsa:booking_026 .
+
+dcsa:booking_026 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00026" ;
+    dcsa:associatedWithBL dcsa:bol_026 ;
+    dcsa:bookingHasContainer dcsa:container_026 .
+
+dcsa:bol_027 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500027" .
+
+dcsa:container_027 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000277" ;
+    dcsa:containerLinkedToBooking dcsa:booking_027 .
+
+dcsa:booking_027 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00027" ;
+    dcsa:associatedWithBL dcsa:bol_027 ;
+    dcsa:bookingHasContainer dcsa:container_027 .
+
+dcsa:bol_028 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500028" .
+
+dcsa:container_028 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000287" ;
+    dcsa:containerLinkedToBooking dcsa:booking_028 .
+
+dcsa:booking_028 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00028" ;
+    dcsa:associatedWithBL dcsa:bol_028 ;
+    dcsa:bookingHasContainer dcsa:container_028 .
+
+dcsa:bol_029 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500029" .
+
+dcsa:container_029 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000297" ;
+    dcsa:containerLinkedToBooking dcsa:booking_029 .
+
+dcsa:booking_029 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00029" ;
+    dcsa:associatedWithBL dcsa:bol_029 ;
+    dcsa:bookingHasContainer dcsa:container_029 .
+
+dcsa:bol_030 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500030" .
+
+dcsa:container_030 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000307" ;
+    dcsa:containerLinkedToBooking dcsa:booking_030 .
+
+dcsa:booking_030 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00030" ;
+    dcsa:associatedWithBL dcsa:bol_030 ;
+    dcsa:bookingHasContainer dcsa:container_030 .
+
+dcsa:bol_031 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500031" .
+
+dcsa:container_031 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000317" ;
+    dcsa:containerLinkedToBooking dcsa:booking_031 .
+
+dcsa:booking_031 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00031" ;
+    dcsa:associatedWithBL dcsa:bol_031 ;
+    dcsa:bookingHasContainer dcsa:container_031 .
+
+dcsa:bol_032 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500032" .
+
+dcsa:container_032 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000327" ;
+    dcsa:containerLinkedToBooking dcsa:booking_032 .
+
+dcsa:booking_032 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00032" ;
+    dcsa:associatedWithBL dcsa:bol_032 ;
+    dcsa:bookingHasContainer dcsa:container_032 .
+
+dcsa:bol_033 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500033" .
+
+dcsa:container_033 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000337" ;
+    dcsa:containerLinkedToBooking dcsa:booking_033 .
+
+dcsa:booking_033 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00033" ;
+    dcsa:associatedWithBL dcsa:bol_033 ;
+    dcsa:bookingHasContainer dcsa:container_033 .
+
+dcsa:bol_034 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500034" .
+
+dcsa:container_034 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000347" ;
+    dcsa:containerLinkedToBooking dcsa:booking_034 .
+
+dcsa:booking_034 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00034" ;
+    dcsa:associatedWithBL dcsa:bol_034 ;
+    dcsa:bookingHasContainer dcsa:container_034 .
+
+dcsa:bol_035 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500035" .
+
+dcsa:container_035 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000357" ;
+    dcsa:containerLinkedToBooking dcsa:booking_035 .
+
+dcsa:booking_035 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00035" ;
+    dcsa:associatedWithBL dcsa:bol_035 ;
+    dcsa:bookingHasContainer dcsa:container_035 .
+
+dcsa:bol_036 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500036" .
+
+dcsa:container_036 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000367" ;
+    dcsa:containerLinkedToBooking dcsa:booking_036 .
+
+dcsa:booking_036 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00036" ;
+    dcsa:associatedWithBL dcsa:bol_036 ;
+    dcsa:bookingHasContainer dcsa:container_036 .
+
+dcsa:bol_037 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500037" .
+
+dcsa:container_037 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000377" ;
+    dcsa:containerLinkedToBooking dcsa:booking_037 .
+
+dcsa:booking_037 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00037" ;
+    dcsa:associatedWithBL dcsa:bol_037 ;
+    dcsa:bookingHasContainer dcsa:container_037 .
+
+dcsa:bol_038 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500038" .
+
+dcsa:container_038 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000387" ;
+    dcsa:containerLinkedToBooking dcsa:booking_038 .
+
+dcsa:booking_038 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00038" ;
+    dcsa:associatedWithBL dcsa:bol_038 ;
+    dcsa:bookingHasContainer dcsa:container_038 .
+
+dcsa:bol_039 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500039" .
+
+dcsa:container_039 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000397" ;
+    dcsa:containerLinkedToBooking dcsa:booking_039 .
+
+dcsa:booking_039 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00039" ;
+    dcsa:associatedWithBL dcsa:bol_039 ;
+    dcsa:bookingHasContainer dcsa:container_039 .
+
+dcsa:bol_040 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500040" .
+
+dcsa:container_040 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000407" ;
+    dcsa:containerLinkedToBooking dcsa:booking_040 .
+
+dcsa:booking_040 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00040" ;
+    dcsa:associatedWithBL dcsa:bol_040 ;
+    dcsa:bookingHasContainer dcsa:container_040 .
+
+dcsa:bol_041 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500041" .
+
+dcsa:container_041 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000417" ;
+    dcsa:containerLinkedToBooking dcsa:booking_041 .
+
+dcsa:booking_041 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00041" ;
+    dcsa:associatedWithBL dcsa:bol_041 ;
+    dcsa:bookingHasContainer dcsa:container_041 .
+
+dcsa:bol_042 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500042" .
+
+dcsa:container_042 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000427" ;
+    dcsa:containerLinkedToBooking dcsa:booking_042 .
+
+dcsa:booking_042 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00042" ;
+    dcsa:associatedWithBL dcsa:bol_042 ;
+    dcsa:bookingHasContainer dcsa:container_042 .
+
+dcsa:bol_043 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500043" .
+
+dcsa:container_043 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000437" ;
+    dcsa:containerLinkedToBooking dcsa:booking_043 .
+
+dcsa:booking_043 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00043" ;
+    dcsa:associatedWithBL dcsa:bol_043 ;
+    dcsa:bookingHasContainer dcsa:container_043 .
+
+dcsa:bol_044 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500044" .
+
+dcsa:container_044 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000447" ;
+    dcsa:containerLinkedToBooking dcsa:booking_044 .
+
+dcsa:booking_044 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00044" ;
+    dcsa:associatedWithBL dcsa:bol_044 ;
+    dcsa:bookingHasContainer dcsa:container_044 .
+
+dcsa:bol_045 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500045" .
+
+dcsa:container_045 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000457" ;
+    dcsa:containerLinkedToBooking dcsa:booking_045 .
+
+dcsa:booking_045 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00045" ;
+    dcsa:associatedWithBL dcsa:bol_045 ;
+    dcsa:bookingHasContainer dcsa:container_045 .
+
+dcsa:bol_046 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500046" .
+
+dcsa:container_046 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000467" ;
+    dcsa:containerLinkedToBooking dcsa:booking_046 .
+
+dcsa:booking_046 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00046" ;
+    dcsa:associatedWithBL dcsa:bol_046 ;
+    dcsa:bookingHasContainer dcsa:container_046 .
+
+dcsa:bol_047 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500047" .
+
+dcsa:container_047 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000477" ;
+    dcsa:containerLinkedToBooking dcsa:booking_047 .
+
+dcsa:booking_047 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00047" ;
+    dcsa:associatedWithBL dcsa:bol_047 ;
+    dcsa:bookingHasContainer dcsa:container_047 .
+
+dcsa:bol_048 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500048" .
+
+dcsa:container_048 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000487" ;
+    dcsa:containerLinkedToBooking dcsa:booking_048 .
+
+dcsa:booking_048 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00048" ;
+    dcsa:associatedWithBL dcsa:bol_048 ;
+    dcsa:bookingHasContainer dcsa:container_048 .
+
+dcsa:bol_049 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500049" .
+
+dcsa:container_049 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000497" ;
+    dcsa:containerLinkedToBooking dcsa:booking_049 .
+
+dcsa:booking_049 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00049" ;
+    dcsa:associatedWithBL dcsa:bol_049 ;
+    dcsa:bookingHasContainer dcsa:container_049 .
+
+dcsa:bol_050 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500050" .
+
+dcsa:container_050 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000507" ;
+    dcsa:containerLinkedToBooking dcsa:booking_050 .
+
+dcsa:booking_050 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00050" ;
+    dcsa:associatedWithBL dcsa:bol_050 ;
+    dcsa:bookingHasContainer dcsa:container_050 .
+
+dcsa:bol_051 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500051" .
+
+dcsa:container_051 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000517" ;
+    dcsa:containerLinkedToBooking dcsa:booking_051 .
+
+dcsa:booking_051 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00051" ;
+    dcsa:associatedWithBL dcsa:bol_051 ;
+    dcsa:bookingHasContainer dcsa:container_051 .
+
+dcsa:bol_052 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500052" .
+
+dcsa:container_052 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000527" ;
+    dcsa:containerLinkedToBooking dcsa:booking_052 .
+
+dcsa:booking_052 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00052" ;
+    dcsa:associatedWithBL dcsa:bol_052 ;
+    dcsa:bookingHasContainer dcsa:container_052 .
+
+dcsa:bol_053 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500053" .
+
+dcsa:container_053 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000537" ;
+    dcsa:containerLinkedToBooking dcsa:booking_053 .
+
+dcsa:booking_053 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00053" ;
+    dcsa:associatedWithBL dcsa:bol_053 ;
+    dcsa:bookingHasContainer dcsa:container_053 .
+
+dcsa:bol_054 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500054" .
+
+dcsa:container_054 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000547" ;
+    dcsa:containerLinkedToBooking dcsa:booking_054 .
+
+dcsa:booking_054 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00054" ;
+    dcsa:associatedWithBL dcsa:bol_054 ;
+    dcsa:bookingHasContainer dcsa:container_054 .
+
+dcsa:bol_055 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500055" .
+
+dcsa:container_055 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000557" ;
+    dcsa:containerLinkedToBooking dcsa:booking_055 .
+
+dcsa:booking_055 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00055" ;
+    dcsa:associatedWithBL dcsa:bol_055 ;
+    dcsa:bookingHasContainer dcsa:container_055 .
+
+dcsa:bol_056 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500056" .
+
+dcsa:container_056 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000567" ;
+    dcsa:containerLinkedToBooking dcsa:booking_056 .
+
+dcsa:booking_056 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00056" ;
+    dcsa:associatedWithBL dcsa:bol_056 ;
+    dcsa:bookingHasContainer dcsa:container_056 .
+
+dcsa:bol_057 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500057" .
+
+dcsa:container_057 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000577" ;
+    dcsa:containerLinkedToBooking dcsa:booking_057 .
+
+dcsa:booking_057 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00057" ;
+    dcsa:associatedWithBL dcsa:bol_057 ;
+    dcsa:bookingHasContainer dcsa:container_057 .
+
+dcsa:bol_058 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500058" .
+
+dcsa:container_058 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000587" ;
+    dcsa:containerLinkedToBooking dcsa:booking_058 .
+
+dcsa:booking_058 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00058" ;
+    dcsa:associatedWithBL dcsa:bol_058 ;
+    dcsa:bookingHasContainer dcsa:container_058 .
+
+dcsa:bol_059 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500059" .
+
+dcsa:container_059 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000597" ;
+    dcsa:containerLinkedToBooking dcsa:booking_059 .
+
+dcsa:booking_059 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00059" ;
+    dcsa:associatedWithBL dcsa:bol_059 ;
+    dcsa:bookingHasContainer dcsa:container_059 .
+
+dcsa:bol_060 a dcsa:BillOfLading ;
+    dcsa:bolNumber "MAEU-BOL-500060" .
+
+dcsa:container_060 a dcsa:Container ;
+    dcsa:containerNumber "MSCU1000607" ;
+    dcsa:containerLinkedToBooking dcsa:booking_060 .
+
+dcsa:booking_060 a dcsa:Booking ;
+    dcsa:bookingReference "BKG-2025-00060" ;
+    dcsa:associatedWithBL dcsa:bol_060 ;
+    dcsa:bookingHasContainer dcsa:container_060 .
+
+dcsa:call_001 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_001 ;
+    dcsa:callLocation dcsa:loc_001 ;
+    dcsa:followedByLeg dcsa:call_002 .
+
+dcsa:call_002 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_002 ;
+    dcsa:callLocation dcsa:loc_002 ;
+    dcsa:followedByLeg dcsa:call_003 .
+
+dcsa:call_003 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_003 ;
+    dcsa:callLocation dcsa:loc_003 ;
+    dcsa:followedByLeg dcsa:call_004 .
+
+dcsa:call_004 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_004 ;
+    dcsa:callLocation dcsa:loc_004 ;
+    dcsa:followedByLeg dcsa:call_005 .
+
+dcsa:call_005 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_005 ;
+    dcsa:callLocation dcsa:loc_005 .
+
+dcsa:call_006 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_006 ;
+    dcsa:callLocation dcsa:loc_006 ;
+    dcsa:followedByLeg dcsa:call_007 .
+
+dcsa:call_007 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_007 ;
+    dcsa:callLocation dcsa:loc_007 ;
+    dcsa:followedByLeg dcsa:call_008 .
+
+dcsa:call_008 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_008 ;
+    dcsa:callLocation dcsa:loc_008 ;
+    dcsa:followedByLeg dcsa:call_009 .
+
+dcsa:call_009 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_009 ;
+    dcsa:callLocation dcsa:loc_009 ;
+    dcsa:followedByLeg dcsa:call_010 .
+
+dcsa:call_010 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_010 ;
+    dcsa:callLocation dcsa:loc_010 .
+
+dcsa:call_011 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_011 ;
+    dcsa:callLocation dcsa:loc_011 ;
+    dcsa:followedByLeg dcsa:call_012 .
+
+dcsa:call_012 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_012 ;
+    dcsa:callLocation dcsa:loc_012 ;
+    dcsa:followedByLeg dcsa:call_013 .
+
+dcsa:call_013 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_013 ;
+    dcsa:callLocation dcsa:loc_013 ;
+    dcsa:followedByLeg dcsa:call_014 .
+
+dcsa:call_014 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_014 ;
+    dcsa:callLocation dcsa:loc_014 ;
+    dcsa:followedByLeg dcsa:call_015 .
+
+dcsa:call_015 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_015 ;
+    dcsa:callLocation dcsa:loc_015 .
+
+dcsa:call_016 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_016 ;
+    dcsa:callLocation dcsa:loc_016 ;
+    dcsa:followedByLeg dcsa:call_017 .
+
+dcsa:call_017 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_017 ;
+    dcsa:callLocation dcsa:loc_017 ;
+    dcsa:followedByLeg dcsa:call_018 .
+
+dcsa:call_018 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_018 ;
+    dcsa:callLocation dcsa:loc_018 ;
+    dcsa:followedByLeg dcsa:call_019 .
+
+dcsa:call_019 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_019 ;
+    dcsa:callLocation dcsa:loc_019 ;
+    dcsa:followedByLeg dcsa:call_020 .
+
+dcsa:call_020 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_020 ;
+    dcsa:callLocation dcsa:loc_020 .
+
+dcsa:call_021 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_021 ;
+    dcsa:callLocation dcsa:loc_021 ;
+    dcsa:followedByLeg dcsa:call_022 .
+
+dcsa:call_022 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_022 ;
+    dcsa:callLocation dcsa:loc_022 ;
+    dcsa:followedByLeg dcsa:call_023 .
+
+dcsa:call_023 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_023 ;
+    dcsa:callLocation dcsa:loc_023 ;
+    dcsa:followedByLeg dcsa:call_024 .
+
+dcsa:call_024 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_024 ;
+    dcsa:callLocation dcsa:loc_024 ;
+    dcsa:followedByLeg dcsa:call_025 .
+
+dcsa:call_025 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_025 ;
+    dcsa:callLocation dcsa:loc_025 .
+
+dcsa:call_026 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_001 ;
+    dcsa:callLocation dcsa:loc_026 ;
+    dcsa:followedByLeg dcsa:call_027 .
+
+dcsa:call_027 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_002 ;
+    dcsa:callLocation dcsa:loc_027 ;
+    dcsa:followedByLeg dcsa:call_028 .
+
+dcsa:call_028 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_003 ;
+    dcsa:callLocation dcsa:loc_028 ;
+    dcsa:followedByLeg dcsa:call_029 .
+
+dcsa:call_029 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_004 ;
+    dcsa:callLocation dcsa:loc_029 ;
+    dcsa:followedByLeg dcsa:call_030 .
+
+dcsa:call_030 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_005 ;
+    dcsa:callLocation dcsa:loc_030 .
+
+dcsa:call_031 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_006 ;
+    dcsa:callLocation dcsa:loc_001 ;
+    dcsa:followedByLeg dcsa:call_032 .
+
+dcsa:call_032 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_007 ;
+    dcsa:callLocation dcsa:loc_002 ;
+    dcsa:followedByLeg dcsa:call_033 .
+
+dcsa:call_033 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_008 ;
+    dcsa:callLocation dcsa:loc_003 ;
+    dcsa:followedByLeg dcsa:call_034 .
+
+dcsa:call_034 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_009 ;
+    dcsa:callLocation dcsa:loc_004 ;
+    dcsa:followedByLeg dcsa:call_035 .
+
+dcsa:call_035 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_010 ;
+    dcsa:callLocation dcsa:loc_005 .
+
+dcsa:call_036 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_011 ;
+    dcsa:callLocation dcsa:loc_006 ;
+    dcsa:followedByLeg dcsa:call_037 .
+
+dcsa:call_037 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_012 ;
+    dcsa:callLocation dcsa:loc_007 ;
+    dcsa:followedByLeg dcsa:call_038 .
+
+dcsa:call_038 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_013 ;
+    dcsa:callLocation dcsa:loc_008 ;
+    dcsa:followedByLeg dcsa:call_039 .
+
+dcsa:call_039 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_014 ;
+    dcsa:callLocation dcsa:loc_009 ;
+    dcsa:followedByLeg dcsa:call_040 .
+
+dcsa:call_040 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_015 ;
+    dcsa:callLocation dcsa:loc_010 .
+
+dcsa:call_041 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_016 ;
+    dcsa:callLocation dcsa:loc_011 ;
+    dcsa:followedByLeg dcsa:call_042 .
+
+dcsa:call_042 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_017 ;
+    dcsa:callLocation dcsa:loc_012 ;
+    dcsa:followedByLeg dcsa:call_043 .
+
+dcsa:call_043 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_018 ;
+    dcsa:callLocation dcsa:loc_013 ;
+    dcsa:followedByLeg dcsa:call_044 .
+
+dcsa:call_044 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_019 ;
+    dcsa:callLocation dcsa:loc_014 ;
+    dcsa:followedByLeg dcsa:call_045 .
+
+dcsa:call_045 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_020 ;
+    dcsa:callLocation dcsa:loc_015 .
+
+dcsa:call_046 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_021 ;
+    dcsa:callLocation dcsa:loc_016 ;
+    dcsa:followedByLeg dcsa:call_047 .
+
+dcsa:call_047 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_022 ;
+    dcsa:callLocation dcsa:loc_017 ;
+    dcsa:followedByLeg dcsa:call_048 .
+
+dcsa:call_048 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_023 ;
+    dcsa:callLocation dcsa:loc_018 ;
+    dcsa:followedByLeg dcsa:call_049 .
+
+dcsa:call_049 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_024 ;
+    dcsa:callLocation dcsa:loc_019 ;
+    dcsa:followedByLeg dcsa:call_050 .
+
+dcsa:call_050 a dcsa:TransportCall ;
+    dcsa:callVessel dcsa:vessel_025 ;
+    dcsa:callLocation dcsa:loc_020 .
+
+dcsa:equip_ev_001 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-02T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_001 ;
+    dcsa:containerInEvent dcsa:container_001 .
+
+dcsa:equip_ev_002 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-03T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_002 ;
+    dcsa:containerInEvent dcsa:container_002 .
+
+dcsa:equip_ev_003 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-04T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_003 ;
+    dcsa:containerInEvent dcsa:container_003 .
+
+dcsa:equip_ev_004 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-05T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_004 ;
+    dcsa:containerInEvent dcsa:container_004 .
+
+dcsa:equip_ev_005 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-06T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_005 ;
+    dcsa:containerInEvent dcsa:container_005 .
+
+dcsa:equip_ev_006 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-07T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_006 ;
+    dcsa:containerInEvent dcsa:container_006 .
+
+dcsa:equip_ev_007 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-08T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_007 ;
+    dcsa:containerInEvent dcsa:container_007 .
+
+dcsa:equip_ev_008 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-09T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_008 ;
+    dcsa:containerInEvent dcsa:container_008 .
+
+dcsa:equip_ev_009 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-10T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_009 ;
+    dcsa:containerInEvent dcsa:container_009 .
+
+dcsa:equip_ev_010 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-11T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_010 ;
+    dcsa:containerInEvent dcsa:container_010 .
+
+dcsa:equip_ev_011 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-12T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_011 ;
+    dcsa:containerInEvent dcsa:container_011 .
+
+dcsa:equip_ev_012 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-13T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_012 ;
+    dcsa:containerInEvent dcsa:container_012 .
+
+dcsa:equip_ev_013 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-14T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_013 ;
+    dcsa:containerInEvent dcsa:container_013 .
+
+dcsa:equip_ev_014 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-15T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_014 ;
+    dcsa:containerInEvent dcsa:container_014 .
+
+dcsa:equip_ev_015 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-16T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_015 ;
+    dcsa:containerInEvent dcsa:container_015 .
+
+dcsa:equip_ev_016 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-17T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_016 ;
+    dcsa:containerInEvent dcsa:container_016 .
+
+dcsa:equip_ev_017 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-18T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_017 ;
+    dcsa:containerInEvent dcsa:container_017 .
+
+dcsa:equip_ev_018 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-19T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_018 ;
+    dcsa:containerInEvent dcsa:container_018 .
+
+dcsa:equip_ev_019 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-20T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_019 ;
+    dcsa:containerInEvent dcsa:container_019 .
+
+dcsa:equip_ev_020 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-21T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_020 ;
+    dcsa:containerInEvent dcsa:container_020 .
+
+dcsa:equip_ev_021 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-22T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_021 ;
+    dcsa:containerInEvent dcsa:container_021 .
+
+dcsa:equip_ev_022 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-23T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_022 ;
+    dcsa:containerInEvent dcsa:container_022 .
+
+dcsa:equip_ev_023 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-24T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_023 ;
+    dcsa:containerInEvent dcsa:container_023 .
+
+dcsa:equip_ev_024 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-25T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_024 ;
+    dcsa:containerInEvent dcsa:container_024 .
+
+dcsa:equip_ev_025 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-26T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_025 ;
+    dcsa:containerInEvent dcsa:container_025 .
+
+dcsa:equip_ev_026 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-27T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_026 ;
+    dcsa:containerInEvent dcsa:container_026 .
+
+dcsa:equip_ev_027 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-28T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_027 ;
+    dcsa:containerInEvent dcsa:container_027 .
+
+dcsa:equip_ev_028 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-01T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_028 ;
+    dcsa:containerInEvent dcsa:container_028 .
+
+dcsa:equip_ev_029 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-02T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_029 ;
+    dcsa:containerInEvent dcsa:container_029 .
+
+dcsa:equip_ev_030 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-03T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_030 ;
+    dcsa:containerInEvent dcsa:container_030 .
+
+dcsa:equip_ev_031 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-04T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_001 ;
+    dcsa:containerInEvent dcsa:container_031 .
+
+dcsa:equip_ev_032 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-05T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_002 ;
+    dcsa:containerInEvent dcsa:container_032 .
+
+dcsa:equip_ev_033 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-06T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_003 ;
+    dcsa:containerInEvent dcsa:container_033 .
+
+dcsa:equip_ev_034 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-07T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_004 ;
+    dcsa:containerInEvent dcsa:container_034 .
+
+dcsa:equip_ev_035 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-08T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_005 ;
+    dcsa:containerInEvent dcsa:container_035 .
+
+dcsa:equip_ev_036 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-09T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_006 ;
+    dcsa:containerInEvent dcsa:container_036 .
+
+dcsa:equip_ev_037 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-10T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_007 ;
+    dcsa:containerInEvent dcsa:container_037 .
+
+dcsa:equip_ev_038 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-11T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_008 ;
+    dcsa:containerInEvent dcsa:container_038 .
+
+dcsa:equip_ev_039 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-12T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_009 ;
+    dcsa:containerInEvent dcsa:container_039 .
+
+dcsa:equip_ev_040 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-13T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_010 ;
+    dcsa:containerInEvent dcsa:container_040 .
+
+dcsa:equip_ev_041 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-14T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_011 ;
+    dcsa:containerInEvent dcsa:container_041 .
+
+dcsa:equip_ev_042 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-15T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_012 ;
+    dcsa:containerInEvent dcsa:container_042 .
+
+dcsa:equip_ev_043 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-05-16T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_013 ;
+    dcsa:containerInEvent dcsa:container_043 .
+
+dcsa:equip_ev_044 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-05-17T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_014 ;
+    dcsa:containerInEvent dcsa:container_044 .
+
+dcsa:equip_ev_045 a dcsa:EquipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-05-18T10:30:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_015 ;
+    dcsa:containerInEvent dcsa:container_045 .
+
+dcsa:trans_ev_001 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-02T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_002 .
+
+dcsa:trans_ev_002 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-03T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_003 .
+
+dcsa:trans_ev_003 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-04T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_004 .
+
+dcsa:trans_ev_004 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-05T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_005 .
+
+dcsa:trans_ev_005 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-06T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_006 .
+
+dcsa:trans_ev_006 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-07T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_007 .
+
+dcsa:trans_ev_007 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-08T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_008 .
+
+dcsa:trans_ev_008 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-09T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_009 .
+
+dcsa:trans_ev_009 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-10T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_010 .
+
+dcsa:trans_ev_010 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-11T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_011 .
+
+dcsa:trans_ev_011 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-12T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_012 .
+
+dcsa:trans_ev_012 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-13T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_013 .
+
+dcsa:trans_ev_013 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-14T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_014 .
+
+dcsa:trans_ev_014 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-15T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_015 .
+
+dcsa:trans_ev_015 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-16T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_016 .
+
+dcsa:trans_ev_016 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-17T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_017 .
+
+dcsa:trans_ev_017 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-18T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_018 .
+
+dcsa:trans_ev_018 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-19T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_019 .
+
+dcsa:trans_ev_019 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-20T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_020 .
+
+dcsa:trans_ev_020 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-21T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_021 .
+
+dcsa:trans_ev_021 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-22T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_022 .
+
+dcsa:trans_ev_022 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-23T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_023 .
+
+dcsa:trans_ev_023 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-24T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_024 .
+
+dcsa:trans_ev_024 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-25T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_025 .
+
+dcsa:trans_ev_025 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-26T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_026 .
+
+dcsa:trans_ev_026 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-27T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_027 .
+
+dcsa:trans_ev_027 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-28T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_028 .
+
+dcsa:trans_ev_028 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-01T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_029 .
+
+dcsa:trans_ev_029 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-02T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_030 .
+
+dcsa:trans_ev_030 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-03T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_001 .
+
+dcsa:trans_ev_031 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-04T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_002 .
+
+dcsa:trans_ev_032 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-05T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_003 .
+
+dcsa:trans_ev_033 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-06-06T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_004 .
+
+dcsa:trans_ev_034 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-06-07T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_005 .
+
+dcsa:trans_ev_035 a dcsa:TransportEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-06-08T14:00:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_006 .
+
+dcsa:ship_ev_001 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-02T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_007 .
+
+dcsa:ship_ev_002 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-03T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_008 .
+
+dcsa:ship_ev_003 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-04T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_009 .
+
+dcsa:ship_ev_004 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-05T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_010 .
+
+dcsa:ship_ev_005 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-06T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_011 .
+
+dcsa:ship_ev_006 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-07T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_012 .
+
+dcsa:ship_ev_007 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-08T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_013 .
+
+dcsa:ship_ev_008 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-09T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_014 .
+
+dcsa:ship_ev_009 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-10T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_015 .
+
+dcsa:ship_ev_010 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-11T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_016 .
+
+dcsa:ship_ev_011 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-12T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_017 .
+
+dcsa:ship_ev_012 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-13T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_018 .
+
+dcsa:ship_ev_013 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-14T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_019 .
+
+dcsa:ship_ev_014 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-15T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_020 .
+
+dcsa:ship_ev_015 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-16T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_021 .
+
+dcsa:ship_ev_016 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-17T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_022 .
+
+dcsa:ship_ev_017 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-18T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_023 .
+
+dcsa:ship_ev_018 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-19T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_024 .
+
+dcsa:ship_ev_019 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-20T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_025 .
+
+dcsa:ship_ev_020 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-21T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_026 .
+
+dcsa:ship_ev_021 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-22T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_027 .
+
+dcsa:ship_ev_022 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-23T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_028 .
+
+dcsa:ship_ev_023 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-24T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_029 .
+
+dcsa:ship_ev_024 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-25T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_030 .
+
+dcsa:ship_ev_025 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-26T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_001 .
+
+dcsa:ship_ev_026 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-27T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_002 .
+
+dcsa:ship_ev_027 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-28T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_003 .
+
+dcsa:ship_ev_028 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-01T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_004 .
+
+dcsa:ship_ev_029 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-02T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_005 .
+
+dcsa:ship_ev_030 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-03T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_006 .
+
+dcsa:ship_ev_031 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-04T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_007 .
+
+dcsa:ship_ev_032 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-05T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_008 .
+
+dcsa:ship_ev_033 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ESTIMATED" ;
+    dcsa:eventDateTime "2025-07-06T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_009 .
+
+dcsa:ship_ev_034 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "ACTUAL" ;
+    dcsa:eventDateTime "2025-07-07T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_010 .
+
+dcsa:ship_ev_035 a dcsa:ShipmentEvent ;
+    dcsa:eventClassifier "PLANNED" ;
+    dcsa:eventDateTime "2025-07-08T09:15:00Z"^^xsd:dateTime ;
+    dcsa:eventAtLocation dcsa:loc_011 .

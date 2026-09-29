@@ -1,0 +1,1236 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/fintech/> .
+
+# ABox Instance Triples for fintech
+
+ex:person_001 a ex:Person .
+
+ex:person_002 a ex:Person .
+
+ex:person_003 a ex:Person .
+
+ex:person_004 a ex:Person .
+
+ex:person_005 a ex:Person .
+
+ex:person_006 a ex:Person .
+
+ex:person_007 a ex:Person .
+
+ex:person_008 a ex:Person .
+
+ex:person_009 a ex:Person .
+
+ex:person_010 a ex:Person .
+
+ex:person_011 a ex:Person .
+
+ex:person_012 a ex:Person .
+
+ex:person_013 a ex:Person .
+
+ex:person_014 a ex:Person .
+
+ex:person_015 a ex:Person .
+
+ex:person_016 a ex:Person .
+
+ex:person_017 a ex:Person .
+
+ex:person_018 a ex:Person .
+
+ex:person_019 a ex:Person .
+
+ex:person_020 a ex:Person .
+
+ex:person_021 a ex:Person .
+
+ex:person_022 a ex:Person .
+
+ex:person_023 a ex:Person .
+
+ex:person_024 a ex:Person .
+
+ex:person_025 a ex:Person .
+
+ex:person_026 a ex:Person .
+
+ex:person_027 a ex:Person .
+
+ex:person_028 a ex:Person .
+
+ex:person_029 a ex:Person .
+
+ex:person_030 a ex:Person .
+
+ex:person_031 a ex:Person .
+
+ex:person_032 a ex:Person .
+
+ex:person_033 a ex:Person .
+
+ex:person_034 a ex:Person .
+
+ex:person_035 a ex:Person .
+
+ex:person_036 a ex:Person .
+
+ex:person_037 a ex:Person .
+
+ex:person_038 a ex:Person .
+
+ex:person_039 a ex:Person .
+
+ex:person_040 a ex:Person .
+
+ex:person_041 a ex:Person .
+
+ex:person_042 a ex:Person .
+
+ex:person_043 a ex:Person .
+
+ex:person_044 a ex:Person .
+
+ex:person_045 a ex:Person .
+
+ex:person_046 a ex:Person .
+
+ex:person_047 a ex:Person .
+
+ex:person_048 a ex:Person .
+
+ex:person_049 a ex:Person .
+
+ex:person_050 a ex:Person .
+
+ex:person_051 a ex:Person .
+
+ex:person_052 a ex:Person .
+
+ex:person_053 a ex:Person .
+
+ex:person_054 a ex:Person .
+
+ex:person_055 a ex:Person .
+
+ex:person_056 a ex:Person .
+
+ex:person_057 a ex:Person .
+
+ex:person_058 a ex:Person .
+
+ex:person_059 a ex:Person .
+
+ex:person_060 a ex:Person .
+
+ex:person_061 a ex:Person .
+
+ex:person_062 a ex:Person .
+
+ex:person_063 a ex:Person .
+
+ex:person_064 a ex:Person .
+
+ex:person_065 a ex:Person .
+
+ex:person_066 a ex:Person .
+
+ex:person_067 a ex:Person .
+
+ex:person_068 a ex:Person .
+
+ex:person_069 a ex:Person .
+
+ex:person_070 a ex:Person .
+
+ex:org_001 a ex:Organization ;
+    ex:isPartnerOf ex:org_002 .
+
+ex:org_002 a ex:Organization ;
+    ex:isPartnerOf ex:org_003 .
+
+ex:org_003 a ex:Organization ;
+    ex:isPartnerOf ex:org_004 .
+
+ex:org_004 a ex:Organization ;
+    ex:isPartnerOf ex:org_005 .
+
+ex:org_005 a ex:Organization ;
+    ex:isPartnerOf ex:org_006 .
+
+ex:org_006 a ex:Organization ;
+    ex:isPartnerOf ex:org_007 .
+
+ex:org_007 a ex:Organization ;
+    ex:isPartnerOf ex:org_008 .
+
+ex:org_008 a ex:Organization ;
+    ex:isPartnerOf ex:org_009 .
+
+ex:org_009 a ex:Organization ;
+    ex:isPartnerOf ex:org_010 .
+
+ex:org_010 a ex:Organization ;
+    ex:isPartnerOf ex:org_011 .
+
+ex:org_011 a ex:Organization ;
+    ex:isPartnerOf ex:org_012 .
+
+ex:org_012 a ex:Organization ;
+    ex:isPartnerOf ex:org_013 .
+
+ex:org_013 a ex:Organization ;
+    ex:isPartnerOf ex:org_014 .
+
+ex:org_014 a ex:Organization ;
+    ex:isPartnerOf ex:org_015 .
+
+ex:org_015 a ex:Organization ;
+    ex:isPartnerOf ex:org_016 .
+
+ex:org_016 a ex:Organization ;
+    ex:isPartnerOf ex:org_017 .
+
+ex:org_017 a ex:Organization ;
+    ex:isPartnerOf ex:org_018 .
+
+ex:org_018 a ex:Organization ;
+    ex:isPartnerOf ex:org_019 .
+
+ex:org_019 a ex:Organization ;
+    ex:isPartnerOf ex:org_020 .
+
+ex:org_020 a ex:Organization ;
+    ex:isPartnerOf ex:org_021 .
+
+ex:org_021 a ex:Organization ;
+    ex:isPartnerOf ex:org_022 .
+
+ex:org_022 a ex:Organization ;
+    ex:isPartnerOf ex:org_023 .
+
+ex:org_023 a ex:Organization ;
+    ex:isPartnerOf ex:org_024 .
+
+ex:org_024 a ex:Organization ;
+    ex:isPartnerOf ex:org_025 .
+
+ex:org_025 a ex:Organization ;
+    ex:isPartnerOf ex:org_026 .
+
+ex:org_026 a ex:Organization ;
+    ex:isPartnerOf ex:org_027 .
+
+ex:org_027 a ex:Organization ;
+    ex:isPartnerOf ex:org_028 .
+
+ex:org_028 a ex:Organization ;
+    ex:isPartnerOf ex:org_029 .
+
+ex:org_029 a ex:Organization ;
+    ex:isPartnerOf ex:org_030 .
+
+ex:org_030 a ex:Organization ;
+    ex:isPartnerOf ex:org_031 .
+
+ex:org_031 a ex:Organization ;
+    ex:isPartnerOf ex:org_032 .
+
+ex:org_032 a ex:Organization ;
+    ex:isPartnerOf ex:org_033 .
+
+ex:org_033 a ex:Organization ;
+    ex:isPartnerOf ex:org_034 .
+
+ex:org_034 a ex:Organization ;
+    ex:isPartnerOf ex:org_035 .
+
+ex:org_035 a ex:Organization ;
+    ex:isPartnerOf ex:org_036 .
+
+ex:org_036 a ex:Organization ;
+    ex:isPartnerOf ex:org_037 .
+
+ex:org_037 a ex:Organization ;
+    ex:isPartnerOf ex:org_038 .
+
+ex:org_038 a ex:Organization ;
+    ex:isPartnerOf ex:org_039 .
+
+ex:org_039 a ex:Organization ;
+    ex:isPartnerOf ex:org_040 .
+
+ex:org_040 a ex:Organization ;
+    ex:isPartnerOf ex:org_041 .
+
+ex:org_041 a ex:Organization ;
+    ex:isPartnerOf ex:org_042 .
+
+ex:org_042 a ex:Organization ;
+    ex:isPartnerOf ex:org_043 .
+
+ex:org_043 a ex:Organization ;
+    ex:isPartnerOf ex:org_044 .
+
+ex:org_044 a ex:Organization ;
+    ex:isPartnerOf ex:org_045 .
+
+ex:org_045 a ex:Organization ;
+    ex:isPartnerOf ex:org_046 .
+
+ex:org_046 a ex:Organization ;
+    ex:isPartnerOf ex:org_047 .
+
+ex:org_047 a ex:Organization ;
+    ex:isPartnerOf ex:org_048 .
+
+ex:org_048 a ex:Organization ;
+    ex:isPartnerOf ex:org_049 .
+
+ex:org_049 a ex:Organization ;
+    ex:isPartnerOf ex:org_050 .
+
+ex:org_050 a ex:Organization ;
+    ex:isPartnerOf ex:org_001 .
+
+ex:pers_acct_001 a ex:PersonalAccount ;
+    ex:accountBalance 19250.00 ;
+    ex:hasOwner ex:person_001 ;
+    ex:hasSignatory ex:person_002, ex:person_005 .
+
+ex:person_001 ex:ownsAccount ex:pers_acct_001 .
+
+ex:pers_acct_002 a ex:PersonalAccount ;
+    ex:accountBalance 20000.00 ;
+    ex:hasOwner ex:person_002 ;
+    ex:hasSignatory ex:person_003, ex:person_006 .
+
+ex:person_002 ex:ownsAccount ex:pers_acct_002 .
+
+ex:pers_acct_003 a ex:PersonalAccount ;
+    ex:accountBalance 165000.00 ;
+    ex:hasOwner ex:person_003 ;
+    ex:hasSignatory ex:person_004, ex:person_007 .
+
+ex:person_003 ex:ownsAccount ex:pers_acct_003 .
+
+ex:pers_acct_004 a ex:PersonalAccount ;
+    ex:accountBalance 21500.00 ;
+    ex:hasOwner ex:person_004 ;
+    ex:hasSignatory ex:person_005, ex:person_008 .
+
+ex:person_004 ex:ownsAccount ex:pers_acct_004 .
+
+ex:pers_acct_005 a ex:PersonalAccount ;
+    ex:accountBalance 22250.00 ;
+    ex:hasOwner ex:person_005 ;
+    ex:hasSignatory ex:person_006, ex:person_009 .
+
+ex:person_005 ex:ownsAccount ex:pers_acct_005 .
+
+ex:pers_acct_006 a ex:PersonalAccount ;
+    ex:accountBalance 180000.00 ;
+    ex:hasOwner ex:person_006 ;
+    ex:hasSignatory ex:person_007, ex:person_010 .
+
+ex:person_006 ex:ownsAccount ex:pers_acct_006 .
+
+ex:pers_acct_007 a ex:PersonalAccount ;
+    ex:accountBalance 23750.00 ;
+    ex:hasOwner ex:person_007 ;
+    ex:hasSignatory ex:person_008, ex:person_011 .
+
+ex:person_007 ex:ownsAccount ex:pers_acct_007 .
+
+ex:pers_acct_008 a ex:PersonalAccount ;
+    ex:accountBalance 24500.00 ;
+    ex:hasOwner ex:person_008 ;
+    ex:hasSignatory ex:person_009, ex:person_012 .
+
+ex:person_008 ex:ownsAccount ex:pers_acct_008 .
+
+ex:pers_acct_009 a ex:PersonalAccount ;
+    ex:accountBalance 195000.00 ;
+    ex:hasOwner ex:person_009 ;
+    ex:hasSignatory ex:person_010, ex:person_013 .
+
+ex:person_009 ex:ownsAccount ex:pers_acct_009 .
+
+ex:pers_acct_010 a ex:PersonalAccount ;
+    ex:accountBalance 26000.00 ;
+    ex:hasOwner ex:person_010 ;
+    ex:hasSignatory ex:person_011, ex:person_014 .
+
+ex:person_010 ex:ownsAccount ex:pers_acct_010 .
+
+ex:pers_acct_011 a ex:PersonalAccount ;
+    ex:accountBalance 26750.00 ;
+    ex:hasOwner ex:person_011 ;
+    ex:hasSignatory ex:person_012, ex:person_015 .
+
+ex:person_011 ex:ownsAccount ex:pers_acct_011 .
+
+ex:pers_acct_012 a ex:PersonalAccount ;
+    ex:accountBalance 210000.00 ;
+    ex:hasOwner ex:person_012 ;
+    ex:hasSignatory ex:person_013, ex:person_016 .
+
+ex:person_012 ex:ownsAccount ex:pers_acct_012 .
+
+ex:pers_acct_013 a ex:PersonalAccount ;
+    ex:accountBalance 28250.00 ;
+    ex:hasOwner ex:person_013 ;
+    ex:hasSignatory ex:person_014, ex:person_017 .
+
+ex:person_013 ex:ownsAccount ex:pers_acct_013 .
+
+ex:pers_acct_014 a ex:PersonalAccount ;
+    ex:accountBalance 29000.00 ;
+    ex:hasOwner ex:person_014 ;
+    ex:hasSignatory ex:person_015, ex:person_018 .
+
+ex:person_014 ex:ownsAccount ex:pers_acct_014 .
+
+ex:pers_acct_015 a ex:PersonalAccount ;
+    ex:accountBalance 225000.00 ;
+    ex:hasOwner ex:person_015 ;
+    ex:hasSignatory ex:person_016, ex:person_019 .
+
+ex:person_015 ex:ownsAccount ex:pers_acct_015 .
+
+ex:pers_acct_016 a ex:PersonalAccount ;
+    ex:accountBalance 30500.00 ;
+    ex:hasOwner ex:person_016 ;
+    ex:hasSignatory ex:person_017, ex:person_020 .
+
+ex:person_016 ex:ownsAccount ex:pers_acct_016 .
+
+ex:pers_acct_017 a ex:PersonalAccount ;
+    ex:accountBalance 31250.00 ;
+    ex:hasOwner ex:person_017 ;
+    ex:hasSignatory ex:person_018, ex:person_021 .
+
+ex:person_017 ex:ownsAccount ex:pers_acct_017 .
+
+ex:pers_acct_018 a ex:PersonalAccount ;
+    ex:accountBalance 240000.00 ;
+    ex:hasOwner ex:person_018 ;
+    ex:hasSignatory ex:person_019, ex:person_022 .
+
+ex:person_018 ex:ownsAccount ex:pers_acct_018 .
+
+ex:pers_acct_019 a ex:PersonalAccount ;
+    ex:accountBalance 32750.00 ;
+    ex:hasOwner ex:person_019 ;
+    ex:hasSignatory ex:person_020, ex:person_023 .
+
+ex:person_019 ex:ownsAccount ex:pers_acct_019 .
+
+ex:pers_acct_020 a ex:PersonalAccount ;
+    ex:accountBalance 33500.00 ;
+    ex:hasOwner ex:person_020 ;
+    ex:hasSignatory ex:person_021, ex:person_024 .
+
+ex:person_020 ex:ownsAccount ex:pers_acct_020 .
+
+ex:pers_acct_021 a ex:PersonalAccount ;
+    ex:accountBalance 255000.00 ;
+    ex:hasOwner ex:person_021 ;
+    ex:hasSignatory ex:person_022, ex:person_025 ;
+    ex:subAccountOf ex:pers_acct_001 .
+
+ex:person_021 ex:ownsAccount ex:pers_acct_021 .
+
+ex:pers_acct_022 a ex:PersonalAccount ;
+    ex:accountBalance 35000.00 ;
+    ex:hasOwner ex:person_022 ;
+    ex:hasSignatory ex:person_023, ex:person_026 ;
+    ex:subAccountOf ex:pers_acct_002 .
+
+ex:person_022 ex:ownsAccount ex:pers_acct_022 .
+
+ex:pers_acct_023 a ex:PersonalAccount ;
+    ex:accountBalance 35750.00 ;
+    ex:hasOwner ex:person_023 ;
+    ex:hasSignatory ex:person_024, ex:person_027 ;
+    ex:subAccountOf ex:pers_acct_003 .
+
+ex:person_023 ex:ownsAccount ex:pers_acct_023 .
+
+ex:pers_acct_024 a ex:PersonalAccount ;
+    ex:accountBalance 270000.00 ;
+    ex:hasOwner ex:person_024 ;
+    ex:hasSignatory ex:person_025, ex:person_028 ;
+    ex:subAccountOf ex:pers_acct_004 .
+
+ex:person_024 ex:ownsAccount ex:pers_acct_024 .
+
+ex:pers_acct_025 a ex:PersonalAccount ;
+    ex:accountBalance 37250.00 ;
+    ex:hasOwner ex:person_025 ;
+    ex:hasSignatory ex:person_026, ex:person_029 ;
+    ex:subAccountOf ex:pers_acct_005 .
+
+ex:person_025 ex:ownsAccount ex:pers_acct_025 .
+
+ex:pers_acct_026 a ex:PersonalAccount ;
+    ex:accountBalance 38000.00 ;
+    ex:hasOwner ex:person_026 ;
+    ex:hasSignatory ex:person_027, ex:person_030 ;
+    ex:subAccountOf ex:pers_acct_006 .
+
+ex:person_026 ex:ownsAccount ex:pers_acct_026 .
+
+ex:pers_acct_027 a ex:PersonalAccount ;
+    ex:accountBalance 285000.00 ;
+    ex:hasOwner ex:person_027 ;
+    ex:hasSignatory ex:person_028, ex:person_031 ;
+    ex:subAccountOf ex:pers_acct_007 .
+
+ex:person_027 ex:ownsAccount ex:pers_acct_027 .
+
+ex:pers_acct_028 a ex:PersonalAccount ;
+    ex:accountBalance 39500.00 ;
+    ex:hasOwner ex:person_028 ;
+    ex:hasSignatory ex:person_029, ex:person_032 ;
+    ex:subAccountOf ex:pers_acct_008 .
+
+ex:person_028 ex:ownsAccount ex:pers_acct_028 .
+
+ex:pers_acct_029 a ex:PersonalAccount ;
+    ex:accountBalance 40250.00 ;
+    ex:hasOwner ex:person_029 ;
+    ex:hasSignatory ex:person_030, ex:person_033 ;
+    ex:subAccountOf ex:pers_acct_009 .
+
+ex:person_029 ex:ownsAccount ex:pers_acct_029 .
+
+ex:pers_acct_030 a ex:PersonalAccount ;
+    ex:accountBalance 300000.00 ;
+    ex:hasOwner ex:person_030 ;
+    ex:hasSignatory ex:person_031, ex:person_034 ;
+    ex:subAccountOf ex:pers_acct_010 .
+
+ex:person_030 ex:ownsAccount ex:pers_acct_030 .
+
+ex:pers_acct_031 a ex:PersonalAccount ;
+    ex:accountBalance 41750.00 ;
+    ex:hasOwner ex:person_031 ;
+    ex:hasSignatory ex:person_032, ex:person_035 ;
+    ex:subAccountOf ex:pers_acct_011 .
+
+ex:person_031 ex:ownsAccount ex:pers_acct_031 .
+
+ex:pers_acct_032 a ex:PersonalAccount ;
+    ex:accountBalance 42500.00 ;
+    ex:hasOwner ex:person_032 ;
+    ex:hasSignatory ex:person_033, ex:person_036 ;
+    ex:subAccountOf ex:pers_acct_012 .
+
+ex:person_032 ex:ownsAccount ex:pers_acct_032 .
+
+ex:pers_acct_033 a ex:PersonalAccount ;
+    ex:accountBalance 315000.00 ;
+    ex:hasOwner ex:person_033 ;
+    ex:hasSignatory ex:person_034, ex:person_037 ;
+    ex:subAccountOf ex:pers_acct_013 .
+
+ex:person_033 ex:ownsAccount ex:pers_acct_033 .
+
+ex:pers_acct_034 a ex:PersonalAccount ;
+    ex:accountBalance 44000.00 ;
+    ex:hasOwner ex:person_034 ;
+    ex:hasSignatory ex:person_035, ex:person_038 ;
+    ex:subAccountOf ex:pers_acct_014 .
+
+ex:person_034 ex:ownsAccount ex:pers_acct_034 .
+
+ex:pers_acct_035 a ex:PersonalAccount ;
+    ex:accountBalance 44750.00 ;
+    ex:hasOwner ex:person_035 ;
+    ex:hasSignatory ex:person_036, ex:person_039 ;
+    ex:subAccountOf ex:pers_acct_015 .
+
+ex:person_035 ex:ownsAccount ex:pers_acct_035 .
+
+ex:pers_acct_036 a ex:PersonalAccount ;
+    ex:accountBalance 330000.00 ;
+    ex:hasOwner ex:person_036 ;
+    ex:hasSignatory ex:person_037, ex:person_040 ;
+    ex:subAccountOf ex:pers_acct_016 .
+
+ex:person_036 ex:ownsAccount ex:pers_acct_036 .
+
+ex:pers_acct_037 a ex:PersonalAccount ;
+    ex:accountBalance 46250.00 ;
+    ex:hasOwner ex:person_037 ;
+    ex:hasSignatory ex:person_038, ex:person_041 ;
+    ex:subAccountOf ex:pers_acct_017 .
+
+ex:person_037 ex:ownsAccount ex:pers_acct_037 .
+
+ex:pers_acct_038 a ex:PersonalAccount ;
+    ex:accountBalance 47000.00 ;
+    ex:hasOwner ex:person_038 ;
+    ex:hasSignatory ex:person_039, ex:person_042 ;
+    ex:subAccountOf ex:pers_acct_018 .
+
+ex:person_038 ex:ownsAccount ex:pers_acct_038 .
+
+ex:pers_acct_039 a ex:PersonalAccount ;
+    ex:accountBalance 345000.00 ;
+    ex:hasOwner ex:person_039 ;
+    ex:hasSignatory ex:person_040, ex:person_043 ;
+    ex:subAccountOf ex:pers_acct_019 .
+
+ex:person_039 ex:ownsAccount ex:pers_acct_039 .
+
+ex:pers_acct_040 a ex:PersonalAccount ;
+    ex:accountBalance 48500.00 ;
+    ex:hasOwner ex:person_040 ;
+    ex:hasSignatory ex:person_041, ex:person_044 ;
+    ex:subAccountOf ex:pers_acct_020 .
+
+ex:person_040 ex:ownsAccount ex:pers_acct_040 .
+
+ex:pers_acct_041 a ex:PersonalAccount ;
+    ex:accountBalance 49250.00 ;
+    ex:hasOwner ex:person_041 ;
+    ex:hasSignatory ex:person_042, ex:person_045 ;
+    ex:subAccountOf ex:pers_acct_001 .
+
+ex:person_041 ex:ownsAccount ex:pers_acct_041 .
+
+ex:pers_acct_042 a ex:PersonalAccount ;
+    ex:accountBalance 360000.00 ;
+    ex:hasOwner ex:person_042 ;
+    ex:hasSignatory ex:person_043, ex:person_046 ;
+    ex:subAccountOf ex:pers_acct_002 .
+
+ex:person_042 ex:ownsAccount ex:pers_acct_042 .
+
+ex:pers_acct_043 a ex:PersonalAccount ;
+    ex:accountBalance 50750.00 ;
+    ex:hasOwner ex:person_043 ;
+    ex:hasSignatory ex:person_044, ex:person_047 ;
+    ex:subAccountOf ex:pers_acct_003 .
+
+ex:person_043 ex:ownsAccount ex:pers_acct_043 .
+
+ex:pers_acct_044 a ex:PersonalAccount ;
+    ex:accountBalance 51500.00 ;
+    ex:hasOwner ex:person_044 ;
+    ex:hasSignatory ex:person_045, ex:person_048 ;
+    ex:subAccountOf ex:pers_acct_004 .
+
+ex:person_044 ex:ownsAccount ex:pers_acct_044 .
+
+ex:pers_acct_045 a ex:PersonalAccount ;
+    ex:accountBalance 375000.00 ;
+    ex:hasOwner ex:person_045 ;
+    ex:hasSignatory ex:person_046, ex:person_049 ;
+    ex:subAccountOf ex:pers_acct_005 .
+
+ex:person_045 ex:ownsAccount ex:pers_acct_045 .
+
+ex:pers_acct_046 a ex:PersonalAccount ;
+    ex:accountBalance 53000.00 ;
+    ex:hasOwner ex:person_046 ;
+    ex:hasSignatory ex:person_047, ex:person_050 ;
+    ex:subAccountOf ex:pers_acct_006 .
+
+ex:person_046 ex:ownsAccount ex:pers_acct_046 .
+
+ex:pers_acct_047 a ex:PersonalAccount ;
+    ex:accountBalance 53750.00 ;
+    ex:hasOwner ex:person_047 ;
+    ex:hasSignatory ex:person_048, ex:person_051 ;
+    ex:subAccountOf ex:pers_acct_007 .
+
+ex:person_047 ex:ownsAccount ex:pers_acct_047 .
+
+ex:pers_acct_048 a ex:PersonalAccount ;
+    ex:accountBalance 390000.00 ;
+    ex:hasOwner ex:person_048 ;
+    ex:hasSignatory ex:person_049, ex:person_052 ;
+    ex:subAccountOf ex:pers_acct_008 .
+
+ex:person_048 ex:ownsAccount ex:pers_acct_048 .
+
+ex:pers_acct_049 a ex:PersonalAccount ;
+    ex:accountBalance 55250.00 ;
+    ex:hasOwner ex:person_049 ;
+    ex:hasSignatory ex:person_050, ex:person_053 ;
+    ex:subAccountOf ex:pers_acct_009 .
+
+ex:person_049 ex:ownsAccount ex:pers_acct_049 .
+
+ex:pers_acct_050 a ex:PersonalAccount ;
+    ex:accountBalance 56000.00 ;
+    ex:hasOwner ex:person_050 ;
+    ex:hasSignatory ex:person_051, ex:person_054 ;
+    ex:subAccountOf ex:pers_acct_010 .
+
+ex:person_050 ex:ownsAccount ex:pers_acct_050 .
+
+ex:pers_acct_051 a ex:PersonalAccount ;
+    ex:accountBalance 405000.00 ;
+    ex:hasOwner ex:person_051 ;
+    ex:hasSignatory ex:person_052, ex:person_055 ;
+    ex:subAccountOf ex:pers_acct_011 .
+
+ex:person_051 ex:ownsAccount ex:pers_acct_051 .
+
+ex:pers_acct_052 a ex:PersonalAccount ;
+    ex:accountBalance 57500.00 ;
+    ex:hasOwner ex:person_052 ;
+    ex:hasSignatory ex:person_053, ex:person_056 ;
+    ex:subAccountOf ex:pers_acct_012 .
+
+ex:person_052 ex:ownsAccount ex:pers_acct_052 .
+
+ex:pers_acct_053 a ex:PersonalAccount ;
+    ex:accountBalance 58250.00 ;
+    ex:hasOwner ex:person_053 ;
+    ex:hasSignatory ex:person_054, ex:person_057 ;
+    ex:subAccountOf ex:pers_acct_013 .
+
+ex:person_053 ex:ownsAccount ex:pers_acct_053 .
+
+ex:pers_acct_054 a ex:PersonalAccount ;
+    ex:accountBalance 420000.00 ;
+    ex:hasOwner ex:person_054 ;
+    ex:hasSignatory ex:person_055, ex:person_058 ;
+    ex:subAccountOf ex:pers_acct_014 .
+
+ex:person_054 ex:ownsAccount ex:pers_acct_054 .
+
+ex:pers_acct_055 a ex:PersonalAccount ;
+    ex:accountBalance 59750.00 ;
+    ex:hasOwner ex:person_055 ;
+    ex:hasSignatory ex:person_056, ex:person_059 ;
+    ex:subAccountOf ex:pers_acct_015 .
+
+ex:person_055 ex:ownsAccount ex:pers_acct_055 .
+
+ex:pers_acct_056 a ex:PersonalAccount ;
+    ex:accountBalance 60500.00 ;
+    ex:hasOwner ex:person_056 ;
+    ex:hasSignatory ex:person_057, ex:person_060 ;
+    ex:subAccountOf ex:pers_acct_016 .
+
+ex:person_056 ex:ownsAccount ex:pers_acct_056 .
+
+ex:pers_acct_057 a ex:PersonalAccount ;
+    ex:accountBalance 435000.00 ;
+    ex:hasOwner ex:person_057 ;
+    ex:hasSignatory ex:person_058, ex:person_061 ;
+    ex:subAccountOf ex:pers_acct_017 .
+
+ex:person_057 ex:ownsAccount ex:pers_acct_057 .
+
+ex:pers_acct_058 a ex:PersonalAccount ;
+    ex:accountBalance 62000.00 ;
+    ex:hasOwner ex:person_058 ;
+    ex:hasSignatory ex:person_059, ex:person_062 ;
+    ex:subAccountOf ex:pers_acct_018 .
+
+ex:person_058 ex:ownsAccount ex:pers_acct_058 .
+
+ex:pers_acct_059 a ex:PersonalAccount ;
+    ex:accountBalance 62750.00 ;
+    ex:hasOwner ex:person_059 ;
+    ex:hasSignatory ex:person_060, ex:person_063 ;
+    ex:subAccountOf ex:pers_acct_019 .
+
+ex:person_059 ex:ownsAccount ex:pers_acct_059 .
+
+ex:pers_acct_060 a ex:PersonalAccount ;
+    ex:accountBalance 450000.00 ;
+    ex:hasOwner ex:person_060 ;
+    ex:hasSignatory ex:person_061, ex:person_064 ;
+    ex:subAccountOf ex:pers_acct_020 .
+
+ex:person_060 ex:ownsAccount ex:pers_acct_060 .
+
+ex:pers_acct_061 a ex:PersonalAccount ;
+    ex:accountBalance 64250.00 ;
+    ex:hasOwner ex:person_061 ;
+    ex:hasSignatory ex:person_062, ex:person_065 ;
+    ex:subAccountOf ex:pers_acct_001 .
+
+ex:person_061 ex:ownsAccount ex:pers_acct_061 .
+
+ex:pers_acct_062 a ex:PersonalAccount ;
+    ex:accountBalance 65000.00 ;
+    ex:hasOwner ex:person_062 ;
+    ex:hasSignatory ex:person_063, ex:person_066 ;
+    ex:subAccountOf ex:pers_acct_002 .
+
+ex:person_062 ex:ownsAccount ex:pers_acct_062 .
+
+ex:pers_acct_063 a ex:PersonalAccount ;
+    ex:accountBalance 465000.00 ;
+    ex:hasOwner ex:person_063 ;
+    ex:hasSignatory ex:person_064, ex:person_067 ;
+    ex:subAccountOf ex:pers_acct_003 .
+
+ex:person_063 ex:ownsAccount ex:pers_acct_063 .
+
+ex:pers_acct_064 a ex:PersonalAccount ;
+    ex:accountBalance 66500.00 ;
+    ex:hasOwner ex:person_064 ;
+    ex:hasSignatory ex:person_065, ex:person_068 ;
+    ex:subAccountOf ex:pers_acct_004 .
+
+ex:person_064 ex:ownsAccount ex:pers_acct_064 .
+
+ex:pers_acct_065 a ex:PersonalAccount ;
+    ex:accountBalance 67250.00 ;
+    ex:hasOwner ex:person_065 ;
+    ex:hasSignatory ex:person_066, ex:person_069 ;
+    ex:subAccountOf ex:pers_acct_005 .
+
+ex:person_065 ex:ownsAccount ex:pers_acct_065 .
+
+ex:pers_acct_066 a ex:PersonalAccount ;
+    ex:accountBalance 480000.00 ;
+    ex:hasOwner ex:person_066 ;
+    ex:hasSignatory ex:person_067, ex:person_070 ;
+    ex:subAccountOf ex:pers_acct_006 .
+
+ex:person_066 ex:ownsAccount ex:pers_acct_066 .
+
+ex:pers_acct_067 a ex:PersonalAccount ;
+    ex:accountBalance 68750.00 ;
+    ex:hasOwner ex:person_067 ;
+    ex:hasSignatory ex:person_068, ex:person_001 ;
+    ex:subAccountOf ex:pers_acct_007 .
+
+ex:person_067 ex:ownsAccount ex:pers_acct_067 .
+
+ex:pers_acct_068 a ex:PersonalAccount ;
+    ex:accountBalance 69500.00 ;
+    ex:hasOwner ex:person_068 ;
+    ex:hasSignatory ex:person_069, ex:person_002 ;
+    ex:subAccountOf ex:pers_acct_008 .
+
+ex:person_068 ex:ownsAccount ex:pers_acct_068 .
+
+ex:pers_acct_069 a ex:PersonalAccount ;
+    ex:accountBalance 495000.00 ;
+    ex:hasOwner ex:person_069 ;
+    ex:hasSignatory ex:person_070, ex:person_003 ;
+    ex:subAccountOf ex:pers_acct_009 .
+
+ex:person_069 ex:ownsAccount ex:pers_acct_069 .
+
+ex:pers_acct_070 a ex:PersonalAccount ;
+    ex:accountBalance 71000.00 ;
+    ex:hasOwner ex:person_070 ;
+    ex:hasSignatory ex:person_001, ex:person_004 ;
+    ex:subAccountOf ex:pers_acct_010 .
+
+ex:person_070 ex:ownsAccount ex:pers_acct_070 .
+
+ex:corp_acct_001 a ex:CorporateAccount ;
+    ex:accountBalance 66000.00 ;
+    ex:hasOwner ex:org_001 .
+
+ex:org_001 ex:ownsAccount ex:corp_acct_001 .
+
+ex:corp_acct_002 a ex:CorporateAccount ;
+    ex:accountBalance 500000.00 ;
+    ex:hasOwner ex:org_002 .
+
+ex:org_002 ex:ownsAccount ex:corp_acct_002 .
+
+ex:corp_acct_003 a ex:CorporateAccount ;
+    ex:accountBalance 68000.00 ;
+    ex:hasOwner ex:org_003 .
+
+ex:org_003 ex:ownsAccount ex:corp_acct_003 .
+
+ex:corp_acct_004 a ex:CorporateAccount ;
+    ex:accountBalance 550000.00 ;
+    ex:hasOwner ex:org_004 .
+
+ex:org_004 ex:ownsAccount ex:corp_acct_004 .
+
+ex:corp_acct_005 a ex:CorporateAccount ;
+    ex:accountBalance 70000.00 ;
+    ex:hasOwner ex:org_005 .
+
+ex:org_005 ex:ownsAccount ex:corp_acct_005 .
+
+ex:corp_acct_006 a ex:CorporateAccount ;
+    ex:accountBalance 600000.00 ;
+    ex:hasOwner ex:org_006 .
+
+ex:org_006 ex:ownsAccount ex:corp_acct_006 .
+
+ex:corp_acct_007 a ex:CorporateAccount ;
+    ex:accountBalance 72000.00 ;
+    ex:hasOwner ex:org_007 .
+
+ex:org_007 ex:ownsAccount ex:corp_acct_007 .
+
+ex:corp_acct_008 a ex:CorporateAccount ;
+    ex:accountBalance 650000.00 ;
+    ex:hasOwner ex:org_008 .
+
+ex:org_008 ex:ownsAccount ex:corp_acct_008 .
+
+ex:corp_acct_009 a ex:CorporateAccount ;
+    ex:accountBalance 74000.00 ;
+    ex:hasOwner ex:org_009 .
+
+ex:org_009 ex:ownsAccount ex:corp_acct_009 .
+
+ex:corp_acct_010 a ex:CorporateAccount ;
+    ex:accountBalance 700000.00 ;
+    ex:hasOwner ex:org_010 .
+
+ex:org_010 ex:ownsAccount ex:corp_acct_010 .
+
+ex:corp_acct_011 a ex:CorporateAccount ;
+    ex:accountBalance 76000.00 ;
+    ex:hasOwner ex:org_011 .
+
+ex:org_011 ex:ownsAccount ex:corp_acct_011 .
+
+ex:corp_acct_012 a ex:CorporateAccount ;
+    ex:accountBalance 750000.00 ;
+    ex:hasOwner ex:org_012 .
+
+ex:org_012 ex:ownsAccount ex:corp_acct_012 .
+
+ex:corp_acct_013 a ex:CorporateAccount ;
+    ex:accountBalance 78000.00 ;
+    ex:hasOwner ex:org_013 .
+
+ex:org_013 ex:ownsAccount ex:corp_acct_013 .
+
+ex:corp_acct_014 a ex:CorporateAccount ;
+    ex:accountBalance 800000.00 ;
+    ex:hasOwner ex:org_014 .
+
+ex:org_014 ex:ownsAccount ex:corp_acct_014 .
+
+ex:corp_acct_015 a ex:CorporateAccount ;
+    ex:accountBalance 80000.00 ;
+    ex:hasOwner ex:org_015 .
+
+ex:org_015 ex:ownsAccount ex:corp_acct_015 .
+
+ex:corp_acct_016 a ex:CorporateAccount ;
+    ex:accountBalance 850000.00 ;
+    ex:hasOwner ex:org_016 .
+
+ex:org_016 ex:ownsAccount ex:corp_acct_016 .
+
+ex:corp_acct_017 a ex:CorporateAccount ;
+    ex:accountBalance 82000.00 ;
+    ex:hasOwner ex:org_017 .
+
+ex:org_017 ex:ownsAccount ex:corp_acct_017 .
+
+ex:corp_acct_018 a ex:CorporateAccount ;
+    ex:accountBalance 900000.00 ;
+    ex:hasOwner ex:org_018 .
+
+ex:org_018 ex:ownsAccount ex:corp_acct_018 .
+
+ex:corp_acct_019 a ex:CorporateAccount ;
+    ex:accountBalance 84000.00 ;
+    ex:hasOwner ex:org_019 .
+
+ex:org_019 ex:ownsAccount ex:corp_acct_019 .
+
+ex:corp_acct_020 a ex:CorporateAccount ;
+    ex:accountBalance 950000.00 ;
+    ex:hasOwner ex:org_020 .
+
+ex:org_020 ex:ownsAccount ex:corp_acct_020 .
+
+ex:corp_acct_021 a ex:CorporateAccount ;
+    ex:accountBalance 86000.00 ;
+    ex:hasOwner ex:org_021 ;
+    ex:subAccountOf ex:corp_acct_001 .
+
+ex:org_021 ex:ownsAccount ex:corp_acct_021 .
+
+ex:corp_acct_022 a ex:CorporateAccount ;
+    ex:accountBalance 1000000.00 ;
+    ex:hasOwner ex:org_022 ;
+    ex:subAccountOf ex:corp_acct_002 .
+
+ex:org_022 ex:ownsAccount ex:corp_acct_022 .
+
+ex:corp_acct_023 a ex:CorporateAccount ;
+    ex:accountBalance 88000.00 ;
+    ex:hasOwner ex:org_023 ;
+    ex:subAccountOf ex:corp_acct_003 .
+
+ex:org_023 ex:ownsAccount ex:corp_acct_023 .
+
+ex:corp_acct_024 a ex:CorporateAccount ;
+    ex:accountBalance 1050000.00 ;
+    ex:hasOwner ex:org_024 ;
+    ex:subAccountOf ex:corp_acct_004 .
+
+ex:org_024 ex:ownsAccount ex:corp_acct_024 .
+
+ex:corp_acct_025 a ex:CorporateAccount ;
+    ex:accountBalance 90000.00 ;
+    ex:hasOwner ex:org_025 ;
+    ex:subAccountOf ex:corp_acct_005 .
+
+ex:org_025 ex:ownsAccount ex:corp_acct_025 .
+
+ex:corp_acct_026 a ex:CorporateAccount ;
+    ex:accountBalance 1100000.00 ;
+    ex:hasOwner ex:org_026 ;
+    ex:subAccountOf ex:corp_acct_006 .
+
+ex:org_026 ex:ownsAccount ex:corp_acct_026 .
+
+ex:corp_acct_027 a ex:CorporateAccount ;
+    ex:accountBalance 92000.00 ;
+    ex:hasOwner ex:org_027 ;
+    ex:subAccountOf ex:corp_acct_007 .
+
+ex:org_027 ex:ownsAccount ex:corp_acct_027 .
+
+ex:corp_acct_028 a ex:CorporateAccount ;
+    ex:accountBalance 1150000.00 ;
+    ex:hasOwner ex:org_028 ;
+    ex:subAccountOf ex:corp_acct_008 .
+
+ex:org_028 ex:ownsAccount ex:corp_acct_028 .
+
+ex:corp_acct_029 a ex:CorporateAccount ;
+    ex:accountBalance 94000.00 ;
+    ex:hasOwner ex:org_029 ;
+    ex:subAccountOf ex:corp_acct_009 .
+
+ex:org_029 ex:ownsAccount ex:corp_acct_029 .
+
+ex:corp_acct_030 a ex:CorporateAccount ;
+    ex:accountBalance 1200000.00 ;
+    ex:hasOwner ex:org_030 ;
+    ex:subAccountOf ex:corp_acct_010 .
+
+ex:org_030 ex:ownsAccount ex:corp_acct_030 .
+
+ex:corp_acct_031 a ex:CorporateAccount ;
+    ex:accountBalance 96000.00 ;
+    ex:hasOwner ex:org_031 ;
+    ex:subAccountOf ex:corp_acct_011 .
+
+ex:org_031 ex:ownsAccount ex:corp_acct_031 .
+
+ex:corp_acct_032 a ex:CorporateAccount ;
+    ex:accountBalance 1250000.00 ;
+    ex:hasOwner ex:org_032 ;
+    ex:subAccountOf ex:corp_acct_012 .
+
+ex:org_032 ex:ownsAccount ex:corp_acct_032 .
+
+ex:corp_acct_033 a ex:CorporateAccount ;
+    ex:accountBalance 98000.00 ;
+    ex:hasOwner ex:org_033 ;
+    ex:subAccountOf ex:corp_acct_013 .
+
+ex:org_033 ex:ownsAccount ex:corp_acct_033 .
+
+ex:corp_acct_034 a ex:CorporateAccount ;
+    ex:accountBalance 1300000.00 ;
+    ex:hasOwner ex:org_034 ;
+    ex:subAccountOf ex:corp_acct_014 .
+
+ex:org_034 ex:ownsAccount ex:corp_acct_034 .
+
+ex:corp_acct_035 a ex:CorporateAccount ;
+    ex:accountBalance 100000.00 ;
+    ex:hasOwner ex:org_035 ;
+    ex:subAccountOf ex:corp_acct_015 .
+
+ex:org_035 ex:ownsAccount ex:corp_acct_035 .
+
+ex:corp_acct_036 a ex:CorporateAccount ;
+    ex:accountBalance 1350000.00 ;
+    ex:hasOwner ex:org_036 ;
+    ex:subAccountOf ex:corp_acct_016 .
+
+ex:org_036 ex:ownsAccount ex:corp_acct_036 .
+
+ex:corp_acct_037 a ex:CorporateAccount ;
+    ex:accountBalance 102000.00 ;
+    ex:hasOwner ex:org_037 ;
+    ex:subAccountOf ex:corp_acct_017 .
+
+ex:org_037 ex:ownsAccount ex:corp_acct_037 .
+
+ex:corp_acct_038 a ex:CorporateAccount ;
+    ex:accountBalance 1400000.00 ;
+    ex:hasOwner ex:org_038 ;
+    ex:subAccountOf ex:corp_acct_018 .
+
+ex:org_038 ex:ownsAccount ex:corp_acct_038 .
+
+ex:corp_acct_039 a ex:CorporateAccount ;
+    ex:accountBalance 104000.00 ;
+    ex:hasOwner ex:org_039 ;
+    ex:subAccountOf ex:corp_acct_019 .
+
+ex:org_039 ex:ownsAccount ex:corp_acct_039 .
+
+ex:corp_acct_040 a ex:CorporateAccount ;
+    ex:accountBalance 1450000.00 ;
+    ex:hasOwner ex:org_040 ;
+    ex:subAccountOf ex:corp_acct_020 .
+
+ex:org_040 ex:ownsAccount ex:corp_acct_040 .
+
+ex:corp_acct_041 a ex:CorporateAccount ;
+    ex:accountBalance 106000.00 ;
+    ex:hasOwner ex:org_041 ;
+    ex:subAccountOf ex:corp_acct_001 .
+
+ex:org_041 ex:ownsAccount ex:corp_acct_041 .
+
+ex:corp_acct_042 a ex:CorporateAccount ;
+    ex:accountBalance 1500000.00 ;
+    ex:hasOwner ex:org_042 ;
+    ex:subAccountOf ex:corp_acct_002 .
+
+ex:org_042 ex:ownsAccount ex:corp_acct_042 .
+
+ex:corp_acct_043 a ex:CorporateAccount ;
+    ex:accountBalance 108000.00 ;
+    ex:hasOwner ex:org_043 ;
+    ex:subAccountOf ex:corp_acct_003 .
+
+ex:org_043 ex:ownsAccount ex:corp_acct_043 .
+
+ex:corp_acct_044 a ex:CorporateAccount ;
+    ex:accountBalance 1550000.00 ;
+    ex:hasOwner ex:org_044 ;
+    ex:subAccountOf ex:corp_acct_004 .
+
+ex:org_044 ex:ownsAccount ex:corp_acct_044 .
+
+ex:corp_acct_045 a ex:CorporateAccount ;
+    ex:accountBalance 110000.00 ;
+    ex:hasOwner ex:org_045 ;
+    ex:subAccountOf ex:corp_acct_005 .
+
+ex:org_045 ex:ownsAccount ex:corp_acct_045 .
+
+ex:corp_acct_046 a ex:CorporateAccount ;
+    ex:accountBalance 1600000.00 ;
+    ex:hasOwner ex:org_046 ;
+    ex:subAccountOf ex:corp_acct_006 .
+
+ex:org_046 ex:ownsAccount ex:corp_acct_046 .
+
+ex:corp_acct_047 a ex:CorporateAccount ;
+    ex:accountBalance 112000.00 ;
+    ex:hasOwner ex:org_047 ;
+    ex:subAccountOf ex:corp_acct_007 .
+
+ex:org_047 ex:ownsAccount ex:corp_acct_047 .
+
+ex:corp_acct_048 a ex:CorporateAccount ;
+    ex:accountBalance 1650000.00 ;
+    ex:hasOwner ex:org_048 ;
+    ex:subAccountOf ex:corp_acct_008 .
+
+ex:org_048 ex:ownsAccount ex:corp_acct_048 .
+
+ex:corp_acct_049 a ex:CorporateAccount ;
+    ex:accountBalance 114000.00 ;
+    ex:hasOwner ex:org_049 ;
+    ex:subAccountOf ex:corp_acct_009 .
+
+ex:org_049 ex:ownsAccount ex:corp_acct_049 .
+
+ex:corp_acct_050 a ex:CorporateAccount ;
+    ex:accountBalance 1700000.00 ;
+    ex:hasOwner ex:org_050 ;
+    ex:subAccountOf ex:corp_acct_010 .
+
+ex:org_050 ex:ownsAccount ex:corp_acct_050 .
+
+ex:corp_acct_051 a ex:CorporateAccount ;
+    ex:accountBalance 116000.00 ;
+    ex:hasOwner ex:org_001 ;
+    ex:subAccountOf ex:corp_acct_011 .
+
+ex:org_001 ex:ownsAccount ex:corp_acct_051 .
+
+ex:corp_acct_052 a ex:CorporateAccount ;
+    ex:accountBalance 1750000.00 ;
+    ex:hasOwner ex:org_002 ;
+    ex:subAccountOf ex:corp_acct_012 .
+
+ex:org_002 ex:ownsAccount ex:corp_acct_052 .
+
+ex:corp_acct_053 a ex:CorporateAccount ;
+    ex:accountBalance 118000.00 ;
+    ex:hasOwner ex:org_003 ;
+    ex:subAccountOf ex:corp_acct_013 .
+
+ex:org_003 ex:ownsAccount ex:corp_acct_053 .
+
+ex:corp_acct_054 a ex:CorporateAccount ;
+    ex:accountBalance 1800000.00 ;
+    ex:hasOwner ex:org_004 ;
+    ex:subAccountOf ex:corp_acct_014 .
+
+ex:org_004 ex:ownsAccount ex:corp_acct_054 .
+
+ex:corp_acct_055 a ex:CorporateAccount ;
+    ex:accountBalance 120000.00 ;
+    ex:hasOwner ex:org_005 ;
+    ex:subAccountOf ex:corp_acct_015 .
+
+ex:org_005 ex:ownsAccount ex:corp_acct_055 .
+
+ex:corp_acct_056 a ex:CorporateAccount ;
+    ex:accountBalance 1850000.00 ;
+    ex:hasOwner ex:org_006 ;
+    ex:subAccountOf ex:corp_acct_016 .
+
+ex:org_006 ex:ownsAccount ex:corp_acct_056 .
+
+ex:corp_acct_057 a ex:CorporateAccount ;
+    ex:accountBalance 122000.00 ;
+    ex:hasOwner ex:org_007 ;
+    ex:subAccountOf ex:corp_acct_017 .
+
+ex:org_007 ex:ownsAccount ex:corp_acct_057 .
+
+ex:corp_acct_058 a ex:CorporateAccount ;
+    ex:accountBalance 1900000.00 ;
+    ex:hasOwner ex:org_008 ;
+    ex:subAccountOf ex:corp_acct_018 .
+
+ex:org_008 ex:ownsAccount ex:corp_acct_058 .
+
+ex:corp_acct_059 a ex:CorporateAccount ;
+    ex:accountBalance 124000.00 ;
+    ex:hasOwner ex:org_009 ;
+    ex:subAccountOf ex:corp_acct_019 .
+
+ex:org_009 ex:ownsAccount ex:corp_acct_059 .
+
+ex:corp_acct_060 a ex:CorporateAccount ;
+    ex:accountBalance 1950000.00 ;
+    ex:hasOwner ex:org_010 ;
+    ex:subAccountOf ex:corp_acct_020 .
+
+ex:org_010 ex:ownsAccount ex:corp_acct_060 .

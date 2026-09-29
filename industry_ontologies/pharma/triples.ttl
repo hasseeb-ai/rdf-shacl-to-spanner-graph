@@ -1,0 +1,1731 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/pharma/> .
+
+# ABox Instance Triples for pharma (with RDF Reification for ex:affinityKi)
+
+ex:disease_001 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #001" .
+
+ex:disease_002 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #002" .
+
+ex:disease_003 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #003" .
+
+ex:disease_004 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #004" .
+
+ex:disease_005 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #005" .
+
+ex:disease_006 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #006" .
+
+ex:disease_007 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #007" .
+
+ex:disease_008 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #008" .
+
+ex:disease_009 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #009" .
+
+ex:disease_010 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #010" .
+
+ex:disease_011 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #011" .
+
+ex:disease_012 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #012" .
+
+ex:disease_013 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #013" .
+
+ex:disease_014 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #014" .
+
+ex:disease_015 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #015" .
+
+ex:disease_016 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #016" .
+
+ex:disease_017 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #017" .
+
+ex:disease_018 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #018" .
+
+ex:disease_019 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #019" .
+
+ex:disease_020 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #020" .
+
+ex:disease_021 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #021" .
+
+ex:disease_022 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #022" .
+
+ex:disease_023 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #023" .
+
+ex:disease_024 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #024" .
+
+ex:disease_025 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #025" .
+
+ex:disease_026 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #026" .
+
+ex:disease_027 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #027" .
+
+ex:disease_028 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #028" .
+
+ex:disease_029 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #029" .
+
+ex:disease_030 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #030" .
+
+ex:disease_031 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #031" .
+
+ex:disease_032 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #032" .
+
+ex:disease_033 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #033" .
+
+ex:disease_034 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #034" .
+
+ex:disease_035 a ex:Disease ;
+    rdfs:label "Clinical Indication Syndrome #035" .
+
+ex:target_001 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #001" ;
+    ex:associatedWith ex:disease_001 .
+
+ex:target_002 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #002" ;
+    ex:associatedWith ex:disease_002 .
+
+ex:target_003 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #003" ;
+    ex:associatedWith ex:disease_003 .
+
+ex:target_004 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #004" ;
+    ex:associatedWith ex:disease_004 .
+
+ex:target_005 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #005" ;
+    ex:associatedWith ex:disease_005 .
+
+ex:target_006 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #006" ;
+    ex:associatedWith ex:disease_006 .
+
+ex:target_007 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #007" ;
+    ex:associatedWith ex:disease_007 .
+
+ex:target_008 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #008" ;
+    ex:associatedWith ex:disease_008 .
+
+ex:target_009 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #009" ;
+    ex:associatedWith ex:disease_009 .
+
+ex:target_010 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #010" ;
+    ex:associatedWith ex:disease_010 .
+
+ex:target_011 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #011" ;
+    ex:associatedWith ex:disease_011 .
+
+ex:target_012 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #012" ;
+    ex:associatedWith ex:disease_012 .
+
+ex:target_013 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #013" ;
+    ex:associatedWith ex:disease_013 .
+
+ex:target_014 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #014" ;
+    ex:associatedWith ex:disease_014 .
+
+ex:target_015 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #015" ;
+    ex:associatedWith ex:disease_015 .
+
+ex:target_016 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #016" ;
+    ex:associatedWith ex:disease_016 .
+
+ex:target_017 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #017" ;
+    ex:associatedWith ex:disease_017 .
+
+ex:target_018 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #018" ;
+    ex:associatedWith ex:disease_018 .
+
+ex:target_019 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #019" ;
+    ex:associatedWith ex:disease_019 .
+
+ex:target_020 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #020" ;
+    ex:associatedWith ex:disease_020 .
+
+ex:target_021 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #021" ;
+    ex:associatedWith ex:disease_021 .
+
+ex:target_022 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #022" ;
+    ex:associatedWith ex:disease_022 .
+
+ex:target_023 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #023" ;
+    ex:associatedWith ex:disease_023 .
+
+ex:target_024 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #024" ;
+    ex:associatedWith ex:disease_024 .
+
+ex:target_025 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #025" ;
+    ex:associatedWith ex:disease_025 .
+
+ex:target_026 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #026" ;
+    ex:associatedWith ex:disease_026 .
+
+ex:target_027 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #027" ;
+    ex:associatedWith ex:disease_027 .
+
+ex:target_028 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #028" ;
+    ex:associatedWith ex:disease_028 .
+
+ex:target_029 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #029" ;
+    ex:associatedWith ex:disease_029 .
+
+ex:target_030 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #030" ;
+    ex:associatedWith ex:disease_030 .
+
+ex:target_031 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #031" ;
+    ex:associatedWith ex:disease_031 .
+
+ex:target_032 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #032" ;
+    ex:associatedWith ex:disease_032 .
+
+ex:target_033 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #033" ;
+    ex:associatedWith ex:disease_033 .
+
+ex:target_034 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #034" ;
+    ex:associatedWith ex:disease_034 .
+
+ex:target_035 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #035" ;
+    ex:associatedWith ex:disease_035 .
+
+ex:target_036 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #036" ;
+    ex:associatedWith ex:disease_001 .
+
+ex:target_037 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #037" ;
+    ex:associatedWith ex:disease_002 .
+
+ex:target_038 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #038" ;
+    ex:associatedWith ex:disease_003 .
+
+ex:target_039 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #039" ;
+    ex:associatedWith ex:disease_004 .
+
+ex:target_040 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #040" ;
+    ex:associatedWith ex:disease_005 .
+
+ex:target_041 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #041" ;
+    ex:associatedWith ex:disease_006 .
+
+ex:target_042 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #042" ;
+    ex:associatedWith ex:disease_007 .
+
+ex:target_043 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #043" ;
+    ex:associatedWith ex:disease_008 .
+
+ex:target_044 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #044" ;
+    ex:associatedWith ex:disease_009 .
+
+ex:target_045 a ex:Target ;
+    rdfs:label "Kinase Receptor Target #045" ;
+    ex:associatedWith ex:disease_010 .
+
+ex:compound_001 a ex:Compound ;
+    ex:chemicalFormula "C15H19N2O3" ;
+    ex:molecularWeight "284.40"^^xsd:double ;
+    ex:bindsTo ex:target_001 .
+
+ex:stmt_comp_bind_001 a rdf:Statement ;
+    rdf:subject ex:compound_001 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_001 ;
+    ex:affinityKi "0.80"^^xsd:double .
+
+ex:compound_002 a ex:Compound ;
+    ex:chemicalFormula "C16H20N3O4" ;
+    ex:molecularWeight "288.65"^^xsd:double ;
+    ex:bindsTo ex:target_002 .
+
+ex:stmt_comp_bind_002 a rdf:Statement ;
+    rdf:subject ex:compound_002 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_002 ;
+    ex:affinityKi "1.15"^^xsd:double .
+
+ex:compound_003 a ex:Compound ;
+    ex:chemicalFormula "C17H21N4O5" ;
+    ex:molecularWeight "292.90"^^xsd:double ;
+    ex:bindsTo ex:target_003 .
+
+ex:stmt_comp_bind_003 a rdf:Statement ;
+    rdf:subject ex:compound_003 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_003 ;
+    ex:affinityKi "1.50"^^xsd:double .
+
+ex:compound_004 a ex:Compound ;
+    ex:chemicalFormula "C18H22N1O6" ;
+    ex:molecularWeight "297.15"^^xsd:double ;
+    ex:bindsTo ex:target_004 .
+
+ex:stmt_comp_bind_004 a rdf:Statement ;
+    rdf:subject ex:compound_004 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_004 ;
+    ex:affinityKi "1.85"^^xsd:double .
+
+ex:compound_005 a ex:Compound ;
+    ex:chemicalFormula "C19H23N2O2" ;
+    ex:molecularWeight "301.40"^^xsd:double ;
+    ex:bindsTo ex:target_005 .
+
+ex:stmt_comp_bind_005 a rdf:Statement ;
+    rdf:subject ex:compound_005 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_005 ;
+    ex:affinityKi "2.20"^^xsd:double .
+
+ex:compound_006 a ex:Compound ;
+    ex:chemicalFormula "C20H24N3O3" ;
+    ex:molecularWeight "305.65"^^xsd:double ;
+    ex:bindsTo ex:target_006 .
+
+ex:stmt_comp_bind_006 a rdf:Statement ;
+    rdf:subject ex:compound_006 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_006 ;
+    ex:affinityKi "2.55"^^xsd:double .
+
+ex:compound_007 a ex:Compound ;
+    ex:chemicalFormula "C21H25N4O4" ;
+    ex:molecularWeight "309.90"^^xsd:double ;
+    ex:bindsTo ex:target_007 .
+
+ex:stmt_comp_bind_007 a rdf:Statement ;
+    rdf:subject ex:compound_007 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_007 ;
+    ex:affinityKi "2.90"^^xsd:double .
+
+ex:compound_008 a ex:Compound ;
+    ex:chemicalFormula "C22H26N1O5" ;
+    ex:molecularWeight "314.15"^^xsd:double ;
+    ex:bindsTo ex:target_008 .
+
+ex:stmt_comp_bind_008 a rdf:Statement ;
+    rdf:subject ex:compound_008 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_008 ;
+    ex:affinityKi "3.25"^^xsd:double .
+
+ex:compound_009 a ex:Compound ;
+    ex:chemicalFormula "C23H27N2O6" ;
+    ex:molecularWeight "318.40"^^xsd:double ;
+    ex:bindsTo ex:target_009 .
+
+ex:stmt_comp_bind_009 a rdf:Statement ;
+    rdf:subject ex:compound_009 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_009 ;
+    ex:affinityKi "3.60"^^xsd:double .
+
+ex:compound_010 a ex:Compound ;
+    ex:chemicalFormula "C24H28N3O2" ;
+    ex:molecularWeight "322.65"^^xsd:double ;
+    ex:bindsTo ex:target_010 .
+
+ex:stmt_comp_bind_010 a rdf:Statement ;
+    rdf:subject ex:compound_010 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_010 ;
+    ex:affinityKi "3.95"^^xsd:double .
+
+ex:compound_011 a ex:Compound ;
+    ex:chemicalFormula "C25H29N4O3" ;
+    ex:molecularWeight "326.90"^^xsd:double ;
+    ex:bindsTo ex:target_011 .
+
+ex:stmt_comp_bind_011 a rdf:Statement ;
+    rdf:subject ex:compound_011 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_011 ;
+    ex:affinityKi "4.30"^^xsd:double .
+
+ex:compound_012 a ex:Compound ;
+    ex:chemicalFormula "C14H30N1O4" ;
+    ex:molecularWeight "331.15"^^xsd:double ;
+    ex:bindsTo ex:target_012 .
+
+ex:stmt_comp_bind_012 a rdf:Statement ;
+    rdf:subject ex:compound_012 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_012 ;
+    ex:affinityKi "4.65"^^xsd:double .
+
+ex:compound_013 a ex:Compound ;
+    ex:chemicalFormula "C15H31N2O5" ;
+    ex:molecularWeight "335.40"^^xsd:double ;
+    ex:bindsTo ex:target_013 .
+
+ex:stmt_comp_bind_013 a rdf:Statement ;
+    rdf:subject ex:compound_013 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_013 ;
+    ex:affinityKi "5.00"^^xsd:double .
+
+ex:compound_014 a ex:Compound ;
+    ex:chemicalFormula "C16H32N3O6" ;
+    ex:molecularWeight "339.65"^^xsd:double ;
+    ex:bindsTo ex:target_014 .
+
+ex:stmt_comp_bind_014 a rdf:Statement ;
+    rdf:subject ex:compound_014 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_014 ;
+    ex:affinityKi "5.35"^^xsd:double .
+
+ex:compound_015 a ex:Compound ;
+    ex:chemicalFormula "C17H33N4O2" ;
+    ex:molecularWeight "343.90"^^xsd:double ;
+    ex:bindsTo ex:target_015 .
+
+ex:stmt_comp_bind_015 a rdf:Statement ;
+    rdf:subject ex:compound_015 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_015 ;
+    ex:affinityKi "5.70"^^xsd:double .
+
+ex:compound_016 a ex:Compound ;
+    ex:chemicalFormula "C18H18N1O3" ;
+    ex:molecularWeight "348.15"^^xsd:double ;
+    ex:bindsTo ex:target_016 .
+
+ex:stmt_comp_bind_016 a rdf:Statement ;
+    rdf:subject ex:compound_016 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_016 ;
+    ex:affinityKi "6.05"^^xsd:double .
+
+ex:compound_017 a ex:Compound ;
+    ex:chemicalFormula "C19H19N2O4" ;
+    ex:molecularWeight "352.40"^^xsd:double ;
+    ex:bindsTo ex:target_017 .
+
+ex:stmt_comp_bind_017 a rdf:Statement ;
+    rdf:subject ex:compound_017 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_017 ;
+    ex:affinityKi "6.40"^^xsd:double .
+
+ex:compound_018 a ex:Compound ;
+    ex:chemicalFormula "C20H20N3O5" ;
+    ex:molecularWeight "356.65"^^xsd:double ;
+    ex:bindsTo ex:target_018 .
+
+ex:stmt_comp_bind_018 a rdf:Statement ;
+    rdf:subject ex:compound_018 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_018 ;
+    ex:affinityKi "6.75"^^xsd:double .
+
+ex:compound_019 a ex:Compound ;
+    ex:chemicalFormula "C21H21N4O6" ;
+    ex:molecularWeight "360.90"^^xsd:double ;
+    ex:bindsTo ex:target_019 .
+
+ex:stmt_comp_bind_019 a rdf:Statement ;
+    rdf:subject ex:compound_019 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_019 ;
+    ex:affinityKi "7.10"^^xsd:double .
+
+ex:compound_020 a ex:Compound ;
+    ex:chemicalFormula "C22H22N1O2" ;
+    ex:molecularWeight "365.15"^^xsd:double ;
+    ex:bindsTo ex:target_020 .
+
+ex:stmt_comp_bind_020 a rdf:Statement ;
+    rdf:subject ex:compound_020 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_020 ;
+    ex:affinityKi "7.45"^^xsd:double .
+
+ex:compound_021 a ex:Compound ;
+    ex:chemicalFormula "C23H23N2O3" ;
+    ex:molecularWeight "369.40"^^xsd:double ;
+    ex:bindsTo ex:target_021 .
+
+ex:stmt_comp_bind_021 a rdf:Statement ;
+    rdf:subject ex:compound_021 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_021 ;
+    ex:affinityKi "7.80"^^xsd:double .
+
+ex:compound_022 a ex:Compound ;
+    ex:chemicalFormula "C24H24N3O4" ;
+    ex:molecularWeight "373.65"^^xsd:double ;
+    ex:bindsTo ex:target_022 .
+
+ex:stmt_comp_bind_022 a rdf:Statement ;
+    rdf:subject ex:compound_022 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_022 ;
+    ex:affinityKi "8.15"^^xsd:double .
+
+ex:compound_023 a ex:Compound ;
+    ex:chemicalFormula "C25H25N4O5" ;
+    ex:molecularWeight "377.90"^^xsd:double ;
+    ex:bindsTo ex:target_023 .
+
+ex:stmt_comp_bind_023 a rdf:Statement ;
+    rdf:subject ex:compound_023 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_023 ;
+    ex:affinityKi "8.50"^^xsd:double .
+
+ex:compound_024 a ex:Compound ;
+    ex:chemicalFormula "C14H26N1O6" ;
+    ex:molecularWeight "382.15"^^xsd:double ;
+    ex:bindsTo ex:target_024 .
+
+ex:stmt_comp_bind_024 a rdf:Statement ;
+    rdf:subject ex:compound_024 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_024 ;
+    ex:affinityKi "8.85"^^xsd:double .
+
+ex:compound_025 a ex:Compound ;
+    ex:chemicalFormula "C15H27N2O2" ;
+    ex:molecularWeight "386.40"^^xsd:double ;
+    ex:bindsTo ex:target_025 .
+
+ex:stmt_comp_bind_025 a rdf:Statement ;
+    rdf:subject ex:compound_025 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_025 ;
+    ex:affinityKi "0.45"^^xsd:double .
+
+ex:compound_026 a ex:Compound ;
+    ex:chemicalFormula "C16H28N3O3" ;
+    ex:molecularWeight "390.65"^^xsd:double ;
+    ex:bindsTo ex:target_026 .
+
+ex:stmt_comp_bind_026 a rdf:Statement ;
+    rdf:subject ex:compound_026 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_026 ;
+    ex:affinityKi "0.80"^^xsd:double .
+
+ex:compound_027 a ex:Compound ;
+    ex:chemicalFormula "C17H29N4O4" ;
+    ex:molecularWeight "394.90"^^xsd:double ;
+    ex:bindsTo ex:target_027 .
+
+ex:stmt_comp_bind_027 a rdf:Statement ;
+    rdf:subject ex:compound_027 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_027 ;
+    ex:affinityKi "1.15"^^xsd:double .
+
+ex:compound_028 a ex:Compound ;
+    ex:chemicalFormula "C18H30N1O5" ;
+    ex:molecularWeight "399.15"^^xsd:double ;
+    ex:bindsTo ex:target_028 .
+
+ex:stmt_comp_bind_028 a rdf:Statement ;
+    rdf:subject ex:compound_028 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_028 ;
+    ex:affinityKi "1.50"^^xsd:double .
+
+ex:compound_029 a ex:Compound ;
+    ex:chemicalFormula "C19H31N2O6" ;
+    ex:molecularWeight "403.40"^^xsd:double ;
+    ex:bindsTo ex:target_029 .
+
+ex:stmt_comp_bind_029 a rdf:Statement ;
+    rdf:subject ex:compound_029 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_029 ;
+    ex:affinityKi "1.85"^^xsd:double .
+
+ex:compound_030 a ex:Compound ;
+    ex:chemicalFormula "C20H32N3O2" ;
+    ex:molecularWeight "407.65"^^xsd:double ;
+    ex:bindsTo ex:target_030 .
+
+ex:stmt_comp_bind_030 a rdf:Statement ;
+    rdf:subject ex:compound_030 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_030 ;
+    ex:affinityKi "2.20"^^xsd:double .
+
+ex:compound_031 a ex:Compound ;
+    ex:chemicalFormula "C21H33N4O3" ;
+    ex:molecularWeight "411.90"^^xsd:double ;
+    ex:bindsTo ex:target_031 .
+
+ex:stmt_comp_bind_031 a rdf:Statement ;
+    rdf:subject ex:compound_031 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_031 ;
+    ex:affinityKi "2.55"^^xsd:double .
+
+ex:compound_032 a ex:Compound ;
+    ex:chemicalFormula "C22H18N1O4" ;
+    ex:molecularWeight "416.15"^^xsd:double ;
+    ex:bindsTo ex:target_032 .
+
+ex:stmt_comp_bind_032 a rdf:Statement ;
+    rdf:subject ex:compound_032 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_032 ;
+    ex:affinityKi "2.90"^^xsd:double .
+
+ex:compound_033 a ex:Compound ;
+    ex:chemicalFormula "C23H19N2O5" ;
+    ex:molecularWeight "420.40"^^xsd:double ;
+    ex:bindsTo ex:target_033 .
+
+ex:stmt_comp_bind_033 a rdf:Statement ;
+    rdf:subject ex:compound_033 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_033 ;
+    ex:affinityKi "3.25"^^xsd:double .
+
+ex:compound_034 a ex:Compound ;
+    ex:chemicalFormula "C24H20N3O6" ;
+    ex:molecularWeight "424.65"^^xsd:double ;
+    ex:bindsTo ex:target_034 .
+
+ex:stmt_comp_bind_034 a rdf:Statement ;
+    rdf:subject ex:compound_034 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_034 ;
+    ex:affinityKi "3.60"^^xsd:double .
+
+ex:compound_035 a ex:Compound ;
+    ex:chemicalFormula "C25H21N4O2" ;
+    ex:molecularWeight "428.90"^^xsd:double ;
+    ex:bindsTo ex:target_035 .
+
+ex:stmt_comp_bind_035 a rdf:Statement ;
+    rdf:subject ex:compound_035 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_035 ;
+    ex:affinityKi "3.95"^^xsd:double .
+
+ex:compound_036 a ex:Compound ;
+    ex:chemicalFormula "C14H22N1O3" ;
+    ex:molecularWeight "433.15"^^xsd:double ;
+    ex:bindsTo ex:target_036 .
+
+ex:stmt_comp_bind_036 a rdf:Statement ;
+    rdf:subject ex:compound_036 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_036 ;
+    ex:affinityKi "4.30"^^xsd:double .
+
+ex:compound_037 a ex:Compound ;
+    ex:chemicalFormula "C15H23N2O4" ;
+    ex:molecularWeight "437.40"^^xsd:double ;
+    ex:bindsTo ex:target_037 .
+
+ex:stmt_comp_bind_037 a rdf:Statement ;
+    rdf:subject ex:compound_037 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_037 ;
+    ex:affinityKi "4.65"^^xsd:double .
+
+ex:compound_038 a ex:Compound ;
+    ex:chemicalFormula "C16H24N3O5" ;
+    ex:molecularWeight "441.65"^^xsd:double ;
+    ex:bindsTo ex:target_038 .
+
+ex:stmt_comp_bind_038 a rdf:Statement ;
+    rdf:subject ex:compound_038 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_038 ;
+    ex:affinityKi "5.00"^^xsd:double .
+
+ex:compound_039 a ex:Compound ;
+    ex:chemicalFormula "C17H25N4O6" ;
+    ex:molecularWeight "445.90"^^xsd:double ;
+    ex:bindsTo ex:target_039 .
+
+ex:stmt_comp_bind_039 a rdf:Statement ;
+    rdf:subject ex:compound_039 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_039 ;
+    ex:affinityKi "5.35"^^xsd:double .
+
+ex:compound_040 a ex:Compound ;
+    ex:chemicalFormula "C18H26N1O2" ;
+    ex:molecularWeight "450.15"^^xsd:double ;
+    ex:bindsTo ex:target_040 .
+
+ex:stmt_comp_bind_040 a rdf:Statement ;
+    rdf:subject ex:compound_040 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_040 ;
+    ex:affinityKi "5.70"^^xsd:double .
+
+ex:compound_041 a ex:Compound ;
+    ex:chemicalFormula "C19H27N2O3" ;
+    ex:molecularWeight "454.40"^^xsd:double ;
+    ex:bindsTo ex:target_041 .
+
+ex:stmt_comp_bind_041 a rdf:Statement ;
+    rdf:subject ex:compound_041 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_041 ;
+    ex:affinityKi "6.05"^^xsd:double .
+
+ex:compound_042 a ex:Compound ;
+    ex:chemicalFormula "C20H28N3O4" ;
+    ex:molecularWeight "458.65"^^xsd:double ;
+    ex:bindsTo ex:target_042 .
+
+ex:stmt_comp_bind_042 a rdf:Statement ;
+    rdf:subject ex:compound_042 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_042 ;
+    ex:affinityKi "6.40"^^xsd:double .
+
+ex:compound_043 a ex:Compound ;
+    ex:chemicalFormula "C21H29N4O5" ;
+    ex:molecularWeight "462.90"^^xsd:double ;
+    ex:bindsTo ex:target_043 .
+
+ex:stmt_comp_bind_043 a rdf:Statement ;
+    rdf:subject ex:compound_043 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_043 ;
+    ex:affinityKi "6.75"^^xsd:double .
+
+ex:compound_044 a ex:Compound ;
+    ex:chemicalFormula "C22H30N1O6" ;
+    ex:molecularWeight "467.15"^^xsd:double ;
+    ex:bindsTo ex:target_044 .
+
+ex:stmt_comp_bind_044 a rdf:Statement ;
+    rdf:subject ex:compound_044 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_044 ;
+    ex:affinityKi "7.10"^^xsd:double .
+
+ex:compound_045 a ex:Compound ;
+    ex:chemicalFormula "C23H31N2O2" ;
+    ex:molecularWeight "471.40"^^xsd:double ;
+    ex:bindsTo ex:target_045 .
+
+ex:stmt_comp_bind_045 a rdf:Statement ;
+    rdf:subject ex:compound_045 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_045 ;
+    ex:affinityKi "7.45"^^xsd:double .
+
+ex:compound_046 a ex:Compound ;
+    ex:chemicalFormula "C24H32N3O3" ;
+    ex:molecularWeight "475.65"^^xsd:double ;
+    ex:bindsTo ex:target_001 .
+
+ex:stmt_comp_bind_046 a rdf:Statement ;
+    rdf:subject ex:compound_046 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_001 ;
+    ex:affinityKi "7.80"^^xsd:double .
+
+ex:compound_047 a ex:Compound ;
+    ex:chemicalFormula "C25H33N4O4" ;
+    ex:molecularWeight "479.90"^^xsd:double ;
+    ex:bindsTo ex:target_002 .
+
+ex:stmt_comp_bind_047 a rdf:Statement ;
+    rdf:subject ex:compound_047 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_002 ;
+    ex:affinityKi "8.15"^^xsd:double .
+
+ex:compound_048 a ex:Compound ;
+    ex:chemicalFormula "C14H18N1O5" ;
+    ex:molecularWeight "484.15"^^xsd:double ;
+    ex:bindsTo ex:target_003 .
+
+ex:stmt_comp_bind_048 a rdf:Statement ;
+    rdf:subject ex:compound_048 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_003 ;
+    ex:affinityKi "8.50"^^xsd:double .
+
+ex:compound_049 a ex:Compound ;
+    ex:chemicalFormula "C15H19N2O6" ;
+    ex:molecularWeight "488.40"^^xsd:double ;
+    ex:bindsTo ex:target_004 .
+
+ex:stmt_comp_bind_049 a rdf:Statement ;
+    rdf:subject ex:compound_049 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_004 ;
+    ex:affinityKi "8.85"^^xsd:double .
+
+ex:compound_050 a ex:Compound ;
+    ex:chemicalFormula "C16H20N3O2" ;
+    ex:molecularWeight "492.65"^^xsd:double ;
+    ex:bindsTo ex:target_005 .
+
+ex:stmt_comp_bind_050 a rdf:Statement ;
+    rdf:subject ex:compound_050 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_005 ;
+    ex:affinityKi "0.45"^^xsd:double .
+
+ex:compound_051 a ex:Compound ;
+    ex:chemicalFormula "C17H21N4O3" ;
+    ex:molecularWeight "496.90"^^xsd:double ;
+    ex:bindsTo ex:target_006 .
+
+ex:stmt_comp_bind_051 a rdf:Statement ;
+    rdf:subject ex:compound_051 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_006 ;
+    ex:affinityKi "0.80"^^xsd:double .
+
+ex:compound_052 a ex:Compound ;
+    ex:chemicalFormula "C18H22N1O4" ;
+    ex:molecularWeight "501.15"^^xsd:double ;
+    ex:bindsTo ex:target_007 .
+
+ex:stmt_comp_bind_052 a rdf:Statement ;
+    rdf:subject ex:compound_052 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_007 ;
+    ex:affinityKi "1.15"^^xsd:double .
+
+ex:compound_053 a ex:Compound ;
+    ex:chemicalFormula "C19H23N2O5" ;
+    ex:molecularWeight "505.40"^^xsd:double ;
+    ex:bindsTo ex:target_008 .
+
+ex:stmt_comp_bind_053 a rdf:Statement ;
+    rdf:subject ex:compound_053 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_008 ;
+    ex:affinityKi "1.50"^^xsd:double .
+
+ex:compound_054 a ex:Compound ;
+    ex:chemicalFormula "C20H24N3O6" ;
+    ex:molecularWeight "509.65"^^xsd:double ;
+    ex:bindsTo ex:target_009 .
+
+ex:stmt_comp_bind_054 a rdf:Statement ;
+    rdf:subject ex:compound_054 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_009 ;
+    ex:affinityKi "1.85"^^xsd:double .
+
+ex:compound_055 a ex:Compound ;
+    ex:chemicalFormula "C21H25N4O2" ;
+    ex:molecularWeight "513.90"^^xsd:double ;
+    ex:bindsTo ex:target_010 .
+
+ex:stmt_comp_bind_055 a rdf:Statement ;
+    rdf:subject ex:compound_055 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_010 ;
+    ex:affinityKi "2.20"^^xsd:double .
+
+ex:compound_056 a ex:Compound ;
+    ex:chemicalFormula "C22H26N1O3" ;
+    ex:molecularWeight "518.15"^^xsd:double ;
+    ex:bindsTo ex:target_011 .
+
+ex:stmt_comp_bind_056 a rdf:Statement ;
+    rdf:subject ex:compound_056 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_011 ;
+    ex:affinityKi "2.55"^^xsd:double .
+
+ex:compound_057 a ex:Compound ;
+    ex:chemicalFormula "C23H27N2O4" ;
+    ex:molecularWeight "522.40"^^xsd:double ;
+    ex:bindsTo ex:target_012 .
+
+ex:stmt_comp_bind_057 a rdf:Statement ;
+    rdf:subject ex:compound_057 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_012 ;
+    ex:affinityKi "2.90"^^xsd:double .
+
+ex:compound_058 a ex:Compound ;
+    ex:chemicalFormula "C24H28N3O5" ;
+    ex:molecularWeight "526.65"^^xsd:double ;
+    ex:bindsTo ex:target_013 .
+
+ex:stmt_comp_bind_058 a rdf:Statement ;
+    rdf:subject ex:compound_058 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_013 ;
+    ex:affinityKi "3.25"^^xsd:double .
+
+ex:compound_059 a ex:Compound ;
+    ex:chemicalFormula "C25H29N4O6" ;
+    ex:molecularWeight "530.90"^^xsd:double ;
+    ex:bindsTo ex:target_014 .
+
+ex:stmt_comp_bind_059 a rdf:Statement ;
+    rdf:subject ex:compound_059 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_014 ;
+    ex:affinityKi "3.60"^^xsd:double .
+
+ex:compound_060 a ex:Compound ;
+    ex:chemicalFormula "C14H30N1O2" ;
+    ex:molecularWeight "535.15"^^xsd:double ;
+    ex:bindsTo ex:target_015 .
+
+ex:stmt_comp_bind_060 a rdf:Statement ;
+    rdf:subject ex:compound_060 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_015 ;
+    ex:affinityKi "3.95"^^xsd:double .
+
+ex:drug_001 a ex:Drug ;
+    ex:chemicalFormula "C19H23F2N2O3" ;
+    ex:molecularWeight "344.25"^^xsd:double ;
+    ex:approvalYear 2001 ;
+    ex:indicatedFor ex:disease_001 ;
+    ex:bindsTo ex:target_002 .
+
+ex:stmt_drug_bind_001 a rdf:Statement ;
+    rdf:subject ex:drug_001 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_002 ;
+    ex:affinityKi "0.30"^^xsd:double .
+
+ex:drug_002 a ex:Drug ;
+    ex:chemicalFormula "C20H24F3N2O3" ;
+    ex:molecularWeight "348.00"^^xsd:double ;
+    ex:approvalYear 2002 ;
+    ex:indicatedFor ex:disease_002 ;
+    ex:bindsTo ex:target_003 .
+
+ex:stmt_drug_bind_002 a rdf:Statement ;
+    rdf:subject ex:drug_002 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_003 ;
+    ex:affinityKi "0.48"^^xsd:double .
+
+ex:drug_003 a ex:Drug ;
+    ex:chemicalFormula "C21H25F1N2O3" ;
+    ex:molecularWeight "351.75"^^xsd:double ;
+    ex:approvalYear 2003 ;
+    ex:indicatedFor ex:disease_003 ;
+    ex:bindsTo ex:target_004 .
+
+ex:stmt_drug_bind_003 a rdf:Statement ;
+    rdf:subject ex:drug_003 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_004 ;
+    ex:affinityKi "0.66"^^xsd:double .
+
+ex:drug_004 a ex:Drug ;
+    ex:chemicalFormula "C22H26F2N2O3" ;
+    ex:molecularWeight "355.50"^^xsd:double ;
+    ex:approvalYear 2004 ;
+    ex:indicatedFor ex:disease_004 ;
+    ex:bindsTo ex:target_005 .
+
+ex:stmt_drug_bind_004 a rdf:Statement ;
+    rdf:subject ex:drug_004 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_005 ;
+    ex:affinityKi "0.84"^^xsd:double .
+
+ex:drug_005 a ex:Drug ;
+    ex:chemicalFormula "C23H27F3N2O3" ;
+    ex:molecularWeight "359.25"^^xsd:double ;
+    ex:approvalYear 2005 ;
+    ex:indicatedFor ex:disease_005 ;
+    ex:bindsTo ex:target_006 .
+
+ex:stmt_drug_bind_005 a rdf:Statement ;
+    rdf:subject ex:drug_005 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_006 ;
+    ex:affinityKi "1.02"^^xsd:double .
+
+ex:drug_006 a ex:Drug ;
+    ex:chemicalFormula "C24H28F1N2O3" ;
+    ex:molecularWeight "363.00"^^xsd:double ;
+    ex:approvalYear 2006 ;
+    ex:indicatedFor ex:disease_006 ;
+    ex:bindsTo ex:target_007 .
+
+ex:stmt_drug_bind_006 a rdf:Statement ;
+    rdf:subject ex:drug_006 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_007 ;
+    ex:affinityKi "1.20"^^xsd:double .
+
+ex:drug_007 a ex:Drug ;
+    ex:chemicalFormula "C25H29F2N2O3" ;
+    ex:molecularWeight "366.75"^^xsd:double ;
+    ex:approvalYear 2007 ;
+    ex:indicatedFor ex:disease_007 ;
+    ex:bindsTo ex:target_008 .
+
+ex:stmt_drug_bind_007 a rdf:Statement ;
+    rdf:subject ex:drug_007 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_008 ;
+    ex:affinityKi "1.38"^^xsd:double .
+
+ex:drug_008 a ex:Drug ;
+    ex:chemicalFormula "C26H30F3N2O3" ;
+    ex:molecularWeight "370.50"^^xsd:double ;
+    ex:approvalYear 2008 ;
+    ex:indicatedFor ex:disease_008 ;
+    ex:bindsTo ex:target_009 .
+
+ex:stmt_drug_bind_008 a rdf:Statement ;
+    rdf:subject ex:drug_008 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_009 ;
+    ex:affinityKi "1.56"^^xsd:double .
+
+ex:drug_009 a ex:Drug ;
+    ex:chemicalFormula "C27H31F1N2O3" ;
+    ex:molecularWeight "374.25"^^xsd:double ;
+    ex:approvalYear 2009 ;
+    ex:indicatedFor ex:disease_009 ;
+    ex:bindsTo ex:target_010 .
+
+ex:stmt_drug_bind_009 a rdf:Statement ;
+    rdf:subject ex:drug_009 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_010 ;
+    ex:affinityKi "1.74"^^xsd:double .
+
+ex:drug_010 a ex:Drug ;
+    ex:chemicalFormula "C18H32F2N2O3" ;
+    ex:molecularWeight "378.00"^^xsd:double ;
+    ex:approvalYear 2010 ;
+    ex:indicatedFor ex:disease_010 ;
+    ex:bindsTo ex:target_011 .
+
+ex:stmt_drug_bind_010 a rdf:Statement ;
+    rdf:subject ex:drug_010 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_011 ;
+    ex:affinityKi "1.92"^^xsd:double .
+
+ex:drug_011 a ex:Drug ;
+    ex:chemicalFormula "C19H33F3N2O3" ;
+    ex:molecularWeight "381.75"^^xsd:double ;
+    ex:approvalYear 2011 ;
+    ex:indicatedFor ex:disease_011 ;
+    ex:bindsTo ex:target_012 .
+
+ex:stmt_drug_bind_011 a rdf:Statement ;
+    rdf:subject ex:drug_011 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_012 ;
+    ex:affinityKi "2.10"^^xsd:double .
+
+ex:drug_012 a ex:Drug ;
+    ex:chemicalFormula "C20H34F1N2O3" ;
+    ex:molecularWeight "385.50"^^xsd:double ;
+    ex:approvalYear 2012 ;
+    ex:indicatedFor ex:disease_012 ;
+    ex:bindsTo ex:target_013 .
+
+ex:stmt_drug_bind_012 a rdf:Statement ;
+    rdf:subject ex:drug_012 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_013 ;
+    ex:affinityKi "2.28"^^xsd:double .
+
+ex:drug_013 a ex:Drug ;
+    ex:chemicalFormula "C21H35F2N2O3" ;
+    ex:molecularWeight "389.25"^^xsd:double ;
+    ex:approvalYear 2013 ;
+    ex:indicatedFor ex:disease_013 ;
+    ex:bindsTo ex:target_014 .
+
+ex:stmt_drug_bind_013 a rdf:Statement ;
+    rdf:subject ex:drug_013 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_014 ;
+    ex:affinityKi "2.46"^^xsd:double .
+
+ex:drug_014 a ex:Drug ;
+    ex:chemicalFormula "C22H22F3N2O3" ;
+    ex:molecularWeight "393.00"^^xsd:double ;
+    ex:approvalYear 2014 ;
+    ex:indicatedFor ex:disease_014 ;
+    ex:bindsTo ex:target_015 .
+
+ex:stmt_drug_bind_014 a rdf:Statement ;
+    rdf:subject ex:drug_014 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_015 ;
+    ex:affinityKi "2.64"^^xsd:double .
+
+ex:drug_015 a ex:Drug ;
+    ex:chemicalFormula "C23H23F1N2O3" ;
+    ex:molecularWeight "396.75"^^xsd:double ;
+    ex:approvalYear 2015 ;
+    ex:indicatedFor ex:disease_015 ;
+    ex:bindsTo ex:target_016 .
+
+ex:stmt_drug_bind_015 a rdf:Statement ;
+    rdf:subject ex:drug_015 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_016 ;
+    ex:affinityKi "2.82"^^xsd:double .
+
+ex:drug_016 a ex:Drug ;
+    ex:chemicalFormula "C24H24F2N2O3" ;
+    ex:molecularWeight "400.50"^^xsd:double ;
+    ex:approvalYear 2016 ;
+    ex:indicatedFor ex:disease_016 ;
+    ex:bindsTo ex:target_017 .
+
+ex:stmt_drug_bind_016 a rdf:Statement ;
+    rdf:subject ex:drug_016 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_017 ;
+    ex:affinityKi "3.00"^^xsd:double .
+
+ex:drug_017 a ex:Drug ;
+    ex:chemicalFormula "C25H25F3N2O3" ;
+    ex:molecularWeight "404.25"^^xsd:double ;
+    ex:approvalYear 2017 ;
+    ex:indicatedFor ex:disease_017 ;
+    ex:bindsTo ex:target_018 .
+
+ex:stmt_drug_bind_017 a rdf:Statement ;
+    rdf:subject ex:drug_017 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_018 ;
+    ex:affinityKi "3.18"^^xsd:double .
+
+ex:drug_018 a ex:Drug ;
+    ex:chemicalFormula "C26H26F1N2O3" ;
+    ex:molecularWeight "408.00"^^xsd:double ;
+    ex:approvalYear 2018 ;
+    ex:indicatedFor ex:disease_018 ;
+    ex:bindsTo ex:target_019 .
+
+ex:stmt_drug_bind_018 a rdf:Statement ;
+    rdf:subject ex:drug_018 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_019 ;
+    ex:affinityKi "3.36"^^xsd:double .
+
+ex:drug_019 a ex:Drug ;
+    ex:chemicalFormula "C27H27F2N2O3" ;
+    ex:molecularWeight "411.75"^^xsd:double ;
+    ex:approvalYear 2019 ;
+    ex:indicatedFor ex:disease_019 ;
+    ex:bindsTo ex:target_020 .
+
+ex:stmt_drug_bind_019 a rdf:Statement ;
+    rdf:subject ex:drug_019 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_020 ;
+    ex:affinityKi "3.54"^^xsd:double .
+
+ex:drug_020 a ex:Drug ;
+    ex:chemicalFormula "C18H28F3N2O3" ;
+    ex:molecularWeight "415.50"^^xsd:double ;
+    ex:approvalYear 2020 ;
+    ex:indicatedFor ex:disease_020 ;
+    ex:bindsTo ex:target_021 .
+
+ex:stmt_drug_bind_020 a rdf:Statement ;
+    rdf:subject ex:drug_020 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_021 ;
+    ex:affinityKi "0.12"^^xsd:double .
+
+ex:drug_021 a ex:Drug ;
+    ex:chemicalFormula "C19H29F1N2O3" ;
+    ex:molecularWeight "419.25"^^xsd:double ;
+    ex:approvalYear 2021 ;
+    ex:indicatedFor ex:disease_021 ;
+    ex:bindsTo ex:target_022 .
+
+ex:stmt_drug_bind_021 a rdf:Statement ;
+    rdf:subject ex:drug_021 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_022 ;
+    ex:affinityKi "0.30"^^xsd:double .
+
+ex:drug_022 a ex:Drug ;
+    ex:chemicalFormula "C20H30F2N2O3" ;
+    ex:molecularWeight "423.00"^^xsd:double ;
+    ex:approvalYear 2022 ;
+    ex:indicatedFor ex:disease_022 ;
+    ex:bindsTo ex:target_023 .
+
+ex:stmt_drug_bind_022 a rdf:Statement ;
+    rdf:subject ex:drug_022 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_023 ;
+    ex:affinityKi "0.48"^^xsd:double .
+
+ex:drug_023 a ex:Drug ;
+    ex:chemicalFormula "C21H31F3N2O3" ;
+    ex:molecularWeight "426.75"^^xsd:double ;
+    ex:approvalYear 2023 ;
+    ex:indicatedFor ex:disease_023 ;
+    ex:bindsTo ex:target_024 .
+
+ex:stmt_drug_bind_023 a rdf:Statement ;
+    rdf:subject ex:drug_023 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_024 ;
+    ex:affinityKi "0.66"^^xsd:double .
+
+ex:drug_024 a ex:Drug ;
+    ex:chemicalFormula "C22H32F1N2O3" ;
+    ex:molecularWeight "430.50"^^xsd:double ;
+    ex:approvalYear 2024 ;
+    ex:indicatedFor ex:disease_024 ;
+    ex:bindsTo ex:target_025 .
+
+ex:stmt_drug_bind_024 a rdf:Statement ;
+    rdf:subject ex:drug_024 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_025 ;
+    ex:affinityKi "0.84"^^xsd:double .
+
+ex:drug_025 a ex:Drug ;
+    ex:chemicalFormula "C23H33F2N2O3" ;
+    ex:molecularWeight "434.25"^^xsd:double ;
+    ex:approvalYear 2000 ;
+    ex:indicatedFor ex:disease_025 ;
+    ex:bindsTo ex:target_026 .
+
+ex:stmt_drug_bind_025 a rdf:Statement ;
+    rdf:subject ex:drug_025 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_026 ;
+    ex:affinityKi "1.02"^^xsd:double .
+
+ex:drug_026 a ex:Drug ;
+    ex:chemicalFormula "C24H34F3N2O3" ;
+    ex:molecularWeight "438.00"^^xsd:double ;
+    ex:approvalYear 2001 ;
+    ex:indicatedFor ex:disease_026 ;
+    ex:bindsTo ex:target_027 .
+
+ex:stmt_drug_bind_026 a rdf:Statement ;
+    rdf:subject ex:drug_026 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_027 ;
+    ex:affinityKi "1.20"^^xsd:double .
+
+ex:drug_027 a ex:Drug ;
+    ex:chemicalFormula "C25H35F1N2O3" ;
+    ex:molecularWeight "441.75"^^xsd:double ;
+    ex:approvalYear 2002 ;
+    ex:indicatedFor ex:disease_027 ;
+    ex:bindsTo ex:target_028 .
+
+ex:stmt_drug_bind_027 a rdf:Statement ;
+    rdf:subject ex:drug_027 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_028 ;
+    ex:affinityKi "1.38"^^xsd:double .
+
+ex:drug_028 a ex:Drug ;
+    ex:chemicalFormula "C26H22F2N2O3" ;
+    ex:molecularWeight "445.50"^^xsd:double ;
+    ex:approvalYear 2003 ;
+    ex:indicatedFor ex:disease_028 ;
+    ex:bindsTo ex:target_029 .
+
+ex:stmt_drug_bind_028 a rdf:Statement ;
+    rdf:subject ex:drug_028 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_029 ;
+    ex:affinityKi "1.56"^^xsd:double .
+
+ex:drug_029 a ex:Drug ;
+    ex:chemicalFormula "C27H23F3N2O3" ;
+    ex:molecularWeight "449.25"^^xsd:double ;
+    ex:approvalYear 2004 ;
+    ex:indicatedFor ex:disease_029 ;
+    ex:bindsTo ex:target_030 .
+
+ex:stmt_drug_bind_029 a rdf:Statement ;
+    rdf:subject ex:drug_029 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_030 ;
+    ex:affinityKi "1.74"^^xsd:double .
+
+ex:drug_030 a ex:Drug ;
+    ex:chemicalFormula "C18H24F1N2O3" ;
+    ex:molecularWeight "453.00"^^xsd:double ;
+    ex:approvalYear 2005 ;
+    ex:indicatedFor ex:disease_030 ;
+    ex:bindsTo ex:target_031 .
+
+ex:stmt_drug_bind_030 a rdf:Statement ;
+    rdf:subject ex:drug_030 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_031 ;
+    ex:affinityKi "1.92"^^xsd:double .
+
+ex:drug_031 a ex:Drug ;
+    ex:chemicalFormula "C19H25F2N2O3" ;
+    ex:molecularWeight "456.75"^^xsd:double ;
+    ex:approvalYear 2006 ;
+    ex:indicatedFor ex:disease_031 ;
+    ex:bindsTo ex:target_032 .
+
+ex:stmt_drug_bind_031 a rdf:Statement ;
+    rdf:subject ex:drug_031 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_032 ;
+    ex:affinityKi "2.10"^^xsd:double .
+
+ex:drug_032 a ex:Drug ;
+    ex:chemicalFormula "C20H26F3N2O3" ;
+    ex:molecularWeight "460.50"^^xsd:double ;
+    ex:approvalYear 2007 ;
+    ex:indicatedFor ex:disease_032 ;
+    ex:bindsTo ex:target_033 .
+
+ex:stmt_drug_bind_032 a rdf:Statement ;
+    rdf:subject ex:drug_032 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_033 ;
+    ex:affinityKi "2.28"^^xsd:double .
+
+ex:drug_033 a ex:Drug ;
+    ex:chemicalFormula "C21H27F1N2O3" ;
+    ex:molecularWeight "464.25"^^xsd:double ;
+    ex:approvalYear 2008 ;
+    ex:indicatedFor ex:disease_033 ;
+    ex:bindsTo ex:target_034 .
+
+ex:stmt_drug_bind_033 a rdf:Statement ;
+    rdf:subject ex:drug_033 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_034 ;
+    ex:affinityKi "2.46"^^xsd:double .
+
+ex:drug_034 a ex:Drug ;
+    ex:chemicalFormula "C22H28F2N2O3" ;
+    ex:molecularWeight "468.00"^^xsd:double ;
+    ex:approvalYear 2009 ;
+    ex:indicatedFor ex:disease_034 ;
+    ex:bindsTo ex:target_035 .
+
+ex:stmt_drug_bind_034 a rdf:Statement ;
+    rdf:subject ex:drug_034 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_035 ;
+    ex:affinityKi "2.64"^^xsd:double .
+
+ex:drug_035 a ex:Drug ;
+    ex:chemicalFormula "C23H29F3N2O3" ;
+    ex:molecularWeight "471.75"^^xsd:double ;
+    ex:approvalYear 2010 ;
+    ex:indicatedFor ex:disease_035 ;
+    ex:bindsTo ex:target_036 .
+
+ex:stmt_drug_bind_035 a rdf:Statement ;
+    rdf:subject ex:drug_035 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_036 ;
+    ex:affinityKi "2.82"^^xsd:double .
+
+ex:drug_036 a ex:Drug ;
+    ex:chemicalFormula "C24H30F1N2O3" ;
+    ex:molecularWeight "475.50"^^xsd:double ;
+    ex:approvalYear 2011 ;
+    ex:indicatedFor ex:disease_001 ;
+    ex:bindsTo ex:target_037 .
+
+ex:stmt_drug_bind_036 a rdf:Statement ;
+    rdf:subject ex:drug_036 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_037 ;
+    ex:affinityKi "3.00"^^xsd:double .
+
+ex:drug_037 a ex:Drug ;
+    ex:chemicalFormula "C25H31F2N2O3" ;
+    ex:molecularWeight "479.25"^^xsd:double ;
+    ex:approvalYear 2012 ;
+    ex:indicatedFor ex:disease_002 ;
+    ex:bindsTo ex:target_038 .
+
+ex:stmt_drug_bind_037 a rdf:Statement ;
+    rdf:subject ex:drug_037 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_038 ;
+    ex:affinityKi "3.18"^^xsd:double .
+
+ex:drug_038 a ex:Drug ;
+    ex:chemicalFormula "C26H32F3N2O3" ;
+    ex:molecularWeight "483.00"^^xsd:double ;
+    ex:approvalYear 2013 ;
+    ex:indicatedFor ex:disease_003 ;
+    ex:bindsTo ex:target_039 .
+
+ex:stmt_drug_bind_038 a rdf:Statement ;
+    rdf:subject ex:drug_038 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_039 ;
+    ex:affinityKi "3.36"^^xsd:double .
+
+ex:drug_039 a ex:Drug ;
+    ex:chemicalFormula "C27H33F1N2O3" ;
+    ex:molecularWeight "486.75"^^xsd:double ;
+    ex:approvalYear 2014 ;
+    ex:indicatedFor ex:disease_004 ;
+    ex:bindsTo ex:target_040 .
+
+ex:stmt_drug_bind_039 a rdf:Statement ;
+    rdf:subject ex:drug_039 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_040 ;
+    ex:affinityKi "3.54"^^xsd:double .
+
+ex:drug_040 a ex:Drug ;
+    ex:chemicalFormula "C18H34F2N2O3" ;
+    ex:molecularWeight "490.50"^^xsd:double ;
+    ex:approvalYear 2015 ;
+    ex:indicatedFor ex:disease_005 ;
+    ex:bindsTo ex:target_041 .
+
+ex:stmt_drug_bind_040 a rdf:Statement ;
+    rdf:subject ex:drug_040 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_041 ;
+    ex:affinityKi "0.12"^^xsd:double .
+
+ex:drug_041 a ex:Drug ;
+    ex:chemicalFormula "C19H35F3N2O3" ;
+    ex:molecularWeight "494.25"^^xsd:double ;
+    ex:approvalYear 2016 ;
+    ex:indicatedFor ex:disease_006 ;
+    ex:bindsTo ex:target_042 .
+
+ex:stmt_drug_bind_041 a rdf:Statement ;
+    rdf:subject ex:drug_041 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_042 ;
+    ex:affinityKi "0.30"^^xsd:double .
+
+ex:drug_042 a ex:Drug ;
+    ex:chemicalFormula "C20H22F1N2O3" ;
+    ex:molecularWeight "498.00"^^xsd:double ;
+    ex:approvalYear 2017 ;
+    ex:indicatedFor ex:disease_007 ;
+    ex:bindsTo ex:target_043 .
+
+ex:stmt_drug_bind_042 a rdf:Statement ;
+    rdf:subject ex:drug_042 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_043 ;
+    ex:affinityKi "0.48"^^xsd:double .
+
+ex:drug_043 a ex:Drug ;
+    ex:chemicalFormula "C21H23F2N2O3" ;
+    ex:molecularWeight "501.75"^^xsd:double ;
+    ex:approvalYear 2018 ;
+    ex:indicatedFor ex:disease_008 ;
+    ex:bindsTo ex:target_044 .
+
+ex:stmt_drug_bind_043 a rdf:Statement ;
+    rdf:subject ex:drug_043 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_044 ;
+    ex:affinityKi "0.66"^^xsd:double .
+
+ex:drug_044 a ex:Drug ;
+    ex:chemicalFormula "C22H24F3N2O3" ;
+    ex:molecularWeight "505.50"^^xsd:double ;
+    ex:approvalYear 2019 ;
+    ex:indicatedFor ex:disease_009 ;
+    ex:bindsTo ex:target_045 .
+
+ex:stmt_drug_bind_044 a rdf:Statement ;
+    rdf:subject ex:drug_044 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_045 ;
+    ex:affinityKi "0.84"^^xsd:double .
+
+ex:drug_045 a ex:Drug ;
+    ex:chemicalFormula "C23H25F1N2O3" ;
+    ex:molecularWeight "509.25"^^xsd:double ;
+    ex:approvalYear 2020 ;
+    ex:indicatedFor ex:disease_010 ;
+    ex:bindsTo ex:target_001 .
+
+ex:stmt_drug_bind_045 a rdf:Statement ;
+    rdf:subject ex:drug_045 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_001 ;
+    ex:affinityKi "1.02"^^xsd:double .
+
+ex:drug_046 a ex:Drug ;
+    ex:chemicalFormula "C24H26F2N2O3" ;
+    ex:molecularWeight "513.00"^^xsd:double ;
+    ex:approvalYear 2021 ;
+    ex:indicatedFor ex:disease_011 ;
+    ex:bindsTo ex:target_002 .
+
+ex:stmt_drug_bind_046 a rdf:Statement ;
+    rdf:subject ex:drug_046 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_002 ;
+    ex:affinityKi "1.20"^^xsd:double .
+
+ex:drug_047 a ex:Drug ;
+    ex:chemicalFormula "C25H27F3N2O3" ;
+    ex:molecularWeight "516.75"^^xsd:double ;
+    ex:approvalYear 2022 ;
+    ex:indicatedFor ex:disease_012 ;
+    ex:bindsTo ex:target_003 .
+
+ex:stmt_drug_bind_047 a rdf:Statement ;
+    rdf:subject ex:drug_047 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_003 ;
+    ex:affinityKi "1.38"^^xsd:double .
+
+ex:drug_048 a ex:Drug ;
+    ex:chemicalFormula "C26H28F1N2O3" ;
+    ex:molecularWeight "520.50"^^xsd:double ;
+    ex:approvalYear 2023 ;
+    ex:indicatedFor ex:disease_013 ;
+    ex:bindsTo ex:target_004 .
+
+ex:stmt_drug_bind_048 a rdf:Statement ;
+    rdf:subject ex:drug_048 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_004 ;
+    ex:affinityKi "1.56"^^xsd:double .
+
+ex:drug_049 a ex:Drug ;
+    ex:chemicalFormula "C27H29F2N2O3" ;
+    ex:molecularWeight "524.25"^^xsd:double ;
+    ex:approvalYear 2024 ;
+    ex:indicatedFor ex:disease_014 ;
+    ex:bindsTo ex:target_005 .
+
+ex:stmt_drug_bind_049 a rdf:Statement ;
+    rdf:subject ex:drug_049 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_005 ;
+    ex:affinityKi "1.74"^^xsd:double .
+
+ex:drug_050 a ex:Drug ;
+    ex:chemicalFormula "C18H30F3N2O3" ;
+    ex:molecularWeight "528.00"^^xsd:double ;
+    ex:approvalYear 2000 ;
+    ex:indicatedFor ex:disease_015 ;
+    ex:bindsTo ex:target_006 .
+
+ex:stmt_drug_bind_050 a rdf:Statement ;
+    rdf:subject ex:drug_050 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_006 ;
+    ex:affinityKi "1.92"^^xsd:double .
+
+ex:drug_051 a ex:Drug ;
+    ex:chemicalFormula "C19H31F1N2O3" ;
+    ex:molecularWeight "531.75"^^xsd:double ;
+    ex:approvalYear 2001 ;
+    ex:indicatedFor ex:disease_016 ;
+    ex:bindsTo ex:target_007 .
+
+ex:stmt_drug_bind_051 a rdf:Statement ;
+    rdf:subject ex:drug_051 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_007 ;
+    ex:affinityKi "2.10"^^xsd:double .
+
+ex:drug_052 a ex:Drug ;
+    ex:chemicalFormula "C20H32F2N2O3" ;
+    ex:molecularWeight "535.50"^^xsd:double ;
+    ex:approvalYear 2002 ;
+    ex:indicatedFor ex:disease_017 ;
+    ex:bindsTo ex:target_008 .
+
+ex:stmt_drug_bind_052 a rdf:Statement ;
+    rdf:subject ex:drug_052 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_008 ;
+    ex:affinityKi "2.28"^^xsd:double .
+
+ex:drug_053 a ex:Drug ;
+    ex:chemicalFormula "C21H33F3N2O3" ;
+    ex:molecularWeight "539.25"^^xsd:double ;
+    ex:approvalYear 2003 ;
+    ex:indicatedFor ex:disease_018 ;
+    ex:bindsTo ex:target_009 .
+
+ex:stmt_drug_bind_053 a rdf:Statement ;
+    rdf:subject ex:drug_053 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_009 ;
+    ex:affinityKi "2.46"^^xsd:double .
+
+ex:drug_054 a ex:Drug ;
+    ex:chemicalFormula "C22H34F1N2O3" ;
+    ex:molecularWeight "543.00"^^xsd:double ;
+    ex:approvalYear 2004 ;
+    ex:indicatedFor ex:disease_019 ;
+    ex:bindsTo ex:target_010 .
+
+ex:stmt_drug_bind_054 a rdf:Statement ;
+    rdf:subject ex:drug_054 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_010 ;
+    ex:affinityKi "2.64"^^xsd:double .
+
+ex:drug_055 a ex:Drug ;
+    ex:chemicalFormula "C23H35F2N2O3" ;
+    ex:molecularWeight "546.75"^^xsd:double ;
+    ex:approvalYear 2005 ;
+    ex:indicatedFor ex:disease_020 ;
+    ex:bindsTo ex:target_011 .
+
+ex:stmt_drug_bind_055 a rdf:Statement ;
+    rdf:subject ex:drug_055 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_011 ;
+    ex:affinityKi "2.82"^^xsd:double .
+
+ex:drug_056 a ex:Drug ;
+    ex:chemicalFormula "C24H22F3N2O3" ;
+    ex:molecularWeight "550.50"^^xsd:double ;
+    ex:approvalYear 2006 ;
+    ex:indicatedFor ex:disease_021 ;
+    ex:bindsTo ex:target_012 .
+
+ex:stmt_drug_bind_056 a rdf:Statement ;
+    rdf:subject ex:drug_056 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_012 ;
+    ex:affinityKi "3.00"^^xsd:double .
+
+ex:drug_057 a ex:Drug ;
+    ex:chemicalFormula "C25H23F1N2O3" ;
+    ex:molecularWeight "554.25"^^xsd:double ;
+    ex:approvalYear 2007 ;
+    ex:indicatedFor ex:disease_022 ;
+    ex:bindsTo ex:target_013 .
+
+ex:stmt_drug_bind_057 a rdf:Statement ;
+    rdf:subject ex:drug_057 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_013 ;
+    ex:affinityKi "3.18"^^xsd:double .
+
+ex:drug_058 a ex:Drug ;
+    ex:chemicalFormula "C26H24F2N2O3" ;
+    ex:molecularWeight "558.00"^^xsd:double ;
+    ex:approvalYear 2008 ;
+    ex:indicatedFor ex:disease_023 ;
+    ex:bindsTo ex:target_014 .
+
+ex:stmt_drug_bind_058 a rdf:Statement ;
+    rdf:subject ex:drug_058 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_014 ;
+    ex:affinityKi "3.36"^^xsd:double .
+
+ex:drug_059 a ex:Drug ;
+    ex:chemicalFormula "C27H25F3N2O3" ;
+    ex:molecularWeight "561.75"^^xsd:double ;
+    ex:approvalYear 2009 ;
+    ex:indicatedFor ex:disease_024 ;
+    ex:bindsTo ex:target_015 .
+
+ex:stmt_drug_bind_059 a rdf:Statement ;
+    rdf:subject ex:drug_059 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_015 ;
+    ex:affinityKi "3.54"^^xsd:double .
+
+ex:drug_060 a ex:Drug ;
+    ex:chemicalFormula "C18H26F1N2O3" ;
+    ex:molecularWeight "565.50"^^xsd:double ;
+    ex:approvalYear 2010 ;
+    ex:indicatedFor ex:disease_025 ;
+    ex:bindsTo ex:target_016 .
+
+ex:stmt_drug_bind_060 a rdf:Statement ;
+    rdf:subject ex:drug_060 ;
+    rdf:predicate ex:bindsTo ;
+    rdf:object ex:target_016 ;
+    ex:affinityKi "0.12"^^xsd:double .

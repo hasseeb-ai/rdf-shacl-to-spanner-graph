@@ -1,0 +1,1826 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/cardinality_datatypes/> .
+
+# ABox Instance Triples for 03_cardinality_and_datatypes
+
+ex:tx_001 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000001" ;
+    ex:amount 212.85 ;
+    ex:exchangeRate "0.8650"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-02-02T01:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-02-02"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.060"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_002 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000002" ;
+    ex:amount 300.20 ;
+    ex:exchangeRate "0.8800"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-03-03T02:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-03-03"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.070"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_003 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000003" ;
+    ex:amount 387.55 ;
+    ex:exchangeRate "0.8950"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-04-04T03:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-04-04"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.080"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_004 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000004" ;
+    ex:amount 474.90 ;
+    ex:exchangeRate "0.9100"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-05-05T04:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-05-05"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.090"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_005 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000005" ;
+    ex:amount 562.25 ;
+    ex:exchangeRate "0.9250"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-06-06T05:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-06-06"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.100"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_006 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000006" ;
+    ex:amount 649.60 ;
+    ex:exchangeRate "0.9400"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-07-07T06:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-07-07"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.110"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_007 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000007" ;
+    ex:amount 736.95 ;
+    ex:exchangeRate "0.9550"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-08-08T07:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-08-08"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.120"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_008 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000008" ;
+    ex:amount 824.30 ;
+    ex:exchangeRate "0.9700"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-09-09T08:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-09-09"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.130"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_009 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000009" ;
+    ex:amount 911.65 ;
+    ex:exchangeRate "0.9850"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-10-10T09:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-10-10"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.140"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_010 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000010" ;
+    ex:amount 999.00 ;
+    ex:exchangeRate "1.0000"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-11-11T10:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-11-11"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.150"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_011 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000011" ;
+    ex:amount 1086.35 ;
+    ex:exchangeRate "1.0150"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-12-12T11:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-12-12"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.160"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_012 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000012" ;
+    ex:amount 1173.70 ;
+    ex:exchangeRate "1.0300"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-01-13T12:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-01-13"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.170"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_013 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000013" ;
+    ex:amount 1261.05 ;
+    ex:exchangeRate "1.0450"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-02-14T13:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-02-14"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.180"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_014 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000014" ;
+    ex:amount 1348.40 ;
+    ex:exchangeRate "1.0600"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-03-15T14:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-03-15"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.190"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_015 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000015" ;
+    ex:amount 1435.75 ;
+    ex:exchangeRate "1.0750"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-04-16T15:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-04-16"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.200"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_016 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000016" ;
+    ex:amount 1523.10 ;
+    ex:exchangeRate "1.0900"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-05-17T16:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-05-17"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.210"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_017 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000017" ;
+    ex:amount 1610.45 ;
+    ex:exchangeRate "1.1050"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-06-18T17:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-06-18"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.220"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_018 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000018" ;
+    ex:amount 1697.80 ;
+    ex:exchangeRate "1.1200"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-07-19T18:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-07-19"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.230"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_019 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000019" ;
+    ex:amount 1785.15 ;
+    ex:exchangeRate "1.1350"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-08-20T19:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-08-20"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.240"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_020 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000020" ;
+    ex:amount 1872.50 ;
+    ex:exchangeRate "1.1500"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-09-21T20:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-09-21"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.250"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_021 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000021" ;
+    ex:amount 1959.85 ;
+    ex:exchangeRate "1.1650"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-10-22T21:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-10-22"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.260"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_022 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000022" ;
+    ex:amount 2047.20 ;
+    ex:exchangeRate "1.1800"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-11-23T22:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-11-23"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.270"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_023 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000023" ;
+    ex:amount 2134.55 ;
+    ex:exchangeRate "1.1950"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-12-24T23:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-12-24"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.280"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_024 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000024" ;
+    ex:amount 2221.90 ;
+    ex:exchangeRate "1.2100"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-01-25T00:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-01-25"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.290"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_025 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000025" ;
+    ex:amount 2309.25 ;
+    ex:exchangeRate "1.2250"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-02-26T01:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-02-26"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.300"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_026 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000026" ;
+    ex:amount 2396.60 ;
+    ex:exchangeRate "1.2400"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-03-27T02:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-03-27"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.310"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_027 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000027" ;
+    ex:amount 2483.95 ;
+    ex:exchangeRate "1.2550"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-04-28T03:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-04-28"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.320"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_028 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000028" ;
+    ex:amount 2571.30 ;
+    ex:exchangeRate "1.2700"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-05-01T04:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-05-01"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.330"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_029 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000029" ;
+    ex:amount 2658.65 ;
+    ex:exchangeRate "1.2850"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-06-02T05:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-06-02"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.340"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_030 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000030" ;
+    ex:amount 2746.00 ;
+    ex:exchangeRate "0.8500"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-07-03T06:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-07-03"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.350"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_031 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000031" ;
+    ex:amount 2833.35 ;
+    ex:exchangeRate "0.8650"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-08-04T07:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-08-04"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.360"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_032 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000032" ;
+    ex:amount 2920.70 ;
+    ex:exchangeRate "0.8800"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-09-05T08:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-09-05"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.370"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_033 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000033" ;
+    ex:amount 3008.05 ;
+    ex:exchangeRate "0.8950"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-10-06T09:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-10-06"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.380"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_034 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000034" ;
+    ex:amount 3095.40 ;
+    ex:exchangeRate "0.9100"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-11-07T10:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-11-07"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.390"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_035 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000035" ;
+    ex:amount 3182.75 ;
+    ex:exchangeRate "0.9250"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-12-08T11:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-12-08"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.400"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_036 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000036" ;
+    ex:amount 3270.10 ;
+    ex:exchangeRate "0.9400"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-01-09T12:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-01-09"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.410"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_037 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000037" ;
+    ex:amount 3357.45 ;
+    ex:exchangeRate "0.9550"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-02-10T13:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-02-10"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.420"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_038 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000038" ;
+    ex:amount 3444.80 ;
+    ex:exchangeRate "0.9700"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-03-11T14:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-03-11"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.430"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_039 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000039" ;
+    ex:amount 3532.15 ;
+    ex:exchangeRate "0.9850"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-04-12T15:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-04-12"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.440"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_040 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000040" ;
+    ex:amount 3619.50 ;
+    ex:exchangeRate "1.0000"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-05-13T16:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-05-13"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.450"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_041 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000041" ;
+    ex:amount 3706.85 ;
+    ex:exchangeRate "1.0150"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-06-14T17:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-06-14"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.460"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_042 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000042" ;
+    ex:amount 3794.20 ;
+    ex:exchangeRate "1.0300"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-07-15T18:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-07-15"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.470"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_043 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000043" ;
+    ex:amount 3881.55 ;
+    ex:exchangeRate "1.0450"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-08-16T19:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-08-16"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.480"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_044 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000044" ;
+    ex:amount 3968.90 ;
+    ex:exchangeRate "1.0600"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-09-17T20:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-09-17"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.490"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_045 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000045" ;
+    ex:amount 4056.25 ;
+    ex:exchangeRate "1.0750"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-10-18T21:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-10-18"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.500"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_046 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000046" ;
+    ex:amount 4143.60 ;
+    ex:exchangeRate "1.0900"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-11-19T22:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-11-19"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.510"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_047 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000047" ;
+    ex:amount 4230.95 ;
+    ex:exchangeRate "1.1050"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-12-20T23:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-12-20"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.520"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_048 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000048" ;
+    ex:amount 4318.30 ;
+    ex:exchangeRate "1.1200"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-01-21T00:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-01-21"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.530"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_049 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000049" ;
+    ex:amount 4405.65 ;
+    ex:exchangeRate "1.1350"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-02-22T01:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-02-22"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.540"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_050 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000050" ;
+    ex:amount 4493.00 ;
+    ex:exchangeRate "1.1500"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-03-23T02:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-03-23"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.550"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_051 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000051" ;
+    ex:amount 4580.35 ;
+    ex:exchangeRate "1.1650"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-04-24T03:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-04-24"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.560"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_052 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000052" ;
+    ex:amount 4667.70 ;
+    ex:exchangeRate "1.1800"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-05-25T04:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-05-25"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.570"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_053 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000053" ;
+    ex:amount 4755.05 ;
+    ex:exchangeRate "1.1950"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-06-26T05:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-06-26"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.580"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_054 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000054" ;
+    ex:amount 4842.40 ;
+    ex:exchangeRate "1.2100"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-07-27T06:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-07-27"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.590"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_055 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000055" ;
+    ex:amount 4929.75 ;
+    ex:exchangeRate "1.2250"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-08-28T07:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-08-28"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.600"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_056 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000056" ;
+    ex:amount 5017.10 ;
+    ex:exchangeRate "1.2400"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-09-01T08:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-09-01"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.610"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_057 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000057" ;
+    ex:amount 5104.45 ;
+    ex:exchangeRate "1.2550"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-10-02T09:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-10-02"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.620"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_058 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000058" ;
+    ex:amount 5191.80 ;
+    ex:exchangeRate "1.2700"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-11-03T10:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-11-03"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.630"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_059 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000059" ;
+    ex:amount 5279.15 ;
+    ex:exchangeRate "1.2850"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-12-04T11:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-12-04"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.640"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_060 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000060" ;
+    ex:amount 5366.50 ;
+    ex:exchangeRate "0.8500"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-01-05T12:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-01-05"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.650"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_061 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000061" ;
+    ex:amount 5453.85 ;
+    ex:exchangeRate "0.8650"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-02-06T13:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-02-06"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.660"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_062 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000062" ;
+    ex:amount 5541.20 ;
+    ex:exchangeRate "0.8800"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-03-07T14:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-03-07"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.670"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_063 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000063" ;
+    ex:amount 5628.55 ;
+    ex:exchangeRate "0.8950"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-04-08T15:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-04-08"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.680"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_064 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000064" ;
+    ex:amount 5715.90 ;
+    ex:exchangeRate "0.9100"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-05-09T16:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-05-09"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.690"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_065 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000065" ;
+    ex:amount 5803.25 ;
+    ex:exchangeRate "0.9250"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-06-10T17:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-06-10"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.700"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_066 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000066" ;
+    ex:amount 5890.60 ;
+    ex:exchangeRate "0.9400"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-07-11T18:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-07-11"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.710"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_067 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000067" ;
+    ex:amount 5977.95 ;
+    ex:exchangeRate "0.9550"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-08-12T19:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-08-12"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.720"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_068 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000068" ;
+    ex:amount 6065.30 ;
+    ex:exchangeRate "0.9700"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-09-13T20:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-09-13"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.730"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_069 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000069" ;
+    ex:amount 6152.65 ;
+    ex:exchangeRate "0.9850"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-10-14T21:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-10-14"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.740"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_070 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000070" ;
+    ex:amount 6240.00 ;
+    ex:exchangeRate "1.0000"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-11-15T22:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-11-15"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.750"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_071 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000071" ;
+    ex:amount 6327.35 ;
+    ex:exchangeRate "1.0150"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-12-16T23:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-12-16"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.760"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_072 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000072" ;
+    ex:amount 6414.70 ;
+    ex:exchangeRate "1.0300"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-01-17T00:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-01-17"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.770"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_073 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000073" ;
+    ex:amount 6502.05 ;
+    ex:exchangeRate "1.0450"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-02-18T01:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-02-18"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.780"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_074 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000074" ;
+    ex:amount 6589.40 ;
+    ex:exchangeRate "1.0600"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-03-19T02:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-03-19"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.790"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_075 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000075" ;
+    ex:amount 6676.75 ;
+    ex:exchangeRate "1.0750"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-04-20T03:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-04-20"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.800"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_076 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000076" ;
+    ex:amount 6764.10 ;
+    ex:exchangeRate "1.0900"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-05-21T04:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-05-21"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.810"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_077 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000077" ;
+    ex:amount 6851.45 ;
+    ex:exchangeRate "1.1050"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-06-22T05:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-06-22"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.820"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_078 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000078" ;
+    ex:amount 6938.80 ;
+    ex:exchangeRate "1.1200"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-07-23T06:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-07-23"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.830"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_079 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000079" ;
+    ex:amount 7026.15 ;
+    ex:exchangeRate "1.1350"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-08-24T07:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-08-24"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.840"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_080 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000080" ;
+    ex:amount 7113.50 ;
+    ex:exchangeRate "1.1500"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-09-25T08:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-09-25"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.850"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_081 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000081" ;
+    ex:amount 7200.85 ;
+    ex:exchangeRate "1.1650"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-10-26T09:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-10-26"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.860"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_082 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000082" ;
+    ex:amount 7288.20 ;
+    ex:exchangeRate "1.1800"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-11-27T10:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-11-27"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.870"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_083 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000083" ;
+    ex:amount 7375.55 ;
+    ex:exchangeRate "1.1950"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-12-28T11:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-12-28"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.880"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_084 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000084" ;
+    ex:amount 7462.90 ;
+    ex:exchangeRate "1.2100"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-01-01T12:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-01-01"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.890"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_085 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000085" ;
+    ex:amount 7550.25 ;
+    ex:exchangeRate "1.2250"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-02-02T13:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-02-02"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.900"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_086 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000086" ;
+    ex:amount 7637.60 ;
+    ex:exchangeRate "1.2400"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-03-03T14:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-03-03"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.910"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_087 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000087" ;
+    ex:amount 7724.95 ;
+    ex:exchangeRate "1.2550"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-04-04T15:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-04-04"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.920"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_088 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000088" ;
+    ex:amount 7812.30 ;
+    ex:exchangeRate "1.2700"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-05-05T16:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-05-05"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.930"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_089 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000089" ;
+    ex:amount 7899.65 ;
+    ex:exchangeRate "1.2850"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-06-06T17:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-06-06"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.940"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_090 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000090" ;
+    ex:amount 7987.00 ;
+    ex:exchangeRate "0.8500"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-07-07T18:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-07-07"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.050"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_091 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000091" ;
+    ex:amount 8074.35 ;
+    ex:exchangeRate "0.8650"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-08-08T19:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-08-08"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.060"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_092 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000092" ;
+    ex:amount 8161.70 ;
+    ex:exchangeRate "0.8800"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-09-09T20:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-09-09"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.070"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_093 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000093" ;
+    ex:amount 8249.05 ;
+    ex:exchangeRate "0.8950"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-10-10T21:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-10-10"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.080"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_094 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000094" ;
+    ex:amount 8336.40 ;
+    ex:exchangeRate "0.9100"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-11-11T22:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-11-11"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.090"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_095 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000095" ;
+    ex:amount 8423.75 ;
+    ex:exchangeRate "0.9250"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-12-12T23:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-12-12"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.100"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_096 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000096" ;
+    ex:amount 8511.10 ;
+    ex:exchangeRate "0.9400"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-01-13T00:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-01-13"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.110"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_097 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000097" ;
+    ex:amount 8598.45 ;
+    ex:exchangeRate "0.9550"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-02-14T01:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-02-14"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.120"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_098 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000098" ;
+    ex:amount 8685.80 ;
+    ex:exchangeRate "0.9700"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-03-15T02:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-03-15"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.130"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_099 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000099" ;
+    ex:amount 8773.15 ;
+    ex:exchangeRate "0.9850"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-04-16T03:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-04-16"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.140"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_100 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000100" ;
+    ex:amount 8860.50 ;
+    ex:exchangeRate "1.0000"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-05-17T04:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-05-17"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.150"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_101 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000101" ;
+    ex:amount 8947.85 ;
+    ex:exchangeRate "1.0150"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-06-18T05:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-06-18"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.160"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_102 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000102" ;
+    ex:amount 9035.20 ;
+    ex:exchangeRate "1.0300"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-07-19T06:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-07-19"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.170"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_103 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000103" ;
+    ex:amount 9122.55 ;
+    ex:exchangeRate "1.0450"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-08-20T07:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-08-20"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.180"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_104 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000104" ;
+    ex:amount 9209.90 ;
+    ex:exchangeRate "1.0600"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-09-21T08:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-09-21"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.190"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_105 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000105" ;
+    ex:amount 9297.25 ;
+    ex:exchangeRate "1.0750"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-10-22T09:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-10-22"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.200"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_106 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000106" ;
+    ex:amount 9384.60 ;
+    ex:exchangeRate "1.0900"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-11-23T10:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-11-23"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.210"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_107 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000107" ;
+    ex:amount 9471.95 ;
+    ex:exchangeRate "1.1050"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-12-24T11:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-12-24"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.220"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_108 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000108" ;
+    ex:amount 9559.30 ;
+    ex:exchangeRate "1.1200"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-01-25T12:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-01-25"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.230"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_109 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000109" ;
+    ex:amount 9646.65 ;
+    ex:exchangeRate "1.1350"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-02-26T13:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-02-26"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.240"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_110 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000110" ;
+    ex:amount 9734.00 ;
+    ex:exchangeRate "1.1500"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-03-27T14:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-03-27"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.250"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:tx_111 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000111" ;
+    ex:amount 9821.35 ;
+    ex:exchangeRate "1.1650"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-04-28T15:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-04-28"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.260"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-02", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_112 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000112" ;
+    ex:amount 9908.70 ;
+    ex:exchangeRate "1.1800"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-05-01T16:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-05-01"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.270"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-03", "COMPLIANCE-VERIFIED" .
+
+ex:tx_113 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000113" ;
+    ex:amount 9996.05 ;
+    ex:exchangeRate "1.1950"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-06-02T17:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-06-02"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.280"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-04", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_114 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000114" ;
+    ex:amount 10083.40 ;
+    ex:exchangeRate "1.2100"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-07-03T18:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-07-03"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.290"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-05", "COMPLIANCE-VERIFIED" .
+
+ex:tx_115 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000115" ;
+    ex:amount 10170.75 ;
+    ex:exchangeRate "1.2250"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-08-04T19:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-08-04"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.300"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-06", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_116 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000116" ;
+    ex:amount 10258.10 ;
+    ex:exchangeRate "1.2400"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-09-05T20:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-09-05"^^xsd:date ;
+    ex:retryCount 1 ;
+    ex:riskScore "0.310"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-07", "COMPLIANCE-VERIFIED" .
+
+ex:tx_117 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000117" ;
+    ex:amount 10345.45 ;
+    ex:exchangeRate "1.2550"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-10-06T21:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-10-06"^^xsd:date ;
+    ex:retryCount 2 ;
+    ex:riskScore "0.320"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-08", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_118 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000118" ;
+    ex:amount 10432.80 ;
+    ex:exchangeRate "1.2700"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-11-07T22:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-11-07"^^xsd:date ;
+    ex:retryCount 3 ;
+    ex:riskScore "0.330"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-09", "COMPLIANCE-VERIFIED" .
+
+ex:tx_119 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000119" ;
+    ex:amount 10520.15 ;
+    ex:exchangeRate "1.2850"^^xsd:double ;
+    ex:isSettled true ;
+    ex:transactionTimestamp "2025-12-08T23:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-12-08"^^xsd:date ;
+    ex:retryCount 4 ;
+    ex:riskScore "0.340"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-10", "HIGH-VELOCITY-CHECK" .
+
+ex:tx_120 a ex:FinancialTransaction ;
+    ex:transactionId "TX-2025-000120" ;
+    ex:amount 10607.50 ;
+    ex:exchangeRate "0.8500"^^xsd:double ;
+    ex:isSettled false ;
+    ex:transactionTimestamp "2025-01-09T00:15:30Z"^^xsd:dateTime ;
+    ex:settlementDate "2025-01-09"^^xsd:date ;
+    ex:retryCount 0 ;
+    ex:riskScore "0.350"^^xsd:double ;
+    ex:auditTag "AUDIT-BATCH-01", "COMPLIANCE-VERIFIED" .
+
+ex:user_profile_001 a ex:UserProfile ;
+    ex:emailAddress "user.001@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0001-A", "VC-0001-B" .
+
+ex:user_profile_002 a ex:UserProfile ;
+    ex:emailAddress "user.002@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0002-A", "VC-0002-B" .
+
+ex:user_profile_003 a ex:UserProfile ;
+    ex:emailAddress "user.003@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0003-A", "VC-0003-B" .
+
+ex:user_profile_004 a ex:UserProfile ;
+    ex:emailAddress "user.004@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0004-A", "VC-0004-B" .
+
+ex:user_profile_005 a ex:UserProfile ;
+    ex:emailAddress "user.005@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0005-A", "VC-0005-B" .
+
+ex:user_profile_006 a ex:UserProfile ;
+    ex:emailAddress "user.006@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0006-A", "VC-0006-B" .
+
+ex:user_profile_007 a ex:UserProfile ;
+    ex:emailAddress "user.007@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0007-A", "VC-0007-B" .
+
+ex:user_profile_008 a ex:UserProfile ;
+    ex:emailAddress "user.008@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0008-A", "VC-0008-B" .
+
+ex:user_profile_009 a ex:UserProfile ;
+    ex:emailAddress "user.009@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0009-A", "VC-0009-B" .
+
+ex:user_profile_010 a ex:UserProfile ;
+    ex:emailAddress "user.010@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0010-A", "VC-0010-B" .
+
+ex:user_profile_011 a ex:UserProfile ;
+    ex:emailAddress "user.011@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0011-A", "VC-0011-B" .
+
+ex:user_profile_012 a ex:UserProfile ;
+    ex:emailAddress "user.012@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0012-A", "VC-0012-B" .
+
+ex:user_profile_013 a ex:UserProfile ;
+    ex:emailAddress "user.013@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0013-A", "VC-0013-B" .
+
+ex:user_profile_014 a ex:UserProfile ;
+    ex:emailAddress "user.014@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0014-A", "VC-0014-B" .
+
+ex:user_profile_015 a ex:UserProfile ;
+    ex:emailAddress "user.015@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0015-A", "VC-0015-B" .
+
+ex:user_profile_016 a ex:UserProfile ;
+    ex:emailAddress "user.016@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0016-A", "VC-0016-B" .
+
+ex:user_profile_017 a ex:UserProfile ;
+    ex:emailAddress "user.017@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0017-A", "VC-0017-B" .
+
+ex:user_profile_018 a ex:UserProfile ;
+    ex:emailAddress "user.018@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0018-A", "VC-0018-B" .
+
+ex:user_profile_019 a ex:UserProfile ;
+    ex:emailAddress "user.019@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0019-A", "VC-0019-B" .
+
+ex:user_profile_020 a ex:UserProfile ;
+    ex:emailAddress "user.020@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0020-A", "VC-0020-B" .
+
+ex:user_profile_021 a ex:UserProfile ;
+    ex:emailAddress "user.021@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0021-A", "VC-0021-B" .
+
+ex:user_profile_022 a ex:UserProfile ;
+    ex:emailAddress "user.022@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0022-A", "VC-0022-B" .
+
+ex:user_profile_023 a ex:UserProfile ;
+    ex:emailAddress "user.023@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0023-A", "VC-0023-B" .
+
+ex:user_profile_024 a ex:UserProfile ;
+    ex:emailAddress "user.024@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0024-A", "VC-0024-B" .
+
+ex:user_profile_025 a ex:UserProfile ;
+    ex:emailAddress "user.025@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0025-A", "VC-0025-B" .
+
+ex:user_profile_026 a ex:UserProfile ;
+    ex:emailAddress "user.026@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0026-A", "VC-0026-B" .
+
+ex:user_profile_027 a ex:UserProfile ;
+    ex:emailAddress "user.027@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0027-A", "VC-0027-B" .
+
+ex:user_profile_028 a ex:UserProfile ;
+    ex:emailAddress "user.028@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0028-A", "VC-0028-B" .
+
+ex:user_profile_029 a ex:UserProfile ;
+    ex:emailAddress "user.029@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0029-A", "VC-0029-B" .
+
+ex:user_profile_030 a ex:UserProfile ;
+    ex:emailAddress "user.030@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0030-A", "VC-0030-B" .
+
+ex:user_profile_031 a ex:UserProfile ;
+    ex:emailAddress "user.031@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0031-A", "VC-0031-B" .
+
+ex:user_profile_032 a ex:UserProfile ;
+    ex:emailAddress "user.032@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0032-A", "VC-0032-B" .
+
+ex:user_profile_033 a ex:UserProfile ;
+    ex:emailAddress "user.033@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0033-A", "VC-0033-B" .
+
+ex:user_profile_034 a ex:UserProfile ;
+    ex:emailAddress "user.034@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0034-A", "VC-0034-B" .
+
+ex:user_profile_035 a ex:UserProfile ;
+    ex:emailAddress "user.035@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0035-A", "VC-0035-B" .
+
+ex:user_profile_036 a ex:UserProfile ;
+    ex:emailAddress "user.036@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0036-A", "VC-0036-B" .
+
+ex:user_profile_037 a ex:UserProfile ;
+    ex:emailAddress "user.037@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0037-A", "VC-0037-B" .
+
+ex:user_profile_038 a ex:UserProfile ;
+    ex:emailAddress "user.038@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0038-A", "VC-0038-B" .
+
+ex:user_profile_039 a ex:UserProfile ;
+    ex:emailAddress "user.039@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0039-A", "VC-0039-B" .
+
+ex:user_profile_040 a ex:UserProfile ;
+    ex:emailAddress "user.040@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0040-A", "VC-0040-B" .
+
+ex:user_profile_041 a ex:UserProfile ;
+    ex:emailAddress "user.041@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0041-A", "VC-0041-B" .
+
+ex:user_profile_042 a ex:UserProfile ;
+    ex:emailAddress "user.042@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0042-A", "VC-0042-B" .
+
+ex:user_profile_043 a ex:UserProfile ;
+    ex:emailAddress "user.043@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0043-A", "VC-0043-B" .
+
+ex:user_profile_044 a ex:UserProfile ;
+    ex:emailAddress "user.044@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0044-A", "VC-0044-B" .
+
+ex:user_profile_045 a ex:UserProfile ;
+    ex:emailAddress "user.045@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0045-A", "VC-0045-B" .
+
+ex:user_profile_046 a ex:UserProfile ;
+    ex:emailAddress "user.046@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0046-A", "VC-0046-B" .
+
+ex:user_profile_047 a ex:UserProfile ;
+    ex:emailAddress "user.047@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0047-A", "VC-0047-B" .
+
+ex:user_profile_048 a ex:UserProfile ;
+    ex:emailAddress "user.048@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0048-A", "VC-0048-B" .
+
+ex:user_profile_049 a ex:UserProfile ;
+    ex:emailAddress "user.049@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0049-A", "VC-0049-B" .
+
+ex:user_profile_050 a ex:UserProfile ;
+    ex:emailAddress "user.050@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0050-A", "VC-0050-B" .
+
+ex:user_profile_051 a ex:UserProfile ;
+    ex:emailAddress "user.051@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0051-A", "VC-0051-B" .
+
+ex:user_profile_052 a ex:UserProfile ;
+    ex:emailAddress "user.052@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0052-A", "VC-0052-B" .
+
+ex:user_profile_053 a ex:UserProfile ;
+    ex:emailAddress "user.053@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0053-A", "VC-0053-B" .
+
+ex:user_profile_054 a ex:UserProfile ;
+    ex:emailAddress "user.054@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0054-A", "VC-0054-B" .
+
+ex:user_profile_055 a ex:UserProfile ;
+    ex:emailAddress "user.055@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0055-A", "VC-0055-B" .
+
+ex:user_profile_056 a ex:UserProfile ;
+    ex:emailAddress "user.056@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0056-A", "VC-0056-B" .
+
+ex:user_profile_057 a ex:UserProfile ;
+    ex:emailAddress "user.057@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0057-A", "VC-0057-B" .
+
+ex:user_profile_058 a ex:UserProfile ;
+    ex:emailAddress "user.058@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0058-A", "VC-0058-B" .
+
+ex:user_profile_059 a ex:UserProfile ;
+    ex:emailAddress "user.059@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0059-A", "VC-0059-B" .
+
+ex:user_profile_060 a ex:UserProfile ;
+    ex:emailAddress "user.060@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0060-A", "VC-0060-B" .
+
+ex:user_profile_061 a ex:UserProfile ;
+    ex:emailAddress "user.061@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0061-A", "VC-0061-B" .
+
+ex:user_profile_062 a ex:UserProfile ;
+    ex:emailAddress "user.062@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0062-A", "VC-0062-B" .
+
+ex:user_profile_063 a ex:UserProfile ;
+    ex:emailAddress "user.063@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0063-A", "VC-0063-B" .
+
+ex:user_profile_064 a ex:UserProfile ;
+    ex:emailAddress "user.064@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0064-A", "VC-0064-B" .
+
+ex:user_profile_065 a ex:UserProfile ;
+    ex:emailAddress "user.065@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0065-A", "VC-0065-B" .
+
+ex:user_profile_066 a ex:UserProfile ;
+    ex:emailAddress "user.066@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0066-A", "VC-0066-B" .
+
+ex:user_profile_067 a ex:UserProfile ;
+    ex:emailAddress "user.067@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0067-A", "VC-0067-B" .
+
+ex:user_profile_068 a ex:UserProfile ;
+    ex:emailAddress "user.068@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0068-A", "VC-0068-B" .
+
+ex:user_profile_069 a ex:UserProfile ;
+    ex:emailAddress "user.069@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0069-A", "VC-0069-B" .
+
+ex:user_profile_070 a ex:UserProfile ;
+    ex:emailAddress "user.070@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0070-A", "VC-0070-B" .
+
+ex:user_profile_071 a ex:UserProfile ;
+    ex:emailAddress "user.071@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0071-A", "VC-0071-B" .
+
+ex:user_profile_072 a ex:UserProfile ;
+    ex:emailAddress "user.072@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0072-A", "VC-0072-B" .
+
+ex:user_profile_073 a ex:UserProfile ;
+    ex:emailAddress "user.073@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0073-A", "VC-0073-B" .
+
+ex:user_profile_074 a ex:UserProfile ;
+    ex:emailAddress "user.074@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0074-A", "VC-0074-B" .
+
+ex:user_profile_075 a ex:UserProfile ;
+    ex:emailAddress "user.075@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0075-A", "VC-0075-B" .
+
+ex:user_profile_076 a ex:UserProfile ;
+    ex:emailAddress "user.076@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0076-A", "VC-0076-B" .
+
+ex:user_profile_077 a ex:UserProfile ;
+    ex:emailAddress "user.077@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0077-A", "VC-0077-B" .
+
+ex:user_profile_078 a ex:UserProfile ;
+    ex:emailAddress "user.078@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0078-A", "VC-0078-B" .
+
+ex:user_profile_079 a ex:UserProfile ;
+    ex:emailAddress "user.079@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0079-A", "VC-0079-B" .
+
+ex:user_profile_080 a ex:UserProfile ;
+    ex:emailAddress "user.080@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0080-A", "VC-0080-B" .
+
+ex:user_profile_081 a ex:UserProfile ;
+    ex:emailAddress "user.081@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0081-A", "VC-0081-B" .
+
+ex:user_profile_082 a ex:UserProfile ;
+    ex:emailAddress "user.082@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0082-A", "VC-0082-B" .
+
+ex:user_profile_083 a ex:UserProfile ;
+    ex:emailAddress "user.083@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0083-A", "VC-0083-B" .
+
+ex:user_profile_084 a ex:UserProfile ;
+    ex:emailAddress "user.084@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0084-A", "VC-0084-B" .
+
+ex:user_profile_085 a ex:UserProfile ;
+    ex:emailAddress "user.085@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0085-A", "VC-0085-B" .
+
+ex:user_profile_086 a ex:UserProfile ;
+    ex:emailAddress "user.086@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0086-A", "VC-0086-B" .
+
+ex:user_profile_087 a ex:UserProfile ;
+    ex:emailAddress "user.087@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0087-A", "VC-0087-B" .
+
+ex:user_profile_088 a ex:UserProfile ;
+    ex:emailAddress "user.088@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0088-A", "VC-0088-B" .
+
+ex:user_profile_089 a ex:UserProfile ;
+    ex:emailAddress "user.089@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0089-A", "VC-0089-B" .
+
+ex:user_profile_090 a ex:UserProfile ;
+    ex:emailAddress "user.090@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0090-A", "VC-0090-B" .
+
+ex:user_profile_091 a ex:UserProfile ;
+    ex:emailAddress "user.091@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0091-A", "VC-0091-B" .
+
+ex:user_profile_092 a ex:UserProfile ;
+    ex:emailAddress "user.092@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0092-A", "VC-0092-B" .
+
+ex:user_profile_093 a ex:UserProfile ;
+    ex:emailAddress "user.093@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0093-A", "VC-0093-B" .
+
+ex:user_profile_094 a ex:UserProfile ;
+    ex:emailAddress "user.094@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0094-A", "VC-0094-B" .
+
+ex:user_profile_095 a ex:UserProfile ;
+    ex:emailAddress "user.095@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0095-A", "VC-0095-B" .
+
+ex:user_profile_096 a ex:UserProfile ;
+    ex:emailAddress "user.096@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0096-A", "VC-0096-B" .
+
+ex:user_profile_097 a ex:UserProfile ;
+    ex:emailAddress "user.097@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0097-A", "VC-0097-B" .
+
+ex:user_profile_098 a ex:UserProfile ;
+    ex:emailAddress "user.098@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0098-A", "VC-0098-B" .
+
+ex:user_profile_099 a ex:UserProfile ;
+    ex:emailAddress "user.099@enterprise-fin.example.org" ;
+    ex:isActive true ;
+    ex:verificationCode "VC-0099-A", "VC-0099-B" .
+
+ex:user_profile_100 a ex:UserProfile ;
+    ex:emailAddress "user.100@enterprise-fin.example.org" ;
+    ex:isActive false ;
+    ex:verificationCode "VC-0100-A", "VC-0100-B" .

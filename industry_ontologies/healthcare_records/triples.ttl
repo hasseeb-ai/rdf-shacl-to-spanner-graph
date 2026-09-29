@@ -1,0 +1,1931 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/healthcare/> .
+
+# ABox Instance Triples for healthcare_records
+
+ex:med_001 a ex:Medication ;
+    ex:rxNormId "RXNORM-10001" .
+
+ex:med_002 a ex:Medication ;
+    ex:rxNormId "RXNORM-10002" .
+
+ex:med_003 a ex:Medication ;
+    ex:rxNormId "RXNORM-10003" .
+
+ex:med_004 a ex:Medication ;
+    ex:rxNormId "RXNORM-10004" .
+
+ex:med_005 a ex:Medication ;
+    ex:rxNormId "RXNORM-10005" .
+
+ex:med_006 a ex:Medication ;
+    ex:rxNormId "RXNORM-10006" .
+
+ex:med_007 a ex:Medication ;
+    ex:rxNormId "RXNORM-10007" .
+
+ex:med_008 a ex:Medication ;
+    ex:rxNormId "RXNORM-10008" .
+
+ex:med_009 a ex:Medication ;
+    ex:rxNormId "RXNORM-10009" .
+
+ex:med_010 a ex:Medication ;
+    ex:rxNormId "RXNORM-10010" .
+
+ex:med_011 a ex:Medication ;
+    ex:rxNormId "RXNORM-10011" .
+
+ex:med_012 a ex:Medication ;
+    ex:rxNormId "RXNORM-10012" .
+
+ex:med_013 a ex:Medication ;
+    ex:rxNormId "RXNORM-10013" .
+
+ex:med_014 a ex:Medication ;
+    ex:rxNormId "RXNORM-10014" .
+
+ex:med_015 a ex:Medication ;
+    ex:rxNormId "RXNORM-10015" .
+
+ex:med_016 a ex:Medication ;
+    ex:rxNormId "RXNORM-10016" .
+
+ex:med_017 a ex:Medication ;
+    ex:rxNormId "RXNORM-10017" .
+
+ex:med_018 a ex:Medication ;
+    ex:rxNormId "RXNORM-10018" .
+
+ex:med_019 a ex:Medication ;
+    ex:rxNormId "RXNORM-10019" .
+
+ex:med_020 a ex:Medication ;
+    ex:rxNormId "RXNORM-10020" .
+
+ex:med_021 a ex:Medication ;
+    ex:rxNormId "RXNORM-10021" .
+
+ex:med_022 a ex:Medication ;
+    ex:rxNormId "RXNORM-10022" .
+
+ex:med_023 a ex:Medication ;
+    ex:rxNormId "RXNORM-10023" .
+
+ex:med_024 a ex:Medication ;
+    ex:rxNormId "RXNORM-10024" .
+
+ex:med_025 a ex:Medication ;
+    ex:rxNormId "RXNORM-10025" .
+
+ex:med_026 a ex:Medication ;
+    ex:rxNormId "RXNORM-10026" .
+
+ex:med_027 a ex:Medication ;
+    ex:rxNormId "RXNORM-10027" .
+
+ex:med_028 a ex:Medication ;
+    ex:rxNormId "RXNORM-10028" .
+
+ex:med_029 a ex:Medication ;
+    ex:rxNormId "RXNORM-10029" .
+
+ex:med_030 a ex:Medication ;
+    ex:rxNormId "RXNORM-10030" .
+
+ex:med_031 a ex:Medication ;
+    ex:rxNormId "RXNORM-10031" .
+
+ex:med_032 a ex:Medication ;
+    ex:rxNormId "RXNORM-10032" .
+
+ex:med_033 a ex:Medication ;
+    ex:rxNormId "RXNORM-10033" .
+
+ex:med_034 a ex:Medication ;
+    ex:rxNormId "RXNORM-10034" .
+
+ex:med_035 a ex:Medication ;
+    ex:rxNormId "RXNORM-10035" .
+
+ex:med_036 a ex:Medication ;
+    ex:rxNormId "RXNORM-10036" .
+
+ex:med_037 a ex:Medication ;
+    ex:rxNormId "RXNORM-10037" .
+
+ex:med_038 a ex:Medication ;
+    ex:rxNormId "RXNORM-10038" .
+
+ex:med_039 a ex:Medication ;
+    ex:rxNormId "RXNORM-10039" .
+
+ex:med_040 a ex:Medication ;
+    ex:rxNormId "RXNORM-10040" .
+
+ex:rx_001 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (5mg) orally twice daily" ;
+    ex:hasMedication ex:med_001 .
+
+ex:med_001 ex:prescribedIn ex:rx_001 .
+
+ex:rx_002 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (10mg) orally twice daily" ;
+    ex:hasMedication ex:med_002 .
+
+ex:med_002 ex:prescribedIn ex:rx_002 .
+
+ex:rx_003 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (15mg) orally twice daily" ;
+    ex:hasMedication ex:med_003 .
+
+ex:med_003 ex:prescribedIn ex:rx_003 .
+
+ex:rx_004 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (20mg) orally twice daily" ;
+    ex:hasMedication ex:med_004 .
+
+ex:med_004 ex:prescribedIn ex:rx_004 .
+
+ex:rx_005 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (25mg) orally twice daily" ;
+    ex:hasMedication ex:med_005 .
+
+ex:med_005 ex:prescribedIn ex:rx_005 .
+
+ex:rx_006 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (30mg) orally twice daily" ;
+    ex:hasMedication ex:med_006 .
+
+ex:med_006 ex:prescribedIn ex:rx_006 .
+
+ex:rx_007 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (35mg) orally twice daily" ;
+    ex:hasMedication ex:med_007 .
+
+ex:med_007 ex:prescribedIn ex:rx_007 .
+
+ex:rx_008 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (40mg) orally twice daily" ;
+    ex:hasMedication ex:med_008 .
+
+ex:med_008 ex:prescribedIn ex:rx_008 .
+
+ex:rx_009 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (45mg) orally twice daily" ;
+    ex:hasMedication ex:med_009 .
+
+ex:med_009 ex:prescribedIn ex:rx_009 .
+
+ex:rx_010 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (50mg) orally twice daily" ;
+    ex:hasMedication ex:med_010 .
+
+ex:med_010 ex:prescribedIn ex:rx_010 .
+
+ex:rx_011 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (55mg) orally twice daily" ;
+    ex:hasMedication ex:med_011 .
+
+ex:med_011 ex:prescribedIn ex:rx_011 .
+
+ex:rx_012 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (60mg) orally twice daily" ;
+    ex:hasMedication ex:med_012 .
+
+ex:med_012 ex:prescribedIn ex:rx_012 .
+
+ex:rx_013 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (65mg) orally twice daily" ;
+    ex:hasMedication ex:med_013 .
+
+ex:med_013 ex:prescribedIn ex:rx_013 .
+
+ex:rx_014 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (70mg) orally twice daily" ;
+    ex:hasMedication ex:med_014 .
+
+ex:med_014 ex:prescribedIn ex:rx_014 .
+
+ex:rx_015 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (75mg) orally twice daily" ;
+    ex:hasMedication ex:med_015 .
+
+ex:med_015 ex:prescribedIn ex:rx_015 .
+
+ex:rx_016 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (80mg) orally twice daily" ;
+    ex:hasMedication ex:med_016 .
+
+ex:med_016 ex:prescribedIn ex:rx_016 .
+
+ex:rx_017 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (85mg) orally twice daily" ;
+    ex:hasMedication ex:med_017 .
+
+ex:med_017 ex:prescribedIn ex:rx_017 .
+
+ex:rx_018 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (90mg) orally twice daily" ;
+    ex:hasMedication ex:med_018 .
+
+ex:med_018 ex:prescribedIn ex:rx_018 .
+
+ex:rx_019 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (95mg) orally twice daily" ;
+    ex:hasMedication ex:med_019 .
+
+ex:med_019 ex:prescribedIn ex:rx_019 .
+
+ex:rx_020 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (100mg) orally twice daily" ;
+    ex:hasMedication ex:med_020 .
+
+ex:med_020 ex:prescribedIn ex:rx_020 .
+
+ex:rx_021 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (105mg) orally twice daily" ;
+    ex:hasMedication ex:med_021 .
+
+ex:med_021 ex:prescribedIn ex:rx_021 .
+
+ex:rx_022 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (110mg) orally twice daily" ;
+    ex:hasMedication ex:med_022 .
+
+ex:med_022 ex:prescribedIn ex:rx_022 .
+
+ex:rx_023 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (115mg) orally twice daily" ;
+    ex:hasMedication ex:med_023 .
+
+ex:med_023 ex:prescribedIn ex:rx_023 .
+
+ex:rx_024 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (120mg) orally twice daily" ;
+    ex:hasMedication ex:med_024 .
+
+ex:med_024 ex:prescribedIn ex:rx_024 .
+
+ex:rx_025 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (125mg) orally twice daily" ;
+    ex:hasMedication ex:med_025 .
+
+ex:med_025 ex:prescribedIn ex:rx_025 .
+
+ex:rx_026 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (130mg) orally twice daily" ;
+    ex:hasMedication ex:med_026 .
+
+ex:med_026 ex:prescribedIn ex:rx_026 .
+
+ex:rx_027 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (135mg) orally twice daily" ;
+    ex:hasMedication ex:med_027 .
+
+ex:med_027 ex:prescribedIn ex:rx_027 .
+
+ex:rx_028 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (140mg) orally twice daily" ;
+    ex:hasMedication ex:med_028 .
+
+ex:med_028 ex:prescribedIn ex:rx_028 .
+
+ex:rx_029 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (145mg) orally twice daily" ;
+    ex:hasMedication ex:med_029 .
+
+ex:med_029 ex:prescribedIn ex:rx_029 .
+
+ex:rx_030 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (150mg) orally twice daily" ;
+    ex:hasMedication ex:med_030 .
+
+ex:med_030 ex:prescribedIn ex:rx_030 .
+
+ex:rx_031 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (155mg) orally twice daily" ;
+    ex:hasMedication ex:med_031 .
+
+ex:med_031 ex:prescribedIn ex:rx_031 .
+
+ex:rx_032 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (160mg) orally twice daily" ;
+    ex:hasMedication ex:med_032 .
+
+ex:med_032 ex:prescribedIn ex:rx_032 .
+
+ex:rx_033 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (165mg) orally twice daily" ;
+    ex:hasMedication ex:med_033 .
+
+ex:med_033 ex:prescribedIn ex:rx_033 .
+
+ex:rx_034 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (170mg) orally twice daily" ;
+    ex:hasMedication ex:med_034 .
+
+ex:med_034 ex:prescribedIn ex:rx_034 .
+
+ex:rx_035 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (175mg) orally twice daily" ;
+    ex:hasMedication ex:med_035 .
+
+ex:med_035 ex:prescribedIn ex:rx_035 .
+
+ex:rx_036 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (180mg) orally twice daily" ;
+    ex:hasMedication ex:med_036 .
+
+ex:med_036 ex:prescribedIn ex:rx_036 .
+
+ex:rx_037 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (185mg) orally twice daily" ;
+    ex:hasMedication ex:med_037 .
+
+ex:med_037 ex:prescribedIn ex:rx_037 .
+
+ex:rx_038 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (190mg) orally twice daily" ;
+    ex:hasMedication ex:med_038 .
+
+ex:med_038 ex:prescribedIn ex:rx_038 .
+
+ex:rx_039 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (195mg) orally twice daily" ;
+    ex:hasMedication ex:med_039 .
+
+ex:med_039 ex:prescribedIn ex:rx_039 .
+
+ex:rx_040 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (200mg) orally twice daily" ;
+    ex:hasMedication ex:med_040 .
+
+ex:med_040 ex:prescribedIn ex:rx_040 .
+
+ex:rx_041 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (205mg) orally twice daily" ;
+    ex:hasMedication ex:med_001 .
+
+ex:med_001 ex:prescribedIn ex:rx_041 .
+
+ex:rx_042 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (210mg) orally twice daily" ;
+    ex:hasMedication ex:med_002 .
+
+ex:med_002 ex:prescribedIn ex:rx_042 .
+
+ex:rx_043 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (215mg) orally twice daily" ;
+    ex:hasMedication ex:med_003 .
+
+ex:med_003 ex:prescribedIn ex:rx_043 .
+
+ex:rx_044 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (220mg) orally twice daily" ;
+    ex:hasMedication ex:med_004 .
+
+ex:med_004 ex:prescribedIn ex:rx_044 .
+
+ex:rx_045 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (225mg) orally twice daily" ;
+    ex:hasMedication ex:med_005 .
+
+ex:med_005 ex:prescribedIn ex:rx_045 .
+
+ex:rx_046 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (230mg) orally twice daily" ;
+    ex:hasMedication ex:med_006 .
+
+ex:med_006 ex:prescribedIn ex:rx_046 .
+
+ex:rx_047 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (235mg) orally twice daily" ;
+    ex:hasMedication ex:med_007 .
+
+ex:med_007 ex:prescribedIn ex:rx_047 .
+
+ex:rx_048 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (240mg) orally twice daily" ;
+    ex:hasMedication ex:med_008 .
+
+ex:med_008 ex:prescribedIn ex:rx_048 .
+
+ex:rx_049 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (245mg) orally twice daily" ;
+    ex:hasMedication ex:med_009 .
+
+ex:med_009 ex:prescribedIn ex:rx_049 .
+
+ex:rx_050 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (250mg) orally twice daily" ;
+    ex:hasMedication ex:med_010 .
+
+ex:med_010 ex:prescribedIn ex:rx_050 .
+
+ex:rx_051 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (255mg) orally twice daily" ;
+    ex:hasMedication ex:med_011 .
+
+ex:med_011 ex:prescribedIn ex:rx_051 .
+
+ex:rx_052 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (260mg) orally twice daily" ;
+    ex:hasMedication ex:med_012 .
+
+ex:med_012 ex:prescribedIn ex:rx_052 .
+
+ex:rx_053 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (265mg) orally twice daily" ;
+    ex:hasMedication ex:med_013 .
+
+ex:med_013 ex:prescribedIn ex:rx_053 .
+
+ex:rx_054 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (270mg) orally twice daily" ;
+    ex:hasMedication ex:med_014 .
+
+ex:med_014 ex:prescribedIn ex:rx_054 .
+
+ex:rx_055 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (275mg) orally twice daily" ;
+    ex:hasMedication ex:med_015 .
+
+ex:med_015 ex:prescribedIn ex:rx_055 .
+
+ex:rx_056 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (280mg) orally twice daily" ;
+    ex:hasMedication ex:med_016 .
+
+ex:med_016 ex:prescribedIn ex:rx_056 .
+
+ex:rx_057 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (285mg) orally twice daily" ;
+    ex:hasMedication ex:med_017 .
+
+ex:med_017 ex:prescribedIn ex:rx_057 .
+
+ex:rx_058 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (290mg) orally twice daily" ;
+    ex:hasMedication ex:med_018 .
+
+ex:med_018 ex:prescribedIn ex:rx_058 .
+
+ex:rx_059 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (295mg) orally twice daily" ;
+    ex:hasMedication ex:med_019 .
+
+ex:med_019 ex:prescribedIn ex:rx_059 .
+
+ex:rx_060 a ex:Prescription ;
+    ex:dosageInstruction "Take 1 tablet (300mg) orally twice daily" ;
+    ex:hasMedication ex:med_020 .
+
+ex:med_020 ex:prescribedIn ex:rx_060 .
+
+ex:diag_001 a ex:Diagnosis ;
+    ex:icd10Code "I11.1" ;
+    ex:leadsToCondition ex:diag_002 .
+
+ex:diag_002 a ex:Diagnosis ;
+    ex:icd10Code "I12.2" ;
+    ex:leadsToCondition ex:diag_003 .
+
+ex:diag_003 a ex:Diagnosis ;
+    ex:icd10Code "I13.3" .
+
+ex:diag_004 a ex:Diagnosis ;
+    ex:icd10Code "I14.4" ;
+    ex:leadsToCondition ex:diag_005 .
+
+ex:diag_005 a ex:Diagnosis ;
+    ex:icd10Code "I15.5" ;
+    ex:leadsToCondition ex:diag_006 .
+
+ex:diag_006 a ex:Diagnosis ;
+    ex:icd10Code "I16.6" .
+
+ex:diag_007 a ex:Diagnosis ;
+    ex:icd10Code "I17.7" ;
+    ex:leadsToCondition ex:diag_008 .
+
+ex:diag_008 a ex:Diagnosis ;
+    ex:icd10Code "I18.8" ;
+    ex:leadsToCondition ex:diag_009 .
+
+ex:diag_009 a ex:Diagnosis ;
+    ex:icd10Code "I19.0" .
+
+ex:diag_010 a ex:Diagnosis ;
+    ex:icd10Code "I20.1" ;
+    ex:leadsToCondition ex:diag_011 .
+
+ex:diag_011 a ex:Diagnosis ;
+    ex:icd10Code "I21.2" ;
+    ex:leadsToCondition ex:diag_012 .
+
+ex:diag_012 a ex:Diagnosis ;
+    ex:icd10Code "I22.3" .
+
+ex:diag_013 a ex:Diagnosis ;
+    ex:icd10Code "I23.4" ;
+    ex:leadsToCondition ex:diag_014 .
+
+ex:diag_014 a ex:Diagnosis ;
+    ex:icd10Code "I24.5" ;
+    ex:leadsToCondition ex:diag_015 .
+
+ex:diag_015 a ex:Diagnosis ;
+    ex:icd10Code "I25.6" .
+
+ex:diag_016 a ex:Diagnosis ;
+    ex:icd10Code "I26.7" ;
+    ex:leadsToCondition ex:diag_017 .
+
+ex:diag_017 a ex:Diagnosis ;
+    ex:icd10Code "I27.8" ;
+    ex:leadsToCondition ex:diag_018 .
+
+ex:diag_018 a ex:Diagnosis ;
+    ex:icd10Code "I28.0" .
+
+ex:diag_019 a ex:Diagnosis ;
+    ex:icd10Code "I29.1" ;
+    ex:leadsToCondition ex:diag_020 .
+
+ex:diag_020 a ex:Diagnosis ;
+    ex:icd10Code "I30.2" ;
+    ex:leadsToCondition ex:diag_021 .
+
+ex:diag_021 a ex:Diagnosis ;
+    ex:icd10Code "I31.3" .
+
+ex:diag_022 a ex:Diagnosis ;
+    ex:icd10Code "I32.4" ;
+    ex:leadsToCondition ex:diag_023 .
+
+ex:diag_023 a ex:Diagnosis ;
+    ex:icd10Code "I33.5" ;
+    ex:leadsToCondition ex:diag_024 .
+
+ex:diag_024 a ex:Diagnosis ;
+    ex:icd10Code "I34.6" .
+
+ex:diag_025 a ex:Diagnosis ;
+    ex:icd10Code "I35.7" ;
+    ex:leadsToCondition ex:diag_026 .
+
+ex:diag_026 a ex:Diagnosis ;
+    ex:icd10Code "I36.8" ;
+    ex:leadsToCondition ex:diag_027 .
+
+ex:diag_027 a ex:Diagnosis ;
+    ex:icd10Code "I37.0" .
+
+ex:diag_028 a ex:Diagnosis ;
+    ex:icd10Code "I38.1" ;
+    ex:leadsToCondition ex:diag_029 .
+
+ex:diag_029 a ex:Diagnosis ;
+    ex:icd10Code "I39.2" ;
+    ex:leadsToCondition ex:diag_030 .
+
+ex:diag_030 a ex:Diagnosis ;
+    ex:icd10Code "I40.3" .
+
+ex:diag_031 a ex:Diagnosis ;
+    ex:icd10Code "I41.4" ;
+    ex:leadsToCondition ex:diag_032 .
+
+ex:diag_032 a ex:Diagnosis ;
+    ex:icd10Code "I42.5" ;
+    ex:leadsToCondition ex:diag_033 .
+
+ex:diag_033 a ex:Diagnosis ;
+    ex:icd10Code "I43.6" .
+
+ex:diag_034 a ex:Diagnosis ;
+    ex:icd10Code "I44.7" ;
+    ex:leadsToCondition ex:diag_035 .
+
+ex:diag_035 a ex:Diagnosis ;
+    ex:icd10Code "I45.8" ;
+    ex:leadsToCondition ex:diag_036 .
+
+ex:diag_036 a ex:Diagnosis ;
+    ex:icd10Code "I46.0" .
+
+ex:diag_037 a ex:Diagnosis ;
+    ex:icd10Code "I47.1" ;
+    ex:leadsToCondition ex:diag_038 .
+
+ex:diag_038 a ex:Diagnosis ;
+    ex:icd10Code "I48.2" ;
+    ex:leadsToCondition ex:diag_039 .
+
+ex:diag_039 a ex:Diagnosis ;
+    ex:icd10Code "I49.3" .
+
+ex:diag_040 a ex:Diagnosis ;
+    ex:icd10Code "I50.4" ;
+    ex:leadsToCondition ex:diag_041 .
+
+ex:diag_041 a ex:Diagnosis ;
+    ex:icd10Code "I51.5" ;
+    ex:leadsToCondition ex:diag_042 .
+
+ex:diag_042 a ex:Diagnosis ;
+    ex:icd10Code "I52.6" .
+
+ex:diag_043 a ex:Diagnosis ;
+    ex:icd10Code "I53.7" ;
+    ex:leadsToCondition ex:diag_044 .
+
+ex:diag_044 a ex:Diagnosis ;
+    ex:icd10Code "I54.8" ;
+    ex:leadsToCondition ex:diag_045 .
+
+ex:diag_045 a ex:Diagnosis ;
+    ex:icd10Code "I55.0" .
+
+ex:proc_001 a ex:Procedure ;
+    ex:cptCode "CPT-99201" .
+
+ex:proc_002 a ex:Procedure ;
+    ex:cptCode "CPT-99202" .
+
+ex:proc_003 a ex:Procedure ;
+    ex:cptCode "CPT-99203" .
+
+ex:proc_004 a ex:Procedure ;
+    ex:cptCode "CPT-99204" .
+
+ex:proc_005 a ex:Procedure ;
+    ex:cptCode "CPT-99205" .
+
+ex:proc_006 a ex:Procedure ;
+    ex:cptCode "CPT-99206" .
+
+ex:proc_007 a ex:Procedure ;
+    ex:cptCode "CPT-99207" .
+
+ex:proc_008 a ex:Procedure ;
+    ex:cptCode "CPT-99208" .
+
+ex:proc_009 a ex:Procedure ;
+    ex:cptCode "CPT-99209" .
+
+ex:proc_010 a ex:Procedure ;
+    ex:cptCode "CPT-99210" .
+
+ex:proc_011 a ex:Procedure ;
+    ex:cptCode "CPT-99211" .
+
+ex:proc_012 a ex:Procedure ;
+    ex:cptCode "CPT-99212" .
+
+ex:proc_013 a ex:Procedure ;
+    ex:cptCode "CPT-99213" .
+
+ex:proc_014 a ex:Procedure ;
+    ex:cptCode "CPT-99214" .
+
+ex:proc_015 a ex:Procedure ;
+    ex:cptCode "CPT-99215" .
+
+ex:proc_016 a ex:Procedure ;
+    ex:cptCode "CPT-99216" .
+
+ex:proc_017 a ex:Procedure ;
+    ex:cptCode "CPT-99217" .
+
+ex:proc_018 a ex:Procedure ;
+    ex:cptCode "CPT-99218" .
+
+ex:proc_019 a ex:Procedure ;
+    ex:cptCode "CPT-99219" .
+
+ex:proc_020 a ex:Procedure ;
+    ex:cptCode "CPT-99220" .
+
+ex:proc_021 a ex:Procedure ;
+    ex:cptCode "CPT-99221" .
+
+ex:proc_022 a ex:Procedure ;
+    ex:cptCode "CPT-99222" .
+
+ex:proc_023 a ex:Procedure ;
+    ex:cptCode "CPT-99223" .
+
+ex:proc_024 a ex:Procedure ;
+    ex:cptCode "CPT-99224" .
+
+ex:proc_025 a ex:Procedure ;
+    ex:cptCode "CPT-99225" .
+
+ex:proc_026 a ex:Procedure ;
+    ex:cptCode "CPT-99226" .
+
+ex:proc_027 a ex:Procedure ;
+    ex:cptCode "CPT-99227" .
+
+ex:proc_028 a ex:Procedure ;
+    ex:cptCode "CPT-99228" .
+
+ex:proc_029 a ex:Procedure ;
+    ex:cptCode "CPT-99229" .
+
+ex:proc_030 a ex:Procedure ;
+    ex:cptCode "CPT-99230" .
+
+ex:proc_031 a ex:Procedure ;
+    ex:cptCode "CPT-99231" .
+
+ex:proc_032 a ex:Procedure ;
+    ex:cptCode "CPT-99232" .
+
+ex:proc_033 a ex:Procedure ;
+    ex:cptCode "CPT-99233" .
+
+ex:proc_034 a ex:Procedure ;
+    ex:cptCode "CPT-99234" .
+
+ex:proc_035 a ex:Procedure ;
+    ex:cptCode "CPT-99235" .
+
+ex:proc_036 a ex:Procedure ;
+    ex:cptCode "CPT-99236" .
+
+ex:proc_037 a ex:Procedure ;
+    ex:cptCode "CPT-99237" .
+
+ex:proc_038 a ex:Procedure ;
+    ex:cptCode "CPT-99238" .
+
+ex:proc_039 a ex:Procedure ;
+    ex:cptCode "CPT-99239" .
+
+ex:proc_040 a ex:Procedure ;
+    ex:cptCode "CPT-99240" .
+
+ex:pract_001 a ex:Practitioner ;
+    ex:npi "NPI-1000000001" ;
+    ex:practitionerSpecialty "Neurology" ;
+    ex:referredTo ex:pract_002 .
+
+ex:pract_002 a ex:Practitioner ;
+    ex:npi "NPI-1000000002" ;
+    ex:practitionerSpecialty "Oncology" ;
+    ex:referredTo ex:pract_003 .
+
+ex:pract_003 a ex:Practitioner ;
+    ex:npi "NPI-1000000003" ;
+    ex:practitionerSpecialty "Endocrinology" ;
+    ex:referredTo ex:pract_004 .
+
+ex:pract_004 a ex:Practitioner ;
+    ex:npi "NPI-1000000004" ;
+    ex:practitionerSpecialty "Internal Medicine" ;
+    ex:referredTo ex:pract_005 .
+
+ex:pract_005 a ex:Practitioner ;
+    ex:npi "NPI-1000000005" ;
+    ex:practitionerSpecialty "Pulmonology" ;
+    ex:referredTo ex:pract_006 .
+
+ex:pract_006 a ex:Practitioner ;
+    ex:npi "NPI-1000000006" ;
+    ex:practitionerSpecialty "Cardiology" ;
+    ex:referredTo ex:pract_007 .
+
+ex:pract_007 a ex:Practitioner ;
+    ex:npi "NPI-1000000007" ;
+    ex:practitionerSpecialty "Neurology" ;
+    ex:referredTo ex:pract_008 .
+
+ex:pract_008 a ex:Practitioner ;
+    ex:npi "NPI-1000000008" ;
+    ex:practitionerSpecialty "Oncology" ;
+    ex:referredTo ex:pract_009 .
+
+ex:pract_009 a ex:Practitioner ;
+    ex:npi "NPI-1000000009" ;
+    ex:practitionerSpecialty "Endocrinology" ;
+    ex:referredTo ex:pract_010 .
+
+ex:pract_010 a ex:Practitioner ;
+    ex:npi "NPI-1000000010" ;
+    ex:practitionerSpecialty "Internal Medicine" ;
+    ex:referredTo ex:pract_011 .
+
+ex:pract_011 a ex:Practitioner ;
+    ex:npi "NPI-1000000011" ;
+    ex:practitionerSpecialty "Pulmonology" ;
+    ex:referredTo ex:pract_012 .
+
+ex:pract_012 a ex:Practitioner ;
+    ex:npi "NPI-1000000012" ;
+    ex:practitionerSpecialty "Cardiology" ;
+    ex:referredTo ex:pract_013 .
+
+ex:pract_013 a ex:Practitioner ;
+    ex:npi "NPI-1000000013" ;
+    ex:practitionerSpecialty "Neurology" ;
+    ex:referredTo ex:pract_014 .
+
+ex:pract_014 a ex:Practitioner ;
+    ex:npi "NPI-1000000014" ;
+    ex:practitionerSpecialty "Oncology" ;
+    ex:referredTo ex:pract_015 .
+
+ex:pract_015 a ex:Practitioner ;
+    ex:npi "NPI-1000000015" ;
+    ex:practitionerSpecialty "Endocrinology" ;
+    ex:referredTo ex:pract_016 .
+
+ex:pract_016 a ex:Practitioner ;
+    ex:npi "NPI-1000000016" ;
+    ex:practitionerSpecialty "Internal Medicine" ;
+    ex:referredTo ex:pract_017 .
+
+ex:pract_017 a ex:Practitioner ;
+    ex:npi "NPI-1000000017" ;
+    ex:practitionerSpecialty "Pulmonology" ;
+    ex:referredTo ex:pract_018 .
+
+ex:pract_018 a ex:Practitioner ;
+    ex:npi "NPI-1000000018" ;
+    ex:practitionerSpecialty "Cardiology" ;
+    ex:referredTo ex:pract_019 .
+
+ex:pract_019 a ex:Practitioner ;
+    ex:npi "NPI-1000000019" ;
+    ex:practitionerSpecialty "Neurology" ;
+    ex:referredTo ex:pract_020 .
+
+ex:pract_020 a ex:Practitioner ;
+    ex:npi "NPI-1000000020" ;
+    ex:practitionerSpecialty "Oncology" ;
+    ex:referredTo ex:pract_021 .
+
+ex:pract_021 a ex:Practitioner ;
+    ex:npi "NPI-1000000021" ;
+    ex:practitionerSpecialty "Endocrinology" ;
+    ex:referredTo ex:pract_022 .
+
+ex:pract_022 a ex:Practitioner ;
+    ex:npi "NPI-1000000022" ;
+    ex:practitionerSpecialty "Internal Medicine" ;
+    ex:referredTo ex:pract_023 .
+
+ex:pract_023 a ex:Practitioner ;
+    ex:npi "NPI-1000000023" ;
+    ex:practitionerSpecialty "Pulmonology" ;
+    ex:referredTo ex:pract_024 .
+
+ex:pract_024 a ex:Practitioner ;
+    ex:npi "NPI-1000000024" ;
+    ex:practitionerSpecialty "Cardiology" ;
+    ex:referredTo ex:pract_025 .
+
+ex:pract_025 a ex:Practitioner ;
+    ex:npi "NPI-1000000025" ;
+    ex:practitionerSpecialty "Neurology" ;
+    ex:referredTo ex:pract_026 .
+
+ex:pract_026 a ex:Practitioner ;
+    ex:npi "NPI-1000000026" ;
+    ex:practitionerSpecialty "Oncology" ;
+    ex:referredTo ex:pract_027 .
+
+ex:pract_027 a ex:Practitioner ;
+    ex:npi "NPI-1000000027" ;
+    ex:practitionerSpecialty "Endocrinology" ;
+    ex:referredTo ex:pract_028 .
+
+ex:pract_028 a ex:Practitioner ;
+    ex:npi "NPI-1000000028" ;
+    ex:practitionerSpecialty "Internal Medicine" ;
+    ex:referredTo ex:pract_029 .
+
+ex:pract_029 a ex:Practitioner ;
+    ex:npi "NPI-1000000029" ;
+    ex:practitionerSpecialty "Pulmonology" ;
+    ex:referredTo ex:pract_030 .
+
+ex:pract_030 a ex:Practitioner ;
+    ex:npi "NPI-1000000030" ;
+    ex:practitionerSpecialty "Cardiology" ;
+    ex:referredTo ex:pract_031 .
+
+ex:pract_031 a ex:Practitioner ;
+    ex:npi "NPI-1000000031" ;
+    ex:practitionerSpecialty "Neurology" ;
+    ex:referredTo ex:pract_032 .
+
+ex:pract_032 a ex:Practitioner ;
+    ex:npi "NPI-1000000032" ;
+    ex:practitionerSpecialty "Oncology" ;
+    ex:referredTo ex:pract_033 .
+
+ex:pract_033 a ex:Practitioner ;
+    ex:npi "NPI-1000000033" ;
+    ex:practitionerSpecialty "Endocrinology" ;
+    ex:referredTo ex:pract_034 .
+
+ex:pract_034 a ex:Practitioner ;
+    ex:npi "NPI-1000000034" ;
+    ex:practitionerSpecialty "Internal Medicine" ;
+    ex:referredTo ex:pract_035 .
+
+ex:pract_035 a ex:Practitioner ;
+    ex:npi "NPI-1000000035" ;
+    ex:practitionerSpecialty "Pulmonology" ;
+    ex:referredTo ex:pract_036 .
+
+ex:pract_036 a ex:Practitioner ;
+    ex:npi "NPI-1000000036" ;
+    ex:practitionerSpecialty "Cardiology" ;
+    ex:referredTo ex:pract_037 .
+
+ex:pract_037 a ex:Practitioner ;
+    ex:npi "NPI-1000000037" ;
+    ex:practitionerSpecialty "Neurology" ;
+    ex:referredTo ex:pract_038 .
+
+ex:pract_038 a ex:Practitioner ;
+    ex:npi "NPI-1000000038" ;
+    ex:practitionerSpecialty "Oncology" ;
+    ex:referredTo ex:pract_039 .
+
+ex:pract_039 a ex:Practitioner ;
+    ex:npi "NPI-1000000039" ;
+    ex:practitionerSpecialty "Endocrinology" ;
+    ex:referredTo ex:pract_040 .
+
+ex:pract_040 a ex:Practitioner ;
+    ex:npi "NPI-1000000040" ;
+    ex:practitionerSpecialty "Internal Medicine" ;
+    ex:referredTo ex:pract_001 .
+
+ex:enc_001 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-02T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_001 ;
+    ex:encounterDiagnosis ex:diag_001 ;
+    ex:performedProcedure ex:proc_001 ;
+    ex:orderedPrescription ex:rx_001 .
+
+ex:enc_002 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-03T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_002 ;
+    ex:encounterDiagnosis ex:diag_002 ;
+    ex:performedProcedure ex:proc_002 ;
+    ex:orderedPrescription ex:rx_002 .
+
+ex:enc_003 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-04T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_003 ;
+    ex:encounterDiagnosis ex:diag_003 ;
+    ex:performedProcedure ex:proc_003 ;
+    ex:orderedPrescription ex:rx_003 .
+
+ex:enc_004 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-05T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_004 ;
+    ex:encounterDiagnosis ex:diag_004 ;
+    ex:performedProcedure ex:proc_004 ;
+    ex:orderedPrescription ex:rx_004 .
+
+ex:enc_005 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-06T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_005 ;
+    ex:encounterDiagnosis ex:diag_005 ;
+    ex:performedProcedure ex:proc_005 ;
+    ex:orderedPrescription ex:rx_005 .
+
+ex:enc_006 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-07T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_006 ;
+    ex:encounterDiagnosis ex:diag_006 ;
+    ex:performedProcedure ex:proc_006 ;
+    ex:orderedPrescription ex:rx_006 .
+
+ex:enc_007 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-08T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_007 ;
+    ex:encounterDiagnosis ex:diag_007 ;
+    ex:performedProcedure ex:proc_007 ;
+    ex:orderedPrescription ex:rx_007 .
+
+ex:enc_008 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-09T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_008 ;
+    ex:encounterDiagnosis ex:diag_008 ;
+    ex:performedProcedure ex:proc_008 ;
+    ex:orderedPrescription ex:rx_008 .
+
+ex:enc_009 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-10T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_009 ;
+    ex:encounterDiagnosis ex:diag_009 ;
+    ex:performedProcedure ex:proc_009 ;
+    ex:orderedPrescription ex:rx_009 .
+
+ex:enc_010 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-11T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_010 ;
+    ex:encounterDiagnosis ex:diag_010 ;
+    ex:performedProcedure ex:proc_010 ;
+    ex:orderedPrescription ex:rx_010 .
+
+ex:enc_011 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-12T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_011 ;
+    ex:encounterDiagnosis ex:diag_011 ;
+    ex:performedProcedure ex:proc_011 ;
+    ex:orderedPrescription ex:rx_011 .
+
+ex:enc_012 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-13T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_012 ;
+    ex:encounterDiagnosis ex:diag_012 ;
+    ex:performedProcedure ex:proc_012 ;
+    ex:orderedPrescription ex:rx_012 .
+
+ex:enc_013 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-14T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_013 ;
+    ex:encounterDiagnosis ex:diag_013 ;
+    ex:performedProcedure ex:proc_013 ;
+    ex:orderedPrescription ex:rx_013 .
+
+ex:enc_014 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-15T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_014 ;
+    ex:encounterDiagnosis ex:diag_014 ;
+    ex:performedProcedure ex:proc_014 ;
+    ex:orderedPrescription ex:rx_014 .
+
+ex:enc_015 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-16T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_015 ;
+    ex:encounterDiagnosis ex:diag_015 ;
+    ex:performedProcedure ex:proc_015 ;
+    ex:orderedPrescription ex:rx_015 .
+
+ex:enc_016 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-17T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_016 ;
+    ex:encounterDiagnosis ex:diag_016 ;
+    ex:performedProcedure ex:proc_016 ;
+    ex:orderedPrescription ex:rx_016 .
+
+ex:enc_017 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-18T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_017 ;
+    ex:encounterDiagnosis ex:diag_017 ;
+    ex:performedProcedure ex:proc_017 ;
+    ex:orderedPrescription ex:rx_017 .
+
+ex:enc_018 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-19T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_018 ;
+    ex:encounterDiagnosis ex:diag_018 ;
+    ex:performedProcedure ex:proc_018 ;
+    ex:orderedPrescription ex:rx_018 .
+
+ex:enc_019 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-20T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_019 ;
+    ex:encounterDiagnosis ex:diag_019 ;
+    ex:performedProcedure ex:proc_019 ;
+    ex:orderedPrescription ex:rx_019 .
+
+ex:enc_020 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-21T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_020 ;
+    ex:encounterDiagnosis ex:diag_020 ;
+    ex:performedProcedure ex:proc_020 ;
+    ex:orderedPrescription ex:rx_020 .
+
+ex:enc_021 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-22T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_021 ;
+    ex:encounterDiagnosis ex:diag_021 ;
+    ex:performedProcedure ex:proc_021 ;
+    ex:orderedPrescription ex:rx_021 .
+
+ex:enc_022 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-23T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_022 ;
+    ex:encounterDiagnosis ex:diag_022 ;
+    ex:performedProcedure ex:proc_022 ;
+    ex:orderedPrescription ex:rx_022 .
+
+ex:enc_023 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-24T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_023 ;
+    ex:encounterDiagnosis ex:diag_023 ;
+    ex:performedProcedure ex:proc_023 ;
+    ex:orderedPrescription ex:rx_023 .
+
+ex:enc_024 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-25T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_024 ;
+    ex:encounterDiagnosis ex:diag_024 ;
+    ex:performedProcedure ex:proc_024 ;
+    ex:orderedPrescription ex:rx_024 .
+
+ex:enc_025 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-26T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_025 ;
+    ex:encounterDiagnosis ex:diag_025 ;
+    ex:performedProcedure ex:proc_025 ;
+    ex:orderedPrescription ex:rx_025 .
+
+ex:enc_026 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-27T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_026 ;
+    ex:encounterDiagnosis ex:diag_026 ;
+    ex:performedProcedure ex:proc_026 ;
+    ex:orderedPrescription ex:rx_026 .
+
+ex:enc_027 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-28T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_027 ;
+    ex:encounterDiagnosis ex:diag_027 ;
+    ex:performedProcedure ex:proc_027 ;
+    ex:orderedPrescription ex:rx_027 .
+
+ex:enc_028 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-01T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_028 ;
+    ex:encounterDiagnosis ex:diag_028 ;
+    ex:performedProcedure ex:proc_028 ;
+    ex:orderedPrescription ex:rx_028 .
+
+ex:enc_029 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-02T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_029 ;
+    ex:encounterDiagnosis ex:diag_029 ;
+    ex:performedProcedure ex:proc_029 ;
+    ex:orderedPrescription ex:rx_029 .
+
+ex:enc_030 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-03T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_030 ;
+    ex:encounterDiagnosis ex:diag_030 ;
+    ex:performedProcedure ex:proc_030 ;
+    ex:orderedPrescription ex:rx_030 .
+
+ex:enc_031 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-04T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_031 ;
+    ex:encounterDiagnosis ex:diag_031 ;
+    ex:performedProcedure ex:proc_031 ;
+    ex:orderedPrescription ex:rx_031 .
+
+ex:enc_032 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-05T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_032 ;
+    ex:encounterDiagnosis ex:diag_032 ;
+    ex:performedProcedure ex:proc_032 ;
+    ex:orderedPrescription ex:rx_032 .
+
+ex:enc_033 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-06T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_033 ;
+    ex:encounterDiagnosis ex:diag_033 ;
+    ex:performedProcedure ex:proc_033 ;
+    ex:orderedPrescription ex:rx_033 .
+
+ex:enc_034 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-07T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_034 ;
+    ex:encounterDiagnosis ex:diag_034 ;
+    ex:performedProcedure ex:proc_034 ;
+    ex:orderedPrescription ex:rx_034 .
+
+ex:enc_035 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-08T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_035 ;
+    ex:encounterDiagnosis ex:diag_035 ;
+    ex:performedProcedure ex:proc_035 ;
+    ex:orderedPrescription ex:rx_035 .
+
+ex:enc_036 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-09T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_036 ;
+    ex:encounterDiagnosis ex:diag_036 ;
+    ex:performedProcedure ex:proc_036 ;
+    ex:orderedPrescription ex:rx_036 .
+
+ex:enc_037 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-10T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_037 ;
+    ex:encounterDiagnosis ex:diag_037 ;
+    ex:performedProcedure ex:proc_037 ;
+    ex:orderedPrescription ex:rx_037 .
+
+ex:enc_038 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-11T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_038 ;
+    ex:encounterDiagnosis ex:diag_038 ;
+    ex:performedProcedure ex:proc_038 ;
+    ex:orderedPrescription ex:rx_038 .
+
+ex:enc_039 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-12T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_039 ;
+    ex:encounterDiagnosis ex:diag_039 ;
+    ex:performedProcedure ex:proc_039 ;
+    ex:orderedPrescription ex:rx_039 .
+
+ex:enc_040 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-13T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_040 ;
+    ex:encounterDiagnosis ex:diag_040 ;
+    ex:performedProcedure ex:proc_040 ;
+    ex:orderedPrescription ex:rx_040 .
+
+ex:enc_041 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-14T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_001 ;
+    ex:encounterDiagnosis ex:diag_041 ;
+    ex:performedProcedure ex:proc_001 ;
+    ex:orderedPrescription ex:rx_041 .
+
+ex:enc_042 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-15T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_002 ;
+    ex:encounterDiagnosis ex:diag_042 ;
+    ex:performedProcedure ex:proc_002 ;
+    ex:orderedPrescription ex:rx_042 .
+
+ex:enc_043 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-16T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_003 ;
+    ex:encounterDiagnosis ex:diag_043 ;
+    ex:performedProcedure ex:proc_003 ;
+    ex:orderedPrescription ex:rx_043 .
+
+ex:enc_044 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-17T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_004 ;
+    ex:encounterDiagnosis ex:diag_044 ;
+    ex:performedProcedure ex:proc_004 ;
+    ex:orderedPrescription ex:rx_044 .
+
+ex:enc_045 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-18T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_005 ;
+    ex:encounterDiagnosis ex:diag_045 ;
+    ex:performedProcedure ex:proc_005 ;
+    ex:orderedPrescription ex:rx_045 .
+
+ex:enc_046 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-19T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_006 ;
+    ex:encounterDiagnosis ex:diag_001 ;
+    ex:performedProcedure ex:proc_006 ;
+    ex:orderedPrescription ex:rx_046 .
+
+ex:enc_047 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-20T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_007 ;
+    ex:encounterDiagnosis ex:diag_002 ;
+    ex:performedProcedure ex:proc_007 ;
+    ex:orderedPrescription ex:rx_047 .
+
+ex:enc_048 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-21T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_008 ;
+    ex:encounterDiagnosis ex:diag_003 ;
+    ex:performedProcedure ex:proc_008 ;
+    ex:orderedPrescription ex:rx_048 .
+
+ex:enc_049 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-22T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_009 ;
+    ex:encounterDiagnosis ex:diag_004 ;
+    ex:performedProcedure ex:proc_009 ;
+    ex:orderedPrescription ex:rx_049 .
+
+ex:enc_050 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-23T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_010 ;
+    ex:encounterDiagnosis ex:diag_005 ;
+    ex:performedProcedure ex:proc_010 ;
+    ex:orderedPrescription ex:rx_050 .
+
+ex:enc_051 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-24T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_011 ;
+    ex:encounterDiagnosis ex:diag_006 ;
+    ex:performedProcedure ex:proc_011 ;
+    ex:orderedPrescription ex:rx_051 .
+
+ex:enc_052 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-25T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_012 ;
+    ex:encounterDiagnosis ex:diag_007 ;
+    ex:performedProcedure ex:proc_012 ;
+    ex:orderedPrescription ex:rx_052 .
+
+ex:enc_053 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-26T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_013 ;
+    ex:encounterDiagnosis ex:diag_008 ;
+    ex:performedProcedure ex:proc_013 ;
+    ex:orderedPrescription ex:rx_053 .
+
+ex:enc_054 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-27T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_014 ;
+    ex:encounterDiagnosis ex:diag_009 ;
+    ex:performedProcedure ex:proc_014 ;
+    ex:orderedPrescription ex:rx_054 .
+
+ex:enc_055 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-28T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_015 ;
+    ex:encounterDiagnosis ex:diag_010 ;
+    ex:performedProcedure ex:proc_015 ;
+    ex:orderedPrescription ex:rx_055 .
+
+ex:enc_056 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-01T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_016 ;
+    ex:encounterDiagnosis ex:diag_011 ;
+    ex:performedProcedure ex:proc_016 ;
+    ex:orderedPrescription ex:rx_056 .
+
+ex:enc_057 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-02T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_017 ;
+    ex:encounterDiagnosis ex:diag_012 ;
+    ex:performedProcedure ex:proc_017 ;
+    ex:orderedPrescription ex:rx_057 .
+
+ex:enc_058 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-03T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_018 ;
+    ex:encounterDiagnosis ex:diag_013 ;
+    ex:performedProcedure ex:proc_018 ;
+    ex:orderedPrescription ex:rx_058 .
+
+ex:enc_059 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-04T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_019 ;
+    ex:encounterDiagnosis ex:diag_014 ;
+    ex:performedProcedure ex:proc_019 ;
+    ex:orderedPrescription ex:rx_059 .
+
+ex:enc_060 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-05T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_020 ;
+    ex:encounterDiagnosis ex:diag_015 ;
+    ex:performedProcedure ex:proc_020 ;
+    ex:orderedPrescription ex:rx_060 .
+
+ex:enc_061 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-06T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_021 ;
+    ex:encounterDiagnosis ex:diag_016 ;
+    ex:performedProcedure ex:proc_021 ;
+    ex:orderedPrescription ex:rx_001 .
+
+ex:enc_062 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-07T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_022 ;
+    ex:encounterDiagnosis ex:diag_017 ;
+    ex:performedProcedure ex:proc_022 ;
+    ex:orderedPrescription ex:rx_002 .
+
+ex:enc_063 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-08T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_023 ;
+    ex:encounterDiagnosis ex:diag_018 ;
+    ex:performedProcedure ex:proc_023 ;
+    ex:orderedPrescription ex:rx_003 .
+
+ex:enc_064 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-09T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_024 ;
+    ex:encounterDiagnosis ex:diag_019 ;
+    ex:performedProcedure ex:proc_024 ;
+    ex:orderedPrescription ex:rx_004 .
+
+ex:enc_065 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-10T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_025 ;
+    ex:encounterDiagnosis ex:diag_020 ;
+    ex:performedProcedure ex:proc_025 ;
+    ex:orderedPrescription ex:rx_005 .
+
+ex:enc_066 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-11T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_026 ;
+    ex:encounterDiagnosis ex:diag_021 ;
+    ex:performedProcedure ex:proc_026 ;
+    ex:orderedPrescription ex:rx_006 .
+
+ex:enc_067 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-12T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_027 ;
+    ex:encounterDiagnosis ex:diag_022 ;
+    ex:performedProcedure ex:proc_027 ;
+    ex:orderedPrescription ex:rx_007 .
+
+ex:enc_068 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-13T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_028 ;
+    ex:encounterDiagnosis ex:diag_023 ;
+    ex:performedProcedure ex:proc_028 ;
+    ex:orderedPrescription ex:rx_008 .
+
+ex:enc_069 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-14T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_029 ;
+    ex:encounterDiagnosis ex:diag_024 ;
+    ex:performedProcedure ex:proc_029 ;
+    ex:orderedPrescription ex:rx_009 .
+
+ex:enc_070 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-15T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_030 ;
+    ex:encounterDiagnosis ex:diag_025 ;
+    ex:performedProcedure ex:proc_030 ;
+    ex:orderedPrescription ex:rx_010 .
+
+ex:enc_071 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-16T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_031 ;
+    ex:encounterDiagnosis ex:diag_026 ;
+    ex:performedProcedure ex:proc_031 ;
+    ex:orderedPrescription ex:rx_011 .
+
+ex:enc_072 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-17T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_032 ;
+    ex:encounterDiagnosis ex:diag_027 ;
+    ex:performedProcedure ex:proc_032 ;
+    ex:orderedPrescription ex:rx_012 .
+
+ex:enc_073 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-18T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_033 ;
+    ex:encounterDiagnosis ex:diag_028 ;
+    ex:performedProcedure ex:proc_033 ;
+    ex:orderedPrescription ex:rx_013 .
+
+ex:enc_074 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-19T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_034 ;
+    ex:encounterDiagnosis ex:diag_029 ;
+    ex:performedProcedure ex:proc_034 ;
+    ex:orderedPrescription ex:rx_014 .
+
+ex:enc_075 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-20T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_035 ;
+    ex:encounterDiagnosis ex:diag_030 ;
+    ex:performedProcedure ex:proc_035 ;
+    ex:orderedPrescription ex:rx_015 .
+
+ex:enc_076 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-21T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_036 ;
+    ex:encounterDiagnosis ex:diag_031 ;
+    ex:performedProcedure ex:proc_036 ;
+    ex:orderedPrescription ex:rx_016 .
+
+ex:enc_077 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-22T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_037 ;
+    ex:encounterDiagnosis ex:diag_032 ;
+    ex:performedProcedure ex:proc_037 ;
+    ex:orderedPrescription ex:rx_017 .
+
+ex:enc_078 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-23T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_038 ;
+    ex:encounterDiagnosis ex:diag_033 ;
+    ex:performedProcedure ex:proc_038 ;
+    ex:orderedPrescription ex:rx_018 .
+
+ex:enc_079 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-24T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_039 ;
+    ex:encounterDiagnosis ex:diag_034 ;
+    ex:performedProcedure ex:proc_039 ;
+    ex:orderedPrescription ex:rx_019 .
+
+ex:enc_080 a ex:Encounter ;
+    ex:encounterTimestamp "2025-03-25T11:00:00Z"^^xsd:dateTime ;
+    ex:attendedBy ex:pract_040 ;
+    ex:encounterDiagnosis ex:diag_035 ;
+    ex:performedProcedure ex:proc_040 ;
+    ex:orderedPrescription ex:rx_020 .
+
+ex:patient_001 a ex:Patient ;
+    ex:mrn "MRN-2025-00001" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_001 .
+
+ex:patient_002 a ex:Patient ;
+    ex:mrn "MRN-2025-00002" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_002 .
+
+ex:patient_003 a ex:Patient ;
+    ex:mrn "MRN-2025-00003" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_003 .
+
+ex:patient_004 a ex:Patient ;
+    ex:mrn "MRN-2025-00004" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_004 .
+
+ex:patient_005 a ex:Patient ;
+    ex:mrn "MRN-2025-00005" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_005 .
+
+ex:patient_006 a ex:Patient ;
+    ex:mrn "MRN-2025-00006" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_006 .
+
+ex:patient_007 a ex:Patient ;
+    ex:mrn "MRN-2025-00007" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_007 .
+
+ex:patient_008 a ex:Patient ;
+    ex:mrn "MRN-2025-00008" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_008 .
+
+ex:patient_009 a ex:Patient ;
+    ex:mrn "MRN-2025-00009" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_009 .
+
+ex:patient_010 a ex:Patient ;
+    ex:mrn "MRN-2025-00010" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_010 .
+
+ex:patient_011 a ex:Patient ;
+    ex:mrn "MRN-2025-00011" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_011 .
+
+ex:patient_012 a ex:Patient ;
+    ex:mrn "MRN-2025-00012" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_012 .
+
+ex:patient_013 a ex:Patient ;
+    ex:mrn "MRN-2025-00013" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_013 .
+
+ex:patient_014 a ex:Patient ;
+    ex:mrn "MRN-2025-00014" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_014 .
+
+ex:patient_015 a ex:Patient ;
+    ex:mrn "MRN-2025-00015" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_015 .
+
+ex:patient_016 a ex:Patient ;
+    ex:mrn "MRN-2025-00016" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_016 .
+
+ex:patient_017 a ex:Patient ;
+    ex:mrn "MRN-2025-00017" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_017 .
+
+ex:patient_018 a ex:Patient ;
+    ex:mrn "MRN-2025-00018" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_018 .
+
+ex:patient_019 a ex:Patient ;
+    ex:mrn "MRN-2025-00019" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_019 .
+
+ex:patient_020 a ex:Patient ;
+    ex:mrn "MRN-2025-00020" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_020 .
+
+ex:patient_021 a ex:Patient ;
+    ex:mrn "MRN-2025-00021" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_021 .
+
+ex:patient_022 a ex:Patient ;
+    ex:mrn "MRN-2025-00022" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_022 .
+
+ex:patient_023 a ex:Patient ;
+    ex:mrn "MRN-2025-00023" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_023 .
+
+ex:patient_024 a ex:Patient ;
+    ex:mrn "MRN-2025-00024" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_024 .
+
+ex:patient_025 a ex:Patient ;
+    ex:mrn "MRN-2025-00025" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_025 .
+
+ex:patient_026 a ex:Patient ;
+    ex:mrn "MRN-2025-00026" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_026 .
+
+ex:patient_027 a ex:Patient ;
+    ex:mrn "MRN-2025-00027" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_027 .
+
+ex:patient_028 a ex:Patient ;
+    ex:mrn "MRN-2025-00028" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_028 .
+
+ex:patient_029 a ex:Patient ;
+    ex:mrn "MRN-2025-00029" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_029 .
+
+ex:patient_030 a ex:Patient ;
+    ex:mrn "MRN-2025-00030" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_030 .
+
+ex:patient_031 a ex:Patient ;
+    ex:mrn "MRN-2025-00031" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_031 .
+
+ex:patient_032 a ex:Patient ;
+    ex:mrn "MRN-2025-00032" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_032 .
+
+ex:patient_033 a ex:Patient ;
+    ex:mrn "MRN-2025-00033" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_033 .
+
+ex:patient_034 a ex:Patient ;
+    ex:mrn "MRN-2025-00034" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_034 .
+
+ex:patient_035 a ex:Patient ;
+    ex:mrn "MRN-2025-00035" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_035 .
+
+ex:patient_036 a ex:Patient ;
+    ex:mrn "MRN-2025-00036" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_036 .
+
+ex:patient_037 a ex:Patient ;
+    ex:mrn "MRN-2025-00037" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_037 .
+
+ex:patient_038 a ex:Patient ;
+    ex:mrn "MRN-2025-00038" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_038 .
+
+ex:patient_039 a ex:Patient ;
+    ex:mrn "MRN-2025-00039" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_039 .
+
+ex:patient_040 a ex:Patient ;
+    ex:mrn "MRN-2025-00040" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_040 .
+
+ex:patient_041 a ex:Patient ;
+    ex:mrn "MRN-2025-00041" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_041 .
+
+ex:patient_042 a ex:Patient ;
+    ex:mrn "MRN-2025-00042" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_042 .
+
+ex:patient_043 a ex:Patient ;
+    ex:mrn "MRN-2025-00043" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_043 .
+
+ex:patient_044 a ex:Patient ;
+    ex:mrn "MRN-2025-00044" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_044 .
+
+ex:patient_045 a ex:Patient ;
+    ex:mrn "MRN-2025-00045" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_045 .
+
+ex:patient_046 a ex:Patient ;
+    ex:mrn "MRN-2025-00046" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_046 .
+
+ex:patient_047 a ex:Patient ;
+    ex:mrn "MRN-2025-00047" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_047 .
+
+ex:patient_048 a ex:Patient ;
+    ex:mrn "MRN-2025-00048" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_048 .
+
+ex:patient_049 a ex:Patient ;
+    ex:mrn "MRN-2025-00049" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_049 .
+
+ex:patient_050 a ex:Patient ;
+    ex:mrn "MRN-2025-00050" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_050 .
+
+ex:patient_051 a ex:Patient ;
+    ex:mrn "MRN-2025-00051" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_051 .
+
+ex:patient_052 a ex:Patient ;
+    ex:mrn "MRN-2025-00052" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_052 .
+
+ex:patient_053 a ex:Patient ;
+    ex:mrn "MRN-2025-00053" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_053 .
+
+ex:patient_054 a ex:Patient ;
+    ex:mrn "MRN-2025-00054" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_054 .
+
+ex:patient_055 a ex:Patient ;
+    ex:mrn "MRN-2025-00055" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_055 .
+
+ex:patient_056 a ex:Patient ;
+    ex:mrn "MRN-2025-00056" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_056 .
+
+ex:patient_057 a ex:Patient ;
+    ex:mrn "MRN-2025-00057" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_057 .
+
+ex:patient_058 a ex:Patient ;
+    ex:mrn "MRN-2025-00058" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_058 .
+
+ex:patient_059 a ex:Patient ;
+    ex:mrn "MRN-2025-00059" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_059 .
+
+ex:patient_060 a ex:Patient ;
+    ex:mrn "MRN-2025-00060" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_060 .
+
+ex:patient_061 a ex:Patient ;
+    ex:mrn "MRN-2025-00061" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_061 .
+
+ex:patient_062 a ex:Patient ;
+    ex:mrn "MRN-2025-00062" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_062 .
+
+ex:patient_063 a ex:Patient ;
+    ex:mrn "MRN-2025-00063" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_063 .
+
+ex:patient_064 a ex:Patient ;
+    ex:mrn "MRN-2025-00064" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_064 .
+
+ex:patient_065 a ex:Patient ;
+    ex:mrn "MRN-2025-00065" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_065 .
+
+ex:patient_066 a ex:Patient ;
+    ex:mrn "MRN-2025-00066" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_066 .
+
+ex:patient_067 a ex:Patient ;
+    ex:mrn "MRN-2025-00067" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_067 .
+
+ex:patient_068 a ex:Patient ;
+    ex:mrn "MRN-2025-00068" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_068 .
+
+ex:patient_069 a ex:Patient ;
+    ex:mrn "MRN-2025-00069" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_069 .
+
+ex:patient_070 a ex:Patient ;
+    ex:mrn "MRN-2025-00070" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_070 .
+
+ex:patient_071 a ex:Patient ;
+    ex:mrn "MRN-2025-00071" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_071 .
+
+ex:patient_072 a ex:Patient ;
+    ex:mrn "MRN-2025-00072" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_072 .
+
+ex:patient_073 a ex:Patient ;
+    ex:mrn "MRN-2025-00073" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_073 .
+
+ex:patient_074 a ex:Patient ;
+    ex:mrn "MRN-2025-00074" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_074 .
+
+ex:patient_075 a ex:Patient ;
+    ex:mrn "MRN-2025-00075" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_075 .
+
+ex:patient_076 a ex:Patient ;
+    ex:mrn "MRN-2025-00076" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_076 .
+
+ex:patient_077 a ex:Patient ;
+    ex:mrn "MRN-2025-00077" ;
+    ex:activeConditionsCount 2 ;
+    ex:participatedIn ex:enc_077 .
+
+ex:patient_078 a ex:Patient ;
+    ex:mrn "MRN-2025-00078" ;
+    ex:activeConditionsCount 7 ;
+    ex:participatedIn ex:enc_078 .
+
+ex:patient_079 a ex:Patient ;
+    ex:mrn "MRN-2025-00079" ;
+    ex:activeConditionsCount 4 ;
+    ex:participatedIn ex:enc_079 .
+
+ex:patient_080 a ex:Patient ;
+    ex:mrn "MRN-2025-00080" ;
+    ex:activeConditionsCount 5 ;
+    ex:participatedIn ex:enc_080 .

@@ -1,0 +1,1296 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/recursive#> .
+
+# ABox Instance Triples for 13_recursive_graphs
+
+ex:emp_001 a ex:Employee ;
+    ex:employeeId "E-0001" ;
+    ex:employeeName "VP Executive #001" ;
+    ex:jobTitle "Vice President" .
+
+ex:emp_002 a ex:Employee ;
+    ex:employeeId "E-0002" ;
+    ex:employeeName "VP Executive #002" ;
+    ex:jobTitle "Vice President" .
+
+ex:emp_003 a ex:Employee ;
+    ex:employeeId "E-0003" ;
+    ex:employeeName "VP Executive #003" ;
+    ex:jobTitle "Vice President" .
+
+ex:emp_004 a ex:Employee ;
+    ex:employeeId "E-0004" ;
+    ex:employeeName "VP Executive #004" ;
+    ex:jobTitle "Vice President" .
+
+ex:emp_005 a ex:Employee ;
+    ex:employeeId "E-0005" ;
+    ex:employeeName "VP Executive #005" ;
+    ex:jobTitle "Vice President" .
+
+ex:emp_006 a ex:Employee ;
+    ex:employeeId "E-0006" ;
+    ex:employeeName "VP Executive #006" ;
+    ex:jobTitle "Vice President" .
+
+ex:emp_007 a ex:Employee ;
+    ex:employeeId "E-0007" ;
+    ex:employeeName "VP Executive #007" ;
+    ex:jobTitle "Vice President" .
+
+ex:emp_008 a ex:Employee ;
+    ex:employeeId "E-0008" ;
+    ex:employeeName "VP Executive #008" ;
+    ex:jobTitle "Vice President" .
+
+ex:emp_009 a ex:Employee ;
+    ex:employeeId "E-0009" ;
+    ex:employeeName "VP Executive #009" ;
+    ex:jobTitle "Vice President" .
+
+ex:emp_010 a ex:Employee ;
+    ex:employeeId "E-0010" ;
+    ex:employeeName "VP Executive #010" ;
+    ex:jobTitle "Vice President" .
+
+ex:emp_011 a ex:Employee ;
+    ex:employeeId "E-0011" ;
+    ex:employeeName "Director #011" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_001 .
+
+ex:emp_012 a ex:Employee ;
+    ex:employeeId "E-0012" ;
+    ex:employeeName "Director #012" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_002 .
+
+ex:emp_013 a ex:Employee ;
+    ex:employeeId "E-0013" ;
+    ex:employeeName "Director #013" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_003 .
+
+ex:emp_014 a ex:Employee ;
+    ex:employeeId "E-0014" ;
+    ex:employeeName "Director #014" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_004 .
+
+ex:emp_015 a ex:Employee ;
+    ex:employeeId "E-0015" ;
+    ex:employeeName "Director #015" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_005 .
+
+ex:emp_016 a ex:Employee ;
+    ex:employeeId "E-0016" ;
+    ex:employeeName "Director #016" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_006 .
+
+ex:emp_017 a ex:Employee ;
+    ex:employeeId "E-0017" ;
+    ex:employeeName "Director #017" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_007 .
+
+ex:emp_018 a ex:Employee ;
+    ex:employeeId "E-0018" ;
+    ex:employeeName "Director #018" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_008 .
+
+ex:emp_019 a ex:Employee ;
+    ex:employeeId "E-0019" ;
+    ex:employeeName "Director #019" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_009 .
+
+ex:emp_020 a ex:Employee ;
+    ex:employeeId "E-0020" ;
+    ex:employeeName "Director #020" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_010 .
+
+ex:emp_021 a ex:Employee ;
+    ex:employeeId "E-0021" ;
+    ex:employeeName "Director #021" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_001 .
+
+ex:emp_022 a ex:Employee ;
+    ex:employeeId "E-0022" ;
+    ex:employeeName "Director #022" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_002 .
+
+ex:emp_023 a ex:Employee ;
+    ex:employeeId "E-0023" ;
+    ex:employeeName "Director #023" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_003 .
+
+ex:emp_024 a ex:Employee ;
+    ex:employeeId "E-0024" ;
+    ex:employeeName "Director #024" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_004 .
+
+ex:emp_025 a ex:Employee ;
+    ex:employeeId "E-0025" ;
+    ex:employeeName "Director #025" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_005 .
+
+ex:emp_026 a ex:Employee ;
+    ex:employeeId "E-0026" ;
+    ex:employeeName "Director #026" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_006 .
+
+ex:emp_027 a ex:Employee ;
+    ex:employeeId "E-0027" ;
+    ex:employeeName "Director #027" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_007 .
+
+ex:emp_028 a ex:Employee ;
+    ex:employeeId "E-0028" ;
+    ex:employeeName "Director #028" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_008 .
+
+ex:emp_029 a ex:Employee ;
+    ex:employeeId "E-0029" ;
+    ex:employeeName "Director #029" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_009 .
+
+ex:emp_030 a ex:Employee ;
+    ex:employeeId "E-0030" ;
+    ex:employeeName "Director #030" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_010 .
+
+ex:emp_031 a ex:Employee ;
+    ex:employeeId "E-0031" ;
+    ex:employeeName "Director #031" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_001 .
+
+ex:emp_032 a ex:Employee ;
+    ex:employeeId "E-0032" ;
+    ex:employeeName "Director #032" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_002 .
+
+ex:emp_033 a ex:Employee ;
+    ex:employeeId "E-0033" ;
+    ex:employeeName "Director #033" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_003 .
+
+ex:emp_034 a ex:Employee ;
+    ex:employeeId "E-0034" ;
+    ex:employeeName "Director #034" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_004 .
+
+ex:emp_035 a ex:Employee ;
+    ex:employeeId "E-0035" ;
+    ex:employeeName "Director #035" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_005 .
+
+ex:emp_036 a ex:Employee ;
+    ex:employeeId "E-0036" ;
+    ex:employeeName "Director #036" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_006 .
+
+ex:emp_037 a ex:Employee ;
+    ex:employeeId "E-0037" ;
+    ex:employeeName "Director #037" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_007 .
+
+ex:emp_038 a ex:Employee ;
+    ex:employeeId "E-0038" ;
+    ex:employeeName "Director #038" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_008 .
+
+ex:emp_039 a ex:Employee ;
+    ex:employeeId "E-0039" ;
+    ex:employeeName "Director #039" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_009 .
+
+ex:emp_040 a ex:Employee ;
+    ex:employeeId "E-0040" ;
+    ex:employeeName "Director #040" ;
+    ex:jobTitle "Engineering Director" ;
+    ex:reportsTo ex:emp_010 .
+
+ex:emp_041 a ex:Employee ;
+    ex:employeeId "E-0041" ;
+    ex:employeeName "Manager #041" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_011 .
+
+ex:emp_042 a ex:Employee ;
+    ex:employeeId "E-0042" ;
+    ex:employeeName "Manager #042" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_012 .
+
+ex:emp_043 a ex:Employee ;
+    ex:employeeId "E-0043" ;
+    ex:employeeName "Manager #043" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_013 .
+
+ex:emp_044 a ex:Employee ;
+    ex:employeeId "E-0044" ;
+    ex:employeeName "Manager #044" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_014 .
+
+ex:emp_045 a ex:Employee ;
+    ex:employeeId "E-0045" ;
+    ex:employeeName "Manager #045" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_015 .
+
+ex:emp_046 a ex:Employee ;
+    ex:employeeId "E-0046" ;
+    ex:employeeName "Manager #046" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_016 .
+
+ex:emp_047 a ex:Employee ;
+    ex:employeeId "E-0047" ;
+    ex:employeeName "Manager #047" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_017 .
+
+ex:emp_048 a ex:Employee ;
+    ex:employeeId "E-0048" ;
+    ex:employeeName "Manager #048" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_018 .
+
+ex:emp_049 a ex:Employee ;
+    ex:employeeId "E-0049" ;
+    ex:employeeName "Manager #049" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_019 .
+
+ex:emp_050 a ex:Employee ;
+    ex:employeeId "E-0050" ;
+    ex:employeeName "Manager #050" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_020 .
+
+ex:emp_051 a ex:Employee ;
+    ex:employeeId "E-0051" ;
+    ex:employeeName "Manager #051" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_021 .
+
+ex:emp_052 a ex:Employee ;
+    ex:employeeId "E-0052" ;
+    ex:employeeName "Manager #052" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_022 .
+
+ex:emp_053 a ex:Employee ;
+    ex:employeeId "E-0053" ;
+    ex:employeeName "Manager #053" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_023 .
+
+ex:emp_054 a ex:Employee ;
+    ex:employeeId "E-0054" ;
+    ex:employeeName "Manager #054" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_024 .
+
+ex:emp_055 a ex:Employee ;
+    ex:employeeId "E-0055" ;
+    ex:employeeName "Manager #055" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_025 .
+
+ex:emp_056 a ex:Employee ;
+    ex:employeeId "E-0056" ;
+    ex:employeeName "Manager #056" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_026 .
+
+ex:emp_057 a ex:Employee ;
+    ex:employeeId "E-0057" ;
+    ex:employeeName "Manager #057" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_027 .
+
+ex:emp_058 a ex:Employee ;
+    ex:employeeId "E-0058" ;
+    ex:employeeName "Manager #058" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_028 .
+
+ex:emp_059 a ex:Employee ;
+    ex:employeeId "E-0059" ;
+    ex:employeeName "Manager #059" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_029 .
+
+ex:emp_060 a ex:Employee ;
+    ex:employeeId "E-0060" ;
+    ex:employeeName "Manager #060" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_030 .
+
+ex:emp_061 a ex:Employee ;
+    ex:employeeId "E-0061" ;
+    ex:employeeName "Manager #061" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_031 .
+
+ex:emp_062 a ex:Employee ;
+    ex:employeeId "E-0062" ;
+    ex:employeeName "Manager #062" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_032 .
+
+ex:emp_063 a ex:Employee ;
+    ex:employeeId "E-0063" ;
+    ex:employeeName "Manager #063" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_033 .
+
+ex:emp_064 a ex:Employee ;
+    ex:employeeId "E-0064" ;
+    ex:employeeName "Manager #064" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_034 .
+
+ex:emp_065 a ex:Employee ;
+    ex:employeeId "E-0065" ;
+    ex:employeeName "Manager #065" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_035 .
+
+ex:emp_066 a ex:Employee ;
+    ex:employeeId "E-0066" ;
+    ex:employeeName "Manager #066" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_036 .
+
+ex:emp_067 a ex:Employee ;
+    ex:employeeId "E-0067" ;
+    ex:employeeName "Manager #067" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_037 .
+
+ex:emp_068 a ex:Employee ;
+    ex:employeeId "E-0068" ;
+    ex:employeeName "Manager #068" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_038 .
+
+ex:emp_069 a ex:Employee ;
+    ex:employeeId "E-0069" ;
+    ex:employeeName "Manager #069" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_039 .
+
+ex:emp_070 a ex:Employee ;
+    ex:employeeId "E-0070" ;
+    ex:employeeName "Manager #070" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_040 .
+
+ex:emp_071 a ex:Employee ;
+    ex:employeeId "E-0071" ;
+    ex:employeeName "Manager #071" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_011 .
+
+ex:emp_072 a ex:Employee ;
+    ex:employeeId "E-0072" ;
+    ex:employeeName "Manager #072" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_012 .
+
+ex:emp_073 a ex:Employee ;
+    ex:employeeId "E-0073" ;
+    ex:employeeName "Manager #073" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_013 .
+
+ex:emp_074 a ex:Employee ;
+    ex:employeeId "E-0074" ;
+    ex:employeeName "Manager #074" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_014 .
+
+ex:emp_075 a ex:Employee ;
+    ex:employeeId "E-0075" ;
+    ex:employeeName "Manager #075" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_015 .
+
+ex:emp_076 a ex:Employee ;
+    ex:employeeId "E-0076" ;
+    ex:employeeName "Manager #076" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_016 .
+
+ex:emp_077 a ex:Employee ;
+    ex:employeeId "E-0077" ;
+    ex:employeeName "Manager #077" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_017 .
+
+ex:emp_078 a ex:Employee ;
+    ex:employeeId "E-0078" ;
+    ex:employeeName "Manager #078" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_018 .
+
+ex:emp_079 a ex:Employee ;
+    ex:employeeId "E-0079" ;
+    ex:employeeName "Manager #079" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_019 .
+
+ex:emp_080 a ex:Employee ;
+    ex:employeeId "E-0080" ;
+    ex:employeeName "Manager #080" ;
+    ex:jobTitle "Engineering Manager" ;
+    ex:reportsTo ex:emp_020 .
+
+ex:emp_081 a ex:Employee ;
+    ex:employeeId "E-0081" ;
+    ex:employeeName "Engineer #081" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_041 .
+
+ex:emp_082 a ex:Employee ;
+    ex:employeeId "E-0082" ;
+    ex:employeeName "Engineer #082" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_042 .
+
+ex:emp_083 a ex:Employee ;
+    ex:employeeId "E-0083" ;
+    ex:employeeName "Engineer #083" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_043 .
+
+ex:emp_084 a ex:Employee ;
+    ex:employeeId "E-0084" ;
+    ex:employeeName "Engineer #084" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_044 .
+
+ex:emp_085 a ex:Employee ;
+    ex:employeeId "E-0085" ;
+    ex:employeeName "Engineer #085" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_045 .
+
+ex:emp_086 a ex:Employee ;
+    ex:employeeId "E-0086" ;
+    ex:employeeName "Engineer #086" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_046 .
+
+ex:emp_087 a ex:Employee ;
+    ex:employeeId "E-0087" ;
+    ex:employeeName "Engineer #087" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_047 .
+
+ex:emp_088 a ex:Employee ;
+    ex:employeeId "E-0088" ;
+    ex:employeeName "Engineer #088" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_048 .
+
+ex:emp_089 a ex:Employee ;
+    ex:employeeId "E-0089" ;
+    ex:employeeName "Engineer #089" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_049 .
+
+ex:emp_090 a ex:Employee ;
+    ex:employeeId "E-0090" ;
+    ex:employeeName "Engineer #090" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_050 .
+
+ex:emp_091 a ex:Employee ;
+    ex:employeeId "E-0091" ;
+    ex:employeeName "Engineer #091" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_051 .
+
+ex:emp_092 a ex:Employee ;
+    ex:employeeId "E-0092" ;
+    ex:employeeName "Engineer #092" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_052 .
+
+ex:emp_093 a ex:Employee ;
+    ex:employeeId "E-0093" ;
+    ex:employeeName "Engineer #093" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_053 .
+
+ex:emp_094 a ex:Employee ;
+    ex:employeeId "E-0094" ;
+    ex:employeeName "Engineer #094" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_054 .
+
+ex:emp_095 a ex:Employee ;
+    ex:employeeId "E-0095" ;
+    ex:employeeName "Engineer #095" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_055 .
+
+ex:emp_096 a ex:Employee ;
+    ex:employeeId "E-0096" ;
+    ex:employeeName "Engineer #096" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_056 .
+
+ex:emp_097 a ex:Employee ;
+    ex:employeeId "E-0097" ;
+    ex:employeeName "Engineer #097" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_057 .
+
+ex:emp_098 a ex:Employee ;
+    ex:employeeId "E-0098" ;
+    ex:employeeName "Engineer #098" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_058 .
+
+ex:emp_099 a ex:Employee ;
+    ex:employeeId "E-0099" ;
+    ex:employeeName "Engineer #099" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_059 .
+
+ex:emp_100 a ex:Employee ;
+    ex:employeeId "E-0100" ;
+    ex:employeeName "Engineer #100" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_060 .
+
+ex:emp_101 a ex:Employee ;
+    ex:employeeId "E-0101" ;
+    ex:employeeName "Engineer #101" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_061 .
+
+ex:emp_102 a ex:Employee ;
+    ex:employeeId "E-0102" ;
+    ex:employeeName "Engineer #102" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_062 .
+
+ex:emp_103 a ex:Employee ;
+    ex:employeeId "E-0103" ;
+    ex:employeeName "Engineer #103" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_063 .
+
+ex:emp_104 a ex:Employee ;
+    ex:employeeId "E-0104" ;
+    ex:employeeName "Engineer #104" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_064 .
+
+ex:emp_105 a ex:Employee ;
+    ex:employeeId "E-0105" ;
+    ex:employeeName "Engineer #105" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_065 .
+
+ex:emp_106 a ex:Employee ;
+    ex:employeeId "E-0106" ;
+    ex:employeeName "Engineer #106" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_066 .
+
+ex:emp_107 a ex:Employee ;
+    ex:employeeId "E-0107" ;
+    ex:employeeName "Engineer #107" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_067 .
+
+ex:emp_108 a ex:Employee ;
+    ex:employeeId "E-0108" ;
+    ex:employeeName "Engineer #108" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_068 .
+
+ex:emp_109 a ex:Employee ;
+    ex:employeeId "E-0109" ;
+    ex:employeeName "Engineer #109" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_069 .
+
+ex:emp_110 a ex:Employee ;
+    ex:employeeId "E-0110" ;
+    ex:employeeName "Engineer #110" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_070 .
+
+ex:emp_111 a ex:Employee ;
+    ex:employeeId "E-0111" ;
+    ex:employeeName "Engineer #111" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_071 .
+
+ex:emp_112 a ex:Employee ;
+    ex:employeeId "E-0112" ;
+    ex:employeeName "Engineer #112" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_072 .
+
+ex:emp_113 a ex:Employee ;
+    ex:employeeId "E-0113" ;
+    ex:employeeName "Engineer #113" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_073 .
+
+ex:emp_114 a ex:Employee ;
+    ex:employeeId "E-0114" ;
+    ex:employeeName "Engineer #114" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_074 .
+
+ex:emp_115 a ex:Employee ;
+    ex:employeeId "E-0115" ;
+    ex:employeeName "Engineer #115" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_075 .
+
+ex:emp_116 a ex:Employee ;
+    ex:employeeId "E-0116" ;
+    ex:employeeName "Engineer #116" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_076 .
+
+ex:emp_117 a ex:Employee ;
+    ex:employeeId "E-0117" ;
+    ex:employeeName "Engineer #117" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_077 .
+
+ex:emp_118 a ex:Employee ;
+    ex:employeeId "E-0118" ;
+    ex:employeeName "Engineer #118" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_078 .
+
+ex:emp_119 a ex:Employee ;
+    ex:employeeId "E-0119" ;
+    ex:employeeName "Engineer #119" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_079 .
+
+ex:emp_120 a ex:Employee ;
+    ex:employeeId "E-0120" ;
+    ex:employeeName "Engineer #120" ;
+    ex:jobTitle "Senior Software Engineer" ;
+    ex:reportsTo ex:emp_080 .
+
+ex:comp_001 a ex:Component ;
+    ex:componentId "CMP-0001" ;
+    ex:componentName "core-service-module-001" ;
+    ex:semanticVersion "2.1.1" .
+
+ex:comp_002 a ex:Component ;
+    ex:componentId "CMP-0002" ;
+    ex:componentName "core-service-module-002" ;
+    ex:semanticVersion "3.2.2" .
+
+ex:comp_003 a ex:Component ;
+    ex:componentId "CMP-0003" ;
+    ex:componentName "core-service-module-003" ;
+    ex:semanticVersion "4.3.3" .
+
+ex:comp_004 a ex:Component ;
+    ex:componentId "CMP-0004" ;
+    ex:componentName "core-service-module-004" ;
+    ex:semanticVersion "5.4.4" .
+
+ex:comp_005 a ex:Component ;
+    ex:componentId "CMP-0005" ;
+    ex:componentName "core-service-module-005" ;
+    ex:semanticVersion "1.5.5" .
+
+ex:comp_006 a ex:Component ;
+    ex:componentId "CMP-0006" ;
+    ex:componentName "core-service-module-006" ;
+    ex:semanticVersion "2.6.6" .
+
+ex:comp_007 a ex:Component ;
+    ex:componentId "CMP-0007" ;
+    ex:componentName "core-service-module-007" ;
+    ex:semanticVersion "3.7.7" .
+
+ex:comp_008 a ex:Component ;
+    ex:componentId "CMP-0008" ;
+    ex:componentName "core-service-module-008" ;
+    ex:semanticVersion "4.8.8" .
+
+ex:comp_009 a ex:Component ;
+    ex:componentId "CMP-0009" ;
+    ex:componentName "core-service-module-009" ;
+    ex:semanticVersion "5.9.9" .
+
+ex:comp_010 a ex:Component ;
+    ex:componentId "CMP-0010" ;
+    ex:componentName "core-service-module-010" ;
+    ex:semanticVersion "1.0.10" .
+
+ex:comp_011 a ex:Component ;
+    ex:componentId "CMP-0011" ;
+    ex:componentName "core-service-module-011" ;
+    ex:semanticVersion "2.1.11" .
+
+ex:comp_012 a ex:Component ;
+    ex:componentId "CMP-0012" ;
+    ex:componentName "core-service-module-012" ;
+    ex:semanticVersion "3.2.12" .
+
+ex:comp_013 a ex:Component ;
+    ex:componentId "CMP-0013" ;
+    ex:componentName "core-service-module-013" ;
+    ex:semanticVersion "4.3.13" .
+
+ex:comp_014 a ex:Component ;
+    ex:componentId "CMP-0014" ;
+    ex:componentName "core-service-module-014" ;
+    ex:semanticVersion "5.4.14" .
+
+ex:comp_015 a ex:Component ;
+    ex:componentId "CMP-0015" ;
+    ex:componentName "core-service-module-015" ;
+    ex:semanticVersion "1.5.15" .
+
+ex:comp_016 a ex:Component ;
+    ex:componentId "CMP-0016" ;
+    ex:componentName "core-service-module-016" ;
+    ex:semanticVersion "2.6.16" .
+
+ex:comp_017 a ex:Component ;
+    ex:componentId "CMP-0017" ;
+    ex:componentName "core-service-module-017" ;
+    ex:semanticVersion "3.7.17" .
+
+ex:comp_018 a ex:Component ;
+    ex:componentId "CMP-0018" ;
+    ex:componentName "core-service-module-018" ;
+    ex:semanticVersion "4.8.18" .
+
+ex:comp_019 a ex:Component ;
+    ex:componentId "CMP-0019" ;
+    ex:componentName "core-service-module-019" ;
+    ex:semanticVersion "5.9.19" .
+
+ex:comp_020 a ex:Component ;
+    ex:componentId "CMP-0020" ;
+    ex:componentName "core-service-module-020" ;
+    ex:semanticVersion "1.0.0" .
+
+ex:comp_021 a ex:Component ;
+    ex:componentId "CMP-0021" ;
+    ex:componentName "core-service-module-021" ;
+    ex:semanticVersion "2.1.1" ;
+    ex:dependsOn ex:comp_001, ex:comp_015 .
+
+ex:comp_022 a ex:Component ;
+    ex:componentId "CMP-0022" ;
+    ex:componentName "core-service-module-022" ;
+    ex:semanticVersion "3.2.2" ;
+    ex:dependsOn ex:comp_002, ex:comp_016 .
+
+ex:comp_023 a ex:Component ;
+    ex:componentId "CMP-0023" ;
+    ex:componentName "core-service-module-023" ;
+    ex:semanticVersion "4.3.3" ;
+    ex:dependsOn ex:comp_003, ex:comp_017 .
+
+ex:comp_024 a ex:Component ;
+    ex:componentId "CMP-0024" ;
+    ex:componentName "core-service-module-024" ;
+    ex:semanticVersion "5.4.4" ;
+    ex:dependsOn ex:comp_004, ex:comp_018 .
+
+ex:comp_025 a ex:Component ;
+    ex:componentId "CMP-0025" ;
+    ex:componentName "core-service-module-025" ;
+    ex:semanticVersion "1.5.5" ;
+    ex:dependsOn ex:comp_005, ex:comp_019 .
+
+ex:comp_026 a ex:Component ;
+    ex:componentId "CMP-0026" ;
+    ex:componentName "core-service-module-026" ;
+    ex:semanticVersion "2.6.6" ;
+    ex:dependsOn ex:comp_006, ex:comp_020 .
+
+ex:comp_027 a ex:Component ;
+    ex:componentId "CMP-0027" ;
+    ex:componentName "core-service-module-027" ;
+    ex:semanticVersion "3.7.7" ;
+    ex:dependsOn ex:comp_007, ex:comp_021 .
+
+ex:comp_028 a ex:Component ;
+    ex:componentId "CMP-0028" ;
+    ex:componentName "core-service-module-028" ;
+    ex:semanticVersion "4.8.8" ;
+    ex:dependsOn ex:comp_008, ex:comp_022 .
+
+ex:comp_029 a ex:Component ;
+    ex:componentId "CMP-0029" ;
+    ex:componentName "core-service-module-029" ;
+    ex:semanticVersion "5.9.9" ;
+    ex:dependsOn ex:comp_009, ex:comp_023 .
+
+ex:comp_030 a ex:Component ;
+    ex:componentId "CMP-0030" ;
+    ex:componentName "core-service-module-030" ;
+    ex:semanticVersion "1.0.10" ;
+    ex:dependsOn ex:comp_010, ex:comp_024 .
+
+ex:comp_031 a ex:Component ;
+    ex:componentId "CMP-0031" ;
+    ex:componentName "core-service-module-031" ;
+    ex:semanticVersion "2.1.11" ;
+    ex:dependsOn ex:comp_011, ex:comp_025 .
+
+ex:comp_032 a ex:Component ;
+    ex:componentId "CMP-0032" ;
+    ex:componentName "core-service-module-032" ;
+    ex:semanticVersion "3.2.12" ;
+    ex:dependsOn ex:comp_012, ex:comp_026 .
+
+ex:comp_033 a ex:Component ;
+    ex:componentId "CMP-0033" ;
+    ex:componentName "core-service-module-033" ;
+    ex:semanticVersion "4.3.13" ;
+    ex:dependsOn ex:comp_013, ex:comp_027 .
+
+ex:comp_034 a ex:Component ;
+    ex:componentId "CMP-0034" ;
+    ex:componentName "core-service-module-034" ;
+    ex:semanticVersion "5.4.14" ;
+    ex:dependsOn ex:comp_014, ex:comp_028 .
+
+ex:comp_035 a ex:Component ;
+    ex:componentId "CMP-0035" ;
+    ex:componentName "core-service-module-035" ;
+    ex:semanticVersion "1.5.15" ;
+    ex:dependsOn ex:comp_015, ex:comp_029 .
+
+ex:comp_036 a ex:Component ;
+    ex:componentId "CMP-0036" ;
+    ex:componentName "core-service-module-036" ;
+    ex:semanticVersion "2.6.16" ;
+    ex:dependsOn ex:comp_016, ex:comp_030 .
+
+ex:comp_037 a ex:Component ;
+    ex:componentId "CMP-0037" ;
+    ex:componentName "core-service-module-037" ;
+    ex:semanticVersion "3.7.17" ;
+    ex:dependsOn ex:comp_017, ex:comp_031 .
+
+ex:comp_038 a ex:Component ;
+    ex:componentId "CMP-0038" ;
+    ex:componentName "core-service-module-038" ;
+    ex:semanticVersion "4.8.18" ;
+    ex:dependsOn ex:comp_018, ex:comp_032 .
+
+ex:comp_039 a ex:Component ;
+    ex:componentId "CMP-0039" ;
+    ex:componentName "core-service-module-039" ;
+    ex:semanticVersion "5.9.19" ;
+    ex:dependsOn ex:comp_019, ex:comp_033 .
+
+ex:comp_040 a ex:Component ;
+    ex:componentId "CMP-0040" ;
+    ex:componentName "core-service-module-040" ;
+    ex:semanticVersion "1.0.0" ;
+    ex:dependsOn ex:comp_020, ex:comp_034 .
+
+ex:comp_041 a ex:Component ;
+    ex:componentId "CMP-0041" ;
+    ex:componentName "core-service-module-041" ;
+    ex:semanticVersion "2.1.1" ;
+    ex:dependsOn ex:comp_021, ex:comp_035 .
+
+ex:comp_042 a ex:Component ;
+    ex:componentId "CMP-0042" ;
+    ex:componentName "core-service-module-042" ;
+    ex:semanticVersion "3.2.2" ;
+    ex:dependsOn ex:comp_022, ex:comp_036 .
+
+ex:comp_043 a ex:Component ;
+    ex:componentId "CMP-0043" ;
+    ex:componentName "core-service-module-043" ;
+    ex:semanticVersion "4.3.3" ;
+    ex:dependsOn ex:comp_023, ex:comp_037 .
+
+ex:comp_044 a ex:Component ;
+    ex:componentId "CMP-0044" ;
+    ex:componentName "core-service-module-044" ;
+    ex:semanticVersion "5.4.4" ;
+    ex:dependsOn ex:comp_024, ex:comp_038 .
+
+ex:comp_045 a ex:Component ;
+    ex:componentId "CMP-0045" ;
+    ex:componentName "core-service-module-045" ;
+    ex:semanticVersion "1.5.5" ;
+    ex:dependsOn ex:comp_025, ex:comp_039 .
+
+ex:comp_046 a ex:Component ;
+    ex:componentId "CMP-0046" ;
+    ex:componentName "core-service-module-046" ;
+    ex:semanticVersion "2.6.6" ;
+    ex:dependsOn ex:comp_026, ex:comp_040 .
+
+ex:comp_047 a ex:Component ;
+    ex:componentId "CMP-0047" ;
+    ex:componentName "core-service-module-047" ;
+    ex:semanticVersion "3.7.7" ;
+    ex:dependsOn ex:comp_027, ex:comp_041 .
+
+ex:comp_048 a ex:Component ;
+    ex:componentId "CMP-0048" ;
+    ex:componentName "core-service-module-048" ;
+    ex:semanticVersion "4.8.8" ;
+    ex:dependsOn ex:comp_028, ex:comp_042 .
+
+ex:comp_049 a ex:Component ;
+    ex:componentId "CMP-0049" ;
+    ex:componentName "core-service-module-049" ;
+    ex:semanticVersion "5.9.9" ;
+    ex:dependsOn ex:comp_029, ex:comp_043 .
+
+ex:comp_050 a ex:Component ;
+    ex:componentId "CMP-0050" ;
+    ex:componentName "core-service-module-050" ;
+    ex:semanticVersion "1.0.10" ;
+    ex:dependsOn ex:comp_030, ex:comp_044 .
+
+ex:comp_051 a ex:Component ;
+    ex:componentId "CMP-0051" ;
+    ex:componentName "core-service-module-051" ;
+    ex:semanticVersion "2.1.11" ;
+    ex:dependsOn ex:comp_031, ex:comp_045 .
+
+ex:comp_052 a ex:Component ;
+    ex:componentId "CMP-0052" ;
+    ex:componentName "core-service-module-052" ;
+    ex:semanticVersion "3.2.12" ;
+    ex:dependsOn ex:comp_032, ex:comp_046 .
+
+ex:comp_053 a ex:Component ;
+    ex:componentId "CMP-0053" ;
+    ex:componentName "core-service-module-053" ;
+    ex:semanticVersion "4.3.13" ;
+    ex:dependsOn ex:comp_033, ex:comp_047 .
+
+ex:comp_054 a ex:Component ;
+    ex:componentId "CMP-0054" ;
+    ex:componentName "core-service-module-054" ;
+    ex:semanticVersion "5.4.14" ;
+    ex:dependsOn ex:comp_034, ex:comp_048 .
+
+ex:comp_055 a ex:Component ;
+    ex:componentId "CMP-0055" ;
+    ex:componentName "core-service-module-055" ;
+    ex:semanticVersion "1.5.15" ;
+    ex:dependsOn ex:comp_035, ex:comp_049 .
+
+ex:comp_056 a ex:Component ;
+    ex:componentId "CMP-0056" ;
+    ex:componentName "core-service-module-056" ;
+    ex:semanticVersion "2.6.16" ;
+    ex:dependsOn ex:comp_036, ex:comp_050 .
+
+ex:comp_057 a ex:Component ;
+    ex:componentId "CMP-0057" ;
+    ex:componentName "core-service-module-057" ;
+    ex:semanticVersion "3.7.17" ;
+    ex:dependsOn ex:comp_037, ex:comp_051 .
+
+ex:comp_058 a ex:Component ;
+    ex:componentId "CMP-0058" ;
+    ex:componentName "core-service-module-058" ;
+    ex:semanticVersion "4.8.18" ;
+    ex:dependsOn ex:comp_038, ex:comp_052 .
+
+ex:comp_059 a ex:Component ;
+    ex:componentId "CMP-0059" ;
+    ex:componentName "core-service-module-059" ;
+    ex:semanticVersion "5.9.19" ;
+    ex:dependsOn ex:comp_039, ex:comp_053 .
+
+ex:comp_060 a ex:Component ;
+    ex:componentId "CMP-0060" ;
+    ex:componentName "core-service-module-060" ;
+    ex:semanticVersion "1.0.0" ;
+    ex:dependsOn ex:comp_040, ex:comp_054 .
+
+ex:comp_061 a ex:Component ;
+    ex:componentId "CMP-0061" ;
+    ex:componentName "core-service-module-061" ;
+    ex:semanticVersion "2.1.1" ;
+    ex:dependsOn ex:comp_041, ex:comp_055 .
+
+ex:comp_062 a ex:Component ;
+    ex:componentId "CMP-0062" ;
+    ex:componentName "core-service-module-062" ;
+    ex:semanticVersion "3.2.2" ;
+    ex:dependsOn ex:comp_042, ex:comp_056 .
+
+ex:comp_063 a ex:Component ;
+    ex:componentId "CMP-0063" ;
+    ex:componentName "core-service-module-063" ;
+    ex:semanticVersion "4.3.3" ;
+    ex:dependsOn ex:comp_043, ex:comp_057 .
+
+ex:comp_064 a ex:Component ;
+    ex:componentId "CMP-0064" ;
+    ex:componentName "core-service-module-064" ;
+    ex:semanticVersion "5.4.4" ;
+    ex:dependsOn ex:comp_044, ex:comp_058 .
+
+ex:comp_065 a ex:Component ;
+    ex:componentId "CMP-0065" ;
+    ex:componentName "core-service-module-065" ;
+    ex:semanticVersion "1.5.5" ;
+    ex:dependsOn ex:comp_045, ex:comp_059 .
+
+ex:comp_066 a ex:Component ;
+    ex:componentId "CMP-0066" ;
+    ex:componentName "core-service-module-066" ;
+    ex:semanticVersion "2.6.6" ;
+    ex:dependsOn ex:comp_046, ex:comp_060 .
+
+ex:comp_067 a ex:Component ;
+    ex:componentId "CMP-0067" ;
+    ex:componentName "core-service-module-067" ;
+    ex:semanticVersion "3.7.7" ;
+    ex:dependsOn ex:comp_047, ex:comp_061 .
+
+ex:comp_068 a ex:Component ;
+    ex:componentId "CMP-0068" ;
+    ex:componentName "core-service-module-068" ;
+    ex:semanticVersion "4.8.8" ;
+    ex:dependsOn ex:comp_048, ex:comp_062 .
+
+ex:comp_069 a ex:Component ;
+    ex:componentId "CMP-0069" ;
+    ex:componentName "core-service-module-069" ;
+    ex:semanticVersion "5.9.9" ;
+    ex:dependsOn ex:comp_049, ex:comp_063 .
+
+ex:comp_070 a ex:Component ;
+    ex:componentId "CMP-0070" ;
+    ex:componentName "core-service-module-070" ;
+    ex:semanticVersion "1.0.10" ;
+    ex:dependsOn ex:comp_050, ex:comp_064 .
+
+ex:comp_071 a ex:Component ;
+    ex:componentId "CMP-0071" ;
+    ex:componentName "core-service-module-071" ;
+    ex:semanticVersion "2.1.11" ;
+    ex:dependsOn ex:comp_051, ex:comp_065 .
+
+ex:comp_072 a ex:Component ;
+    ex:componentId "CMP-0072" ;
+    ex:componentName "core-service-module-072" ;
+    ex:semanticVersion "3.2.12" ;
+    ex:dependsOn ex:comp_052, ex:comp_066 .
+
+ex:comp_073 a ex:Component ;
+    ex:componentId "CMP-0073" ;
+    ex:componentName "core-service-module-073" ;
+    ex:semanticVersion "4.3.13" ;
+    ex:dependsOn ex:comp_053, ex:comp_067 .
+
+ex:comp_074 a ex:Component ;
+    ex:componentId "CMP-0074" ;
+    ex:componentName "core-service-module-074" ;
+    ex:semanticVersion "5.4.14" ;
+    ex:dependsOn ex:comp_054, ex:comp_068 .
+
+ex:comp_075 a ex:Component ;
+    ex:componentId "CMP-0075" ;
+    ex:componentName "core-service-module-075" ;
+    ex:semanticVersion "1.5.15" ;
+    ex:dependsOn ex:comp_055, ex:comp_069 .
+
+ex:comp_076 a ex:Component ;
+    ex:componentId "CMP-0076" ;
+    ex:componentName "core-service-module-076" ;
+    ex:semanticVersion "2.6.16" ;
+    ex:dependsOn ex:comp_056, ex:comp_070 .
+
+ex:comp_077 a ex:Component ;
+    ex:componentId "CMP-0077" ;
+    ex:componentName "core-service-module-077" ;
+    ex:semanticVersion "3.7.17" ;
+    ex:dependsOn ex:comp_057, ex:comp_071 .
+
+ex:comp_078 a ex:Component ;
+    ex:componentId "CMP-0078" ;
+    ex:componentName "core-service-module-078" ;
+    ex:semanticVersion "4.8.18" ;
+    ex:dependsOn ex:comp_058, ex:comp_072 .
+
+ex:comp_079 a ex:Component ;
+    ex:componentId "CMP-0079" ;
+    ex:componentName "core-service-module-079" ;
+    ex:semanticVersion "5.9.19" ;
+    ex:dependsOn ex:comp_059, ex:comp_073 .
+
+ex:comp_080 a ex:Component ;
+    ex:componentId "CMP-0080" ;
+    ex:componentName "core-service-module-080" ;
+    ex:semanticVersion "1.0.0" ;
+    ex:dependsOn ex:comp_060, ex:comp_074 .
+
+ex:comp_081 a ex:Component ;
+    ex:componentId "CMP-0081" ;
+    ex:componentName "core-service-module-081" ;
+    ex:semanticVersion "2.1.1" ;
+    ex:dependsOn ex:comp_061, ex:comp_075 .
+
+ex:comp_082 a ex:Component ;
+    ex:componentId "CMP-0082" ;
+    ex:componentName "core-service-module-082" ;
+    ex:semanticVersion "3.2.2" ;
+    ex:dependsOn ex:comp_062, ex:comp_076 .
+
+ex:comp_083 a ex:Component ;
+    ex:componentId "CMP-0083" ;
+    ex:componentName "core-service-module-083" ;
+    ex:semanticVersion "4.3.3" ;
+    ex:dependsOn ex:comp_063, ex:comp_077 .
+
+ex:comp_084 a ex:Component ;
+    ex:componentId "CMP-0084" ;
+    ex:componentName "core-service-module-084" ;
+    ex:semanticVersion "5.4.4" ;
+    ex:dependsOn ex:comp_064, ex:comp_078 .
+
+ex:comp_085 a ex:Component ;
+    ex:componentId "CMP-0085" ;
+    ex:componentName "core-service-module-085" ;
+    ex:semanticVersion "1.5.5" ;
+    ex:dependsOn ex:comp_065, ex:comp_079 .
+
+ex:comp_086 a ex:Component ;
+    ex:componentId "CMP-0086" ;
+    ex:componentName "core-service-module-086" ;
+    ex:semanticVersion "2.6.6" ;
+    ex:dependsOn ex:comp_066, ex:comp_080 .
+
+ex:comp_087 a ex:Component ;
+    ex:componentId "CMP-0087" ;
+    ex:componentName "core-service-module-087" ;
+    ex:semanticVersion "3.7.7" ;
+    ex:dependsOn ex:comp_067, ex:comp_081 .
+
+ex:comp_088 a ex:Component ;
+    ex:componentId "CMP-0088" ;
+    ex:componentName "core-service-module-088" ;
+    ex:semanticVersion "4.8.8" ;
+    ex:dependsOn ex:comp_068, ex:comp_082 .
+
+ex:comp_089 a ex:Component ;
+    ex:componentId "CMP-0089" ;
+    ex:componentName "core-service-module-089" ;
+    ex:semanticVersion "5.9.9" ;
+    ex:dependsOn ex:comp_069, ex:comp_083 .
+
+ex:comp_090 a ex:Component ;
+    ex:componentId "CMP-0090" ;
+    ex:componentName "core-service-module-090" ;
+    ex:semanticVersion "1.0.10" ;
+    ex:dependsOn ex:comp_070, ex:comp_084 .
+
+ex:comp_091 a ex:Component ;
+    ex:componentId "CMP-0091" ;
+    ex:componentName "core-service-module-091" ;
+    ex:semanticVersion "2.1.11" ;
+    ex:dependsOn ex:comp_071, ex:comp_085 .
+
+ex:comp_092 a ex:Component ;
+    ex:componentId "CMP-0092" ;
+    ex:componentName "core-service-module-092" ;
+    ex:semanticVersion "3.2.12" ;
+    ex:dependsOn ex:comp_072, ex:comp_086 .
+
+ex:comp_093 a ex:Component ;
+    ex:componentId "CMP-0093" ;
+    ex:componentName "core-service-module-093" ;
+    ex:semanticVersion "4.3.13" ;
+    ex:dependsOn ex:comp_073, ex:comp_087 .
+
+ex:comp_094 a ex:Component ;
+    ex:componentId "CMP-0094" ;
+    ex:componentName "core-service-module-094" ;
+    ex:semanticVersion "5.4.14" ;
+    ex:dependsOn ex:comp_074, ex:comp_088 .
+
+ex:comp_095 a ex:Component ;
+    ex:componentId "CMP-0095" ;
+    ex:componentName "core-service-module-095" ;
+    ex:semanticVersion "1.5.15" ;
+    ex:dependsOn ex:comp_075, ex:comp_089 .
+
+ex:comp_096 a ex:Component ;
+    ex:componentId "CMP-0096" ;
+    ex:componentName "core-service-module-096" ;
+    ex:semanticVersion "2.6.16" ;
+    ex:dependsOn ex:comp_076, ex:comp_090 .
+
+ex:comp_097 a ex:Component ;
+    ex:componentId "CMP-0097" ;
+    ex:componentName "core-service-module-097" ;
+    ex:semanticVersion "3.7.17" ;
+    ex:dependsOn ex:comp_077, ex:comp_091 .
+
+ex:comp_098 a ex:Component ;
+    ex:componentId "CMP-0098" ;
+    ex:componentName "core-service-module-098" ;
+    ex:semanticVersion "4.8.18" ;
+    ex:dependsOn ex:comp_078, ex:comp_092 .
+
+ex:comp_099 a ex:Component ;
+    ex:componentId "CMP-0099" ;
+    ex:componentName "core-service-module-099" ;
+    ex:semanticVersion "5.9.19" ;
+    ex:dependsOn ex:comp_079, ex:comp_093 .
+
+ex:comp_100 a ex:Component ;
+    ex:componentId "CMP-0100" ;
+    ex:componentName "core-service-module-100" ;
+    ex:semanticVersion "1.0.0" ;
+    ex:dependsOn ex:comp_080, ex:comp_094 .

@@ -1,0 +1,1107 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/test/disjoint_equivalent/> .
+
+# ABox Instance Triples for 08_disjoint_and_equivalent_classes
+# Includes balances > 500000.00 (HighValueAccount) and <= 500000.00
+
+ex:ind_cust_001 a ex:IndividualCustomer ;
+    ex:accountBalance 46500.00 ;
+    ex:customerSince "2016-02-02"^^xsd:date ;
+    ex:ssn "101-11-1001" .
+
+ex:ind_cust_002 a ex:IndividualCustomer ;
+    ex:accountBalance 48000.00 ;
+    ex:customerSince "2017-03-03"^^xsd:date ;
+    ex:ssn "102-12-1002" .
+
+ex:ind_cust_003 a ex:IndividualCustomer ;
+    ex:accountBalance 787500.00 ;
+    ex:customerSince "2018-04-04"^^xsd:date ;
+    ex:ssn "103-13-1003" .
+
+ex:ind_cust_004 a ex:IndividualCustomer ;
+    ex:accountBalance 51000.00 ;
+    ex:customerSince "2019-05-05"^^xsd:date ;
+    ex:ssn "104-14-1004" .
+
+ex:ind_cust_005 a ex:IndividualCustomer ;
+    ex:accountBalance 52500.00 ;
+    ex:customerSince "2020-06-06"^^xsd:date ;
+    ex:ssn "105-15-1005" .
+
+ex:ind_cust_006 a ex:IndividualCustomer ;
+    ex:accountBalance 825000.00 ;
+    ex:customerSince "2021-07-07"^^xsd:date ;
+    ex:ssn "106-16-1006" .
+
+ex:ind_cust_007 a ex:IndividualCustomer ;
+    ex:accountBalance 55500.00 ;
+    ex:customerSince "2022-08-08"^^xsd:date ;
+    ex:ssn "107-17-1007" .
+
+ex:ind_cust_008 a ex:IndividualCustomer ;
+    ex:accountBalance 57000.00 ;
+    ex:customerSince "2023-09-09"^^xsd:date ;
+    ex:ssn "108-18-1008" .
+
+ex:ind_cust_009 a ex:IndividualCustomer ;
+    ex:accountBalance 862500.00 ;
+    ex:customerSince "2024-10-10"^^xsd:date ;
+    ex:ssn "109-19-1009" .
+
+ex:ind_cust_010 a ex:IndividualCustomer ;
+    ex:accountBalance 60000.00 ;
+    ex:customerSince "2015-11-11"^^xsd:date ;
+    ex:ssn "110-20-1010" .
+
+ex:ind_cust_011 a ex:IndividualCustomer ;
+    ex:accountBalance 61500.00 ;
+    ex:customerSince "2016-12-12"^^xsd:date ;
+    ex:ssn "111-21-1011" .
+
+ex:ind_cust_012 a ex:IndividualCustomer ;
+    ex:accountBalance 900000.00 ;
+    ex:customerSince "2017-01-13"^^xsd:date ;
+    ex:ssn "112-22-1012" .
+
+ex:ind_cust_013 a ex:IndividualCustomer ;
+    ex:accountBalance 64500.00 ;
+    ex:customerSince "2018-02-14"^^xsd:date ;
+    ex:ssn "113-23-1013" .
+
+ex:ind_cust_014 a ex:IndividualCustomer ;
+    ex:accountBalance 66000.00 ;
+    ex:customerSince "2019-03-15"^^xsd:date ;
+    ex:ssn "114-24-1014" .
+
+ex:ind_cust_015 a ex:IndividualCustomer ;
+    ex:accountBalance 937500.00 ;
+    ex:customerSince "2020-04-16"^^xsd:date ;
+    ex:ssn "115-25-1015" .
+
+ex:ind_cust_016 a ex:IndividualCustomer ;
+    ex:accountBalance 69000.00 ;
+    ex:customerSince "2021-05-17"^^xsd:date ;
+    ex:ssn "116-26-1016" .
+
+ex:ind_cust_017 a ex:IndividualCustomer ;
+    ex:accountBalance 70500.00 ;
+    ex:customerSince "2022-06-18"^^xsd:date ;
+    ex:ssn "117-27-1017" .
+
+ex:ind_cust_018 a ex:IndividualCustomer ;
+    ex:accountBalance 975000.00 ;
+    ex:customerSince "2023-07-19"^^xsd:date ;
+    ex:ssn "118-28-1018" .
+
+ex:ind_cust_019 a ex:IndividualCustomer ;
+    ex:accountBalance 73500.00 ;
+    ex:customerSince "2024-08-20"^^xsd:date ;
+    ex:ssn "119-29-1019" .
+
+ex:ind_cust_020 a ex:IndividualCustomer ;
+    ex:accountBalance 75000.00 ;
+    ex:customerSince "2015-09-21"^^xsd:date ;
+    ex:ssn "120-30-1020" .
+
+ex:ind_cust_021 a ex:IndividualCustomer ;
+    ex:accountBalance 1012500.00 ;
+    ex:customerSince "2016-10-22"^^xsd:date ;
+    ex:ssn "121-31-1021" .
+
+ex:ind_cust_022 a ex:IndividualCustomer ;
+    ex:accountBalance 78000.00 ;
+    ex:customerSince "2017-11-23"^^xsd:date ;
+    ex:ssn "122-32-1022" .
+
+ex:ind_cust_023 a ex:IndividualCustomer ;
+    ex:accountBalance 79500.00 ;
+    ex:customerSince "2018-12-24"^^xsd:date ;
+    ex:ssn "123-33-1023" .
+
+ex:ind_cust_024 a ex:IndividualCustomer ;
+    ex:accountBalance 1050000.00 ;
+    ex:customerSince "2019-01-25"^^xsd:date ;
+    ex:ssn "124-34-1024" .
+
+ex:ind_cust_025 a ex:IndividualCustomer ;
+    ex:accountBalance 82500.00 ;
+    ex:customerSince "2020-02-26"^^xsd:date ;
+    ex:ssn "125-35-1025" .
+
+ex:ind_cust_026 a ex:IndividualCustomer ;
+    ex:accountBalance 84000.00 ;
+    ex:customerSince "2021-03-27"^^xsd:date ;
+    ex:ssn "126-36-1026" .
+
+ex:ind_cust_027 a ex:IndividualCustomer ;
+    ex:accountBalance 1087500.00 ;
+    ex:customerSince "2022-04-28"^^xsd:date ;
+    ex:ssn "127-37-1027" .
+
+ex:ind_cust_028 a ex:IndividualCustomer ;
+    ex:accountBalance 87000.00 ;
+    ex:customerSince "2023-05-01"^^xsd:date ;
+    ex:ssn "128-38-1028" .
+
+ex:ind_cust_029 a ex:IndividualCustomer ;
+    ex:accountBalance 88500.00 ;
+    ex:customerSince "2024-06-02"^^xsd:date ;
+    ex:ssn "129-39-1029" .
+
+ex:ind_cust_030 a ex:IndividualCustomer ;
+    ex:accountBalance 1125000.00 ;
+    ex:customerSince "2015-07-03"^^xsd:date ;
+    ex:ssn "130-40-1030" .
+
+ex:ind_cust_031 a ex:IndividualCustomer ;
+    ex:accountBalance 91500.00 ;
+    ex:customerSince "2016-08-04"^^xsd:date ;
+    ex:ssn "131-41-1031" .
+
+ex:ind_cust_032 a ex:IndividualCustomer ;
+    ex:accountBalance 93000.00 ;
+    ex:customerSince "2017-09-05"^^xsd:date ;
+    ex:ssn "132-42-1032" .
+
+ex:ind_cust_033 a ex:IndividualCustomer ;
+    ex:accountBalance 1162500.00 ;
+    ex:customerSince "2018-10-06"^^xsd:date ;
+    ex:ssn "133-43-1033" .
+
+ex:ind_cust_034 a ex:IndividualCustomer ;
+    ex:accountBalance 96000.00 ;
+    ex:customerSince "2019-11-07"^^xsd:date ;
+    ex:ssn "134-44-1034" .
+
+ex:ind_cust_035 a ex:IndividualCustomer ;
+    ex:accountBalance 97500.00 ;
+    ex:customerSince "2020-12-08"^^xsd:date ;
+    ex:ssn "135-45-1035" .
+
+ex:ind_cust_036 a ex:IndividualCustomer ;
+    ex:accountBalance 1200000.00 ;
+    ex:customerSince "2021-01-09"^^xsd:date ;
+    ex:ssn "136-46-1036" .
+
+ex:ind_cust_037 a ex:IndividualCustomer ;
+    ex:accountBalance 100500.00 ;
+    ex:customerSince "2022-02-10"^^xsd:date ;
+    ex:ssn "137-47-1037" .
+
+ex:ind_cust_038 a ex:IndividualCustomer ;
+    ex:accountBalance 102000.00 ;
+    ex:customerSince "2023-03-11"^^xsd:date ;
+    ex:ssn "138-48-1038" .
+
+ex:ind_cust_039 a ex:IndividualCustomer ;
+    ex:accountBalance 1237500.00 ;
+    ex:customerSince "2024-04-12"^^xsd:date ;
+    ex:ssn "139-49-1039" .
+
+ex:ind_cust_040 a ex:IndividualCustomer ;
+    ex:accountBalance 105000.00 ;
+    ex:customerSince "2015-05-13"^^xsd:date ;
+    ex:ssn "140-50-1040" .
+
+ex:ind_cust_041 a ex:IndividualCustomer ;
+    ex:accountBalance 106500.00 ;
+    ex:customerSince "2016-06-14"^^xsd:date ;
+    ex:ssn "141-51-1041" .
+
+ex:ind_cust_042 a ex:IndividualCustomer ;
+    ex:accountBalance 1275000.00 ;
+    ex:customerSince "2017-07-15"^^xsd:date ;
+    ex:ssn "142-52-1042" .
+
+ex:ind_cust_043 a ex:IndividualCustomer ;
+    ex:accountBalance 109500.00 ;
+    ex:customerSince "2018-08-16"^^xsd:date ;
+    ex:ssn "143-53-1043" .
+
+ex:ind_cust_044 a ex:IndividualCustomer ;
+    ex:accountBalance 111000.00 ;
+    ex:customerSince "2019-09-17"^^xsd:date ;
+    ex:ssn "144-54-1044" .
+
+ex:ind_cust_045 a ex:IndividualCustomer ;
+    ex:accountBalance 1312500.00 ;
+    ex:customerSince "2020-10-18"^^xsd:date ;
+    ex:ssn "145-55-1045" .
+
+ex:ind_cust_046 a ex:IndividualCustomer ;
+    ex:accountBalance 114000.00 ;
+    ex:customerSince "2021-11-19"^^xsd:date ;
+    ex:ssn "146-56-1046" .
+
+ex:ind_cust_047 a ex:IndividualCustomer ;
+    ex:accountBalance 115500.00 ;
+    ex:customerSince "2022-12-20"^^xsd:date ;
+    ex:ssn "147-57-1047" .
+
+ex:ind_cust_048 a ex:IndividualCustomer ;
+    ex:accountBalance 1350000.00 ;
+    ex:customerSince "2023-01-21"^^xsd:date ;
+    ex:ssn "148-58-1048" .
+
+ex:ind_cust_049 a ex:IndividualCustomer ;
+    ex:accountBalance 118500.00 ;
+    ex:customerSince "2024-02-22"^^xsd:date ;
+    ex:ssn "149-59-1049" .
+
+ex:ind_cust_050 a ex:IndividualCustomer ;
+    ex:accountBalance 120000.00 ;
+    ex:customerSince "2015-03-23"^^xsd:date ;
+    ex:ssn "150-60-1050" .
+
+ex:ind_cust_051 a ex:IndividualCustomer ;
+    ex:accountBalance 1387500.00 ;
+    ex:customerSince "2016-04-24"^^xsd:date ;
+    ex:ssn "151-61-1051" .
+
+ex:ind_cust_052 a ex:IndividualCustomer ;
+    ex:accountBalance 123000.00 ;
+    ex:customerSince "2017-05-25"^^xsd:date ;
+    ex:ssn "152-62-1052" .
+
+ex:ind_cust_053 a ex:IndividualCustomer ;
+    ex:accountBalance 124500.00 ;
+    ex:customerSince "2018-06-26"^^xsd:date ;
+    ex:ssn "153-63-1053" .
+
+ex:ind_cust_054 a ex:IndividualCustomer ;
+    ex:accountBalance 1425000.00 ;
+    ex:customerSince "2019-07-27"^^xsd:date ;
+    ex:ssn "154-64-1054" .
+
+ex:ind_cust_055 a ex:IndividualCustomer ;
+    ex:accountBalance 127500.00 ;
+    ex:customerSince "2020-08-28"^^xsd:date ;
+    ex:ssn "155-65-1055" .
+
+ex:ind_cust_056 a ex:IndividualCustomer ;
+    ex:accountBalance 129000.00 ;
+    ex:customerSince "2021-09-01"^^xsd:date ;
+    ex:ssn "156-66-1056" .
+
+ex:ind_cust_057 a ex:IndividualCustomer ;
+    ex:accountBalance 1462500.00 ;
+    ex:customerSince "2022-10-02"^^xsd:date ;
+    ex:ssn "157-67-1057" .
+
+ex:ind_cust_058 a ex:IndividualCustomer ;
+    ex:accountBalance 132000.00 ;
+    ex:customerSince "2023-11-03"^^xsd:date ;
+    ex:ssn "158-68-1058" .
+
+ex:ind_cust_059 a ex:IndividualCustomer ;
+    ex:accountBalance 133500.00 ;
+    ex:customerSince "2024-12-04"^^xsd:date ;
+    ex:ssn "159-69-1059" .
+
+ex:ind_cust_060 a ex:IndividualCustomer ;
+    ex:accountBalance 1500000.00 ;
+    ex:customerSince "2015-01-05"^^xsd:date ;
+    ex:ssn "160-70-1060" .
+
+ex:ind_cust_061 a ex:IndividualCustomer ;
+    ex:accountBalance 136500.00 ;
+    ex:customerSince "2016-02-06"^^xsd:date ;
+    ex:ssn "161-71-1061" .
+
+ex:ind_cust_062 a ex:IndividualCustomer ;
+    ex:accountBalance 138000.00 ;
+    ex:customerSince "2017-03-07"^^xsd:date ;
+    ex:ssn "162-72-1062" .
+
+ex:ind_cust_063 a ex:IndividualCustomer ;
+    ex:accountBalance 1537500.00 ;
+    ex:customerSince "2018-04-08"^^xsd:date ;
+    ex:ssn "163-73-1063" .
+
+ex:ind_cust_064 a ex:IndividualCustomer ;
+    ex:accountBalance 141000.00 ;
+    ex:customerSince "2019-05-09"^^xsd:date ;
+    ex:ssn "164-74-1064" .
+
+ex:ind_cust_065 a ex:IndividualCustomer ;
+    ex:accountBalance 142500.00 ;
+    ex:customerSince "2020-06-10"^^xsd:date ;
+    ex:ssn "165-75-1065" .
+
+ex:ind_cust_066 a ex:IndividualCustomer ;
+    ex:accountBalance 1575000.00 ;
+    ex:customerSince "2021-07-11"^^xsd:date ;
+    ex:ssn "166-76-1066" .
+
+ex:ind_cust_067 a ex:IndividualCustomer ;
+    ex:accountBalance 145500.00 ;
+    ex:customerSince "2022-08-12"^^xsd:date ;
+    ex:ssn "167-77-1067" .
+
+ex:ind_cust_068 a ex:IndividualCustomer ;
+    ex:accountBalance 147000.00 ;
+    ex:customerSince "2023-09-13"^^xsd:date ;
+    ex:ssn "168-78-1068" .
+
+ex:ind_cust_069 a ex:IndividualCustomer ;
+    ex:accountBalance 1612500.00 ;
+    ex:customerSince "2024-10-14"^^xsd:date ;
+    ex:ssn "169-79-1069" .
+
+ex:ind_cust_070 a ex:IndividualCustomer ;
+    ex:accountBalance 150000.00 ;
+    ex:customerSince "2015-11-15"^^xsd:date ;
+    ex:ssn "170-80-1070" .
+
+ex:ind_cust_071 a ex:IndividualCustomer ;
+    ex:accountBalance 151500.00 ;
+    ex:customerSince "2016-12-16"^^xsd:date ;
+    ex:ssn "171-81-1071" .
+
+ex:ind_cust_072 a ex:IndividualCustomer ;
+    ex:accountBalance 1650000.00 ;
+    ex:customerSince "2017-01-17"^^xsd:date ;
+    ex:ssn "172-82-1072" .
+
+ex:ind_cust_073 a ex:IndividualCustomer ;
+    ex:accountBalance 154500.00 ;
+    ex:customerSince "2018-02-18"^^xsd:date ;
+    ex:ssn "173-83-1073" .
+
+ex:ind_cust_074 a ex:IndividualCustomer ;
+    ex:accountBalance 156000.00 ;
+    ex:customerSince "2019-03-19"^^xsd:date ;
+    ex:ssn "174-84-1074" .
+
+ex:ind_cust_075 a ex:IndividualCustomer ;
+    ex:accountBalance 1687500.00 ;
+    ex:customerSince "2020-04-20"^^xsd:date ;
+    ex:ssn "175-85-1075" .
+
+ex:ind_cust_076 a ex:IndividualCustomer ;
+    ex:accountBalance 159000.00 ;
+    ex:customerSince "2021-05-21"^^xsd:date ;
+    ex:ssn "176-86-1076" .
+
+ex:ind_cust_077 a ex:IndividualCustomer ;
+    ex:accountBalance 160500.00 ;
+    ex:customerSince "2022-06-22"^^xsd:date ;
+    ex:ssn "177-87-1077" .
+
+ex:ind_cust_078 a ex:IndividualCustomer ;
+    ex:accountBalance 1725000.00 ;
+    ex:customerSince "2023-07-23"^^xsd:date ;
+    ex:ssn "178-88-1078" .
+
+ex:ind_cust_079 a ex:IndividualCustomer ;
+    ex:accountBalance 163500.00 ;
+    ex:customerSince "2024-08-24"^^xsd:date ;
+    ex:ssn "179-89-1079" .
+
+ex:ind_cust_080 a ex:IndividualCustomer ;
+    ex:accountBalance 165000.00 ;
+    ex:customerSince "2015-09-25"^^xsd:date ;
+    ex:ssn "180-90-1080" .
+
+ex:ind_cust_081 a ex:IndividualCustomer ;
+    ex:accountBalance 1762500.00 ;
+    ex:customerSince "2016-10-26"^^xsd:date ;
+    ex:ssn "181-91-1081" .
+
+ex:ind_cust_082 a ex:IndividualCustomer ;
+    ex:accountBalance 168000.00 ;
+    ex:customerSince "2017-11-27"^^xsd:date ;
+    ex:ssn "182-92-1082" .
+
+ex:ind_cust_083 a ex:IndividualCustomer ;
+    ex:accountBalance 169500.00 ;
+    ex:customerSince "2018-12-28"^^xsd:date ;
+    ex:ssn "183-93-1083" .
+
+ex:ind_cust_084 a ex:IndividualCustomer ;
+    ex:accountBalance 1800000.00 ;
+    ex:customerSince "2019-01-01"^^xsd:date ;
+    ex:ssn "184-94-1084" .
+
+ex:ind_cust_085 a ex:IndividualCustomer ;
+    ex:accountBalance 172500.00 ;
+    ex:customerSince "2020-02-02"^^xsd:date ;
+    ex:ssn "185-95-1085" .
+
+ex:ind_cust_086 a ex:IndividualCustomer ;
+    ex:accountBalance 174000.00 ;
+    ex:customerSince "2021-03-03"^^xsd:date ;
+    ex:ssn "186-96-1086" .
+
+ex:ind_cust_087 a ex:IndividualCustomer ;
+    ex:accountBalance 1837500.00 ;
+    ex:customerSince "2022-04-04"^^xsd:date ;
+    ex:ssn "187-97-1087" .
+
+ex:ind_cust_088 a ex:IndividualCustomer ;
+    ex:accountBalance 177000.00 ;
+    ex:customerSince "2023-05-05"^^xsd:date ;
+    ex:ssn "188-98-1088" .
+
+ex:ind_cust_089 a ex:IndividualCustomer ;
+    ex:accountBalance 178500.00 ;
+    ex:customerSince "2024-06-06"^^xsd:date ;
+    ex:ssn "189-10-1089" .
+
+ex:ind_cust_090 a ex:IndividualCustomer ;
+    ex:accountBalance 1875000.00 ;
+    ex:customerSince "2015-07-07"^^xsd:date ;
+    ex:ssn "190-11-1090" .
+
+ex:ind_cust_091 a ex:IndividualCustomer ;
+    ex:accountBalance 181500.00 ;
+    ex:customerSince "2016-08-08"^^xsd:date ;
+    ex:ssn "191-12-1091" .
+
+ex:ind_cust_092 a ex:IndividualCustomer ;
+    ex:accountBalance 183000.00 ;
+    ex:customerSince "2017-09-09"^^xsd:date ;
+    ex:ssn "192-13-1092" .
+
+ex:ind_cust_093 a ex:IndividualCustomer ;
+    ex:accountBalance 1912500.00 ;
+    ex:customerSince "2018-10-10"^^xsd:date ;
+    ex:ssn "193-14-1093" .
+
+ex:ind_cust_094 a ex:IndividualCustomer ;
+    ex:accountBalance 186000.00 ;
+    ex:customerSince "2019-11-11"^^xsd:date ;
+    ex:ssn "194-15-1094" .
+
+ex:ind_cust_095 a ex:IndividualCustomer ;
+    ex:accountBalance 187500.00 ;
+    ex:customerSince "2020-12-12"^^xsd:date ;
+    ex:ssn "195-16-1095" .
+
+ex:ind_cust_096 a ex:IndividualCustomer ;
+    ex:accountBalance 1950000.00 ;
+    ex:customerSince "2021-01-13"^^xsd:date ;
+    ex:ssn "196-17-1096" .
+
+ex:ind_cust_097 a ex:IndividualCustomer ;
+    ex:accountBalance 190500.00 ;
+    ex:customerSince "2022-02-14"^^xsd:date ;
+    ex:ssn "197-18-1097" .
+
+ex:ind_cust_098 a ex:IndividualCustomer ;
+    ex:accountBalance 192000.00 ;
+    ex:customerSince "2023-03-15"^^xsd:date ;
+    ex:ssn "198-19-1098" .
+
+ex:ind_cust_099 a ex:IndividualCustomer ;
+    ex:accountBalance 1987500.00 ;
+    ex:customerSince "2024-04-16"^^xsd:date ;
+    ex:ssn "199-20-1099" .
+
+ex:ind_cust_100 a ex:IndividualCustomer ;
+    ex:accountBalance 195000.00 ;
+    ex:customerSince "2015-05-17"^^xsd:date ;
+    ex:ssn "200-21-1100" .
+
+ex:ind_cust_101 a ex:IndividualCustomer ;
+    ex:accountBalance 196500.00 ;
+    ex:customerSince "2016-06-18"^^xsd:date ;
+    ex:ssn "201-22-1101" .
+
+ex:ind_cust_102 a ex:IndividualCustomer ;
+    ex:accountBalance 2025000.00 ;
+    ex:customerSince "2017-07-19"^^xsd:date ;
+    ex:ssn "202-23-1102" .
+
+ex:ind_cust_103 a ex:IndividualCustomer ;
+    ex:accountBalance 199500.00 ;
+    ex:customerSince "2018-08-20"^^xsd:date ;
+    ex:ssn "203-24-1103" .
+
+ex:ind_cust_104 a ex:IndividualCustomer ;
+    ex:accountBalance 201000.00 ;
+    ex:customerSince "2019-09-21"^^xsd:date ;
+    ex:ssn "204-25-1104" .
+
+ex:ind_cust_105 a ex:IndividualCustomer ;
+    ex:accountBalance 2062500.00 ;
+    ex:customerSince "2020-10-22"^^xsd:date ;
+    ex:ssn "205-26-1105" .
+
+ex:ind_cust_106 a ex:IndividualCustomer ;
+    ex:accountBalance 204000.00 ;
+    ex:customerSince "2021-11-23"^^xsd:date ;
+    ex:ssn "206-27-1106" .
+
+ex:ind_cust_107 a ex:IndividualCustomer ;
+    ex:accountBalance 205500.00 ;
+    ex:customerSince "2022-12-24"^^xsd:date ;
+    ex:ssn "207-28-1107" .
+
+ex:ind_cust_108 a ex:IndividualCustomer ;
+    ex:accountBalance 2100000.00 ;
+    ex:customerSince "2023-01-25"^^xsd:date ;
+    ex:ssn "208-29-1108" .
+
+ex:ind_cust_109 a ex:IndividualCustomer ;
+    ex:accountBalance 208500.00 ;
+    ex:customerSince "2024-02-26"^^xsd:date ;
+    ex:ssn "209-30-1109" .
+
+ex:ind_cust_110 a ex:IndividualCustomer ;
+    ex:accountBalance 210000.00 ;
+    ex:customerSince "2015-03-27"^^xsd:date ;
+    ex:ssn "210-31-1110" .
+
+ex:corp_cust_001 a ex:CorporateCustomer ;
+    ex:accountBalance 182000.00 ;
+    ex:customerSince "2011-02-02"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900001" .
+
+ex:corp_cust_002 a ex:CorporateCustomer ;
+    ex:accountBalance 1300000.00 ;
+    ex:customerSince "2012-03-03"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900002" .
+
+ex:corp_cust_003 a ex:CorporateCustomer ;
+    ex:accountBalance 186000.00 ;
+    ex:customerSince "2013-04-04"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900003" .
+
+ex:corp_cust_004 a ex:CorporateCustomer ;
+    ex:accountBalance 1400000.00 ;
+    ex:customerSince "2014-05-05"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900004" .
+
+ex:corp_cust_005 a ex:CorporateCustomer ;
+    ex:accountBalance 190000.00 ;
+    ex:customerSince "2015-06-06"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900005" .
+
+ex:corp_cust_006 a ex:CorporateCustomer ;
+    ex:accountBalance 1500000.00 ;
+    ex:customerSince "2016-07-07"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900006" .
+
+ex:corp_cust_007 a ex:CorporateCustomer ;
+    ex:accountBalance 194000.00 ;
+    ex:customerSince "2017-08-08"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900007" .
+
+ex:corp_cust_008 a ex:CorporateCustomer ;
+    ex:accountBalance 1600000.00 ;
+    ex:customerSince "2018-09-09"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900008" .
+
+ex:corp_cust_009 a ex:CorporateCustomer ;
+    ex:accountBalance 198000.00 ;
+    ex:customerSince "2019-10-10"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900009" .
+
+ex:corp_cust_010 a ex:CorporateCustomer ;
+    ex:accountBalance 1700000.00 ;
+    ex:customerSince "2020-11-11"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900010" .
+
+ex:corp_cust_011 a ex:CorporateCustomer ;
+    ex:accountBalance 202000.00 ;
+    ex:customerSince "2021-12-12"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900011" .
+
+ex:corp_cust_012 a ex:CorporateCustomer ;
+    ex:accountBalance 1800000.00 ;
+    ex:customerSince "2022-01-13"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900012" .
+
+ex:corp_cust_013 a ex:CorporateCustomer ;
+    ex:accountBalance 206000.00 ;
+    ex:customerSince "2023-02-14"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900013" .
+
+ex:corp_cust_014 a ex:CorporateCustomer ;
+    ex:accountBalance 1900000.00 ;
+    ex:customerSince "2010-03-15"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900014" .
+
+ex:corp_cust_015 a ex:CorporateCustomer ;
+    ex:accountBalance 210000.00 ;
+    ex:customerSince "2011-04-16"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900015" .
+
+ex:corp_cust_016 a ex:CorporateCustomer ;
+    ex:accountBalance 2000000.00 ;
+    ex:customerSince "2012-05-17"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900016" .
+
+ex:corp_cust_017 a ex:CorporateCustomer ;
+    ex:accountBalance 214000.00 ;
+    ex:customerSince "2013-06-18"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900017" .
+
+ex:corp_cust_018 a ex:CorporateCustomer ;
+    ex:accountBalance 2100000.00 ;
+    ex:customerSince "2014-07-19"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900018" .
+
+ex:corp_cust_019 a ex:CorporateCustomer ;
+    ex:accountBalance 218000.00 ;
+    ex:customerSince "2015-08-20"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900019" .
+
+ex:corp_cust_020 a ex:CorporateCustomer ;
+    ex:accountBalance 2200000.00 ;
+    ex:customerSince "2016-09-21"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900020" .
+
+ex:corp_cust_021 a ex:CorporateCustomer ;
+    ex:accountBalance 222000.00 ;
+    ex:customerSince "2017-10-22"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900021" .
+
+ex:corp_cust_022 a ex:CorporateCustomer ;
+    ex:accountBalance 2300000.00 ;
+    ex:customerSince "2018-11-23"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900022" .
+
+ex:corp_cust_023 a ex:CorporateCustomer ;
+    ex:accountBalance 226000.00 ;
+    ex:customerSince "2019-12-24"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900023" .
+
+ex:corp_cust_024 a ex:CorporateCustomer ;
+    ex:accountBalance 2400000.00 ;
+    ex:customerSince "2020-01-25"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900024" .
+
+ex:corp_cust_025 a ex:CorporateCustomer ;
+    ex:accountBalance 230000.00 ;
+    ex:customerSince "2021-02-26"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900025" .
+
+ex:corp_cust_026 a ex:CorporateCustomer ;
+    ex:accountBalance 2500000.00 ;
+    ex:customerSince "2022-03-27"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900026" .
+
+ex:corp_cust_027 a ex:CorporateCustomer ;
+    ex:accountBalance 234000.00 ;
+    ex:customerSince "2023-04-28"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900027" .
+
+ex:corp_cust_028 a ex:CorporateCustomer ;
+    ex:accountBalance 2600000.00 ;
+    ex:customerSince "2010-05-01"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900028" .
+
+ex:corp_cust_029 a ex:CorporateCustomer ;
+    ex:accountBalance 238000.00 ;
+    ex:customerSince "2011-06-02"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900029" .
+
+ex:corp_cust_030 a ex:CorporateCustomer ;
+    ex:accountBalance 2700000.00 ;
+    ex:customerSince "2012-07-03"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900030" .
+
+ex:corp_cust_031 a ex:CorporateCustomer ;
+    ex:accountBalance 242000.00 ;
+    ex:customerSince "2013-08-04"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900031" .
+
+ex:corp_cust_032 a ex:CorporateCustomer ;
+    ex:accountBalance 2800000.00 ;
+    ex:customerSince "2014-09-05"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900032" .
+
+ex:corp_cust_033 a ex:CorporateCustomer ;
+    ex:accountBalance 246000.00 ;
+    ex:customerSince "2015-10-06"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900033" .
+
+ex:corp_cust_034 a ex:CorporateCustomer ;
+    ex:accountBalance 2900000.00 ;
+    ex:customerSince "2016-11-07"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900034" .
+
+ex:corp_cust_035 a ex:CorporateCustomer ;
+    ex:accountBalance 250000.00 ;
+    ex:customerSince "2017-12-08"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900035" .
+
+ex:corp_cust_036 a ex:CorporateCustomer ;
+    ex:accountBalance 3000000.00 ;
+    ex:customerSince "2018-01-09"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900036" .
+
+ex:corp_cust_037 a ex:CorporateCustomer ;
+    ex:accountBalance 254000.00 ;
+    ex:customerSince "2019-02-10"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900037" .
+
+ex:corp_cust_038 a ex:CorporateCustomer ;
+    ex:accountBalance 3100000.00 ;
+    ex:customerSince "2020-03-11"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900038" .
+
+ex:corp_cust_039 a ex:CorporateCustomer ;
+    ex:accountBalance 258000.00 ;
+    ex:customerSince "2021-04-12"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900039" .
+
+ex:corp_cust_040 a ex:CorporateCustomer ;
+    ex:accountBalance 3200000.00 ;
+    ex:customerSince "2022-05-13"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900040" .
+
+ex:corp_cust_041 a ex:CorporateCustomer ;
+    ex:accountBalance 262000.00 ;
+    ex:customerSince "2023-06-14"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900041" .
+
+ex:corp_cust_042 a ex:CorporateCustomer ;
+    ex:accountBalance 3300000.00 ;
+    ex:customerSince "2010-07-15"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900042" .
+
+ex:corp_cust_043 a ex:CorporateCustomer ;
+    ex:accountBalance 266000.00 ;
+    ex:customerSince "2011-08-16"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900043" .
+
+ex:corp_cust_044 a ex:CorporateCustomer ;
+    ex:accountBalance 3400000.00 ;
+    ex:customerSince "2012-09-17"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900044" .
+
+ex:corp_cust_045 a ex:CorporateCustomer ;
+    ex:accountBalance 270000.00 ;
+    ex:customerSince "2013-10-18"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900045" .
+
+ex:corp_cust_046 a ex:CorporateCustomer ;
+    ex:accountBalance 3500000.00 ;
+    ex:customerSince "2014-11-19"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900046" .
+
+ex:corp_cust_047 a ex:CorporateCustomer ;
+    ex:accountBalance 274000.00 ;
+    ex:customerSince "2015-12-20"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900047" .
+
+ex:corp_cust_048 a ex:CorporateCustomer ;
+    ex:accountBalance 3600000.00 ;
+    ex:customerSince "2016-01-21"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900048" .
+
+ex:corp_cust_049 a ex:CorporateCustomer ;
+    ex:accountBalance 278000.00 ;
+    ex:customerSince "2017-02-22"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900049" .
+
+ex:corp_cust_050 a ex:CorporateCustomer ;
+    ex:accountBalance 3700000.00 ;
+    ex:customerSince "2018-03-23"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900050" .
+
+ex:corp_cust_051 a ex:CorporateCustomer ;
+    ex:accountBalance 282000.00 ;
+    ex:customerSince "2019-04-24"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900051" .
+
+ex:corp_cust_052 a ex:CorporateCustomer ;
+    ex:accountBalance 3800000.00 ;
+    ex:customerSince "2020-05-25"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900052" .
+
+ex:corp_cust_053 a ex:CorporateCustomer ;
+    ex:accountBalance 286000.00 ;
+    ex:customerSince "2021-06-26"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900053" .
+
+ex:corp_cust_054 a ex:CorporateCustomer ;
+    ex:accountBalance 3900000.00 ;
+    ex:customerSince "2022-07-27"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900054" .
+
+ex:corp_cust_055 a ex:CorporateCustomer ;
+    ex:accountBalance 290000.00 ;
+    ex:customerSince "2023-08-28"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900055" .
+
+ex:corp_cust_056 a ex:CorporateCustomer ;
+    ex:accountBalance 4000000.00 ;
+    ex:customerSince "2010-09-01"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900056" .
+
+ex:corp_cust_057 a ex:CorporateCustomer ;
+    ex:accountBalance 294000.00 ;
+    ex:customerSince "2011-10-02"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900057" .
+
+ex:corp_cust_058 a ex:CorporateCustomer ;
+    ex:accountBalance 4100000.00 ;
+    ex:customerSince "2012-11-03"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900058" .
+
+ex:corp_cust_059 a ex:CorporateCustomer ;
+    ex:accountBalance 298000.00 ;
+    ex:customerSince "2013-12-04"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900059" .
+
+ex:corp_cust_060 a ex:CorporateCustomer ;
+    ex:accountBalance 4200000.00 ;
+    ex:customerSince "2014-01-05"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900060" .
+
+ex:corp_cust_061 a ex:CorporateCustomer ;
+    ex:accountBalance 302000.00 ;
+    ex:customerSince "2015-02-06"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900061" .
+
+ex:corp_cust_062 a ex:CorporateCustomer ;
+    ex:accountBalance 4300000.00 ;
+    ex:customerSince "2016-03-07"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900062" .
+
+ex:corp_cust_063 a ex:CorporateCustomer ;
+    ex:accountBalance 306000.00 ;
+    ex:customerSince "2017-04-08"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900063" .
+
+ex:corp_cust_064 a ex:CorporateCustomer ;
+    ex:accountBalance 4400000.00 ;
+    ex:customerSince "2018-05-09"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900064" .
+
+ex:corp_cust_065 a ex:CorporateCustomer ;
+    ex:accountBalance 310000.00 ;
+    ex:customerSince "2019-06-10"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900065" .
+
+ex:corp_cust_066 a ex:CorporateCustomer ;
+    ex:accountBalance 4500000.00 ;
+    ex:customerSince "2020-07-11"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900066" .
+
+ex:corp_cust_067 a ex:CorporateCustomer ;
+    ex:accountBalance 314000.00 ;
+    ex:customerSince "2021-08-12"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900067" .
+
+ex:corp_cust_068 a ex:CorporateCustomer ;
+    ex:accountBalance 4600000.00 ;
+    ex:customerSince "2022-09-13"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900068" .
+
+ex:corp_cust_069 a ex:CorporateCustomer ;
+    ex:accountBalance 318000.00 ;
+    ex:customerSince "2023-10-14"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900069" .
+
+ex:corp_cust_070 a ex:CorporateCustomer ;
+    ex:accountBalance 4700000.00 ;
+    ex:customerSince "2010-11-15"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900070" .
+
+ex:corp_cust_071 a ex:CorporateCustomer ;
+    ex:accountBalance 322000.00 ;
+    ex:customerSince "2011-12-16"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900071" .
+
+ex:corp_cust_072 a ex:CorporateCustomer ;
+    ex:accountBalance 4800000.00 ;
+    ex:customerSince "2012-01-17"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900072" .
+
+ex:corp_cust_073 a ex:CorporateCustomer ;
+    ex:accountBalance 326000.00 ;
+    ex:customerSince "2013-02-18"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900073" .
+
+ex:corp_cust_074 a ex:CorporateCustomer ;
+    ex:accountBalance 4900000.00 ;
+    ex:customerSince "2014-03-19"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900074" .
+
+ex:corp_cust_075 a ex:CorporateCustomer ;
+    ex:accountBalance 330000.00 ;
+    ex:customerSince "2015-04-20"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900075" .
+
+ex:corp_cust_076 a ex:CorporateCustomer ;
+    ex:accountBalance 5000000.00 ;
+    ex:customerSince "2016-05-21"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900076" .
+
+ex:corp_cust_077 a ex:CorporateCustomer ;
+    ex:accountBalance 334000.00 ;
+    ex:customerSince "2017-06-22"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900077" .
+
+ex:corp_cust_078 a ex:CorporateCustomer ;
+    ex:accountBalance 5100000.00 ;
+    ex:customerSince "2018-07-23"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900078" .
+
+ex:corp_cust_079 a ex:CorporateCustomer ;
+    ex:accountBalance 338000.00 ;
+    ex:customerSince "2019-08-24"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900079" .
+
+ex:corp_cust_080 a ex:CorporateCustomer ;
+    ex:accountBalance 5200000.00 ;
+    ex:customerSince "2020-09-25"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900080" .
+
+ex:corp_cust_081 a ex:CorporateCustomer ;
+    ex:accountBalance 342000.00 ;
+    ex:customerSince "2021-10-26"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900081" .
+
+ex:corp_cust_082 a ex:CorporateCustomer ;
+    ex:accountBalance 5300000.00 ;
+    ex:customerSince "2022-11-27"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900082" .
+
+ex:corp_cust_083 a ex:CorporateCustomer ;
+    ex:accountBalance 346000.00 ;
+    ex:customerSince "2023-12-28"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900083" .
+
+ex:corp_cust_084 a ex:CorporateCustomer ;
+    ex:accountBalance 5400000.00 ;
+    ex:customerSince "2010-01-01"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900084" .
+
+ex:corp_cust_085 a ex:CorporateCustomer ;
+    ex:accountBalance 350000.00 ;
+    ex:customerSince "2011-02-02"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900085" .
+
+ex:corp_cust_086 a ex:CorporateCustomer ;
+    ex:accountBalance 5500000.00 ;
+    ex:customerSince "2012-03-03"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900086" .
+
+ex:corp_cust_087 a ex:CorporateCustomer ;
+    ex:accountBalance 354000.00 ;
+    ex:customerSince "2013-04-04"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900087" .
+
+ex:corp_cust_088 a ex:CorporateCustomer ;
+    ex:accountBalance 5600000.00 ;
+    ex:customerSince "2014-05-05"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900088" .
+
+ex:corp_cust_089 a ex:CorporateCustomer ;
+    ex:accountBalance 358000.00 ;
+    ex:customerSince "2015-06-06"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900089" .
+
+ex:corp_cust_090 a ex:CorporateCustomer ;
+    ex:accountBalance 5700000.00 ;
+    ex:customerSince "2016-07-07"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900090" .
+
+ex:corp_cust_091 a ex:CorporateCustomer ;
+    ex:accountBalance 362000.00 ;
+    ex:customerSince "2017-08-08"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900091" .
+
+ex:corp_cust_092 a ex:CorporateCustomer ;
+    ex:accountBalance 5800000.00 ;
+    ex:customerSince "2018-09-09"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900092" .
+
+ex:corp_cust_093 a ex:CorporateCustomer ;
+    ex:accountBalance 366000.00 ;
+    ex:customerSince "2019-10-10"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900093" .
+
+ex:corp_cust_094 a ex:CorporateCustomer ;
+    ex:accountBalance 5900000.00 ;
+    ex:customerSince "2020-11-11"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900094" .
+
+ex:corp_cust_095 a ex:CorporateCustomer ;
+    ex:accountBalance 370000.00 ;
+    ex:customerSince "2021-12-12"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900095" .
+
+ex:corp_cust_096 a ex:CorporateCustomer ;
+    ex:accountBalance 6000000.00 ;
+    ex:customerSince "2022-01-13"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900096" .
+
+ex:corp_cust_097 a ex:CorporateCustomer ;
+    ex:accountBalance 374000.00 ;
+    ex:customerSince "2023-02-14"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900097" .
+
+ex:corp_cust_098 a ex:CorporateCustomer ;
+    ex:accountBalance 6100000.00 ;
+    ex:customerSince "2010-03-15"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900098" .
+
+ex:corp_cust_099 a ex:CorporateCustomer ;
+    ex:accountBalance 378000.00 ;
+    ex:customerSince "2011-04-16"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900099" .
+
+ex:corp_cust_100 a ex:CorporateCustomer ;
+    ex:accountBalance 6200000.00 ;
+    ex:customerSince "2012-05-17"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900100" .
+
+ex:corp_cust_101 a ex:CorporateCustomer ;
+    ex:accountBalance 382000.00 ;
+    ex:customerSince "2013-06-18"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900101" .
+
+ex:corp_cust_102 a ex:CorporateCustomer ;
+    ex:accountBalance 6300000.00 ;
+    ex:customerSince "2014-07-19"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900102" .
+
+ex:corp_cust_103 a ex:CorporateCustomer ;
+    ex:accountBalance 386000.00 ;
+    ex:customerSince "2015-08-20"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900103" .
+
+ex:corp_cust_104 a ex:CorporateCustomer ;
+    ex:accountBalance 6400000.00 ;
+    ex:customerSince "2016-09-21"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900104" .
+
+ex:corp_cust_105 a ex:CorporateCustomer ;
+    ex:accountBalance 390000.00 ;
+    ex:customerSince "2017-10-22"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900105" .
+
+ex:corp_cust_106 a ex:CorporateCustomer ;
+    ex:accountBalance 6500000.00 ;
+    ex:customerSince "2018-11-23"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900106" .
+
+ex:corp_cust_107 a ex:CorporateCustomer ;
+    ex:accountBalance 394000.00 ;
+    ex:customerSince "2019-12-24"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900107" .
+
+ex:corp_cust_108 a ex:CorporateCustomer ;
+    ex:accountBalance 6600000.00 ;
+    ex:customerSince "2020-01-25"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900108" .
+
+ex:corp_cust_109 a ex:CorporateCustomer ;
+    ex:accountBalance 398000.00 ;
+    ex:customerSince "2021-02-26"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900109" .
+
+ex:corp_cust_110 a ex:CorporateCustomer ;
+    ex:accountBalance 6700000.00 ;
+    ex:customerSince "2022-03-27"^^xsd:date ;
+    ex:taxRegistrationNumber "CORP-TAX-900110" .
