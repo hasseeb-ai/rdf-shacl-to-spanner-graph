@@ -5,7 +5,12 @@ import httpx
 from google.genai import types
 from rdf_spanner_translator.config import DEFAULT_GEMINI_MODEL
 from rdf_spanner_translator.translator import _get_client, load_skill_instructions, _generate_with_retry
-from rdf_spanner_translator.validator import get_google_access_token, call_spanner_mcp_tool
+from rdf_spanner_translator.validator import (
+    get_google_access_token,
+    call_spanner_mcp_tool,
+    execute_sql_on_emulator,
+    execute_batch_dml_on_emulator,
+)
 
 
 def load_query_verifier_system_instruction() -> str:
@@ -140,13 +145,27 @@ Fix the root cause and output ONLY the corrected GQL query in a ```sql code bloc
 def execute_spanner_statement(
     statement: str,
     database: str,
-    mcp_url: str = "https://spanner.googleapis.com/mcp"
+    mcp_url: str = "https://spanner.googleapis.com/mcp",
+    use_emulator: bool = False,
+    emulator_host: str | None = None
 ) -> tuple[bool, str]:
-    """Executes a SQL/GQL statement via Spanner MCP execute_sql tool."""
+    """Executes a SQL/GQL or DML statement via Remote Spanner MCP or Local Spanner Emulator."""
+    if use_emulator or os.getenv("SPANNER_EMULATOR_HOST"):
+        return execute_sql_on_emulator(
+            statement=statement,
+            database_path=database,
+            emulator_url=emulator_host,
+            timeout=60.0
+        )
+
     if not mcp_url or not database:
         return False, "Database path and MCP URL are required"
-        
-    return call_spanner_mcp_tool(
+
+    stmt_clean = statement.strip()
+    first_token = stmt_clean.split(None, 1)[0].upper() if stmt_clean else ""
+    is_dml = first_token in ("INSERT", "UPDATE", "DELETE")
+
+    ok, msg = call_spanner_mcp_tool(
         mcp_url=mcp_url,
         tool_name="execute_sql",
         arguments={
@@ -155,6 +174,59 @@ def execute_spanner_statement(
         },
         timeout=60.0
     )
+    if not ok and is_dml and ("dml" in msg.lower() or "read-only" in msg.lower() or "not supported" in msg.lower()):
+        ok2, msg2 = call_spanner_mcp_tool(
+            mcp_url=mcp_url,
+            tool_name="execute_dml",
+            arguments={
+                "database": database,
+                "sql": statement
+            },
+            timeout=60.0
+        )
+        if ok2:
+            return ok2, msg2
+    return ok, msg
+
+
+def execute_spanner_dml_batch(
+    statements: list[str],
+    database: str,
+    mcp_url: str = "https://spanner.googleapis.com/mcp",
+    use_emulator: bool = False,
+    emulator_host: str | None = None,
+    batch_size: int = 50
+) -> tuple[int, list[tuple[int, str, str]]]:
+    """Executes a list of DML statements against Spanner (Emulator batch or Remote MCP).
+
+    Returns:
+        (succeeded_count, failures) where failures is a list of (stmt_index, stmt, error_msg).
+    """
+    if use_emulator or os.getenv("SPANNER_EMULATOR_HOST"):
+        return execute_batch_dml_on_emulator(
+            statements=statements,
+            database_path=database,
+            emulator_url=emulator_host,
+            batch_size=batch_size,
+            timeout=60.0
+        )
+
+    succeeded = 0
+    failures: list[tuple[int, str, str]] = []
+    for idx, stmt in enumerate(statements):
+        if not stmt.strip():
+            continue
+        ok, msg = execute_spanner_statement(
+            statement=stmt,
+            database=database,
+            mcp_url=mcp_url,
+            use_emulator=False
+        )
+        if ok:
+            succeeded += 1
+        else:
+            failures.append((idx, stmt, msg))
+    return succeeded, failures
 
 
 def format_markdown_table_from_output(raw_text: str) -> str:
@@ -214,8 +286,11 @@ def format_query_report(
         "",
         "```sql"
     ]
-    for stmt in dml_statements:
+    sample_dml = dml_statements[:25]
+    for stmt in sample_dml:
         lines.append(stmt)
+    if len(dml_statements) > 25:
+        lines.append(f"-- ... and {len(dml_statements) - 25} more INSERT statements")
     lines.extend([
         "```",
         "",
@@ -277,10 +352,15 @@ def synthesize_executive_report_with_skill(
     """Uses Phase 2 of the Query Verifier Skill to analyze real Spanner results and produce executive insights."""
     client = _get_client()
     
+    sample_dml = dml_statements[:25]
+    if len(dml_statements) > 25:
+        sample_dml = sample_dml + [f"-- ... ({len(dml_statements)} total INSERT statements ingested)"]
+
     execution_payload = {
         "domain_title": domain_title,
         "database_path": database_path,
-        "dml_statements": dml_statements,
+        "total_dml_statements": len(dml_statements),
+        "dml_statements_sample": sample_dml,
         "executed_queries": query_results
     }
     
@@ -337,7 +417,10 @@ def run_query_verification(
     shacl_path: str = None,
     mcp_url: str = "https://spanner.googleapis.com/mcp",
     model_name: str = DEFAULT_GEMINI_MODEL,
-    output_report: str = None
+    output_report: str = None,
+    use_emulator: bool = False,
+    emulator_host: str | None = None,
+    preloaded_dml_statements: list[str] | None = None,
 ) -> tuple[bool, str]:
     """Runs the full dynamic data ingestion and GQL query verification workflow."""
     with open(ttl_path, "r") as f:
@@ -361,16 +444,24 @@ def run_query_verification(
     
     domain_title = plan.get("domain_title", os.path.basename(ttl_path))
     graph_name = plan.get("graph_name", "SpannerPropertyGraph")
-    dml_statements = plan.get("dml_statements", [])
+    dml_statements = preloaded_dml_statements if preloaded_dml_statements is not None else plan.get("dml_statements", [])
     queries = plan.get("queries", [])
     
-    console.print(f"[cyan]• Ingesting {len(dml_statements)} mock relational fixtures into Spanner via DML...[/cyan]")
-    # 2. Ingest DML fixtures into Spanner
-    for idx, stmt in enumerate(dml_statements, 1):
-        success, dml_msg = execute_spanner_statement(stmt, database, mcp_url)
-        if not success:
-            console.print(f"  [yellow]Warning (DML {idx}/{len(dml_statements)}): {dml_msg}[/yellow]")
-    console.print(f"[green]✓ Ingested {len(dml_statements)} relational fixtures.[/green]")
+    # 2. Ingest DML fixtures into Spanner (unless RDF triples were already preloaded)
+    if preloaded_dml_statements is not None:
+        console.print(f"[green]✓ Using {len(dml_statements)} preloaded RDF triple DML statements for GQL query verification.[/green]")
+    else:
+        console.print(f"[cyan]• Ingesting {len(dml_statements)} mock relational fixtures into Spanner via DML...[/cyan]")
+        succeeded, failures = execute_spanner_dml_batch(
+            statements=dml_statements,
+            database=database,
+            mcp_url=mcp_url,
+            use_emulator=use_emulator,
+            emulator_host=emulator_host,
+        )
+        for idx, _, err_msg in failures:
+            console.print(f"  [yellow]Warning (DML {idx + 1}/{len(dml_statements)}): {err_msg}[/yellow]")
+        console.print(f"[green]✓ Ingested {succeeded}/{len(dml_statements)} relational fixtures.[/green]")
         
     # 3. Execute each GQL query on Spanner with self-correction
     query_results = []
@@ -382,7 +473,13 @@ def run_query_verification(
         current_gql = q.get("gql", "")
         
         with console.status(f"[cyan]Executing Query {i}/{len(queries)}: {q_id} ({q_title})..."):
-            success, output = execute_spanner_statement(current_gql, database, mcp_url)
+            success, output = execute_spanner_statement(
+                current_gql,
+                database,
+                mcp_url=mcp_url,
+                use_emulator=use_emulator,
+                emulator_host=emulator_host,
+            )
             
             if not success:
                 console.print(f"  [yellow]✗ Query {q_id} initial execution failed, attempting self-correction...[/yellow]")
@@ -393,7 +490,13 @@ def run_query_verification(
                     error_message=str(output),
                     model_name=model_name
                 )
-                success, output = execute_spanner_statement(corrected_gql, database, mcp_url)
+                success, output = execute_spanner_statement(
+                    corrected_gql,
+                    database,
+                    mcp_url=mcp_url,
+                    use_emulator=use_emulator,
+                    emulator_host=emulator_host,
+                )
                 if success:
                     current_gql = corrected_gql
                     console.print(f"  [green]✓ Query {q_id} self-corrected successfully and PASSED.[/green]")
@@ -446,3 +549,4 @@ def run_query_verification(
             f.write(report_md)
             
     return all_passed, report_md
+
