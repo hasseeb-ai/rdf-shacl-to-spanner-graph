@@ -1548,18 +1548,26 @@ def run_triple_loader(
         return True, dml_statements, table_row_counts, msg
 
     target_db = database or "test_db"
+    target_label = "Spanner Emulator" if is_emu else "Cloud Spanner"
     console.print(
         f"[cyan]• Loading {len(dml_statements)} RDF triple INSERT statements into "
-        f"{'Spanner Emulator' if is_emu else 'Cloud Spanner'} ({target_db})...[/cyan]"
+        f"{target_label} ({target_db})...[/cyan]"
     )
 
-    succeeded, failures = execute_spanner_dml_batch(
-        statements=dml_statements,
-        database=target_db,
-        mcp_url=mcp_url,
-        use_emulator=is_emu,
-        emulator_host=emulator_host,
-    )
+    with console.status(f"[cyan]Executing batch DML on {target_label} (0/{len(dml_statements)})...[/cyan]") as status:
+        def _on_progress(processed: int, total: int, ok_count: int) -> None:
+            status.update(
+                f"[cyan]Executing batch DML on {target_label}: {processed}/{total} statements processed ({ok_count} committed)...[/cyan]"
+            )
+
+        succeeded, failures = execute_spanner_dml_batch(
+            statements=dml_statements,
+            database=target_db,
+            mcp_url=mcp_url,
+            use_emulator=is_emu,
+            emulator_host=emulator_host,
+            progress_callback=_on_progress,
+        )
 
     # Attempt LLM self-correction on any failed statements (up to 10 statements)
     if failures and use_llm_mapping:

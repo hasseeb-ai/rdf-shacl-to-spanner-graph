@@ -1,4 +1,8 @@
 import os
+import re
+import time
+import json
+from typing import Callable
 import httpx
 from .config import (
     DEFAULT_MCP_URL,
@@ -7,8 +11,18 @@ from .config import (
     DEFAULT_EMULATOR_INSTANCE,
 )
 
-def get_google_access_token(timeout: float = 5.0) -> str | None:
+_CACHED_ACCESS_TOKEN: str | None = None
+_CACHED_TOKEN_TIMESTAMP: float = 0.0
+_TOKEN_CACHE_TTL_SECONDS: float = 1800.0  # 30 minutes
+
+
+def get_google_access_token(timeout: float = 5.0, force_refresh: bool = False) -> str | None:
     """Helper to retrieve active Google Cloud Access Token using Application Default Credentials (ADC) or gcloud."""
+    global _CACHED_ACCESS_TOKEN, _CACHED_TOKEN_TIMESTAMP
+    now = time.time()
+    if not force_refresh and _CACHED_ACCESS_TOKEN and (now - _CACHED_TOKEN_TIMESTAMP) < _TOKEN_CACHE_TTL_SECONDS:
+        return _CACHED_ACCESS_TOKEN
+
     try:
         import google.auth
         import google.auth.transport.requests
@@ -20,10 +34,13 @@ def get_google_access_token(timeout: float = 5.0) -> str | None:
                 return super().request(*args, **kwargs)
 
         credentials, project = google.auth.default()
-        if not credentials.valid or credentials.expired:
+        if not credentials.valid or credentials.expired or force_refresh:
             auth_req = google.auth.transport.requests.Request(session=TimeoutSession())
             credentials.refresh(auth_req)
-        return credentials.token
+        if credentials.token:
+            _CACHED_ACCESS_TOKEN = credentials.token
+            _CACHED_TOKEN_TIMESTAMP = time.time()
+            return _CACHED_ACCESS_TOKEN
     except Exception:
         pass
 
@@ -36,7 +53,9 @@ def get_google_access_token(timeout: float = 5.0) -> str | None:
             timeout=timeout
         )
         if res.returncode == 0 and res.stdout.strip():
-            return res.stdout.strip()
+            _CACHED_ACCESS_TOKEN = res.stdout.strip()
+            _CACHED_TOKEN_TIMESTAMP = time.time()
+            return _CACHED_ACCESS_TOKEN
     except Exception:
         pass
 
@@ -148,77 +167,127 @@ def validate_ddl_on_emulator(
         return False, f"Connection to Spanner Emulator failed: {e}"
 
 
-def execute_sql_on_emulator(
+def _resolve_spanner_rest_target(
+    database_path: str | None,
+    use_emulator: bool = False,
+    emulator_url: str | None = None,
+) -> tuple[str, str, dict[str, str], str | None]:
+    """Returns (base_url, full_db_resource, headers, error_msg) for Cloud Spanner or Emulator REST v1."""
+    is_emu = use_emulator or bool(os.getenv("SPANNER_EMULATOR_HOST"))
+    if is_emu:
+        base_url = _normalize_emulator_url(emulator_url)
+        _, _, _, full_db = _resolve_emulator_db_resource(database_path)
+        return base_url, full_db, {"Content-Type": "application/json"}, None
+
+    if not database_path:
+        return "", "", {}, "Database path is required for Cloud Spanner execution"
+    full_db = database_path.strip("/")
+    token = get_google_access_token()
+    if not token:
+        return "", "", {}, "Unable to retrieve Google Cloud access token (run 'gcloud auth application-default login')"
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json",
+    }
+    return "https://spanner.googleapis.com", full_db, headers, None
+
+
+def _to_upsert_sql(stmt: str) -> str:
+    """Converts an INSERT INTO statement into an idempotent INSERT OR UPDATE INTO statement."""
+    return re.sub(r"^\s*INSERT\s+INTO\b", "INSERT OR UPDATE INTO", stmt, count=1, flags=re.IGNORECASE)
+
+
+def execute_sql_on_spanner(
     statement: str,
     database_path: str | None = None,
+    use_emulator: bool = False,
     emulator_url: str | None = None,
-    timeout: float = 60.0
+    timeout: float = 60.0,
+    client: httpx.Client | None = None,
+    session_name: str | None = None,
 ) -> tuple[bool, str]:
-    """Executes a SQL/GQL query or a single DML statement on the local Cloud Spanner Emulator."""
-    import json
-
-    base_url = _normalize_emulator_url(emulator_url)
-    _, _, _, full_db = _resolve_emulator_db_resource(database_path)
+    """Executes a SQL/GQL query or a single DML statement on Cloud Spanner or Spanner Emulator via REST v1."""
     stmt_clean = statement.strip().rstrip(";").strip()
     if not stmt_clean:
         return True, "Empty statement skipped"
 
-    sessions_url = f"{base_url}/v1/{full_db}/sessions"
+    base_url, full_db, headers, target_err = _resolve_spanner_rest_target(
+        database_path=database_path,
+        use_emulator=use_emulator,
+        emulator_url=emulator_url,
+    )
+    if target_err:
+        return False, target_err
+
+    owns_client = client is None
+    http_client = client or httpx.Client(headers=headers, timeout=timeout)
+    created_session = False
+
     try:
-        sess_resp = httpx.post(sessions_url, json={}, timeout=timeout)
-        if sess_resp.status_code not in (200, 201):
-            return False, f"Emulator session creation failed ({sess_resp.status_code}): {sess_resp.text}"
-        session_name = sess_resp.json().get("name")
         if not session_name:
-            return False, "Emulator did not return a valid session name"
+            sessions_url = f"{base_url}/v1/{full_db}/sessions"
+            sess_resp = http_client.post(sessions_url, json={})
+            if sess_resp.status_code not in (200, 201):
+                return False, f"Spanner session creation failed ({sess_resp.status_code}): {sess_resp.text}"
+            session_name = sess_resp.json().get("name")
+            if not session_name:
+                return False, "Spanner did not return a valid session name"
+            created_session = True
 
         first_token = stmt_clean.split(None, 1)[0].upper()
         is_dml = first_token in ("INSERT", "UPDATE", "DELETE")
 
         if is_dml:
-            # Begin Read-Write transaction
-            begin_url = f"{base_url}/v1/{session_name}:beginTransaction"
-            tx_resp = httpx.post(begin_url, json={"options": {"readWrite": {}}}, timeout=timeout)
-            if tx_resp.status_code != 200:
-                return False, f"Emulator beginTransaction failed: {tx_resp.text}"
-            tx_id = tx_resp.json().get("id")
+            for attempt in range(2):
+                sql_to_run = stmt_clean if attempt == 0 else _to_upsert_sql(stmt_clean)
+                begin_url = f"{base_url}/v1/{session_name}:beginTransaction"
+                tx_resp = http_client.post(begin_url, json={"options": {"readWrite": {}}})
+                if tx_resp.status_code != 200:
+                    return False, f"Spanner beginTransaction failed: {tx_resp.text}"
+                tx_id = tx_resp.json().get("id")
 
-            exec_url = f"{base_url}/v1/{session_name}:executeSql"
-            exec_payload = {
-                "transaction": {"id": tx_id},
-                "sql": stmt_clean,
-                "seqno": 1
-            }
-            exec_resp = httpx.post(exec_url, json=exec_payload, timeout=timeout)
-            if exec_resp.status_code != 200:
-                try:
-                    err = exec_resp.json().get("error", {}).get("message") or exec_resp.text
-                except Exception:
-                    err = exec_resp.text
-                return False, f"Spanner Emulator DML Error: {err}"
+                exec_url = f"{base_url}/v1/{session_name}:executeSql"
+                exec_payload = {
+                    "transaction": {"id": tx_id},
+                    "sql": sql_to_run,
+                    "seqno": 1,
+                }
+                exec_resp = http_client.post(exec_url, json=exec_payload)
+                if exec_resp.status_code != 200:
+                    try:
+                        err = exec_resp.json().get("error", {}).get("message") or exec_resp.text
+                    except Exception:
+                        err = exec_resp.text
+                    if attempt == 0 and ("already exists" in err.lower() or exec_resp.status_code == 409):
+                        continue
+                    return False, f"Spanner DML Error: {err}"
 
-            commit_url = f"{base_url}/v1/{session_name}:commit"
-            commit_resp = httpx.post(commit_url, json={"transactionId": tx_id}, timeout=timeout)
-            if commit_resp.status_code != 200:
-                try:
-                    err = commit_resp.json().get("error", {}).get("message") or commit_resp.text
-                except Exception:
-                    err = commit_resp.text
-                return False, f"Spanner Emulator Commit Error: {err}"
+                commit_url = f"{base_url}/v1/{session_name}:commit"
+                commit_resp = http_client.post(commit_url, json={"transactionId": tx_id})
+                if commit_resp.status_code != 200:
+                    try:
+                        err = commit_resp.json().get("error", {}).get("message") or commit_resp.text
+                    except Exception:
+                        err = commit_resp.text
+                    if attempt == 0 and ("already exists" in err.lower() or commit_resp.status_code == 409):
+                        continue
+                    return False, f"Spanner Commit Error: {err}"
 
-            row_count = exec_resp.json().get("stats", {}).get("rowCountExact", 1)
-            return True, f"DML executed successfully (rows affected: {row_count})"
+                row_count = exec_resp.json().get("stats", {}).get("rowCountExact", 1)
+                return True, f"DML executed successfully (rows affected: {row_count})"
+
+            return False, "Spanner DML failed after upsert retry"
 
         else:
             # Read-only SQL / GQL query
             exec_url = f"{base_url}/v1/{session_name}:executeSql"
-            exec_resp = httpx.post(exec_url, json={"sql": stmt_clean}, timeout=timeout)
+            exec_resp = http_client.post(exec_url, json={"sql": stmt_clean})
             if exec_resp.status_code != 200:
                 try:
                     err = exec_resp.json().get("error", {}).get("message") or exec_resp.text
                 except Exception:
                     err = exec_resp.text
-                return False, f"Spanner Emulator Query Error: {err}"
+                return False, f"Spanner Query Error: {err}"
 
             res_data = exec_resp.json()
             fields = (
@@ -237,7 +306,155 @@ def execute_sql_on_emulator(
                 formatted_rows.append(row_dict)
             return True, json.dumps(formatted_rows, indent=2)
     except Exception as e:
-        return False, f"Emulator SQL execution failed: {e}"
+        return False, f"Spanner SQL execution failed: {e}"
+    finally:
+        if created_session and session_name:
+            try:
+                http_client.delete(f"{base_url}/v1/{session_name}")
+            except Exception:
+                pass
+        if owns_client:
+            http_client.close()
+
+
+def execute_sql_on_emulator(
+    statement: str,
+    database_path: str | None = None,
+    emulator_url: str | None = None,
+    timeout: float = 60.0
+) -> tuple[bool, str]:
+    """Executes a SQL/GQL query or a single DML statement on the local Cloud Spanner Emulator."""
+    return execute_sql_on_spanner(
+        statement=statement,
+        database_path=database_path,
+        use_emulator=True,
+        emulator_url=emulator_url,
+        timeout=timeout,
+    )
+
+
+def execute_batch_dml_on_spanner(
+    statements: list[str],
+    database_path: str | None = None,
+    use_emulator: bool = False,
+    emulator_url: str | None = None,
+    batch_size: int = 50,
+    timeout: float = 60.0,
+    progress_callback: Callable[[int, int, int], None] | None = None,
+) -> tuple[int, list[tuple[int, str, str]]]:
+    """Executes DML statements in batches on Cloud Spanner or Spanner Emulator via REST v1 :executeBatchDml.
+
+    Returns:
+        (succeeded_count, failures) where failures is a list of (stmt_index, stmt, error_msg).
+    """
+    clean_stmts = [
+        (idx, s.strip().rstrip(";").strip())
+        for idx, s in enumerate(statements)
+        if s.strip().rstrip(";").strip()
+    ]
+    if not clean_stmts:
+        return 0, []
+
+    base_url, full_db, headers, target_err = _resolve_spanner_rest_target(
+        database_path=database_path,
+        use_emulator=use_emulator,
+        emulator_url=emulator_url,
+    )
+    if target_err:
+        return 0, [(idx, s, target_err) for idx, s in clean_stmts]
+
+    succeeded = 0
+    failures: list[tuple[int, str, str]] = []
+    session_name: str | None = None
+
+    with httpx.Client(headers=headers, timeout=timeout) as client:
+        sessions_url = f"{base_url}/v1/{full_db}/sessions"
+        try:
+            sess_resp = client.post(sessions_url, json={})
+            if sess_resp.status_code not in (200, 201):
+                err = f"Spanner session creation failed ({sess_resp.status_code}): {sess_resp.text}"
+                return 0, [(idx, s, err) for idx, s in clean_stmts]
+            session_name = sess_resp.json().get("name")
+            if not session_name:
+                err = "Spanner did not return a valid session name"
+                return 0, [(idx, s, err) for idx, s in clean_stmts]
+        except Exception as e:
+            return 0, [(idx, s, str(e)) for idx, s in clean_stmts]
+
+        try:
+            total = len(clean_stmts)
+            for start in range(0, total, batch_size):
+                chunk = clean_stmts[start:start + batch_size]
+                batch_ok = False
+
+                # Try standard batch first; if ALREADY_EXISTS occurs (e.g. re-run), retry batch as INSERT OR UPDATE
+                for attempt in range(2):
+                    try:
+                        begin_url = f"{base_url}/v1/{session_name}:beginTransaction"
+                        tx_resp = client.post(begin_url, json={"options": {"readWrite": {}}})
+                        if tx_resp.status_code != 200:
+                            break
+                        tx_id = tx_resp.json().get("id")
+                        batch_url = f"{base_url}/v1/{session_name}:executeBatchDml"
+                        stmts_payload = [
+                            {"sql": s if attempt == 0 else _to_upsert_sql(s)}
+                            for _, s in chunk
+                        ]
+                        batch_payload = {
+                            "transaction": {"id": tx_id},
+                            "statements": stmts_payload,
+                            "seqno": 1,
+                        }
+                        b_resp = client.post(batch_url, json=batch_payload)
+                        if b_resp.status_code == 200:
+                            b_json = b_resp.json()
+                            status_obj = b_json.get("status", {})
+                            status_code = status_obj.get("code", 0)
+                            status_msg = status_obj.get("message", "")
+                            if status_code == 0:
+                                commit_url = f"{base_url}/v1/{session_name}:commit"
+                                c_resp = client.post(commit_url, json={"transactionId": tx_id})
+                                if c_resp.status_code == 200:
+                                    succeeded += len(chunk)
+                                    batch_ok = True
+                                    break
+                                elif attempt == 0 and c_resp.status_code == 409:
+                                    continue
+                            elif attempt == 0 and (status_code == 6 or "already exists" in status_msg.lower()):
+                                # Row already exists from an earlier run; retry chunk with INSERT OR UPDATE
+                                continue
+                        break
+                    except Exception:
+                        batch_ok = False
+                        break
+
+                # Fallback to individual statement execution reusing the same client & session
+                if not batch_ok:
+                    for idx, stmt in chunk:
+                        ok, msg = execute_sql_on_spanner(
+                            statement=stmt,
+                            database_path=database_path,
+                            use_emulator=use_emulator,
+                            emulator_url=emulator_url,
+                            timeout=timeout,
+                            client=client,
+                            session_name=session_name,
+                        )
+                        if ok:
+                            succeeded += 1
+                        else:
+                            failures.append((idx, stmt, msg))
+
+                if progress_callback:
+                    progress_callback(min(start + len(chunk), total), total, succeeded)
+        finally:
+            if session_name:
+                try:
+                    client.delete(f"{base_url}/v1/{session_name}")
+                except Exception:
+                    pass
+
+    return succeeded, failures
 
 
 def execute_batch_dml_on_emulator(
@@ -247,67 +464,15 @@ def execute_batch_dml_on_emulator(
     batch_size: int = 50,
     timeout: float = 60.0
 ) -> tuple[int, list[tuple[int, str, str]]]:
-    """Executes DML statements in batches on the Cloud Spanner Emulator.
-
-    Returns:
-        (succeeded_count, failures) where failures is a list of (stmt_index, stmt, error_msg).
-    """
-    base_url = _normalize_emulator_url(emulator_url)
-    _, _, _, full_db = _resolve_emulator_db_resource(database_path)
-    clean_stmts = [(idx, s.strip().rstrip(";").strip()) for idx, s in enumerate(statements) if s.strip().rstrip(";").strip()]
-    if not clean_stmts:
-        return 0, []
-
-    sessions_url = f"{base_url}/v1/{full_db}/sessions"
-    try:
-        sess_resp = httpx.post(sessions_url, json={}, timeout=timeout)
-        if sess_resp.status_code not in (200, 201):
-            err = f"Emulator session creation failed ({sess_resp.status_code}): {sess_resp.text}"
-            return 0, [(idx, s, err) for idx, s in clean_stmts]
-        session_name = sess_resp.json().get("name")
-    except Exception as e:
-        return 0, [(idx, s, str(e)) for idx, s in clean_stmts]
-
-    succeeded = 0
-    failures: list[tuple[int, str, str]] = []
-
-    for start in range(0, len(clean_stmts), batch_size):
-        chunk = clean_stmts[start:start + batch_size]
-        batch_ok = False
-        try:
-            begin_url = f"{base_url}/v1/{session_name}:beginTransaction"
-            tx_resp = httpx.post(begin_url, json={"options": {"readWrite": {}}}, timeout=timeout)
-            if tx_resp.status_code == 200:
-                tx_id = tx_resp.json().get("id")
-                batch_url = f"{base_url}/v1/{session_name}:executeBatchDml"
-                batch_payload = {
-                    "transaction": {"id": tx_id},
-                    "statements": [{"sql": s} for _, s in chunk],
-                    "seqno": 1
-                }
-                b_resp = httpx.post(batch_url, json=batch_payload, timeout=timeout)
-                if b_resp.status_code == 200:
-                    b_json = b_resp.json()
-                    status_code = b_json.get("status", {}).get("code", 0)
-                    if status_code == 0:
-                        commit_url = f"{base_url}/v1/{session_name}:commit"
-                        c_resp = httpx.post(commit_url, json={"transactionId": tx_id}, timeout=timeout)
-                        if c_resp.status_code == 200:
-                            succeeded += len(chunk)
-                            batch_ok = True
-        except Exception:
-            batch_ok = False
-
-        # Fallback to individual statement execution if the batch had any error
-        if not batch_ok:
-            for idx, stmt in chunk:
-                ok, msg = execute_sql_on_emulator(stmt, database_path=database_path, emulator_url=emulator_url, timeout=timeout)
-                if ok:
-                    succeeded += 1
-                else:
-                    failures.append((idx, stmt, msg))
-
-    return succeeded, failures
+    """Executes DML statements in batches on the Cloud Spanner Emulator."""
+    return execute_batch_dml_on_spanner(
+        statements=statements,
+        database_path=database_path,
+        use_emulator=True,
+        emulator_url=emulator_url,
+        batch_size=batch_size,
+        timeout=timeout,
+    )
 
 def drop_emulator_database(
     database_path: str,

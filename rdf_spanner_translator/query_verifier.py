@@ -2,12 +2,15 @@ import os
 import re
 import json
 import httpx
+from typing import Callable
 from google.genai import types
 from rdf_spanner_translator.config import DEFAULT_GEMINI_MODEL
 from rdf_spanner_translator.translator import _get_client, load_skill_instructions, _generate_with_retry
 from rdf_spanner_translator.validator import (
     get_google_access_token,
     call_spanner_mcp_tool,
+    execute_sql_on_spanner,
+    execute_batch_dml_on_spanner,
     execute_sql_on_emulator,
     execute_batch_dml_on_emulator,
 )
@@ -171,44 +174,65 @@ def execute_spanner_statement(
     use_emulator: bool = False,
     emulator_host: str | None = None
 ) -> tuple[bool, str]:
-    """Executes a SQL/GQL or DML statement via Remote Spanner MCP or Local Spanner Emulator."""
-    if use_emulator or os.getenv("SPANNER_EMULATOR_HOST"):
-        return execute_sql_on_emulator(
-            statement=statement,
+    """Executes a SQL/GQL or DML statement via Cloud Spanner REST v1, Remote Spanner MCP, or Local Emulator."""
+    is_emu = use_emulator or bool(os.getenv("SPANNER_EMULATOR_HOST"))
+    stmt_clean = statement.strip().rstrip(";").strip()
+    if not stmt_clean:
+        return True, "Empty statement skipped"
+
+    if is_emu:
+        return execute_sql_on_spanner(
+            statement=stmt_clean,
             database_path=database,
+            use_emulator=True,
             emulator_url=emulator_host,
             timeout=60.0
         )
 
-    if not mcp_url or not database:
-        return False, "Database path and MCP URL are required"
+    if not database:
+        return False, "Database path is required"
 
-    stmt_clean = statement.strip()
     first_token = stmt_clean.split(None, 1)[0].upper() if stmt_clean else ""
     is_dml = first_token in ("INSERT", "UPDATE", "DELETE")
 
-    ok, msg = call_spanner_mcp_tool(
-        mcp_url=mcp_url,
-        tool_name="execute_sql",
-        arguments={
-            "database": database,
-            "sql": statement
-        },
-        timeout=60.0
-    )
-    if not ok and is_dml and ("dml" in msg.lower() or "read-only" in msg.lower() or "not supported" in msg.lower()):
-        ok2, msg2 = call_spanner_mcp_tool(
-            mcp_url=mcp_url,
-            tool_name="execute_dml",
-            arguments={
-                "database": database,
-                "sql": statement
-            },
-            timeout=60.0
+    # For DML statements on Live Cloud Spanner, execute directly via Spanner REST v1 Read-Write transaction
+    if is_dml:
+        ok, msg = execute_sql_on_spanner(
+            statement=stmt_clean,
+            database_path=database,
+            use_emulator=False,
+            timeout=60.0,
         )
-        if ok2:
-            return ok2, msg2
-    return ok, msg
+        if ok:
+            return ok, msg
+        if mcp_url:
+            ok2, msg2 = call_spanner_mcp_tool(
+                mcp_url=mcp_url,
+                tool_name="execute_dml",
+                arguments={"database": database, "sql": stmt_clean},
+                timeout=60.0,
+            )
+            if ok2:
+                return ok2, msg2
+        return ok, msg
+
+    # For read-only SQL / GQL queries, try Remote MCP execute_sql first and fall back to Spanner REST v1 :executeSql
+    if mcp_url:
+        ok, msg = call_spanner_mcp_tool(
+            mcp_url=mcp_url,
+            tool_name="execute_sql",
+            arguments={"database": database, "sql": stmt_clean},
+            timeout=60.0,
+        )
+        if ok:
+            return ok, msg
+
+    return execute_sql_on_spanner(
+        statement=stmt_clean,
+        database_path=database,
+        use_emulator=False,
+        timeout=60.0,
+    )
 
 
 def execute_spanner_dml_batch(
@@ -217,38 +241,24 @@ def execute_spanner_dml_batch(
     mcp_url: str = "https://spanner.googleapis.com/mcp",
     use_emulator: bool = False,
     emulator_host: str | None = None,
-    batch_size: int = 50
+    batch_size: int = 50,
+    progress_callback: Callable[[int, int, int], None] | None = None,
 ) -> tuple[int, list[tuple[int, str, str]]]:
-    """Executes a list of DML statements against Spanner (Emulator batch or Remote MCP).
+    """Executes a list of DML statements in batches via Cloud Spanner or Emulator REST v1 :executeBatchDml.
 
     Returns:
         (succeeded_count, failures) where failures is a list of (stmt_index, stmt, error_msg).
     """
-    if use_emulator or os.getenv("SPANNER_EMULATOR_HOST"):
-        return execute_batch_dml_on_emulator(
-            statements=statements,
-            database_path=database,
-            emulator_url=emulator_host,
-            batch_size=batch_size,
-            timeout=60.0
-        )
-
-    succeeded = 0
-    failures: list[tuple[int, str, str]] = []
-    for idx, stmt in enumerate(statements):
-        if not stmt.strip():
-            continue
-        ok, msg = execute_spanner_statement(
-            statement=stmt,
-            database=database,
-            mcp_url=mcp_url,
-            use_emulator=False
-        )
-        if ok:
-            succeeded += 1
-        else:
-            failures.append((idx, stmt, msg))
-    return succeeded, failures
+    is_emu = use_emulator or bool(os.getenv("SPANNER_EMULATOR_HOST"))
+    return execute_batch_dml_on_spanner(
+        statements=statements,
+        database_path=database,
+        use_emulator=is_emu,
+        emulator_url=emulator_host,
+        batch_size=batch_size,
+        timeout=60.0,
+        progress_callback=progress_callback,
+    )
 
 
 def format_markdown_table_from_output(raw_text: str) -> str:
