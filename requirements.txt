@@ -1,3 +1,5 @@
+# Build backend required for editable installs (--no-build-isolation) on Python 3.12+
+setuptools>=61.0.0
 # HTTP client for Remote Spanner MCP JSON-RPC communication
 httpx
 # Google Cloud authentication for ADC tokens
