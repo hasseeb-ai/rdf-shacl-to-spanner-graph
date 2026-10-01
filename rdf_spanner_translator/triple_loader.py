@@ -1171,7 +1171,19 @@ def translate_triples_to_dml(
                 continue
             object_triples.append((s_str, p_norm, str(o)))
 
-    # Infer entity_table for any untyped URIs referenced in object_triples when unambiguous
+    # Infer entity_table for any untyped URIs via <ClassName>_<ID> URI prefix convention or unambiguous object_triples
+    all_candidate_uris = set(entity_literals.keys())
+    for s_str, _, o_str in object_triples:
+        all_candidate_uris.add(s_str)
+        all_candidate_uris.add(o_str)
+    for u_str in all_candidate_uris:
+        if u_str not in entity_table:
+            ln = _local_name(u_str)
+            if "_" in ln:
+                prefix_norm = _norm(ln.split("_", 1)[0])
+                if prefix_norm in concrete_class_to_table:
+                    entity_table[u_str] = concrete_class_to_table[prefix_norm]
+
     for s_str, p_norm, o_str in object_triples:
         candidates = obj_by_prop.get(p_norm, [])
         if s_str not in entity_table and len({c["subject_table"] for c in candidates}) == 1:
