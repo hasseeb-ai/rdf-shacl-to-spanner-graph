@@ -178,15 +178,49 @@ Analyze the error, fix the root cause, and output the corrected DDL containing B
     
     return clean_ddl_response(response.text)
 
+def _sanitize_label_synonyms(ddl: str) -> str:
+    """Ensures all entries in `synonyms = [...]` inside DEFAULT LABEL OPTIONS are single-word strings
+    without ontology namespace prefixes (e.g. strips 'te:nodeHasEndpoint' and multi-word phrases)."""
+    def _clean_match(m: re.Match) -> str:
+        prefix = m.group(1)
+        inner = m.group(2)
+        suffix = m.group(3)
+        raw_items = re.findall(r'"([^"]*)"|\'([^\']*)\'', inner)
+        cleaned: list[str] = []
+        seen: set[str] = set()
+        for dbl, sgl in raw_items:
+            val = (dbl or sgl).strip()
+            if not val or ":" in val:
+                continue
+            # Keep single-word tokens only (if multi-word, take individual meaningful words)
+            words = [w.strip(".,;()[]") for w in val.split() if w.strip(".,;()[]")]
+            if len(words) == 1:
+                w_low = words[0].lower()
+                if w_low not in seen:
+                    seen.add(w_low)
+                    cleaned.append(words[0])
+        if not cleaned:
+            return m.group(0)
+        formatted = ", ".join(f'"{w}"' for w in cleaned)
+        return f"{prefix}{formatted}{suffix}"
+
+    return re.sub(
+        r"(synonyms\s*=\s*(?:ARRAY\s*)?\[)([^\]]*)(\])",
+        _clean_match,
+        ddl,
+        flags=re.IGNORECASE,
+    )
+
+
 def clean_ddl_response(text: str) -> str:
-    """Extracts SQL code blocks from the Gemini response."""
+    """Extracts SQL code blocks from the Gemini response and sanitizes label synonyms."""
     match = re.search(r"```sql\s*(.*?)\s*```", text, re.DOTALL | re.IGNORECASE)
     if match:
-        return match.group(1).strip()
+        return _sanitize_label_synonyms(match.group(1).strip())
     match_any = re.search(r"```\s*(.*?)\s*```", text, re.DOTALL)
     if match_any:
-        return match_any.group(1).strip()
-    return text.strip()
+        return _sanitize_label_synonyms(match_any.group(1).strip())
+    return _sanitize_label_synonyms(text.strip())
 
 
 def clean_html_response(text: str) -> str:

@@ -52,7 +52,7 @@ Evaluate the schema systematically across all 7 dimensions:
   * Property naming conventions (e.g. `ex:vin` → `vin`, `ex:engineDisplacementCc` → `engineDisplacementCc`).
   * Primary key surrogate generation (e.g. `CarId STRING(36) NOT NULL`).
   * Relationship to Edge Table name mapping (e.g. `ex:operatesIn` → `TruckOperations` or `OperatesInEdge`).
-* **RDFS / OWL / SHACL Annotation Preservation (`description` & `synonyms`):** Verify that `rdfs:comment` / `sh:description` / `skos:definition` and `rdfs:label` / `skos:altLabel` annotations on classes and object properties are mapped cleanly via `DEFAULT LABEL OPTIONS (description = "...", synonyms = [...]) NO PROPERTIES` on `NODE TABLES` and `EDGE TABLES` (without polluting `PROPERTIES (...)`).
+* **RDFS / OWL / SHACL Annotation Preservation (`description` & `synonyms`):** Verify that `rdfs:comment` / `sh:description` / `skos:definition` and `rdfs:label` / `skos:altLabel` annotations on classes and object properties are mapped cleanly via `DEFAULT LABEL OPTIONS (description = "...", synonyms = [...]) NO PROPERTIES` on `NODE TABLES` and `EDGE TABLES` (without polluting `PROPERTIES (...)`), and verify that `synonyms` is an array of single-word semantically similar strings with no ontology prefixes/QNames (e.g. no `"te:nodeHasEndpoint"` or multi-word phrases).
 
 ### Dimension 4: Inheritance & Property Propagation
 * **Top-Down Flattening:** For every concrete class, traverse all superclasses (`rdfs:subClassOf+`). Verify that all `owl:DatatypeProperty` definitions on superclasses are present as physical columns in all descendant leaf tables.

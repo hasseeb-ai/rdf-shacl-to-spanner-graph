@@ -378,10 +378,13 @@ To avoid Spanner DDL parser failures, observe the following rules:
       ```
 
 12. **Semantic Metadata Enrichment (`DEFAULT LABEL OPTIONS` with `description` & `synonyms`):**
-    - Cloud Spanner Graph DDL natively supports `DEFAULT LABEL OPTIONS (description = "...", synonyms = ["...", ...])` on element definitions in **both `NODE TABLES` and `EDGE TABLES`**.
+    - Cloud Spanner Graph DDL natively supports `DEFAULT LABEL OPTIONS (description = "...", synonyms = ["...", ...])` on element definitions in **both `NODE TABLES` and `EDGE TABLES`**. These fields are consumed by AI agents (NL2GQL) to resolve natural-language domain queries to graph elements.
     - **Ontology & SHACL Annotation Extraction:**
-      - **`description` (STRING literal):** Extract from `rdfs:comment`, `skos:definition`, `dcterms:description`, or `sh:description` on the primary OWL Class (for `NODE TABLES`) or ObjectProperty (for `EDGE TABLES`). If multiple exist, concatenate them cleanly. Escape any double quotes (`\"`) or newlines so it forms a valid single-line SQL string literal.
-      - **`synonyms` (ARRAY<STRING> literal):** Extract from `rdfs:label`, `skos:prefLabel`, `skos:altLabel`, and the original ontology prefixed name (e.g., `"ref:DWDMTrail"`, `"DWDM Trail"`), plus any human-readable labels/comments of inherited parent classes (`rdfs:subClassOf`) or parent properties (`rdfs:subPropertyOf`) mapped onto the element. Deduplicate the list.
+      - **`description` (STRING literal):** Extract from `rdfs:comment`, `skos:definition`, `dcterms:description`, or `sh:description` on the primary OWL Class (for `NODE TABLES`) or ObjectProperty (for `EDGE TABLES`). Write a clean, natural-language description without raw ontology QNames (do not include `ref:...`, `te:...`, `th:...` prefixes). Escape any double quotes (`\"`) or newlines so it forms a valid single-line SQL string literal.
+      - **`synonyms` (ARRAY<STRING> literal of single-word strings):**
+        - **Single-Word Rule:** Every entry in `synonyms` **MUST be a single word** (no spaces or multi-word phrases like `"Node has endpoint"` or `"Link connects endpoint"`).
+        - **No Ontology Prefixes / QNames:** **NEVER** include ontology namespace prefixes, QNames, or URIs (e.g., never include `"te:nodeHasEndpoint"`, `"ref:DWDMTrail"`, `"th:Link"`).
+        - **Semantically Similar Domain Terms:** Synthesize 3–5 concise, lowercase single-word synonyms that represent semantically equivalent natural-language terms derived from `rdfs:label`, `skos:altLabel`, `rdfs:comment`, and domain context—using single-word nouns for `NODE TABLES` (e.g., `["router", "switch", "device", "element"]` for `Nes`; `["port", "interface", "connector"]` for `PhysicalPorts`; `["circuit", "wavelength", "channel", "path"]` for `DWDMTrails`; `["span", "fiber", "segment"]` for `DWDMSections`) and single-word verbs/relationship terms for `EDGE TABLES` (e.g., `["hosts", "contains", "owns"]` for `NodeHasPhysicalPorts`; `["carries", "transports", "supports"]` for `DWDMTrailCarriedByDWDMSections`; `["connects", "links", "terminates"]` for `DWDMSectionConnectsPhysicalPorts`). Deduplicate all entries.
     - **Strict Clean Binding Rule (`DEFAULT LABEL OPTIONS (...) NO PROPERTIES`):**
       - Attach `DEFAULT LABEL OPTIONS (...) NO PROPERTIES` as the **first** label declaration on the `NODE TABLES` or `EDGE TABLES` entry, followed by the explicit `LABEL <LabelName> PROPERTIES (...)` (or `NO PROPERTIES`) declarations.
       - **NEVER** omit `NO PROPERTIES` after `DEFAULT LABEL OPTIONS (...)`. Because explicit `LABEL` declarations specify their own `PROPERTIES (...)`, omitting `NO PROPERTIES` on `DEFAULT LABEL` causes `DEFAULT LABEL` to implicitly default to `PROPERTIES ALL COLUMNS`, violating Rule 6 (Uniform Property Declarations).
@@ -395,8 +398,8 @@ To avoid Spanner DDL parser failures, observe the following rules:
           DWDMTrail
             KEY (DWDMTrailId)
             DEFAULT LABEL OPTIONS (
-              description = "Represents a high-capacity logical transport trail.",
-              synonyms = ["DWDM Trail", "ref:DWDMTrail", "Logical Link (th:LogicalLink)"]
+              description = "Represents a high-capacity logical DWDM transport trail between optical nodes.",
+              synonyms = ["circuit", "wavelength", "channel", "path"]
             ) NO PROPERTIES
             LABEL DWDMTrail PROPERTIES (DWDMTrailId, Uri, LinkName, Bandwidth)
             LABEL LogicalLink PROPERTIES (DWDMTrailId, Uri, LinkName, Bandwidth)
@@ -408,8 +411,8 @@ To avoid Spanner DDL parser failures, observe the following rules:
             SOURCE KEY (DWDMTrailId) REFERENCES DWDMTrail (DWDMTrailId)
             DESTINATION KEY (EndpointId) REFERENCES PhysicalPort (PhysicalPortId)
             DEFAULT LABEL OPTIONS (
-              description = "Connects a link to its termination point or port.",
-              synonyms = ["has endpoint", "th:hasEndpoint"]
+              description = "Connects a transport link to its termination point or port.",
+              synonyms = ["connects", "terminates", "links", "attaches"]
             ) NO PROPERTIES
             LABEL HAS_ENDPOINT NO PROPERTIES
         );
