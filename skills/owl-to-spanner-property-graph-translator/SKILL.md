@@ -377,6 +377,44 @@ To avoid Spanner DDL parser failures, observe the following rules:
       )
       ```
 
+12. **Semantic Metadata Enrichment (`DEFAULT LABEL OPTIONS` with `description` & `synonyms`):**
+    - Cloud Spanner Graph DDL natively supports `DEFAULT LABEL OPTIONS (description = "...", synonyms = ["...", ...])` on element definitions in **both `NODE TABLES` and `EDGE TABLES`**.
+    - **Ontology & SHACL Annotation Extraction:**
+      - **`description` (STRING literal):** Extract from `rdfs:comment`, `skos:definition`, `dcterms:description`, or `sh:description` on the primary OWL Class (for `NODE TABLES`) or ObjectProperty (for `EDGE TABLES`). If multiple exist, concatenate them cleanly. Escape any double quotes (`\"`) or newlines so it forms a valid single-line SQL string literal.
+      - **`synonyms` (ARRAY<STRING> literal):** Extract from `rdfs:label`, `skos:prefLabel`, `skos:altLabel`, and the original ontology prefixed name (e.g., `"ref:DWDMTrail"`, `"DWDM Trail"`), plus any human-readable labels/comments of inherited parent classes (`rdfs:subClassOf`) or parent properties (`rdfs:subPropertyOf`) mapped onto the element. Deduplicate the list.
+    - **Strict Clean Binding Rule (`DEFAULT LABEL OPTIONS (...) NO PROPERTIES`):**
+      - Attach `DEFAULT LABEL OPTIONS (...) NO PROPERTIES` as the **first** label declaration on the `NODE TABLES` or `EDGE TABLES` entry, followed by the explicit `LABEL <LabelName> PROPERTIES (...)` (or `NO PROPERTIES`) declarations.
+      - **NEVER** omit `NO PROPERTIES` after `DEFAULT LABEL OPTIONS (...)`. Because explicit `LABEL` declarations specify their own `PROPERTIES (...)`, omitting `NO PROPERTIES` on `DEFAULT LABEL` causes `DEFAULT LABEL` to implicitly default to `PROPERTIES ALL COLUMNS`, violating Rule 6 (Uniform Property Declarations).
+      - **NEVER** embed `OPTIONS (...)` inside `PROPERTIES (...)`. Keep `PROPERTIES (...)` purely for column projection.
+    - **Edge Table Alias Disambiguation (Embedded 1:N Foreign Keys):**
+      - Because `DEFAULT LABEL` takes its label name from `element_table_alias` (or `element_name` if no alias is given), any `EDGE TABLES` entry that reuses a physical `NODE TABLES` table (e.g., an embedded 1:N foreign key on `LogicalLink`) **MUST** specify a unique `AS <EdgeTableAlias>` (such as `LogicalLink AS LogicalLink_HasEndpoint_Edge` or `LogicalLink AS LogicalLinkHasEndpoint`) so its `DEFAULT LABEL` does not collide with the node table's `DEFAULT LABEL`.
+    - **Correct Example (Both `NODE TABLES` and `EDGE TABLES`):**
+      ```sql
+      CREATE OR REPLACE PROPERTY GRAPH TransportGraph
+        NODE TABLES (
+          DWDMTrail
+            KEY (DWDMTrailId)
+            DEFAULT LABEL OPTIONS (
+              description = "Represents a high-capacity logical transport trail.",
+              synonyms = ["DWDM Trail", "ref:DWDMTrail", "Logical Link (th:LogicalLink)"]
+            ) NO PROPERTIES
+            LABEL DWDMTrail PROPERTIES (DWDMTrailId, Uri, LinkName, Bandwidth)
+            LABEL LogicalLink PROPERTIES (DWDMTrailId, Uri, LinkName, Bandwidth)
+            LABEL Link PROPERTIES (DWDMTrailId, Uri, LinkName, Bandwidth)
+        )
+        EDGE TABLES (
+          DWDMTrailHasEndpoint
+            KEY (DWDMTrailId, EndpointId)
+            SOURCE KEY (DWDMTrailId) REFERENCES DWDMTrail (DWDMTrailId)
+            DESTINATION KEY (EndpointId) REFERENCES PhysicalPort (PhysicalPortId)
+            DEFAULT LABEL OPTIONS (
+              description = "Connects a link to its termination point or port.",
+              synonyms = ["has endpoint", "th:hasEndpoint"]
+            ) NO PROPERTIES
+            LABEL HAS_ENDPOINT NO PROPERTIES
+        );
+      ```
+
 ---
 
 ## SHACL Shapes DDL Translation Rules (Optional Input)

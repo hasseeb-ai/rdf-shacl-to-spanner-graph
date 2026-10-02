@@ -36,7 +36,7 @@ Evaluate the schema systematically across all 7 dimensions:
 
 ### Dimension 1: Dialect Compliance & GoogleSQL / GQL Syntax
 * **Physical DDL:** Valid GoogleSQL `CREATE TABLE`, `PRIMARY KEY`, `FOREIGN KEY`, and data types.
-* **Graph DDL:** Valid `CREATE PROPERTY GRAPH <GraphName>`, `NODE TABLES (...)`, `EDGE TABLES (...)`, `LABEL ...`, `PROPERTIES (...)`, `SOURCE KEY (...) REFERENCES ...`, `DESTINATION KEY (...) REFERENCES ...`.
+* **Graph DDL:** Valid `CREATE PROPERTY GRAPH <GraphName>`, `NODE TABLES (...)`, `EDGE TABLES (...)`, `LABEL ...`, `DEFAULT LABEL OPTIONS (description = ..., synonyms = [...]) NO PROPERTIES`, `PROPERTIES (...)`, `SOURCE KEY (...) REFERENCES ...`, `DESTINATION KEY (...) REFERENCES ...`.
 * **Constraint Syntax:** Check constraints `CONSTRAINT CK_... CHECK (...)`, generated columns `AS (<Expr>) STORED`.
 
 ### Dimension 2: Schema Completeness & Class/Node Taxonomy
@@ -46,12 +46,13 @@ Evaluate the schema systematically across all 7 dimensions:
 * **Abstract Superclasses:** Abstract superclasses that serve purely as categorization and have no independent concrete instances must **NOT** produce standalone physical tables.
 * **Coverage Metric:** (Mapped Concrete Classes / Total Concrete Classes in TTL) * 100%.
 
-### Dimension 3: Entity & Identifier Renaming Traceability
+### Dimension 3: Entity, Identifier & Annotation Metadata Traceability
 * **Naming Conventions:** Document all transformations between source RDF identifiers and target SQL identifiers:
   * Singular RDF class to Plural SQL table (e.g. `ex:Car` → `Cars`, `ex:Vessel` → `Vessels`).
   * Property naming conventions (e.g. `ex:vin` → `vin`, `ex:engineDisplacementCc` → `engineDisplacementCc`).
   * Primary key surrogate generation (e.g. `CarId STRING(36) NOT NULL`).
   * Relationship to Edge Table name mapping (e.g. `ex:operatesIn` → `TruckOperations` or `OperatesInEdge`).
+* **RDFS / OWL / SHACL Annotation Preservation (`description` & `synonyms`):** Verify that `rdfs:comment` / `sh:description` / `skos:definition` and `rdfs:label` / `skos:altLabel` annotations on classes and object properties are mapped cleanly via `DEFAULT LABEL OPTIONS (description = "...", synonyms = [...]) NO PROPERTIES` on `NODE TABLES` and `EDGE TABLES` (without polluting `PROPERTIES (...)`).
 
 ### Dimension 4: Inheritance & Property Propagation
 * **Top-Down Flattening:** For every concrete class, traverse all superclasses (`rdfs:subClassOf+`). Verify that all `owl:DatatypeProperty` definitions on superclasses are present as physical columns in all descendant leaf tables.
@@ -84,7 +85,7 @@ Evaluate the schema systematically across all 7 dimensions:
 * **Subproperties (`rdfs:subPropertyOf`):** Child edges accumulate parent labels (e.g. `LABEL WRITES_CODE_FOR LABEL CONTRIBUTES_TO_INITIATIVE`).
 
 ### Dimension 7: Spanner Graph Engine Invariants
-* **Label Property Signature Uniformity:** If a label (e.g. `LABEL Event` or `LABEL Location`) appears across multiple node or edge tables, verify that the `PROPERTIES(...)` exposed under that label have **identical column names and data types** across all tables (or `NO PROPERTIES` for un-propertied abstract labels).
+* **Label Property Signature Uniformity:** If a label (e.g. `LABEL Event` or `LABEL Location`) appears across multiple node or edge tables, verify that the `PROPERTIES(...)` exposed under that label have **identical column names and data types** across all tables (or `NO PROPERTIES` for un-propertied abstract labels and `DEFAULT LABEL OPTIONS (...) NO PROPERTIES`).
 * **Reserved Keyword Escaping:** Any identifier (table, column, graph name, node/edge label, alias, or property) matching a GoogleSQL reserved keyword (e.g. `CONTAINS`, `GROUP`, `ORDER`, `RANGE`, `FILTER`, `ALL`, `PATH`) MUST be enclosed in backticks (e.g. ``LABEL `CONTAINS` NO PROPERTIES``).
 * **Interleaved PK Alignment:** For any table with `INTERLEAVE IN PARENT <ParentTable>`, verify that the child table's `PRIMARY KEY` begins with the exact primary key columns of `<ParentTable>` in the same order.
 * **Stored Generated Columns:** Thresholds or equivalent class filters must use GoogleSQL syntax: `<Col> <Type> AS (<Expr>) STORED`.

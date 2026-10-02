@@ -311,7 +311,11 @@ def parse_spanner_ddl(ddl_content: str) -> ParsedSpannerDDL:
             if not header_m:
                 continue
             phys_table = header_m.group(1)
-            labels = re.findall(r"\bLABEL\s+`?(\w+)`?", node_entry, re.IGNORECASE)
+            labels = [
+                lbl
+                for lbl in re.findall(r"(?<!DEFAULT\s)\bLABEL\s+`?(\w+)`?", node_entry, re.IGNORECASE)
+                if lbl.upper() != "OPTIONS"
+            ]
             if labels:
                 node_table_labels[phys_table].extend(labels)
 
@@ -335,7 +339,11 @@ def parse_spanner_ddl(ddl_content: str) -> ParsedSpannerDDL:
             dst_ref_table = e_m.group(7)
             dst_ref_keys = [k.strip(" `") for k in e_m.group(8).split(",")]
             tail = e_m.group(9) or ""
-            labels = re.findall(r"\bLABEL\s+`?(\w+)`?", tail, re.IGNORECASE)
+            labels = [
+                lbl
+                for lbl in re.findall(r"(?<!DEFAULT\s)\bLABEL\s+`?(\w+)`?", tail, re.IGNORECASE)
+                if lbl.upper() != "OPTIONS"
+            ]
             props: list[str] = []
             prop_m = re.search(r"\bPROPERTIES\s*\(([^)]+)\)", tail, re.IGNORECASE)
             if prop_m:
