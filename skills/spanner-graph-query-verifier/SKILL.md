@@ -75,6 +75,7 @@ SELECT * FROM GRAPH_TABLE(
   MATCH (b:Truck)
   WHERE a.Manufacturer = b.Manufacturer
   ```
+* **Dialect Rule: Reserved GQL Keywords as Variable Names:** Spanner GQL reserves ISO GQL path-mode and graph keywords such as `TRAIL`, `WALK`, `ACYCLIC`, `SIMPLE`, `PATH`, `NODE`, `EDGE`, `GRAPH`, `END`, `ALL`, `ANY`. **NEVER** use these words (case-insensitive, e.g. `trail`, `node`, `edge`, `path`) as unquoted node or edge variable identifiers inside `MATCH (...)` patterns—for example, `MATCH (trail:DWDMTrail)` fails with a syntax error because `TRAIL` is parsed as a GQL path-mode keyword (`MATCH TRAIL ...`). Always use short non-reserved aliases such as `dt`, `tr`, `nd`, `ep`, `sec`, `lnk`.
 * **Property Projection Rule:** You MUST ONLY project property columns in `COLUMNS (...)` that are explicitly listed in the corresponding `LABEL`'s `PROPERTIES (...)` list in the provided Cloud Spanner DDL. Never reference columns that were not exposed under that specific label definition (e.g. if `LABEL Vehicle` only exposes `Vin, Manufacturer`, do NOT query `v.VehicleId`). In addition, ignore `DEFAULT LABEL OPTIONS (...) NO PROPERTIES` when writing `MATCH` patterns, as `DEFAULT LABEL` is used strictly for `description` and `synonyms` metadata and exposes `NO PROPERTIES`; always match explicit `LABEL <LabelName>` declarations.
 
 ### Archetype 1: Polymorphic Superclass Matching (Multi-Label Traversal)

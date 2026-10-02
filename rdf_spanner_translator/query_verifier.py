@@ -122,6 +122,40 @@ Generate the coherent, constraint-compliant SQL INSERT statements and the 4 GQL 
     return extract_json_payload(response.text)
 
 
+_GQL_RESERVED_PATTERN_VARS = {
+    "trail": "tr",
+    "walk": "wk",
+    "acyclic": "ac",
+    "simple": "sm",
+    "path": "pth",
+    "graph": "gr",
+}
+
+
+def _sanitize_gql_reserved_variables(gql: str) -> str:
+    """Rewrites reserved ISO GQL path-mode keywords (e.g. trail, walk, acyclic, simple, path)
+    if mistakenly used as unquoted node/edge pattern variable names in MATCH clauses."""
+    out = gql
+    for reserved_kw, replacement in _GQL_RESERVED_PATTERN_VARS.items():
+        # Check if `(reserved_kw:` or `(reserved_kw IS ` appears in the GQL query
+        if re.search(rf"[\(\[]\s*{reserved_kw}\s*(?::|\bIS\b)", out, flags=re.IGNORECASE):
+            # Replace pattern binding `(trail:Label)` or `[trail:Label]`
+            out = re.sub(
+                rf"([\([\s])\b{reserved_kw}\b(?=\s*(?::|\bIS\b))",
+                rf"\1{replacement}",
+                out,
+                flags=re.IGNORECASE,
+            )
+            # Replace property references `trail.Prop`
+            out = re.sub(
+                rf"\b{reserved_kw}\b(?=\s*\.)",
+                replacement,
+                out,
+                flags=re.IGNORECASE,
+            )
+    return out
+
+
 def self_correct_gql_query(
     ttl_content: str,
     ddl_content: str,
@@ -145,6 +179,10 @@ def self_correct_gql_query(
 {invalid_gql}
 ```
 
+IMPORTANT GQL DIALECT NOTES:
+- Never use reserved GQL path-mode keywords (`trail`, `walk`, `acyclic`, `simple`, `path`, `graph`) as node/edge variable names inside `MATCH (...)` patterns (e.g., use `(tr:DWDMTrail)` instead of `(trail:DWDMTrail)`).
+- Always use standard `:LabelName` syntax in `MATCH` patterns and only project columns defined in `PROPERTIES (...)` for that label.
+
 Fix the root cause and output ONLY the corrected GQL query in a ```sql code block.
 """
     
@@ -160,11 +198,11 @@ Fix the root cause and output ONLY the corrected GQL query in a ```sql code bloc
     
     match = re.search(r"```sql\s*(.*?)\s*```", response.text, re.DOTALL | re.IGNORECASE)
     if match:
-        return match.group(1).strip()
+        return _sanitize_gql_reserved_variables(match.group(1).strip())
     match_any = re.search(r"```\s*(.*?)\s*```", response.text, re.DOTALL)
     if match_any:
-        return match_any.group(1).strip()
-    return response.text.strip()
+        return _sanitize_gql_reserved_variables(match_any.group(1).strip())
+    return _sanitize_gql_reserved_variables(response.text.strip())
 
 
 def execute_spanner_statement(
@@ -503,7 +541,7 @@ def run_query_verification(
     for i, q in enumerate(queries, 1):
         q_id = q.get("id", f"Q{i}")
         q_title = q.get("title", f"Query {i}")
-        current_gql = q.get("gql", "")
+        current_gql = _sanitize_gql_reserved_variables(q.get("gql", ""))
         
         with console.status(f"[cyan]Executing Query {i}/{len(queries)}: {q_id} ({q_title})..."):
             success, output = execute_spanner_statement(
